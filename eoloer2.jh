@@ -1,0 +1,458 @@
+//PARTE DI PRATICA-TASK-TEMPLATE
+//ENTITÀ:
+entity Pratica {
+	id Integer max(8),
+	idStudio Integer max(8),
+    numero String,
+    nome String,
+    dataApertura String,
+    dataChiusura String,
+    dataScadenza String,
+    stato Integer,
+    motivoChiusura String,
+    idTitolare Integer max(8),
+    prcAvanzato Integer ,
+    version String ,
+    valuta String,
+    idTemplatePratica Integer
+}
+
+entity Task {
+	id Integer required max(8),
+	idPratica Integer max(8),
+    nome String,
+    stato Integer,
+    prioritario Integer,
+    pubblico Integer,
+    version String,
+	condivisionePraticaId Integer,
+    assegnazioneTaskId Integer max(8),
+    invitoId Integer max(8)
+}
+
+entity TemplatePratica {
+	idTemplate Integer required max(8),
+	nomeTemplate Integer,
+	elencoTagAmbito Integer
+}
+
+entity TemplateTask {
+	idTemplateTask Integer required max(8),
+	ordineEsecuzione Integer,
+	nome Integer,
+    note Integer,
+    pubPriv Integer,
+    idTemplatePratica Integer
+    }
+
+
+entity AllegatoTemplateTask {
+	idTemplateTask Integer required max(8),
+	tipoAllegato Integer,
+	formato Integer,
+    idFile Integer,
+    pubPriv Integer
+}
+
+entity TipoAllegato {
+	
+	idTipoAllegato Integer max(8),
+	nome String,
+	formatiAmmessi String,
+	maxDimensioneAmmessa String,
+	version String
+}
+
+entity AllegatoTask {
+	idAllegatoTask Integer max(8) required,
+	idTipo Integer max(8),
+	idTask Integer max(8),
+    formato Integer,
+    note String,
+    stato Integer,
+    pubblico Integer,
+    version String,
+    idAllegatoMaster Integer required
+}
+
+entity PrevisioneTask {
+	idTask Integer max(8) required,
+	qntOrdine Integer max(8),
+	prcPrevisione Integer max(1),
+    checkList Integer,
+    idTaskMilestone Integer,
+    tipoTask String,
+    version String
+}
+
+//Generalizzazione  di PrevisioneTask:
+entity PrevisioneAttivita {
+	idTask Integer max(8) required,
+	dataPianificata String,
+	oraPianificata String ,
+    dataScadenza String,
+    version String
+}
+
+//Generalizzazione  di PrevisioneTask:
+entity PrevisioneEvento {
+	idTask Integer max(8) required,
+	dataInizio String,
+	dataFine String ,
+    luogo String,
+    indicazioniLuogo String,
+    version String
+}
+
+entity NotaTask {
+	id Integer max(8) required,
+	idTask Integer max(8),
+	data String ,
+    nota String,
+    version String
+}
+
+entity NotaPratica {
+	id Integer max(8) required,
+	idPratica Integer max(8),
+	data String ,
+    nota String,
+    version String
+}
+
+entity ConsuntivoTask {
+	idTask Integer max(8) required,
+	dataInizio String,
+	dataFine String ,
+    timeLine Integer,
+    version String
+}
+
+//PARTE DI CONDIVISIONE E INVITI:
+//ENTITÀ:
+entity CondivisionePratica {
+	id Integer max(8) required,
+    idUserAmmesso Integer max(8),
+    ruolo Integer,
+    idUserConcedente Integer,
+    statoInvito Integer,
+    idPratica Integer
+}
+
+entity AssegnazioneTask {
+	id Integer max(8) required,
+    idAttivita Integer max(8),
+    idUserAmmesso Integer max(8),
+    ruolo Integer,
+    idUserConcedente Integer,
+    statoAssegnazione Integer
+}
+
+entity Invito {
+	id Integer max(8) required,
+    idStudioProfessionale Integer max(8),
+    dataInvito String,
+    idUserInvitante Integer,
+    nomeUserInvitante String,
+    dataScadenzaInvito String,
+    testoInvito String,
+    idPratica Integer,
+    idAttivita Integer,
+    luogoFisico String,
+    indicazioniLuogo String,
+    dataInizio String,
+    oraInizio String,
+    dataFine String,
+    oraFine String,
+    urlStanzaVirtuale String,
+    discriminator String 
+}
+
+entity Invitato {
+	id Integer required,
+    idInvito Integer max(8),
+    tokenInvito String,
+    canalePrimarioInvito Integer,
+    canaleBackupInvito Integer,
+    statoInvito Integer,
+    idUserInvitato Integer,
+    idPersonaInvitata Integer,
+    nomeUserInvitato String,
+    dataRispostaInvito String,
+    ruoloInvitato Integer,
+    indInvitati Integer
+}
+
+entity UserPersona{
+	id Integer required,
+    idPersona Integer,
+    nomeUser Integer
+}
+
+entity InvitoPratica{
+	idPratica Integer
+}
+
+entity InvitoAttivita{
+	idAttivita Integer
+}
+
+entity InvitoEvento{
+	idAttivita Integer,
+    luogoFisico String,
+    indicazioniLuogo String,
+    dataInizio String,
+    oraInizio String,
+    dataFine String,
+    oraFine String,
+    urlStanzaVirtuale String
+}
+
+entity RappresentanzaPratica{
+	idRuoloPersona Integer required,
+    idPersona Integer required
+}
+enum Ruoli {
+    TDP, COLLABORATOREINTERNO, COLLABORATOREESTERNO, CLIENTE
+}
+
+//PARTE DI RUBRICA-PERSONA-PERSONAFISICA-ALTRI CAMPI CORRELATI:
+//ENTITÀ:
+entity Persona{
+	id Integer max(8) required,
+    idStudio Integer max(8),
+    codiceFiscale String,
+    areaDiInteresse String,
+    titolo String,
+    cognome String,
+    nome String,
+    dataDiNascita String,
+    luogoDiNascita String,
+    professione String,
+    tipo Integer,
+    discriminator String,
+    idRuoloPersona Integer,
+    tipoRuoloUtente Integer
+}
+
+entity PersonaFisica{
+	idPersonaFisica Integer required,
+    idPersona Integer required,
+    idRuoloPersona Integer,
+    titolo String,
+    cognome String,
+    nome String,
+    dataDiNascita String,
+    luogoDiNascita String,
+    professione String
+}
+
+entity Organizzazione{
+	idOrganizzazione Integer required,
+    idPersona Integer required,
+    nome String,
+    tipo String
+}
+
+entity RuoloOrganizzazione{
+	id Integer required,
+    ruoloInOrg Integer
+}
+
+entity NotePersona{
+	idPersona Integer required,
+    idNote Integer required,
+    testo String
+}
+entity DatiContabili{
+	idDatiContabili Integer required,
+    idPersona Integer required
+}
+
+entity IndirizzoPersona{
+	idPersona Integer required,
+    indirizzo String,
+    comune String,
+    cap Integer,
+    provincia String,
+    regione String,
+    nazione String
+}
+
+entity EmailPersona{
+	idPersona Integer required,
+    etichetta Integer,
+    numero Integer
+}
+
+entity TagPersona{
+	idPersona Integer required,
+    tag Integer
+}
+
+entity TelefonoPersona{
+	idPersona Integer required,
+    etichetta Integer,
+    valore Integer
+}
+
+//PARTE DI STUDIOPROFESSIONALE-LICENZA
+//ENTITÀ:
+entity StudioProfessionale{
+	id Integer required,
+    idUserAmministratore Integer required
+}
+
+entity RisorseDisponibilit{
+	idStudioProfessionale Integer required,
+    dataAttivazioneLicenza String,
+    nrLicenza Integer,
+    storageTotale Integer
+}
+
+entity Ordine {
+	id Integer required,
+    idStudioProfessionale Integer required,
+    statoOrdine Integer,
+    totImponibile Integer,
+    totIva Integer,
+    totOrdine Integer
+}
+
+entity LineaOrdine{
+	idOrdine Integer required,
+    idProdotto Integer required,
+    quantita Integer,
+    importo Integer,
+    codIva String
+}
+
+entity Prodotto{
+	id Integer required,
+    nuovaLicenza Integer,
+    rinnovoLicenza Integer,
+    storage Integer
+}
+
+//PARTE DI CONDIVISIONE E INVITI:
+//RELAZIONI:
+//Generalizzazioni indicate con relazione uno a uno:
+relationship OneToOne {
+	PrevisioneAttivita{idTask} to PrevisioneTask{idTask},
+    PrevisioneEvento{idTask} to PrevisioneTask{idTask},
+}
+
+//realzioni OneToOne tra entità Task-ConsuntivoTask-PrevisioneTask
+relationship OneToOne {
+    Task{id} to ConsuntivoTask{idTask},
+    Task{id} to PrevisioneTask{idTask}
+
+}
+
+
+//relationship ManyToMany {
+	//Job{task(title)} to Task{job}
+//}
+
+// Pratica - TemplatePratica - Task OneToMany -Task
+relationship OneToMany {
+	TemplatePratica{idTemplate} to TemplateTask
+    TemplateTask{idTemplate} to TemplateTask
+	TemplateTask{idTemplateTask} to AllegatoTemplateTask
+    TipoAllegato{idTipoAllegato} to AllegatoTemplateTask
+    TipoAllegato{idTipoAllegato} to AllegatoTask
+	AllegatoTask{idAllegatoTask} to AllegatoTask
+    Task{id} to AllegatoTask
+    PrevisioneTask{idTask} to PrevisioneTask
+	Pratica{id} to Task
+	Task{id} to NotaTask
+	Pratica{id} to NotaPratica
+	
+}
+
+relationship ManyToOne {
+	Pratica{idTemplate} to TemplatePratica
+	}
+
+
+//PARTE DI PERSONA E RUBRICA:
+//RELAZIONI:
+relationship OneToMany {
+	Persona{id} to DatiContabili
+    Persona{id} to EmailPersona
+	Persona{id} to TagPersona
+	Persona{id} to TelefonoPersona
+    Persona{id} to NotePersona
+    PersonaFisica{idPersonaFisica} to UserPersona
+}
+relationship OneToOne {
+	Persona{id} to IndirizzoPersona{idPersona},
+    PersonaFisica{idPersona} to Persona{id},
+    Organizzazione{idPersona} to Persona{id},
+    RuoloOrganizzazione{id} to Organizzazione{idOrganizzazione},
+    RuoloOrganizzazione{id} to PersonaFisica{idRuoloPersona}
+
+}
+
+
+//PARTE DI STUDIOPROFESSIONALE E LICENZA
+//RELAZIONI:
+relationship OneToMany {
+	Persona{id} to StudioProfessionale
+    StudioProfessionale{id} to RisorseDisponibili,
+    StudioProfessionale{id} to Ordine,
+    Ordine{id} to LineaOrdine
+
+}
+relationship OneToOne {
+	Prodotto{id} to LineaOrdine{idProdotto}
+}
+
+//PARTE DI CONDIVISIONE E INVITI:
+//RELAZIONI:
+relationship OneToMany {
+	Persona{id} to RappresentanzaPratica
+    Pratica{id} to CondivisionePratica
+	Ordine{id} to LineaOrdine
+    Pratica{id} to InvitoPratica
+    PrevisioneEvento{idTask} to InvitoEvento
+    AssegnazioneTask{idUserConcedente} to Invito
+    UserPersona{id} to CondivisionePratica
+	UserPersona{id} to AssegnazioneTask
+    UserPersona{id} to Invitato
+	Invito{id} to Invitato
+}
+
+relationship OneToOne {
+	Prodotto{id} to LineaOrdine{idProdotto},
+	CondivisionePratica{ruolo} to RappresentanzaPratica{idRuoloPersona},
+    Task{id} to AssegnazioneTask{idAttivita},
+    AssegnazioneTask{ruolo} to RappresentanzaPratica{idRuoloPersona},
+    Task{id} to InvitoAttivita{idAttivita},
+    InvitoPratica{idPratica} to Invito{id},
+    InvitoAttivita{idAttivita} to Invito{id},
+    InvitoEvento{idAttivita} to Invito{id},
+    CondivisionePratica{idUserConcedente} to Persona{idPersona},
+    Invito{idStudioProfessionale} to StudioProfessionale{id}
+}
+
+// defining multiple oneToOne relationships
+//relationship OneToOne {
+	//JobHistory{job} to Job,
+	//JobHistory{department} to Department,
+	//JobHistory{employee} to Employee
+//}
+
+// Set pagination options
+//paginate JobHistory, Employee with infinite-scroll
+//paginate Job with pagination
+
+//Use Data Transfert Objects (DTO)
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl except Employee, Job
+
+// Set an angular suffix
+// angularSuffix * with mySuffix
+
