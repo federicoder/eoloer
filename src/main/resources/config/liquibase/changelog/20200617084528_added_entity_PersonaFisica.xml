@@ -18,10 +18,10 @@
             <column name="id_persona_fisica" type="integer">
                 <constraints nullable="false" />
             </column>
-            <column name="id_persona" type="integer">
+            <column name="id_persona_ref" type="integer">
                 <constraints nullable="false" />
             </column>
-            <column name="id_ruolo_persona" type="integer">
+            <column name="id_ruolo_persona_ref" type="integer">
                 <constraints nullable="true" />
             </column>
             <column name="titolo" type="varchar(255)">
@@ -42,8 +42,8 @@
             <column name="professione" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="id_persona_id" type="bigint">
-                <constraints unique="true" nullable="true" uniqueConstraintName="ux_persona_fisica_id_persona_id" />
+            <column name="id_persona_ref_id" type="bigint">
+                <constraints unique="true" nullable="true" uniqueConstraintName="ux_persona_fisica_id_persona_ref_id" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
         </createTable>
@@ -69,8 +69,8 @@
                   tableName="persona_fisica">
             <column name="id" type="numeric"/>
             <column name="id_persona_fisica" type="numeric"/>
-            <column name="id_persona" type="numeric"/>
-            <column name="id_ruolo_persona" type="numeric"/>
+            <column name="id_persona_ref" type="numeric"/>
+            <column name="id_ruolo_persona_ref" type="numeric"/>
             <column name="titolo" type="string"/>
             <column name="cognome" type="string"/>
             <column name="nome" type="string"/>

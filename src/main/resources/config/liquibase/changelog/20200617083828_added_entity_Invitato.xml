@@ -15,7 +15,10 @@
             <column name="id" type="bigint">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="id_invito" type="integer">
+            <column name="id_invitato" type="integer">
+                <constraints nullable="false" />
+            </column>
+            <column name="id_invito_ref" type="integer">
                 <constraints nullable="true" />
             </column>
             <column name="token_invito" type="varchar(255)">
@@ -77,7 +80,8 @@
                   separator=";"
                   tableName="invitato">
             <column name="id" type="numeric"/>
-            <column name="id_invito" type="numeric"/>
+            <column name="id_invitato" type="numeric"/>
+            <column name="id_invito_ref" type="numeric"/>
             <column name="token_invito" type="string"/>
             <column name="canale_primario_invito" type="numeric"/>
             <column name="canale_backup_invito" type="numeric"/>

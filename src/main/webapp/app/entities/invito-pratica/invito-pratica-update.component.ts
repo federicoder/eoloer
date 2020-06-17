@@ -21,13 +21,13 @@ type SelectableEntity = IInvito | IPratica;
 })
 export class InvitoPraticaUpdateComponent implements OnInit {
   isSaving = false;
-  idpraticas: IInvito[] = [];
+  idpraticarefs: IInvito[] = [];
   praticas: IPratica[] = [];
 
   editForm = this.fb.group({
     id: [],
-    idPratica: [],
-    idPraticaId: [],
+    idPraticaRef: [],
+    idPraticaRefId: [],
     praticaId: [],
   });
 
@@ -44,24 +44,24 @@ export class InvitoPraticaUpdateComponent implements OnInit {
       this.updateForm(invitoPratica);
 
       this.invitoService
-        .query({ filter: 'id-is-null' })
+        .query({ filter: 'idinvito-is-null' })
         .pipe(
           map((res: HttpResponse<IInvito[]>) => {
             return res.body || [];
           })
         )
         .subscribe((resBody: IInvito[]) => {
-          if (!invitoPratica.idPraticaId) {
-            this.idpraticas = resBody;
+          if (!invitoPratica.idPraticaRefId) {
+            this.idpraticarefs = resBody;
           } else {
             this.invitoService
-              .find(invitoPratica.idPraticaId)
+              .find(invitoPratica.idPraticaRefId)
               .pipe(
                 map((subRes: HttpResponse<IInvito>) => {
                   return subRes.body ? [subRes.body].concat(resBody) : resBody;
                 })
               )
-              .subscribe((concatRes: IInvito[]) => (this.idpraticas = concatRes));
+              .subscribe((concatRes: IInvito[]) => (this.idpraticarefs = concatRes));
           }
         });
 
@@ -72,8 +72,8 @@ export class InvitoPraticaUpdateComponent implements OnInit {
   updateForm(invitoPratica: IInvitoPratica): void {
     this.editForm.patchValue({
       id: invitoPratica.id,
-      idPratica: invitoPratica.idPratica,
-      idPraticaId: invitoPratica.idPraticaId,
+      idPraticaRef: invitoPratica.idPraticaRef,
+      idPraticaRefId: invitoPratica.idPraticaRefId,
       praticaId: invitoPratica.praticaId,
     });
   }
@@ -96,8 +96,8 @@ export class InvitoPraticaUpdateComponent implements OnInit {
     return {
       ...new InvitoPratica(),
       id: this.editForm.get(['id'])!.value,
-      idPratica: this.editForm.get(['idPratica'])!.value,
-      idPraticaId: this.editForm.get(['idPraticaId'])!.value,
+      idPraticaRef: this.editForm.get(['idPraticaRef'])!.value,
+      idPraticaRefId: this.editForm.get(['idPraticaRefId'])!.value,
       praticaId: this.editForm.get(['praticaId'])!.value,
     };
   }

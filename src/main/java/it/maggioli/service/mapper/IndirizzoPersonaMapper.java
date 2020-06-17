@@ -13,7 +13,7 @@ import org.mapstruct.*;
 public interface IndirizzoPersonaMapper extends EntityMapper<IndirizzoPersonaDTO, IndirizzoPersona> {
 
 
-    @Mapping(target = "idPersona", ignore = true)
+    @Mapping(target = "idPersonaRef", ignore = true)
     IndirizzoPersona toEntity(IndirizzoPersonaDTO indirizzoPersonaDTO);
 
     default IndirizzoPersona fromId(Long id) {

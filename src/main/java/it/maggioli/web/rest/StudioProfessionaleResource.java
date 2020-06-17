@@ -89,9 +89,9 @@ public class StudioProfessionaleResource {
      */
     @GetMapping("/studio-professionales")
     public List<StudioProfessionaleDTO> getAllStudioProfessionales(@RequestParam(required = false) String filter) {
-        if ("id-is-null".equals(filter)) {
-            log.debug("REST request to get all StudioProfessionales where id is null");
-            return studioProfessionaleService.findAllWhereIdIsNull();
+        if ("idstudioprofessionale-is-null".equals(filter)) {
+            log.debug("REST request to get all StudioProfessionales where idStudioProfessionale is null");
+            return studioProfessionaleService.findAllWhereIdStudioProfessionaleIsNull();
         }
         log.debug("REST request to get all StudioProfessionales");
         return studioProfessionaleService.findAll();

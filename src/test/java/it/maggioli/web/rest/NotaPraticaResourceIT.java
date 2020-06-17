@@ -40,8 +40,11 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WithMockUser
 public class NotaPraticaResourceIT {
 
-    private static final Integer DEFAULT_ID_PRATICA = 8;
-    private static final Integer UPDATED_ID_PRATICA = 7;
+    private static final Integer DEFAULT_ID_NOTA_PRATICA = 8;
+    private static final Integer UPDATED_ID_NOTA_PRATICA = 7;
+
+    private static final Integer DEFAULT_ID_PRATICA_REF = 8;
+    private static final Integer UPDATED_ID_PRATICA_REF = 7;
 
     private static final String DEFAULT_DATA = "AAAAAAAAAA";
     private static final String UPDATED_DATA = "BBBBBBBBBB";
@@ -85,7 +88,8 @@ public class NotaPraticaResourceIT {
      */
     public static NotaPratica createEntity(EntityManager em) {
         NotaPratica notaPratica = new NotaPratica()
-            .idPratica(DEFAULT_ID_PRATICA)
+            .idNotaPratica(DEFAULT_ID_NOTA_PRATICA)
+            .idPraticaRef(DEFAULT_ID_PRATICA_REF)
             .data(DEFAULT_DATA)
             .nota(DEFAULT_NOTA)
             .version(DEFAULT_VERSION);
@@ -99,7 +103,8 @@ public class NotaPraticaResourceIT {
      */
     public static NotaPratica createUpdatedEntity(EntityManager em) {
         NotaPratica notaPratica = new NotaPratica()
-            .idPratica(UPDATED_ID_PRATICA)
+            .idNotaPratica(UPDATED_ID_NOTA_PRATICA)
+            .idPraticaRef(UPDATED_ID_PRATICA_REF)
             .data(UPDATED_DATA)
             .nota(UPDATED_NOTA)
             .version(UPDATED_VERSION);
@@ -126,7 +131,8 @@ public class NotaPraticaResourceIT {
         List<NotaPratica> notaPraticaList = notaPraticaRepository.findAll();
         assertThat(notaPraticaList).hasSize(databaseSizeBeforeCreate + 1);
         NotaPratica testNotaPratica = notaPraticaList.get(notaPraticaList.size() - 1);
-        assertThat(testNotaPratica.getIdPratica()).isEqualTo(DEFAULT_ID_PRATICA);
+        assertThat(testNotaPratica.getIdNotaPratica()).isEqualTo(DEFAULT_ID_NOTA_PRATICA);
+        assertThat(testNotaPratica.getIdPraticaRef()).isEqualTo(DEFAULT_ID_PRATICA_REF);
         assertThat(testNotaPratica.getData()).isEqualTo(DEFAULT_DATA);
         assertThat(testNotaPratica.getNota()).isEqualTo(DEFAULT_NOTA);
         assertThat(testNotaPratica.getVersion()).isEqualTo(DEFAULT_VERSION);
@@ -161,6 +167,26 @@ public class NotaPraticaResourceIT {
 
     @Test
     @Transactional
+    public void checkIdNotaPraticaIsRequired() throws Exception {
+        int databaseSizeBeforeTest = notaPraticaRepository.findAll().size();
+        // set the field null
+        notaPratica.setIdNotaPratica(null);
+
+        // Create the NotaPratica, which fails.
+        NotaPraticaDTO notaPraticaDTO = notaPraticaMapper.toDto(notaPratica);
+
+
+        restNotaPraticaMockMvc.perform(post("/api/nota-praticas")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(notaPraticaDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<NotaPratica> notaPraticaList = notaPraticaRepository.findAll();
+        assertThat(notaPraticaList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllNotaPraticas() throws Exception {
         // Initialize the database
         notaPraticaRepository.saveAndFlush(notaPratica);
@@ -170,7 +196,8 @@ public class NotaPraticaResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(notaPratica.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idPratica").value(hasItem(DEFAULT_ID_PRATICA)))
+            .andExpect(jsonPath("$.[*].idNotaPratica").value(hasItem(DEFAULT_ID_NOTA_PRATICA)))
+            .andExpect(jsonPath("$.[*].idPraticaRef").value(hasItem(DEFAULT_ID_PRATICA_REF)))
             .andExpect(jsonPath("$.[*].data").value(hasItem(DEFAULT_DATA)))
             .andExpect(jsonPath("$.[*].nota").value(hasItem(DEFAULT_NOTA)))
             .andExpect(jsonPath("$.[*].version").value(hasItem(DEFAULT_VERSION)));
@@ -187,7 +214,8 @@ public class NotaPraticaResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(notaPratica.getId().intValue()))
-            .andExpect(jsonPath("$.idPratica").value(DEFAULT_ID_PRATICA))
+            .andExpect(jsonPath("$.idNotaPratica").value(DEFAULT_ID_NOTA_PRATICA))
+            .andExpect(jsonPath("$.idPraticaRef").value(DEFAULT_ID_PRATICA_REF))
             .andExpect(jsonPath("$.data").value(DEFAULT_DATA))
             .andExpect(jsonPath("$.nota").value(DEFAULT_NOTA))
             .andExpect(jsonPath("$.version").value(DEFAULT_VERSION));
@@ -213,7 +241,8 @@ public class NotaPraticaResourceIT {
         // Disconnect from session so that the updates on updatedNotaPratica are not directly saved in db
         em.detach(updatedNotaPratica);
         updatedNotaPratica
-            .idPratica(UPDATED_ID_PRATICA)
+            .idNotaPratica(UPDATED_ID_NOTA_PRATICA)
+            .idPraticaRef(UPDATED_ID_PRATICA_REF)
             .data(UPDATED_DATA)
             .nota(UPDATED_NOTA)
             .version(UPDATED_VERSION);
@@ -228,7 +257,8 @@ public class NotaPraticaResourceIT {
         List<NotaPratica> notaPraticaList = notaPraticaRepository.findAll();
         assertThat(notaPraticaList).hasSize(databaseSizeBeforeUpdate);
         NotaPratica testNotaPratica = notaPraticaList.get(notaPraticaList.size() - 1);
-        assertThat(testNotaPratica.getIdPratica()).isEqualTo(UPDATED_ID_PRATICA);
+        assertThat(testNotaPratica.getIdNotaPratica()).isEqualTo(UPDATED_ID_NOTA_PRATICA);
+        assertThat(testNotaPratica.getIdPraticaRef()).isEqualTo(UPDATED_ID_PRATICA_REF);
         assertThat(testNotaPratica.getData()).isEqualTo(UPDATED_DATA);
         assertThat(testNotaPratica.getNota()).isEqualTo(UPDATED_NOTA);
         assertThat(testNotaPratica.getVersion()).isEqualTo(UPDATED_VERSION);
@@ -294,7 +324,8 @@ public class NotaPraticaResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(notaPratica.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idPratica").value(hasItem(DEFAULT_ID_PRATICA)))
+            .andExpect(jsonPath("$.[*].idNotaPratica").value(hasItem(DEFAULT_ID_NOTA_PRATICA)))
+            .andExpect(jsonPath("$.[*].idPraticaRef").value(hasItem(DEFAULT_ID_PRATICA_REF)))
             .andExpect(jsonPath("$.[*].data").value(hasItem(DEFAULT_DATA)))
             .andExpect(jsonPath("$.[*].nota").value(hasItem(DEFAULT_NOTA)))
             .andExpect(jsonPath("$.[*].version").value(hasItem(DEFAULT_VERSION)));

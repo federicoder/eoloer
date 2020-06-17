@@ -17,12 +17,13 @@
       "detail": {
         "title": "Ordine"
       },
-      "idStudioProfessionale": "Id Studio Professionale",
+      "idOrdine": "Id Ordine",
+      "idStudioProfessionaleRef": "Id Studio Professionale Ref",
       "statoOrdine": "Stato Ordine",
       "totImponibile": "Tot Imponibile",
       "totIva": "Tot Iva",
       "totOrdine": "Tot Ordine",
-      "id": "Id",
+      "idOrdine": "Id Ordine",
       "studioProfessionale": "Studio Professionale"
     }
   }

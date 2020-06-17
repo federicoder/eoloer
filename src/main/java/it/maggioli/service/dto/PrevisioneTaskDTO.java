@@ -12,7 +12,7 @@ public class PrevisioneTaskDTO implements Serializable {
 
     @NotNull
     @Max(value = 8)
-    private Integer idTask;
+    private Integer idTaskRef;
 
     @Max(value = 8)
     private Integer qntOrdine;
@@ -39,12 +39,12 @@ public class PrevisioneTaskDTO implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdTask() {
-        return idTask;
+    public Integer getIdTaskRef() {
+        return idTaskRef;
     }
 
-    public void setIdTask(Integer idTask) {
-        this.idTask = idTask;
+    public void setIdTaskRef(Integer idTaskRef) {
+        this.idTaskRef = idTaskRef;
     }
 
     public Integer getQntOrdine() {
@@ -125,7 +125,7 @@ public class PrevisioneTaskDTO implements Serializable {
     public String toString() {
         return "PrevisioneTaskDTO{" +
             "id=" + getId() +
-            ", idTask=" + getIdTask() +
+            ", idTaskRef=" + getIdTaskRef() +
             ", qntOrdine=" + getQntOrdine() +
             ", prcPrevisione=" + getPrcPrevisione() +
             ", checkList=" + getCheckList() +

@@ -29,7 +29,7 @@ export class RisorseDisponibiliUpdatePage {
   saveButton = element(by.id('save-entity'));
   cancelButton = element(by.id('cancel-save'));
 
-  idStudioProfessionaleInput = element(by.id('field_idStudioProfessionale'));
+  idStudioProfessionaleRefInput = element(by.id('field_idStudioProfessionaleRef'));
   dataAttivazioneLicenzaInput = element(by.id('field_dataAttivazioneLicenza'));
   nrLicenzaInput = element(by.id('field_nrLicenza'));
   storageTotaleInput = element(by.id('field_storageTotale'));
@@ -40,12 +40,12 @@ export class RisorseDisponibiliUpdatePage {
     return this.pageTitle.getAttribute('jhiTranslate');
   }
 
-  async setIdStudioProfessionaleInput(idStudioProfessionale: string): Promise<void> {
-    await this.idStudioProfessionaleInput.sendKeys(idStudioProfessionale);
+  async setIdStudioProfessionaleRefInput(idStudioProfessionaleRef: string): Promise<void> {
+    await this.idStudioProfessionaleRefInput.sendKeys(idStudioProfessionaleRef);
   }
 
-  async getIdStudioProfessionaleInput(): Promise<string> {
-    return await this.idStudioProfessionaleInput.getAttribute('value');
+  async getIdStudioProfessionaleRefInput(): Promise<string> {
+    return await this.idStudioProfessionaleRefInput.getAttribute('value');
   }
 
   async setDataAttivazioneLicenzaInput(dataAttivazioneLicenza: string): Promise<void> {

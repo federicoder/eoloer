@@ -1,4 +1,4 @@
-id;id_task;qnt_ordine;prc_previsione;check_list;id_task_milestone;tipo_task;version
+id;id_task_ref;qnt_ordine;prc_previsione;check_list;id_task_milestone;tipo_task;version
 1;3;1;1;15948;49279;Road;real-time Buckinghamshire
 2;4;5;0;32651;41789;Factors National;Plastic Chief Creative
 3;8;4;0;74758;64915;Pitcairn Islands Cambridgeshire Orchestrator;morph orange hardware

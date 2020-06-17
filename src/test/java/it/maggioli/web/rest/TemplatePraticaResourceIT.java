@@ -40,8 +40,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WithMockUser
 public class TemplatePraticaResourceIT {
 
-    private static final Integer DEFAULT_ID_TEMPLATE = 8;
-    private static final Integer UPDATED_ID_TEMPLATE = 7;
+    private static final Integer DEFAULT_ID_TEMPLATE_PRATICA = 8;
+    private static final Integer UPDATED_ID_TEMPLATE_PRATICA = 7;
 
     private static final Integer DEFAULT_NOME_TEMPLATE = 1;
     private static final Integer UPDATED_NOME_TEMPLATE = 2;
@@ -82,7 +82,7 @@ public class TemplatePraticaResourceIT {
      */
     public static TemplatePratica createEntity(EntityManager em) {
         TemplatePratica templatePratica = new TemplatePratica()
-            .idTemplate(DEFAULT_ID_TEMPLATE)
+            .idTemplatePratica(DEFAULT_ID_TEMPLATE_PRATICA)
             .nomeTemplate(DEFAULT_NOME_TEMPLATE)
             .elencoTagAmbito(DEFAULT_ELENCO_TAG_AMBITO);
         return templatePratica;
@@ -95,7 +95,7 @@ public class TemplatePraticaResourceIT {
      */
     public static TemplatePratica createUpdatedEntity(EntityManager em) {
         TemplatePratica templatePratica = new TemplatePratica()
-            .idTemplate(UPDATED_ID_TEMPLATE)
+            .idTemplatePratica(UPDATED_ID_TEMPLATE_PRATICA)
             .nomeTemplate(UPDATED_NOME_TEMPLATE)
             .elencoTagAmbito(UPDATED_ELENCO_TAG_AMBITO);
         return templatePratica;
@@ -121,7 +121,7 @@ public class TemplatePraticaResourceIT {
         List<TemplatePratica> templatePraticaList = templatePraticaRepository.findAll();
         assertThat(templatePraticaList).hasSize(databaseSizeBeforeCreate + 1);
         TemplatePratica testTemplatePratica = templatePraticaList.get(templatePraticaList.size() - 1);
-        assertThat(testTemplatePratica.getIdTemplate()).isEqualTo(DEFAULT_ID_TEMPLATE);
+        assertThat(testTemplatePratica.getIdTemplatePratica()).isEqualTo(DEFAULT_ID_TEMPLATE_PRATICA);
         assertThat(testTemplatePratica.getNomeTemplate()).isEqualTo(DEFAULT_NOME_TEMPLATE);
         assertThat(testTemplatePratica.getElencoTagAmbito()).isEqualTo(DEFAULT_ELENCO_TAG_AMBITO);
 
@@ -155,10 +155,10 @@ public class TemplatePraticaResourceIT {
 
     @Test
     @Transactional
-    public void checkIdTemplateIsRequired() throws Exception {
+    public void checkIdTemplatePraticaIsRequired() throws Exception {
         int databaseSizeBeforeTest = templatePraticaRepository.findAll().size();
         // set the field null
-        templatePratica.setIdTemplate(null);
+        templatePratica.setIdTemplatePratica(null);
 
         // Create the TemplatePratica, which fails.
         TemplatePraticaDTO templatePraticaDTO = templatePraticaMapper.toDto(templatePratica);
@@ -184,7 +184,7 @@ public class TemplatePraticaResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(templatePratica.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idTemplate").value(hasItem(DEFAULT_ID_TEMPLATE)))
+            .andExpect(jsonPath("$.[*].idTemplatePratica").value(hasItem(DEFAULT_ID_TEMPLATE_PRATICA)))
             .andExpect(jsonPath("$.[*].nomeTemplate").value(hasItem(DEFAULT_NOME_TEMPLATE)))
             .andExpect(jsonPath("$.[*].elencoTagAmbito").value(hasItem(DEFAULT_ELENCO_TAG_AMBITO)));
     }
@@ -200,7 +200,7 @@ public class TemplatePraticaResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(templatePratica.getId().intValue()))
-            .andExpect(jsonPath("$.idTemplate").value(DEFAULT_ID_TEMPLATE))
+            .andExpect(jsonPath("$.idTemplatePratica").value(DEFAULT_ID_TEMPLATE_PRATICA))
             .andExpect(jsonPath("$.nomeTemplate").value(DEFAULT_NOME_TEMPLATE))
             .andExpect(jsonPath("$.elencoTagAmbito").value(DEFAULT_ELENCO_TAG_AMBITO));
     }
@@ -225,7 +225,7 @@ public class TemplatePraticaResourceIT {
         // Disconnect from session so that the updates on updatedTemplatePratica are not directly saved in db
         em.detach(updatedTemplatePratica);
         updatedTemplatePratica
-            .idTemplate(UPDATED_ID_TEMPLATE)
+            .idTemplatePratica(UPDATED_ID_TEMPLATE_PRATICA)
             .nomeTemplate(UPDATED_NOME_TEMPLATE)
             .elencoTagAmbito(UPDATED_ELENCO_TAG_AMBITO);
         TemplatePraticaDTO templatePraticaDTO = templatePraticaMapper.toDto(updatedTemplatePratica);
@@ -239,7 +239,7 @@ public class TemplatePraticaResourceIT {
         List<TemplatePratica> templatePraticaList = templatePraticaRepository.findAll();
         assertThat(templatePraticaList).hasSize(databaseSizeBeforeUpdate);
         TemplatePratica testTemplatePratica = templatePraticaList.get(templatePraticaList.size() - 1);
-        assertThat(testTemplatePratica.getIdTemplate()).isEqualTo(UPDATED_ID_TEMPLATE);
+        assertThat(testTemplatePratica.getIdTemplatePratica()).isEqualTo(UPDATED_ID_TEMPLATE_PRATICA);
         assertThat(testTemplatePratica.getNomeTemplate()).isEqualTo(UPDATED_NOME_TEMPLATE);
         assertThat(testTemplatePratica.getElencoTagAmbito()).isEqualTo(UPDATED_ELENCO_TAG_AMBITO);
 
@@ -304,7 +304,7 @@ public class TemplatePraticaResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(templatePratica.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idTemplate").value(hasItem(DEFAULT_ID_TEMPLATE)))
+            .andExpect(jsonPath("$.[*].idTemplatePratica").value(hasItem(DEFAULT_ID_TEMPLATE_PRATICA)))
             .andExpect(jsonPath("$.[*].nomeTemplate").value(hasItem(DEFAULT_NOME_TEMPLATE)))
             .andExpect(jsonPath("$.[*].elencoTagAmbito").value(hasItem(DEFAULT_ELENCO_TAG_AMBITO)));
     }

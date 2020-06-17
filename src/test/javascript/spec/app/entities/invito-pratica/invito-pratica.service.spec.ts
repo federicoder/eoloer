@@ -54,7 +54,7 @@ describe('Service Tests', () => {
       it('should update a InvitoPratica', () => {
         const returnedFromService = Object.assign(
           {
-            idPratica: 1,
+            idPraticaRef: 1,
           },
           elemDefault
         );
@@ -71,7 +71,7 @@ describe('Service Tests', () => {
       it('should return a list of InvitoPratica', () => {
         const returnedFromService = Object.assign(
           {
-            idPratica: 1,
+            idPraticaRef: 1,
           },
           elemDefault
         );

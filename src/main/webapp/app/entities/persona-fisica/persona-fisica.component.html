@@ -42,15 +42,15 @@
                 <tr>
                     <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.personaFisica.idPersonaFisica">Id Persona Fisica</span></th>
-                    <th scope="col" ><span jhiTranslate="eoloprjApp.personaFisica.idPersona">Id Persona</span></th>
-                    <th scope="col" ><span jhiTranslate="eoloprjApp.personaFisica.idRuoloPersona">Id Ruolo Persona</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.personaFisica.idPersonaRef">Id Persona Ref</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.personaFisica.idRuoloPersonaRef">Id Ruolo Persona Ref</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.personaFisica.titolo">Titolo</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.personaFisica.cognome">Cognome</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.personaFisica.nome">Nome</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.personaFisica.dataDiNascita">Data Di Nascita</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.personaFisica.luogoDiNascita">Luogo Di Nascita</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.personaFisica.professione">Professione</span></th>
-                    <th scope="col" ><span jhiTranslate="eoloprjApp.personaFisica.idPersona">Id Persona</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.personaFisica.idPersonaRef">Id Persona Ref</span></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -58,8 +58,8 @@
                 <tr *ngFor="let personaFisica of personaFisicas ;trackBy: trackId">
                     <td><a [routerLink]="['/persona-fisica', personaFisica.id, 'view']">{{ personaFisica.id }}</a></td>
                     <td>{{ personaFisica.idPersonaFisica }}</td>
-                    <td>{{ personaFisica.idPersona }}</td>
-                    <td>{{ personaFisica.idRuoloPersona }}</td>
+                    <td>{{ personaFisica.idPersonaRef }}</td>
+                    <td>{{ personaFisica.idRuoloPersonaRef }}</td>
                     <td>{{ personaFisica.titolo }}</td>
                     <td>{{ personaFisica.cognome }}</td>
                     <td>{{ personaFisica.nome }}</td>
@@ -67,8 +67,8 @@
                     <td>{{ personaFisica.luogoDiNascita }}</td>
                     <td>{{ personaFisica.professione }}</td>
                     <td>
-                        <div *ngIf="personaFisica.idPersonaId">
-                            <a [routerLink]="['/persona', personaFisica.idPersonaId , 'view']" >{{ personaFisica.idPersonaId }}</a>
+                        <div *ngIf="personaFisica.idPersonaRefId">
+                            <a [routerLink]="['/persona', personaFisica.idPersonaRefId , 'view']" >{{ personaFisica.idPersonaRefId }}</a>
                         </div>
                     </td>
                     <td class="text-right">

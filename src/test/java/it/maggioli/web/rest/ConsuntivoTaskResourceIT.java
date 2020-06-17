@@ -40,8 +40,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WithMockUser
 public class ConsuntivoTaskResourceIT {
 
-    private static final Integer DEFAULT_ID_TASK = 8;
-    private static final Integer UPDATED_ID_TASK = 7;
+    private static final Integer DEFAULT_ID_TASK_REF = 8;
+    private static final Integer UPDATED_ID_TASK_REF = 7;
 
     private static final String DEFAULT_DATA_INIZIO = "AAAAAAAAAA";
     private static final String UPDATED_DATA_INIZIO = "BBBBBBBBBB";
@@ -88,7 +88,7 @@ public class ConsuntivoTaskResourceIT {
      */
     public static ConsuntivoTask createEntity(EntityManager em) {
         ConsuntivoTask consuntivoTask = new ConsuntivoTask()
-            .idTask(DEFAULT_ID_TASK)
+            .idTaskRef(DEFAULT_ID_TASK_REF)
             .dataInizio(DEFAULT_DATA_INIZIO)
             .dataFine(DEFAULT_DATA_FINE)
             .timeLine(DEFAULT_TIME_LINE)
@@ -103,7 +103,7 @@ public class ConsuntivoTaskResourceIT {
      */
     public static ConsuntivoTask createUpdatedEntity(EntityManager em) {
         ConsuntivoTask consuntivoTask = new ConsuntivoTask()
-            .idTask(UPDATED_ID_TASK)
+            .idTaskRef(UPDATED_ID_TASK_REF)
             .dataInizio(UPDATED_DATA_INIZIO)
             .dataFine(UPDATED_DATA_FINE)
             .timeLine(UPDATED_TIME_LINE)
@@ -131,7 +131,7 @@ public class ConsuntivoTaskResourceIT {
         List<ConsuntivoTask> consuntivoTaskList = consuntivoTaskRepository.findAll();
         assertThat(consuntivoTaskList).hasSize(databaseSizeBeforeCreate + 1);
         ConsuntivoTask testConsuntivoTask = consuntivoTaskList.get(consuntivoTaskList.size() - 1);
-        assertThat(testConsuntivoTask.getIdTask()).isEqualTo(DEFAULT_ID_TASK);
+        assertThat(testConsuntivoTask.getIdTaskRef()).isEqualTo(DEFAULT_ID_TASK_REF);
         assertThat(testConsuntivoTask.getDataInizio()).isEqualTo(DEFAULT_DATA_INIZIO);
         assertThat(testConsuntivoTask.getDataFine()).isEqualTo(DEFAULT_DATA_FINE);
         assertThat(testConsuntivoTask.getTimeLine()).isEqualTo(DEFAULT_TIME_LINE);
@@ -167,10 +167,10 @@ public class ConsuntivoTaskResourceIT {
 
     @Test
     @Transactional
-    public void checkIdTaskIsRequired() throws Exception {
+    public void checkIdTaskRefIsRequired() throws Exception {
         int databaseSizeBeforeTest = consuntivoTaskRepository.findAll().size();
         // set the field null
-        consuntivoTask.setIdTask(null);
+        consuntivoTask.setIdTaskRef(null);
 
         // Create the ConsuntivoTask, which fails.
         ConsuntivoTaskDTO consuntivoTaskDTO = consuntivoTaskMapper.toDto(consuntivoTask);
@@ -196,7 +196,7 @@ public class ConsuntivoTaskResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(consuntivoTask.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idTask").value(hasItem(DEFAULT_ID_TASK)))
+            .andExpect(jsonPath("$.[*].idTaskRef").value(hasItem(DEFAULT_ID_TASK_REF)))
             .andExpect(jsonPath("$.[*].dataInizio").value(hasItem(DEFAULT_DATA_INIZIO)))
             .andExpect(jsonPath("$.[*].dataFine").value(hasItem(DEFAULT_DATA_FINE)))
             .andExpect(jsonPath("$.[*].timeLine").value(hasItem(DEFAULT_TIME_LINE)))
@@ -214,7 +214,7 @@ public class ConsuntivoTaskResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(consuntivoTask.getId().intValue()))
-            .andExpect(jsonPath("$.idTask").value(DEFAULT_ID_TASK))
+            .andExpect(jsonPath("$.idTaskRef").value(DEFAULT_ID_TASK_REF))
             .andExpect(jsonPath("$.dataInizio").value(DEFAULT_DATA_INIZIO))
             .andExpect(jsonPath("$.dataFine").value(DEFAULT_DATA_FINE))
             .andExpect(jsonPath("$.timeLine").value(DEFAULT_TIME_LINE))
@@ -241,7 +241,7 @@ public class ConsuntivoTaskResourceIT {
         // Disconnect from session so that the updates on updatedConsuntivoTask are not directly saved in db
         em.detach(updatedConsuntivoTask);
         updatedConsuntivoTask
-            .idTask(UPDATED_ID_TASK)
+            .idTaskRef(UPDATED_ID_TASK_REF)
             .dataInizio(UPDATED_DATA_INIZIO)
             .dataFine(UPDATED_DATA_FINE)
             .timeLine(UPDATED_TIME_LINE)
@@ -257,7 +257,7 @@ public class ConsuntivoTaskResourceIT {
         List<ConsuntivoTask> consuntivoTaskList = consuntivoTaskRepository.findAll();
         assertThat(consuntivoTaskList).hasSize(databaseSizeBeforeUpdate);
         ConsuntivoTask testConsuntivoTask = consuntivoTaskList.get(consuntivoTaskList.size() - 1);
-        assertThat(testConsuntivoTask.getIdTask()).isEqualTo(UPDATED_ID_TASK);
+        assertThat(testConsuntivoTask.getIdTaskRef()).isEqualTo(UPDATED_ID_TASK_REF);
         assertThat(testConsuntivoTask.getDataInizio()).isEqualTo(UPDATED_DATA_INIZIO);
         assertThat(testConsuntivoTask.getDataFine()).isEqualTo(UPDATED_DATA_FINE);
         assertThat(testConsuntivoTask.getTimeLine()).isEqualTo(UPDATED_TIME_LINE);
@@ -324,7 +324,7 @@ public class ConsuntivoTaskResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(consuntivoTask.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idTask").value(hasItem(DEFAULT_ID_TASK)))
+            .andExpect(jsonPath("$.[*].idTaskRef").value(hasItem(DEFAULT_ID_TASK_REF)))
             .andExpect(jsonPath("$.[*].dataInizio").value(hasItem(DEFAULT_DATA_INIZIO)))
             .andExpect(jsonPath("$.[*].dataFine").value(hasItem(DEFAULT_DATA_FINE)))
             .andExpect(jsonPath("$.[*].timeLine").value(hasItem(DEFAULT_TIME_LINE)))

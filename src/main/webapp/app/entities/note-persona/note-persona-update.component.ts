@@ -20,8 +20,8 @@ export class NotePersonaUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    idPersona: [null, [Validators.required]],
-    idNote: [null, [Validators.required]],
+    idPersonaRef: [null, [Validators.required]],
+    idNotePersona: [null, [Validators.required]],
     testo: [],
     personaId: [],
   });
@@ -44,8 +44,8 @@ export class NotePersonaUpdateComponent implements OnInit {
   updateForm(notePersona: INotePersona): void {
     this.editForm.patchValue({
       id: notePersona.id,
-      idPersona: notePersona.idPersona,
-      idNote: notePersona.idNote,
+      idPersonaRef: notePersona.idPersonaRef,
+      idNotePersona: notePersona.idNotePersona,
       testo: notePersona.testo,
       personaId: notePersona.personaId,
     });
@@ -69,8 +69,8 @@ export class NotePersonaUpdateComponent implements OnInit {
     return {
       ...new NotePersona(),
       id: this.editForm.get(['id'])!.value,
-      idPersona: this.editForm.get(['idPersona'])!.value,
-      idNote: this.editForm.get(['idNote'])!.value,
+      idPersonaRef: this.editForm.get(['idPersonaRef'])!.value,
+      idNotePersona: this.editForm.get(['idNotePersona'])!.value,
       testo: this.editForm.get(['testo'])!.value,
       personaId: this.editForm.get(['personaId'])!.value,
     };

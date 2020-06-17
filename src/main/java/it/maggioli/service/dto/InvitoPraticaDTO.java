@@ -9,10 +9,10 @@ public class InvitoPraticaDTO implements Serializable {
     
     private Long id;
 
-    private Integer idPratica;
+    private Integer idPraticaRef;
 
 
-    private Long idPraticaId;
+    private Long idPraticaRefId;
 
     private Long praticaId;
     
@@ -24,20 +24,20 @@ public class InvitoPraticaDTO implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdPratica() {
-        return idPratica;
+    public Integer getIdPraticaRef() {
+        return idPraticaRef;
     }
 
-    public void setIdPratica(Integer idPratica) {
-        this.idPratica = idPratica;
+    public void setIdPraticaRef(Integer idPraticaRef) {
+        this.idPraticaRef = idPraticaRef;
     }
 
-    public Long getIdPraticaId() {
-        return idPraticaId;
+    public Long getIdPraticaRefId() {
+        return idPraticaRefId;
     }
 
-    public void setIdPraticaId(Long invitoId) {
-        this.idPraticaId = invitoId;
+    public void setIdPraticaRefId(Long invitoId) {
+        this.idPraticaRefId = invitoId;
     }
 
     public Long getPraticaId() {
@@ -70,8 +70,8 @@ public class InvitoPraticaDTO implements Serializable {
     public String toString() {
         return "InvitoPraticaDTO{" +
             "id=" + getId() +
-            ", idPratica=" + getIdPratica() +
-            ", idPraticaId=" + getIdPraticaId() +
+            ", idPraticaRef=" + getIdPraticaRef() +
+            ", idPraticaRefId=" + getIdPraticaRefId() +
             ", praticaId=" + getPraticaId() +
             "}";
     }

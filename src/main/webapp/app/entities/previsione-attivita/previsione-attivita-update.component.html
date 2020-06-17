@@ -12,20 +12,20 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="eoloprjApp.previsioneAttivita.idTask" for="field_idTask">Id Task</label>
-                    <input type="number" class="form-control" name="idTask" id="field_idTask"
-                           formControlName="idTask"/>
-                    <div *ngIf="editForm.get('idTask')!.invalid && (editForm.get('idTask')!.dirty || editForm.get('idTask')!.touched)">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.previsioneAttivita.idTaskRef" for="field_idTaskRef">Id Task Ref</label>
+                    <input type="number" class="form-control" name="idTaskRef" id="field_idTaskRef"
+                           formControlName="idTaskRef"/>
+                    <div *ngIf="editForm.get('idTaskRef')!.invalid && (editForm.get('idTaskRef')!.dirty || editForm.get('idTaskRef')!.touched)">
                         <small class="form-text text-danger"
-                               *ngIf="editForm.get('idTask')?.errors?.required" jhiTranslate="entity.validation.required">
+                               *ngIf="editForm.get('idTaskRef')?.errors?.required" jhiTranslate="entity.validation.required">
                         This field is required.
                         </small>
                         <small class="form-text text-danger"
-                               *ngIf="editForm.get('idTask')?.errors?.max" jhiTranslate="entity.validation.max" [translateValues]="{ max: 8 }">
+                               *ngIf="editForm.get('idTaskRef')?.errors?.max" jhiTranslate="entity.validation.max" [translateValues]="{ max: 8 }">
                             This field cannot be more than 8.
                         </small>
                         <small class="form-text text-danger"
-                            [hidden]="!editForm.get('idTask')?.errors?.number" jhiTranslate="entity.validation.number">
+                            [hidden]="!editForm.get('idTaskRef')?.errors?.number" jhiTranslate="entity.validation.number">
                             This field should be a number.
                         </small>
                     </div>
@@ -56,10 +56,10 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="eoloprjApp.previsioneAttivita.idTask" for="field_idTask">Id Task</label>
-                    <select class="form-control" id="field_idTask" name="idTask" formControlName="idTaskId">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.previsioneAttivita.idTaskRef" for="field_idTaskRef">Id Task Ref</label>
+                    <select class="form-control" id="field_idTaskRef" name="idTaskRef" formControlName="idTaskRefId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="previsioneTaskOption.id" *ngFor="let previsioneTaskOption of idtasks; trackBy: trackById">{{ previsioneTaskOption.id }}</option>
+                        <option [ngValue]="previsioneTaskOption.id" *ngFor="let previsioneTaskOption of idtaskrefs; trackBy: trackById">{{ previsioneTaskOption.id }}</option>
                     </select>
                 </div>
             </div>

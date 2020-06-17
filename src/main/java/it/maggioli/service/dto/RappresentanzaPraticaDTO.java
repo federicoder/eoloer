@@ -15,7 +15,7 @@ public class RappresentanzaPraticaDTO implements Serializable {
     private Integer idRuoloPersona;
 
     @NotNull
-    private Integer idPersona;
+    private Integer idPersonaRef;
 
     private Ruoli ruoli;
 
@@ -38,12 +38,12 @@ public class RappresentanzaPraticaDTO implements Serializable {
         this.idRuoloPersona = idRuoloPersona;
     }
 
-    public Integer getIdPersona() {
-        return idPersona;
+    public Integer getIdPersonaRef() {
+        return idPersonaRef;
     }
 
-    public void setIdPersona(Integer idPersona) {
-        this.idPersona = idPersona;
+    public void setIdPersonaRef(Integer idPersonaRef) {
+        this.idPersonaRef = idPersonaRef;
     }
 
     public Ruoli getRuoli() {
@@ -85,7 +85,7 @@ public class RappresentanzaPraticaDTO implements Serializable {
         return "RappresentanzaPraticaDTO{" +
             "id=" + getId() +
             ", idRuoloPersona=" + getIdRuoloPersona() +
-            ", idPersona=" + getIdPersona() +
+            ", idPersonaRef=" + getIdPersonaRef() +
             ", ruoli='" + getRuoli() + "'" +
             ", personaId=" + getPersonaId() +
             "}";

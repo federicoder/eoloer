@@ -15,8 +15,8 @@ public interface OrdineMapper extends EntityMapper<OrdineDTO, Ordine> {
     @Mapping(source = "studioProfessionale.id", target = "studioProfessionaleId")
     OrdineDTO toDto(Ordine ordine);
 
-    @Mapping(target = "ids", ignore = true)
-    @Mapping(target = "removeId", ignore = true)
+    @Mapping(target = "idOrdines", ignore = true)
+    @Mapping(target = "removeIdOrdine", ignore = true)
     @Mapping(source = "studioProfessionaleId", target = "studioProfessionale")
     Ordine toEntity(OrdineDTO ordineDTO);
 

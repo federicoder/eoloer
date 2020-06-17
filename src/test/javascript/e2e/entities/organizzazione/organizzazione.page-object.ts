@@ -30,11 +30,11 @@ export class OrganizzazioneUpdatePage {
   cancelButton = element(by.id('cancel-save'));
 
   idOrganizzazioneInput = element(by.id('field_idOrganizzazione'));
-  idPersonaInput = element(by.id('field_idPersona'));
+  idPersonaRefInput = element(by.id('field_idPersonaRef'));
   nomeInput = element(by.id('field_nome'));
   tipoInput = element(by.id('field_tipo'));
 
-  idPersonaSelect = element(by.id('field_idPersona'));
+  idPersonaRefSelect = element(by.id('field_idPersonaRef'));
 
   async getPageTitle(): Promise<string> {
     return this.pageTitle.getAttribute('jhiTranslate');
@@ -48,12 +48,12 @@ export class OrganizzazioneUpdatePage {
     return await this.idOrganizzazioneInput.getAttribute('value');
   }
 
-  async setIdPersonaInput(idPersona: string): Promise<void> {
-    await this.idPersonaInput.sendKeys(idPersona);
+  async setIdPersonaRefInput(idPersonaRef: string): Promise<void> {
+    await this.idPersonaRefInput.sendKeys(idPersonaRef);
   }
 
-  async getIdPersonaInput(): Promise<string> {
-    return await this.idPersonaInput.getAttribute('value');
+  async getIdPersonaRefInput(): Promise<string> {
+    return await this.idPersonaRefInput.getAttribute('value');
   }
 
   async setNomeInput(nome: string): Promise<void> {
@@ -72,20 +72,20 @@ export class OrganizzazioneUpdatePage {
     return await this.tipoInput.getAttribute('value');
   }
 
-  async idPersonaSelectLastOption(): Promise<void> {
-    await this.idPersonaSelect.all(by.tagName('option')).last().click();
+  async idPersonaRefSelectLastOption(): Promise<void> {
+    await this.idPersonaRefSelect.all(by.tagName('option')).last().click();
   }
 
-  async idPersonaSelectOption(option: string): Promise<void> {
-    await this.idPersonaSelect.sendKeys(option);
+  async idPersonaRefSelectOption(option: string): Promise<void> {
+    await this.idPersonaRefSelect.sendKeys(option);
   }
 
-  getIdPersonaSelect(): ElementFinder {
-    return this.idPersonaSelect;
+  getIdPersonaRefSelect(): ElementFinder {
+    return this.idPersonaRefSelect;
   }
 
-  async getIdPersonaSelectedOption(): Promise<string> {
-    return await this.idPersonaSelect.element(by.css('option:checked')).getText();
+  async getIdPersonaRefSelectedOption(): Promise<string> {
+    return await this.idPersonaRefSelect.element(by.css('option:checked')).getText();
   }
 
   async save(): Promise<void> {

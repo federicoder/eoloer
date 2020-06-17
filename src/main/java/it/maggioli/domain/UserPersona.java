@@ -5,6 +5,7 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 
 import org.springframework.data.elasticsearch.annotations.FieldType;
 import java.io.Serializable;
@@ -27,23 +28,27 @@ public class UserPersona implements Serializable {
     @SequenceGenerator(name = "sequenceGenerator")
     private Long id;
 
-    @Column(name = "id_persona")
-    private Integer idPersona;
+    @NotNull
+    @Column(name = "id_user_persona", nullable = false)
+    private Integer idUserPersona;
+
+    @Column(name = "id_persona_ref")
+    private Integer idPersonaRef;
 
     @Column(name = "nome_user")
     private Integer nomeUser;
 
     @OneToMany(mappedBy = "userPersona")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<CondivisionePratica> ids = new HashSet<>();
+    private Set<CondivisionePratica> idUserPersonas = new HashSet<>();
 
     @OneToMany(mappedBy = "userPersona")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<AssegnazioneTask> ids = new HashSet<>();
+    private Set<AssegnazioneTask> idUserPersonas = new HashSet<>();
 
     @OneToMany(mappedBy = "userPersona")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<Invitato> ids = new HashSet<>();
+    private Set<Invitato> idUserPersonas = new HashSet<>();
 
     @ManyToOne
     @JsonIgnoreProperties(value = "idPersonaFisicas", allowSetters = true)
@@ -58,17 +63,30 @@ public class UserPersona implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdPersona() {
-        return idPersona;
+    public Integer getIdUserPersona() {
+        return idUserPersona;
     }
 
-    public UserPersona idPersona(Integer idPersona) {
-        this.idPersona = idPersona;
+    public UserPersona idUserPersona(Integer idUserPersona) {
+        this.idUserPersona = idUserPersona;
         return this;
     }
 
-    public void setIdPersona(Integer idPersona) {
-        this.idPersona = idPersona;
+    public void setIdUserPersona(Integer idUserPersona) {
+        this.idUserPersona = idUserPersona;
+    }
+
+    public Integer getIdPersonaRef() {
+        return idPersonaRef;
+    }
+
+    public UserPersona idPersonaRef(Integer idPersonaRef) {
+        this.idPersonaRef = idPersonaRef;
+        return this;
+    }
+
+    public void setIdPersonaRef(Integer idPersonaRef) {
+        this.idPersonaRef = idPersonaRef;
     }
 
     public Integer getNomeUser() {
@@ -84,79 +102,79 @@ public class UserPersona implements Serializable {
         this.nomeUser = nomeUser;
     }
 
-    public Set<CondivisionePratica> getIds() {
-        return ids;
+    public Set<CondivisionePratica> getIdUserPersonas() {
+        return idUserPersonas;
     }
 
-    public UserPersona ids(Set<CondivisionePratica> condivisionePraticas) {
-        this.ids = condivisionePraticas;
+    public UserPersona idUserPersonas(Set<CondivisionePratica> condivisionePraticas) {
+        this.idUserPersonas = condivisionePraticas;
         return this;
     }
 
-    public UserPersona addId(CondivisionePratica condivisionePratica) {
-        this.ids.add(condivisionePratica);
+    public UserPersona addIdUserPersona(CondivisionePratica condivisionePratica) {
+        this.idUserPersonas.add(condivisionePratica);
         condivisionePratica.setUserPersona(this);
         return this;
     }
 
-    public UserPersona removeId(CondivisionePratica condivisionePratica) {
-        this.ids.remove(condivisionePratica);
+    public UserPersona removeIdUserPersona(CondivisionePratica condivisionePratica) {
+        this.idUserPersonas.remove(condivisionePratica);
         condivisionePratica.setUserPersona(null);
         return this;
     }
 
-    public void setIds(Set<CondivisionePratica> condivisionePraticas) {
-        this.ids = condivisionePraticas;
+    public void setIdUserPersonas(Set<CondivisionePratica> condivisionePraticas) {
+        this.idUserPersonas = condivisionePraticas;
     }
 
-    public Set<AssegnazioneTask> getIds() {
-        return ids;
+    public Set<AssegnazioneTask> getIdUserPersonas() {
+        return idUserPersonas;
     }
 
-    public UserPersona ids(Set<AssegnazioneTask> assegnazioneTasks) {
-        this.ids = assegnazioneTasks;
+    public UserPersona idUserPersonas(Set<AssegnazioneTask> assegnazioneTasks) {
+        this.idUserPersonas = assegnazioneTasks;
         return this;
     }
 
-    public UserPersona addId(AssegnazioneTask assegnazioneTask) {
-        this.ids.add(assegnazioneTask);
+    public UserPersona addIdUserPersona(AssegnazioneTask assegnazioneTask) {
+        this.idUserPersonas.add(assegnazioneTask);
         assegnazioneTask.setUserPersona(this);
         return this;
     }
 
-    public UserPersona removeId(AssegnazioneTask assegnazioneTask) {
-        this.ids.remove(assegnazioneTask);
+    public UserPersona removeIdUserPersona(AssegnazioneTask assegnazioneTask) {
+        this.idUserPersonas.remove(assegnazioneTask);
         assegnazioneTask.setUserPersona(null);
         return this;
     }
 
-    public void setIds(Set<AssegnazioneTask> assegnazioneTasks) {
-        this.ids = assegnazioneTasks;
+    public void setIdUserPersonas(Set<AssegnazioneTask> assegnazioneTasks) {
+        this.idUserPersonas = assegnazioneTasks;
     }
 
-    public Set<Invitato> getIds() {
-        return ids;
+    public Set<Invitato> getIdUserPersonas() {
+        return idUserPersonas;
     }
 
-    public UserPersona ids(Set<Invitato> invitatoes) {
-        this.ids = invitatoes;
+    public UserPersona idUserPersonas(Set<Invitato> invitatoes) {
+        this.idUserPersonas = invitatoes;
         return this;
     }
 
-    public UserPersona addId(Invitato invitato) {
-        this.ids.add(invitato);
+    public UserPersona addIdUserPersona(Invitato invitato) {
+        this.idUserPersonas.add(invitato);
         invitato.setUserPersona(this);
         return this;
     }
 
-    public UserPersona removeId(Invitato invitato) {
-        this.ids.remove(invitato);
+    public UserPersona removeIdUserPersona(Invitato invitato) {
+        this.idUserPersonas.remove(invitato);
         invitato.setUserPersona(null);
         return this;
     }
 
-    public void setIds(Set<Invitato> invitatoes) {
-        this.ids = invitatoes;
+    public void setIdUserPersonas(Set<Invitato> invitatoes) {
+        this.idUserPersonas = invitatoes;
     }
 
     public PersonaFisica getPersonaFisica() {
@@ -194,7 +212,8 @@ public class UserPersona implements Serializable {
     public String toString() {
         return "UserPersona{" +
             "id=" + getId() +
-            ", idPersona=" + getIdPersona() +
+            ", idUserPersona=" + getIdUserPersona() +
+            ", idPersonaRef=" + getIdPersonaRef() +
             ", nomeUser=" + getNomeUser() +
             "}";
     }

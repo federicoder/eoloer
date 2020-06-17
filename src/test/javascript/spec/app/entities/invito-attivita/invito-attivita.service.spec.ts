@@ -54,7 +54,7 @@ describe('Service Tests', () => {
       it('should update a InvitoAttivita', () => {
         const returnedFromService = Object.assign(
           {
-            idAttivita: 1,
+            idTaskRef: 1,
           },
           elemDefault
         );
@@ -71,7 +71,7 @@ describe('Service Tests', () => {
       it('should return a list of InvitoAttivita', () => {
         const returnedFromService = Object.assign(
           {
-            idAttivita: 1,
+            idTaskRef: 1,
           },
           elemDefault
         );

@@ -55,8 +55,8 @@ public class TemplateTaskResourceIT {
     private static final Integer DEFAULT_PUB_PRIV = 1;
     private static final Integer UPDATED_PUB_PRIV = 2;
 
-    private static final Integer DEFAULT_ID_TEMPLATE_PRATICA = 1;
-    private static final Integer UPDATED_ID_TEMPLATE_PRATICA = 2;
+    private static final Integer DEFAULT_ID_TEMPLATE_PRATICA_REF = 1;
+    private static final Integer UPDATED_ID_TEMPLATE_PRATICA_REF = 2;
 
     @Autowired
     private TemplateTaskRepository templateTaskRepository;
@@ -96,7 +96,7 @@ public class TemplateTaskResourceIT {
             .nome(DEFAULT_NOME)
             .note(DEFAULT_NOTE)
             .pubPriv(DEFAULT_PUB_PRIV)
-            .idTemplatePratica(DEFAULT_ID_TEMPLATE_PRATICA);
+            .idTemplatePraticaRef(DEFAULT_ID_TEMPLATE_PRATICA_REF);
         return templateTask;
     }
     /**
@@ -112,7 +112,7 @@ public class TemplateTaskResourceIT {
             .nome(UPDATED_NOME)
             .note(UPDATED_NOTE)
             .pubPriv(UPDATED_PUB_PRIV)
-            .idTemplatePratica(UPDATED_ID_TEMPLATE_PRATICA);
+            .idTemplatePraticaRef(UPDATED_ID_TEMPLATE_PRATICA_REF);
         return templateTask;
     }
 
@@ -141,7 +141,7 @@ public class TemplateTaskResourceIT {
         assertThat(testTemplateTask.getNome()).isEqualTo(DEFAULT_NOME);
         assertThat(testTemplateTask.getNote()).isEqualTo(DEFAULT_NOTE);
         assertThat(testTemplateTask.getPubPriv()).isEqualTo(DEFAULT_PUB_PRIV);
-        assertThat(testTemplateTask.getIdTemplatePratica()).isEqualTo(DEFAULT_ID_TEMPLATE_PRATICA);
+        assertThat(testTemplateTask.getIdTemplatePraticaRef()).isEqualTo(DEFAULT_ID_TEMPLATE_PRATICA_REF);
 
         // Validate the TemplateTask in Elasticsearch
         verify(mockTemplateTaskSearchRepository, times(1)).save(testTemplateTask);
@@ -207,7 +207,7 @@ public class TemplateTaskResourceIT {
             .andExpect(jsonPath("$.[*].nome").value(hasItem(DEFAULT_NOME)))
             .andExpect(jsonPath("$.[*].note").value(hasItem(DEFAULT_NOTE)))
             .andExpect(jsonPath("$.[*].pubPriv").value(hasItem(DEFAULT_PUB_PRIV)))
-            .andExpect(jsonPath("$.[*].idTemplatePratica").value(hasItem(DEFAULT_ID_TEMPLATE_PRATICA)));
+            .andExpect(jsonPath("$.[*].idTemplatePraticaRef").value(hasItem(DEFAULT_ID_TEMPLATE_PRATICA_REF)));
     }
     
     @Test
@@ -226,7 +226,7 @@ public class TemplateTaskResourceIT {
             .andExpect(jsonPath("$.nome").value(DEFAULT_NOME))
             .andExpect(jsonPath("$.note").value(DEFAULT_NOTE))
             .andExpect(jsonPath("$.pubPriv").value(DEFAULT_PUB_PRIV))
-            .andExpect(jsonPath("$.idTemplatePratica").value(DEFAULT_ID_TEMPLATE_PRATICA));
+            .andExpect(jsonPath("$.idTemplatePraticaRef").value(DEFAULT_ID_TEMPLATE_PRATICA_REF));
     }
     @Test
     @Transactional
@@ -254,7 +254,7 @@ public class TemplateTaskResourceIT {
             .nome(UPDATED_NOME)
             .note(UPDATED_NOTE)
             .pubPriv(UPDATED_PUB_PRIV)
-            .idTemplatePratica(UPDATED_ID_TEMPLATE_PRATICA);
+            .idTemplatePraticaRef(UPDATED_ID_TEMPLATE_PRATICA_REF);
         TemplateTaskDTO templateTaskDTO = templateTaskMapper.toDto(updatedTemplateTask);
 
         restTemplateTaskMockMvc.perform(put("/api/template-tasks")
@@ -271,7 +271,7 @@ public class TemplateTaskResourceIT {
         assertThat(testTemplateTask.getNome()).isEqualTo(UPDATED_NOME);
         assertThat(testTemplateTask.getNote()).isEqualTo(UPDATED_NOTE);
         assertThat(testTemplateTask.getPubPriv()).isEqualTo(UPDATED_PUB_PRIV);
-        assertThat(testTemplateTask.getIdTemplatePratica()).isEqualTo(UPDATED_ID_TEMPLATE_PRATICA);
+        assertThat(testTemplateTask.getIdTemplatePraticaRef()).isEqualTo(UPDATED_ID_TEMPLATE_PRATICA_REF);
 
         // Validate the TemplateTask in Elasticsearch
         verify(mockTemplateTaskSearchRepository, times(1)).save(testTemplateTask);
@@ -339,6 +339,6 @@ public class TemplateTaskResourceIT {
             .andExpect(jsonPath("$.[*].nome").value(hasItem(DEFAULT_NOME)))
             .andExpect(jsonPath("$.[*].note").value(hasItem(DEFAULT_NOTE)))
             .andExpect(jsonPath("$.[*].pubPriv").value(hasItem(DEFAULT_PUB_PRIV)))
-            .andExpect(jsonPath("$.[*].idTemplatePratica").value(hasItem(DEFAULT_ID_TEMPLATE_PRATICA)));
+            .andExpect(jsonPath("$.[*].idTemplatePraticaRef").value(hasItem(DEFAULT_ID_TEMPLATE_PRATICA_REF)));
     }
 }

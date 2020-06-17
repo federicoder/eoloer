@@ -9,7 +9,7 @@ public class InvitoEventoDTO implements Serializable {
     
     private Long id;
 
-    private Integer idAttivita;
+    private Integer idTaskRef;
 
     private String luogoFisico;
 
@@ -26,7 +26,7 @@ public class InvitoEventoDTO implements Serializable {
     private String urlStanzaVirtuale;
 
 
-    private Long idAttivitaId;
+    private Long idTaskRefId;
 
     private Long previsioneEventoId;
     
@@ -38,12 +38,12 @@ public class InvitoEventoDTO implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdAttivita() {
-        return idAttivita;
+    public Integer getIdTaskRef() {
+        return idTaskRef;
     }
 
-    public void setIdAttivita(Integer idAttivita) {
-        this.idAttivita = idAttivita;
+    public void setIdTaskRef(Integer idTaskRef) {
+        this.idTaskRef = idTaskRef;
     }
 
     public String getLuogoFisico() {
@@ -102,12 +102,12 @@ public class InvitoEventoDTO implements Serializable {
         this.urlStanzaVirtuale = urlStanzaVirtuale;
     }
 
-    public Long getIdAttivitaId() {
-        return idAttivitaId;
+    public Long getIdTaskRefId() {
+        return idTaskRefId;
     }
 
-    public void setIdAttivitaId(Long invitoId) {
-        this.idAttivitaId = invitoId;
+    public void setIdTaskRefId(Long invitoId) {
+        this.idTaskRefId = invitoId;
     }
 
     public Long getPrevisioneEventoId() {
@@ -140,7 +140,7 @@ public class InvitoEventoDTO implements Serializable {
     public String toString() {
         return "InvitoEventoDTO{" +
             "id=" + getId() +
-            ", idAttivita=" + getIdAttivita() +
+            ", idTaskRef=" + getIdTaskRef() +
             ", luogoFisico='" + getLuogoFisico() + "'" +
             ", indicazioniLuogo='" + getIndicazioniLuogo() + "'" +
             ", dataInizio='" + getDataInizio() + "'" +
@@ -148,7 +148,7 @@ public class InvitoEventoDTO implements Serializable {
             ", dataFine='" + getDataFine() + "'" +
             ", oraFine='" + getOraFine() + "'" +
             ", urlStanzaVirtuale='" + getUrlStanzaVirtuale() + "'" +
-            ", idAttivitaId=" + getIdAttivitaId() +
+            ", idTaskRefId=" + getIdTaskRefId() +
             ", previsioneEventoId=" + getPrevisioneEventoId() +
             "}";
     }

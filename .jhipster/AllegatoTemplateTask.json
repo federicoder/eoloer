@@ -2,13 +2,13 @@
   "name": "AllegatoTemplateTask",
   "fields": [
     {
-      "fieldName": "idTemplateTask",
+      "fieldName": "idTemplateTaskRef",
       "fieldType": "Integer",
       "fieldValidateRules": ["required", "max"],
       "fieldValidateRulesMax": "8"
     },
     {
-      "fieldName": "tipoAllegato",
+      "fieldName": "idTipoAllegatoRef",
       "fieldType": "Integer"
     },
     {
@@ -16,7 +16,7 @@
       "fieldType": "Integer"
     },
     {
-      "fieldName": "idFile",
+      "fieldName": "idFileRef",
       "fieldType": "Integer"
     },
     {

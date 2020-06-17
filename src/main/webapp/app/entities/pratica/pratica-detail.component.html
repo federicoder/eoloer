@@ -8,9 +8,13 @@
             <jhi-alert-error></jhi-alert-error>
 
             <dl class="row-md jh-entity-details">
-                <dt><span jhiTranslate="eoloprjApp.pratica.idStudio">Id Studio</span></dt>
+                <dt><span jhiTranslate="eoloprjApp.pratica.idPratica">Id Pratica</span></dt>
                 <dd>
-                    <span>{{ pratica.idStudio }}</span>
+                    <span>{{ pratica.idPratica }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.pratica.idStudioProfessionaleRef">Id Studio Professionale Ref</span></dt>
+                <dd>
+                    <span>{{ pratica.idStudioProfessionaleRef }}</span>
                 </dd>
                 <dt><span jhiTranslate="eoloprjApp.pratica.numero">Numero</span></dt>
                 <dd>
@@ -56,14 +60,14 @@
                 <dd>
                     <span>{{ pratica.valuta }}</span>
                 </dd>
-                <dt><span jhiTranslate="eoloprjApp.pratica.idTemplatePratica">Id Template Pratica</span></dt>
+                <dt><span jhiTranslate="eoloprjApp.pratica.idTemplatePraticaRef">Id Template Pratica Ref</span></dt>
                 <dd>
-                    <span>{{ pratica.idTemplatePratica }}</span>
+                    <span>{{ pratica.idTemplatePraticaRef }}</span>
                 </dd>
-                <dt><span jhiTranslate="eoloprjApp.pratica.idTemplate">Id Template</span></dt>
+                <dt><span jhiTranslate="eoloprjApp.pratica.idTemplatePraticaRef">Id Template Pratica Ref</span></dt>
                 <dd>
-                    <div *ngIf="pratica.idTemplateId">
-                        <a [routerLink]="['/template-pratica', pratica.idTemplateId, 'view']">{{ pratica.idTemplateId }}</a>
+                    <div *ngIf="pratica.idTemplatePraticaRefId">
+                        <a [routerLink]="['/template-pratica', pratica.idTemplatePraticaRefId, 'view']">{{ pratica.idTemplatePraticaRefId }}</a>
                     </div>
                 </dd>
             </dl>

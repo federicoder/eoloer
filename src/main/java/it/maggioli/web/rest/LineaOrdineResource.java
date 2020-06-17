@@ -89,9 +89,9 @@ public class LineaOrdineResource {
      */
     @GetMapping("/linea-ordines")
     public List<LineaOrdineDTO> getAllLineaOrdines(@RequestParam(required = false) String filter) {
-        if ("idprodotto-is-null".equals(filter)) {
-            log.debug("REST request to get all LineaOrdines where idProdotto is null");
-            return lineaOrdineService.findAllWhereIdProdottoIsNull();
+        if ("idprodottoref-is-null".equals(filter)) {
+            log.debug("REST request to get all LineaOrdines where idProdottoRef is null");
+            return lineaOrdineService.findAllWhereIdProdottoRefIsNull();
         }
         log.debug("REST request to get all LineaOrdines");
         return lineaOrdineService.findAll();

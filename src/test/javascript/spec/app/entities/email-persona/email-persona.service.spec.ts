@@ -54,7 +54,7 @@ describe('Service Tests', () => {
       it('should update a EmailPersona', () => {
         const returnedFromService = Object.assign(
           {
-            idPersona: 1,
+            idPersonaRef: 1,
             etichetta: 1,
             numero: 1,
           },
@@ -73,7 +73,7 @@ describe('Service Tests', () => {
       it('should return a list of EmailPersona', () => {
         const returnedFromService = Object.assign(
           {
-            idPersona: 1,
+            idPersonaRef: 1,
             etichetta: 1,
             numero: 1,
           },

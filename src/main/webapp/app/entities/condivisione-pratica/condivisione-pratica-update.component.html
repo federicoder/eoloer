@@ -12,6 +12,26 @@
                 </div>
 
                 <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.condivisionePratica.idCondivisionePratica" for="field_idCondivisionePratica">Id Condivisione Pratica</label>
+                    <input type="number" class="form-control" name="idCondivisionePratica" id="field_idCondivisionePratica"
+                           formControlName="idCondivisionePratica"/>
+                    <div *ngIf="editForm.get('idCondivisionePratica')!.invalid && (editForm.get('idCondivisionePratica')!.dirty || editForm.get('idCondivisionePratica')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('idCondivisionePratica')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('idCondivisionePratica')?.errors?.max" jhiTranslate="entity.validation.max" [translateValues]="{ max: 8 }">
+                            This field cannot be more than 8.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('idCondivisionePratica')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
                     <label class="form-control-label" jhiTranslate="eoloprjApp.condivisionePratica.idUserAmmesso" for="field_idUserAmmesso">Id User Ammesso</label>
                     <input type="number" class="form-control" name="idUserAmmesso" id="field_idUserAmmesso"
                            formControlName="idUserAmmesso"/>
@@ -46,9 +66,9 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="eoloprjApp.condivisionePratica.idPratica" for="field_idPratica">Id Pratica</label>
-                    <input type="number" class="form-control" name="idPratica" id="field_idPratica"
-                           formControlName="idPratica"/>
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.condivisionePratica.idPraticaRef" for="field_idPraticaRef">Id Pratica Ref</label>
+                    <input type="number" class="form-control" name="idPraticaRef" id="field_idPraticaRef"
+                           formControlName="idPraticaRef"/>
                 </div>
 
                 <div class="form-group">

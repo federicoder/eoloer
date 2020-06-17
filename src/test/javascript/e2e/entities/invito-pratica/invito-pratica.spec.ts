@@ -44,12 +44,12 @@ describe('InvitoPratica e2e test', () => {
     await invitoPraticaComponentsPage.clickOnCreateButton();
 
     await promise.all([
-      invitoPraticaUpdatePage.setIdPraticaInput('5'),
-      invitoPraticaUpdatePage.idPraticaSelectLastOption(),
+      invitoPraticaUpdatePage.setIdPraticaRefInput('5'),
+      invitoPraticaUpdatePage.idPraticaRefSelectLastOption(),
       invitoPraticaUpdatePage.praticaSelectLastOption(),
     ]);
 
-    expect(await invitoPraticaUpdatePage.getIdPraticaInput()).to.eq('5', 'Expected idPratica value to be equals to 5');
+    expect(await invitoPraticaUpdatePage.getIdPraticaRefInput()).to.eq('5', 'Expected idPraticaRef value to be equals to 5');
 
     await invitoPraticaUpdatePage.save();
     expect(await invitoPraticaUpdatePage.getSaveButton().isPresent(), 'Expected save button disappear').to.be.false;

@@ -89,9 +89,9 @@ public class AssegnazioneTaskResource {
      */
     @GetMapping("/assegnazione-tasks")
     public List<AssegnazioneTaskDTO> getAllAssegnazioneTasks(@RequestParam(required = false) String filter) {
-        if ("idattivita-is-null".equals(filter)) {
-            log.debug("REST request to get all AssegnazioneTasks where idAttivita is null");
-            return assegnazioneTaskService.findAllWhereIdAttivitaIsNull();
+        if ("idtaskref-is-null".equals(filter)) {
+            log.debug("REST request to get all AssegnazioneTasks where idTaskRef is null");
+            return assegnazioneTaskService.findAllWhereIdTaskRefIsNull();
         }
         log.debug("REST request to get all AssegnazioneTasks");
         return assegnazioneTaskService.findAll();

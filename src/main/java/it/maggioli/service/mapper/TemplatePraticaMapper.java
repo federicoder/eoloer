@@ -13,8 +13,8 @@ import org.mapstruct.*;
 public interface TemplatePraticaMapper extends EntityMapper<TemplatePraticaDTO, TemplatePratica> {
 
 
-    @Mapping(target = "idTemplates", ignore = true)
-    @Mapping(target = "removeIdTemplate", ignore = true)
+    @Mapping(target = "idTemplatePraticas", ignore = true)
+    @Mapping(target = "removeIdTemplatePratica", ignore = true)
     TemplatePratica toEntity(TemplatePraticaDTO templatePraticaDTO);
 
     default TemplatePratica fromId(Long id) {

@@ -44,16 +44,16 @@ describe('PrevisioneEvento e2e test', () => {
     await previsioneEventoComponentsPage.clickOnCreateButton();
 
     await promise.all([
-      previsioneEventoUpdatePage.setIdTaskInput('5'),
+      previsioneEventoUpdatePage.setIdTaskRefInput('5'),
       previsioneEventoUpdatePage.setDataInizioInput('dataInizio'),
       previsioneEventoUpdatePage.setDataFineInput('dataFine'),
       previsioneEventoUpdatePage.setLuogoInput('luogo'),
       previsioneEventoUpdatePage.setIndicazioniLuogoInput('indicazioniLuogo'),
       previsioneEventoUpdatePage.setVersionInput('version'),
-      previsioneEventoUpdatePage.idTaskSelectLastOption(),
+      previsioneEventoUpdatePage.idTaskRefSelectLastOption(),
     ]);
 
-    expect(await previsioneEventoUpdatePage.getIdTaskInput()).to.eq('5', 'Expected idTask value to be equals to 5');
+    expect(await previsioneEventoUpdatePage.getIdTaskRefInput()).to.eq('5', 'Expected idTaskRef value to be equals to 5');
     expect(await previsioneEventoUpdatePage.getDataInizioInput()).to.eq(
       'dataInizio',
       'Expected DataInizio value to be equals to dataInizio'

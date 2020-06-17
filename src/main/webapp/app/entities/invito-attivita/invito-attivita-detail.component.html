@@ -8,14 +8,14 @@
             <jhi-alert-error></jhi-alert-error>
 
             <dl class="row-md jh-entity-details">
-                <dt><span jhiTranslate="eoloprjApp.invitoAttivita.idAttivita">Id Attivita</span></dt>
+                <dt><span jhiTranslate="eoloprjApp.invitoAttivita.idTaskRef">Id Task Ref</span></dt>
                 <dd>
-                    <span>{{ invitoAttivita.idAttivita }}</span>
+                    <span>{{ invitoAttivita.idTaskRef }}</span>
                 </dd>
-                <dt><span jhiTranslate="eoloprjApp.invitoAttivita.idAttivita">Id Attivita</span></dt>
+                <dt><span jhiTranslate="eoloprjApp.invitoAttivita.idTaskRef">Id Task Ref</span></dt>
                 <dd>
-                    <div *ngIf="invitoAttivita.idAttivitaId">
-                        <a [routerLink]="['/invito', invitoAttivita.idAttivitaId, 'view']">{{ invitoAttivita.idAttivitaId }}</a>
+                    <div *ngIf="invitoAttivita.idTaskRefId">
+                        <a [routerLink]="['/invito', invitoAttivita.idTaskRefId, 'view']">{{ invitoAttivita.idTaskRefId }}</a>
                     </div>
                 </dd>
             </dl>

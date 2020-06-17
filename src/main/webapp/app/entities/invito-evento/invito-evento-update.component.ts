@@ -21,12 +21,12 @@ type SelectableEntity = IInvito | IPrevisioneEvento;
 })
 export class InvitoEventoUpdateComponent implements OnInit {
   isSaving = false;
-  idattivitas: IInvito[] = [];
+  idtaskrefs: IInvito[] = [];
   previsioneeventos: IPrevisioneEvento[] = [];
 
   editForm = this.fb.group({
     id: [],
-    idAttivita: [],
+    idTaskRef: [],
     luogoFisico: [],
     indicazioniLuogo: [],
     dataInizio: [],
@@ -34,7 +34,7 @@ export class InvitoEventoUpdateComponent implements OnInit {
     dataFine: [],
     oraFine: [],
     urlStanzaVirtuale: [],
-    idAttivitaId: [],
+    idTaskRefId: [],
     previsioneEventoId: [],
   });
 
@@ -51,24 +51,24 @@ export class InvitoEventoUpdateComponent implements OnInit {
       this.updateForm(invitoEvento);
 
       this.invitoService
-        .query({ filter: 'id-is-null' })
+        .query({ filter: 'idinvito-is-null' })
         .pipe(
           map((res: HttpResponse<IInvito[]>) => {
             return res.body || [];
           })
         )
         .subscribe((resBody: IInvito[]) => {
-          if (!invitoEvento.idAttivitaId) {
-            this.idattivitas = resBody;
+          if (!invitoEvento.idTaskRefId) {
+            this.idtaskrefs = resBody;
           } else {
             this.invitoService
-              .find(invitoEvento.idAttivitaId)
+              .find(invitoEvento.idTaskRefId)
               .pipe(
                 map((subRes: HttpResponse<IInvito>) => {
                   return subRes.body ? [subRes.body].concat(resBody) : resBody;
                 })
               )
-              .subscribe((concatRes: IInvito[]) => (this.idattivitas = concatRes));
+              .subscribe((concatRes: IInvito[]) => (this.idtaskrefs = concatRes));
           }
         });
 
@@ -79,7 +79,7 @@ export class InvitoEventoUpdateComponent implements OnInit {
   updateForm(invitoEvento: IInvitoEvento): void {
     this.editForm.patchValue({
       id: invitoEvento.id,
-      idAttivita: invitoEvento.idAttivita,
+      idTaskRef: invitoEvento.idTaskRef,
       luogoFisico: invitoEvento.luogoFisico,
       indicazioniLuogo: invitoEvento.indicazioniLuogo,
       dataInizio: invitoEvento.dataInizio,
@@ -87,7 +87,7 @@ export class InvitoEventoUpdateComponent implements OnInit {
       dataFine: invitoEvento.dataFine,
       oraFine: invitoEvento.oraFine,
       urlStanzaVirtuale: invitoEvento.urlStanzaVirtuale,
-      idAttivitaId: invitoEvento.idAttivitaId,
+      idTaskRefId: invitoEvento.idTaskRefId,
       previsioneEventoId: invitoEvento.previsioneEventoId,
     });
   }
@@ -110,7 +110,7 @@ export class InvitoEventoUpdateComponent implements OnInit {
     return {
       ...new InvitoEvento(),
       id: this.editForm.get(['id'])!.value,
-      idAttivita: this.editForm.get(['idAttivita'])!.value,
+      idTaskRef: this.editForm.get(['idTaskRef'])!.value,
       luogoFisico: this.editForm.get(['luogoFisico'])!.value,
       indicazioniLuogo: this.editForm.get(['indicazioniLuogo'])!.value,
       dataInizio: this.editForm.get(['dataInizio'])!.value,
@@ -118,7 +118,7 @@ export class InvitoEventoUpdateComponent implements OnInit {
       dataFine: this.editForm.get(['dataFine'])!.value,
       oraFine: this.editForm.get(['oraFine'])!.value,
       urlStanzaVirtuale: this.editForm.get(['urlStanzaVirtuale'])!.value,
-      idAttivitaId: this.editForm.get(['idAttivitaId'])!.value,
+      idTaskRefId: this.editForm.get(['idTaskRefId'])!.value,
       previsioneEventoId: this.editForm.get(['previsioneEventoId'])!.value,
     };
   }

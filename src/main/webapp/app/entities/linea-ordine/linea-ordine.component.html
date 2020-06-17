@@ -41,8 +41,8 @@
             <thead>
                 <tr>
                     <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
-                    <th scope="col" ><span jhiTranslate="eoloprjApp.lineaOrdine.idOrdine">Id Ordine</span></th>
-                    <th scope="col" ><span jhiTranslate="eoloprjApp.lineaOrdine.idProdotto">Id Prodotto</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.lineaOrdine.idOrdineRef">Id Ordine Ref</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.lineaOrdine.idProdottoRef">Id Prodotto Ref</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.lineaOrdine.quantita">Quantita</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.lineaOrdine.importo">Importo</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.lineaOrdine.codIva">Cod Iva</span></th>
@@ -53,8 +53,8 @@
             <tbody>
                 <tr *ngFor="let lineaOrdine of lineaOrdines ;trackBy: trackId">
                     <td><a [routerLink]="['/linea-ordine', lineaOrdine.id, 'view']">{{ lineaOrdine.id }}</a></td>
-                    <td>{{ lineaOrdine.idOrdine }}</td>
-                    <td>{{ lineaOrdine.idProdotto }}</td>
+                    <td>{{ lineaOrdine.idOrdineRef }}</td>
+                    <td>{{ lineaOrdine.idProdottoRef }}</td>
                     <td>{{ lineaOrdine.quantita }}</td>
                     <td>{{ lineaOrdine.importo }}</td>
                     <td>{{ lineaOrdine.codIva }}</td>

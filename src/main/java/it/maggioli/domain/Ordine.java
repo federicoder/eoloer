@@ -29,8 +29,12 @@ public class Ordine implements Serializable {
     private Long id;
 
     @NotNull
-    @Column(name = "id_studio_professionale", nullable = false)
-    private Integer idStudioProfessionale;
+    @Column(name = "id_ordine", nullable = false)
+    private Integer idOrdine;
+
+    @NotNull
+    @Column(name = "id_studio_professionale_ref", nullable = false)
+    private Integer idStudioProfessionaleRef;
 
     @Column(name = "stato_ordine")
     private Integer statoOrdine;
@@ -46,10 +50,10 @@ public class Ordine implements Serializable {
 
     @OneToMany(mappedBy = "ordine")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<LineaOrdine> ids = new HashSet<>();
+    private Set<LineaOrdine> idOrdines = new HashSet<>();
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "ids", allowSetters = true)
+    @JsonIgnoreProperties(value = "idStudioProfessionales", allowSetters = true)
     private StudioProfessionale studioProfessionale;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
@@ -61,17 +65,30 @@ public class Ordine implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdStudioProfessionale() {
-        return idStudioProfessionale;
+    public Integer getIdOrdine() {
+        return idOrdine;
     }
 
-    public Ordine idStudioProfessionale(Integer idStudioProfessionale) {
-        this.idStudioProfessionale = idStudioProfessionale;
+    public Ordine idOrdine(Integer idOrdine) {
+        this.idOrdine = idOrdine;
         return this;
     }
 
-    public void setIdStudioProfessionale(Integer idStudioProfessionale) {
-        this.idStudioProfessionale = idStudioProfessionale;
+    public void setIdOrdine(Integer idOrdine) {
+        this.idOrdine = idOrdine;
+    }
+
+    public Integer getIdStudioProfessionaleRef() {
+        return idStudioProfessionaleRef;
+    }
+
+    public Ordine idStudioProfessionaleRef(Integer idStudioProfessionaleRef) {
+        this.idStudioProfessionaleRef = idStudioProfessionaleRef;
+        return this;
+    }
+
+    public void setIdStudioProfessionaleRef(Integer idStudioProfessionaleRef) {
+        this.idStudioProfessionaleRef = idStudioProfessionaleRef;
     }
 
     public Integer getStatoOrdine() {
@@ -126,29 +143,29 @@ public class Ordine implements Serializable {
         this.totOrdine = totOrdine;
     }
 
-    public Set<LineaOrdine> getIds() {
-        return ids;
+    public Set<LineaOrdine> getIdOrdines() {
+        return idOrdines;
     }
 
-    public Ordine ids(Set<LineaOrdine> lineaOrdines) {
-        this.ids = lineaOrdines;
+    public Ordine idOrdines(Set<LineaOrdine> lineaOrdines) {
+        this.idOrdines = lineaOrdines;
         return this;
     }
 
-    public Ordine addId(LineaOrdine lineaOrdine) {
-        this.ids.add(lineaOrdine);
+    public Ordine addIdOrdine(LineaOrdine lineaOrdine) {
+        this.idOrdines.add(lineaOrdine);
         lineaOrdine.setOrdine(this);
         return this;
     }
 
-    public Ordine removeId(LineaOrdine lineaOrdine) {
-        this.ids.remove(lineaOrdine);
+    public Ordine removeIdOrdine(LineaOrdine lineaOrdine) {
+        this.idOrdines.remove(lineaOrdine);
         lineaOrdine.setOrdine(null);
         return this;
     }
 
-    public void setIds(Set<LineaOrdine> lineaOrdines) {
-        this.ids = lineaOrdines;
+    public void setIdOrdines(Set<LineaOrdine> lineaOrdines) {
+        this.idOrdines = lineaOrdines;
     }
 
     public StudioProfessionale getStudioProfessionale() {
@@ -186,7 +203,8 @@ public class Ordine implements Serializable {
     public String toString() {
         return "Ordine{" +
             "id=" + getId() +
-            ", idStudioProfessionale=" + getIdStudioProfessionale() +
+            ", idOrdine=" + getIdOrdine() +
+            ", idStudioProfessionaleRef=" + getIdStudioProfessionaleRef() +
             ", statoOrdine=" + getStatoOrdine() +
             ", totImponibile=" + getTotImponibile() +
             ", totIva=" + getTotIva() +

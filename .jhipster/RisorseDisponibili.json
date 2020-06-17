@@ -2,7 +2,7 @@
   "name": "RisorseDisponibili",
   "fields": [
     {
-      "fieldName": "idStudioProfessionale",
+      "fieldName": "idStudioProfessionaleRef",
       "fieldType": "Integer",
       "fieldValidateRules": ["required"]
     },
@@ -23,7 +23,7 @@
     {
       "relationshipType": "many-to-one",
       "otherEntityName": "studioProfessionale",
-      "otherEntityRelationshipName": "id",
+      "otherEntityRelationshipName": "idStudioProfessionale",
       "relationshipName": "studioProfessionale",
       "otherEntityField": "id"
     }

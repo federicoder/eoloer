@@ -29,7 +29,8 @@ export class AssegnazioneTaskUpdatePage {
   saveButton = element(by.id('save-entity'));
   cancelButton = element(by.id('cancel-save'));
 
-  idAttivitaInput = element(by.id('field_idAttivita'));
+  idAssegnazioneTaskInput = element(by.id('field_idAssegnazioneTask'));
+  idTaskRefInput = element(by.id('field_idTaskRef'));
   idUserAmmessoInput = element(by.id('field_idUserAmmesso'));
   ruoloInput = element(by.id('field_ruolo'));
   idUserConcedenteInput = element(by.id('field_idUserConcedente'));
@@ -42,12 +43,20 @@ export class AssegnazioneTaskUpdatePage {
     return this.pageTitle.getAttribute('jhiTranslate');
   }
 
-  async setIdAttivitaInput(idAttivita: string): Promise<void> {
-    await this.idAttivitaInput.sendKeys(idAttivita);
+  async setIdAssegnazioneTaskInput(idAssegnazioneTask: string): Promise<void> {
+    await this.idAssegnazioneTaskInput.sendKeys(idAssegnazioneTask);
   }
 
-  async getIdAttivitaInput(): Promise<string> {
-    return await this.idAttivitaInput.getAttribute('value');
+  async getIdAssegnazioneTaskInput(): Promise<string> {
+    return await this.idAssegnazioneTaskInput.getAttribute('value');
+  }
+
+  async setIdTaskRefInput(idTaskRef: string): Promise<void> {
+    await this.idTaskRefInput.sendKeys(idTaskRef);
+  }
+
+  async getIdTaskRefInput(): Promise<string> {
+    return await this.idTaskRefInput.getAttribute('value');
   }
 
   async setIdUserAmmessoInput(idUserAmmesso: string): Promise<void> {

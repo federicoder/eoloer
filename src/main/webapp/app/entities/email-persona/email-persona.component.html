@@ -41,7 +41,7 @@
             <thead>
                 <tr>
                     <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
-                    <th scope="col" ><span jhiTranslate="eoloprjApp.emailPersona.idPersona">Id Persona</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.emailPersona.idPersonaRef">Id Persona Ref</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.emailPersona.etichetta">Etichetta</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.emailPersona.numero">Numero</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.emailPersona.persona">Persona</span></th>
@@ -51,7 +51,7 @@
             <tbody>
                 <tr *ngFor="let emailPersona of emailPersonas ;trackBy: trackId">
                     <td><a [routerLink]="['/email-persona', emailPersona.id, 'view']">{{ emailPersona.id }}</a></td>
-                    <td>{{ emailPersona.idPersona }}</td>
+                    <td>{{ emailPersona.idPersonaRef }}</td>
                     <td>{{ emailPersona.etichetta }}</td>
                     <td>{{ emailPersona.numero }}</td>
                     <td>

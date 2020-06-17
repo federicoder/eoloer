@@ -12,7 +12,7 @@ public class ConsuntivoTaskDTO implements Serializable {
 
     @NotNull
     @Max(value = 8)
-    private Integer idTask;
+    private Integer idTaskRef;
 
     private String dataInizio;
 
@@ -31,12 +31,12 @@ public class ConsuntivoTaskDTO implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdTask() {
-        return idTask;
+    public Integer getIdTaskRef() {
+        return idTaskRef;
     }
 
-    public void setIdTask(Integer idTask) {
-        this.idTask = idTask;
+    public void setIdTaskRef(Integer idTaskRef) {
+        this.idTaskRef = idTaskRef;
     }
 
     public String getDataInizio() {
@@ -93,7 +93,7 @@ public class ConsuntivoTaskDTO implements Serializable {
     public String toString() {
         return "ConsuntivoTaskDTO{" +
             "id=" + getId() +
-            ", idTask=" + getIdTask() +
+            ", idTaskRef=" + getIdTaskRef() +
             ", dataInizio='" + getDataInizio() + "'" +
             ", dataFine='" + getDataFine() + "'" +
             ", timeLine=" + getTimeLine() +

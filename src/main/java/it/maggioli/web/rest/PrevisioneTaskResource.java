@@ -89,17 +89,17 @@ public class PrevisioneTaskResource {
      */
     @GetMapping("/previsione-tasks")
     public List<PrevisioneTaskDTO> getAllPrevisioneTasks(@RequestParam(required = false) String filter) {
-        if ("idtask-is-null".equals(filter)) {
-            log.debug("REST request to get all PrevisioneTasks where idTask is null");
-            return previsioneTaskService.findAllWhereIdTaskIsNull();
+        if ("idtaskref-is-null".equals(filter)) {
+            log.debug("REST request to get all PrevisioneTasks where idTaskRef is null");
+            return previsioneTaskService.findAllWhereIdTaskRefIsNull();
         }
-        if ("idtask-is-null".equals(filter)) {
-            log.debug("REST request to get all PrevisioneTasks where idTask is null");
-            return previsioneTaskService.findAllWhereIdTaskIsNull();
+        if ("idtaskref-is-null".equals(filter)) {
+            log.debug("REST request to get all PrevisioneTasks where idTaskRef is null");
+            return previsioneTaskService.findAllWhereIdTaskRefIsNull();
         }
-        if ("idtask-is-null".equals(filter)) {
-            log.debug("REST request to get all PrevisioneTasks where idTask is null");
-            return previsioneTaskService.findAllWhereIdTaskIsNull();
+        if ("idtaskref-is-null".equals(filter)) {
+            log.debug("REST request to get all PrevisioneTasks where idTaskRef is null");
+            return previsioneTaskService.findAllWhereIdTaskRefIsNull();
         }
         log.debug("REST request to get all PrevisioneTasks");
         return previsioneTaskService.findAll();

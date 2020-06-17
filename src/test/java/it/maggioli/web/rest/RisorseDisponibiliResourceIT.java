@@ -40,8 +40,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WithMockUser
 public class RisorseDisponibiliResourceIT {
 
-    private static final Integer DEFAULT_ID_STUDIO_PROFESSIONALE = 1;
-    private static final Integer UPDATED_ID_STUDIO_PROFESSIONALE = 2;
+    private static final Integer DEFAULT_ID_STUDIO_PROFESSIONALE_REF = 1;
+    private static final Integer UPDATED_ID_STUDIO_PROFESSIONALE_REF = 2;
 
     private static final String DEFAULT_DATA_ATTIVAZIONE_LICENZA = "AAAAAAAAAA";
     private static final String UPDATED_DATA_ATTIVAZIONE_LICENZA = "BBBBBBBBBB";
@@ -85,7 +85,7 @@ public class RisorseDisponibiliResourceIT {
      */
     public static RisorseDisponibili createEntity(EntityManager em) {
         RisorseDisponibili risorseDisponibili = new RisorseDisponibili()
-            .idStudioProfessionale(DEFAULT_ID_STUDIO_PROFESSIONALE)
+            .idStudioProfessionaleRef(DEFAULT_ID_STUDIO_PROFESSIONALE_REF)
             .dataAttivazioneLicenza(DEFAULT_DATA_ATTIVAZIONE_LICENZA)
             .nrLicenza(DEFAULT_NR_LICENZA)
             .storageTotale(DEFAULT_STORAGE_TOTALE);
@@ -99,7 +99,7 @@ public class RisorseDisponibiliResourceIT {
      */
     public static RisorseDisponibili createUpdatedEntity(EntityManager em) {
         RisorseDisponibili risorseDisponibili = new RisorseDisponibili()
-            .idStudioProfessionale(UPDATED_ID_STUDIO_PROFESSIONALE)
+            .idStudioProfessionaleRef(UPDATED_ID_STUDIO_PROFESSIONALE_REF)
             .dataAttivazioneLicenza(UPDATED_DATA_ATTIVAZIONE_LICENZA)
             .nrLicenza(UPDATED_NR_LICENZA)
             .storageTotale(UPDATED_STORAGE_TOTALE);
@@ -126,7 +126,7 @@ public class RisorseDisponibiliResourceIT {
         List<RisorseDisponibili> risorseDisponibiliList = risorseDisponibiliRepository.findAll();
         assertThat(risorseDisponibiliList).hasSize(databaseSizeBeforeCreate + 1);
         RisorseDisponibili testRisorseDisponibili = risorseDisponibiliList.get(risorseDisponibiliList.size() - 1);
-        assertThat(testRisorseDisponibili.getIdStudioProfessionale()).isEqualTo(DEFAULT_ID_STUDIO_PROFESSIONALE);
+        assertThat(testRisorseDisponibili.getIdStudioProfessionaleRef()).isEqualTo(DEFAULT_ID_STUDIO_PROFESSIONALE_REF);
         assertThat(testRisorseDisponibili.getDataAttivazioneLicenza()).isEqualTo(DEFAULT_DATA_ATTIVAZIONE_LICENZA);
         assertThat(testRisorseDisponibili.getNrLicenza()).isEqualTo(DEFAULT_NR_LICENZA);
         assertThat(testRisorseDisponibili.getStorageTotale()).isEqualTo(DEFAULT_STORAGE_TOTALE);
@@ -161,10 +161,10 @@ public class RisorseDisponibiliResourceIT {
 
     @Test
     @Transactional
-    public void checkIdStudioProfessionaleIsRequired() throws Exception {
+    public void checkIdStudioProfessionaleRefIsRequired() throws Exception {
         int databaseSizeBeforeTest = risorseDisponibiliRepository.findAll().size();
         // set the field null
-        risorseDisponibili.setIdStudioProfessionale(null);
+        risorseDisponibili.setIdStudioProfessionaleRef(null);
 
         // Create the RisorseDisponibili, which fails.
         RisorseDisponibiliDTO risorseDisponibiliDTO = risorseDisponibiliMapper.toDto(risorseDisponibili);
@@ -190,7 +190,7 @@ public class RisorseDisponibiliResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(risorseDisponibili.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idStudioProfessionale").value(hasItem(DEFAULT_ID_STUDIO_PROFESSIONALE)))
+            .andExpect(jsonPath("$.[*].idStudioProfessionaleRef").value(hasItem(DEFAULT_ID_STUDIO_PROFESSIONALE_REF)))
             .andExpect(jsonPath("$.[*].dataAttivazioneLicenza").value(hasItem(DEFAULT_DATA_ATTIVAZIONE_LICENZA)))
             .andExpect(jsonPath("$.[*].nrLicenza").value(hasItem(DEFAULT_NR_LICENZA)))
             .andExpect(jsonPath("$.[*].storageTotale").value(hasItem(DEFAULT_STORAGE_TOTALE)));
@@ -207,7 +207,7 @@ public class RisorseDisponibiliResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(risorseDisponibili.getId().intValue()))
-            .andExpect(jsonPath("$.idStudioProfessionale").value(DEFAULT_ID_STUDIO_PROFESSIONALE))
+            .andExpect(jsonPath("$.idStudioProfessionaleRef").value(DEFAULT_ID_STUDIO_PROFESSIONALE_REF))
             .andExpect(jsonPath("$.dataAttivazioneLicenza").value(DEFAULT_DATA_ATTIVAZIONE_LICENZA))
             .andExpect(jsonPath("$.nrLicenza").value(DEFAULT_NR_LICENZA))
             .andExpect(jsonPath("$.storageTotale").value(DEFAULT_STORAGE_TOTALE));
@@ -233,7 +233,7 @@ public class RisorseDisponibiliResourceIT {
         // Disconnect from session so that the updates on updatedRisorseDisponibili are not directly saved in db
         em.detach(updatedRisorseDisponibili);
         updatedRisorseDisponibili
-            .idStudioProfessionale(UPDATED_ID_STUDIO_PROFESSIONALE)
+            .idStudioProfessionaleRef(UPDATED_ID_STUDIO_PROFESSIONALE_REF)
             .dataAttivazioneLicenza(UPDATED_DATA_ATTIVAZIONE_LICENZA)
             .nrLicenza(UPDATED_NR_LICENZA)
             .storageTotale(UPDATED_STORAGE_TOTALE);
@@ -248,7 +248,7 @@ public class RisorseDisponibiliResourceIT {
         List<RisorseDisponibili> risorseDisponibiliList = risorseDisponibiliRepository.findAll();
         assertThat(risorseDisponibiliList).hasSize(databaseSizeBeforeUpdate);
         RisorseDisponibili testRisorseDisponibili = risorseDisponibiliList.get(risorseDisponibiliList.size() - 1);
-        assertThat(testRisorseDisponibili.getIdStudioProfessionale()).isEqualTo(UPDATED_ID_STUDIO_PROFESSIONALE);
+        assertThat(testRisorseDisponibili.getIdStudioProfessionaleRef()).isEqualTo(UPDATED_ID_STUDIO_PROFESSIONALE_REF);
         assertThat(testRisorseDisponibili.getDataAttivazioneLicenza()).isEqualTo(UPDATED_DATA_ATTIVAZIONE_LICENZA);
         assertThat(testRisorseDisponibili.getNrLicenza()).isEqualTo(UPDATED_NR_LICENZA);
         assertThat(testRisorseDisponibili.getStorageTotale()).isEqualTo(UPDATED_STORAGE_TOTALE);
@@ -314,7 +314,7 @@ public class RisorseDisponibiliResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(risorseDisponibili.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idStudioProfessionale").value(hasItem(DEFAULT_ID_STUDIO_PROFESSIONALE)))
+            .andExpect(jsonPath("$.[*].idStudioProfessionaleRef").value(hasItem(DEFAULT_ID_STUDIO_PROFESSIONALE_REF)))
             .andExpect(jsonPath("$.[*].dataAttivazioneLicenza").value(hasItem(DEFAULT_DATA_ATTIVAZIONE_LICENZA)))
             .andExpect(jsonPath("$.[*].nrLicenza").value(hasItem(DEFAULT_NR_LICENZA)))
             .andExpect(jsonPath("$.[*].storageTotale").value(hasItem(DEFAULT_STORAGE_TOTALE)));

@@ -34,7 +34,7 @@ export class TemplateTaskUpdatePage {
   nomeInput = element(by.id('field_nome'));
   noteInput = element(by.id('field_note'));
   pubPrivInput = element(by.id('field_pubPriv'));
-  idTemplatePraticaInput = element(by.id('field_idTemplatePratica'));
+  idTemplatePraticaRefInput = element(by.id('field_idTemplatePraticaRef'));
 
   templatePraticaSelect = element(by.id('field_templatePratica'));
   templateTaskSelect = element(by.id('field_templateTask'));
@@ -83,12 +83,12 @@ export class TemplateTaskUpdatePage {
     return await this.pubPrivInput.getAttribute('value');
   }
 
-  async setIdTemplatePraticaInput(idTemplatePratica: string): Promise<void> {
-    await this.idTemplatePraticaInput.sendKeys(idTemplatePratica);
+  async setIdTemplatePraticaRefInput(idTemplatePraticaRef: string): Promise<void> {
+    await this.idTemplatePraticaRefInput.sendKeys(idTemplatePraticaRef);
   }
 
-  async getIdTemplatePraticaInput(): Promise<string> {
-    return await this.idTemplatePraticaInput.getAttribute('value');
+  async getIdTemplatePraticaRefInput(): Promise<string> {
+    return await this.idTemplatePraticaRefInput.getAttribute('value');
   }
 
   async templatePraticaSelectLastOption(): Promise<void> {

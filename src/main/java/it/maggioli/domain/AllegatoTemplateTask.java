@@ -28,17 +28,17 @@ public class AllegatoTemplateTask implements Serializable {
 
     @NotNull
     @Max(value = 8)
-    @Column(name = "id_template_task", nullable = false)
-    private Integer idTemplateTask;
+    @Column(name = "id_template_task_ref", nullable = false)
+    private Integer idTemplateTaskRef;
 
-    @Column(name = "tipo_allegato")
-    private Integer tipoAllegato;
+    @Column(name = "id_tipo_allegato_ref")
+    private Integer idTipoAllegatoRef;
 
     @Column(name = "formato")
     private Integer formato;
 
-    @Column(name = "id_file")
-    private Integer idFile;
+    @Column(name = "id_file_ref")
+    private Integer idFileRef;
 
     @Column(name = "pub_priv")
     private Integer pubPriv;
@@ -60,30 +60,30 @@ public class AllegatoTemplateTask implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdTemplateTask() {
-        return idTemplateTask;
+    public Integer getIdTemplateTaskRef() {
+        return idTemplateTaskRef;
     }
 
-    public AllegatoTemplateTask idTemplateTask(Integer idTemplateTask) {
-        this.idTemplateTask = idTemplateTask;
+    public AllegatoTemplateTask idTemplateTaskRef(Integer idTemplateTaskRef) {
+        this.idTemplateTaskRef = idTemplateTaskRef;
         return this;
     }
 
-    public void setIdTemplateTask(Integer idTemplateTask) {
-        this.idTemplateTask = idTemplateTask;
+    public void setIdTemplateTaskRef(Integer idTemplateTaskRef) {
+        this.idTemplateTaskRef = idTemplateTaskRef;
     }
 
-    public Integer getTipoAllegato() {
-        return tipoAllegato;
+    public Integer getIdTipoAllegatoRef() {
+        return idTipoAllegatoRef;
     }
 
-    public AllegatoTemplateTask tipoAllegato(Integer tipoAllegato) {
-        this.tipoAllegato = tipoAllegato;
+    public AllegatoTemplateTask idTipoAllegatoRef(Integer idTipoAllegatoRef) {
+        this.idTipoAllegatoRef = idTipoAllegatoRef;
         return this;
     }
 
-    public void setTipoAllegato(Integer tipoAllegato) {
-        this.tipoAllegato = tipoAllegato;
+    public void setIdTipoAllegatoRef(Integer idTipoAllegatoRef) {
+        this.idTipoAllegatoRef = idTipoAllegatoRef;
     }
 
     public Integer getFormato() {
@@ -99,17 +99,17 @@ public class AllegatoTemplateTask implements Serializable {
         this.formato = formato;
     }
 
-    public Integer getIdFile() {
-        return idFile;
+    public Integer getIdFileRef() {
+        return idFileRef;
     }
 
-    public AllegatoTemplateTask idFile(Integer idFile) {
-        this.idFile = idFile;
+    public AllegatoTemplateTask idFileRef(Integer idFileRef) {
+        this.idFileRef = idFileRef;
         return this;
     }
 
-    public void setIdFile(Integer idFile) {
-        this.idFile = idFile;
+    public void setIdFileRef(Integer idFileRef) {
+        this.idFileRef = idFileRef;
     }
 
     public Integer getPubPriv() {
@@ -173,10 +173,10 @@ public class AllegatoTemplateTask implements Serializable {
     public String toString() {
         return "AllegatoTemplateTask{" +
             "id=" + getId() +
-            ", idTemplateTask=" + getIdTemplateTask() +
-            ", tipoAllegato=" + getTipoAllegato() +
+            ", idTemplateTaskRef=" + getIdTemplateTaskRef() +
+            ", idTipoAllegatoRef=" + getIdTipoAllegatoRef() +
             ", formato=" + getFormato() +
-            ", idFile=" + getIdFile() +
+            ", idFileRef=" + getIdFileRef() +
             ", pubPriv=" + getPubPriv() +
             "}";
     }

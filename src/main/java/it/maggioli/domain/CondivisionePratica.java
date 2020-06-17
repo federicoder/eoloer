@@ -26,6 +26,11 @@ public class CondivisionePratica implements Serializable {
     @SequenceGenerator(name = "sequenceGenerator")
     private Long id;
 
+    @NotNull
+    @Max(value = 8)
+    @Column(name = "id_condivisione_pratica", nullable = false)
+    private Integer idCondivisionePratica;
+
     @Max(value = 8)
     @Column(name = "id_user_ammesso")
     private Integer idUserAmmesso;
@@ -39,8 +44,8 @@ public class CondivisionePratica implements Serializable {
     @Column(name = "stato_invito")
     private Integer statoInvito;
 
-    @Column(name = "id_pratica")
-    private Integer idPratica;
+    @Column(name = "id_pratica_ref")
+    private Integer idPraticaRef;
 
     @OneToOne
     @JoinColumn(unique = true)
@@ -51,11 +56,11 @@ public class CondivisionePratica implements Serializable {
     private Persona idUserConcedente;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "ids", allowSetters = true)
+    @JsonIgnoreProperties(value = "idPraticas", allowSetters = true)
     private Pratica pratica;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "ids", allowSetters = true)
+    @JsonIgnoreProperties(value = "idUserPersonas", allowSetters = true)
     private UserPersona userPersona;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
@@ -65,6 +70,19 @@ public class CondivisionePratica implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Integer getIdCondivisionePratica() {
+        return idCondivisionePratica;
+    }
+
+    public CondivisionePratica idCondivisionePratica(Integer idCondivisionePratica) {
+        this.idCondivisionePratica = idCondivisionePratica;
+        return this;
+    }
+
+    public void setIdCondivisionePratica(Integer idCondivisionePratica) {
+        this.idCondivisionePratica = idCondivisionePratica;
     }
 
     public Integer getIdUserAmmesso() {
@@ -119,17 +137,17 @@ public class CondivisionePratica implements Serializable {
         this.statoInvito = statoInvito;
     }
 
-    public Integer getIdPratica() {
-        return idPratica;
+    public Integer getIdPraticaRef() {
+        return idPraticaRef;
     }
 
-    public CondivisionePratica idPratica(Integer idPratica) {
-        this.idPratica = idPratica;
+    public CondivisionePratica idPraticaRef(Integer idPraticaRef) {
+        this.idPraticaRef = idPraticaRef;
         return this;
     }
 
-    public void setIdPratica(Integer idPratica) {
-        this.idPratica = idPratica;
+    public void setIdPraticaRef(Integer idPraticaRef) {
+        this.idPraticaRef = idPraticaRef;
     }
 
     public RappresentanzaPratica getRuolo() {
@@ -206,11 +224,12 @@ public class CondivisionePratica implements Serializable {
     public String toString() {
         return "CondivisionePratica{" +
             "id=" + getId() +
+            ", idCondivisionePratica=" + getIdCondivisionePratica() +
             ", idUserAmmesso=" + getIdUserAmmesso() +
             ", ruolo=" + getRuolo() +
             ", idUserConcedente=" + getIdUserConcedente() +
             ", statoInvito=" + getStatoInvito() +
-            ", idPratica=" + getIdPratica() +
+            ", idPraticaRef=" + getIdPraticaRef() +
             "}";
     }
 }

@@ -71,45 +71,45 @@ public class InvitoService {
 
 
     /**
-     *  Get all the invitos where Id is {@code null}.
+     *  Get all the invitos where IdInvito is {@code null}.
      *  @return the list of entities.
      */
     @Transactional(readOnly = true) 
-    public List<InvitoDTO> findAllWhereIdIsNull() {
-        log.debug("Request to get all invitos where Id is null");
+    public List<InvitoDTO> findAllWhereIdInvitoIsNull() {
+        log.debug("Request to get all invitos where IdInvito is null");
         return StreamSupport
             .stream(invitoRepository.findAll().spliterator(), false)
-            .filter(invito -> invito.getId() == null)
+            .filter(invito -> invito.getIdInvito() == null)
             .map(invitoMapper::toDto)
             .collect(Collectors.toCollection(LinkedList::new));
     }
 
 
     /**
-     *  Get all the invitos where Id is {@code null}.
+     *  Get all the invitos where IdInvito is {@code null}.
      *  @return the list of entities.
      */
     @Transactional(readOnly = true) 
-    public List<InvitoDTO> findAllWhereIdIsNull() {
-        log.debug("Request to get all invitos where Id is null");
+    public List<InvitoDTO> findAllWhereIdInvitoIsNull() {
+        log.debug("Request to get all invitos where IdInvito is null");
         return StreamSupport
             .stream(invitoRepository.findAll().spliterator(), false)
-            .filter(invito -> invito.getId() == null)
+            .filter(invito -> invito.getIdInvito() == null)
             .map(invitoMapper::toDto)
             .collect(Collectors.toCollection(LinkedList::new));
     }
 
 
     /**
-     *  Get all the invitos where Id is {@code null}.
+     *  Get all the invitos where IdInvito is {@code null}.
      *  @return the list of entities.
      */
     @Transactional(readOnly = true) 
-    public List<InvitoDTO> findAllWhereIdIsNull() {
-        log.debug("Request to get all invitos where Id is null");
+    public List<InvitoDTO> findAllWhereIdInvitoIsNull() {
+        log.debug("Request to get all invitos where IdInvito is null");
         return StreamSupport
             .stream(invitoRepository.findAll().spliterator(), false)
-            .filter(invito -> invito.getId() == null)
+            .filter(invito -> invito.getIdInvito() == null)
             .map(invitoMapper::toDto)
             .collect(Collectors.toCollection(LinkedList::new));
     }

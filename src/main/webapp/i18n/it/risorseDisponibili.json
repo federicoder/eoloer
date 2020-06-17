@@ -17,7 +17,7 @@
       "detail": {
         "title": "Risorse Disponibili"
       },
-      "idStudioProfessionale": "Id Studio Professionale",
+      "idStudioProfessionaleRef": "Id Studio Professionale Ref",
       "dataAttivazioneLicenza": "Data Attivazione Licenza",
       "nrLicenza": "Nr Licenza",
       "storageTotale": "Storage Totale",

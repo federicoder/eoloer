@@ -18,15 +18,15 @@
         "title": "Persona Fisica"
       },
       "idPersonaFisica": "Id Persona Fisica",
-      "idPersona": "Id Persona",
-      "idRuoloPersona": "Id Ruolo Persona",
+      "idPersonaRef": "Id Persona Ref",
+      "idRuoloPersonaRef": "Id Ruolo Persona Ref",
       "titolo": "Titolo",
       "cognome": "Cognome",
       "nome": "Nome",
       "dataDiNascita": "Data Di Nascita",
       "luogoDiNascita": "Luogo Di Nascita",
       "professione": "Professione",
-      "idPersona": "Id Persona",
+      "idPersonaRef": "Id Persona Ref",
       "idPersonaFisica": "Id Persona Fisica",
       "idRuoloPersona": "Id Ruolo Persona"
     }

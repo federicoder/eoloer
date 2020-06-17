@@ -26,7 +26,8 @@ export class AssegnazioneTaskUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    idAttivita: [null, [Validators.max(8)]],
+    idAssegnazioneTask: [null, [Validators.required, Validators.max(8)]],
+    idTaskRef: [null, [Validators.max(8)]],
     idUserAmmesso: [null, [Validators.max(8)]],
     ruolo: [],
     idUserConcedente: [],
@@ -76,7 +77,8 @@ export class AssegnazioneTaskUpdateComponent implements OnInit {
   updateForm(assegnazioneTask: IAssegnazioneTask): void {
     this.editForm.patchValue({
       id: assegnazioneTask.id,
-      idAttivita: assegnazioneTask.idAttivita,
+      idAssegnazioneTask: assegnazioneTask.idAssegnazioneTask,
+      idTaskRef: assegnazioneTask.idTaskRef,
       idUserAmmesso: assegnazioneTask.idUserAmmesso,
       ruolo: assegnazioneTask.ruolo,
       idUserConcedente: assegnazioneTask.idUserConcedente,
@@ -104,7 +106,8 @@ export class AssegnazioneTaskUpdateComponent implements OnInit {
     return {
       ...new AssegnazioneTask(),
       id: this.editForm.get(['id'])!.value,
-      idAttivita: this.editForm.get(['idAttivita'])!.value,
+      idAssegnazioneTask: this.editForm.get(['idAssegnazioneTask'])!.value,
+      idTaskRef: this.editForm.get(['idTaskRef'])!.value,
       idUserAmmesso: this.editForm.get(['idUserAmmesso'])!.value,
       ruolo: this.editForm.get(['ruolo'])!.value,
       idUserConcedente: this.editForm.get(['idUserConcedente'])!.value,

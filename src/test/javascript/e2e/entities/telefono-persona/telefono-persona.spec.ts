@@ -44,13 +44,13 @@ describe('TelefonoPersona e2e test', () => {
     await telefonoPersonaComponentsPage.clickOnCreateButton();
 
     await promise.all([
-      telefonoPersonaUpdatePage.setIdPersonaInput('5'),
+      telefonoPersonaUpdatePage.setIdPersonaRefInput('5'),
       telefonoPersonaUpdatePage.setEtichettaInput('5'),
       telefonoPersonaUpdatePage.setValoreInput('5'),
       telefonoPersonaUpdatePage.personaSelectLastOption(),
     ]);
 
-    expect(await telefonoPersonaUpdatePage.getIdPersonaInput()).to.eq('5', 'Expected idPersona value to be equals to 5');
+    expect(await telefonoPersonaUpdatePage.getIdPersonaRefInput()).to.eq('5', 'Expected idPersonaRef value to be equals to 5');
     expect(await telefonoPersonaUpdatePage.getEtichettaInput()).to.eq('5', 'Expected etichetta value to be equals to 5');
     expect(await telefonoPersonaUpdatePage.getValoreInput()).to.eq('5', 'Expected valore value to be equals to 5');
 

@@ -2,7 +2,13 @@
   "name": "Pratica",
   "fields": [
     {
-      "fieldName": "idStudio",
+      "fieldName": "idPratica",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["max"],
+      "fieldValidateRulesMax": "8"
+    },
+    {
+      "fieldName": "idStudioProfessionaleRef",
       "fieldType": "Integer",
       "fieldValidateRules": ["max"],
       "fieldValidateRulesMax": "8"
@@ -54,7 +60,7 @@
       "fieldType": "String"
     },
     {
-      "fieldName": "idTemplatePratica",
+      "fieldName": "idTemplatePraticaRef",
       "fieldType": "Integer"
     }
   ],
@@ -63,31 +69,31 @@
       "relationshipType": "one-to-many",
       "otherEntityName": "task",
       "otherEntityRelationshipName": "pratica",
-      "relationshipName": "id"
+      "relationshipName": "idPratica"
     },
     {
       "relationshipType": "one-to-many",
       "otherEntityName": "notaPratica",
       "otherEntityRelationshipName": "pratica",
-      "relationshipName": "id"
+      "relationshipName": "idPratica"
     },
     {
       "relationshipType": "one-to-many",
       "otherEntityName": "condivisionePratica",
       "otherEntityRelationshipName": "pratica",
-      "relationshipName": "id"
+      "relationshipName": "idPratica"
     },
     {
       "relationshipType": "one-to-many",
       "otherEntityName": "invitoPratica",
       "otherEntityRelationshipName": "pratica",
-      "relationshipName": "id"
+      "relationshipName": "idPratica"
     },
     {
       "relationshipType": "many-to-one",
       "otherEntityName": "templatePratica",
       "otherEntityRelationshipName": "pratica",
-      "relationshipName": "idTemplate",
+      "relationshipName": "idTemplatePraticaRef",
       "otherEntityField": "id"
     }
   ],

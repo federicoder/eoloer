@@ -40,8 +40,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WithMockUser
 public class PrevisioneEventoResourceIT {
 
-    private static final Integer DEFAULT_ID_TASK = 8;
-    private static final Integer UPDATED_ID_TASK = 7;
+    private static final Integer DEFAULT_ID_TASK_REF = 8;
+    private static final Integer UPDATED_ID_TASK_REF = 7;
 
     private static final String DEFAULT_DATA_INIZIO = "AAAAAAAAAA";
     private static final String UPDATED_DATA_INIZIO = "BBBBBBBBBB";
@@ -91,7 +91,7 @@ public class PrevisioneEventoResourceIT {
      */
     public static PrevisioneEvento createEntity(EntityManager em) {
         PrevisioneEvento previsioneEvento = new PrevisioneEvento()
-            .idTask(DEFAULT_ID_TASK)
+            .idTaskRef(DEFAULT_ID_TASK_REF)
             .dataInizio(DEFAULT_DATA_INIZIO)
             .dataFine(DEFAULT_DATA_FINE)
             .luogo(DEFAULT_LUOGO)
@@ -107,7 +107,7 @@ public class PrevisioneEventoResourceIT {
      */
     public static PrevisioneEvento createUpdatedEntity(EntityManager em) {
         PrevisioneEvento previsioneEvento = new PrevisioneEvento()
-            .idTask(UPDATED_ID_TASK)
+            .idTaskRef(UPDATED_ID_TASK_REF)
             .dataInizio(UPDATED_DATA_INIZIO)
             .dataFine(UPDATED_DATA_FINE)
             .luogo(UPDATED_LUOGO)
@@ -136,7 +136,7 @@ public class PrevisioneEventoResourceIT {
         List<PrevisioneEvento> previsioneEventoList = previsioneEventoRepository.findAll();
         assertThat(previsioneEventoList).hasSize(databaseSizeBeforeCreate + 1);
         PrevisioneEvento testPrevisioneEvento = previsioneEventoList.get(previsioneEventoList.size() - 1);
-        assertThat(testPrevisioneEvento.getIdTask()).isEqualTo(DEFAULT_ID_TASK);
+        assertThat(testPrevisioneEvento.getIdTaskRef()).isEqualTo(DEFAULT_ID_TASK_REF);
         assertThat(testPrevisioneEvento.getDataInizio()).isEqualTo(DEFAULT_DATA_INIZIO);
         assertThat(testPrevisioneEvento.getDataFine()).isEqualTo(DEFAULT_DATA_FINE);
         assertThat(testPrevisioneEvento.getLuogo()).isEqualTo(DEFAULT_LUOGO);
@@ -173,10 +173,10 @@ public class PrevisioneEventoResourceIT {
 
     @Test
     @Transactional
-    public void checkIdTaskIsRequired() throws Exception {
+    public void checkIdTaskRefIsRequired() throws Exception {
         int databaseSizeBeforeTest = previsioneEventoRepository.findAll().size();
         // set the field null
-        previsioneEvento.setIdTask(null);
+        previsioneEvento.setIdTaskRef(null);
 
         // Create the PrevisioneEvento, which fails.
         PrevisioneEventoDTO previsioneEventoDTO = previsioneEventoMapper.toDto(previsioneEvento);
@@ -202,7 +202,7 @@ public class PrevisioneEventoResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(previsioneEvento.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idTask").value(hasItem(DEFAULT_ID_TASK)))
+            .andExpect(jsonPath("$.[*].idTaskRef").value(hasItem(DEFAULT_ID_TASK_REF)))
             .andExpect(jsonPath("$.[*].dataInizio").value(hasItem(DEFAULT_DATA_INIZIO)))
             .andExpect(jsonPath("$.[*].dataFine").value(hasItem(DEFAULT_DATA_FINE)))
             .andExpect(jsonPath("$.[*].luogo").value(hasItem(DEFAULT_LUOGO)))
@@ -221,7 +221,7 @@ public class PrevisioneEventoResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(previsioneEvento.getId().intValue()))
-            .andExpect(jsonPath("$.idTask").value(DEFAULT_ID_TASK))
+            .andExpect(jsonPath("$.idTaskRef").value(DEFAULT_ID_TASK_REF))
             .andExpect(jsonPath("$.dataInizio").value(DEFAULT_DATA_INIZIO))
             .andExpect(jsonPath("$.dataFine").value(DEFAULT_DATA_FINE))
             .andExpect(jsonPath("$.luogo").value(DEFAULT_LUOGO))
@@ -249,7 +249,7 @@ public class PrevisioneEventoResourceIT {
         // Disconnect from session so that the updates on updatedPrevisioneEvento are not directly saved in db
         em.detach(updatedPrevisioneEvento);
         updatedPrevisioneEvento
-            .idTask(UPDATED_ID_TASK)
+            .idTaskRef(UPDATED_ID_TASK_REF)
             .dataInizio(UPDATED_DATA_INIZIO)
             .dataFine(UPDATED_DATA_FINE)
             .luogo(UPDATED_LUOGO)
@@ -266,7 +266,7 @@ public class PrevisioneEventoResourceIT {
         List<PrevisioneEvento> previsioneEventoList = previsioneEventoRepository.findAll();
         assertThat(previsioneEventoList).hasSize(databaseSizeBeforeUpdate);
         PrevisioneEvento testPrevisioneEvento = previsioneEventoList.get(previsioneEventoList.size() - 1);
-        assertThat(testPrevisioneEvento.getIdTask()).isEqualTo(UPDATED_ID_TASK);
+        assertThat(testPrevisioneEvento.getIdTaskRef()).isEqualTo(UPDATED_ID_TASK_REF);
         assertThat(testPrevisioneEvento.getDataInizio()).isEqualTo(UPDATED_DATA_INIZIO);
         assertThat(testPrevisioneEvento.getDataFine()).isEqualTo(UPDATED_DATA_FINE);
         assertThat(testPrevisioneEvento.getLuogo()).isEqualTo(UPDATED_LUOGO);
@@ -334,7 +334,7 @@ public class PrevisioneEventoResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(previsioneEvento.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idTask").value(hasItem(DEFAULT_ID_TASK)))
+            .andExpect(jsonPath("$.[*].idTaskRef").value(hasItem(DEFAULT_ID_TASK_REF)))
             .andExpect(jsonPath("$.[*].dataInizio").value(hasItem(DEFAULT_DATA_INIZIO)))
             .andExpect(jsonPath("$.[*].dataFine").value(hasItem(DEFAULT_DATA_FINE)))
             .andExpect(jsonPath("$.[*].luogo").value(hasItem(DEFAULT_LUOGO)))

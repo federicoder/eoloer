@@ -17,7 +17,7 @@ export class ConsuntivoTaskUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    idTask: [null, [Validators.required, Validators.max(8)]],
+    idTaskRef: [null, [Validators.required, Validators.max(8)]],
     dataInizio: [],
     dataFine: [],
     timeLine: [],
@@ -35,7 +35,7 @@ export class ConsuntivoTaskUpdateComponent implements OnInit {
   updateForm(consuntivoTask: IConsuntivoTask): void {
     this.editForm.patchValue({
       id: consuntivoTask.id,
-      idTask: consuntivoTask.idTask,
+      idTaskRef: consuntivoTask.idTaskRef,
       dataInizio: consuntivoTask.dataInizio,
       dataFine: consuntivoTask.dataFine,
       timeLine: consuntivoTask.timeLine,
@@ -61,7 +61,7 @@ export class ConsuntivoTaskUpdateComponent implements OnInit {
     return {
       ...new ConsuntivoTask(),
       id: this.editForm.get(['id'])!.value,
-      idTask: this.editForm.get(['idTask'])!.value,
+      idTaskRef: this.editForm.get(['idTaskRef'])!.value,
       dataInizio: this.editForm.get(['dataInizio'])!.value,
       dataFine: this.editForm.get(['dataFine'])!.value,
       timeLine: this.editForm.get(['timeLine'])!.value,

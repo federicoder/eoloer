@@ -44,7 +44,7 @@ describe('PrevisioneTask e2e test', () => {
     await previsioneTaskComponentsPage.clickOnCreateButton();
 
     await promise.all([
-      previsioneTaskUpdatePage.setIdTaskInput('5'),
+      previsioneTaskUpdatePage.setIdTaskRefInput('5'),
       previsioneTaskUpdatePage.setQntOrdineInput('5'),
       previsioneTaskUpdatePage.setPrcPrevisioneInput('5'),
       previsioneTaskUpdatePage.setCheckListInput('5'),
@@ -54,7 +54,7 @@ describe('PrevisioneTask e2e test', () => {
       previsioneTaskUpdatePage.previsioneTaskSelectLastOption(),
     ]);
 
-    expect(await previsioneTaskUpdatePage.getIdTaskInput()).to.eq('5', 'Expected idTask value to be equals to 5');
+    expect(await previsioneTaskUpdatePage.getIdTaskRefInput()).to.eq('5', 'Expected idTaskRef value to be equals to 5');
     expect(await previsioneTaskUpdatePage.getQntOrdineInput()).to.eq('5', 'Expected qntOrdine value to be equals to 5');
     expect(await previsioneTaskUpdatePage.getPrcPrevisioneInput()).to.eq('5', 'Expected prcPrevisione value to be equals to 5');
     expect(await previsioneTaskUpdatePage.getCheckListInput()).to.eq('5', 'Expected checkList value to be equals to 5');

@@ -42,7 +42,7 @@
                 <tr>
                     <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.rappresentanzaPratica.idRuoloPersona">Id Ruolo Persona</span></th>
-                    <th scope="col" ><span jhiTranslate="eoloprjApp.rappresentanzaPratica.idPersona">Id Persona</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.rappresentanzaPratica.idPersonaRef">Id Persona Ref</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.rappresentanzaPratica.ruoli">Ruoli</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.rappresentanzaPratica.persona">Persona</span></th>
                     <th scope="col"></th>
@@ -52,7 +52,7 @@
                 <tr *ngFor="let rappresentanzaPratica of rappresentanzaPraticas ;trackBy: trackId">
                     <td><a [routerLink]="['/rappresentanza-pratica', rappresentanzaPratica.id, 'view']">{{ rappresentanzaPratica.id }}</a></td>
                     <td>{{ rappresentanzaPratica.idRuoloPersona }}</td>
-                    <td>{{ rappresentanzaPratica.idPersona }}</td>
+                    <td>{{ rappresentanzaPratica.idPersonaRef }}</td>
                     <td jhiTranslate="{{ 'eoloprjApp.Ruoli.' + rappresentanzaPratica.ruoli }}">{{ rappresentanzaPratica.ruoli }}</td>
                     <td>
                         <div *ngIf="rappresentanzaPratica.personaId">

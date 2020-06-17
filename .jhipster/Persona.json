@@ -2,7 +2,13 @@
   "name": "Persona",
   "fields": [
     {
-      "fieldName": "idStudio",
+      "fieldName": "idPersona",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["max", "required"],
+      "fieldValidateRulesMax": "8"
+    },
+    {
+      "fieldName": "idStudioProfessionaleRef",
       "fieldType": "Integer",
       "fieldValidateRules": ["max"],
       "fieldValidateRulesMax": "8"
@@ -48,7 +54,7 @@
       "fieldType": "String"
     },
     {
-      "fieldName": "idRuoloPersona",
+      "fieldName": "idRuoloPersonaRef",
       "fieldType": "Integer"
     },
     {
@@ -60,8 +66,8 @@
     {
       "relationshipType": "one-to-one",
       "otherEntityName": "indirizzoPersona",
-      "otherEntityRelationshipName": "idPersona",
-      "relationshipName": "id",
+      "otherEntityRelationshipName": "idPersonaRef",
+      "relationshipName": "idPersona",
       "otherEntityField": "id",
       "ownerSide": true
     },
@@ -69,56 +75,56 @@
       "relationshipType": "one-to-many",
       "otherEntityName": "datiContabili",
       "otherEntityRelationshipName": "persona",
-      "relationshipName": "id"
+      "relationshipName": "idPersona"
     },
     {
       "relationshipType": "one-to-many",
       "otherEntityName": "emailPersona",
       "otherEntityRelationshipName": "persona",
-      "relationshipName": "id"
+      "relationshipName": "idPersona"
     },
     {
       "relationshipType": "one-to-many",
       "otherEntityName": "tagPersona",
       "otherEntityRelationshipName": "persona",
-      "relationshipName": "id"
+      "relationshipName": "idPersona"
     },
     {
       "relationshipType": "one-to-many",
       "otherEntityName": "telefonoPersona",
       "otherEntityRelationshipName": "persona",
-      "relationshipName": "id"
+      "relationshipName": "idPersona"
     },
     {
       "relationshipType": "one-to-many",
       "otherEntityName": "notePersona",
       "otherEntityRelationshipName": "persona",
-      "relationshipName": "id"
+      "relationshipName": "idPersona"
     },
     {
       "relationshipType": "one-to-many",
       "otherEntityName": "studioProfessionale",
       "otherEntityRelationshipName": "persona",
-      "relationshipName": "id"
+      "relationshipName": "idPersona"
     },
     {
       "relationshipType": "one-to-many",
       "otherEntityName": "rappresentanzaPratica",
       "otherEntityRelationshipName": "persona",
-      "relationshipName": "id"
+      "relationshipName": "idPersona"
     },
     {
       "relationshipType": "one-to-one",
       "otherEntityName": "personaFisica",
-      "otherEntityRelationshipName": "idPersona",
-      "relationshipName": "id",
+      "otherEntityRelationshipName": "idPersonaRef",
+      "relationshipName": "idPersona",
       "ownerSide": false
     },
     {
       "relationshipType": "one-to-one",
       "otherEntityName": "organizzazione",
-      "otherEntityRelationshipName": "idPersona",
-      "relationshipName": "id",
+      "otherEntityRelationshipName": "idPersonaRef",
+      "relationshipName": "idPersona",
       "ownerSide": false
     },
     {

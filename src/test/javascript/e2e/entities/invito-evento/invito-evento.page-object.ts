@@ -29,7 +29,7 @@ export class InvitoEventoUpdatePage {
   saveButton = element(by.id('save-entity'));
   cancelButton = element(by.id('cancel-save'));
 
-  idAttivitaInput = element(by.id('field_idAttivita'));
+  idTaskRefInput = element(by.id('field_idTaskRef'));
   luogoFisicoInput = element(by.id('field_luogoFisico'));
   indicazioniLuogoInput = element(by.id('field_indicazioniLuogo'));
   dataInizioInput = element(by.id('field_dataInizio'));
@@ -38,19 +38,19 @@ export class InvitoEventoUpdatePage {
   oraFineInput = element(by.id('field_oraFine'));
   urlStanzaVirtualeInput = element(by.id('field_urlStanzaVirtuale'));
 
-  idAttivitaSelect = element(by.id('field_idAttivita'));
+  idTaskRefSelect = element(by.id('field_idTaskRef'));
   previsioneEventoSelect = element(by.id('field_previsioneEvento'));
 
   async getPageTitle(): Promise<string> {
     return this.pageTitle.getAttribute('jhiTranslate');
   }
 
-  async setIdAttivitaInput(idAttivita: string): Promise<void> {
-    await this.idAttivitaInput.sendKeys(idAttivita);
+  async setIdTaskRefInput(idTaskRef: string): Promise<void> {
+    await this.idTaskRefInput.sendKeys(idTaskRef);
   }
 
-  async getIdAttivitaInput(): Promise<string> {
-    return await this.idAttivitaInput.getAttribute('value');
+  async getIdTaskRefInput(): Promise<string> {
+    return await this.idTaskRefInput.getAttribute('value');
   }
 
   async setLuogoFisicoInput(luogoFisico: string): Promise<void> {
@@ -109,20 +109,20 @@ export class InvitoEventoUpdatePage {
     return await this.urlStanzaVirtualeInput.getAttribute('value');
   }
 
-  async idAttivitaSelectLastOption(): Promise<void> {
-    await this.idAttivitaSelect.all(by.tagName('option')).last().click();
+  async idTaskRefSelectLastOption(): Promise<void> {
+    await this.idTaskRefSelect.all(by.tagName('option')).last().click();
   }
 
-  async idAttivitaSelectOption(option: string): Promise<void> {
-    await this.idAttivitaSelect.sendKeys(option);
+  async idTaskRefSelectOption(option: string): Promise<void> {
+    await this.idTaskRefSelect.sendKeys(option);
   }
 
-  getIdAttivitaSelect(): ElementFinder {
-    return this.idAttivitaSelect;
+  getIdTaskRefSelect(): ElementFinder {
+    return this.idTaskRefSelect;
   }
 
-  async getIdAttivitaSelectedOption(): Promise<string> {
-    return await this.idAttivitaSelect.element(by.css('option:checked')).getText();
+  async getIdTaskRefSelectedOption(): Promise<string> {
+    return await this.idTaskRefSelect.element(by.css('option:checked')).getText();
   }
 
   async previsioneEventoSelectLastOption(): Promise<void> {

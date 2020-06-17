@@ -54,10 +54,10 @@ describe('Service Tests', () => {
       it('should update a AllegatoTemplateTask', () => {
         const returnedFromService = Object.assign(
           {
-            idTemplateTask: 1,
-            tipoAllegato: 1,
+            idTemplateTaskRef: 1,
+            idTipoAllegatoRef: 1,
             formato: 1,
-            idFile: 1,
+            idFileRef: 1,
             pubPriv: 1,
           },
           elemDefault
@@ -75,10 +75,10 @@ describe('Service Tests', () => {
       it('should return a list of AllegatoTemplateTask', () => {
         const returnedFromService = Object.assign(
           {
-            idTemplateTask: 1,
-            tipoAllegato: 1,
+            idTemplateTaskRef: 1,
+            idTipoAllegatoRef: 1,
             formato: 1,
-            idFile: 1,
+            idFileRef: 1,
             pubPriv: 1,
           },
           elemDefault

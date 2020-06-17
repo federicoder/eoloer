@@ -1,6 +1,7 @@
 export interface INotaPratica {
   id?: number;
-  idPratica?: number;
+  idNotaPratica?: number;
+  idPraticaRef?: number;
   data?: string;
   nota?: string;
   version?: string;
@@ -10,7 +11,8 @@ export interface INotaPratica {
 export class NotaPratica implements INotaPratica {
   constructor(
     public id?: number,
-    public idPratica?: number,
+    public idNotaPratica?: number,
+    public idPraticaRef?: number,
     public data?: string,
     public nota?: string,
     public version?: string,

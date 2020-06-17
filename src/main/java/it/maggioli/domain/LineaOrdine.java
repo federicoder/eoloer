@@ -28,12 +28,12 @@ public class LineaOrdine implements Serializable {
     private Long id;
 
     @NotNull
-    @Column(name = "id_ordine", nullable = false)
-    private Integer idOrdine;
+    @Column(name = "id_ordine_ref", nullable = false)
+    private Integer idOrdineRef;
 
     @NotNull
-    @Column(name = "id_prodotto", nullable = false)
-    private Integer idProdotto;
+    @Column(name = "id_prodotto_ref", nullable = false)
+    private Integer idProdottoRef;
 
     @Column(name = "quantita")
     private Integer quantita;
@@ -44,12 +44,12 @@ public class LineaOrdine implements Serializable {
     @Column(name = "cod_iva")
     private String codIva;
 
-    @OneToOne(mappedBy = "id")
+    @OneToOne(mappedBy = "idProdotto")
     @JsonIgnore
-    private Prodotto idProdotto;
+    private Prodotto idProdottoRef;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "ids", allowSetters = true)
+    @JsonIgnoreProperties(value = "idOrdines", allowSetters = true)
     private Ordine ordine;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
@@ -61,30 +61,30 @@ public class LineaOrdine implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdOrdine() {
-        return idOrdine;
+    public Integer getIdOrdineRef() {
+        return idOrdineRef;
     }
 
-    public LineaOrdine idOrdine(Integer idOrdine) {
-        this.idOrdine = idOrdine;
+    public LineaOrdine idOrdineRef(Integer idOrdineRef) {
+        this.idOrdineRef = idOrdineRef;
         return this;
     }
 
-    public void setIdOrdine(Integer idOrdine) {
-        this.idOrdine = idOrdine;
+    public void setIdOrdineRef(Integer idOrdineRef) {
+        this.idOrdineRef = idOrdineRef;
     }
 
-    public Integer getIdProdotto() {
-        return idProdotto;
+    public Integer getIdProdottoRef() {
+        return idProdottoRef;
     }
 
-    public LineaOrdine idProdotto(Integer idProdotto) {
-        this.idProdotto = idProdotto;
+    public LineaOrdine idProdottoRef(Integer idProdottoRef) {
+        this.idProdottoRef = idProdottoRef;
         return this;
     }
 
-    public void setIdProdotto(Integer idProdotto) {
-        this.idProdotto = idProdotto;
+    public void setIdProdottoRef(Integer idProdottoRef) {
+        this.idProdottoRef = idProdottoRef;
     }
 
     public Integer getQuantita() {
@@ -126,17 +126,17 @@ public class LineaOrdine implements Serializable {
         this.codIva = codIva;
     }
 
-    public Prodotto getIdProdotto() {
-        return idProdotto;
+    public Prodotto getIdProdottoRef() {
+        return idProdottoRef;
     }
 
-    public LineaOrdine idProdotto(Prodotto prodotto) {
-        this.idProdotto = prodotto;
+    public LineaOrdine idProdottoRef(Prodotto prodotto) {
+        this.idProdottoRef = prodotto;
         return this;
     }
 
-    public void setIdProdotto(Prodotto prodotto) {
-        this.idProdotto = prodotto;
+    public void setIdProdottoRef(Prodotto prodotto) {
+        this.idProdottoRef = prodotto;
     }
 
     public Ordine getOrdine() {
@@ -174,8 +174,8 @@ public class LineaOrdine implements Serializable {
     public String toString() {
         return "LineaOrdine{" +
             "id=" + getId() +
-            ", idOrdine=" + getIdOrdine() +
-            ", idProdotto=" + getIdProdotto() +
+            ", idOrdineRef=" + getIdOrdineRef() +
+            ", idProdottoRef=" + getIdProdottoRef() +
             ", quantita=" + getQuantita() +
             ", importo=" + getImporto() +
             ", codIva='" + getCodIva() + "'" +

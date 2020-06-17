@@ -26,9 +26,13 @@ public class Invitato implements Serializable {
     @SequenceGenerator(name = "sequenceGenerator")
     private Long id;
 
+    @NotNull
+    @Column(name = "id_invitato", nullable = false)
+    private Integer idInvitato;
+
     @Max(value = 8)
-    @Column(name = "id_invito")
-    private Integer idInvito;
+    @Column(name = "id_invito_ref")
+    private Integer idInvitoRef;
 
     @Column(name = "token_invito")
     private String tokenInvito;
@@ -61,11 +65,11 @@ public class Invitato implements Serializable {
     private Integer indInvitati;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "ids", allowSetters = true)
+    @JsonIgnoreProperties(value = "idUserPersonas", allowSetters = true)
     private UserPersona userPersona;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "ids", allowSetters = true)
+    @JsonIgnoreProperties(value = "idInvitos", allowSetters = true)
     private Invito invito;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
@@ -77,17 +81,30 @@ public class Invitato implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdInvito() {
-        return idInvito;
+    public Integer getIdInvitato() {
+        return idInvitato;
     }
 
-    public Invitato idInvito(Integer idInvito) {
-        this.idInvito = idInvito;
+    public Invitato idInvitato(Integer idInvitato) {
+        this.idInvitato = idInvitato;
         return this;
     }
 
-    public void setIdInvito(Integer idInvito) {
-        this.idInvito = idInvito;
+    public void setIdInvitato(Integer idInvitato) {
+        this.idInvitato = idInvitato;
+    }
+
+    public Integer getIdInvitoRef() {
+        return idInvitoRef;
+    }
+
+    public Invitato idInvitoRef(Integer idInvitoRef) {
+        this.idInvitoRef = idInvitoRef;
+        return this;
+    }
+
+    public void setIdInvitoRef(Integer idInvitoRef) {
+        this.idInvitoRef = idInvitoRef;
     }
 
     public String getTokenInvito() {
@@ -268,7 +285,8 @@ public class Invitato implements Serializable {
     public String toString() {
         return "Invitato{" +
             "id=" + getId() +
-            ", idInvito=" + getIdInvito() +
+            ", idInvitato=" + getIdInvitato() +
+            ", idInvitoRef=" + getIdInvitoRef() +
             ", tokenInvito='" + getTokenInvito() + "'" +
             ", canalePrimarioInvito=" + getCanalePrimarioInvito() +
             ", canaleBackupInvito=" + getCanaleBackupInvito() +

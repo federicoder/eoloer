@@ -40,8 +40,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WithMockUser
 public class TagPersonaResourceIT {
 
-    private static final Integer DEFAULT_ID_PERSONA = 1;
-    private static final Integer UPDATED_ID_PERSONA = 2;
+    private static final Integer DEFAULT_ID_PERSONA_REF = 1;
+    private static final Integer UPDATED_ID_PERSONA_REF = 2;
 
     private static final Integer DEFAULT_TAG = 1;
     private static final Integer UPDATED_TAG = 2;
@@ -79,7 +79,7 @@ public class TagPersonaResourceIT {
      */
     public static TagPersona createEntity(EntityManager em) {
         TagPersona tagPersona = new TagPersona()
-            .idPersona(DEFAULT_ID_PERSONA)
+            .idPersonaRef(DEFAULT_ID_PERSONA_REF)
             .tag(DEFAULT_TAG);
         return tagPersona;
     }
@@ -91,7 +91,7 @@ public class TagPersonaResourceIT {
      */
     public static TagPersona createUpdatedEntity(EntityManager em) {
         TagPersona tagPersona = new TagPersona()
-            .idPersona(UPDATED_ID_PERSONA)
+            .idPersonaRef(UPDATED_ID_PERSONA_REF)
             .tag(UPDATED_TAG);
         return tagPersona;
     }
@@ -116,7 +116,7 @@ public class TagPersonaResourceIT {
         List<TagPersona> tagPersonaList = tagPersonaRepository.findAll();
         assertThat(tagPersonaList).hasSize(databaseSizeBeforeCreate + 1);
         TagPersona testTagPersona = tagPersonaList.get(tagPersonaList.size() - 1);
-        assertThat(testTagPersona.getIdPersona()).isEqualTo(DEFAULT_ID_PERSONA);
+        assertThat(testTagPersona.getIdPersonaRef()).isEqualTo(DEFAULT_ID_PERSONA_REF);
         assertThat(testTagPersona.getTag()).isEqualTo(DEFAULT_TAG);
 
         // Validate the TagPersona in Elasticsearch
@@ -149,10 +149,10 @@ public class TagPersonaResourceIT {
 
     @Test
     @Transactional
-    public void checkIdPersonaIsRequired() throws Exception {
+    public void checkIdPersonaRefIsRequired() throws Exception {
         int databaseSizeBeforeTest = tagPersonaRepository.findAll().size();
         // set the field null
-        tagPersona.setIdPersona(null);
+        tagPersona.setIdPersonaRef(null);
 
         // Create the TagPersona, which fails.
         TagPersonaDTO tagPersonaDTO = tagPersonaMapper.toDto(tagPersona);
@@ -178,7 +178,7 @@ public class TagPersonaResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(tagPersona.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idPersona").value(hasItem(DEFAULT_ID_PERSONA)))
+            .andExpect(jsonPath("$.[*].idPersonaRef").value(hasItem(DEFAULT_ID_PERSONA_REF)))
             .andExpect(jsonPath("$.[*].tag").value(hasItem(DEFAULT_TAG)));
     }
     
@@ -193,7 +193,7 @@ public class TagPersonaResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(tagPersona.getId().intValue()))
-            .andExpect(jsonPath("$.idPersona").value(DEFAULT_ID_PERSONA))
+            .andExpect(jsonPath("$.idPersonaRef").value(DEFAULT_ID_PERSONA_REF))
             .andExpect(jsonPath("$.tag").value(DEFAULT_TAG));
     }
     @Test
@@ -217,7 +217,7 @@ public class TagPersonaResourceIT {
         // Disconnect from session so that the updates on updatedTagPersona are not directly saved in db
         em.detach(updatedTagPersona);
         updatedTagPersona
-            .idPersona(UPDATED_ID_PERSONA)
+            .idPersonaRef(UPDATED_ID_PERSONA_REF)
             .tag(UPDATED_TAG);
         TagPersonaDTO tagPersonaDTO = tagPersonaMapper.toDto(updatedTagPersona);
 
@@ -230,7 +230,7 @@ public class TagPersonaResourceIT {
         List<TagPersona> tagPersonaList = tagPersonaRepository.findAll();
         assertThat(tagPersonaList).hasSize(databaseSizeBeforeUpdate);
         TagPersona testTagPersona = tagPersonaList.get(tagPersonaList.size() - 1);
-        assertThat(testTagPersona.getIdPersona()).isEqualTo(UPDATED_ID_PERSONA);
+        assertThat(testTagPersona.getIdPersonaRef()).isEqualTo(UPDATED_ID_PERSONA_REF);
         assertThat(testTagPersona.getTag()).isEqualTo(UPDATED_TAG);
 
         // Validate the TagPersona in Elasticsearch
@@ -294,7 +294,7 @@ public class TagPersonaResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(tagPersona.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idPersona").value(hasItem(DEFAULT_ID_PERSONA)))
+            .andExpect(jsonPath("$.[*].idPersonaRef").value(hasItem(DEFAULT_ID_PERSONA_REF)))
             .andExpect(jsonPath("$.[*].tag").value(hasItem(DEFAULT_TAG)));
     }
 }

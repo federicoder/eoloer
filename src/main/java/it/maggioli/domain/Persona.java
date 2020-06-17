@@ -28,9 +28,14 @@ public class Persona implements Serializable {
     @SequenceGenerator(name = "sequenceGenerator")
     private Long id;
 
+    @NotNull
     @Max(value = 8)
-    @Column(name = "id_studio")
-    private Integer idStudio;
+    @Column(name = "id_persona", nullable = false)
+    private Integer idPersona;
+
+    @Max(value = 8)
+    @Column(name = "id_studio_professionale_ref")
+    private Integer idStudioProfessionaleRef;
 
     @Column(name = "codice_fiscale")
     private String codiceFiscale;
@@ -62,51 +67,51 @@ public class Persona implements Serializable {
     @Column(name = "discriminator")
     private String discriminator;
 
-    @Column(name = "id_ruolo_persona")
-    private Integer idRuoloPersona;
+    @Column(name = "id_ruolo_persona_ref")
+    private Integer idRuoloPersonaRef;
 
     @Column(name = "tipo_ruolo_utente")
     private Integer tipoRuoloUtente;
 
     @OneToOne
     @JoinColumn(unique = true)
-    private IndirizzoPersona id;
+    private IndirizzoPersona idPersona;
 
     @OneToMany(mappedBy = "persona")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<DatiContabili> ids = new HashSet<>();
+    private Set<DatiContabili> idPersonas = new HashSet<>();
 
     @OneToMany(mappedBy = "persona")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<EmailPersona> ids = new HashSet<>();
+    private Set<EmailPersona> idPersonas = new HashSet<>();
 
     @OneToMany(mappedBy = "persona")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<TagPersona> ids = new HashSet<>();
+    private Set<TagPersona> idPersonas = new HashSet<>();
 
     @OneToMany(mappedBy = "persona")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<TelefonoPersona> ids = new HashSet<>();
+    private Set<TelefonoPersona> idPersonas = new HashSet<>();
 
     @OneToMany(mappedBy = "persona")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<NotePersona> ids = new HashSet<>();
+    private Set<NotePersona> idPersonas = new HashSet<>();
 
     @OneToMany(mappedBy = "persona")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<StudioProfessionale> ids = new HashSet<>();
+    private Set<StudioProfessionale> idPersonas = new HashSet<>();
 
     @OneToMany(mappedBy = "persona")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<RappresentanzaPratica> ids = new HashSet<>();
+    private Set<RappresentanzaPratica> idPersonas = new HashSet<>();
 
-    @OneToOne(mappedBy = "idPersona")
+    @OneToOne(mappedBy = "idPersonaRef")
     @JsonIgnore
-    private PersonaFisica id;
+    private PersonaFisica idPersona;
 
-    @OneToOne(mappedBy = "idPersona")
+    @OneToOne(mappedBy = "idPersonaRef")
     @JsonIgnore
-    private Organizzazione id;
+    private Organizzazione idPersona;
 
     @OneToOne(mappedBy = "idUserConcedente")
     @JsonIgnore
@@ -121,17 +126,30 @@ public class Persona implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdStudio() {
-        return idStudio;
+    public Integer getIdPersona() {
+        return idPersona;
     }
 
-    public Persona idStudio(Integer idStudio) {
-        this.idStudio = idStudio;
+    public Persona idPersona(Integer idPersona) {
+        this.idPersona = idPersona;
         return this;
     }
 
-    public void setIdStudio(Integer idStudio) {
-        this.idStudio = idStudio;
+    public void setIdPersona(Integer idPersona) {
+        this.idPersona = idPersona;
+    }
+
+    public Integer getIdStudioProfessionaleRef() {
+        return idStudioProfessionaleRef;
+    }
+
+    public Persona idStudioProfessionaleRef(Integer idStudioProfessionaleRef) {
+        this.idStudioProfessionaleRef = idStudioProfessionaleRef;
+        return this;
+    }
+
+    public void setIdStudioProfessionaleRef(Integer idStudioProfessionaleRef) {
+        this.idStudioProfessionaleRef = idStudioProfessionaleRef;
     }
 
     public String getCodiceFiscale() {
@@ -264,17 +282,17 @@ public class Persona implements Serializable {
         this.discriminator = discriminator;
     }
 
-    public Integer getIdRuoloPersona() {
-        return idRuoloPersona;
+    public Integer getIdRuoloPersonaRef() {
+        return idRuoloPersonaRef;
     }
 
-    public Persona idRuoloPersona(Integer idRuoloPersona) {
-        this.idRuoloPersona = idRuoloPersona;
+    public Persona idRuoloPersonaRef(Integer idRuoloPersonaRef) {
+        this.idRuoloPersonaRef = idRuoloPersonaRef;
         return this;
     }
 
-    public void setIdRuoloPersona(Integer idRuoloPersona) {
-        this.idRuoloPersona = idRuoloPersona;
+    public void setIdRuoloPersonaRef(Integer idRuoloPersonaRef) {
+        this.idRuoloPersonaRef = idRuoloPersonaRef;
     }
 
     public Integer getTipoRuoloUtente() {
@@ -290,218 +308,218 @@ public class Persona implements Serializable {
         this.tipoRuoloUtente = tipoRuoloUtente;
     }
 
-    public IndirizzoPersona getId() {
-        return id;
+    public IndirizzoPersona getIdPersona() {
+        return idPersona;
     }
 
-    public Persona id(IndirizzoPersona indirizzoPersona) {
-        this.id = indirizzoPersona;
+    public Persona idPersona(IndirizzoPersona indirizzoPersona) {
+        this.idPersona = indirizzoPersona;
         return this;
     }
 
-    public void setId(IndirizzoPersona indirizzoPersona) {
-        this.id = indirizzoPersona;
+    public void setIdPersona(IndirizzoPersona indirizzoPersona) {
+        this.idPersona = indirizzoPersona;
     }
 
-    public Set<DatiContabili> getIds() {
-        return ids;
+    public Set<DatiContabili> getIdPersonas() {
+        return idPersonas;
     }
 
-    public Persona ids(Set<DatiContabili> datiContabilis) {
-        this.ids = datiContabilis;
+    public Persona idPersonas(Set<DatiContabili> datiContabilis) {
+        this.idPersonas = datiContabilis;
         return this;
     }
 
-    public Persona addId(DatiContabili datiContabili) {
-        this.ids.add(datiContabili);
+    public Persona addIdPersona(DatiContabili datiContabili) {
+        this.idPersonas.add(datiContabili);
         datiContabili.setPersona(this);
         return this;
     }
 
-    public Persona removeId(DatiContabili datiContabili) {
-        this.ids.remove(datiContabili);
+    public Persona removeIdPersona(DatiContabili datiContabili) {
+        this.idPersonas.remove(datiContabili);
         datiContabili.setPersona(null);
         return this;
     }
 
-    public void setIds(Set<DatiContabili> datiContabilis) {
-        this.ids = datiContabilis;
+    public void setIdPersonas(Set<DatiContabili> datiContabilis) {
+        this.idPersonas = datiContabilis;
     }
 
-    public Set<EmailPersona> getIds() {
-        return ids;
+    public Set<EmailPersona> getIdPersonas() {
+        return idPersonas;
     }
 
-    public Persona ids(Set<EmailPersona> emailPersonas) {
-        this.ids = emailPersonas;
+    public Persona idPersonas(Set<EmailPersona> emailPersonas) {
+        this.idPersonas = emailPersonas;
         return this;
     }
 
-    public Persona addId(EmailPersona emailPersona) {
-        this.ids.add(emailPersona);
+    public Persona addIdPersona(EmailPersona emailPersona) {
+        this.idPersonas.add(emailPersona);
         emailPersona.setPersona(this);
         return this;
     }
 
-    public Persona removeId(EmailPersona emailPersona) {
-        this.ids.remove(emailPersona);
+    public Persona removeIdPersona(EmailPersona emailPersona) {
+        this.idPersonas.remove(emailPersona);
         emailPersona.setPersona(null);
         return this;
     }
 
-    public void setIds(Set<EmailPersona> emailPersonas) {
-        this.ids = emailPersonas;
+    public void setIdPersonas(Set<EmailPersona> emailPersonas) {
+        this.idPersonas = emailPersonas;
     }
 
-    public Set<TagPersona> getIds() {
-        return ids;
+    public Set<TagPersona> getIdPersonas() {
+        return idPersonas;
     }
 
-    public Persona ids(Set<TagPersona> tagPersonas) {
-        this.ids = tagPersonas;
+    public Persona idPersonas(Set<TagPersona> tagPersonas) {
+        this.idPersonas = tagPersonas;
         return this;
     }
 
-    public Persona addId(TagPersona tagPersona) {
-        this.ids.add(tagPersona);
+    public Persona addIdPersona(TagPersona tagPersona) {
+        this.idPersonas.add(tagPersona);
         tagPersona.setPersona(this);
         return this;
     }
 
-    public Persona removeId(TagPersona tagPersona) {
-        this.ids.remove(tagPersona);
+    public Persona removeIdPersona(TagPersona tagPersona) {
+        this.idPersonas.remove(tagPersona);
         tagPersona.setPersona(null);
         return this;
     }
 
-    public void setIds(Set<TagPersona> tagPersonas) {
-        this.ids = tagPersonas;
+    public void setIdPersonas(Set<TagPersona> tagPersonas) {
+        this.idPersonas = tagPersonas;
     }
 
-    public Set<TelefonoPersona> getIds() {
-        return ids;
+    public Set<TelefonoPersona> getIdPersonas() {
+        return idPersonas;
     }
 
-    public Persona ids(Set<TelefonoPersona> telefonoPersonas) {
-        this.ids = telefonoPersonas;
+    public Persona idPersonas(Set<TelefonoPersona> telefonoPersonas) {
+        this.idPersonas = telefonoPersonas;
         return this;
     }
 
-    public Persona addId(TelefonoPersona telefonoPersona) {
-        this.ids.add(telefonoPersona);
+    public Persona addIdPersona(TelefonoPersona telefonoPersona) {
+        this.idPersonas.add(telefonoPersona);
         telefonoPersona.setPersona(this);
         return this;
     }
 
-    public Persona removeId(TelefonoPersona telefonoPersona) {
-        this.ids.remove(telefonoPersona);
+    public Persona removeIdPersona(TelefonoPersona telefonoPersona) {
+        this.idPersonas.remove(telefonoPersona);
         telefonoPersona.setPersona(null);
         return this;
     }
 
-    public void setIds(Set<TelefonoPersona> telefonoPersonas) {
-        this.ids = telefonoPersonas;
+    public void setIdPersonas(Set<TelefonoPersona> telefonoPersonas) {
+        this.idPersonas = telefonoPersonas;
     }
 
-    public Set<NotePersona> getIds() {
-        return ids;
+    public Set<NotePersona> getIdPersonas() {
+        return idPersonas;
     }
 
-    public Persona ids(Set<NotePersona> notePersonas) {
-        this.ids = notePersonas;
+    public Persona idPersonas(Set<NotePersona> notePersonas) {
+        this.idPersonas = notePersonas;
         return this;
     }
 
-    public Persona addId(NotePersona notePersona) {
-        this.ids.add(notePersona);
+    public Persona addIdPersona(NotePersona notePersona) {
+        this.idPersonas.add(notePersona);
         notePersona.setPersona(this);
         return this;
     }
 
-    public Persona removeId(NotePersona notePersona) {
-        this.ids.remove(notePersona);
+    public Persona removeIdPersona(NotePersona notePersona) {
+        this.idPersonas.remove(notePersona);
         notePersona.setPersona(null);
         return this;
     }
 
-    public void setIds(Set<NotePersona> notePersonas) {
-        this.ids = notePersonas;
+    public void setIdPersonas(Set<NotePersona> notePersonas) {
+        this.idPersonas = notePersonas;
     }
 
-    public Set<StudioProfessionale> getIds() {
-        return ids;
+    public Set<StudioProfessionale> getIdPersonas() {
+        return idPersonas;
     }
 
-    public Persona ids(Set<StudioProfessionale> studioProfessionales) {
-        this.ids = studioProfessionales;
+    public Persona idPersonas(Set<StudioProfessionale> studioProfessionales) {
+        this.idPersonas = studioProfessionales;
         return this;
     }
 
-    public Persona addId(StudioProfessionale studioProfessionale) {
-        this.ids.add(studioProfessionale);
+    public Persona addIdPersona(StudioProfessionale studioProfessionale) {
+        this.idPersonas.add(studioProfessionale);
         studioProfessionale.setPersona(this);
         return this;
     }
 
-    public Persona removeId(StudioProfessionale studioProfessionale) {
-        this.ids.remove(studioProfessionale);
+    public Persona removeIdPersona(StudioProfessionale studioProfessionale) {
+        this.idPersonas.remove(studioProfessionale);
         studioProfessionale.setPersona(null);
         return this;
     }
 
-    public void setIds(Set<StudioProfessionale> studioProfessionales) {
-        this.ids = studioProfessionales;
+    public void setIdPersonas(Set<StudioProfessionale> studioProfessionales) {
+        this.idPersonas = studioProfessionales;
     }
 
-    public Set<RappresentanzaPratica> getIds() {
-        return ids;
+    public Set<RappresentanzaPratica> getIdPersonas() {
+        return idPersonas;
     }
 
-    public Persona ids(Set<RappresentanzaPratica> rappresentanzaPraticas) {
-        this.ids = rappresentanzaPraticas;
+    public Persona idPersonas(Set<RappresentanzaPratica> rappresentanzaPraticas) {
+        this.idPersonas = rappresentanzaPraticas;
         return this;
     }
 
-    public Persona addId(RappresentanzaPratica rappresentanzaPratica) {
-        this.ids.add(rappresentanzaPratica);
+    public Persona addIdPersona(RappresentanzaPratica rappresentanzaPratica) {
+        this.idPersonas.add(rappresentanzaPratica);
         rappresentanzaPratica.setPersona(this);
         return this;
     }
 
-    public Persona removeId(RappresentanzaPratica rappresentanzaPratica) {
-        this.ids.remove(rappresentanzaPratica);
+    public Persona removeIdPersona(RappresentanzaPratica rappresentanzaPratica) {
+        this.idPersonas.remove(rappresentanzaPratica);
         rappresentanzaPratica.setPersona(null);
         return this;
     }
 
-    public void setIds(Set<RappresentanzaPratica> rappresentanzaPraticas) {
-        this.ids = rappresentanzaPraticas;
+    public void setIdPersonas(Set<RappresentanzaPratica> rappresentanzaPraticas) {
+        this.idPersonas = rappresentanzaPraticas;
     }
 
-    public PersonaFisica getId() {
-        return id;
+    public PersonaFisica getIdPersona() {
+        return idPersona;
     }
 
-    public Persona id(PersonaFisica personaFisica) {
-        this.id = personaFisica;
+    public Persona idPersona(PersonaFisica personaFisica) {
+        this.idPersona = personaFisica;
         return this;
     }
 
-    public void setId(PersonaFisica personaFisica) {
-        this.id = personaFisica;
+    public void setIdPersona(PersonaFisica personaFisica) {
+        this.idPersona = personaFisica;
     }
 
-    public Organizzazione getId() {
-        return id;
+    public Organizzazione getIdPersona() {
+        return idPersona;
     }
 
-    public Persona id(Organizzazione organizzazione) {
-        this.id = organizzazione;
+    public Persona idPersona(Organizzazione organizzazione) {
+        this.idPersona = organizzazione;
         return this;
     }
 
-    public void setId(Organizzazione organizzazione) {
-        this.id = organizzazione;
+    public void setIdPersona(Organizzazione organizzazione) {
+        this.idPersona = organizzazione;
     }
 
     public CondivisionePratica getIdPersona() {
@@ -539,7 +557,8 @@ public class Persona implements Serializable {
     public String toString() {
         return "Persona{" +
             "id=" + getId() +
-            ", idStudio=" + getIdStudio() +
+            ", idPersona=" + getIdPersona() +
+            ", idStudioProfessionaleRef=" + getIdStudioProfessionaleRef() +
             ", codiceFiscale='" + getCodiceFiscale() + "'" +
             ", areaDiInteresse='" + getAreaDiInteresse() + "'" +
             ", titolo='" + getTitolo() + "'" +
@@ -550,7 +569,7 @@ public class Persona implements Serializable {
             ", professione='" + getProfessione() + "'" +
             ", tipo=" + getTipo() +
             ", discriminator='" + getDiscriminator() + "'" +
-            ", idRuoloPersona=" + getIdRuoloPersona() +
+            ", idRuoloPersonaRef=" + getIdRuoloPersonaRef() +
             ", tipoRuoloUtente=" + getTipoRuoloUtente() +
             "}";
     }

@@ -18,7 +18,7 @@ export class PrevisioneTaskUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    idTask: [null, [Validators.required, Validators.max(8)]],
+    idTaskRef: [null, [Validators.required, Validators.max(8)]],
     qntOrdine: [null, [Validators.max(8)]],
     prcPrevisione: [null, [Validators.max(1)]],
     checkList: [],
@@ -41,7 +41,7 @@ export class PrevisioneTaskUpdateComponent implements OnInit {
   updateForm(previsioneTask: IPrevisioneTask): void {
     this.editForm.patchValue({
       id: previsioneTask.id,
-      idTask: previsioneTask.idTask,
+      idTaskRef: previsioneTask.idTaskRef,
       qntOrdine: previsioneTask.qntOrdine,
       prcPrevisione: previsioneTask.prcPrevisione,
       checkList: previsioneTask.checkList,
@@ -70,7 +70,7 @@ export class PrevisioneTaskUpdateComponent implements OnInit {
     return {
       ...new PrevisioneTask(),
       id: this.editForm.get(['id'])!.value,
-      idTask: this.editForm.get(['idTask'])!.value,
+      idTaskRef: this.editForm.get(['idTaskRef'])!.value,
       qntOrdine: this.editForm.get(['qntOrdine'])!.value,
       prcPrevisione: this.editForm.get(['prcPrevisione'])!.value,
       checkList: this.editForm.get(['checkList'])!.value,

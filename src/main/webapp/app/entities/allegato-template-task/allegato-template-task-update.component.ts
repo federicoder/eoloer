@@ -25,10 +25,10 @@ export class AllegatoTemplateTaskUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    idTemplateTask: [null, [Validators.required, Validators.max(8)]],
-    tipoAllegato: [],
+    idTemplateTaskRef: [null, [Validators.required, Validators.max(8)]],
+    idTipoAllegatoRef: [],
     formato: [],
-    idFile: [],
+    idFileRef: [],
     pubPriv: [],
     templateTaskId: [],
     tipoAllegatoId: [],
@@ -55,10 +55,10 @@ export class AllegatoTemplateTaskUpdateComponent implements OnInit {
   updateForm(allegatoTemplateTask: IAllegatoTemplateTask): void {
     this.editForm.patchValue({
       id: allegatoTemplateTask.id,
-      idTemplateTask: allegatoTemplateTask.idTemplateTask,
-      tipoAllegato: allegatoTemplateTask.tipoAllegato,
+      idTemplateTaskRef: allegatoTemplateTask.idTemplateTaskRef,
+      idTipoAllegatoRef: allegatoTemplateTask.idTipoAllegatoRef,
       formato: allegatoTemplateTask.formato,
-      idFile: allegatoTemplateTask.idFile,
+      idFileRef: allegatoTemplateTask.idFileRef,
       pubPriv: allegatoTemplateTask.pubPriv,
       templateTaskId: allegatoTemplateTask.templateTaskId,
       tipoAllegatoId: allegatoTemplateTask.tipoAllegatoId,
@@ -83,10 +83,10 @@ export class AllegatoTemplateTaskUpdateComponent implements OnInit {
     return {
       ...new AllegatoTemplateTask(),
       id: this.editForm.get(['id'])!.value,
-      idTemplateTask: this.editForm.get(['idTemplateTask'])!.value,
-      tipoAllegato: this.editForm.get(['tipoAllegato'])!.value,
+      idTemplateTaskRef: this.editForm.get(['idTemplateTaskRef'])!.value,
+      idTipoAllegatoRef: this.editForm.get(['idTipoAllegatoRef'])!.value,
       formato: this.editForm.get(['formato'])!.value,
-      idFile: this.editForm.get(['idFile'])!.value,
+      idFileRef: this.editForm.get(['idFileRef'])!.value,
       pubPriv: this.editForm.get(['pubPriv'])!.value,
       templateTaskId: this.editForm.get(['templateTaskId'])!.value,
       tipoAllegatoId: this.editForm.get(['tipoAllegatoId'])!.value,

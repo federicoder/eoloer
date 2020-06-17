@@ -29,25 +29,25 @@ export class PrevisioneEventoUpdatePage {
   saveButton = element(by.id('save-entity'));
   cancelButton = element(by.id('cancel-save'));
 
-  idTaskInput = element(by.id('field_idTask'));
+  idTaskRefInput = element(by.id('field_idTaskRef'));
   dataInizioInput = element(by.id('field_dataInizio'));
   dataFineInput = element(by.id('field_dataFine'));
   luogoInput = element(by.id('field_luogo'));
   indicazioniLuogoInput = element(by.id('field_indicazioniLuogo'));
   versionInput = element(by.id('field_version'));
 
-  idTaskSelect = element(by.id('field_idTask'));
+  idTaskRefSelect = element(by.id('field_idTaskRef'));
 
   async getPageTitle(): Promise<string> {
     return this.pageTitle.getAttribute('jhiTranslate');
   }
 
-  async setIdTaskInput(idTask: string): Promise<void> {
-    await this.idTaskInput.sendKeys(idTask);
+  async setIdTaskRefInput(idTaskRef: string): Promise<void> {
+    await this.idTaskRefInput.sendKeys(idTaskRef);
   }
 
-  async getIdTaskInput(): Promise<string> {
-    return await this.idTaskInput.getAttribute('value');
+  async getIdTaskRefInput(): Promise<string> {
+    return await this.idTaskRefInput.getAttribute('value');
   }
 
   async setDataInizioInput(dataInizio: string): Promise<void> {
@@ -90,20 +90,20 @@ export class PrevisioneEventoUpdatePage {
     return await this.versionInput.getAttribute('value');
   }
 
-  async idTaskSelectLastOption(): Promise<void> {
-    await this.idTaskSelect.all(by.tagName('option')).last().click();
+  async idTaskRefSelectLastOption(): Promise<void> {
+    await this.idTaskRefSelect.all(by.tagName('option')).last().click();
   }
 
-  async idTaskSelectOption(option: string): Promise<void> {
-    await this.idTaskSelect.sendKeys(option);
+  async idTaskRefSelectOption(option: string): Promise<void> {
+    await this.idTaskRefSelect.sendKeys(option);
   }
 
-  getIdTaskSelect(): ElementFinder {
-    return this.idTaskSelect;
+  getIdTaskRefSelect(): ElementFinder {
+    return this.idTaskRefSelect;
   }
 
-  async getIdTaskSelectedOption(): Promise<string> {
-    return await this.idTaskSelect.element(by.css('option:checked')).getText();
+  async getIdTaskRefSelectedOption(): Promise<string> {
+    return await this.idTaskRefSelect.element(by.css('option:checked')).getText();
   }
 
   async save(): Promise<void> {

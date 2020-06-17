@@ -2,7 +2,7 @@
   "name": "PrevisioneTask",
   "fields": [
     {
-      "fieldName": "idTask",
+      "fieldName": "idTaskRef",
       "fieldType": "Integer",
       "fieldValidateRules": ["max", "required"],
       "fieldValidateRulesMax": "8"
@@ -41,33 +41,33 @@
       "relationshipType": "one-to-many",
       "otherEntityName": "previsioneTask",
       "otherEntityRelationshipName": "previsioneTask",
-      "relationshipName": "idTask"
+      "relationshipName": "idTaskRef"
     },
     {
       "relationshipType": "one-to-one",
       "otherEntityName": "previsioneAttivita",
-      "otherEntityRelationshipName": "idTask",
-      "relationshipName": "idTask",
+      "otherEntityRelationshipName": "idTaskRef",
+      "relationshipName": "idTaskRef",
       "ownerSide": false
     },
     {
       "relationshipType": "one-to-one",
       "otherEntityName": "previsioneEvento",
-      "otherEntityRelationshipName": "idTask",
-      "relationshipName": "idTask",
+      "otherEntityRelationshipName": "idTaskRef",
+      "relationshipName": "idTaskRef",
       "ownerSide": false
     },
     {
       "relationshipType": "one-to-one",
       "otherEntityName": "task",
-      "otherEntityRelationshipName": "id",
-      "relationshipName": "idTask",
+      "otherEntityRelationshipName": "idTask",
+      "relationshipName": "idTaskRef",
       "ownerSide": false
     },
     {
       "relationshipType": "many-to-one",
       "otherEntityName": "previsioneTask",
-      "otherEntityRelationshipName": "idTask",
+      "otherEntityRelationshipName": "idTaskRef",
       "relationshipName": "previsioneTask",
       "otherEntityField": "id"
     }

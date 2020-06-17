@@ -43,8 +43,8 @@ public class OrganizzazioneResourceIT {
     private static final Integer DEFAULT_ID_ORGANIZZAZIONE = 1;
     private static final Integer UPDATED_ID_ORGANIZZAZIONE = 2;
 
-    private static final Integer DEFAULT_ID_PERSONA = 1;
-    private static final Integer UPDATED_ID_PERSONA = 2;
+    private static final Integer DEFAULT_ID_PERSONA_REF = 1;
+    private static final Integer UPDATED_ID_PERSONA_REF = 2;
 
     private static final String DEFAULT_NOME = "AAAAAAAAAA";
     private static final String UPDATED_NOME = "BBBBBBBBBB";
@@ -86,7 +86,7 @@ public class OrganizzazioneResourceIT {
     public static Organizzazione createEntity(EntityManager em) {
         Organizzazione organizzazione = new Organizzazione()
             .idOrganizzazione(DEFAULT_ID_ORGANIZZAZIONE)
-            .idPersona(DEFAULT_ID_PERSONA)
+            .idPersonaRef(DEFAULT_ID_PERSONA_REF)
             .nome(DEFAULT_NOME)
             .tipo(DEFAULT_TIPO);
         return organizzazione;
@@ -100,7 +100,7 @@ public class OrganizzazioneResourceIT {
     public static Organizzazione createUpdatedEntity(EntityManager em) {
         Organizzazione organizzazione = new Organizzazione()
             .idOrganizzazione(UPDATED_ID_ORGANIZZAZIONE)
-            .idPersona(UPDATED_ID_PERSONA)
+            .idPersonaRef(UPDATED_ID_PERSONA_REF)
             .nome(UPDATED_NOME)
             .tipo(UPDATED_TIPO);
         return organizzazione;
@@ -127,7 +127,7 @@ public class OrganizzazioneResourceIT {
         assertThat(organizzazioneList).hasSize(databaseSizeBeforeCreate + 1);
         Organizzazione testOrganizzazione = organizzazioneList.get(organizzazioneList.size() - 1);
         assertThat(testOrganizzazione.getIdOrganizzazione()).isEqualTo(DEFAULT_ID_ORGANIZZAZIONE);
-        assertThat(testOrganizzazione.getIdPersona()).isEqualTo(DEFAULT_ID_PERSONA);
+        assertThat(testOrganizzazione.getIdPersonaRef()).isEqualTo(DEFAULT_ID_PERSONA_REF);
         assertThat(testOrganizzazione.getNome()).isEqualTo(DEFAULT_NOME);
         assertThat(testOrganizzazione.getTipo()).isEqualTo(DEFAULT_TIPO);
 
@@ -181,10 +181,10 @@ public class OrganizzazioneResourceIT {
 
     @Test
     @Transactional
-    public void checkIdPersonaIsRequired() throws Exception {
+    public void checkIdPersonaRefIsRequired() throws Exception {
         int databaseSizeBeforeTest = organizzazioneRepository.findAll().size();
         // set the field null
-        organizzazione.setIdPersona(null);
+        organizzazione.setIdPersonaRef(null);
 
         // Create the Organizzazione, which fails.
         OrganizzazioneDTO organizzazioneDTO = organizzazioneMapper.toDto(organizzazione);
@@ -211,7 +211,7 @@ public class OrganizzazioneResourceIT {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(organizzazione.getId().intValue())))
             .andExpect(jsonPath("$.[*].idOrganizzazione").value(hasItem(DEFAULT_ID_ORGANIZZAZIONE)))
-            .andExpect(jsonPath("$.[*].idPersona").value(hasItem(DEFAULT_ID_PERSONA)))
+            .andExpect(jsonPath("$.[*].idPersonaRef").value(hasItem(DEFAULT_ID_PERSONA_REF)))
             .andExpect(jsonPath("$.[*].nome").value(hasItem(DEFAULT_NOME)))
             .andExpect(jsonPath("$.[*].tipo").value(hasItem(DEFAULT_TIPO)));
     }
@@ -228,7 +228,7 @@ public class OrganizzazioneResourceIT {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(organizzazione.getId().intValue()))
             .andExpect(jsonPath("$.idOrganizzazione").value(DEFAULT_ID_ORGANIZZAZIONE))
-            .andExpect(jsonPath("$.idPersona").value(DEFAULT_ID_PERSONA))
+            .andExpect(jsonPath("$.idPersonaRef").value(DEFAULT_ID_PERSONA_REF))
             .andExpect(jsonPath("$.nome").value(DEFAULT_NOME))
             .andExpect(jsonPath("$.tipo").value(DEFAULT_TIPO));
     }
@@ -254,7 +254,7 @@ public class OrganizzazioneResourceIT {
         em.detach(updatedOrganizzazione);
         updatedOrganizzazione
             .idOrganizzazione(UPDATED_ID_ORGANIZZAZIONE)
-            .idPersona(UPDATED_ID_PERSONA)
+            .idPersonaRef(UPDATED_ID_PERSONA_REF)
             .nome(UPDATED_NOME)
             .tipo(UPDATED_TIPO);
         OrganizzazioneDTO organizzazioneDTO = organizzazioneMapper.toDto(updatedOrganizzazione);
@@ -269,7 +269,7 @@ public class OrganizzazioneResourceIT {
         assertThat(organizzazioneList).hasSize(databaseSizeBeforeUpdate);
         Organizzazione testOrganizzazione = organizzazioneList.get(organizzazioneList.size() - 1);
         assertThat(testOrganizzazione.getIdOrganizzazione()).isEqualTo(UPDATED_ID_ORGANIZZAZIONE);
-        assertThat(testOrganizzazione.getIdPersona()).isEqualTo(UPDATED_ID_PERSONA);
+        assertThat(testOrganizzazione.getIdPersonaRef()).isEqualTo(UPDATED_ID_PERSONA_REF);
         assertThat(testOrganizzazione.getNome()).isEqualTo(UPDATED_NOME);
         assertThat(testOrganizzazione.getTipo()).isEqualTo(UPDATED_TIPO);
 
@@ -335,7 +335,7 @@ public class OrganizzazioneResourceIT {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(organizzazione.getId().intValue())))
             .andExpect(jsonPath("$.[*].idOrganizzazione").value(hasItem(DEFAULT_ID_ORGANIZZAZIONE)))
-            .andExpect(jsonPath("$.[*].idPersona").value(hasItem(DEFAULT_ID_PERSONA)))
+            .andExpect(jsonPath("$.[*].idPersonaRef").value(hasItem(DEFAULT_ID_PERSONA_REF)))
             .andExpect(jsonPath("$.[*].nome").value(hasItem(DEFAULT_NOME)))
             .andExpect(jsonPath("$.[*].tipo").value(hasItem(DEFAULT_TIPO)));
     }

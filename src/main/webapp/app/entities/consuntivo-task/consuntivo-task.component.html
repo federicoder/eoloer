@@ -41,7 +41,7 @@
             <thead>
                 <tr>
                     <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
-                    <th scope="col" ><span jhiTranslate="eoloprjApp.consuntivoTask.idTask">Id Task</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.consuntivoTask.idTaskRef">Id Task Ref</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.consuntivoTask.dataInizio">Data Inizio</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.consuntivoTask.dataFine">Data Fine</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.consuntivoTask.timeLine">Time Line</span></th>
@@ -52,7 +52,7 @@
             <tbody>
                 <tr *ngFor="let consuntivoTask of consuntivoTasks ;trackBy: trackId">
                     <td><a [routerLink]="['/consuntivo-task', consuntivoTask.id, 'view']">{{ consuntivoTask.id }}</a></td>
-                    <td>{{ consuntivoTask.idTask }}</td>
+                    <td>{{ consuntivoTask.idTaskRef }}</td>
                     <td>{{ consuntivoTask.dataInizio }}</td>
                     <td>{{ consuntivoTask.dataFine }}</td>
                     <td>{{ consuntivoTask.timeLine }}</td>

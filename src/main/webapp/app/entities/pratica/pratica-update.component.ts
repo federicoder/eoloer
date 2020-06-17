@@ -20,7 +20,8 @@ export class PraticaUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    idStudio: [null, [Validators.max(8)]],
+    idPratica: [null, [Validators.max(8)]],
+    idStudioProfessionaleRef: [null, [Validators.max(8)]],
     numero: [],
     nome: [],
     dataApertura: [],
@@ -32,8 +33,8 @@ export class PraticaUpdateComponent implements OnInit {
     prcAvanzato: [],
     version: [],
     valuta: [],
-    idTemplatePratica: [],
-    idTemplateId: [],
+    idTemplatePraticaRef: [],
+    idTemplatePraticaRefId: [],
   });
 
   constructor(
@@ -54,7 +55,8 @@ export class PraticaUpdateComponent implements OnInit {
   updateForm(pratica: IPratica): void {
     this.editForm.patchValue({
       id: pratica.id,
-      idStudio: pratica.idStudio,
+      idPratica: pratica.idPratica,
+      idStudioProfessionaleRef: pratica.idStudioProfessionaleRef,
       numero: pratica.numero,
       nome: pratica.nome,
       dataApertura: pratica.dataApertura,
@@ -66,8 +68,8 @@ export class PraticaUpdateComponent implements OnInit {
       prcAvanzato: pratica.prcAvanzato,
       version: pratica.version,
       valuta: pratica.valuta,
-      idTemplatePratica: pratica.idTemplatePratica,
-      idTemplateId: pratica.idTemplateId,
+      idTemplatePraticaRef: pratica.idTemplatePraticaRef,
+      idTemplatePraticaRefId: pratica.idTemplatePraticaRefId,
     });
   }
 
@@ -89,7 +91,8 @@ export class PraticaUpdateComponent implements OnInit {
     return {
       ...new Pratica(),
       id: this.editForm.get(['id'])!.value,
-      idStudio: this.editForm.get(['idStudio'])!.value,
+      idPratica: this.editForm.get(['idPratica'])!.value,
+      idStudioProfessionaleRef: this.editForm.get(['idStudioProfessionaleRef'])!.value,
       numero: this.editForm.get(['numero'])!.value,
       nome: this.editForm.get(['nome'])!.value,
       dataApertura: this.editForm.get(['dataApertura'])!.value,
@@ -101,8 +104,8 @@ export class PraticaUpdateComponent implements OnInit {
       prcAvanzato: this.editForm.get(['prcAvanzato'])!.value,
       version: this.editForm.get(['version'])!.value,
       valuta: this.editForm.get(['valuta'])!.value,
-      idTemplatePratica: this.editForm.get(['idTemplatePratica'])!.value,
-      idTemplateId: this.editForm.get(['idTemplateId'])!.value,
+      idTemplatePraticaRef: this.editForm.get(['idTemplatePraticaRef'])!.value,
+      idTemplatePraticaRefId: this.editForm.get(['idTemplatePraticaRefId'])!.value,
     };
   }
 

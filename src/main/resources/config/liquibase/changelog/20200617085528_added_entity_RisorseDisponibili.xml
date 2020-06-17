@@ -15,7 +15,7 @@
             <column name="id" type="bigint">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="id_studio_professionale" type="integer">
+            <column name="id_studio_professionale_ref" type="integer">
                 <constraints nullable="false" />
             </column>
             <column name="data_attivazione_licenza" type="varchar(255)">
@@ -53,7 +53,7 @@
                   separator=";"
                   tableName="risorse_disponibili">
             <column name="id" type="numeric"/>
-            <column name="id_studio_professionale" type="numeric"/>
+            <column name="id_studio_professionale_ref" type="numeric"/>
             <column name="data_attivazione_licenza" type="string"/>
             <column name="nr_licenza" type="numeric"/>
             <column name="storage_totale" type="numeric"/>

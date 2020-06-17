@@ -41,24 +41,26 @@
             <thead>
                 <tr>
                     <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.ruoloOrganizzazione.idRuoloOrganizzazione">Id Ruolo Organizzazione</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.ruoloOrganizzazione.ruoloInOrg">Ruolo In Org</span></th>
-                    <th scope="col" ><span jhiTranslate="eoloprjApp.ruoloOrganizzazione.id">Id</span></th>
-                    <th scope="col" ><span jhiTranslate="eoloprjApp.ruoloOrganizzazione.id">Id</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.ruoloOrganizzazione.idRuoloOrganizzazione">Id Ruolo Organizzazione</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.ruoloOrganizzazione.idRuoloOrganizzazione">Id Ruolo Organizzazione</span></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let ruoloOrganizzazione of ruoloOrganizzaziones ;trackBy: trackId">
                     <td><a [routerLink]="['/ruolo-organizzazione', ruoloOrganizzazione.id, 'view']">{{ ruoloOrganizzazione.id }}</a></td>
+                    <td>{{ ruoloOrganizzazione.idRuoloOrganizzazione }}</td>
                     <td>{{ ruoloOrganizzazione.ruoloInOrg }}</td>
                     <td>
-                        <div *ngIf="ruoloOrganizzazione.idId">
-                            <a [routerLink]="['/organizzazione', ruoloOrganizzazione.idId , 'view']" >{{ ruoloOrganizzazione.idId }}</a>
+                        <div *ngIf="ruoloOrganizzazione.idRuoloOrganizzazioneId">
+                            <a [routerLink]="['/organizzazione', ruoloOrganizzazione.idRuoloOrganizzazioneId , 'view']" >{{ ruoloOrganizzazione.idRuoloOrganizzazioneId }}</a>
                         </div>
                     </td>
                     <td>
-                        <div *ngIf="ruoloOrganizzazione.idId">
-                            <a [routerLink]="['/persona-fisica', ruoloOrganizzazione.idId , 'view']" >{{ ruoloOrganizzazione.idId }}</a>
+                        <div *ngIf="ruoloOrganizzazione.idRuoloOrganizzazioneId">
+                            <a [routerLink]="['/persona-fisica', ruoloOrganizzazione.idRuoloOrganizzazioneId , 'view']" >{{ ruoloOrganizzazione.idRuoloOrganizzazioneId }}</a>
                         </div>
                     </td>
                     <td class="text-right">

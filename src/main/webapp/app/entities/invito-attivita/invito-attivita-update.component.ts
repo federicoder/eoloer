@@ -17,12 +17,12 @@ import { InvitoService } from 'app/entities/invito/invito.service';
 })
 export class InvitoAttivitaUpdateComponent implements OnInit {
   isSaving = false;
-  idattivitas: IInvito[] = [];
+  idtaskrefs: IInvito[] = [];
 
   editForm = this.fb.group({
     id: [],
-    idAttivita: [],
-    idAttivitaId: [],
+    idTaskRef: [],
+    idTaskRefId: [],
   });
 
   constructor(
@@ -37,24 +37,24 @@ export class InvitoAttivitaUpdateComponent implements OnInit {
       this.updateForm(invitoAttivita);
 
       this.invitoService
-        .query({ filter: 'id-is-null' })
+        .query({ filter: 'idinvito-is-null' })
         .pipe(
           map((res: HttpResponse<IInvito[]>) => {
             return res.body || [];
           })
         )
         .subscribe((resBody: IInvito[]) => {
-          if (!invitoAttivita.idAttivitaId) {
-            this.idattivitas = resBody;
+          if (!invitoAttivita.idTaskRefId) {
+            this.idtaskrefs = resBody;
           } else {
             this.invitoService
-              .find(invitoAttivita.idAttivitaId)
+              .find(invitoAttivita.idTaskRefId)
               .pipe(
                 map((subRes: HttpResponse<IInvito>) => {
                   return subRes.body ? [subRes.body].concat(resBody) : resBody;
                 })
               )
-              .subscribe((concatRes: IInvito[]) => (this.idattivitas = concatRes));
+              .subscribe((concatRes: IInvito[]) => (this.idtaskrefs = concatRes));
           }
         });
     });
@@ -63,8 +63,8 @@ export class InvitoAttivitaUpdateComponent implements OnInit {
   updateForm(invitoAttivita: IInvitoAttivita): void {
     this.editForm.patchValue({
       id: invitoAttivita.id,
-      idAttivita: invitoAttivita.idAttivita,
-      idAttivitaId: invitoAttivita.idAttivitaId,
+      idTaskRef: invitoAttivita.idTaskRef,
+      idTaskRefId: invitoAttivita.idTaskRefId,
     });
   }
 
@@ -86,8 +86,8 @@ export class InvitoAttivitaUpdateComponent implements OnInit {
     return {
       ...new InvitoAttivita(),
       id: this.editForm.get(['id'])!.value,
-      idAttivita: this.editForm.get(['idAttivita'])!.value,
-      idAttivitaId: this.editForm.get(['idAttivitaId'])!.value,
+      idTaskRef: this.editForm.get(['idTaskRef'])!.value,
+      idTaskRefId: this.editForm.get(['idTaskRefId'])!.value,
     };
   }
 

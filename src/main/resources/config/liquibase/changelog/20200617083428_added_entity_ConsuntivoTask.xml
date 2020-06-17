@@ -15,7 +15,7 @@
             <column name="id" type="bigint">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="id_task" type="integer">
+            <column name="id_task_ref" type="integer">
                 <constraints nullable="false" />
             </column>
             <column name="data_inizio" type="varchar(255)">
@@ -53,7 +53,7 @@
                   separator=";"
                   tableName="consuntivo_task">
             <column name="id" type="numeric"/>
-            <column name="id_task" type="numeric"/>
+            <column name="id_task_ref" type="numeric"/>
             <column name="data_inizio" type="string"/>
             <column name="data_fine" type="string"/>
             <column name="time_line" type="numeric"/>

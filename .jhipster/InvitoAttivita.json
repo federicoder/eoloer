@@ -2,7 +2,7 @@
   "name": "InvitoAttivita",
   "fields": [
     {
-      "fieldName": "idAttivita",
+      "fieldName": "idTaskRef",
       "fieldType": "Integer"
     }
   ],
@@ -10,16 +10,16 @@
     {
       "relationshipType": "one-to-one",
       "otherEntityName": "invito",
-      "otherEntityRelationshipName": "id",
-      "relationshipName": "idAttivita",
+      "otherEntityRelationshipName": "idInvito",
+      "relationshipName": "idTaskRef",
       "otherEntityField": "id",
       "ownerSide": true
     },
     {
       "relationshipType": "one-to-one",
       "otherEntityName": "task",
-      "otherEntityRelationshipName": "id",
-      "relationshipName": "idAttivita",
+      "otherEntityRelationshipName": "idTask",
+      "relationshipName": "idTaskRef",
       "ownerSide": false
     }
   ],

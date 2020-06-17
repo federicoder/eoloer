@@ -1,17 +1,19 @@
 export interface IProdotto {
   id?: number;
+  idProdotto?: number;
   nuovaLicenza?: number;
   rinnovoLicenza?: number;
   storage?: number;
-  idId?: number;
+  idProdottoId?: number;
 }
 
 export class Prodotto implements IProdotto {
   constructor(
     public id?: number,
+    public idProdotto?: number,
     public nuovaLicenza?: number,
     public rinnovoLicenza?: number,
     public storage?: number,
-    public idId?: number
+    public idProdottoId?: number
   ) {}
 }

@@ -54,7 +54,7 @@ describe('Service Tests', () => {
       it('should update a PrevisioneEvento', () => {
         const returnedFromService = Object.assign(
           {
-            idTask: 1,
+            idTaskRef: 1,
             dataInizio: 'BBBBBB',
             dataFine: 'BBBBBB',
             luogo: 'BBBBBB',
@@ -76,7 +76,7 @@ describe('Service Tests', () => {
       it('should return a list of PrevisioneEvento', () => {
         const returnedFromService = Object.assign(
           {
-            idTask: 1,
+            idTaskRef: 1,
             dataInizio: 'BBBBBB',
             dataFine: 'BBBBBB',
             luogo: 'BBBBBB',

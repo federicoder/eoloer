@@ -17,10 +17,11 @@
       "detail": {
         "title": "Prodotto"
       },
+      "idProdotto": "Id Prodotto",
       "nuovaLicenza": "Nuova Licenza",
       "rinnovoLicenza": "Rinnovo Licenza",
       "storage": "Storage",
-      "id": "Id"
+      "idProdotto": "Id Prodotto"
     }
   }
 }

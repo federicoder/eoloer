@@ -40,11 +40,11 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WithMockUser
 public class LineaOrdineResourceIT {
 
-    private static final Integer DEFAULT_ID_ORDINE = 1;
-    private static final Integer UPDATED_ID_ORDINE = 2;
+    private static final Integer DEFAULT_ID_ORDINE_REF = 1;
+    private static final Integer UPDATED_ID_ORDINE_REF = 2;
 
-    private static final Integer DEFAULT_ID_PRODOTTO = 1;
-    private static final Integer UPDATED_ID_PRODOTTO = 2;
+    private static final Integer DEFAULT_ID_PRODOTTO_REF = 1;
+    private static final Integer UPDATED_ID_PRODOTTO_REF = 2;
 
     private static final Integer DEFAULT_QUANTITA = 1;
     private static final Integer UPDATED_QUANTITA = 2;
@@ -88,8 +88,8 @@ public class LineaOrdineResourceIT {
      */
     public static LineaOrdine createEntity(EntityManager em) {
         LineaOrdine lineaOrdine = new LineaOrdine()
-            .idOrdine(DEFAULT_ID_ORDINE)
-            .idProdotto(DEFAULT_ID_PRODOTTO)
+            .idOrdineRef(DEFAULT_ID_ORDINE_REF)
+            .idProdottoRef(DEFAULT_ID_PRODOTTO_REF)
             .quantita(DEFAULT_QUANTITA)
             .importo(DEFAULT_IMPORTO)
             .codIva(DEFAULT_COD_IVA);
@@ -103,8 +103,8 @@ public class LineaOrdineResourceIT {
      */
     public static LineaOrdine createUpdatedEntity(EntityManager em) {
         LineaOrdine lineaOrdine = new LineaOrdine()
-            .idOrdine(UPDATED_ID_ORDINE)
-            .idProdotto(UPDATED_ID_PRODOTTO)
+            .idOrdineRef(UPDATED_ID_ORDINE_REF)
+            .idProdottoRef(UPDATED_ID_PRODOTTO_REF)
             .quantita(UPDATED_QUANTITA)
             .importo(UPDATED_IMPORTO)
             .codIva(UPDATED_COD_IVA);
@@ -131,8 +131,8 @@ public class LineaOrdineResourceIT {
         List<LineaOrdine> lineaOrdineList = lineaOrdineRepository.findAll();
         assertThat(lineaOrdineList).hasSize(databaseSizeBeforeCreate + 1);
         LineaOrdine testLineaOrdine = lineaOrdineList.get(lineaOrdineList.size() - 1);
-        assertThat(testLineaOrdine.getIdOrdine()).isEqualTo(DEFAULT_ID_ORDINE);
-        assertThat(testLineaOrdine.getIdProdotto()).isEqualTo(DEFAULT_ID_PRODOTTO);
+        assertThat(testLineaOrdine.getIdOrdineRef()).isEqualTo(DEFAULT_ID_ORDINE_REF);
+        assertThat(testLineaOrdine.getIdProdottoRef()).isEqualTo(DEFAULT_ID_PRODOTTO_REF);
         assertThat(testLineaOrdine.getQuantita()).isEqualTo(DEFAULT_QUANTITA);
         assertThat(testLineaOrdine.getImporto()).isEqualTo(DEFAULT_IMPORTO);
         assertThat(testLineaOrdine.getCodIva()).isEqualTo(DEFAULT_COD_IVA);
@@ -167,10 +167,10 @@ public class LineaOrdineResourceIT {
 
     @Test
     @Transactional
-    public void checkIdOrdineIsRequired() throws Exception {
+    public void checkIdOrdineRefIsRequired() throws Exception {
         int databaseSizeBeforeTest = lineaOrdineRepository.findAll().size();
         // set the field null
-        lineaOrdine.setIdOrdine(null);
+        lineaOrdine.setIdOrdineRef(null);
 
         // Create the LineaOrdine, which fails.
         LineaOrdineDTO lineaOrdineDTO = lineaOrdineMapper.toDto(lineaOrdine);
@@ -187,10 +187,10 @@ public class LineaOrdineResourceIT {
 
     @Test
     @Transactional
-    public void checkIdProdottoIsRequired() throws Exception {
+    public void checkIdProdottoRefIsRequired() throws Exception {
         int databaseSizeBeforeTest = lineaOrdineRepository.findAll().size();
         // set the field null
-        lineaOrdine.setIdProdotto(null);
+        lineaOrdine.setIdProdottoRef(null);
 
         // Create the LineaOrdine, which fails.
         LineaOrdineDTO lineaOrdineDTO = lineaOrdineMapper.toDto(lineaOrdine);
@@ -216,8 +216,8 @@ public class LineaOrdineResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(lineaOrdine.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idOrdine").value(hasItem(DEFAULT_ID_ORDINE)))
-            .andExpect(jsonPath("$.[*].idProdotto").value(hasItem(DEFAULT_ID_PRODOTTO)))
+            .andExpect(jsonPath("$.[*].idOrdineRef").value(hasItem(DEFAULT_ID_ORDINE_REF)))
+            .andExpect(jsonPath("$.[*].idProdottoRef").value(hasItem(DEFAULT_ID_PRODOTTO_REF)))
             .andExpect(jsonPath("$.[*].quantita").value(hasItem(DEFAULT_QUANTITA)))
             .andExpect(jsonPath("$.[*].importo").value(hasItem(DEFAULT_IMPORTO)))
             .andExpect(jsonPath("$.[*].codIva").value(hasItem(DEFAULT_COD_IVA)));
@@ -234,8 +234,8 @@ public class LineaOrdineResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(lineaOrdine.getId().intValue()))
-            .andExpect(jsonPath("$.idOrdine").value(DEFAULT_ID_ORDINE))
-            .andExpect(jsonPath("$.idProdotto").value(DEFAULT_ID_PRODOTTO))
+            .andExpect(jsonPath("$.idOrdineRef").value(DEFAULT_ID_ORDINE_REF))
+            .andExpect(jsonPath("$.idProdottoRef").value(DEFAULT_ID_PRODOTTO_REF))
             .andExpect(jsonPath("$.quantita").value(DEFAULT_QUANTITA))
             .andExpect(jsonPath("$.importo").value(DEFAULT_IMPORTO))
             .andExpect(jsonPath("$.codIva").value(DEFAULT_COD_IVA));
@@ -261,8 +261,8 @@ public class LineaOrdineResourceIT {
         // Disconnect from session so that the updates on updatedLineaOrdine are not directly saved in db
         em.detach(updatedLineaOrdine);
         updatedLineaOrdine
-            .idOrdine(UPDATED_ID_ORDINE)
-            .idProdotto(UPDATED_ID_PRODOTTO)
+            .idOrdineRef(UPDATED_ID_ORDINE_REF)
+            .idProdottoRef(UPDATED_ID_PRODOTTO_REF)
             .quantita(UPDATED_QUANTITA)
             .importo(UPDATED_IMPORTO)
             .codIva(UPDATED_COD_IVA);
@@ -277,8 +277,8 @@ public class LineaOrdineResourceIT {
         List<LineaOrdine> lineaOrdineList = lineaOrdineRepository.findAll();
         assertThat(lineaOrdineList).hasSize(databaseSizeBeforeUpdate);
         LineaOrdine testLineaOrdine = lineaOrdineList.get(lineaOrdineList.size() - 1);
-        assertThat(testLineaOrdine.getIdOrdine()).isEqualTo(UPDATED_ID_ORDINE);
-        assertThat(testLineaOrdine.getIdProdotto()).isEqualTo(UPDATED_ID_PRODOTTO);
+        assertThat(testLineaOrdine.getIdOrdineRef()).isEqualTo(UPDATED_ID_ORDINE_REF);
+        assertThat(testLineaOrdine.getIdProdottoRef()).isEqualTo(UPDATED_ID_PRODOTTO_REF);
         assertThat(testLineaOrdine.getQuantita()).isEqualTo(UPDATED_QUANTITA);
         assertThat(testLineaOrdine.getImporto()).isEqualTo(UPDATED_IMPORTO);
         assertThat(testLineaOrdine.getCodIva()).isEqualTo(UPDATED_COD_IVA);
@@ -344,8 +344,8 @@ public class LineaOrdineResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(lineaOrdine.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idOrdine").value(hasItem(DEFAULT_ID_ORDINE)))
-            .andExpect(jsonPath("$.[*].idProdotto").value(hasItem(DEFAULT_ID_PRODOTTO)))
+            .andExpect(jsonPath("$.[*].idOrdineRef").value(hasItem(DEFAULT_ID_ORDINE_REF)))
+            .andExpect(jsonPath("$.[*].idProdottoRef").value(hasItem(DEFAULT_ID_PRODOTTO_REF)))
             .andExpect(jsonPath("$.[*].quantita").value(hasItem(DEFAULT_QUANTITA)))
             .andExpect(jsonPath("$.[*].importo").value(hasItem(DEFAULT_IMPORTO)))
             .andExpect(jsonPath("$.[*].codIva").value(hasItem(DEFAULT_COD_IVA)));

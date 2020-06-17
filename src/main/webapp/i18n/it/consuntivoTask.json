@@ -17,12 +17,12 @@
       "detail": {
         "title": "Consuntivo Task"
       },
-      "idTask": "Id Task",
+      "idTaskRef": "Id Task Ref",
       "dataInizio": "Data Inizio",
       "dataFine": "Data Fine",
       "timeLine": "Time Line",
       "version": "Version",
-      "idTask": "Id Task"
+      "idTaskRef": "Id Task Ref"
     }
   }
 }

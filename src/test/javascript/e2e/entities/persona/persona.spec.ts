@@ -41,7 +41,8 @@ describe('Persona e2e test', () => {
     await personaComponentsPage.clickOnCreateButton();
 
     await promise.all([
-      personaUpdatePage.setIdStudioInput('5'),
+      personaUpdatePage.setIdPersonaInput('5'),
+      personaUpdatePage.setIdStudioProfessionaleRefInput('5'),
       personaUpdatePage.setCodiceFiscaleInput('codiceFiscale'),
       personaUpdatePage.setAreaDiInteresseInput('areaDiInteresse'),
       personaUpdatePage.setTitoloInput('titolo'),
@@ -52,12 +53,16 @@ describe('Persona e2e test', () => {
       personaUpdatePage.setProfessioneInput('professione'),
       personaUpdatePage.setTipoInput('5'),
       personaUpdatePage.setDiscriminatorInput('discriminator'),
-      personaUpdatePage.setIdRuoloPersonaInput('5'),
+      personaUpdatePage.setIdRuoloPersonaRefInput('5'),
       personaUpdatePage.setTipoRuoloUtenteInput('5'),
-      personaUpdatePage.idSelectLastOption(),
+      personaUpdatePage.idPersonaSelectLastOption(),
     ]);
 
-    expect(await personaUpdatePage.getIdStudioInput()).to.eq('5', 'Expected idStudio value to be equals to 5');
+    expect(await personaUpdatePage.getIdPersonaInput()).to.eq('5', 'Expected idPersona value to be equals to 5');
+    expect(await personaUpdatePage.getIdStudioProfessionaleRefInput()).to.eq(
+      '5',
+      'Expected idStudioProfessionaleRef value to be equals to 5'
+    );
     expect(await personaUpdatePage.getCodiceFiscaleInput()).to.eq(
       'codiceFiscale',
       'Expected CodiceFiscale value to be equals to codiceFiscale'
@@ -83,7 +88,7 @@ describe('Persona e2e test', () => {
       'discriminator',
       'Expected Discriminator value to be equals to discriminator'
     );
-    expect(await personaUpdatePage.getIdRuoloPersonaInput()).to.eq('5', 'Expected idRuoloPersona value to be equals to 5');
+    expect(await personaUpdatePage.getIdRuoloPersonaRefInput()).to.eq('5', 'Expected idRuoloPersonaRef value to be equals to 5');
     expect(await personaUpdatePage.getTipoRuoloUtenteInput()).to.eq('5', 'Expected tipoRuoloUtente value to be equals to 5');
 
     await personaUpdatePage.save();

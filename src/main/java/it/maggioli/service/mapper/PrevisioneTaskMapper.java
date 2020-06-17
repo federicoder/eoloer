@@ -15,11 +15,11 @@ public interface PrevisioneTaskMapper extends EntityMapper<PrevisioneTaskDTO, Pr
     @Mapping(source = "previsioneTask.id", target = "previsioneTaskId")
     PrevisioneTaskDTO toDto(PrevisioneTask previsioneTask);
 
-    @Mapping(target = "idTasks", ignore = true)
-    @Mapping(target = "removeIdTask", ignore = true)
-    @Mapping(target = "idTask", ignore = true)
-    @Mapping(target = "idTask", ignore = true)
-    @Mapping(target = "idTask", ignore = true)
+    @Mapping(target = "idTaskRefs", ignore = true)
+    @Mapping(target = "removeIdTaskRef", ignore = true)
+    @Mapping(target = "idTaskRef", ignore = true)
+    @Mapping(target = "idTaskRef", ignore = true)
+    @Mapping(target = "idTaskRef", ignore = true)
     @Mapping(source = "previsioneTaskId", target = "previsioneTask")
     PrevisioneTask toEntity(PrevisioneTaskDTO previsioneTaskDTO);
 

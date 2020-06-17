@@ -17,10 +17,10 @@
       "detail": {
         "title": "Allegato Template Task"
       },
-      "idTemplateTask": "Id Template Task",
-      "tipoAllegato": "Tipo Allegato",
+      "idTemplateTaskRef": "Id Template Task Ref",
+      "idTipoAllegatoRef": "Id Tipo Allegato Ref",
       "formato": "Formato",
-      "idFile": "Id File",
+      "idFileRef": "Id File Ref",
       "pubPriv": "Pub Priv",
       "templateTask": "Template Task",
       "tipoAllegato": "Tipo Allegato"

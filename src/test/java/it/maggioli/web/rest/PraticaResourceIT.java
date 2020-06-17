@@ -40,8 +40,11 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WithMockUser
 public class PraticaResourceIT {
 
-    private static final Integer DEFAULT_ID_STUDIO = 8;
-    private static final Integer UPDATED_ID_STUDIO = 7;
+    private static final Integer DEFAULT_ID_PRATICA = 8;
+    private static final Integer UPDATED_ID_PRATICA = 7;
+
+    private static final Integer DEFAULT_ID_STUDIO_PROFESSIONALE_REF = 8;
+    private static final Integer UPDATED_ID_STUDIO_PROFESSIONALE_REF = 7;
 
     private static final String DEFAULT_NUMERO = "AAAAAAAAAA";
     private static final String UPDATED_NUMERO = "BBBBBBBBBB";
@@ -76,8 +79,8 @@ public class PraticaResourceIT {
     private static final String DEFAULT_VALUTA = "AAAAAAAAAA";
     private static final String UPDATED_VALUTA = "BBBBBBBBBB";
 
-    private static final Integer DEFAULT_ID_TEMPLATE_PRATICA = 1;
-    private static final Integer UPDATED_ID_TEMPLATE_PRATICA = 2;
+    private static final Integer DEFAULT_ID_TEMPLATE_PRATICA_REF = 1;
+    private static final Integer UPDATED_ID_TEMPLATE_PRATICA_REF = 2;
 
     @Autowired
     private PraticaRepository praticaRepository;
@@ -112,7 +115,8 @@ public class PraticaResourceIT {
      */
     public static Pratica createEntity(EntityManager em) {
         Pratica pratica = new Pratica()
-            .idStudio(DEFAULT_ID_STUDIO)
+            .idPratica(DEFAULT_ID_PRATICA)
+            .idStudioProfessionaleRef(DEFAULT_ID_STUDIO_PROFESSIONALE_REF)
             .numero(DEFAULT_NUMERO)
             .nome(DEFAULT_NOME)
             .dataApertura(DEFAULT_DATA_APERTURA)
@@ -124,7 +128,7 @@ public class PraticaResourceIT {
             .prcAvanzato(DEFAULT_PRC_AVANZATO)
             .version(DEFAULT_VERSION)
             .valuta(DEFAULT_VALUTA)
-            .idTemplatePratica(DEFAULT_ID_TEMPLATE_PRATICA);
+            .idTemplatePraticaRef(DEFAULT_ID_TEMPLATE_PRATICA_REF);
         return pratica;
     }
     /**
@@ -135,7 +139,8 @@ public class PraticaResourceIT {
      */
     public static Pratica createUpdatedEntity(EntityManager em) {
         Pratica pratica = new Pratica()
-            .idStudio(UPDATED_ID_STUDIO)
+            .idPratica(UPDATED_ID_PRATICA)
+            .idStudioProfessionaleRef(UPDATED_ID_STUDIO_PROFESSIONALE_REF)
             .numero(UPDATED_NUMERO)
             .nome(UPDATED_NOME)
             .dataApertura(UPDATED_DATA_APERTURA)
@@ -147,7 +152,7 @@ public class PraticaResourceIT {
             .prcAvanzato(UPDATED_PRC_AVANZATO)
             .version(UPDATED_VERSION)
             .valuta(UPDATED_VALUTA)
-            .idTemplatePratica(UPDATED_ID_TEMPLATE_PRATICA);
+            .idTemplatePraticaRef(UPDATED_ID_TEMPLATE_PRATICA_REF);
         return pratica;
     }
 
@@ -171,7 +176,8 @@ public class PraticaResourceIT {
         List<Pratica> praticaList = praticaRepository.findAll();
         assertThat(praticaList).hasSize(databaseSizeBeforeCreate + 1);
         Pratica testPratica = praticaList.get(praticaList.size() - 1);
-        assertThat(testPratica.getIdStudio()).isEqualTo(DEFAULT_ID_STUDIO);
+        assertThat(testPratica.getIdPratica()).isEqualTo(DEFAULT_ID_PRATICA);
+        assertThat(testPratica.getIdStudioProfessionaleRef()).isEqualTo(DEFAULT_ID_STUDIO_PROFESSIONALE_REF);
         assertThat(testPratica.getNumero()).isEqualTo(DEFAULT_NUMERO);
         assertThat(testPratica.getNome()).isEqualTo(DEFAULT_NOME);
         assertThat(testPratica.getDataApertura()).isEqualTo(DEFAULT_DATA_APERTURA);
@@ -183,7 +189,7 @@ public class PraticaResourceIT {
         assertThat(testPratica.getPrcAvanzato()).isEqualTo(DEFAULT_PRC_AVANZATO);
         assertThat(testPratica.getVersion()).isEqualTo(DEFAULT_VERSION);
         assertThat(testPratica.getValuta()).isEqualTo(DEFAULT_VALUTA);
-        assertThat(testPratica.getIdTemplatePratica()).isEqualTo(DEFAULT_ID_TEMPLATE_PRATICA);
+        assertThat(testPratica.getIdTemplatePraticaRef()).isEqualTo(DEFAULT_ID_TEMPLATE_PRATICA_REF);
 
         // Validate the Pratica in Elasticsearch
         verify(mockPraticaSearchRepository, times(1)).save(testPratica);
@@ -224,7 +230,8 @@ public class PraticaResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(pratica.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idStudio").value(hasItem(DEFAULT_ID_STUDIO)))
+            .andExpect(jsonPath("$.[*].idPratica").value(hasItem(DEFAULT_ID_PRATICA)))
+            .andExpect(jsonPath("$.[*].idStudioProfessionaleRef").value(hasItem(DEFAULT_ID_STUDIO_PROFESSIONALE_REF)))
             .andExpect(jsonPath("$.[*].numero").value(hasItem(DEFAULT_NUMERO)))
             .andExpect(jsonPath("$.[*].nome").value(hasItem(DEFAULT_NOME)))
             .andExpect(jsonPath("$.[*].dataApertura").value(hasItem(DEFAULT_DATA_APERTURA)))
@@ -236,7 +243,7 @@ public class PraticaResourceIT {
             .andExpect(jsonPath("$.[*].prcAvanzato").value(hasItem(DEFAULT_PRC_AVANZATO)))
             .andExpect(jsonPath("$.[*].version").value(hasItem(DEFAULT_VERSION)))
             .andExpect(jsonPath("$.[*].valuta").value(hasItem(DEFAULT_VALUTA)))
-            .andExpect(jsonPath("$.[*].idTemplatePratica").value(hasItem(DEFAULT_ID_TEMPLATE_PRATICA)));
+            .andExpect(jsonPath("$.[*].idTemplatePraticaRef").value(hasItem(DEFAULT_ID_TEMPLATE_PRATICA_REF)));
     }
     
     @Test
@@ -250,7 +257,8 @@ public class PraticaResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(pratica.getId().intValue()))
-            .andExpect(jsonPath("$.idStudio").value(DEFAULT_ID_STUDIO))
+            .andExpect(jsonPath("$.idPratica").value(DEFAULT_ID_PRATICA))
+            .andExpect(jsonPath("$.idStudioProfessionaleRef").value(DEFAULT_ID_STUDIO_PROFESSIONALE_REF))
             .andExpect(jsonPath("$.numero").value(DEFAULT_NUMERO))
             .andExpect(jsonPath("$.nome").value(DEFAULT_NOME))
             .andExpect(jsonPath("$.dataApertura").value(DEFAULT_DATA_APERTURA))
@@ -262,7 +270,7 @@ public class PraticaResourceIT {
             .andExpect(jsonPath("$.prcAvanzato").value(DEFAULT_PRC_AVANZATO))
             .andExpect(jsonPath("$.version").value(DEFAULT_VERSION))
             .andExpect(jsonPath("$.valuta").value(DEFAULT_VALUTA))
-            .andExpect(jsonPath("$.idTemplatePratica").value(DEFAULT_ID_TEMPLATE_PRATICA));
+            .andExpect(jsonPath("$.idTemplatePraticaRef").value(DEFAULT_ID_TEMPLATE_PRATICA_REF));
     }
     @Test
     @Transactional
@@ -285,7 +293,8 @@ public class PraticaResourceIT {
         // Disconnect from session so that the updates on updatedPratica are not directly saved in db
         em.detach(updatedPratica);
         updatedPratica
-            .idStudio(UPDATED_ID_STUDIO)
+            .idPratica(UPDATED_ID_PRATICA)
+            .idStudioProfessionaleRef(UPDATED_ID_STUDIO_PROFESSIONALE_REF)
             .numero(UPDATED_NUMERO)
             .nome(UPDATED_NOME)
             .dataApertura(UPDATED_DATA_APERTURA)
@@ -297,7 +306,7 @@ public class PraticaResourceIT {
             .prcAvanzato(UPDATED_PRC_AVANZATO)
             .version(UPDATED_VERSION)
             .valuta(UPDATED_VALUTA)
-            .idTemplatePratica(UPDATED_ID_TEMPLATE_PRATICA);
+            .idTemplatePraticaRef(UPDATED_ID_TEMPLATE_PRATICA_REF);
         PraticaDTO praticaDTO = praticaMapper.toDto(updatedPratica);
 
         restPraticaMockMvc.perform(put("/api/praticas")
@@ -309,7 +318,8 @@ public class PraticaResourceIT {
         List<Pratica> praticaList = praticaRepository.findAll();
         assertThat(praticaList).hasSize(databaseSizeBeforeUpdate);
         Pratica testPratica = praticaList.get(praticaList.size() - 1);
-        assertThat(testPratica.getIdStudio()).isEqualTo(UPDATED_ID_STUDIO);
+        assertThat(testPratica.getIdPratica()).isEqualTo(UPDATED_ID_PRATICA);
+        assertThat(testPratica.getIdStudioProfessionaleRef()).isEqualTo(UPDATED_ID_STUDIO_PROFESSIONALE_REF);
         assertThat(testPratica.getNumero()).isEqualTo(UPDATED_NUMERO);
         assertThat(testPratica.getNome()).isEqualTo(UPDATED_NOME);
         assertThat(testPratica.getDataApertura()).isEqualTo(UPDATED_DATA_APERTURA);
@@ -321,7 +331,7 @@ public class PraticaResourceIT {
         assertThat(testPratica.getPrcAvanzato()).isEqualTo(UPDATED_PRC_AVANZATO);
         assertThat(testPratica.getVersion()).isEqualTo(UPDATED_VERSION);
         assertThat(testPratica.getValuta()).isEqualTo(UPDATED_VALUTA);
-        assertThat(testPratica.getIdTemplatePratica()).isEqualTo(UPDATED_ID_TEMPLATE_PRATICA);
+        assertThat(testPratica.getIdTemplatePraticaRef()).isEqualTo(UPDATED_ID_TEMPLATE_PRATICA_REF);
 
         // Validate the Pratica in Elasticsearch
         verify(mockPraticaSearchRepository, times(1)).save(testPratica);
@@ -384,7 +394,8 @@ public class PraticaResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(pratica.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idStudio").value(hasItem(DEFAULT_ID_STUDIO)))
+            .andExpect(jsonPath("$.[*].idPratica").value(hasItem(DEFAULT_ID_PRATICA)))
+            .andExpect(jsonPath("$.[*].idStudioProfessionaleRef").value(hasItem(DEFAULT_ID_STUDIO_PROFESSIONALE_REF)))
             .andExpect(jsonPath("$.[*].numero").value(hasItem(DEFAULT_NUMERO)))
             .andExpect(jsonPath("$.[*].nome").value(hasItem(DEFAULT_NOME)))
             .andExpect(jsonPath("$.[*].dataApertura").value(hasItem(DEFAULT_DATA_APERTURA)))
@@ -396,6 +407,6 @@ public class PraticaResourceIT {
             .andExpect(jsonPath("$.[*].prcAvanzato").value(hasItem(DEFAULT_PRC_AVANZATO)))
             .andExpect(jsonPath("$.[*].version").value(hasItem(DEFAULT_VERSION)))
             .andExpect(jsonPath("$.[*].valuta").value(hasItem(DEFAULT_VALUTA)))
-            .andExpect(jsonPath("$.[*].idTemplatePratica").value(hasItem(DEFAULT_ID_TEMPLATE_PRATICA)));
+            .andExpect(jsonPath("$.[*].idTemplatePraticaRef").value(hasItem(DEFAULT_ID_TEMPLATE_PRATICA_REF)));
     }
 }

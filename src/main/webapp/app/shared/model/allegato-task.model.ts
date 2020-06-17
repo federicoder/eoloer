@@ -1,8 +1,8 @@
 export interface IAllegatoTask {
   id?: number;
   idAllegatoTask?: number;
-  idTipo?: number;
-  idTask?: number;
+  idTipoAllegatoRef?: number;
+  idTaskRef?: number;
   formato?: number;
   note?: string;
   stato?: number;
@@ -19,8 +19,8 @@ export class AllegatoTask implements IAllegatoTask {
   constructor(
     public id?: number,
     public idAllegatoTask?: number,
-    public idTipo?: number,
-    public idTask?: number,
+    public idTipoAllegatoRef?: number,
+    public idTaskRef?: number,
     public formato?: number,
     public note?: string,
     public stato?: number,

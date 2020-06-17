@@ -41,7 +41,8 @@ describe('Pratica e2e test', () => {
     await praticaComponentsPage.clickOnCreateButton();
 
     await promise.all([
-      praticaUpdatePage.setIdStudioInput('5'),
+      praticaUpdatePage.setIdPraticaInput('5'),
+      praticaUpdatePage.setIdStudioProfessionaleRefInput('5'),
       praticaUpdatePage.setNumeroInput('numero'),
       praticaUpdatePage.setNomeInput('nome'),
       praticaUpdatePage.setDataAperturaInput('dataApertura'),
@@ -53,11 +54,15 @@ describe('Pratica e2e test', () => {
       praticaUpdatePage.setPrcAvanzatoInput('5'),
       praticaUpdatePage.setVersionInput('version'),
       praticaUpdatePage.setValutaInput('valuta'),
-      praticaUpdatePage.setIdTemplatePraticaInput('5'),
-      praticaUpdatePage.idTemplateSelectLastOption(),
+      praticaUpdatePage.setIdTemplatePraticaRefInput('5'),
+      praticaUpdatePage.idTemplatePraticaRefSelectLastOption(),
     ]);
 
-    expect(await praticaUpdatePage.getIdStudioInput()).to.eq('5', 'Expected idStudio value to be equals to 5');
+    expect(await praticaUpdatePage.getIdPraticaInput()).to.eq('5', 'Expected idPratica value to be equals to 5');
+    expect(await praticaUpdatePage.getIdStudioProfessionaleRefInput()).to.eq(
+      '5',
+      'Expected idStudioProfessionaleRef value to be equals to 5'
+    );
     expect(await praticaUpdatePage.getNumeroInput()).to.eq('numero', 'Expected Numero value to be equals to numero');
     expect(await praticaUpdatePage.getNomeInput()).to.eq('nome', 'Expected Nome value to be equals to nome');
     expect(await praticaUpdatePage.getDataAperturaInput()).to.eq(
@@ -81,7 +86,7 @@ describe('Pratica e2e test', () => {
     expect(await praticaUpdatePage.getPrcAvanzatoInput()).to.eq('5', 'Expected prcAvanzato value to be equals to 5');
     expect(await praticaUpdatePage.getVersionInput()).to.eq('version', 'Expected Version value to be equals to version');
     expect(await praticaUpdatePage.getValutaInput()).to.eq('valuta', 'Expected Valuta value to be equals to valuta');
-    expect(await praticaUpdatePage.getIdTemplatePraticaInput()).to.eq('5', 'Expected idTemplatePratica value to be equals to 5');
+    expect(await praticaUpdatePage.getIdTemplatePraticaRefInput()).to.eq('5', 'Expected idTemplatePraticaRef value to be equals to 5');
 
     await praticaUpdatePage.save();
     expect(await praticaUpdatePage.getSaveButton().isPresent(), 'Expected save button disappear').to.be.false;

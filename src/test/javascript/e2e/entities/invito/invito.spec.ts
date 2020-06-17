@@ -41,14 +41,15 @@ describe('Invito e2e test', () => {
     await invitoComponentsPage.clickOnCreateButton();
 
     await promise.all([
-      invitoUpdatePage.setIdStudioProfessionaleInput('5'),
+      invitoUpdatePage.setIdInvitoInput('5'),
+      invitoUpdatePage.setIdStudioProfessionaleRefInput('5'),
       invitoUpdatePage.setDataInvitoInput('dataInvito'),
       invitoUpdatePage.setIdUserInvitanteInput('5'),
       invitoUpdatePage.setNomeUserInvitanteInput('nomeUserInvitante'),
       invitoUpdatePage.setDataScadenzaInvitoInput('dataScadenzaInvito'),
       invitoUpdatePage.setTestoInvitoInput('testoInvito'),
-      invitoUpdatePage.setIdPraticaInput('5'),
-      invitoUpdatePage.setIdAttivitaInput('5'),
+      invitoUpdatePage.setIdPraticaRefInput('5'),
+      invitoUpdatePage.setIdTaskRefInput('5'),
       invitoUpdatePage.setLuogoFisicoInput('luogoFisico'),
       invitoUpdatePage.setIndicazioniLuogoInput('indicazioniLuogo'),
       invitoUpdatePage.setDataInizioInput('dataInizio'),
@@ -57,11 +58,15 @@ describe('Invito e2e test', () => {
       invitoUpdatePage.setOraFineInput('oraFine'),
       invitoUpdatePage.setUrlStanzaVirtualeInput('urlStanzaVirtuale'),
       invitoUpdatePage.setDiscriminatorInput('discriminator'),
-      invitoUpdatePage.idStudioProfessionaleSelectLastOption(),
+      invitoUpdatePage.idStudioProfessionaleRefSelectLastOption(),
       invitoUpdatePage.assegnazioneTaskSelectLastOption(),
     ]);
 
-    expect(await invitoUpdatePage.getIdStudioProfessionaleInput()).to.eq('5', 'Expected idStudioProfessionale value to be equals to 5');
+    expect(await invitoUpdatePage.getIdInvitoInput()).to.eq('5', 'Expected idInvito value to be equals to 5');
+    expect(await invitoUpdatePage.getIdStudioProfessionaleRefInput()).to.eq(
+      '5',
+      'Expected idStudioProfessionaleRef value to be equals to 5'
+    );
     expect(await invitoUpdatePage.getDataInvitoInput()).to.eq('dataInvito', 'Expected DataInvito value to be equals to dataInvito');
     expect(await invitoUpdatePage.getIdUserInvitanteInput()).to.eq('5', 'Expected idUserInvitante value to be equals to 5');
     expect(await invitoUpdatePage.getNomeUserInvitanteInput()).to.eq(
@@ -73,8 +78,8 @@ describe('Invito e2e test', () => {
       'Expected DataScadenzaInvito value to be equals to dataScadenzaInvito'
     );
     expect(await invitoUpdatePage.getTestoInvitoInput()).to.eq('testoInvito', 'Expected TestoInvito value to be equals to testoInvito');
-    expect(await invitoUpdatePage.getIdPraticaInput()).to.eq('5', 'Expected idPratica value to be equals to 5');
-    expect(await invitoUpdatePage.getIdAttivitaInput()).to.eq('5', 'Expected idAttivita value to be equals to 5');
+    expect(await invitoUpdatePage.getIdPraticaRefInput()).to.eq('5', 'Expected idPraticaRef value to be equals to 5');
+    expect(await invitoUpdatePage.getIdTaskRefInput()).to.eq('5', 'Expected idTaskRef value to be equals to 5');
     expect(await invitoUpdatePage.getLuogoFisicoInput()).to.eq('luogoFisico', 'Expected LuogoFisico value to be equals to luogoFisico');
     expect(await invitoUpdatePage.getIndicazioniLuogoInput()).to.eq(
       'indicazioniLuogo',

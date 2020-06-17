@@ -25,15 +25,15 @@ public class InvitoPratica implements Serializable {
     @SequenceGenerator(name = "sequenceGenerator")
     private Long id;
 
-    @Column(name = "id_pratica")
-    private Integer idPratica;
+    @Column(name = "id_pratica_ref")
+    private Integer idPraticaRef;
 
     @OneToOne
     @JoinColumn(unique = true)
-    private Invito idPratica;
+    private Invito idPraticaRef;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "ids", allowSetters = true)
+    @JsonIgnoreProperties(value = "idPraticas", allowSetters = true)
     private Pratica pratica;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
@@ -45,30 +45,30 @@ public class InvitoPratica implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdPratica() {
-        return idPratica;
+    public Integer getIdPraticaRef() {
+        return idPraticaRef;
     }
 
-    public InvitoPratica idPratica(Integer idPratica) {
-        this.idPratica = idPratica;
+    public InvitoPratica idPraticaRef(Integer idPraticaRef) {
+        this.idPraticaRef = idPraticaRef;
         return this;
     }
 
-    public void setIdPratica(Integer idPratica) {
-        this.idPratica = idPratica;
+    public void setIdPraticaRef(Integer idPraticaRef) {
+        this.idPraticaRef = idPraticaRef;
     }
 
-    public Invito getIdPratica() {
-        return idPratica;
+    public Invito getIdPraticaRef() {
+        return idPraticaRef;
     }
 
-    public InvitoPratica idPratica(Invito invito) {
-        this.idPratica = invito;
+    public InvitoPratica idPraticaRef(Invito invito) {
+        this.idPraticaRef = invito;
         return this;
     }
 
-    public void setIdPratica(Invito invito) {
-        this.idPratica = invito;
+    public void setIdPraticaRef(Invito invito) {
+        this.idPraticaRef = invito;
     }
 
     public Pratica getPratica() {
@@ -106,7 +106,7 @@ public class InvitoPratica implements Serializable {
     public String toString() {
         return "InvitoPratica{" +
             "id=" + getId() +
-            ", idPratica=" + getIdPratica() +
+            ", idPraticaRef=" + getIdPraticaRef() +
             "}";
     }
 }

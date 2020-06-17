@@ -2,7 +2,13 @@
   "name": "NotaTask",
   "fields": [
     {
-      "fieldName": "idTask",
+      "fieldName": "idNotaTask",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["max", "required"],
+      "fieldValidateRulesMax": "8"
+    },
+    {
+      "fieldName": "idTaskRef",
       "fieldType": "Integer",
       "fieldValidateRules": ["max"],
       "fieldValidateRulesMax": "8"
@@ -24,7 +30,7 @@
     {
       "relationshipType": "many-to-one",
       "otherEntityName": "task",
-      "otherEntityRelationshipName": "id",
+      "otherEntityRelationshipName": "idTask",
       "relationshipName": "task",
       "otherEntityField": "id"
     }

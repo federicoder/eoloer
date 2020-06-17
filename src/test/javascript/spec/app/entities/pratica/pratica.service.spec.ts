@@ -20,7 +20,23 @@ describe('Service Tests', () => {
       service = injector.get(PraticaService);
       httpMock = injector.get(HttpTestingController);
 
-      elemDefault = new Pratica(0, 0, 'AAAAAAA', 'AAAAAAA', 'AAAAAAA', 'AAAAAAA', 'AAAAAAA', 0, 'AAAAAAA', 0, 0, 'AAAAAAA', 'AAAAAAA', 0);
+      elemDefault = new Pratica(
+        0,
+        0,
+        0,
+        'AAAAAAA',
+        'AAAAAAA',
+        'AAAAAAA',
+        'AAAAAAA',
+        'AAAAAAA',
+        0,
+        'AAAAAAA',
+        0,
+        0,
+        'AAAAAAA',
+        'AAAAAAA',
+        0
+      );
     });
 
     describe('Service methods', () => {
@@ -54,7 +70,8 @@ describe('Service Tests', () => {
       it('should update a Pratica', () => {
         const returnedFromService = Object.assign(
           {
-            idStudio: 1,
+            idPratica: 1,
+            idStudioProfessionaleRef: 1,
             numero: 'BBBBBB',
             nome: 'BBBBBB',
             dataApertura: 'BBBBBB',
@@ -66,7 +83,7 @@ describe('Service Tests', () => {
             prcAvanzato: 1,
             version: 'BBBBBB',
             valuta: 'BBBBBB',
-            idTemplatePratica: 1,
+            idTemplatePraticaRef: 1,
           },
           elemDefault
         );
@@ -83,7 +100,8 @@ describe('Service Tests', () => {
       it('should return a list of Pratica', () => {
         const returnedFromService = Object.assign(
           {
-            idStudio: 1,
+            idPratica: 1,
+            idStudioProfessionaleRef: 1,
             numero: 'BBBBBB',
             nome: 'BBBBBB',
             dataApertura: 'BBBBBB',
@@ -95,7 +113,7 @@ describe('Service Tests', () => {
             prcAvanzato: 1,
             version: 'BBBBBB',
             valuta: 'BBBBBB',
-            idTemplatePratica: 1,
+            idTemplatePraticaRef: 1,
           },
           elemDefault
         );

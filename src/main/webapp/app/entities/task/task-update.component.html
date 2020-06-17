@@ -12,16 +12,36 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="eoloprjApp.task.idPratica" for="field_idPratica">Id Pratica</label>
-                    <input type="number" class="form-control" name="idPratica" id="field_idPratica"
-                           formControlName="idPratica"/>
-                    <div *ngIf="editForm.get('idPratica')!.invalid && (editForm.get('idPratica')!.dirty || editForm.get('idPratica')!.touched)">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.task.idTask" for="field_idTask">Id Task</label>
+                    <input type="number" class="form-control" name="idTask" id="field_idTask"
+                           formControlName="idTask"/>
+                    <div *ngIf="editForm.get('idTask')!.invalid && (editForm.get('idTask')!.dirty || editForm.get('idTask')!.touched)">
                         <small class="form-text text-danger"
-                               *ngIf="editForm.get('idPratica')?.errors?.max" jhiTranslate="entity.validation.max" [translateValues]="{ max: 8 }">
+                               *ngIf="editForm.get('idTask')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('idTask')?.errors?.max" jhiTranslate="entity.validation.max" [translateValues]="{ max: 8 }">
                             This field cannot be more than 8.
                         </small>
                         <small class="form-text text-danger"
-                            [hidden]="!editForm.get('idPratica')?.errors?.number" jhiTranslate="entity.validation.number">
+                            [hidden]="!editForm.get('idTask')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.task.idPraticaRef" for="field_idPraticaRef">Id Pratica Ref</label>
+                    <input type="number" class="form-control" name="idPraticaRef" id="field_idPraticaRef"
+                           formControlName="idPraticaRef"/>
+                    <div *ngIf="editForm.get('idPraticaRef')!.invalid && (editForm.get('idPraticaRef')!.dirty || editForm.get('idPraticaRef')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('idPraticaRef')?.errors?.max" jhiTranslate="entity.validation.max" [translateValues]="{ max: 8 }">
+                            This field cannot be more than 8.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('idPraticaRef')?.errors?.number" jhiTranslate="entity.validation.number">
                             This field should be a number.
                         </small>
                     </div>
@@ -58,72 +78,72 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="eoloprjApp.task.condivisionePraticaId" for="field_condivisionePraticaId">Condivisione Pratica Id</label>
-                    <input type="number" class="form-control" name="condivisionePraticaId" id="field_condivisionePraticaId"
-                           formControlName="condivisionePraticaId"/>
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.task.idCondivisionePraticaRef" for="field_idCondivisionePraticaRef">Id Condivisione Pratica Ref</label>
+                    <input type="number" class="form-control" name="idCondivisionePraticaRef" id="field_idCondivisionePraticaRef"
+                           formControlName="idCondivisionePraticaRef"/>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="eoloprjApp.task.assegnazioneTaskId" for="field_assegnazioneTaskId">Assegnazione Task Id</label>
-                    <input type="number" class="form-control" name="assegnazioneTaskId" id="field_assegnazioneTaskId"
-                           formControlName="assegnazioneTaskId"/>
-                    <div *ngIf="editForm.get('assegnazioneTaskId')!.invalid && (editForm.get('assegnazioneTaskId')!.dirty || editForm.get('assegnazioneTaskId')!.touched)">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.task.idAssegnazioneTaskRef" for="field_idAssegnazioneTaskRef">Id Assegnazione Task Ref</label>
+                    <input type="number" class="form-control" name="idAssegnazioneTaskRef" id="field_idAssegnazioneTaskRef"
+                           formControlName="idAssegnazioneTaskRef"/>
+                    <div *ngIf="editForm.get('idAssegnazioneTaskRef')!.invalid && (editForm.get('idAssegnazioneTaskRef')!.dirty || editForm.get('idAssegnazioneTaskRef')!.touched)">
                         <small class="form-text text-danger"
-                               *ngIf="editForm.get('assegnazioneTaskId')?.errors?.max" jhiTranslate="entity.validation.max" [translateValues]="{ max: 8 }">
+                               *ngIf="editForm.get('idAssegnazioneTaskRef')?.errors?.max" jhiTranslate="entity.validation.max" [translateValues]="{ max: 8 }">
                             This field cannot be more than 8.
                         </small>
                         <small class="form-text text-danger"
-                            [hidden]="!editForm.get('assegnazioneTaskId')?.errors?.number" jhiTranslate="entity.validation.number">
+                            [hidden]="!editForm.get('idAssegnazioneTaskRef')?.errors?.number" jhiTranslate="entity.validation.number">
                             This field should be a number.
                         </small>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="eoloprjApp.task.invitoId" for="field_invitoId">Invito Id</label>
-                    <input type="number" class="form-control" name="invitoId" id="field_invitoId"
-                           formControlName="invitoId"/>
-                    <div *ngIf="editForm.get('invitoId')!.invalid && (editForm.get('invitoId')!.dirty || editForm.get('invitoId')!.touched)">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.task.idInvitoRef" for="field_idInvitoRef">Id Invito Ref</label>
+                    <input type="number" class="form-control" name="idInvitoRef" id="field_idInvitoRef"
+                           formControlName="idInvitoRef"/>
+                    <div *ngIf="editForm.get('idInvitoRef')!.invalid && (editForm.get('idInvitoRef')!.dirty || editForm.get('idInvitoRef')!.touched)">
                         <small class="form-text text-danger"
-                               *ngIf="editForm.get('invitoId')?.errors?.max" jhiTranslate="entity.validation.max" [translateValues]="{ max: 8 }">
+                               *ngIf="editForm.get('idInvitoRef')?.errors?.max" jhiTranslate="entity.validation.max" [translateValues]="{ max: 8 }">
                             This field cannot be more than 8.
                         </small>
                         <small class="form-text text-danger"
-                            [hidden]="!editForm.get('invitoId')?.errors?.number" jhiTranslate="entity.validation.number">
+                            [hidden]="!editForm.get('idInvitoRef')?.errors?.number" jhiTranslate="entity.validation.number">
                             This field should be a number.
                         </small>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="eoloprjApp.task.id" for="field_id">Id</label>
-                    <select class="form-control" id="field_id" name="id" formControlName="idId">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.task.idTask" for="field_idTask">Id Task</label>
+                    <select class="form-control" id="field_idTask" name="idTask" formControlName="idTaskId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="consuntivoTaskOption.id" *ngFor="let consuntivoTaskOption of ids; trackBy: trackById">{{ consuntivoTaskOption.id }}</option>
+                        <option [ngValue]="consuntivoTaskOption.id" *ngFor="let consuntivoTaskOption of idtasks; trackBy: trackById">{{ consuntivoTaskOption.id }}</option>
                     </select>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="eoloprjApp.task.id" for="field_id">Id</label>
-                    <select class="form-control" id="field_id" name="id" formControlName="idId">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.task.idTask" for="field_idTask">Id Task</label>
+                    <select class="form-control" id="field_idTask" name="idTask" formControlName="idTaskId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="previsioneTaskOption.id" *ngFor="let previsioneTaskOption of ids; trackBy: trackById">{{ previsioneTaskOption.id }}</option>
+                        <option [ngValue]="previsioneTaskOption.id" *ngFor="let previsioneTaskOption of idtasks; trackBy: trackById">{{ previsioneTaskOption.id }}</option>
                     </select>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="eoloprjApp.task.id" for="field_id">Id</label>
-                    <select class="form-control" id="field_id" name="id" formControlName="idId">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.task.idTask" for="field_idTask">Id Task</label>
+                    <select class="form-control" id="field_idTask" name="idTask" formControlName="idTaskId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="assegnazioneTaskOption.id" *ngFor="let assegnazioneTaskOption of ids; trackBy: trackById">{{ assegnazioneTaskOption.id }}</option>
+                        <option [ngValue]="assegnazioneTaskOption.id" *ngFor="let assegnazioneTaskOption of idtasks; trackBy: trackById">{{ assegnazioneTaskOption.id }}</option>
                     </select>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="eoloprjApp.task.id" for="field_id">Id</label>
-                    <select class="form-control" id="field_id" name="id" formControlName="idId">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.task.idTask" for="field_idTask">Id Task</label>
+                    <select class="form-control" id="field_idTask" name="idTask" formControlName="idTaskId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="invitoAttivitaOption.id" *ngFor="let invitoAttivitaOption of ids; trackBy: trackById">{{ invitoAttivitaOption.id }}</option>
+                        <option [ngValue]="invitoAttivitaOption.id" *ngFor="let invitoAttivitaOption of idtasks; trackBy: trackById">{{ invitoAttivitaOption.id }}</option>
                     </select>
                 </div>
 

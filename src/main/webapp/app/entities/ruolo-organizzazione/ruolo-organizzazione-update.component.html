@@ -12,24 +12,40 @@
                 </div>
 
                 <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.ruoloOrganizzazione.idRuoloOrganizzazione" for="field_idRuoloOrganizzazione">Id Ruolo Organizzazione</label>
+                    <input type="number" class="form-control" name="idRuoloOrganizzazione" id="field_idRuoloOrganizzazione"
+                           formControlName="idRuoloOrganizzazione"/>
+                    <div *ngIf="editForm.get('idRuoloOrganizzazione')!.invalid && (editForm.get('idRuoloOrganizzazione')!.dirty || editForm.get('idRuoloOrganizzazione')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('idRuoloOrganizzazione')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('idRuoloOrganizzazione')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
                     <label class="form-control-label" jhiTranslate="eoloprjApp.ruoloOrganizzazione.ruoloInOrg" for="field_ruoloInOrg">Ruolo In Org</label>
                     <input type="number" class="form-control" name="ruoloInOrg" id="field_ruoloInOrg"
                            formControlName="ruoloInOrg"/>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="eoloprjApp.ruoloOrganizzazione.id" for="field_id">Id</label>
-                    <select class="form-control" id="field_id" name="id" formControlName="idId">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.ruoloOrganizzazione.idRuoloOrganizzazione" for="field_idRuoloOrganizzazione">Id Ruolo Organizzazione</label>
+                    <select class="form-control" id="field_idRuoloOrganizzazione" name="idRuoloOrganizzazione" formControlName="idRuoloOrganizzazioneId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="organizzazioneOption.id" *ngFor="let organizzazioneOption of ids; trackBy: trackById">{{ organizzazioneOption.id }}</option>
+                        <option [ngValue]="organizzazioneOption.id" *ngFor="let organizzazioneOption of idruoloorganizzaziones; trackBy: trackById">{{ organizzazioneOption.id }}</option>
                     </select>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="eoloprjApp.ruoloOrganizzazione.id" for="field_id">Id</label>
-                    <select class="form-control" id="field_id" name="id" formControlName="idId">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.ruoloOrganizzazione.idRuoloOrganizzazione" for="field_idRuoloOrganizzazione">Id Ruolo Organizzazione</label>
+                    <select class="form-control" id="field_idRuoloOrganizzazione" name="idRuoloOrganizzazione" formControlName="idRuoloOrganizzazioneId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="personaFisicaOption.id" *ngFor="let personaFisicaOption of ids; trackBy: trackById">{{ personaFisicaOption.id }}</option>
+                        <option [ngValue]="personaFisicaOption.id" *ngFor="let personaFisicaOption of idruoloorganizzaziones; trackBy: trackById">{{ personaFisicaOption.id }}</option>
                     </select>
                 </div>
             </div>

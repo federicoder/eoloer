@@ -29,7 +29,7 @@ export class TemplatePraticaUpdatePage {
   saveButton = element(by.id('save-entity'));
   cancelButton = element(by.id('cancel-save'));
 
-  idTemplateInput = element(by.id('field_idTemplate'));
+  idTemplatePraticaInput = element(by.id('field_idTemplatePratica'));
   nomeTemplateInput = element(by.id('field_nomeTemplate'));
   elencoTagAmbitoInput = element(by.id('field_elencoTagAmbito'));
 
@@ -37,12 +37,12 @@ export class TemplatePraticaUpdatePage {
     return this.pageTitle.getAttribute('jhiTranslate');
   }
 
-  async setIdTemplateInput(idTemplate: string): Promise<void> {
-    await this.idTemplateInput.sendKeys(idTemplate);
+  async setIdTemplatePraticaInput(idTemplatePratica: string): Promise<void> {
+    await this.idTemplatePraticaInput.sendKeys(idTemplatePratica);
   }
 
-  async getIdTemplateInput(): Promise<string> {
-    return await this.idTemplateInput.getAttribute('value');
+  async getIdTemplatePraticaInput(): Promise<string> {
+    return await this.idTemplatePraticaInput.getAttribute('value');
   }
 
   async setNomeTemplateInput(nomeTemplate: string): Promise<void> {

@@ -11,7 +11,10 @@ public class OrdineDTO implements Serializable {
     private Long id;
 
     @NotNull
-    private Integer idStudioProfessionale;
+    private Integer idOrdine;
+
+    @NotNull
+    private Integer idStudioProfessionaleRef;
 
     private Integer statoOrdine;
 
@@ -32,12 +35,20 @@ public class OrdineDTO implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdStudioProfessionale() {
-        return idStudioProfessionale;
+    public Integer getIdOrdine() {
+        return idOrdine;
     }
 
-    public void setIdStudioProfessionale(Integer idStudioProfessionale) {
-        this.idStudioProfessionale = idStudioProfessionale;
+    public void setIdOrdine(Integer idOrdine) {
+        this.idOrdine = idOrdine;
+    }
+
+    public Integer getIdStudioProfessionaleRef() {
+        return idStudioProfessionaleRef;
+    }
+
+    public void setIdStudioProfessionaleRef(Integer idStudioProfessionaleRef) {
+        this.idStudioProfessionaleRef = idStudioProfessionaleRef;
     }
 
     public Integer getStatoOrdine() {
@@ -102,7 +113,8 @@ public class OrdineDTO implements Serializable {
     public String toString() {
         return "OrdineDTO{" +
             "id=" + getId() +
-            ", idStudioProfessionale=" + getIdStudioProfessionale() +
+            ", idOrdine=" + getIdOrdine() +
+            ", idStudioProfessionaleRef=" + getIdStudioProfessionaleRef() +
             ", statoOrdine=" + getStatoOrdine() +
             ", totImponibile=" + getTotImponibile() +
             ", totIva=" + getTotIva() +

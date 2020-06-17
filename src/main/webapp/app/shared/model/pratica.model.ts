@@ -5,7 +5,8 @@ import { IInvitoPratica } from 'app/shared/model/invito-pratica.model';
 
 export interface IPratica {
   id?: number;
-  idStudio?: number;
+  idPratica?: number;
+  idStudioProfessionaleRef?: number;
   numero?: string;
   nome?: string;
   dataApertura?: string;
@@ -17,18 +18,19 @@ export interface IPratica {
   prcAvanzato?: number;
   version?: string;
   valuta?: string;
-  idTemplatePratica?: number;
-  ids?: ITask[];
-  ids?: INotaPratica[];
-  ids?: ICondivisionePratica[];
-  ids?: IInvitoPratica[];
-  idTemplateId?: number;
+  idTemplatePraticaRef?: number;
+  idPraticas?: ITask[];
+  idPraticas?: INotaPratica[];
+  idPraticas?: ICondivisionePratica[];
+  idPraticas?: IInvitoPratica[];
+  idTemplatePraticaRefId?: number;
 }
 
 export class Pratica implements IPratica {
   constructor(
     public id?: number,
-    public idStudio?: number,
+    public idPratica?: number,
+    public idStudioProfessionaleRef?: number,
     public numero?: string,
     public nome?: string,
     public dataApertura?: string,
@@ -40,11 +42,11 @@ export class Pratica implements IPratica {
     public prcAvanzato?: number,
     public version?: string,
     public valuta?: string,
-    public idTemplatePratica?: number,
-    public ids?: ITask[],
-    public ids?: INotaPratica[],
-    public ids?: ICondivisionePratica[],
-    public ids?: IInvitoPratica[],
-    public idTemplateId?: number
+    public idTemplatePraticaRef?: number,
+    public idPraticas?: ITask[],
+    public idPraticas?: INotaPratica[],
+    public idPraticas?: ICondivisionePratica[],
+    public idPraticas?: IInvitoPratica[],
+    public idTemplatePraticaRefId?: number
   ) {}
 }

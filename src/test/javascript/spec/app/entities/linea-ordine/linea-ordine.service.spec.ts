@@ -54,8 +54,8 @@ describe('Service Tests', () => {
       it('should update a LineaOrdine', () => {
         const returnedFromService = Object.assign(
           {
-            idOrdine: 1,
-            idProdotto: 1,
+            idOrdineRef: 1,
+            idProdottoRef: 1,
             quantita: 1,
             importo: 1,
             codIva: 'BBBBBB',
@@ -75,8 +75,8 @@ describe('Service Tests', () => {
       it('should return a list of LineaOrdine', () => {
         const returnedFromService = Object.assign(
           {
-            idOrdine: 1,
-            idProdotto: 1,
+            idOrdineRef: 1,
+            idProdottoRef: 1,
             quantita: 1,
             importo: 1,
             codIva: 'BBBBBB',

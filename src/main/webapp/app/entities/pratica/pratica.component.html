@@ -41,7 +41,8 @@
             <thead>
                 <tr>
                     <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
-                    <th scope="col" ><span jhiTranslate="eoloprjApp.pratica.idStudio">Id Studio</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.pratica.idPratica">Id Pratica</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.pratica.idStudioProfessionaleRef">Id Studio Professionale Ref</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.pratica.numero">Numero</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.pratica.nome">Nome</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.pratica.dataApertura">Data Apertura</span></th>
@@ -53,15 +54,16 @@
                     <th scope="col" ><span jhiTranslate="eoloprjApp.pratica.prcAvanzato">Prc Avanzato</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.pratica.version">Version</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.pratica.valuta">Valuta</span></th>
-                    <th scope="col" ><span jhiTranslate="eoloprjApp.pratica.idTemplatePratica">Id Template Pratica</span></th>
-                    <th scope="col" ><span jhiTranslate="eoloprjApp.pratica.idTemplate">Id Template</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.pratica.idTemplatePraticaRef">Id Template Pratica Ref</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.pratica.idTemplatePraticaRef">Id Template Pratica Ref</span></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let pratica of praticas ;trackBy: trackId">
                     <td><a [routerLink]="['/pratica', pratica.id, 'view']">{{ pratica.id }}</a></td>
-                    <td>{{ pratica.idStudio }}</td>
+                    <td>{{ pratica.idPratica }}</td>
+                    <td>{{ pratica.idStudioProfessionaleRef }}</td>
                     <td>{{ pratica.numero }}</td>
                     <td>{{ pratica.nome }}</td>
                     <td>{{ pratica.dataApertura }}</td>
@@ -73,10 +75,10 @@
                     <td>{{ pratica.prcAvanzato }}</td>
                     <td>{{ pratica.version }}</td>
                     <td>{{ pratica.valuta }}</td>
-                    <td>{{ pratica.idTemplatePratica }}</td>
+                    <td>{{ pratica.idTemplatePraticaRef }}</td>
                     <td>
-                        <div *ngIf="pratica.idTemplateId">
-                            <a [routerLink]="['/template-pratica', pratica.idTemplateId , 'view']" >{{ pratica.idTemplateId }}</a>
+                        <div *ngIf="pratica.idTemplatePraticaRefId">
+                            <a [routerLink]="['/template-pratica', pratica.idTemplatePraticaRefId , 'view']" >{{ pratica.idTemplatePraticaRefId }}</a>
                         </div>
                     </td>
                     <td class="text-right">

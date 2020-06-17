@@ -17,10 +17,10 @@
       "detail": {
         "title": "Template Pratica"
       },
-      "idTemplate": "Id Template",
+      "idTemplatePratica": "Id Template Pratica",
       "nomeTemplate": "Nome Template",
       "elencoTagAmbito": "Elenco Tag Ambito",
-      "idTemplate": "Id Template"
+      "idTemplatePratica": "Id Template Pratica"
     }
   }
 }

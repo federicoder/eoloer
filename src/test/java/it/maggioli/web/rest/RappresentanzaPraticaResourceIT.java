@@ -44,8 +44,8 @@ public class RappresentanzaPraticaResourceIT {
     private static final Integer DEFAULT_ID_RUOLO_PERSONA = 1;
     private static final Integer UPDATED_ID_RUOLO_PERSONA = 2;
 
-    private static final Integer DEFAULT_ID_PERSONA = 1;
-    private static final Integer UPDATED_ID_PERSONA = 2;
+    private static final Integer DEFAULT_ID_PERSONA_REF = 1;
+    private static final Integer UPDATED_ID_PERSONA_REF = 2;
 
     private static final Ruoli DEFAULT_RUOLI = Ruoli.TDP;
     private static final Ruoli UPDATED_RUOLI = Ruoli.COLLABORATOREINTERNO;
@@ -84,7 +84,7 @@ public class RappresentanzaPraticaResourceIT {
     public static RappresentanzaPratica createEntity(EntityManager em) {
         RappresentanzaPratica rappresentanzaPratica = new RappresentanzaPratica()
             .idRuoloPersona(DEFAULT_ID_RUOLO_PERSONA)
-            .idPersona(DEFAULT_ID_PERSONA)
+            .idPersonaRef(DEFAULT_ID_PERSONA_REF)
             .ruoli(DEFAULT_RUOLI);
         return rappresentanzaPratica;
     }
@@ -97,7 +97,7 @@ public class RappresentanzaPraticaResourceIT {
     public static RappresentanzaPratica createUpdatedEntity(EntityManager em) {
         RappresentanzaPratica rappresentanzaPratica = new RappresentanzaPratica()
             .idRuoloPersona(UPDATED_ID_RUOLO_PERSONA)
-            .idPersona(UPDATED_ID_PERSONA)
+            .idPersonaRef(UPDATED_ID_PERSONA_REF)
             .ruoli(UPDATED_RUOLI);
         return rappresentanzaPratica;
     }
@@ -123,7 +123,7 @@ public class RappresentanzaPraticaResourceIT {
         assertThat(rappresentanzaPraticaList).hasSize(databaseSizeBeforeCreate + 1);
         RappresentanzaPratica testRappresentanzaPratica = rappresentanzaPraticaList.get(rappresentanzaPraticaList.size() - 1);
         assertThat(testRappresentanzaPratica.getIdRuoloPersona()).isEqualTo(DEFAULT_ID_RUOLO_PERSONA);
-        assertThat(testRappresentanzaPratica.getIdPersona()).isEqualTo(DEFAULT_ID_PERSONA);
+        assertThat(testRappresentanzaPratica.getIdPersonaRef()).isEqualTo(DEFAULT_ID_PERSONA_REF);
         assertThat(testRappresentanzaPratica.getRuoli()).isEqualTo(DEFAULT_RUOLI);
 
         // Validate the RappresentanzaPratica in Elasticsearch
@@ -176,10 +176,10 @@ public class RappresentanzaPraticaResourceIT {
 
     @Test
     @Transactional
-    public void checkIdPersonaIsRequired() throws Exception {
+    public void checkIdPersonaRefIsRequired() throws Exception {
         int databaseSizeBeforeTest = rappresentanzaPraticaRepository.findAll().size();
         // set the field null
-        rappresentanzaPratica.setIdPersona(null);
+        rappresentanzaPratica.setIdPersonaRef(null);
 
         // Create the RappresentanzaPratica, which fails.
         RappresentanzaPraticaDTO rappresentanzaPraticaDTO = rappresentanzaPraticaMapper.toDto(rappresentanzaPratica);
@@ -206,7 +206,7 @@ public class RappresentanzaPraticaResourceIT {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(rappresentanzaPratica.getId().intValue())))
             .andExpect(jsonPath("$.[*].idRuoloPersona").value(hasItem(DEFAULT_ID_RUOLO_PERSONA)))
-            .andExpect(jsonPath("$.[*].idPersona").value(hasItem(DEFAULT_ID_PERSONA)))
+            .andExpect(jsonPath("$.[*].idPersonaRef").value(hasItem(DEFAULT_ID_PERSONA_REF)))
             .andExpect(jsonPath("$.[*].ruoli").value(hasItem(DEFAULT_RUOLI.toString())));
     }
     
@@ -222,7 +222,7 @@ public class RappresentanzaPraticaResourceIT {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(rappresentanzaPratica.getId().intValue()))
             .andExpect(jsonPath("$.idRuoloPersona").value(DEFAULT_ID_RUOLO_PERSONA))
-            .andExpect(jsonPath("$.idPersona").value(DEFAULT_ID_PERSONA))
+            .andExpect(jsonPath("$.idPersonaRef").value(DEFAULT_ID_PERSONA_REF))
             .andExpect(jsonPath("$.ruoli").value(DEFAULT_RUOLI.toString()));
     }
     @Test
@@ -247,7 +247,7 @@ public class RappresentanzaPraticaResourceIT {
         em.detach(updatedRappresentanzaPratica);
         updatedRappresentanzaPratica
             .idRuoloPersona(UPDATED_ID_RUOLO_PERSONA)
-            .idPersona(UPDATED_ID_PERSONA)
+            .idPersonaRef(UPDATED_ID_PERSONA_REF)
             .ruoli(UPDATED_RUOLI);
         RappresentanzaPraticaDTO rappresentanzaPraticaDTO = rappresentanzaPraticaMapper.toDto(updatedRappresentanzaPratica);
 
@@ -261,7 +261,7 @@ public class RappresentanzaPraticaResourceIT {
         assertThat(rappresentanzaPraticaList).hasSize(databaseSizeBeforeUpdate);
         RappresentanzaPratica testRappresentanzaPratica = rappresentanzaPraticaList.get(rappresentanzaPraticaList.size() - 1);
         assertThat(testRappresentanzaPratica.getIdRuoloPersona()).isEqualTo(UPDATED_ID_RUOLO_PERSONA);
-        assertThat(testRappresentanzaPratica.getIdPersona()).isEqualTo(UPDATED_ID_PERSONA);
+        assertThat(testRappresentanzaPratica.getIdPersonaRef()).isEqualTo(UPDATED_ID_PERSONA_REF);
         assertThat(testRappresentanzaPratica.getRuoli()).isEqualTo(UPDATED_RUOLI);
 
         // Validate the RappresentanzaPratica in Elasticsearch
@@ -326,7 +326,7 @@ public class RappresentanzaPraticaResourceIT {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(rappresentanzaPratica.getId().intValue())))
             .andExpect(jsonPath("$.[*].idRuoloPersona").value(hasItem(DEFAULT_ID_RUOLO_PERSONA)))
-            .andExpect(jsonPath("$.[*].idPersona").value(hasItem(DEFAULT_ID_PERSONA)))
+            .andExpect(jsonPath("$.[*].idPersonaRef").value(hasItem(DEFAULT_ID_PERSONA_REF)))
             .andExpect(jsonPath("$.[*].ruoli").value(hasItem(DEFAULT_RUOLI.toString())));
     }
 }

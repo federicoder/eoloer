@@ -15,7 +15,7 @@ public interface LineaOrdineMapper extends EntityMapper<LineaOrdineDTO, LineaOrd
     @Mapping(source = "ordine.id", target = "ordineId")
     LineaOrdineDTO toDto(LineaOrdine lineaOrdine);
 
-    @Mapping(target = "idProdotto", ignore = true)
+    @Mapping(target = "idProdottoRef", ignore = true)
     @Mapping(source = "ordineId", target = "ordine")
     LineaOrdine toEntity(LineaOrdineDTO lineaOrdineDTO);
 

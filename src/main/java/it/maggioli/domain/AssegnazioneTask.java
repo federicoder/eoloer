@@ -29,9 +29,14 @@ public class AssegnazioneTask implements Serializable {
     @SequenceGenerator(name = "sequenceGenerator")
     private Long id;
 
+    @NotNull
     @Max(value = 8)
-    @Column(name = "id_attivita")
-    private Integer idAttivita;
+    @Column(name = "id_assegnazione_task", nullable = false)
+    private Integer idAssegnazioneTask;
+
+    @Max(value = 8)
+    @Column(name = "id_task_ref")
+    private Integer idTaskRef;
 
     @Max(value = 8)
     @Column(name = "id_user_ammesso")
@@ -54,12 +59,12 @@ public class AssegnazioneTask implements Serializable {
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     private Set<Invito> idUserConcedentes = new HashSet<>();
 
-    @OneToOne(mappedBy = "id")
+    @OneToOne(mappedBy = "idTask")
     @JsonIgnore
-    private Task idAttivita;
+    private Task idTaskRef;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "ids", allowSetters = true)
+    @JsonIgnoreProperties(value = "idUserPersonas", allowSetters = true)
     private UserPersona userPersona;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
@@ -71,17 +76,30 @@ public class AssegnazioneTask implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdAttivita() {
-        return idAttivita;
+    public Integer getIdAssegnazioneTask() {
+        return idAssegnazioneTask;
     }
 
-    public AssegnazioneTask idAttivita(Integer idAttivita) {
-        this.idAttivita = idAttivita;
+    public AssegnazioneTask idAssegnazioneTask(Integer idAssegnazioneTask) {
+        this.idAssegnazioneTask = idAssegnazioneTask;
         return this;
     }
 
-    public void setIdAttivita(Integer idAttivita) {
-        this.idAttivita = idAttivita;
+    public void setIdAssegnazioneTask(Integer idAssegnazioneTask) {
+        this.idAssegnazioneTask = idAssegnazioneTask;
+    }
+
+    public Integer getIdTaskRef() {
+        return idTaskRef;
+    }
+
+    public AssegnazioneTask idTaskRef(Integer idTaskRef) {
+        this.idTaskRef = idTaskRef;
+        return this;
+    }
+
+    public void setIdTaskRef(Integer idTaskRef) {
+        this.idTaskRef = idTaskRef;
     }
 
     public Integer getIdUserAmmesso() {
@@ -174,17 +192,17 @@ public class AssegnazioneTask implements Serializable {
         this.idUserConcedentes = invitos;
     }
 
-    public Task getIdAttivita() {
-        return idAttivita;
+    public Task getIdTaskRef() {
+        return idTaskRef;
     }
 
-    public AssegnazioneTask idAttivita(Task task) {
-        this.idAttivita = task;
+    public AssegnazioneTask idTaskRef(Task task) {
+        this.idTaskRef = task;
         return this;
     }
 
-    public void setIdAttivita(Task task) {
-        this.idAttivita = task;
+    public void setIdTaskRef(Task task) {
+        this.idTaskRef = task;
     }
 
     public UserPersona getUserPersona() {
@@ -222,7 +240,8 @@ public class AssegnazioneTask implements Serializable {
     public String toString() {
         return "AssegnazioneTask{" +
             "id=" + getId() +
-            ", idAttivita=" + getIdAttivita() +
+            ", idAssegnazioneTask=" + getIdAssegnazioneTask() +
+            ", idTaskRef=" + getIdTaskRef() +
             ", idUserAmmesso=" + getIdUserAmmesso() +
             ", ruolo=" + getRuolo() +
             ", idUserConcedente=" + getIdUserConcedente() +

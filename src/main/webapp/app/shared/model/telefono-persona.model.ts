@@ -1,6 +1,6 @@
 export interface ITelefonoPersona {
   id?: number;
-  idPersona?: number;
+  idPersonaRef?: number;
   etichetta?: number;
   valore?: number;
   personaId?: number;
@@ -9,7 +9,7 @@ export interface ITelefonoPersona {
 export class TelefonoPersona implements ITelefonoPersona {
   constructor(
     public id?: number,
-    public idPersona?: number,
+    public idPersonaRef?: number,
     public etichetta?: number,
     public valore?: number,
     public personaId?: number

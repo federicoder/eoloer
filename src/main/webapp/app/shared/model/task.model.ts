@@ -3,42 +3,44 @@ import { INotaTask } from 'app/shared/model/nota-task.model';
 
 export interface ITask {
   id?: number;
-  idPratica?: number;
+  idTask?: number;
+  idPraticaRef?: number;
   nome?: string;
   stato?: number;
   prioritario?: number;
   pubblico?: number;
   version?: string;
-  condivisionePraticaId?: number;
-  assegnazioneTaskId?: number;
-  invitoId?: number;
-  idId?: number;
-  idId?: number;
-  idId?: number;
-  idId?: number;
-  ids?: IAllegatoTask[];
-  ids?: INotaTask[];
+  idCondivisionePraticaRef?: number;
+  idAssegnazioneTaskRef?: number;
+  idInvitoRef?: number;
+  idTaskId?: number;
+  idTaskId?: number;
+  idTaskId?: number;
+  idTaskId?: number;
+  idTasks?: IAllegatoTask[];
+  idTasks?: INotaTask[];
   praticaId?: number;
 }
 
 export class Task implements ITask {
   constructor(
     public id?: number,
-    public idPratica?: number,
+    public idTask?: number,
+    public idPraticaRef?: number,
     public nome?: string,
     public stato?: number,
     public prioritario?: number,
     public pubblico?: number,
     public version?: string,
-    public condivisionePraticaId?: number,
-    public assegnazioneTaskId?: number,
-    public invitoId?: number,
-    public idId?: number,
-    public idId?: number,
-    public idId?: number,
-    public idId?: number,
-    public ids?: IAllegatoTask[],
-    public ids?: INotaTask[],
+    public idCondivisionePraticaRef?: number,
+    public idAssegnazioneTaskRef?: number,
+    public idInvitoRef?: number,
+    public idTaskId?: number,
+    public idTaskId?: number,
+    public idTaskId?: number,
+    public idTaskId?: number,
+    public idTasks?: IAllegatoTask[],
+    public idTasks?: INotaTask[],
     public praticaId?: number
   ) {}
 }

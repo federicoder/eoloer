@@ -12,7 +12,7 @@ public class PrevisioneEventoDTO implements Serializable {
 
     @NotNull
     @Max(value = 8)
-    private Integer idTask;
+    private Integer idTaskRef;
 
     private String dataInizio;
 
@@ -25,7 +25,7 @@ public class PrevisioneEventoDTO implements Serializable {
     private String version;
 
 
-    private Long idTaskId;
+    private Long idTaskRefId;
     
     public Long getId() {
         return id;
@@ -35,12 +35,12 @@ public class PrevisioneEventoDTO implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdTask() {
-        return idTask;
+    public Integer getIdTaskRef() {
+        return idTaskRef;
     }
 
-    public void setIdTask(Integer idTask) {
-        this.idTask = idTask;
+    public void setIdTaskRef(Integer idTaskRef) {
+        this.idTaskRef = idTaskRef;
     }
 
     public String getDataInizio() {
@@ -83,12 +83,12 @@ public class PrevisioneEventoDTO implements Serializable {
         this.version = version;
     }
 
-    public Long getIdTaskId() {
-        return idTaskId;
+    public Long getIdTaskRefId() {
+        return idTaskRefId;
     }
 
-    public void setIdTaskId(Long previsioneTaskId) {
-        this.idTaskId = previsioneTaskId;
+    public void setIdTaskRefId(Long previsioneTaskId) {
+        this.idTaskRefId = previsioneTaskId;
     }
 
     @Override
@@ -113,13 +113,13 @@ public class PrevisioneEventoDTO implements Serializable {
     public String toString() {
         return "PrevisioneEventoDTO{" +
             "id=" + getId() +
-            ", idTask=" + getIdTask() +
+            ", idTaskRef=" + getIdTaskRef() +
             ", dataInizio='" + getDataInizio() + "'" +
             ", dataFine='" + getDataFine() + "'" +
             ", luogo='" + getLuogo() + "'" +
             ", indicazioniLuogo='" + getIndicazioniLuogo() + "'" +
             ", version='" + getVersion() + "'" +
-            ", idTaskId=" + getIdTaskId() +
+            ", idTaskRefId=" + getIdTaskRefId() +
             "}";
     }
 }

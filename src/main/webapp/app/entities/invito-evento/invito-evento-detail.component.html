@@ -8,9 +8,9 @@
             <jhi-alert-error></jhi-alert-error>
 
             <dl class="row-md jh-entity-details">
-                <dt><span jhiTranslate="eoloprjApp.invitoEvento.idAttivita">Id Attivita</span></dt>
+                <dt><span jhiTranslate="eoloprjApp.invitoEvento.idTaskRef">Id Task Ref</span></dt>
                 <dd>
-                    <span>{{ invitoEvento.idAttivita }}</span>
+                    <span>{{ invitoEvento.idTaskRef }}</span>
                 </dd>
                 <dt><span jhiTranslate="eoloprjApp.invitoEvento.luogoFisico">Luogo Fisico</span></dt>
                 <dd>
@@ -40,10 +40,10 @@
                 <dd>
                     <span>{{ invitoEvento.urlStanzaVirtuale }}</span>
                 </dd>
-                <dt><span jhiTranslate="eoloprjApp.invitoEvento.idAttivita">Id Attivita</span></dt>
+                <dt><span jhiTranslate="eoloprjApp.invitoEvento.idTaskRef">Id Task Ref</span></dt>
                 <dd>
-                    <div *ngIf="invitoEvento.idAttivitaId">
-                        <a [routerLink]="['/invito', invitoEvento.idAttivitaId, 'view']">{{ invitoEvento.idAttivitaId }}</a>
+                    <div *ngIf="invitoEvento.idTaskRefId">
+                        <a [routerLink]="['/invito', invitoEvento.idTaskRefId, 'view']">{{ invitoEvento.idTaskRefId }}</a>
                     </div>
                 </dd>
                 <dt><span jhiTranslate="eoloprjApp.invitoEvento.previsioneEvento">Previsione Evento</span></dt>

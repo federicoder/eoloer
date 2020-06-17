@@ -2,7 +2,12 @@
   "name": "Ordine",
   "fields": [
     {
-      "fieldName": "idStudioProfessionale",
+      "fieldName": "idOrdine",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "idStudioProfessionaleRef",
       "fieldType": "Integer",
       "fieldValidateRules": ["required"]
     },
@@ -28,12 +33,12 @@
       "relationshipType": "one-to-many",
       "otherEntityName": "lineaOrdine",
       "otherEntityRelationshipName": "ordine",
-      "relationshipName": "id"
+      "relationshipName": "idOrdine"
     },
     {
       "relationshipType": "many-to-one",
       "otherEntityName": "studioProfessionale",
-      "otherEntityRelationshipName": "id",
+      "otherEntityRelationshipName": "idStudioProfessionale",
       "relationshipName": "studioProfessionale",
       "otherEntityField": "id"
     }

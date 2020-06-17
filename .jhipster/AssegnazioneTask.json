@@ -2,7 +2,13 @@
   "name": "AssegnazioneTask",
   "fields": [
     {
-      "fieldName": "idAttivita",
+      "fieldName": "idAssegnazioneTask",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["max", "required"],
+      "fieldValidateRulesMax": "8"
+    },
+    {
+      "fieldName": "idTaskRef",
       "fieldType": "Integer",
       "fieldValidateRules": ["max"],
       "fieldValidateRulesMax": "8"
@@ -44,14 +50,14 @@
     {
       "relationshipType": "one-to-one",
       "otherEntityName": "task",
-      "otherEntityRelationshipName": "id",
-      "relationshipName": "idAttivita",
+      "otherEntityRelationshipName": "idTask",
+      "relationshipName": "idTaskRef",
       "ownerSide": false
     },
     {
       "relationshipType": "many-to-one",
       "otherEntityName": "userPersona",
-      "otherEntityRelationshipName": "id",
+      "otherEntityRelationshipName": "idUserPersona",
       "relationshipName": "userPersona",
       "otherEntityField": "id"
     }

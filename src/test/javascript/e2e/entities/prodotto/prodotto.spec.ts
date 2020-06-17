@@ -41,12 +41,14 @@ describe('Prodotto e2e test', () => {
     await prodottoComponentsPage.clickOnCreateButton();
 
     await promise.all([
+      prodottoUpdatePage.setIdProdottoInput('5'),
       prodottoUpdatePage.setNuovaLicenzaInput('5'),
       prodottoUpdatePage.setRinnovoLicenzaInput('5'),
       prodottoUpdatePage.setStorageInput('5'),
-      prodottoUpdatePage.idSelectLastOption(),
+      prodottoUpdatePage.idProdottoSelectLastOption(),
     ]);
 
+    expect(await prodottoUpdatePage.getIdProdottoInput()).to.eq('5', 'Expected idProdotto value to be equals to 5');
     expect(await prodottoUpdatePage.getNuovaLicenzaInput()).to.eq('5', 'Expected nuovaLicenza value to be equals to 5');
     expect(await prodottoUpdatePage.getRinnovoLicenzaInput()).to.eq('5', 'Expected rinnovoLicenza value to be equals to 5');
     expect(await prodottoUpdatePage.getStorageInput()).to.eq('5', 'Expected storage value to be equals to 5');

@@ -40,17 +40,17 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WithMockUser
 public class AllegatoTemplateTaskResourceIT {
 
-    private static final Integer DEFAULT_ID_TEMPLATE_TASK = 8;
-    private static final Integer UPDATED_ID_TEMPLATE_TASK = 7;
+    private static final Integer DEFAULT_ID_TEMPLATE_TASK_REF = 8;
+    private static final Integer UPDATED_ID_TEMPLATE_TASK_REF = 7;
 
-    private static final Integer DEFAULT_TIPO_ALLEGATO = 1;
-    private static final Integer UPDATED_TIPO_ALLEGATO = 2;
+    private static final Integer DEFAULT_ID_TIPO_ALLEGATO_REF = 1;
+    private static final Integer UPDATED_ID_TIPO_ALLEGATO_REF = 2;
 
     private static final Integer DEFAULT_FORMATO = 1;
     private static final Integer UPDATED_FORMATO = 2;
 
-    private static final Integer DEFAULT_ID_FILE = 1;
-    private static final Integer UPDATED_ID_FILE = 2;
+    private static final Integer DEFAULT_ID_FILE_REF = 1;
+    private static final Integer UPDATED_ID_FILE_REF = 2;
 
     private static final Integer DEFAULT_PUB_PRIV = 1;
     private static final Integer UPDATED_PUB_PRIV = 2;
@@ -88,10 +88,10 @@ public class AllegatoTemplateTaskResourceIT {
      */
     public static AllegatoTemplateTask createEntity(EntityManager em) {
         AllegatoTemplateTask allegatoTemplateTask = new AllegatoTemplateTask()
-            .idTemplateTask(DEFAULT_ID_TEMPLATE_TASK)
-            .tipoAllegato(DEFAULT_TIPO_ALLEGATO)
+            .idTemplateTaskRef(DEFAULT_ID_TEMPLATE_TASK_REF)
+            .idTipoAllegatoRef(DEFAULT_ID_TIPO_ALLEGATO_REF)
             .formato(DEFAULT_FORMATO)
-            .idFile(DEFAULT_ID_FILE)
+            .idFileRef(DEFAULT_ID_FILE_REF)
             .pubPriv(DEFAULT_PUB_PRIV);
         return allegatoTemplateTask;
     }
@@ -103,10 +103,10 @@ public class AllegatoTemplateTaskResourceIT {
      */
     public static AllegatoTemplateTask createUpdatedEntity(EntityManager em) {
         AllegatoTemplateTask allegatoTemplateTask = new AllegatoTemplateTask()
-            .idTemplateTask(UPDATED_ID_TEMPLATE_TASK)
-            .tipoAllegato(UPDATED_TIPO_ALLEGATO)
+            .idTemplateTaskRef(UPDATED_ID_TEMPLATE_TASK_REF)
+            .idTipoAllegatoRef(UPDATED_ID_TIPO_ALLEGATO_REF)
             .formato(UPDATED_FORMATO)
-            .idFile(UPDATED_ID_FILE)
+            .idFileRef(UPDATED_ID_FILE_REF)
             .pubPriv(UPDATED_PUB_PRIV);
         return allegatoTemplateTask;
     }
@@ -131,10 +131,10 @@ public class AllegatoTemplateTaskResourceIT {
         List<AllegatoTemplateTask> allegatoTemplateTaskList = allegatoTemplateTaskRepository.findAll();
         assertThat(allegatoTemplateTaskList).hasSize(databaseSizeBeforeCreate + 1);
         AllegatoTemplateTask testAllegatoTemplateTask = allegatoTemplateTaskList.get(allegatoTemplateTaskList.size() - 1);
-        assertThat(testAllegatoTemplateTask.getIdTemplateTask()).isEqualTo(DEFAULT_ID_TEMPLATE_TASK);
-        assertThat(testAllegatoTemplateTask.getTipoAllegato()).isEqualTo(DEFAULT_TIPO_ALLEGATO);
+        assertThat(testAllegatoTemplateTask.getIdTemplateTaskRef()).isEqualTo(DEFAULT_ID_TEMPLATE_TASK_REF);
+        assertThat(testAllegatoTemplateTask.getIdTipoAllegatoRef()).isEqualTo(DEFAULT_ID_TIPO_ALLEGATO_REF);
         assertThat(testAllegatoTemplateTask.getFormato()).isEqualTo(DEFAULT_FORMATO);
-        assertThat(testAllegatoTemplateTask.getIdFile()).isEqualTo(DEFAULT_ID_FILE);
+        assertThat(testAllegatoTemplateTask.getIdFileRef()).isEqualTo(DEFAULT_ID_FILE_REF);
         assertThat(testAllegatoTemplateTask.getPubPriv()).isEqualTo(DEFAULT_PUB_PRIV);
 
         // Validate the AllegatoTemplateTask in Elasticsearch
@@ -167,10 +167,10 @@ public class AllegatoTemplateTaskResourceIT {
 
     @Test
     @Transactional
-    public void checkIdTemplateTaskIsRequired() throws Exception {
+    public void checkIdTemplateTaskRefIsRequired() throws Exception {
         int databaseSizeBeforeTest = allegatoTemplateTaskRepository.findAll().size();
         // set the field null
-        allegatoTemplateTask.setIdTemplateTask(null);
+        allegatoTemplateTask.setIdTemplateTaskRef(null);
 
         // Create the AllegatoTemplateTask, which fails.
         AllegatoTemplateTaskDTO allegatoTemplateTaskDTO = allegatoTemplateTaskMapper.toDto(allegatoTemplateTask);
@@ -196,10 +196,10 @@ public class AllegatoTemplateTaskResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(allegatoTemplateTask.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idTemplateTask").value(hasItem(DEFAULT_ID_TEMPLATE_TASK)))
-            .andExpect(jsonPath("$.[*].tipoAllegato").value(hasItem(DEFAULT_TIPO_ALLEGATO)))
+            .andExpect(jsonPath("$.[*].idTemplateTaskRef").value(hasItem(DEFAULT_ID_TEMPLATE_TASK_REF)))
+            .andExpect(jsonPath("$.[*].idTipoAllegatoRef").value(hasItem(DEFAULT_ID_TIPO_ALLEGATO_REF)))
             .andExpect(jsonPath("$.[*].formato").value(hasItem(DEFAULT_FORMATO)))
-            .andExpect(jsonPath("$.[*].idFile").value(hasItem(DEFAULT_ID_FILE)))
+            .andExpect(jsonPath("$.[*].idFileRef").value(hasItem(DEFAULT_ID_FILE_REF)))
             .andExpect(jsonPath("$.[*].pubPriv").value(hasItem(DEFAULT_PUB_PRIV)));
     }
     
@@ -214,10 +214,10 @@ public class AllegatoTemplateTaskResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(allegatoTemplateTask.getId().intValue()))
-            .andExpect(jsonPath("$.idTemplateTask").value(DEFAULT_ID_TEMPLATE_TASK))
-            .andExpect(jsonPath("$.tipoAllegato").value(DEFAULT_TIPO_ALLEGATO))
+            .andExpect(jsonPath("$.idTemplateTaskRef").value(DEFAULT_ID_TEMPLATE_TASK_REF))
+            .andExpect(jsonPath("$.idTipoAllegatoRef").value(DEFAULT_ID_TIPO_ALLEGATO_REF))
             .andExpect(jsonPath("$.formato").value(DEFAULT_FORMATO))
-            .andExpect(jsonPath("$.idFile").value(DEFAULT_ID_FILE))
+            .andExpect(jsonPath("$.idFileRef").value(DEFAULT_ID_FILE_REF))
             .andExpect(jsonPath("$.pubPriv").value(DEFAULT_PUB_PRIV));
     }
     @Test
@@ -241,10 +241,10 @@ public class AllegatoTemplateTaskResourceIT {
         // Disconnect from session so that the updates on updatedAllegatoTemplateTask are not directly saved in db
         em.detach(updatedAllegatoTemplateTask);
         updatedAllegatoTemplateTask
-            .idTemplateTask(UPDATED_ID_TEMPLATE_TASK)
-            .tipoAllegato(UPDATED_TIPO_ALLEGATO)
+            .idTemplateTaskRef(UPDATED_ID_TEMPLATE_TASK_REF)
+            .idTipoAllegatoRef(UPDATED_ID_TIPO_ALLEGATO_REF)
             .formato(UPDATED_FORMATO)
-            .idFile(UPDATED_ID_FILE)
+            .idFileRef(UPDATED_ID_FILE_REF)
             .pubPriv(UPDATED_PUB_PRIV);
         AllegatoTemplateTaskDTO allegatoTemplateTaskDTO = allegatoTemplateTaskMapper.toDto(updatedAllegatoTemplateTask);
 
@@ -257,10 +257,10 @@ public class AllegatoTemplateTaskResourceIT {
         List<AllegatoTemplateTask> allegatoTemplateTaskList = allegatoTemplateTaskRepository.findAll();
         assertThat(allegatoTemplateTaskList).hasSize(databaseSizeBeforeUpdate);
         AllegatoTemplateTask testAllegatoTemplateTask = allegatoTemplateTaskList.get(allegatoTemplateTaskList.size() - 1);
-        assertThat(testAllegatoTemplateTask.getIdTemplateTask()).isEqualTo(UPDATED_ID_TEMPLATE_TASK);
-        assertThat(testAllegatoTemplateTask.getTipoAllegato()).isEqualTo(UPDATED_TIPO_ALLEGATO);
+        assertThat(testAllegatoTemplateTask.getIdTemplateTaskRef()).isEqualTo(UPDATED_ID_TEMPLATE_TASK_REF);
+        assertThat(testAllegatoTemplateTask.getIdTipoAllegatoRef()).isEqualTo(UPDATED_ID_TIPO_ALLEGATO_REF);
         assertThat(testAllegatoTemplateTask.getFormato()).isEqualTo(UPDATED_FORMATO);
-        assertThat(testAllegatoTemplateTask.getIdFile()).isEqualTo(UPDATED_ID_FILE);
+        assertThat(testAllegatoTemplateTask.getIdFileRef()).isEqualTo(UPDATED_ID_FILE_REF);
         assertThat(testAllegatoTemplateTask.getPubPriv()).isEqualTo(UPDATED_PUB_PRIV);
 
         // Validate the AllegatoTemplateTask in Elasticsearch
@@ -324,10 +324,10 @@ public class AllegatoTemplateTaskResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(allegatoTemplateTask.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idTemplateTask").value(hasItem(DEFAULT_ID_TEMPLATE_TASK)))
-            .andExpect(jsonPath("$.[*].tipoAllegato").value(hasItem(DEFAULT_TIPO_ALLEGATO)))
+            .andExpect(jsonPath("$.[*].idTemplateTaskRef").value(hasItem(DEFAULT_ID_TEMPLATE_TASK_REF)))
+            .andExpect(jsonPath("$.[*].idTipoAllegatoRef").value(hasItem(DEFAULT_ID_TIPO_ALLEGATO_REF)))
             .andExpect(jsonPath("$.[*].formato").value(hasItem(DEFAULT_FORMATO)))
-            .andExpect(jsonPath("$.[*].idFile").value(hasItem(DEFAULT_ID_FILE)))
+            .andExpect(jsonPath("$.[*].idFileRef").value(hasItem(DEFAULT_ID_FILE_REF)))
             .andExpect(jsonPath("$.[*].pubPriv").value(hasItem(DEFAULT_PUB_PRIV)));
     }
 }

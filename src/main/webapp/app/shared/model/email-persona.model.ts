@@ -1,6 +1,6 @@
 export interface IEmailPersona {
   id?: number;
-  idPersona?: number;
+  idPersonaRef?: number;
   etichetta?: number;
   numero?: number;
   personaId?: number;
@@ -9,7 +9,7 @@ export interface IEmailPersona {
 export class EmailPersona implements IEmailPersona {
   constructor(
     public id?: number,
-    public idPersona?: number,
+    public idPersonaRef?: number,
     public etichetta?: number,
     public numero?: number,
     public personaId?: number

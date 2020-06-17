@@ -7,12 +7,12 @@
       "fieldValidateRules": ["required"]
     },
     {
-      "fieldName": "idPersona",
+      "fieldName": "idPersonaRef",
       "fieldType": "Integer",
       "fieldValidateRules": ["required"]
     },
     {
-      "fieldName": "idRuoloPersona",
+      "fieldName": "idRuoloPersonaRef",
       "fieldType": "Integer"
     },
     {
@@ -44,8 +44,8 @@
     {
       "relationshipType": "one-to-one",
       "otherEntityName": "persona",
-      "otherEntityRelationshipName": "id",
-      "relationshipName": "idPersona",
+      "otherEntityRelationshipName": "idPersona",
+      "relationshipName": "idPersonaRef",
       "otherEntityField": "id",
       "ownerSide": true
     },
@@ -58,7 +58,7 @@
     {
       "relationshipType": "one-to-one",
       "otherEntityName": "ruoloOrganizzazione",
-      "otherEntityRelationshipName": "id",
+      "otherEntityRelationshipName": "idRuoloOrganizzazione",
       "relationshipName": "idRuoloPersona",
       "ownerSide": false
     }

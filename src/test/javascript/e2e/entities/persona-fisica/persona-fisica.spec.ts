@@ -45,20 +45,20 @@ describe('PersonaFisica e2e test', () => {
 
     await promise.all([
       personaFisicaUpdatePage.setIdPersonaFisicaInput('5'),
-      personaFisicaUpdatePage.setIdPersonaInput('5'),
-      personaFisicaUpdatePage.setIdRuoloPersonaInput('5'),
+      personaFisicaUpdatePage.setIdPersonaRefInput('5'),
+      personaFisicaUpdatePage.setIdRuoloPersonaRefInput('5'),
       personaFisicaUpdatePage.setTitoloInput('titolo'),
       personaFisicaUpdatePage.setCognomeInput('cognome'),
       personaFisicaUpdatePage.setNomeInput('nome'),
       personaFisicaUpdatePage.setDataDiNascitaInput('dataDiNascita'),
       personaFisicaUpdatePage.setLuogoDiNascitaInput('luogoDiNascita'),
       personaFisicaUpdatePage.setProfessioneInput('professione'),
-      personaFisicaUpdatePage.idPersonaSelectLastOption(),
+      personaFisicaUpdatePage.idPersonaRefSelectLastOption(),
     ]);
 
     expect(await personaFisicaUpdatePage.getIdPersonaFisicaInput()).to.eq('5', 'Expected idPersonaFisica value to be equals to 5');
-    expect(await personaFisicaUpdatePage.getIdPersonaInput()).to.eq('5', 'Expected idPersona value to be equals to 5');
-    expect(await personaFisicaUpdatePage.getIdRuoloPersonaInput()).to.eq('5', 'Expected idRuoloPersona value to be equals to 5');
+    expect(await personaFisicaUpdatePage.getIdPersonaRefInput()).to.eq('5', 'Expected idPersonaRef value to be equals to 5');
+    expect(await personaFisicaUpdatePage.getIdRuoloPersonaRefInput()).to.eq('5', 'Expected idRuoloPersonaRef value to be equals to 5');
     expect(await personaFisicaUpdatePage.getTitoloInput()).to.eq('titolo', 'Expected Titolo value to be equals to titolo');
     expect(await personaFisicaUpdatePage.getCognomeInput()).to.eq('cognome', 'Expected Cognome value to be equals to cognome');
     expect(await personaFisicaUpdatePage.getNomeInput()).to.eq('nome', 'Expected Nome value to be equals to nome');

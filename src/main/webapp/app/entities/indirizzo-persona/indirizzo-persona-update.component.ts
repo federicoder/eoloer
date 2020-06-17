@@ -17,7 +17,7 @@ export class IndirizzoPersonaUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    idPersona: [null, [Validators.required]],
+    idPersonaRef: [null, [Validators.required]],
     indirizzo: [],
     comune: [],
     cap: [],
@@ -41,7 +41,7 @@ export class IndirizzoPersonaUpdateComponent implements OnInit {
   updateForm(indirizzoPersona: IIndirizzoPersona): void {
     this.editForm.patchValue({
       id: indirizzoPersona.id,
-      idPersona: indirizzoPersona.idPersona,
+      idPersonaRef: indirizzoPersona.idPersonaRef,
       indirizzo: indirizzoPersona.indirizzo,
       comune: indirizzoPersona.comune,
       cap: indirizzoPersona.cap,
@@ -69,7 +69,7 @@ export class IndirizzoPersonaUpdateComponent implements OnInit {
     return {
       ...new IndirizzoPersona(),
       id: this.editForm.get(['id'])!.value,
-      idPersona: this.editForm.get(['idPersona'])!.value,
+      idPersonaRef: this.editForm.get(['idPersonaRef'])!.value,
       indirizzo: this.editForm.get(['indirizzo'])!.value,
       comune: this.editForm.get(['comune'])!.value,
       cap: this.editForm.get(['cap'])!.value,

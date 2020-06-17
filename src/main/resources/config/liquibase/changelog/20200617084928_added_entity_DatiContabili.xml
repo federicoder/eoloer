@@ -18,7 +18,7 @@
             <column name="id_dati_contabili" type="integer">
                 <constraints nullable="false" />
             </column>
-            <column name="id_persona" type="integer">
+            <column name="id_persona_ref" type="integer">
                 <constraints nullable="false" />
             </column>
             <column name="persona_id" type="bigint">
@@ -48,7 +48,7 @@
                   tableName="dati_contabili">
             <column name="id" type="numeric"/>
             <column name="id_dati_contabili" type="numeric"/>
-            <column name="id_persona" type="numeric"/>
+            <column name="id_persona_ref" type="numeric"/>
             <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
         </loadData>
     </changeSet>

@@ -2,6 +2,12 @@
   "name": "CondivisionePratica",
   "fields": [
     {
+      "fieldName": "idCondivisionePratica",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["max", "required"],
+      "fieldValidateRulesMax": "8"
+    },
+    {
       "fieldName": "idUserAmmesso",
       "fieldType": "Integer",
       "fieldValidateRules": ["max"],
@@ -20,7 +26,7 @@
       "fieldType": "Integer"
     },
     {
-      "fieldName": "idPratica",
+      "fieldName": "idPraticaRef",
       "fieldType": "Integer"
     }
   ],
@@ -44,14 +50,14 @@
     {
       "relationshipType": "many-to-one",
       "otherEntityName": "pratica",
-      "otherEntityRelationshipName": "id",
+      "otherEntityRelationshipName": "idPratica",
       "relationshipName": "pratica",
       "otherEntityField": "id"
     },
     {
       "relationshipType": "many-to-one",
       "otherEntityName": "userPersona",
-      "otherEntityRelationshipName": "id",
+      "otherEntityRelationshipName": "idUserPersona",
       "relationshipName": "userPersona",
       "otherEntityField": "id"
     }

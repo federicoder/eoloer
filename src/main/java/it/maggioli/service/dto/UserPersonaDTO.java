@@ -1,5 +1,6 @@
 package it.maggioli.service.dto;
 
+import javax.validation.constraints.*;
 import java.io.Serializable;
 
 /**
@@ -9,7 +10,10 @@ public class UserPersonaDTO implements Serializable {
     
     private Long id;
 
-    private Integer idPersona;
+    @NotNull
+    private Integer idUserPersona;
+
+    private Integer idPersonaRef;
 
     private Integer nomeUser;
 
@@ -24,12 +28,20 @@ public class UserPersonaDTO implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdPersona() {
-        return idPersona;
+    public Integer getIdUserPersona() {
+        return idUserPersona;
     }
 
-    public void setIdPersona(Integer idPersona) {
-        this.idPersona = idPersona;
+    public void setIdUserPersona(Integer idUserPersona) {
+        this.idUserPersona = idUserPersona;
+    }
+
+    public Integer getIdPersonaRef() {
+        return idPersonaRef;
+    }
+
+    public void setIdPersonaRef(Integer idPersonaRef) {
+        this.idPersonaRef = idPersonaRef;
     }
 
     public Integer getNomeUser() {
@@ -70,7 +82,8 @@ public class UserPersonaDTO implements Serializable {
     public String toString() {
         return "UserPersonaDTO{" +
             "id=" + getId() +
-            ", idPersona=" + getIdPersona() +
+            ", idUserPersona=" + getIdUserPersona() +
+            ", idPersonaRef=" + getIdPersonaRef() +
             ", nomeUser=" + getNomeUser() +
             ", personaFisicaId=" + getPersonaFisicaId() +
             "}";

@@ -10,8 +10,12 @@ public class TaskDTO implements Serializable {
     
     private Long id;
 
+    @NotNull
     @Max(value = 8)
-    private Integer idPratica;
+    private Integer idTask;
+
+    @Max(value = 8)
+    private Integer idPraticaRef;
 
     private String nome;
 
@@ -23,22 +27,22 @@ public class TaskDTO implements Serializable {
 
     private String version;
 
-    private Integer condivisionePraticaId;
+    private Integer idCondivisionePraticaRef;
 
     @Max(value = 8)
-    private Integer assegnazioneTaskId;
+    private Integer idAssegnazioneTaskRef;
 
     @Max(value = 8)
-    private Integer invitoId;
+    private Integer idInvitoRef;
 
 
-    private Long idId;
+    private Long idTaskId;
 
-    private Long idId;
+    private Long idTaskId;
 
-    private Long idId;
+    private Long idTaskId;
 
-    private Long idId;
+    private Long idTaskId;
 
     private Long praticaId;
     
@@ -50,12 +54,20 @@ public class TaskDTO implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdPratica() {
-        return idPratica;
+    public Integer getIdTask() {
+        return idTask;
     }
 
-    public void setIdPratica(Integer idPratica) {
-        this.idPratica = idPratica;
+    public void setIdTask(Integer idTask) {
+        this.idTask = idTask;
+    }
+
+    public Integer getIdPraticaRef() {
+        return idPraticaRef;
+    }
+
+    public void setIdPraticaRef(Integer idPraticaRef) {
+        this.idPraticaRef = idPraticaRef;
     }
 
     public String getNome() {
@@ -98,60 +110,60 @@ public class TaskDTO implements Serializable {
         this.version = version;
     }
 
-    public Integer getCondivisionePraticaId() {
-        return condivisionePraticaId;
+    public Integer getIdCondivisionePraticaRef() {
+        return idCondivisionePraticaRef;
     }
 
-    public void setCondivisionePraticaId(Integer condivisionePraticaId) {
-        this.condivisionePraticaId = condivisionePraticaId;
+    public void setIdCondivisionePraticaRef(Integer idCondivisionePraticaRef) {
+        this.idCondivisionePraticaRef = idCondivisionePraticaRef;
     }
 
-    public Integer getAssegnazioneTaskId() {
-        return assegnazioneTaskId;
+    public Integer getIdAssegnazioneTaskRef() {
+        return idAssegnazioneTaskRef;
     }
 
-    public void setAssegnazioneTaskId(Integer assegnazioneTaskId) {
-        this.assegnazioneTaskId = assegnazioneTaskId;
+    public void setIdAssegnazioneTaskRef(Integer idAssegnazioneTaskRef) {
+        this.idAssegnazioneTaskRef = idAssegnazioneTaskRef;
     }
 
-    public Integer getInvitoId() {
-        return invitoId;
+    public Integer getIdInvitoRef() {
+        return idInvitoRef;
     }
 
-    public void setInvitoId(Integer invitoId) {
-        this.invitoId = invitoId;
+    public void setIdInvitoRef(Integer idInvitoRef) {
+        this.idInvitoRef = idInvitoRef;
     }
 
-    public Long getIdId() {
-        return idId;
+    public Long getIdTaskId() {
+        return idTaskId;
     }
 
-    public void setIdId(Long consuntivoTaskId) {
-        this.idId = consuntivoTaskId;
+    public void setIdTaskId(Long consuntivoTaskId) {
+        this.idTaskId = consuntivoTaskId;
     }
 
-    public Long getIdId() {
-        return idId;
+    public Long getIdTaskId() {
+        return idTaskId;
     }
 
-    public void setIdId(Long previsioneTaskId) {
-        this.idId = previsioneTaskId;
+    public void setIdTaskId(Long previsioneTaskId) {
+        this.idTaskId = previsioneTaskId;
     }
 
-    public Long getIdId() {
-        return idId;
+    public Long getIdTaskId() {
+        return idTaskId;
     }
 
-    public void setIdId(Long assegnazioneTaskId) {
-        this.idId = assegnazioneTaskId;
+    public void setIdTaskId(Long assegnazioneTaskId) {
+        this.idTaskId = assegnazioneTaskId;
     }
 
-    public Long getIdId() {
-        return idId;
+    public Long getIdTaskId() {
+        return idTaskId;
     }
 
-    public void setIdId(Long invitoAttivitaId) {
-        this.idId = invitoAttivitaId;
+    public void setIdTaskId(Long invitoAttivitaId) {
+        this.idTaskId = invitoAttivitaId;
     }
 
     public Long getPraticaId() {
@@ -184,19 +196,20 @@ public class TaskDTO implements Serializable {
     public String toString() {
         return "TaskDTO{" +
             "id=" + getId() +
-            ", idPratica=" + getIdPratica() +
+            ", idTask=" + getIdTask() +
+            ", idPraticaRef=" + getIdPraticaRef() +
             ", nome='" + getNome() + "'" +
             ", stato=" + getStato() +
             ", prioritario=" + getPrioritario() +
             ", pubblico=" + getPubblico() +
             ", version='" + getVersion() + "'" +
-            ", condivisionePraticaId=" + getCondivisionePraticaId() +
-            ", assegnazioneTaskId=" + getAssegnazioneTaskId() +
-            ", invitoId=" + getInvitoId() +
-            ", idId=" + getIdId() +
-            ", idId=" + getIdId() +
-            ", idId=" + getIdId() +
-            ", idId=" + getIdId() +
+            ", idCondivisionePraticaRef=" + getIdCondivisionePraticaRef() +
+            ", idAssegnazioneTaskRef=" + getIdAssegnazioneTaskRef() +
+            ", idInvitoRef=" + getIdInvitoRef() +
+            ", idTaskId=" + getIdTaskId() +
+            ", idTaskId=" + getIdTaskId() +
+            ", idTaskId=" + getIdTaskId() +
+            ", idTaskId=" + getIdTaskId() +
             ", praticaId=" + getPraticaId() +
             "}";
     }

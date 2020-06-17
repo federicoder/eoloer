@@ -88,9 +88,9 @@ public class InvitoAttivitaResource {
      */
     @GetMapping("/invito-attivitas")
     public List<InvitoAttivitaDTO> getAllInvitoAttivitas(@RequestParam(required = false) String filter) {
-        if ("idattivita-is-null".equals(filter)) {
-            log.debug("REST request to get all InvitoAttivitas where idAttivita is null");
-            return invitoAttivitaService.findAllWhereIdAttivitaIsNull();
+        if ("idtaskref-is-null".equals(filter)) {
+            log.debug("REST request to get all InvitoAttivitas where idTaskRef is null");
+            return invitoAttivitaService.findAllWhereIdTaskRefIsNull();
         }
         log.debug("REST request to get all InvitoAttivitas");
         return invitoAttivitaService.findAll();

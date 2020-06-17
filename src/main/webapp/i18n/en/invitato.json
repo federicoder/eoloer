@@ -17,7 +17,8 @@
       "detail": {
         "title": "Invitato"
       },
-      "idInvito": "Id Invito",
+      "idInvitato": "Id Invitato",
+      "idInvitoRef": "Id Invito Ref",
       "tokenInvito": "Token Invito",
       "canalePrimarioInvito": "Canale Primario Invito",
       "canaleBackupInvito": "Canale Backup Invito",

@@ -1,4 +1,4 @@
-id;id_studio_professionale;data_attivazione_licenza;nr_licenza;storage_totale
+id;id_studio_professionale_ref;data_attivazione_licenza;nr_licenza;storage_totale
 1;87754;Car;5174;75720
 2;70322;SSL;26338;3167
 3;79278;parsing;53143;98443

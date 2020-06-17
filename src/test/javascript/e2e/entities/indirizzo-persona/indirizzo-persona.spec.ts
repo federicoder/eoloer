@@ -44,7 +44,7 @@ describe('IndirizzoPersona e2e test', () => {
     await indirizzoPersonaComponentsPage.clickOnCreateButton();
 
     await promise.all([
-      indirizzoPersonaUpdatePage.setIdPersonaInput('5'),
+      indirizzoPersonaUpdatePage.setIdPersonaRefInput('5'),
       indirizzoPersonaUpdatePage.setIndirizzoInput('indirizzo'),
       indirizzoPersonaUpdatePage.setComuneInput('comune'),
       indirizzoPersonaUpdatePage.setCapInput('5'),
@@ -53,7 +53,7 @@ describe('IndirizzoPersona e2e test', () => {
       indirizzoPersonaUpdatePage.setNazioneInput('nazione'),
     ]);
 
-    expect(await indirizzoPersonaUpdatePage.getIdPersonaInput()).to.eq('5', 'Expected idPersona value to be equals to 5');
+    expect(await indirizzoPersonaUpdatePage.getIdPersonaRefInput()).to.eq('5', 'Expected idPersonaRef value to be equals to 5');
     expect(await indirizzoPersonaUpdatePage.getIndirizzoInput()).to.eq('indirizzo', 'Expected Indirizzo value to be equals to indirizzo');
     expect(await indirizzoPersonaUpdatePage.getComuneInput()).to.eq('comune', 'Expected Comune value to be equals to comune');
     expect(await indirizzoPersonaUpdatePage.getCapInput()).to.eq('5', 'Expected cap value to be equals to 5');

@@ -10,8 +10,12 @@ public class InvitoDTO implements Serializable {
     
     private Long id;
 
+    @NotNull
     @Max(value = 8)
-    private Integer idStudioProfessionale;
+    private Integer idInvito;
+
+    @Max(value = 8)
+    private Integer idStudioProfessionaleRef;
 
     private String dataInvito;
 
@@ -23,9 +27,9 @@ public class InvitoDTO implements Serializable {
 
     private String testoInvito;
 
-    private Integer idPratica;
+    private Integer idPraticaRef;
 
-    private Integer idAttivita;
+    private Integer idTaskRef;
 
     private String luogoFisico;
 
@@ -44,7 +48,7 @@ public class InvitoDTO implements Serializable {
     private String discriminator;
 
 
-    private Long idStudioProfessionaleId;
+    private Long idStudioProfessionaleRefId;
 
     private Long assegnazioneTaskId;
     
@@ -56,12 +60,20 @@ public class InvitoDTO implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdStudioProfessionale() {
-        return idStudioProfessionale;
+    public Integer getIdInvito() {
+        return idInvito;
     }
 
-    public void setIdStudioProfessionale(Integer idStudioProfessionale) {
-        this.idStudioProfessionale = idStudioProfessionale;
+    public void setIdInvito(Integer idInvito) {
+        this.idInvito = idInvito;
+    }
+
+    public Integer getIdStudioProfessionaleRef() {
+        return idStudioProfessionaleRef;
+    }
+
+    public void setIdStudioProfessionaleRef(Integer idStudioProfessionaleRef) {
+        this.idStudioProfessionaleRef = idStudioProfessionaleRef;
     }
 
     public String getDataInvito() {
@@ -104,20 +116,20 @@ public class InvitoDTO implements Serializable {
         this.testoInvito = testoInvito;
     }
 
-    public Integer getIdPratica() {
-        return idPratica;
+    public Integer getIdPraticaRef() {
+        return idPraticaRef;
     }
 
-    public void setIdPratica(Integer idPratica) {
-        this.idPratica = idPratica;
+    public void setIdPraticaRef(Integer idPraticaRef) {
+        this.idPraticaRef = idPraticaRef;
     }
 
-    public Integer getIdAttivita() {
-        return idAttivita;
+    public Integer getIdTaskRef() {
+        return idTaskRef;
     }
 
-    public void setIdAttivita(Integer idAttivita) {
-        this.idAttivita = idAttivita;
+    public void setIdTaskRef(Integer idTaskRef) {
+        this.idTaskRef = idTaskRef;
     }
 
     public String getLuogoFisico() {
@@ -184,12 +196,12 @@ public class InvitoDTO implements Serializable {
         this.discriminator = discriminator;
     }
 
-    public Long getIdStudioProfessionaleId() {
-        return idStudioProfessionaleId;
+    public Long getIdStudioProfessionaleRefId() {
+        return idStudioProfessionaleRefId;
     }
 
-    public void setIdStudioProfessionaleId(Long studioProfessionaleId) {
-        this.idStudioProfessionaleId = studioProfessionaleId;
+    public void setIdStudioProfessionaleRefId(Long studioProfessionaleId) {
+        this.idStudioProfessionaleRefId = studioProfessionaleId;
     }
 
     public Long getAssegnazioneTaskId() {
@@ -222,14 +234,15 @@ public class InvitoDTO implements Serializable {
     public String toString() {
         return "InvitoDTO{" +
             "id=" + getId() +
-            ", idStudioProfessionale=" + getIdStudioProfessionale() +
+            ", idInvito=" + getIdInvito() +
+            ", idStudioProfessionaleRef=" + getIdStudioProfessionaleRef() +
             ", dataInvito='" + getDataInvito() + "'" +
             ", idUserInvitante=" + getIdUserInvitante() +
             ", nomeUserInvitante='" + getNomeUserInvitante() + "'" +
             ", dataScadenzaInvito='" + getDataScadenzaInvito() + "'" +
             ", testoInvito='" + getTestoInvito() + "'" +
-            ", idPratica=" + getIdPratica() +
-            ", idAttivita=" + getIdAttivita() +
+            ", idPraticaRef=" + getIdPraticaRef() +
+            ", idTaskRef=" + getIdTaskRef() +
             ", luogoFisico='" + getLuogoFisico() + "'" +
             ", indicazioniLuogo='" + getIndicazioniLuogo() + "'" +
             ", dataInizio='" + getDataInizio() + "'" +
@@ -238,7 +251,7 @@ public class InvitoDTO implements Serializable {
             ", oraFine='" + getOraFine() + "'" +
             ", urlStanzaVirtuale='" + getUrlStanzaVirtuale() + "'" +
             ", discriminator='" + getDiscriminator() + "'" +
-            ", idStudioProfessionaleId=" + getIdStudioProfessionaleId() +
+            ", idStudioProfessionaleRefId=" + getIdStudioProfessionaleRefId() +
             ", assegnazioneTaskId=" + getAssegnazioneTaskId() +
             "}";
     }

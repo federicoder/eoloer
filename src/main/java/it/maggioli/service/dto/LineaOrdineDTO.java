@@ -11,10 +11,10 @@ public class LineaOrdineDTO implements Serializable {
     private Long id;
 
     @NotNull
-    private Integer idOrdine;
+    private Integer idOrdineRef;
 
     @NotNull
-    private Integer idProdotto;
+    private Integer idProdottoRef;
 
     private Integer quantita;
 
@@ -33,20 +33,20 @@ public class LineaOrdineDTO implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdOrdine() {
-        return idOrdine;
+    public Integer getIdOrdineRef() {
+        return idOrdineRef;
     }
 
-    public void setIdOrdine(Integer idOrdine) {
-        this.idOrdine = idOrdine;
+    public void setIdOrdineRef(Integer idOrdineRef) {
+        this.idOrdineRef = idOrdineRef;
     }
 
-    public Integer getIdProdotto() {
-        return idProdotto;
+    public Integer getIdProdottoRef() {
+        return idProdottoRef;
     }
 
-    public void setIdProdotto(Integer idProdotto) {
-        this.idProdotto = idProdotto;
+    public void setIdProdottoRef(Integer idProdottoRef) {
+        this.idProdottoRef = idProdottoRef;
     }
 
     public Integer getQuantita() {
@@ -103,8 +103,8 @@ public class LineaOrdineDTO implements Serializable {
     public String toString() {
         return "LineaOrdineDTO{" +
             "id=" + getId() +
-            ", idOrdine=" + getIdOrdine() +
-            ", idProdotto=" + getIdProdotto() +
+            ", idOrdineRef=" + getIdOrdineRef() +
+            ", idProdottoRef=" + getIdProdottoRef() +
             ", quantita=" + getQuantita() +
             ", importo=" + getImporto() +
             ", codIva='" + getCodIva() + "'" +

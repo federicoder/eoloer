@@ -24,7 +24,7 @@
       "fieldType": "Integer"
     },
     {
-      "fieldName": "idTemplatePratica",
+      "fieldName": "idTemplatePraticaRef",
       "fieldType": "Integer"
     }
   ],
@@ -33,7 +33,7 @@
       "relationshipType": "one-to-many",
       "otherEntityName": "templateTask",
       "otherEntityRelationshipName": "templateTask",
-      "relationshipName": "idTemplate"
+      "relationshipName": "idTemplateTask"
     },
     {
       "relationshipType": "one-to-many",
@@ -44,14 +44,14 @@
     {
       "relationshipType": "many-to-one",
       "otherEntityName": "templatePratica",
-      "otherEntityRelationshipName": "idTemplate",
+      "otherEntityRelationshipName": "idTemplatePratica",
       "relationshipName": "templatePratica",
       "otherEntityField": "id"
     },
     {
       "relationshipType": "many-to-one",
       "otherEntityName": "templateTask",
-      "otherEntityRelationshipName": "idTemplate",
+      "otherEntityRelationshipName": "idTemplateTask",
       "relationshipName": "templateTask",
       "otherEntityField": "id"
     }

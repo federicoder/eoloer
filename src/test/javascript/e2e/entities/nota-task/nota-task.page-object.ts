@@ -29,7 +29,8 @@ export class NotaTaskUpdatePage {
   saveButton = element(by.id('save-entity'));
   cancelButton = element(by.id('cancel-save'));
 
-  idTaskInput = element(by.id('field_idTask'));
+  idNotaTaskInput = element(by.id('field_idNotaTask'));
+  idTaskRefInput = element(by.id('field_idTaskRef'));
   dataInput = element(by.id('field_data'));
   notaInput = element(by.id('field_nota'));
   versionInput = element(by.id('field_version'));
@@ -40,12 +41,20 @@ export class NotaTaskUpdatePage {
     return this.pageTitle.getAttribute('jhiTranslate');
   }
 
-  async setIdTaskInput(idTask: string): Promise<void> {
-    await this.idTaskInput.sendKeys(idTask);
+  async setIdNotaTaskInput(idNotaTask: string): Promise<void> {
+    await this.idNotaTaskInput.sendKeys(idNotaTask);
   }
 
-  async getIdTaskInput(): Promise<string> {
-    return await this.idTaskInput.getAttribute('value');
+  async getIdNotaTaskInput(): Promise<string> {
+    return await this.idNotaTaskInput.getAttribute('value');
+  }
+
+  async setIdTaskRefInput(idTaskRef: string): Promise<void> {
+    await this.idTaskRefInput.sendKeys(idTaskRef);
+  }
+
+  async getIdTaskRefInput(): Promise<string> {
+    return await this.idTaskRefInput.getAttribute('value');
   }
 
   async setDataInput(data: string): Promise<void> {

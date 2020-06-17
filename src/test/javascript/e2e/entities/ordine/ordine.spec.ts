@@ -41,7 +41,8 @@ describe('Ordine e2e test', () => {
     await ordineComponentsPage.clickOnCreateButton();
 
     await promise.all([
-      ordineUpdatePage.setIdStudioProfessionaleInput('5'),
+      ordineUpdatePage.setIdOrdineInput('5'),
+      ordineUpdatePage.setIdStudioProfessionaleRefInput('5'),
       ordineUpdatePage.setStatoOrdineInput('5'),
       ordineUpdatePage.setTotImponibileInput('5'),
       ordineUpdatePage.setTotIvaInput('5'),
@@ -49,7 +50,11 @@ describe('Ordine e2e test', () => {
       ordineUpdatePage.studioProfessionaleSelectLastOption(),
     ]);
 
-    expect(await ordineUpdatePage.getIdStudioProfessionaleInput()).to.eq('5', 'Expected idStudioProfessionale value to be equals to 5');
+    expect(await ordineUpdatePage.getIdOrdineInput()).to.eq('5', 'Expected idOrdine value to be equals to 5');
+    expect(await ordineUpdatePage.getIdStudioProfessionaleRefInput()).to.eq(
+      '5',
+      'Expected idStudioProfessionaleRef value to be equals to 5'
+    );
     expect(await ordineUpdatePage.getStatoOrdineInput()).to.eq('5', 'Expected statoOrdine value to be equals to 5');
     expect(await ordineUpdatePage.getTotImponibileInput()).to.eq('5', 'Expected totImponibile value to be equals to 5');
     expect(await ordineUpdatePage.getTotIvaInput()).to.eq('5', 'Expected totIva value to be equals to 5');

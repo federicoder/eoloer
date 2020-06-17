@@ -23,6 +23,7 @@ describe('Service Tests', () => {
       elemDefault = new Persona(
         0,
         0,
+        0,
         'AAAAAAA',
         'AAAAAAA',
         'AAAAAAA',
@@ -69,7 +70,8 @@ describe('Service Tests', () => {
       it('should update a Persona', () => {
         const returnedFromService = Object.assign(
           {
-            idStudio: 1,
+            idPersona: 1,
+            idStudioProfessionaleRef: 1,
             codiceFiscale: 'BBBBBB',
             areaDiInteresse: 'BBBBBB',
             titolo: 'BBBBBB',
@@ -80,7 +82,7 @@ describe('Service Tests', () => {
             professione: 'BBBBBB',
             tipo: 1,
             discriminator: 'BBBBBB',
-            idRuoloPersona: 1,
+            idRuoloPersonaRef: 1,
             tipoRuoloUtente: 1,
           },
           elemDefault
@@ -98,7 +100,8 @@ describe('Service Tests', () => {
       it('should return a list of Persona', () => {
         const returnedFromService = Object.assign(
           {
-            idStudio: 1,
+            idPersona: 1,
+            idStudioProfessionaleRef: 1,
             codiceFiscale: 'BBBBBB',
             areaDiInteresse: 'BBBBBB',
             titolo: 'BBBBBB',
@@ -109,7 +112,7 @@ describe('Service Tests', () => {
             professione: 'BBBBBB',
             tipo: 1,
             discriminator: 'BBBBBB',
-            idRuoloPersona: 1,
+            idRuoloPersonaRef: 1,
             tipoRuoloUtente: 1,
           },
           elemDefault

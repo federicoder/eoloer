@@ -44,7 +44,7 @@ describe('InvitoEvento e2e test', () => {
     await invitoEventoComponentsPage.clickOnCreateButton();
 
     await promise.all([
-      invitoEventoUpdatePage.setIdAttivitaInput('5'),
+      invitoEventoUpdatePage.setIdTaskRefInput('5'),
       invitoEventoUpdatePage.setLuogoFisicoInput('luogoFisico'),
       invitoEventoUpdatePage.setIndicazioniLuogoInput('indicazioniLuogo'),
       invitoEventoUpdatePage.setDataInizioInput('dataInizio'),
@@ -52,11 +52,11 @@ describe('InvitoEvento e2e test', () => {
       invitoEventoUpdatePage.setDataFineInput('dataFine'),
       invitoEventoUpdatePage.setOraFineInput('oraFine'),
       invitoEventoUpdatePage.setUrlStanzaVirtualeInput('urlStanzaVirtuale'),
-      invitoEventoUpdatePage.idAttivitaSelectLastOption(),
+      invitoEventoUpdatePage.idTaskRefSelectLastOption(),
       invitoEventoUpdatePage.previsioneEventoSelectLastOption(),
     ]);
 
-    expect(await invitoEventoUpdatePage.getIdAttivitaInput()).to.eq('5', 'Expected idAttivita value to be equals to 5');
+    expect(await invitoEventoUpdatePage.getIdTaskRefInput()).to.eq('5', 'Expected idTaskRef value to be equals to 5');
     expect(await invitoEventoUpdatePage.getLuogoFisicoInput()).to.eq(
       'luogoFisico',
       'Expected LuogoFisico value to be equals to luogoFisico'

@@ -40,8 +40,11 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WithMockUser
 public class TaskResourceIT {
 
-    private static final Integer DEFAULT_ID_PRATICA = 8;
-    private static final Integer UPDATED_ID_PRATICA = 7;
+    private static final Integer DEFAULT_ID_TASK = 8;
+    private static final Integer UPDATED_ID_TASK = 7;
+
+    private static final Integer DEFAULT_ID_PRATICA_REF = 8;
+    private static final Integer UPDATED_ID_PRATICA_REF = 7;
 
     private static final String DEFAULT_NOME = "AAAAAAAAAA";
     private static final String UPDATED_NOME = "BBBBBBBBBB";
@@ -58,14 +61,14 @@ public class TaskResourceIT {
     private static final String DEFAULT_VERSION = "AAAAAAAAAA";
     private static final String UPDATED_VERSION = "BBBBBBBBBB";
 
-    private static final Integer DEFAULT_CONDIVISIONE_PRATICA_ID = 1;
-    private static final Integer UPDATED_CONDIVISIONE_PRATICA_ID = 2;
+    private static final Integer DEFAULT_ID_CONDIVISIONE_PRATICA_REF = 1;
+    private static final Integer UPDATED_ID_CONDIVISIONE_PRATICA_REF = 2;
 
-    private static final Integer DEFAULT_ASSEGNAZIONE_TASK_ID = 8;
-    private static final Integer UPDATED_ASSEGNAZIONE_TASK_ID = 7;
+    private static final Integer DEFAULT_ID_ASSEGNAZIONE_TASK_REF = 8;
+    private static final Integer UPDATED_ID_ASSEGNAZIONE_TASK_REF = 7;
 
-    private static final Integer DEFAULT_INVITO_ID = 8;
-    private static final Integer UPDATED_INVITO_ID = 7;
+    private static final Integer DEFAULT_ID_INVITO_REF = 8;
+    private static final Integer UPDATED_ID_INVITO_REF = 7;
 
     @Autowired
     private TaskRepository taskRepository;
@@ -100,15 +103,16 @@ public class TaskResourceIT {
      */
     public static Task createEntity(EntityManager em) {
         Task task = new Task()
-            .idPratica(DEFAULT_ID_PRATICA)
+            .idTask(DEFAULT_ID_TASK)
+            .idPraticaRef(DEFAULT_ID_PRATICA_REF)
             .nome(DEFAULT_NOME)
             .stato(DEFAULT_STATO)
             .prioritario(DEFAULT_PRIORITARIO)
             .pubblico(DEFAULT_PUBBLICO)
             .version(DEFAULT_VERSION)
-            .condivisionePraticaId(DEFAULT_CONDIVISIONE_PRATICA_ID)
-            .assegnazioneTaskId(DEFAULT_ASSEGNAZIONE_TASK_ID)
-            .invitoId(DEFAULT_INVITO_ID);
+            .idCondivisionePraticaRef(DEFAULT_ID_CONDIVISIONE_PRATICA_REF)
+            .idAssegnazioneTaskRef(DEFAULT_ID_ASSEGNAZIONE_TASK_REF)
+            .idInvitoRef(DEFAULT_ID_INVITO_REF);
         return task;
     }
     /**
@@ -119,15 +123,16 @@ public class TaskResourceIT {
      */
     public static Task createUpdatedEntity(EntityManager em) {
         Task task = new Task()
-            .idPratica(UPDATED_ID_PRATICA)
+            .idTask(UPDATED_ID_TASK)
+            .idPraticaRef(UPDATED_ID_PRATICA_REF)
             .nome(UPDATED_NOME)
             .stato(UPDATED_STATO)
             .prioritario(UPDATED_PRIORITARIO)
             .pubblico(UPDATED_PUBBLICO)
             .version(UPDATED_VERSION)
-            .condivisionePraticaId(UPDATED_CONDIVISIONE_PRATICA_ID)
-            .assegnazioneTaskId(UPDATED_ASSEGNAZIONE_TASK_ID)
-            .invitoId(UPDATED_INVITO_ID);
+            .idCondivisionePraticaRef(UPDATED_ID_CONDIVISIONE_PRATICA_REF)
+            .idAssegnazioneTaskRef(UPDATED_ID_ASSEGNAZIONE_TASK_REF)
+            .idInvitoRef(UPDATED_ID_INVITO_REF);
         return task;
     }
 
@@ -151,15 +156,16 @@ public class TaskResourceIT {
         List<Task> taskList = taskRepository.findAll();
         assertThat(taskList).hasSize(databaseSizeBeforeCreate + 1);
         Task testTask = taskList.get(taskList.size() - 1);
-        assertThat(testTask.getIdPratica()).isEqualTo(DEFAULT_ID_PRATICA);
+        assertThat(testTask.getIdTask()).isEqualTo(DEFAULT_ID_TASK);
+        assertThat(testTask.getIdPraticaRef()).isEqualTo(DEFAULT_ID_PRATICA_REF);
         assertThat(testTask.getNome()).isEqualTo(DEFAULT_NOME);
         assertThat(testTask.getStato()).isEqualTo(DEFAULT_STATO);
         assertThat(testTask.getPrioritario()).isEqualTo(DEFAULT_PRIORITARIO);
         assertThat(testTask.getPubblico()).isEqualTo(DEFAULT_PUBBLICO);
         assertThat(testTask.getVersion()).isEqualTo(DEFAULT_VERSION);
-        assertThat(testTask.getCondivisionePraticaId()).isEqualTo(DEFAULT_CONDIVISIONE_PRATICA_ID);
-        assertThat(testTask.getAssegnazioneTaskId()).isEqualTo(DEFAULT_ASSEGNAZIONE_TASK_ID);
-        assertThat(testTask.getInvitoId()).isEqualTo(DEFAULT_INVITO_ID);
+        assertThat(testTask.getIdCondivisionePraticaRef()).isEqualTo(DEFAULT_ID_CONDIVISIONE_PRATICA_REF);
+        assertThat(testTask.getIdAssegnazioneTaskRef()).isEqualTo(DEFAULT_ID_ASSEGNAZIONE_TASK_REF);
+        assertThat(testTask.getIdInvitoRef()).isEqualTo(DEFAULT_ID_INVITO_REF);
 
         // Validate the Task in Elasticsearch
         verify(mockTaskSearchRepository, times(1)).save(testTask);
@@ -191,6 +197,26 @@ public class TaskResourceIT {
 
     @Test
     @Transactional
+    public void checkIdTaskIsRequired() throws Exception {
+        int databaseSizeBeforeTest = taskRepository.findAll().size();
+        // set the field null
+        task.setIdTask(null);
+
+        // Create the Task, which fails.
+        TaskDTO taskDTO = taskMapper.toDto(task);
+
+
+        restTaskMockMvc.perform(post("/api/tasks")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(taskDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<Task> taskList = taskRepository.findAll();
+        assertThat(taskList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllTasks() throws Exception {
         // Initialize the database
         taskRepository.saveAndFlush(task);
@@ -200,15 +226,16 @@ public class TaskResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(task.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idPratica").value(hasItem(DEFAULT_ID_PRATICA)))
+            .andExpect(jsonPath("$.[*].idTask").value(hasItem(DEFAULT_ID_TASK)))
+            .andExpect(jsonPath("$.[*].idPraticaRef").value(hasItem(DEFAULT_ID_PRATICA_REF)))
             .andExpect(jsonPath("$.[*].nome").value(hasItem(DEFAULT_NOME)))
             .andExpect(jsonPath("$.[*].stato").value(hasItem(DEFAULT_STATO)))
             .andExpect(jsonPath("$.[*].prioritario").value(hasItem(DEFAULT_PRIORITARIO)))
             .andExpect(jsonPath("$.[*].pubblico").value(hasItem(DEFAULT_PUBBLICO)))
             .andExpect(jsonPath("$.[*].version").value(hasItem(DEFAULT_VERSION)))
-            .andExpect(jsonPath("$.[*].condivisionePraticaId").value(hasItem(DEFAULT_CONDIVISIONE_PRATICA_ID)))
-            .andExpect(jsonPath("$.[*].assegnazioneTaskId").value(hasItem(DEFAULT_ASSEGNAZIONE_TASK_ID)))
-            .andExpect(jsonPath("$.[*].invitoId").value(hasItem(DEFAULT_INVITO_ID)));
+            .andExpect(jsonPath("$.[*].idCondivisionePraticaRef").value(hasItem(DEFAULT_ID_CONDIVISIONE_PRATICA_REF)))
+            .andExpect(jsonPath("$.[*].idAssegnazioneTaskRef").value(hasItem(DEFAULT_ID_ASSEGNAZIONE_TASK_REF)))
+            .andExpect(jsonPath("$.[*].idInvitoRef").value(hasItem(DEFAULT_ID_INVITO_REF)));
     }
     
     @Test
@@ -222,15 +249,16 @@ public class TaskResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(task.getId().intValue()))
-            .andExpect(jsonPath("$.idPratica").value(DEFAULT_ID_PRATICA))
+            .andExpect(jsonPath("$.idTask").value(DEFAULT_ID_TASK))
+            .andExpect(jsonPath("$.idPraticaRef").value(DEFAULT_ID_PRATICA_REF))
             .andExpect(jsonPath("$.nome").value(DEFAULT_NOME))
             .andExpect(jsonPath("$.stato").value(DEFAULT_STATO))
             .andExpect(jsonPath("$.prioritario").value(DEFAULT_PRIORITARIO))
             .andExpect(jsonPath("$.pubblico").value(DEFAULT_PUBBLICO))
             .andExpect(jsonPath("$.version").value(DEFAULT_VERSION))
-            .andExpect(jsonPath("$.condivisionePraticaId").value(DEFAULT_CONDIVISIONE_PRATICA_ID))
-            .andExpect(jsonPath("$.assegnazioneTaskId").value(DEFAULT_ASSEGNAZIONE_TASK_ID))
-            .andExpect(jsonPath("$.invitoId").value(DEFAULT_INVITO_ID));
+            .andExpect(jsonPath("$.idCondivisionePraticaRef").value(DEFAULT_ID_CONDIVISIONE_PRATICA_REF))
+            .andExpect(jsonPath("$.idAssegnazioneTaskRef").value(DEFAULT_ID_ASSEGNAZIONE_TASK_REF))
+            .andExpect(jsonPath("$.idInvitoRef").value(DEFAULT_ID_INVITO_REF));
     }
     @Test
     @Transactional
@@ -253,15 +281,16 @@ public class TaskResourceIT {
         // Disconnect from session so that the updates on updatedTask are not directly saved in db
         em.detach(updatedTask);
         updatedTask
-            .idPratica(UPDATED_ID_PRATICA)
+            .idTask(UPDATED_ID_TASK)
+            .idPraticaRef(UPDATED_ID_PRATICA_REF)
             .nome(UPDATED_NOME)
             .stato(UPDATED_STATO)
             .prioritario(UPDATED_PRIORITARIO)
             .pubblico(UPDATED_PUBBLICO)
             .version(UPDATED_VERSION)
-            .condivisionePraticaId(UPDATED_CONDIVISIONE_PRATICA_ID)
-            .assegnazioneTaskId(UPDATED_ASSEGNAZIONE_TASK_ID)
-            .invitoId(UPDATED_INVITO_ID);
+            .idCondivisionePraticaRef(UPDATED_ID_CONDIVISIONE_PRATICA_REF)
+            .idAssegnazioneTaskRef(UPDATED_ID_ASSEGNAZIONE_TASK_REF)
+            .idInvitoRef(UPDATED_ID_INVITO_REF);
         TaskDTO taskDTO = taskMapper.toDto(updatedTask);
 
         restTaskMockMvc.perform(put("/api/tasks")
@@ -273,15 +302,16 @@ public class TaskResourceIT {
         List<Task> taskList = taskRepository.findAll();
         assertThat(taskList).hasSize(databaseSizeBeforeUpdate);
         Task testTask = taskList.get(taskList.size() - 1);
-        assertThat(testTask.getIdPratica()).isEqualTo(UPDATED_ID_PRATICA);
+        assertThat(testTask.getIdTask()).isEqualTo(UPDATED_ID_TASK);
+        assertThat(testTask.getIdPraticaRef()).isEqualTo(UPDATED_ID_PRATICA_REF);
         assertThat(testTask.getNome()).isEqualTo(UPDATED_NOME);
         assertThat(testTask.getStato()).isEqualTo(UPDATED_STATO);
         assertThat(testTask.getPrioritario()).isEqualTo(UPDATED_PRIORITARIO);
         assertThat(testTask.getPubblico()).isEqualTo(UPDATED_PUBBLICO);
         assertThat(testTask.getVersion()).isEqualTo(UPDATED_VERSION);
-        assertThat(testTask.getCondivisionePraticaId()).isEqualTo(UPDATED_CONDIVISIONE_PRATICA_ID);
-        assertThat(testTask.getAssegnazioneTaskId()).isEqualTo(UPDATED_ASSEGNAZIONE_TASK_ID);
-        assertThat(testTask.getInvitoId()).isEqualTo(UPDATED_INVITO_ID);
+        assertThat(testTask.getIdCondivisionePraticaRef()).isEqualTo(UPDATED_ID_CONDIVISIONE_PRATICA_REF);
+        assertThat(testTask.getIdAssegnazioneTaskRef()).isEqualTo(UPDATED_ID_ASSEGNAZIONE_TASK_REF);
+        assertThat(testTask.getIdInvitoRef()).isEqualTo(UPDATED_ID_INVITO_REF);
 
         // Validate the Task in Elasticsearch
         verify(mockTaskSearchRepository, times(1)).save(testTask);
@@ -344,14 +374,15 @@ public class TaskResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(task.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idPratica").value(hasItem(DEFAULT_ID_PRATICA)))
+            .andExpect(jsonPath("$.[*].idTask").value(hasItem(DEFAULT_ID_TASK)))
+            .andExpect(jsonPath("$.[*].idPraticaRef").value(hasItem(DEFAULT_ID_PRATICA_REF)))
             .andExpect(jsonPath("$.[*].nome").value(hasItem(DEFAULT_NOME)))
             .andExpect(jsonPath("$.[*].stato").value(hasItem(DEFAULT_STATO)))
             .andExpect(jsonPath("$.[*].prioritario").value(hasItem(DEFAULT_PRIORITARIO)))
             .andExpect(jsonPath("$.[*].pubblico").value(hasItem(DEFAULT_PUBBLICO)))
             .andExpect(jsonPath("$.[*].version").value(hasItem(DEFAULT_VERSION)))
-            .andExpect(jsonPath("$.[*].condivisionePraticaId").value(hasItem(DEFAULT_CONDIVISIONE_PRATICA_ID)))
-            .andExpect(jsonPath("$.[*].assegnazioneTaskId").value(hasItem(DEFAULT_ASSEGNAZIONE_TASK_ID)))
-            .andExpect(jsonPath("$.[*].invitoId").value(hasItem(DEFAULT_INVITO_ID)));
+            .andExpect(jsonPath("$.[*].idCondivisionePraticaRef").value(hasItem(DEFAULT_ID_CONDIVISIONE_PRATICA_REF)))
+            .andExpect(jsonPath("$.[*].idAssegnazioneTaskRef").value(hasItem(DEFAULT_ID_ASSEGNAZIONE_TASK_REF)))
+            .andExpect(jsonPath("$.[*].idInvitoRef").value(hasItem(DEFAULT_ID_INVITO_REF)));
     }
 }

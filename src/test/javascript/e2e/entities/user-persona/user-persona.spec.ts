@@ -44,12 +44,14 @@ describe('UserPersona e2e test', () => {
     await userPersonaComponentsPage.clickOnCreateButton();
 
     await promise.all([
-      userPersonaUpdatePage.setIdPersonaInput('5'),
+      userPersonaUpdatePage.setIdUserPersonaInput('5'),
+      userPersonaUpdatePage.setIdPersonaRefInput('5'),
       userPersonaUpdatePage.setNomeUserInput('5'),
       userPersonaUpdatePage.personaFisicaSelectLastOption(),
     ]);
 
-    expect(await userPersonaUpdatePage.getIdPersonaInput()).to.eq('5', 'Expected idPersona value to be equals to 5');
+    expect(await userPersonaUpdatePage.getIdUserPersonaInput()).to.eq('5', 'Expected idUserPersona value to be equals to 5');
+    expect(await userPersonaUpdatePage.getIdPersonaRefInput()).to.eq('5', 'Expected idPersonaRef value to be equals to 5');
     expect(await userPersonaUpdatePage.getNomeUserInput()).to.eq('5', 'Expected nomeUser value to be equals to 5');
 
     await userPersonaUpdatePage.save();

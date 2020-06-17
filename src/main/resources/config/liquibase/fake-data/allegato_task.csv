@@ -1,4 +1,4 @@
-id;id_allegato_task;id_tipo;id_task;formato;note;stato;pubblico;version;id_allegato_master
+id;id_allegato_task;id_tipo_allegato_ref;id_task_ref;formato;note;stato;pubblico;version;id_allegato_master
 1;1;2;6;90157;cross-platform white Refined Metal Chips;80331;71306;clicks-and-mortar Barbados Dollar;52320
 2;1;5;3;46753;Auto Loan Account;81037;90880;Fantastic Frozen Chips;88091
 3;7;6;7;48161;Metrics Infrastructure;9602;36771;Borders;41765

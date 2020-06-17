@@ -20,7 +20,7 @@ export class TagPersonaUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    idPersona: [null, [Validators.required]],
+    idPersonaRef: [null, [Validators.required]],
     tag: [],
     personaId: [],
   });
@@ -43,7 +43,7 @@ export class TagPersonaUpdateComponent implements OnInit {
   updateForm(tagPersona: ITagPersona): void {
     this.editForm.patchValue({
       id: tagPersona.id,
-      idPersona: tagPersona.idPersona,
+      idPersonaRef: tagPersona.idPersonaRef,
       tag: tagPersona.tag,
       personaId: tagPersona.personaId,
     });
@@ -67,7 +67,7 @@ export class TagPersonaUpdateComponent implements OnInit {
     return {
       ...new TagPersona(),
       id: this.editForm.get(['id'])!.value,
-      idPersona: this.editForm.get(['idPersona'])!.value,
+      idPersonaRef: this.editForm.get(['idPersonaRef'])!.value,
       tag: this.editForm.get(['tag'])!.value,
       personaId: this.editForm.get(['personaId'])!.value,
     };

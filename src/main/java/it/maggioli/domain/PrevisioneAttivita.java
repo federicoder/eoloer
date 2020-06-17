@@ -27,8 +27,8 @@ public class PrevisioneAttivita implements Serializable {
 
     @NotNull
     @Max(value = 8)
-    @Column(name = "id_task", nullable = false)
-    private Integer idTask;
+    @Column(name = "id_task_ref", nullable = false)
+    private Integer idTaskRef;
 
     @Column(name = "data_pianificata")
     private String dataPianificata;
@@ -44,7 +44,7 @@ public class PrevisioneAttivita implements Serializable {
 
     @OneToOne
     @JoinColumn(unique = true)
-    private PrevisioneTask idTask;
+    private PrevisioneTask idTaskRef;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -55,17 +55,17 @@ public class PrevisioneAttivita implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdTask() {
-        return idTask;
+    public Integer getIdTaskRef() {
+        return idTaskRef;
     }
 
-    public PrevisioneAttivita idTask(Integer idTask) {
-        this.idTask = idTask;
+    public PrevisioneAttivita idTaskRef(Integer idTaskRef) {
+        this.idTaskRef = idTaskRef;
         return this;
     }
 
-    public void setIdTask(Integer idTask) {
-        this.idTask = idTask;
+    public void setIdTaskRef(Integer idTaskRef) {
+        this.idTaskRef = idTaskRef;
     }
 
     public String getDataPianificata() {
@@ -120,17 +120,17 @@ public class PrevisioneAttivita implements Serializable {
         this.version = version;
     }
 
-    public PrevisioneTask getIdTask() {
-        return idTask;
+    public PrevisioneTask getIdTaskRef() {
+        return idTaskRef;
     }
 
-    public PrevisioneAttivita idTask(PrevisioneTask previsioneTask) {
-        this.idTask = previsioneTask;
+    public PrevisioneAttivita idTaskRef(PrevisioneTask previsioneTask) {
+        this.idTaskRef = previsioneTask;
         return this;
     }
 
-    public void setIdTask(PrevisioneTask previsioneTask) {
-        this.idTask = previsioneTask;
+    public void setIdTaskRef(PrevisioneTask previsioneTask) {
+        this.idTaskRef = previsioneTask;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 
@@ -155,7 +155,7 @@ public class PrevisioneAttivita implements Serializable {
     public String toString() {
         return "PrevisioneAttivita{" +
             "id=" + getId() +
-            ", idTask=" + getIdTask() +
+            ", idTaskRef=" + getIdTaskRef() +
             ", dataPianificata='" + getDataPianificata() + "'" +
             ", oraPianificata='" + getOraPianificata() + "'" +
             ", dataScadenza='" + getDataScadenza() + "'" +

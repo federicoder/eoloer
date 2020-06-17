@@ -26,9 +26,14 @@ public class NotaPratica implements Serializable {
     @SequenceGenerator(name = "sequenceGenerator")
     private Long id;
 
+    @NotNull
     @Max(value = 8)
-    @Column(name = "id_pratica")
-    private Integer idPratica;
+    @Column(name = "id_nota_pratica", nullable = false)
+    private Integer idNotaPratica;
+
+    @Max(value = 8)
+    @Column(name = "id_pratica_ref")
+    private Integer idPraticaRef;
 
     @Column(name = "data")
     private String data;
@@ -40,7 +45,7 @@ public class NotaPratica implements Serializable {
     private String version;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "ids", allowSetters = true)
+    @JsonIgnoreProperties(value = "idPraticas", allowSetters = true)
     private Pratica pratica;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
@@ -52,17 +57,30 @@ public class NotaPratica implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdPratica() {
-        return idPratica;
+    public Integer getIdNotaPratica() {
+        return idNotaPratica;
     }
 
-    public NotaPratica idPratica(Integer idPratica) {
-        this.idPratica = idPratica;
+    public NotaPratica idNotaPratica(Integer idNotaPratica) {
+        this.idNotaPratica = idNotaPratica;
         return this;
     }
 
-    public void setIdPratica(Integer idPratica) {
-        this.idPratica = idPratica;
+    public void setIdNotaPratica(Integer idNotaPratica) {
+        this.idNotaPratica = idNotaPratica;
+    }
+
+    public Integer getIdPraticaRef() {
+        return idPraticaRef;
+    }
+
+    public NotaPratica idPraticaRef(Integer idPraticaRef) {
+        this.idPraticaRef = idPraticaRef;
+        return this;
+    }
+
+    public void setIdPraticaRef(Integer idPraticaRef) {
+        this.idPraticaRef = idPraticaRef;
     }
 
     public String getData() {
@@ -139,7 +157,8 @@ public class NotaPratica implements Serializable {
     public String toString() {
         return "NotaPratica{" +
             "id=" + getId() +
-            ", idPratica=" + getIdPratica() +
+            ", idNotaPratica=" + getIdNotaPratica() +
+            ", idPraticaRef=" + getIdPraticaRef() +
             ", data='" + getData() + "'" +
             ", nota='" + getNota() + "'" +
             ", version='" + getVersion() + "'" +

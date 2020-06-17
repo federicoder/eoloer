@@ -34,12 +34,12 @@ public class AllegatoTask implements Serializable {
     private Integer idAllegatoTask;
 
     @Max(value = 8)
-    @Column(name = "id_tipo")
-    private Integer idTipo;
+    @Column(name = "id_tipo_allegato_ref")
+    private Integer idTipoAllegatoRef;
 
     @Max(value = 8)
-    @Column(name = "id_task")
-    private Integer idTask;
+    @Column(name = "id_task_ref")
+    private Integer idTaskRef;
 
     @Column(name = "formato")
     private Integer formato;
@@ -73,7 +73,7 @@ public class AllegatoTask implements Serializable {
     private AllegatoTask allegatoTask;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "ids", allowSetters = true)
+    @JsonIgnoreProperties(value = "idTasks", allowSetters = true)
     private Task task;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
@@ -98,30 +98,30 @@ public class AllegatoTask implements Serializable {
         this.idAllegatoTask = idAllegatoTask;
     }
 
-    public Integer getIdTipo() {
-        return idTipo;
+    public Integer getIdTipoAllegatoRef() {
+        return idTipoAllegatoRef;
     }
 
-    public AllegatoTask idTipo(Integer idTipo) {
-        this.idTipo = idTipo;
+    public AllegatoTask idTipoAllegatoRef(Integer idTipoAllegatoRef) {
+        this.idTipoAllegatoRef = idTipoAllegatoRef;
         return this;
     }
 
-    public void setIdTipo(Integer idTipo) {
-        this.idTipo = idTipo;
+    public void setIdTipoAllegatoRef(Integer idTipoAllegatoRef) {
+        this.idTipoAllegatoRef = idTipoAllegatoRef;
     }
 
-    public Integer getIdTask() {
-        return idTask;
+    public Integer getIdTaskRef() {
+        return idTaskRef;
     }
 
-    public AllegatoTask idTask(Integer idTask) {
-        this.idTask = idTask;
+    public AllegatoTask idTaskRef(Integer idTaskRef) {
+        this.idTaskRef = idTaskRef;
         return this;
     }
 
-    public void setIdTask(Integer idTask) {
-        this.idTask = idTask;
+    public void setIdTaskRef(Integer idTaskRef) {
+        this.idTaskRef = idTaskRef;
     }
 
     public Integer getFormato() {
@@ -289,8 +289,8 @@ public class AllegatoTask implements Serializable {
         return "AllegatoTask{" +
             "id=" + getId() +
             ", idAllegatoTask=" + getIdAllegatoTask() +
-            ", idTipo=" + getIdTipo() +
-            ", idTask=" + getIdTask() +
+            ", idTipoAllegatoRef=" + getIdTipoAllegatoRef() +
+            ", idTaskRef=" + getIdTaskRef() +
             ", formato=" + getFormato() +
             ", note='" + getNote() + "'" +
             ", stato=" + getStato() +

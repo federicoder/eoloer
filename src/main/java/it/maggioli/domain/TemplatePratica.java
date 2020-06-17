@@ -29,8 +29,8 @@ public class TemplatePratica implements Serializable {
 
     @NotNull
     @Max(value = 8)
-    @Column(name = "id_template", nullable = false)
-    private Integer idTemplate;
+    @Column(name = "id_template_pratica", nullable = false)
+    private Integer idTemplatePratica;
 
     @Column(name = "nome_template")
     private Integer nomeTemplate;
@@ -40,7 +40,7 @@ public class TemplatePratica implements Serializable {
 
     @OneToMany(mappedBy = "templatePratica")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<TemplateTask> idTemplates = new HashSet<>();
+    private Set<TemplateTask> idTemplatePraticas = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -51,17 +51,17 @@ public class TemplatePratica implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdTemplate() {
-        return idTemplate;
+    public Integer getIdTemplatePratica() {
+        return idTemplatePratica;
     }
 
-    public TemplatePratica idTemplate(Integer idTemplate) {
-        this.idTemplate = idTemplate;
+    public TemplatePratica idTemplatePratica(Integer idTemplatePratica) {
+        this.idTemplatePratica = idTemplatePratica;
         return this;
     }
 
-    public void setIdTemplate(Integer idTemplate) {
-        this.idTemplate = idTemplate;
+    public void setIdTemplatePratica(Integer idTemplatePratica) {
+        this.idTemplatePratica = idTemplatePratica;
     }
 
     public Integer getNomeTemplate() {
@@ -90,29 +90,29 @@ public class TemplatePratica implements Serializable {
         this.elencoTagAmbito = elencoTagAmbito;
     }
 
-    public Set<TemplateTask> getIdTemplates() {
-        return idTemplates;
+    public Set<TemplateTask> getIdTemplatePraticas() {
+        return idTemplatePraticas;
     }
 
-    public TemplatePratica idTemplates(Set<TemplateTask> templateTasks) {
-        this.idTemplates = templateTasks;
+    public TemplatePratica idTemplatePraticas(Set<TemplateTask> templateTasks) {
+        this.idTemplatePraticas = templateTasks;
         return this;
     }
 
-    public TemplatePratica addIdTemplate(TemplateTask templateTask) {
-        this.idTemplates.add(templateTask);
+    public TemplatePratica addIdTemplatePratica(TemplateTask templateTask) {
+        this.idTemplatePraticas.add(templateTask);
         templateTask.setTemplatePratica(this);
         return this;
     }
 
-    public TemplatePratica removeIdTemplate(TemplateTask templateTask) {
-        this.idTemplates.remove(templateTask);
+    public TemplatePratica removeIdTemplatePratica(TemplateTask templateTask) {
+        this.idTemplatePraticas.remove(templateTask);
         templateTask.setTemplatePratica(null);
         return this;
     }
 
-    public void setIdTemplates(Set<TemplateTask> templateTasks) {
-        this.idTemplates = templateTasks;
+    public void setIdTemplatePraticas(Set<TemplateTask> templateTasks) {
+        this.idTemplatePraticas = templateTasks;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 
@@ -137,7 +137,7 @@ public class TemplatePratica implements Serializable {
     public String toString() {
         return "TemplatePratica{" +
             "id=" + getId() +
-            ", idTemplate=" + getIdTemplate() +
+            ", idTemplatePratica=" + getIdTemplatePratica() +
             ", nomeTemplate=" + getNomeTemplate() +
             ", elencoTagAmbito=" + getElencoTagAmbito() +
             "}";

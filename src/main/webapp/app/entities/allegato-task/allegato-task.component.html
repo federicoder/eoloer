@@ -42,8 +42,8 @@
                 <tr>
                     <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.allegatoTask.idAllegatoTask">Id Allegato Task</span></th>
-                    <th scope="col" ><span jhiTranslate="eoloprjApp.allegatoTask.idTipo">Id Tipo</span></th>
-                    <th scope="col" ><span jhiTranslate="eoloprjApp.allegatoTask.idTask">Id Task</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.allegatoTask.idTipoAllegatoRef">Id Tipo Allegato Ref</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.allegatoTask.idTaskRef">Id Task Ref</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.allegatoTask.formato">Formato</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.allegatoTask.note">Note</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.allegatoTask.stato">Stato</span></th>
@@ -60,8 +60,8 @@
                 <tr *ngFor="let allegatoTask of allegatoTasks ;trackBy: trackId">
                     <td><a [routerLink]="['/allegato-task', allegatoTask.id, 'view']">{{ allegatoTask.id }}</a></td>
                     <td>{{ allegatoTask.idAllegatoTask }}</td>
-                    <td>{{ allegatoTask.idTipo }}</td>
-                    <td>{{ allegatoTask.idTask }}</td>
+                    <td>{{ allegatoTask.idTipoAllegatoRef }}</td>
+                    <td>{{ allegatoTask.idTaskRef }}</td>
                     <td>{{ allegatoTask.formato }}</td>
                     <td>{{ allegatoTask.note }}</td>
                     <td>{{ allegatoTask.stato }}</td>

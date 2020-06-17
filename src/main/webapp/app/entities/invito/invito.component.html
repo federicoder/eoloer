@@ -41,14 +41,15 @@
             <thead>
                 <tr>
                     <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
-                    <th scope="col" ><span jhiTranslate="eoloprjApp.invito.idStudioProfessionale">Id Studio Professionale</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.invito.idInvito">Id Invito</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.invito.idStudioProfessionaleRef">Id Studio Professionale Ref</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.invito.dataInvito">Data Invito</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.invito.idUserInvitante">Id User Invitante</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.invito.nomeUserInvitante">Nome User Invitante</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.invito.dataScadenzaInvito">Data Scadenza Invito</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.invito.testoInvito">Testo Invito</span></th>
-                    <th scope="col" ><span jhiTranslate="eoloprjApp.invito.idPratica">Id Pratica</span></th>
-                    <th scope="col" ><span jhiTranslate="eoloprjApp.invito.idAttivita">Id Attivita</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.invito.idPraticaRef">Id Pratica Ref</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.invito.idTaskRef">Id Task Ref</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.invito.luogoFisico">Luogo Fisico</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.invito.indicazioniLuogo">Indicazioni Luogo</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.invito.dataInizio">Data Inizio</span></th>
@@ -57,7 +58,7 @@
                     <th scope="col" ><span jhiTranslate="eoloprjApp.invito.oraFine">Ora Fine</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.invito.urlStanzaVirtuale">Url Stanza Virtuale</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.invito.discriminator">Discriminator</span></th>
-                    <th scope="col" ><span jhiTranslate="eoloprjApp.invito.idStudioProfessionale">Id Studio Professionale</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.invito.idStudioProfessionaleRef">Id Studio Professionale Ref</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.invito.assegnazioneTask">Assegnazione Task</span></th>
                     <th scope="col"></th>
                 </tr>
@@ -65,14 +66,15 @@
             <tbody>
                 <tr *ngFor="let invito of invitos ;trackBy: trackId">
                     <td><a [routerLink]="['/invito', invito.id, 'view']">{{ invito.id }}</a></td>
-                    <td>{{ invito.idStudioProfessionale }}</td>
+                    <td>{{ invito.idInvito }}</td>
+                    <td>{{ invito.idStudioProfessionaleRef }}</td>
                     <td>{{ invito.dataInvito }}</td>
                     <td>{{ invito.idUserInvitante }}</td>
                     <td>{{ invito.nomeUserInvitante }}</td>
                     <td>{{ invito.dataScadenzaInvito }}</td>
                     <td>{{ invito.testoInvito }}</td>
-                    <td>{{ invito.idPratica }}</td>
-                    <td>{{ invito.idAttivita }}</td>
+                    <td>{{ invito.idPraticaRef }}</td>
+                    <td>{{ invito.idTaskRef }}</td>
                     <td>{{ invito.luogoFisico }}</td>
                     <td>{{ invito.indicazioniLuogo }}</td>
                     <td>{{ invito.dataInizio }}</td>
@@ -82,8 +84,8 @@
                     <td>{{ invito.urlStanzaVirtuale }}</td>
                     <td>{{ invito.discriminator }}</td>
                     <td>
-                        <div *ngIf="invito.idStudioProfessionaleId">
-                            <a [routerLink]="['/studio-professionale', invito.idStudioProfessionaleId , 'view']" >{{ invito.idStudioProfessionaleId }}</a>
+                        <div *ngIf="invito.idStudioProfessionaleRefId">
+                            <a [routerLink]="['/studio-professionale', invito.idStudioProfessionaleRefId , 'view']" >{{ invito.idStudioProfessionaleRefId }}</a>
                         </div>
                     </td>
                     <td>

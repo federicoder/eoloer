@@ -41,7 +41,7 @@
             <thead>
                 <tr>
                     <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
-                    <th scope="col" ><span jhiTranslate="eoloprjApp.invitoEvento.idAttivita">Id Attivita</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.invitoEvento.idTaskRef">Id Task Ref</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.invitoEvento.luogoFisico">Luogo Fisico</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.invitoEvento.indicazioniLuogo">Indicazioni Luogo</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.invitoEvento.dataInizio">Data Inizio</span></th>
@@ -49,7 +49,7 @@
                     <th scope="col" ><span jhiTranslate="eoloprjApp.invitoEvento.dataFine">Data Fine</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.invitoEvento.oraFine">Ora Fine</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.invitoEvento.urlStanzaVirtuale">Url Stanza Virtuale</span></th>
-                    <th scope="col" ><span jhiTranslate="eoloprjApp.invitoEvento.idAttivita">Id Attivita</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.invitoEvento.idTaskRef">Id Task Ref</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.invitoEvento.previsioneEvento">Previsione Evento</span></th>
                     <th scope="col"></th>
                 </tr>
@@ -57,7 +57,7 @@
             <tbody>
                 <tr *ngFor="let invitoEvento of invitoEventos ;trackBy: trackId">
                     <td><a [routerLink]="['/invito-evento', invitoEvento.id, 'view']">{{ invitoEvento.id }}</a></td>
-                    <td>{{ invitoEvento.idAttivita }}</td>
+                    <td>{{ invitoEvento.idTaskRef }}</td>
                     <td>{{ invitoEvento.luogoFisico }}</td>
                     <td>{{ invitoEvento.indicazioniLuogo }}</td>
                     <td>{{ invitoEvento.dataInizio }}</td>
@@ -66,8 +66,8 @@
                     <td>{{ invitoEvento.oraFine }}</td>
                     <td>{{ invitoEvento.urlStanzaVirtuale }}</td>
                     <td>
-                        <div *ngIf="invitoEvento.idAttivitaId">
-                            <a [routerLink]="['/invito', invitoEvento.idAttivitaId , 'view']" >{{ invitoEvento.idAttivitaId }}</a>
+                        <div *ngIf="invitoEvento.idTaskRefId">
+                            <a [routerLink]="['/invito', invitoEvento.idTaskRefId , 'view']" >{{ invitoEvento.idTaskRefId }}</a>
                         </div>
                     </td>
                     <td>

@@ -15,7 +15,10 @@
             <column name="id" type="bigint">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="id_task" type="integer">
+            <column name="id_nota_task" type="integer">
+                <constraints nullable="false" />
+            </column>
+            <column name="id_task_ref" type="integer">
                 <constraints nullable="true" />
             </column>
             <column name="data" type="varchar(255)">
@@ -53,7 +56,8 @@
                   separator=";"
                   tableName="nota_task">
             <column name="id" type="numeric"/>
-            <column name="id_task" type="numeric"/>
+            <column name="id_nota_task" type="numeric"/>
+            <column name="id_task_ref" type="numeric"/>
             <column name="data" type="string"/>
             <column name="nota" type="string"/>
             <column name="version" type="string"/>

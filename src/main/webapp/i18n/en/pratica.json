@@ -17,7 +17,8 @@
       "detail": {
         "title": "Pratica"
       },
-      "idStudio": "Id Studio",
+      "idPratica": "Id Pratica",
+      "idStudioProfessionaleRef": "Id Studio Professionale Ref",
       "numero": "Numero",
       "nome": "Nome",
       "dataApertura": "Data Apertura",
@@ -29,12 +30,12 @@
       "prcAvanzato": "Prc Avanzato",
       "version": "Version",
       "valuta": "Valuta",
-      "idTemplatePratica": "Id Template Pratica",
-      "id": "Id",
-      "id": "Id",
-      "id": "Id",
-      "id": "Id",
-      "idTemplate": "Id Template"
+      "idTemplatePraticaRef": "Id Template Pratica Ref",
+      "idPratica": "Id Pratica",
+      "idPratica": "Id Pratica",
+      "idPratica": "Id Pratica",
+      "idPratica": "Id Pratica",
+      "idTemplatePraticaRef": "Id Template Pratica Ref"
     }
   }
 }

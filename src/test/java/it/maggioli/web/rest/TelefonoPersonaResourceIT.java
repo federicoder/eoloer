@@ -40,8 +40,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WithMockUser
 public class TelefonoPersonaResourceIT {
 
-    private static final Integer DEFAULT_ID_PERSONA = 1;
-    private static final Integer UPDATED_ID_PERSONA = 2;
+    private static final Integer DEFAULT_ID_PERSONA_REF = 1;
+    private static final Integer UPDATED_ID_PERSONA_REF = 2;
 
     private static final Integer DEFAULT_ETICHETTA = 1;
     private static final Integer UPDATED_ETICHETTA = 2;
@@ -82,7 +82,7 @@ public class TelefonoPersonaResourceIT {
      */
     public static TelefonoPersona createEntity(EntityManager em) {
         TelefonoPersona telefonoPersona = new TelefonoPersona()
-            .idPersona(DEFAULT_ID_PERSONA)
+            .idPersonaRef(DEFAULT_ID_PERSONA_REF)
             .etichetta(DEFAULT_ETICHETTA)
             .valore(DEFAULT_VALORE);
         return telefonoPersona;
@@ -95,7 +95,7 @@ public class TelefonoPersonaResourceIT {
      */
     public static TelefonoPersona createUpdatedEntity(EntityManager em) {
         TelefonoPersona telefonoPersona = new TelefonoPersona()
-            .idPersona(UPDATED_ID_PERSONA)
+            .idPersonaRef(UPDATED_ID_PERSONA_REF)
             .etichetta(UPDATED_ETICHETTA)
             .valore(UPDATED_VALORE);
         return telefonoPersona;
@@ -121,7 +121,7 @@ public class TelefonoPersonaResourceIT {
         List<TelefonoPersona> telefonoPersonaList = telefonoPersonaRepository.findAll();
         assertThat(telefonoPersonaList).hasSize(databaseSizeBeforeCreate + 1);
         TelefonoPersona testTelefonoPersona = telefonoPersonaList.get(telefonoPersonaList.size() - 1);
-        assertThat(testTelefonoPersona.getIdPersona()).isEqualTo(DEFAULT_ID_PERSONA);
+        assertThat(testTelefonoPersona.getIdPersonaRef()).isEqualTo(DEFAULT_ID_PERSONA_REF);
         assertThat(testTelefonoPersona.getEtichetta()).isEqualTo(DEFAULT_ETICHETTA);
         assertThat(testTelefonoPersona.getValore()).isEqualTo(DEFAULT_VALORE);
 
@@ -155,10 +155,10 @@ public class TelefonoPersonaResourceIT {
 
     @Test
     @Transactional
-    public void checkIdPersonaIsRequired() throws Exception {
+    public void checkIdPersonaRefIsRequired() throws Exception {
         int databaseSizeBeforeTest = telefonoPersonaRepository.findAll().size();
         // set the field null
-        telefonoPersona.setIdPersona(null);
+        telefonoPersona.setIdPersonaRef(null);
 
         // Create the TelefonoPersona, which fails.
         TelefonoPersonaDTO telefonoPersonaDTO = telefonoPersonaMapper.toDto(telefonoPersona);
@@ -184,7 +184,7 @@ public class TelefonoPersonaResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(telefonoPersona.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idPersona").value(hasItem(DEFAULT_ID_PERSONA)))
+            .andExpect(jsonPath("$.[*].idPersonaRef").value(hasItem(DEFAULT_ID_PERSONA_REF)))
             .andExpect(jsonPath("$.[*].etichetta").value(hasItem(DEFAULT_ETICHETTA)))
             .andExpect(jsonPath("$.[*].valore").value(hasItem(DEFAULT_VALORE)));
     }
@@ -200,7 +200,7 @@ public class TelefonoPersonaResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(telefonoPersona.getId().intValue()))
-            .andExpect(jsonPath("$.idPersona").value(DEFAULT_ID_PERSONA))
+            .andExpect(jsonPath("$.idPersonaRef").value(DEFAULT_ID_PERSONA_REF))
             .andExpect(jsonPath("$.etichetta").value(DEFAULT_ETICHETTA))
             .andExpect(jsonPath("$.valore").value(DEFAULT_VALORE));
     }
@@ -225,7 +225,7 @@ public class TelefonoPersonaResourceIT {
         // Disconnect from session so that the updates on updatedTelefonoPersona are not directly saved in db
         em.detach(updatedTelefonoPersona);
         updatedTelefonoPersona
-            .idPersona(UPDATED_ID_PERSONA)
+            .idPersonaRef(UPDATED_ID_PERSONA_REF)
             .etichetta(UPDATED_ETICHETTA)
             .valore(UPDATED_VALORE);
         TelefonoPersonaDTO telefonoPersonaDTO = telefonoPersonaMapper.toDto(updatedTelefonoPersona);
@@ -239,7 +239,7 @@ public class TelefonoPersonaResourceIT {
         List<TelefonoPersona> telefonoPersonaList = telefonoPersonaRepository.findAll();
         assertThat(telefonoPersonaList).hasSize(databaseSizeBeforeUpdate);
         TelefonoPersona testTelefonoPersona = telefonoPersonaList.get(telefonoPersonaList.size() - 1);
-        assertThat(testTelefonoPersona.getIdPersona()).isEqualTo(UPDATED_ID_PERSONA);
+        assertThat(testTelefonoPersona.getIdPersonaRef()).isEqualTo(UPDATED_ID_PERSONA_REF);
         assertThat(testTelefonoPersona.getEtichetta()).isEqualTo(UPDATED_ETICHETTA);
         assertThat(testTelefonoPersona.getValore()).isEqualTo(UPDATED_VALORE);
 
@@ -304,7 +304,7 @@ public class TelefonoPersonaResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(telefonoPersona.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idPersona").value(hasItem(DEFAULT_ID_PERSONA)))
+            .andExpect(jsonPath("$.[*].idPersonaRef").value(hasItem(DEFAULT_ID_PERSONA_REF)))
             .andExpect(jsonPath("$.[*].etichetta").value(hasItem(DEFAULT_ETICHETTA)))
             .andExpect(jsonPath("$.[*].valore").value(hasItem(DEFAULT_VALORE)));
     }

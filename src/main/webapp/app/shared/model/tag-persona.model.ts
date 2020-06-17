@@ -1,10 +1,10 @@
 export interface ITagPersona {
   id?: number;
-  idPersona?: number;
+  idPersonaRef?: number;
   tag?: number;
   personaId?: number;
 }
 
 export class TagPersona implements ITagPersona {
-  constructor(public id?: number, public idPersona?: number, public tag?: number, public personaId?: number) {}
+  constructor(public id?: number, public idPersonaRef?: number, public tag?: number, public personaId?: number) {}
 }

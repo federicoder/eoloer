@@ -17,11 +17,12 @@
       "detail": {
         "title": "Condivisione Pratica"
       },
+      "idCondivisionePratica": "Id Condivisione Pratica",
       "idUserAmmesso": "Id User Ammesso",
       "ruolo": "Ruolo",
       "idUserConcedente": "Id User Concedente",
       "statoInvito": "Stato Invito",
-      "idPratica": "Id Pratica",
+      "idPraticaRef": "Id Pratica Ref",
       "ruolo": "Ruolo",
       "idUserConcedente": "Id User Concedente",
       "pratica": "Pratica",

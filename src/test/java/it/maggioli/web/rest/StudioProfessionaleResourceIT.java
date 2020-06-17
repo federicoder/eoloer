@@ -40,6 +40,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WithMockUser
 public class StudioProfessionaleResourceIT {
 
+    private static final Integer DEFAULT_ID_STUDIO_PROFESSIONALE = 1;
+    private static final Integer UPDATED_ID_STUDIO_PROFESSIONALE = 2;
+
     private static final Integer DEFAULT_ID_USER_AMMINISTRATORE = 1;
     private static final Integer UPDATED_ID_USER_AMMINISTRATORE = 2;
 
@@ -76,6 +79,7 @@ public class StudioProfessionaleResourceIT {
      */
     public static StudioProfessionale createEntity(EntityManager em) {
         StudioProfessionale studioProfessionale = new StudioProfessionale()
+            .idStudioProfessionale(DEFAULT_ID_STUDIO_PROFESSIONALE)
             .idUserAmministratore(DEFAULT_ID_USER_AMMINISTRATORE);
         return studioProfessionale;
     }
@@ -87,6 +91,7 @@ public class StudioProfessionaleResourceIT {
      */
     public static StudioProfessionale createUpdatedEntity(EntityManager em) {
         StudioProfessionale studioProfessionale = new StudioProfessionale()
+            .idStudioProfessionale(UPDATED_ID_STUDIO_PROFESSIONALE)
             .idUserAmministratore(UPDATED_ID_USER_AMMINISTRATORE);
         return studioProfessionale;
     }
@@ -111,6 +116,7 @@ public class StudioProfessionaleResourceIT {
         List<StudioProfessionale> studioProfessionaleList = studioProfessionaleRepository.findAll();
         assertThat(studioProfessionaleList).hasSize(databaseSizeBeforeCreate + 1);
         StudioProfessionale testStudioProfessionale = studioProfessionaleList.get(studioProfessionaleList.size() - 1);
+        assertThat(testStudioProfessionale.getIdStudioProfessionale()).isEqualTo(DEFAULT_ID_STUDIO_PROFESSIONALE);
         assertThat(testStudioProfessionale.getIdUserAmministratore()).isEqualTo(DEFAULT_ID_USER_AMMINISTRATORE);
 
         // Validate the StudioProfessionale in Elasticsearch
@@ -143,6 +149,26 @@ public class StudioProfessionaleResourceIT {
 
     @Test
     @Transactional
+    public void checkIdStudioProfessionaleIsRequired() throws Exception {
+        int databaseSizeBeforeTest = studioProfessionaleRepository.findAll().size();
+        // set the field null
+        studioProfessionale.setIdStudioProfessionale(null);
+
+        // Create the StudioProfessionale, which fails.
+        StudioProfessionaleDTO studioProfessionaleDTO = studioProfessionaleMapper.toDto(studioProfessionale);
+
+
+        restStudioProfessionaleMockMvc.perform(post("/api/studio-professionales")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(studioProfessionaleDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<StudioProfessionale> studioProfessionaleList = studioProfessionaleRepository.findAll();
+        assertThat(studioProfessionaleList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void checkIdUserAmministratoreIsRequired() throws Exception {
         int databaseSizeBeforeTest = studioProfessionaleRepository.findAll().size();
         // set the field null
@@ -172,6 +198,7 @@ public class StudioProfessionaleResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(studioProfessionale.getId().intValue())))
+            .andExpect(jsonPath("$.[*].idStudioProfessionale").value(hasItem(DEFAULT_ID_STUDIO_PROFESSIONALE)))
             .andExpect(jsonPath("$.[*].idUserAmministratore").value(hasItem(DEFAULT_ID_USER_AMMINISTRATORE)));
     }
     
@@ -186,6 +213,7 @@ public class StudioProfessionaleResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(studioProfessionale.getId().intValue()))
+            .andExpect(jsonPath("$.idStudioProfessionale").value(DEFAULT_ID_STUDIO_PROFESSIONALE))
             .andExpect(jsonPath("$.idUserAmministratore").value(DEFAULT_ID_USER_AMMINISTRATORE));
     }
     @Test
@@ -209,6 +237,7 @@ public class StudioProfessionaleResourceIT {
         // Disconnect from session so that the updates on updatedStudioProfessionale are not directly saved in db
         em.detach(updatedStudioProfessionale);
         updatedStudioProfessionale
+            .idStudioProfessionale(UPDATED_ID_STUDIO_PROFESSIONALE)
             .idUserAmministratore(UPDATED_ID_USER_AMMINISTRATORE);
         StudioProfessionaleDTO studioProfessionaleDTO = studioProfessionaleMapper.toDto(updatedStudioProfessionale);
 
@@ -221,6 +250,7 @@ public class StudioProfessionaleResourceIT {
         List<StudioProfessionale> studioProfessionaleList = studioProfessionaleRepository.findAll();
         assertThat(studioProfessionaleList).hasSize(databaseSizeBeforeUpdate);
         StudioProfessionale testStudioProfessionale = studioProfessionaleList.get(studioProfessionaleList.size() - 1);
+        assertThat(testStudioProfessionale.getIdStudioProfessionale()).isEqualTo(UPDATED_ID_STUDIO_PROFESSIONALE);
         assertThat(testStudioProfessionale.getIdUserAmministratore()).isEqualTo(UPDATED_ID_USER_AMMINISTRATORE);
 
         // Validate the StudioProfessionale in Elasticsearch
@@ -284,6 +314,7 @@ public class StudioProfessionaleResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(studioProfessionale.getId().intValue())))
+            .andExpect(jsonPath("$.[*].idStudioProfessionale").value(hasItem(DEFAULT_ID_STUDIO_PROFESSIONALE)))
             .andExpect(jsonPath("$.[*].idUserAmministratore").value(hasItem(DEFAULT_ID_USER_AMMINISTRATORE)));
     }
 }

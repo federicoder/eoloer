@@ -44,7 +44,8 @@ describe('AssegnazioneTask e2e test', () => {
     await assegnazioneTaskComponentsPage.clickOnCreateButton();
 
     await promise.all([
-      assegnazioneTaskUpdatePage.setIdAttivitaInput('5'),
+      assegnazioneTaskUpdatePage.setIdAssegnazioneTaskInput('5'),
+      assegnazioneTaskUpdatePage.setIdTaskRefInput('5'),
       assegnazioneTaskUpdatePage.setIdUserAmmessoInput('5'),
       assegnazioneTaskUpdatePage.setRuoloInput('5'),
       assegnazioneTaskUpdatePage.setIdUserConcedenteInput('5'),
@@ -53,7 +54,8 @@ describe('AssegnazioneTask e2e test', () => {
       assegnazioneTaskUpdatePage.userPersonaSelectLastOption(),
     ]);
 
-    expect(await assegnazioneTaskUpdatePage.getIdAttivitaInput()).to.eq('5', 'Expected idAttivita value to be equals to 5');
+    expect(await assegnazioneTaskUpdatePage.getIdAssegnazioneTaskInput()).to.eq('5', 'Expected idAssegnazioneTask value to be equals to 5');
+    expect(await assegnazioneTaskUpdatePage.getIdTaskRefInput()).to.eq('5', 'Expected idTaskRef value to be equals to 5');
     expect(await assegnazioneTaskUpdatePage.getIdUserAmmessoInput()).to.eq('5', 'Expected idUserAmmesso value to be equals to 5');
     expect(await assegnazioneTaskUpdatePage.getRuoloInput()).to.eq('5', 'Expected ruolo value to be equals to 5');
     expect(await assegnazioneTaskUpdatePage.getIdUserConcedenteInput()).to.eq('5', 'Expected idUserConcedente value to be equals to 5');

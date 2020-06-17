@@ -17,12 +17,12 @@
       "detail": {
         "title": "Previsione Attivita"
       },
-      "idTask": "Id Task",
+      "idTaskRef": "Id Task Ref",
       "dataPianificata": "Data Pianificata",
       "oraPianificata": "Ora Pianificata",
       "dataScadenza": "Data Scadenza",
       "version": "Version",
-      "idTask": "Id Task"
+      "idTaskRef": "Id Task Ref"
     }
   }
 }

@@ -55,8 +55,8 @@ describe('Service Tests', () => {
         const returnedFromService = Object.assign(
           {
             idAllegatoTask: 1,
-            idTipo: 1,
-            idTask: 1,
+            idTipoAllegatoRef: 1,
+            idTaskRef: 1,
             formato: 1,
             note: 'BBBBBB',
             stato: 1,
@@ -80,8 +80,8 @@ describe('Service Tests', () => {
         const returnedFromService = Object.assign(
           {
             idAllegatoTask: 1,
-            idTipo: 1,
-            idTask: 1,
+            idTipoAllegatoRef: 1,
+            idTaskRef: 1,
             formato: 1,
             note: 'BBBBBB',
             stato: 1,

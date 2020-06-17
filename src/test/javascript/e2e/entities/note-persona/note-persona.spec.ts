@@ -44,14 +44,14 @@ describe('NotePersona e2e test', () => {
     await notePersonaComponentsPage.clickOnCreateButton();
 
     await promise.all([
-      notePersonaUpdatePage.setIdPersonaInput('5'),
-      notePersonaUpdatePage.setIdNoteInput('5'),
+      notePersonaUpdatePage.setIdPersonaRefInput('5'),
+      notePersonaUpdatePage.setIdNotePersonaInput('5'),
       notePersonaUpdatePage.setTestoInput('testo'),
       notePersonaUpdatePage.personaSelectLastOption(),
     ]);
 
-    expect(await notePersonaUpdatePage.getIdPersonaInput()).to.eq('5', 'Expected idPersona value to be equals to 5');
-    expect(await notePersonaUpdatePage.getIdNoteInput()).to.eq('5', 'Expected idNote value to be equals to 5');
+    expect(await notePersonaUpdatePage.getIdPersonaRefInput()).to.eq('5', 'Expected idPersonaRef value to be equals to 5');
+    expect(await notePersonaUpdatePage.getIdNotePersonaInput()).to.eq('5', 'Expected idNotePersona value to be equals to 5');
     expect(await notePersonaUpdatePage.getTestoInput()).to.eq('testo', 'Expected Testo value to be equals to testo');
 
     await notePersonaUpdatePage.save();

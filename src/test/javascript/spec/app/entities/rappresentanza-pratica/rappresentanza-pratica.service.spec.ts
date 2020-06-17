@@ -56,7 +56,7 @@ describe('Service Tests', () => {
         const returnedFromService = Object.assign(
           {
             idRuoloPersona: 1,
-            idPersona: 1,
+            idPersonaRef: 1,
             ruoli: 'BBBBBB',
           },
           elemDefault
@@ -75,7 +75,7 @@ describe('Service Tests', () => {
         const returnedFromService = Object.assign(
           {
             idRuoloPersona: 1,
-            idPersona: 1,
+            idPersonaRef: 1,
             ruoli: 'BBBBBB',
           },
           elemDefault

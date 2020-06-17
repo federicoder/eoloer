@@ -31,8 +31,8 @@ public class Organizzazione implements Serializable {
     private Integer idOrganizzazione;
 
     @NotNull
-    @Column(name = "id_persona", nullable = false)
-    private Integer idPersona;
+    @Column(name = "id_persona_ref", nullable = false)
+    private Integer idPersonaRef;
 
     @Column(name = "nome")
     private String nome;
@@ -42,9 +42,9 @@ public class Organizzazione implements Serializable {
 
     @OneToOne
     @JoinColumn(unique = true)
-    private Persona idPersona;
+    private Persona idPersonaRef;
 
-    @OneToOne(mappedBy = "id")
+    @OneToOne(mappedBy = "idRuoloOrganizzazione")
     @JsonIgnore
     private RuoloOrganizzazione idOrganizzazione;
 
@@ -70,17 +70,17 @@ public class Organizzazione implements Serializable {
         this.idOrganizzazione = idOrganizzazione;
     }
 
-    public Integer getIdPersona() {
-        return idPersona;
+    public Integer getIdPersonaRef() {
+        return idPersonaRef;
     }
 
-    public Organizzazione idPersona(Integer idPersona) {
-        this.idPersona = idPersona;
+    public Organizzazione idPersonaRef(Integer idPersonaRef) {
+        this.idPersonaRef = idPersonaRef;
         return this;
     }
 
-    public void setIdPersona(Integer idPersona) {
-        this.idPersona = idPersona;
+    public void setIdPersonaRef(Integer idPersonaRef) {
+        this.idPersonaRef = idPersonaRef;
     }
 
     public String getNome() {
@@ -109,17 +109,17 @@ public class Organizzazione implements Serializable {
         this.tipo = tipo;
     }
 
-    public Persona getIdPersona() {
-        return idPersona;
+    public Persona getIdPersonaRef() {
+        return idPersonaRef;
     }
 
-    public Organizzazione idPersona(Persona persona) {
-        this.idPersona = persona;
+    public Organizzazione idPersonaRef(Persona persona) {
+        this.idPersonaRef = persona;
         return this;
     }
 
-    public void setIdPersona(Persona persona) {
-        this.idPersona = persona;
+    public void setIdPersonaRef(Persona persona) {
+        this.idPersonaRef = persona;
     }
 
     public RuoloOrganizzazione getIdOrganizzazione() {
@@ -158,7 +158,7 @@ public class Organizzazione implements Serializable {
         return "Organizzazione{" +
             "id=" + getId() +
             ", idOrganizzazione=" + getIdOrganizzazione() +
-            ", idPersona=" + getIdPersona() +
+            ", idPersonaRef=" + getIdPersonaRef() +
             ", nome='" + getNome() + "'" +
             ", tipo='" + getTipo() + "'" +
             "}";

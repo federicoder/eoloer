@@ -17,7 +17,7 @@
       "detail": {
         "title": "Tag Persona"
       },
-      "idPersona": "Id Persona",
+      "idPersonaRef": "Id Persona Ref",
       "tag": "Tag",
       "persona": "Persona"
     }

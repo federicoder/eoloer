@@ -30,7 +30,7 @@ export class DatiContabiliUpdatePage {
   cancelButton = element(by.id('cancel-save'));
 
   idDatiContabiliInput = element(by.id('field_idDatiContabili'));
-  idPersonaInput = element(by.id('field_idPersona'));
+  idPersonaRefInput = element(by.id('field_idPersonaRef'));
 
   personaSelect = element(by.id('field_persona'));
 
@@ -46,12 +46,12 @@ export class DatiContabiliUpdatePage {
     return await this.idDatiContabiliInput.getAttribute('value');
   }
 
-  async setIdPersonaInput(idPersona: string): Promise<void> {
-    await this.idPersonaInput.sendKeys(idPersona);
+  async setIdPersonaRefInput(idPersonaRef: string): Promise<void> {
+    await this.idPersonaRefInput.sendKeys(idPersonaRef);
   }
 
-  async getIdPersonaInput(): Promise<string> {
-    return await this.idPersonaInput.getAttribute('value');
+  async getIdPersonaRefInput(): Promise<string> {
+    return await this.idPersonaRefInput.getAttribute('value');
   }
 
   async personaSelectLastOption(): Promise<void> {

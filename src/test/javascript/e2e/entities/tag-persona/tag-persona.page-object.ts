@@ -29,7 +29,7 @@ export class TagPersonaUpdatePage {
   saveButton = element(by.id('save-entity'));
   cancelButton = element(by.id('cancel-save'));
 
-  idPersonaInput = element(by.id('field_idPersona'));
+  idPersonaRefInput = element(by.id('field_idPersonaRef'));
   tagInput = element(by.id('field_tag'));
 
   personaSelect = element(by.id('field_persona'));
@@ -38,12 +38,12 @@ export class TagPersonaUpdatePage {
     return this.pageTitle.getAttribute('jhiTranslate');
   }
 
-  async setIdPersonaInput(idPersona: string): Promise<void> {
-    await this.idPersonaInput.sendKeys(idPersona);
+  async setIdPersonaRefInput(idPersonaRef: string): Promise<void> {
+    await this.idPersonaRefInput.sendKeys(idPersonaRef);
   }
 
-  async getIdPersonaInput(): Promise<string> {
-    return await this.idPersonaInput.getAttribute('value');
+  async getIdPersonaRefInput(): Promise<string> {
+    return await this.idPersonaRefInput.getAttribute('value');
   }
 
   async setTagInput(tag: string): Promise<void> {

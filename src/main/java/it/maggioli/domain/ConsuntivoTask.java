@@ -28,8 +28,8 @@ public class ConsuntivoTask implements Serializable {
 
     @NotNull
     @Max(value = 8)
-    @Column(name = "id_task", nullable = false)
-    private Integer idTask;
+    @Column(name = "id_task_ref", nullable = false)
+    private Integer idTaskRef;
 
     @Column(name = "data_inizio")
     private String dataInizio;
@@ -43,9 +43,9 @@ public class ConsuntivoTask implements Serializable {
     @Column(name = "version")
     private String version;
 
-    @OneToOne(mappedBy = "id")
+    @OneToOne(mappedBy = "idTask")
     @JsonIgnore
-    private Task idTask;
+    private Task idTaskRef;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -56,17 +56,17 @@ public class ConsuntivoTask implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdTask() {
-        return idTask;
+    public Integer getIdTaskRef() {
+        return idTaskRef;
     }
 
-    public ConsuntivoTask idTask(Integer idTask) {
-        this.idTask = idTask;
+    public ConsuntivoTask idTaskRef(Integer idTaskRef) {
+        this.idTaskRef = idTaskRef;
         return this;
     }
 
-    public void setIdTask(Integer idTask) {
-        this.idTask = idTask;
+    public void setIdTaskRef(Integer idTaskRef) {
+        this.idTaskRef = idTaskRef;
     }
 
     public String getDataInizio() {
@@ -121,17 +121,17 @@ public class ConsuntivoTask implements Serializable {
         this.version = version;
     }
 
-    public Task getIdTask() {
-        return idTask;
+    public Task getIdTaskRef() {
+        return idTaskRef;
     }
 
-    public ConsuntivoTask idTask(Task task) {
-        this.idTask = task;
+    public ConsuntivoTask idTaskRef(Task task) {
+        this.idTaskRef = task;
         return this;
     }
 
-    public void setIdTask(Task task) {
-        this.idTask = task;
+    public void setIdTaskRef(Task task) {
+        this.idTaskRef = task;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 
@@ -156,7 +156,7 @@ public class ConsuntivoTask implements Serializable {
     public String toString() {
         return "ConsuntivoTask{" +
             "id=" + getId() +
-            ", idTask=" + getIdTask() +
+            ", idTaskRef=" + getIdTaskRef() +
             ", dataInizio='" + getDataInizio() + "'" +
             ", dataFine='" + getDataFine() + "'" +
             ", timeLine=" + getTimeLine() +

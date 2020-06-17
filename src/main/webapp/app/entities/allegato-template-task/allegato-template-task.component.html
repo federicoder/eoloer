@@ -41,10 +41,10 @@
             <thead>
                 <tr>
                     <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
-                    <th scope="col" ><span jhiTranslate="eoloprjApp.allegatoTemplateTask.idTemplateTask">Id Template Task</span></th>
-                    <th scope="col" ><span jhiTranslate="eoloprjApp.allegatoTemplateTask.tipoAllegato">Tipo Allegato</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.allegatoTemplateTask.idTemplateTaskRef">Id Template Task Ref</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.allegatoTemplateTask.idTipoAllegatoRef">Id Tipo Allegato Ref</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.allegatoTemplateTask.formato">Formato</span></th>
-                    <th scope="col" ><span jhiTranslate="eoloprjApp.allegatoTemplateTask.idFile">Id File</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.allegatoTemplateTask.idFileRef">Id File Ref</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.allegatoTemplateTask.pubPriv">Pub Priv</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.allegatoTemplateTask.templateTask">Template Task</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.allegatoTemplateTask.tipoAllegato">Tipo Allegato</span></th>
@@ -54,10 +54,10 @@
             <tbody>
                 <tr *ngFor="let allegatoTemplateTask of allegatoTemplateTasks ;trackBy: trackId">
                     <td><a [routerLink]="['/allegato-template-task', allegatoTemplateTask.id, 'view']">{{ allegatoTemplateTask.id }}</a></td>
-                    <td>{{ allegatoTemplateTask.idTemplateTask }}</td>
-                    <td>{{ allegatoTemplateTask.tipoAllegato }}</td>
+                    <td>{{ allegatoTemplateTask.idTemplateTaskRef }}</td>
+                    <td>{{ allegatoTemplateTask.idTipoAllegatoRef }}</td>
                     <td>{{ allegatoTemplateTask.formato }}</td>
-                    <td>{{ allegatoTemplateTask.idFile }}</td>
+                    <td>{{ allegatoTemplateTask.idFileRef }}</td>
                     <td>{{ allegatoTemplateTask.pubPriv }}</td>
                     <td>
                         <div *ngIf="allegatoTemplateTask.templateTaskId">

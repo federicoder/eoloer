@@ -2,7 +2,7 @@
   "name": "PrevisioneEvento",
   "fields": [
     {
-      "fieldName": "idTask",
+      "fieldName": "idTaskRef",
       "fieldType": "Integer",
       "fieldValidateRules": ["max", "required"],
       "fieldValidateRulesMax": "8"
@@ -32,8 +32,8 @@
     {
       "relationshipType": "one-to-one",
       "otherEntityName": "previsioneTask",
-      "otherEntityRelationshipName": "idTask",
-      "relationshipName": "idTask",
+      "otherEntityRelationshipName": "idTaskRef",
+      "relationshipName": "idTaskRef",
       "otherEntityField": "id",
       "ownerSide": true
     },
@@ -41,7 +41,7 @@
       "relationshipType": "one-to-many",
       "otherEntityName": "invitoEvento",
       "otherEntityRelationshipName": "previsioneEvento",
-      "relationshipName": "idTask"
+      "relationshipName": "idTaskRef"
     }
   ],
   "changelogDate": "20200617083128",

@@ -41,7 +41,8 @@
             <thead>
                 <tr>
                     <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
-                    <th scope="col" ><span jhiTranslate="eoloprjApp.notaTask.idTask">Id Task</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.notaTask.idNotaTask">Id Nota Task</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.notaTask.idTaskRef">Id Task Ref</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.notaTask.data">Data</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.notaTask.nota">Nota</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.notaTask.version">Version</span></th>
@@ -52,7 +53,8 @@
             <tbody>
                 <tr *ngFor="let notaTask of notaTasks ;trackBy: trackId">
                     <td><a [routerLink]="['/nota-task', notaTask.id, 'view']">{{ notaTask.id }}</a></td>
-                    <td>{{ notaTask.idTask }}</td>
+                    <td>{{ notaTask.idNotaTask }}</td>
+                    <td>{{ notaTask.idTaskRef }}</td>
                     <td>{{ notaTask.data }}</td>
                     <td>{{ notaTask.nota }}</td>
                     <td>{{ notaTask.version }}</td>

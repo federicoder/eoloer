@@ -59,7 +59,7 @@ describe('Service Tests', () => {
             nome: 1,
             note: 1,
             pubPriv: 1,
-            idTemplatePratica: 1,
+            idTemplatePraticaRef: 1,
           },
           elemDefault
         );
@@ -81,7 +81,7 @@ describe('Service Tests', () => {
             nome: 1,
             note: 1,
             pubPriv: 1,
-            idTemplatePratica: 1,
+            idTemplatePraticaRef: 1,
           },
           elemDefault
         );

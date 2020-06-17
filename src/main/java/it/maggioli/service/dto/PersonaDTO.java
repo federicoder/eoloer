@@ -10,8 +10,12 @@ public class PersonaDTO implements Serializable {
     
     private Long id;
 
+    @NotNull
     @Max(value = 8)
-    private Integer idStudio;
+    private Integer idPersona;
+
+    @Max(value = 8)
+    private Integer idStudioProfessionaleRef;
 
     private String codiceFiscale;
 
@@ -33,12 +37,12 @@ public class PersonaDTO implements Serializable {
 
     private String discriminator;
 
-    private Integer idRuoloPersona;
+    private Integer idRuoloPersonaRef;
 
     private Integer tipoRuoloUtente;
 
 
-    private Long idId;
+    private Long idPersonaId;
     
     public Long getId() {
         return id;
@@ -48,12 +52,20 @@ public class PersonaDTO implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdStudio() {
-        return idStudio;
+    public Integer getIdPersona() {
+        return idPersona;
     }
 
-    public void setIdStudio(Integer idStudio) {
-        this.idStudio = idStudio;
+    public void setIdPersona(Integer idPersona) {
+        this.idPersona = idPersona;
+    }
+
+    public Integer getIdStudioProfessionaleRef() {
+        return idStudioProfessionaleRef;
+    }
+
+    public void setIdStudioProfessionaleRef(Integer idStudioProfessionaleRef) {
+        this.idStudioProfessionaleRef = idStudioProfessionaleRef;
     }
 
     public String getCodiceFiscale() {
@@ -136,12 +148,12 @@ public class PersonaDTO implements Serializable {
         this.discriminator = discriminator;
     }
 
-    public Integer getIdRuoloPersona() {
-        return idRuoloPersona;
+    public Integer getIdRuoloPersonaRef() {
+        return idRuoloPersonaRef;
     }
 
-    public void setIdRuoloPersona(Integer idRuoloPersona) {
-        this.idRuoloPersona = idRuoloPersona;
+    public void setIdRuoloPersonaRef(Integer idRuoloPersonaRef) {
+        this.idRuoloPersonaRef = idRuoloPersonaRef;
     }
 
     public Integer getTipoRuoloUtente() {
@@ -152,12 +164,12 @@ public class PersonaDTO implements Serializable {
         this.tipoRuoloUtente = tipoRuoloUtente;
     }
 
-    public Long getIdId() {
-        return idId;
+    public Long getIdPersonaId() {
+        return idPersonaId;
     }
 
-    public void setIdId(Long indirizzoPersonaId) {
-        this.idId = indirizzoPersonaId;
+    public void setIdPersonaId(Long indirizzoPersonaId) {
+        this.idPersonaId = indirizzoPersonaId;
     }
 
     @Override
@@ -182,7 +194,8 @@ public class PersonaDTO implements Serializable {
     public String toString() {
         return "PersonaDTO{" +
             "id=" + getId() +
-            ", idStudio=" + getIdStudio() +
+            ", idPersona=" + getIdPersona() +
+            ", idStudioProfessionaleRef=" + getIdStudioProfessionaleRef() +
             ", codiceFiscale='" + getCodiceFiscale() + "'" +
             ", areaDiInteresse='" + getAreaDiInteresse() + "'" +
             ", titolo='" + getTitolo() + "'" +
@@ -193,9 +206,9 @@ public class PersonaDTO implements Serializable {
             ", professione='" + getProfessione() + "'" +
             ", tipo=" + getTipo() +
             ", discriminator='" + getDiscriminator() + "'" +
-            ", idRuoloPersona=" + getIdRuoloPersona() +
+            ", idRuoloPersonaRef=" + getIdRuoloPersonaRef() +
             ", tipoRuoloUtente=" + getTipoRuoloUtente() +
-            ", idId=" + getIdId() +
+            ", idPersonaId=" + getIdPersonaId() +
             "}";
     }
 }

@@ -17,14 +17,15 @@ import { LineaOrdineService } from 'app/entities/linea-ordine/linea-ordine.servi
 })
 export class ProdottoUpdateComponent implements OnInit {
   isSaving = false;
-  ids: ILineaOrdine[] = [];
+  idprodottos: ILineaOrdine[] = [];
 
   editForm = this.fb.group({
     id: [],
+    idProdotto: [null, [Validators.required]],
     nuovaLicenza: [],
     rinnovoLicenza: [],
     storage: [],
-    idId: [],
+    idProdottoId: [],
   });
 
   constructor(
@@ -39,24 +40,24 @@ export class ProdottoUpdateComponent implements OnInit {
       this.updateForm(prodotto);
 
       this.lineaOrdineService
-        .query({ filter: 'idprodotto-is-null' })
+        .query({ filter: 'idprodottoref-is-null' })
         .pipe(
           map((res: HttpResponse<ILineaOrdine[]>) => {
             return res.body || [];
           })
         )
         .subscribe((resBody: ILineaOrdine[]) => {
-          if (!prodotto.idId) {
-            this.ids = resBody;
+          if (!prodotto.idProdottoId) {
+            this.idprodottos = resBody;
           } else {
             this.lineaOrdineService
-              .find(prodotto.idId)
+              .find(prodotto.idProdottoId)
               .pipe(
                 map((subRes: HttpResponse<ILineaOrdine>) => {
                   return subRes.body ? [subRes.body].concat(resBody) : resBody;
                 })
               )
-              .subscribe((concatRes: ILineaOrdine[]) => (this.ids = concatRes));
+              .subscribe((concatRes: ILineaOrdine[]) => (this.idprodottos = concatRes));
           }
         });
     });
@@ -65,10 +66,11 @@ export class ProdottoUpdateComponent implements OnInit {
   updateForm(prodotto: IProdotto): void {
     this.editForm.patchValue({
       id: prodotto.id,
+      idProdotto: prodotto.idProdotto,
       nuovaLicenza: prodotto.nuovaLicenza,
       rinnovoLicenza: prodotto.rinnovoLicenza,
       storage: prodotto.storage,
-      idId: prodotto.idId,
+      idProdottoId: prodotto.idProdottoId,
     });
   }
 
@@ -90,10 +92,11 @@ export class ProdottoUpdateComponent implements OnInit {
     return {
       ...new Prodotto(),
       id: this.editForm.get(['id'])!.value,
+      idProdotto: this.editForm.get(['idProdotto'])!.value,
       nuovaLicenza: this.editForm.get(['nuovaLicenza'])!.value,
       rinnovoLicenza: this.editForm.get(['rinnovoLicenza'])!.value,
       storage: this.editForm.get(['storage'])!.value,
-      idId: this.editForm.get(['idId'])!.value,
+      idProdottoId: this.editForm.get(['idProdottoId'])!.value,
     };
   }
 

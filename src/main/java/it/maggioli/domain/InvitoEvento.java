@@ -25,8 +25,8 @@ public class InvitoEvento implements Serializable {
     @SequenceGenerator(name = "sequenceGenerator")
     private Long id;
 
-    @Column(name = "id_attivita")
-    private Integer idAttivita;
+    @Column(name = "id_task_ref")
+    private Integer idTaskRef;
 
     @Column(name = "luogo_fisico")
     private String luogoFisico;
@@ -51,10 +51,10 @@ public class InvitoEvento implements Serializable {
 
     @OneToOne
     @JoinColumn(unique = true)
-    private Invito idAttivita;
+    private Invito idTaskRef;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "idTasks", allowSetters = true)
+    @JsonIgnoreProperties(value = "idTaskRefs", allowSetters = true)
     private PrevisioneEvento previsioneEvento;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
@@ -66,17 +66,17 @@ public class InvitoEvento implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdAttivita() {
-        return idAttivita;
+    public Integer getIdTaskRef() {
+        return idTaskRef;
     }
 
-    public InvitoEvento idAttivita(Integer idAttivita) {
-        this.idAttivita = idAttivita;
+    public InvitoEvento idTaskRef(Integer idTaskRef) {
+        this.idTaskRef = idTaskRef;
         return this;
     }
 
-    public void setIdAttivita(Integer idAttivita) {
-        this.idAttivita = idAttivita;
+    public void setIdTaskRef(Integer idTaskRef) {
+        this.idTaskRef = idTaskRef;
     }
 
     public String getLuogoFisico() {
@@ -170,17 +170,17 @@ public class InvitoEvento implements Serializable {
         this.urlStanzaVirtuale = urlStanzaVirtuale;
     }
 
-    public Invito getIdAttivita() {
-        return idAttivita;
+    public Invito getIdTaskRef() {
+        return idTaskRef;
     }
 
-    public InvitoEvento idAttivita(Invito invito) {
-        this.idAttivita = invito;
+    public InvitoEvento idTaskRef(Invito invito) {
+        this.idTaskRef = invito;
         return this;
     }
 
-    public void setIdAttivita(Invito invito) {
-        this.idAttivita = invito;
+    public void setIdTaskRef(Invito invito) {
+        this.idTaskRef = invito;
     }
 
     public PrevisioneEvento getPrevisioneEvento() {
@@ -218,7 +218,7 @@ public class InvitoEvento implements Serializable {
     public String toString() {
         return "InvitoEvento{" +
             "id=" + getId() +
-            ", idAttivita=" + getIdAttivita() +
+            ", idTaskRef=" + getIdTaskRef() +
             ", luogoFisico='" + getLuogoFisico() + "'" +
             ", indicazioniLuogo='" + getIndicazioniLuogo() + "'" +
             ", dataInizio='" + getDataInizio() + "'" +

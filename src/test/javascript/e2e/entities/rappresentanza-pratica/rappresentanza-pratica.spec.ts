@@ -49,13 +49,13 @@ describe('RappresentanzaPratica e2e test', () => {
 
     await promise.all([
       rappresentanzaPraticaUpdatePage.setIdRuoloPersonaInput('5'),
-      rappresentanzaPraticaUpdatePage.setIdPersonaInput('5'),
+      rappresentanzaPraticaUpdatePage.setIdPersonaRefInput('5'),
       rappresentanzaPraticaUpdatePage.ruoliSelectLastOption(),
       rappresentanzaPraticaUpdatePage.personaSelectLastOption(),
     ]);
 
     expect(await rappresentanzaPraticaUpdatePage.getIdRuoloPersonaInput()).to.eq('5', 'Expected idRuoloPersona value to be equals to 5');
-    expect(await rappresentanzaPraticaUpdatePage.getIdPersonaInput()).to.eq('5', 'Expected idPersona value to be equals to 5');
+    expect(await rappresentanzaPraticaUpdatePage.getIdPersonaRefInput()).to.eq('5', 'Expected idPersonaRef value to be equals to 5');
 
     await rappresentanzaPraticaUpdatePage.save();
     expect(await rappresentanzaPraticaUpdatePage.getSaveButton().isPresent(), 'Expected save button disappear').to.be.false;

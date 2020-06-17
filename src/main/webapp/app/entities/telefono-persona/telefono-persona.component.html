@@ -41,7 +41,7 @@
             <thead>
                 <tr>
                     <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
-                    <th scope="col" ><span jhiTranslate="eoloprjApp.telefonoPersona.idPersona">Id Persona</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.telefonoPersona.idPersonaRef">Id Persona Ref</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.telefonoPersona.etichetta">Etichetta</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.telefonoPersona.valore">Valore</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.telefonoPersona.persona">Persona</span></th>
@@ -51,7 +51,7 @@
             <tbody>
                 <tr *ngFor="let telefonoPersona of telefonoPersonas ;trackBy: trackId">
                     <td><a [routerLink]="['/telefono-persona', telefonoPersona.id, 'view']">{{ telefonoPersona.id }}</a></td>
-                    <td>{{ telefonoPersona.idPersona }}</td>
+                    <td>{{ telefonoPersona.idPersonaRef }}</td>
                     <td>{{ telefonoPersona.etichetta }}</td>
                     <td>{{ telefonoPersona.valore }}</td>
                     <td>

@@ -1,10 +1,10 @@
 export interface IInvitoAttivita {
   id?: number;
-  idAttivita?: number;
-  idAttivitaId?: number;
-  idAttivitaId?: number;
+  idTaskRef?: number;
+  idTaskRefId?: number;
+  idTaskRefId?: number;
 }
 
 export class InvitoAttivita implements IInvitoAttivita {
-  constructor(public id?: number, public idAttivita?: number, public idAttivitaId?: number, public idAttivitaId?: number) {}
+  constructor(public id?: number, public idTaskRef?: number, public idTaskRefId?: number, public idTaskRefId?: number) {}
 }

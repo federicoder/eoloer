@@ -40,8 +40,11 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WithMockUser
 public class InvitatoResourceIT {
 
-    private static final Integer DEFAULT_ID_INVITO = 8;
-    private static final Integer UPDATED_ID_INVITO = 7;
+    private static final Integer DEFAULT_ID_INVITATO = 1;
+    private static final Integer UPDATED_ID_INVITATO = 2;
+
+    private static final Integer DEFAULT_ID_INVITO_REF = 8;
+    private static final Integer UPDATED_ID_INVITO_REF = 7;
 
     private static final String DEFAULT_TOKEN_INVITO = "AAAAAAAAAA";
     private static final String UPDATED_TOKEN_INVITO = "BBBBBBBBBB";
@@ -106,7 +109,8 @@ public class InvitatoResourceIT {
      */
     public static Invitato createEntity(EntityManager em) {
         Invitato invitato = new Invitato()
-            .idInvito(DEFAULT_ID_INVITO)
+            .idInvitato(DEFAULT_ID_INVITATO)
+            .idInvitoRef(DEFAULT_ID_INVITO_REF)
             .tokenInvito(DEFAULT_TOKEN_INVITO)
             .canalePrimarioInvito(DEFAULT_CANALE_PRIMARIO_INVITO)
             .canaleBackupInvito(DEFAULT_CANALE_BACKUP_INVITO)
@@ -127,7 +131,8 @@ public class InvitatoResourceIT {
      */
     public static Invitato createUpdatedEntity(EntityManager em) {
         Invitato invitato = new Invitato()
-            .idInvito(UPDATED_ID_INVITO)
+            .idInvitato(UPDATED_ID_INVITATO)
+            .idInvitoRef(UPDATED_ID_INVITO_REF)
             .tokenInvito(UPDATED_TOKEN_INVITO)
             .canalePrimarioInvito(UPDATED_CANALE_PRIMARIO_INVITO)
             .canaleBackupInvito(UPDATED_CANALE_BACKUP_INVITO)
@@ -161,7 +166,8 @@ public class InvitatoResourceIT {
         List<Invitato> invitatoList = invitatoRepository.findAll();
         assertThat(invitatoList).hasSize(databaseSizeBeforeCreate + 1);
         Invitato testInvitato = invitatoList.get(invitatoList.size() - 1);
-        assertThat(testInvitato.getIdInvito()).isEqualTo(DEFAULT_ID_INVITO);
+        assertThat(testInvitato.getIdInvitato()).isEqualTo(DEFAULT_ID_INVITATO);
+        assertThat(testInvitato.getIdInvitoRef()).isEqualTo(DEFAULT_ID_INVITO_REF);
         assertThat(testInvitato.getTokenInvito()).isEqualTo(DEFAULT_TOKEN_INVITO);
         assertThat(testInvitato.getCanalePrimarioInvito()).isEqualTo(DEFAULT_CANALE_PRIMARIO_INVITO);
         assertThat(testInvitato.getCanaleBackupInvito()).isEqualTo(DEFAULT_CANALE_BACKUP_INVITO);
@@ -203,6 +209,26 @@ public class InvitatoResourceIT {
 
     @Test
     @Transactional
+    public void checkIdInvitatoIsRequired() throws Exception {
+        int databaseSizeBeforeTest = invitatoRepository.findAll().size();
+        // set the field null
+        invitato.setIdInvitato(null);
+
+        // Create the Invitato, which fails.
+        InvitatoDTO invitatoDTO = invitatoMapper.toDto(invitato);
+
+
+        restInvitatoMockMvc.perform(post("/api/invitatoes")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(invitatoDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<Invitato> invitatoList = invitatoRepository.findAll();
+        assertThat(invitatoList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllInvitatoes() throws Exception {
         // Initialize the database
         invitatoRepository.saveAndFlush(invitato);
@@ -212,7 +238,8 @@ public class InvitatoResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(invitato.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idInvito").value(hasItem(DEFAULT_ID_INVITO)))
+            .andExpect(jsonPath("$.[*].idInvitato").value(hasItem(DEFAULT_ID_INVITATO)))
+            .andExpect(jsonPath("$.[*].idInvitoRef").value(hasItem(DEFAULT_ID_INVITO_REF)))
             .andExpect(jsonPath("$.[*].tokenInvito").value(hasItem(DEFAULT_TOKEN_INVITO)))
             .andExpect(jsonPath("$.[*].canalePrimarioInvito").value(hasItem(DEFAULT_CANALE_PRIMARIO_INVITO)))
             .andExpect(jsonPath("$.[*].canaleBackupInvito").value(hasItem(DEFAULT_CANALE_BACKUP_INVITO)))
@@ -236,7 +263,8 @@ public class InvitatoResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(invitato.getId().intValue()))
-            .andExpect(jsonPath("$.idInvito").value(DEFAULT_ID_INVITO))
+            .andExpect(jsonPath("$.idInvitato").value(DEFAULT_ID_INVITATO))
+            .andExpect(jsonPath("$.idInvitoRef").value(DEFAULT_ID_INVITO_REF))
             .andExpect(jsonPath("$.tokenInvito").value(DEFAULT_TOKEN_INVITO))
             .andExpect(jsonPath("$.canalePrimarioInvito").value(DEFAULT_CANALE_PRIMARIO_INVITO))
             .andExpect(jsonPath("$.canaleBackupInvito").value(DEFAULT_CANALE_BACKUP_INVITO))
@@ -269,7 +297,8 @@ public class InvitatoResourceIT {
         // Disconnect from session so that the updates on updatedInvitato are not directly saved in db
         em.detach(updatedInvitato);
         updatedInvitato
-            .idInvito(UPDATED_ID_INVITO)
+            .idInvitato(UPDATED_ID_INVITATO)
+            .idInvitoRef(UPDATED_ID_INVITO_REF)
             .tokenInvito(UPDATED_TOKEN_INVITO)
             .canalePrimarioInvito(UPDATED_CANALE_PRIMARIO_INVITO)
             .canaleBackupInvito(UPDATED_CANALE_BACKUP_INVITO)
@@ -291,7 +320,8 @@ public class InvitatoResourceIT {
         List<Invitato> invitatoList = invitatoRepository.findAll();
         assertThat(invitatoList).hasSize(databaseSizeBeforeUpdate);
         Invitato testInvitato = invitatoList.get(invitatoList.size() - 1);
-        assertThat(testInvitato.getIdInvito()).isEqualTo(UPDATED_ID_INVITO);
+        assertThat(testInvitato.getIdInvitato()).isEqualTo(UPDATED_ID_INVITATO);
+        assertThat(testInvitato.getIdInvitoRef()).isEqualTo(UPDATED_ID_INVITO_REF);
         assertThat(testInvitato.getTokenInvito()).isEqualTo(UPDATED_TOKEN_INVITO);
         assertThat(testInvitato.getCanalePrimarioInvito()).isEqualTo(UPDATED_CANALE_PRIMARIO_INVITO);
         assertThat(testInvitato.getCanaleBackupInvito()).isEqualTo(UPDATED_CANALE_BACKUP_INVITO);
@@ -364,7 +394,8 @@ public class InvitatoResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(invitato.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idInvito").value(hasItem(DEFAULT_ID_INVITO)))
+            .andExpect(jsonPath("$.[*].idInvitato").value(hasItem(DEFAULT_ID_INVITATO)))
+            .andExpect(jsonPath("$.[*].idInvitoRef").value(hasItem(DEFAULT_ID_INVITO_REF)))
             .andExpect(jsonPath("$.[*].tokenInvito").value(hasItem(DEFAULT_TOKEN_INVITO)))
             .andExpect(jsonPath("$.[*].canalePrimarioInvito").value(hasItem(DEFAULT_CANALE_PRIMARIO_INVITO)))
             .andExpect(jsonPath("$.[*].canaleBackupInvito").value(hasItem(DEFAULT_CANALE_BACKUP_INVITO)))

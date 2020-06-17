@@ -17,21 +17,22 @@
       "detail": {
         "title": "Task"
       },
-      "idPratica": "Id Pratica",
+      "idTask": "Id Task",
+      "idPraticaRef": "Id Pratica Ref",
       "nome": "Nome",
       "stato": "Stato",
       "prioritario": "Prioritario",
       "pubblico": "Pubblico",
       "version": "Version",
-      "condivisionePraticaId": "Condivisione Pratica Id",
-      "assegnazioneTaskId": "Assegnazione Task Id",
-      "invitoId": "Invito Id",
-      "id": "Id",
-      "id": "Id",
-      "id": "Id",
-      "id": "Id",
-      "id": "Id",
-      "id": "Id",
+      "idCondivisionePraticaRef": "Id Condivisione Pratica Ref",
+      "idAssegnazioneTaskRef": "Id Assegnazione Task Ref",
+      "idInvitoRef": "Id Invito Ref",
+      "idTask": "Id Task",
+      "idTask": "Id Task",
+      "idTask": "Id Task",
+      "idTask": "Id Task",
+      "idTask": "Id Task",
+      "idTask": "Id Task",
       "pratica": "Pratica"
     }
   }

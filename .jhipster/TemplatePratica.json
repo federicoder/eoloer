@@ -2,7 +2,7 @@
   "name": "TemplatePratica",
   "fields": [
     {
-      "fieldName": "idTemplate",
+      "fieldName": "idTemplatePratica",
       "fieldType": "Integer",
       "fieldValidateRules": ["required", "max"],
       "fieldValidateRulesMax": "8"
@@ -21,7 +21,7 @@
       "relationshipType": "one-to-many",
       "otherEntityName": "templateTask",
       "otherEntityRelationshipName": "templatePratica",
-      "relationshipName": "idTemplate"
+      "relationshipName": "idTemplatePratica"
     }
   ],
   "changelogDate": "20200617082428",
