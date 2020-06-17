@@ -1,0 +1,99 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="eoloprjApp.assegnazioneTask.home.title">Assegnazione Tasks</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-assegnazione-task" [routerLink]="['/assegnazione-task/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="eoloprjApp.assegnazioneTask.home.createLabel">
+            Create a new Assegnazione Task
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'eoloprjApp.assegnazioneTask.home.search' | translate }}">
+
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon icon="search"></fa-icon>
+                    </button>
+
+                    <button class="input-group-append btn btn-danger" (click)="search('')" *ngIf="currentSearch">
+                        <fa-icon icon="trash-alt"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="assegnazioneTasks?.length === 0">
+        <span jhiTranslate="eoloprjApp.assegnazioneTask.home.notFound">No assegnazioneTasks found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="assegnazioneTasks && assegnazioneTasks.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.assegnazioneTask.idAttivita">Id Attivita</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.assegnazioneTask.idUserAmmesso">Id User Ammesso</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.assegnazioneTask.ruolo">Ruolo</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.assegnazioneTask.idUserConcedente">Id User Concedente</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.assegnazioneTask.statoAssegnazione">Stato Assegnazione</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.assegnazioneTask.ruolo">Ruolo</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.assegnazioneTask.userPersona">User Persona</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let assegnazioneTask of assegnazioneTasks ;trackBy: trackId">
+                    <td><a [routerLink]="['/assegnazione-task', assegnazioneTask.id, 'view']">{{ assegnazioneTask.id }}</a></td>
+                    <td>{{ assegnazioneTask.idAttivita }}</td>
+                    <td>{{ assegnazioneTask.idUserAmmesso }}</td>
+                    <td>{{ assegnazioneTask.ruolo }}</td>
+                    <td>{{ assegnazioneTask.idUserConcedente }}</td>
+                    <td>{{ assegnazioneTask.statoAssegnazione }}</td>
+                    <td>
+                        <div *ngIf="assegnazioneTask.ruoloId">
+                            <a [routerLink]="['/rappresentanza-pratica', assegnazioneTask.ruoloId , 'view']" >{{ assegnazioneTask.ruoloId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="assegnazioneTask.userPersonaId">
+                            <a [routerLink]="['/user-persona', assegnazioneTask.userPersonaId , 'view']" >{{ assegnazioneTask.userPersonaId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/assegnazione-task', assegnazioneTask.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/assegnazione-task', assegnazioneTask.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(assegnazioneTask)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

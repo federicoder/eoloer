@@ -1,0 +1,132 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-pratica-heading" jhiTranslate="eoloprjApp.pratica.home.createOrEditLabel">Create or edit a Pratica</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.pratica.idStudio" for="field_idStudio">Id Studio</label>
+                    <input type="number" class="form-control" name="idStudio" id="field_idStudio"
+                           formControlName="idStudio"/>
+                    <div *ngIf="editForm.get('idStudio')!.invalid && (editForm.get('idStudio')!.dirty || editForm.get('idStudio')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('idStudio')?.errors?.max" jhiTranslate="entity.validation.max" [translateValues]="{ max: 8 }">
+                            This field cannot be more than 8.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('idStudio')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.pratica.numero" for="field_numero">Numero</label>
+                    <input type="text" class="form-control" name="numero" id="field_numero"
+                           formControlName="numero"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.pratica.nome" for="field_nome">Nome</label>
+                    <input type="text" class="form-control" name="nome" id="field_nome"
+                           formControlName="nome"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.pratica.dataApertura" for="field_dataApertura">Data Apertura</label>
+                    <input type="text" class="form-control" name="dataApertura" id="field_dataApertura"
+                           formControlName="dataApertura"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.pratica.dataChiusura" for="field_dataChiusura">Data Chiusura</label>
+                    <input type="text" class="form-control" name="dataChiusura" id="field_dataChiusura"
+                           formControlName="dataChiusura"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.pratica.dataScadenza" for="field_dataScadenza">Data Scadenza</label>
+                    <input type="text" class="form-control" name="dataScadenza" id="field_dataScadenza"
+                           formControlName="dataScadenza"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.pratica.stato" for="field_stato">Stato</label>
+                    <input type="number" class="form-control" name="stato" id="field_stato"
+                           formControlName="stato"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.pratica.motivoChiusura" for="field_motivoChiusura">Motivo Chiusura</label>
+                    <input type="text" class="form-control" name="motivoChiusura" id="field_motivoChiusura"
+                           formControlName="motivoChiusura"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.pratica.idTitolare" for="field_idTitolare">Id Titolare</label>
+                    <input type="number" class="form-control" name="idTitolare" id="field_idTitolare"
+                           formControlName="idTitolare"/>
+                    <div *ngIf="editForm.get('idTitolare')!.invalid && (editForm.get('idTitolare')!.dirty || editForm.get('idTitolare')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('idTitolare')?.errors?.max" jhiTranslate="entity.validation.max" [translateValues]="{ max: 8 }">
+                            This field cannot be more than 8.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('idTitolare')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.pratica.prcAvanzato" for="field_prcAvanzato">Prc Avanzato</label>
+                    <input type="number" class="form-control" name="prcAvanzato" id="field_prcAvanzato"
+                           formControlName="prcAvanzato"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.pratica.version" for="field_version">Version</label>
+                    <input type="text" class="form-control" name="version" id="field_version"
+                           formControlName="version"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.pratica.valuta" for="field_valuta">Valuta</label>
+                    <input type="text" class="form-control" name="valuta" id="field_valuta"
+                           formControlName="valuta"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.pratica.idTemplatePratica" for="field_idTemplatePratica">Id Template Pratica</label>
+                    <input type="number" class="form-control" name="idTemplatePratica" id="field_idTemplatePratica"
+                           formControlName="idTemplatePratica"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.pratica.idTemplate" for="field_idTemplate">Id Template</label>
+                    <select class="form-control" id="field_idTemplate" name="idTemplate" formControlName="idTemplateId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="templatePraticaOption.id" *ngFor="let templatePraticaOption of templatepraticas; trackBy: trackById">{{ templatePraticaOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

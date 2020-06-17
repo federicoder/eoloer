@@ -1,0 +1,32 @@
+{
+  "eoloprjApp": {
+    "templateTask": {
+      "home": {
+        "title": "Template Tasks",
+        "createLabel": "Create a new Template Task",
+        "createOrEditLabel": "Create or edit a Template Task",
+        "search": "Search for Template Task",
+        "notFound": "No Template Tasks found"
+      },
+      "created": "A new Template Task is created with identifier {{ param }}",
+      "updated": "A Template Task is updated with identifier {{ param }}",
+      "deleted": "A Template Task is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Template Task {{ id }}?"
+      },
+      "detail": {
+        "title": "Template Task"
+      },
+      "idTemplateTask": "Id Template Task",
+      "ordineEsecuzione": "Ordine Esecuzione",
+      "nome": "Nome",
+      "note": "Note",
+      "pubPriv": "Pub Priv",
+      "idTemplatePratica": "Id Template Pratica",
+      "idTemplate": "Id Template",
+      "idTemplateTask": "Id Template Task",
+      "templatePratica": "Template Pratica",
+      "templateTask": "Template Task"
+    }
+  }
+}

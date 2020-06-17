@@ -1,0 +1,121 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="eoloprjApp.invito.home.title">Invitos</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-invito" [routerLink]="['/invito/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="eoloprjApp.invito.home.createLabel">
+            Create a new Invito
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'eoloprjApp.invito.home.search' | translate }}">
+
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon icon="search"></fa-icon>
+                    </button>
+
+                    <button class="input-group-append btn btn-danger" (click)="search('')" *ngIf="currentSearch">
+                        <fa-icon icon="trash-alt"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="invitos?.length === 0">
+        <span jhiTranslate="eoloprjApp.invito.home.notFound">No invitos found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="invitos && invitos.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.invito.idStudioProfessionale">Id Studio Professionale</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.invito.dataInvito">Data Invito</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.invito.idUserInvitante">Id User Invitante</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.invito.nomeUserInvitante">Nome User Invitante</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.invito.dataScadenzaInvito">Data Scadenza Invito</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.invito.testoInvito">Testo Invito</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.invito.idPratica">Id Pratica</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.invito.idAttivita">Id Attivita</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.invito.luogoFisico">Luogo Fisico</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.invito.indicazioniLuogo">Indicazioni Luogo</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.invito.dataInizio">Data Inizio</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.invito.oraInizio">Ora Inizio</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.invito.dataFine">Data Fine</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.invito.oraFine">Ora Fine</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.invito.urlStanzaVirtuale">Url Stanza Virtuale</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.invito.discriminator">Discriminator</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.invito.idStudioProfessionale">Id Studio Professionale</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.invito.assegnazioneTask">Assegnazione Task</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let invito of invitos ;trackBy: trackId">
+                    <td><a [routerLink]="['/invito', invito.id, 'view']">{{ invito.id }}</a></td>
+                    <td>{{ invito.idStudioProfessionale }}</td>
+                    <td>{{ invito.dataInvito }}</td>
+                    <td>{{ invito.idUserInvitante }}</td>
+                    <td>{{ invito.nomeUserInvitante }}</td>
+                    <td>{{ invito.dataScadenzaInvito }}</td>
+                    <td>{{ invito.testoInvito }}</td>
+                    <td>{{ invito.idPratica }}</td>
+                    <td>{{ invito.idAttivita }}</td>
+                    <td>{{ invito.luogoFisico }}</td>
+                    <td>{{ invito.indicazioniLuogo }}</td>
+                    <td>{{ invito.dataInizio }}</td>
+                    <td>{{ invito.oraInizio }}</td>
+                    <td>{{ invito.dataFine }}</td>
+                    <td>{{ invito.oraFine }}</td>
+                    <td>{{ invito.urlStanzaVirtuale }}</td>
+                    <td>{{ invito.discriminator }}</td>
+                    <td>
+                        <div *ngIf="invito.idStudioProfessionaleId">
+                            <a [routerLink]="['/studio-professionale', invito.idStudioProfessionaleId , 'view']" >{{ invito.idStudioProfessionaleId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="invito.assegnazioneTaskId">
+                            <a [routerLink]="['/assegnazione-task', invito.assegnazioneTaskId , 'view']" >{{ invito.assegnazioneTaskId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/invito', invito.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/invito', invito.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(invito)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

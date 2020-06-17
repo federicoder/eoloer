@@ -1,0 +1,28 @@
+{
+  "eoloprjApp": {
+    "rappresentanzaPratica": {
+      "home": {
+        "title": "Rappresentanza Praticas",
+        "createLabel": "Create a new Rappresentanza Pratica",
+        "createOrEditLabel": "Create or edit a Rappresentanza Pratica",
+        "search": "Search for Rappresentanza Pratica",
+        "notFound": "No Rappresentanza Praticas found"
+      },
+      "created": "A new Rappresentanza Pratica is created with identifier {{ param }}",
+      "updated": "A Rappresentanza Pratica is updated with identifier {{ param }}",
+      "deleted": "A Rappresentanza Pratica is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Rappresentanza Pratica {{ id }}?"
+      },
+      "detail": {
+        "title": "Rappresentanza Pratica"
+      },
+      "idRuoloPersona": "Id Ruolo Persona",
+      "idPersona": "Id Persona",
+      "ruoli": "Ruoli",
+      "idRuoloPersona": "Id Ruolo Persona",
+      "idRuoloPersona": "Id Ruolo Persona",
+      "persona": "Persona"
+    }
+  }
+}

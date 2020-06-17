@@ -1,0 +1,86 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-allegato-template-task-heading" jhiTranslate="eoloprjApp.allegatoTemplateTask.home.createOrEditLabel">Create or edit a Allegato Template Task</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.allegatoTemplateTask.idTemplateTask" for="field_idTemplateTask">Id Template Task</label>
+                    <input type="number" class="form-control" name="idTemplateTask" id="field_idTemplateTask"
+                           formControlName="idTemplateTask"/>
+                    <div *ngIf="editForm.get('idTemplateTask')!.invalid && (editForm.get('idTemplateTask')!.dirty || editForm.get('idTemplateTask')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('idTemplateTask')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('idTemplateTask')?.errors?.max" jhiTranslate="entity.validation.max" [translateValues]="{ max: 8 }">
+                            This field cannot be more than 8.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('idTemplateTask')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.allegatoTemplateTask.tipoAllegato" for="field_tipoAllegato">Tipo Allegato</label>
+                    <input type="number" class="form-control" name="tipoAllegato" id="field_tipoAllegato"
+                           formControlName="tipoAllegato"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.allegatoTemplateTask.formato" for="field_formato">Formato</label>
+                    <input type="number" class="form-control" name="formato" id="field_formato"
+                           formControlName="formato"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.allegatoTemplateTask.idFile" for="field_idFile">Id File</label>
+                    <input type="number" class="form-control" name="idFile" id="field_idFile"
+                           formControlName="idFile"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.allegatoTemplateTask.pubPriv" for="field_pubPriv">Pub Priv</label>
+                    <input type="number" class="form-control" name="pubPriv" id="field_pubPriv"
+                           formControlName="pubPriv"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.allegatoTemplateTask.templateTask" for="field_templateTask">Template Task</label>
+                    <select class="form-control" id="field_templateTask" name="templateTask" formControlName="templateTaskId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="templateTaskOption.id" *ngFor="let templateTaskOption of templatetasks; trackBy: trackById">{{ templateTaskOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.allegatoTemplateTask.tipoAllegato" for="field_tipoAllegato">Tipo Allegato</label>
+                    <select class="form-control" id="field_tipoAllegato" name="tipoAllegato" formControlName="tipoAllegatoId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="tipoAllegatoOption.id" *ngFor="let tipoAllegatoOption of tipoallegatoes; trackBy: trackById">{{ tipoAllegatoOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

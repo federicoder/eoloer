@@ -1,0 +1,26 @@
+{
+  "eoloprjApp": {
+    "emailPersona": {
+      "home": {
+        "title": "EmailPersonas",
+        "createLabel": "Genera un nuovo Email Persona",
+        "createOrEditLabel": "Genera o modifica un Email Persona",
+        "search": "Cerca Email Persona",
+        "notFound": "No Email Personas found"
+      },
+      "created": "&Egrave; stato generato un nuovo Email Persona con identificatore {{ param }}",
+      "updated": "&Egrave; stato aggiornato Email Persona identificato da {{ param }}",
+      "deleted": "&Egrave; stato eliminato Email Persona con identificatore {{ param }}",
+      "delete": {
+        "question": "Sei sicuro di volere eliminare Email Persona {{ id }}?"
+      },
+      "detail": {
+        "title": "Email Persona"
+      },
+      "idPersona": "Id Persona",
+      "etichetta": "Etichetta",
+      "numero": "Numero",
+      "persona": "Persona"
+    }
+  }
+}

@@ -1,0 +1,90 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-invito-evento-heading" jhiTranslate="eoloprjApp.invitoEvento.home.createOrEditLabel">Create or edit a Invito Evento</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.invitoEvento.idAttivita" for="field_idAttivita">Id Attivita</label>
+                    <input type="number" class="form-control" name="idAttivita" id="field_idAttivita"
+                           formControlName="idAttivita"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.invitoEvento.luogoFisico" for="field_luogoFisico">Luogo Fisico</label>
+                    <input type="text" class="form-control" name="luogoFisico" id="field_luogoFisico"
+                           formControlName="luogoFisico"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.invitoEvento.indicazioniLuogo" for="field_indicazioniLuogo">Indicazioni Luogo</label>
+                    <input type="text" class="form-control" name="indicazioniLuogo" id="field_indicazioniLuogo"
+                           formControlName="indicazioniLuogo"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.invitoEvento.dataInizio" for="field_dataInizio">Data Inizio</label>
+                    <input type="text" class="form-control" name="dataInizio" id="field_dataInizio"
+                           formControlName="dataInizio"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.invitoEvento.oraInizio" for="field_oraInizio">Ora Inizio</label>
+                    <input type="text" class="form-control" name="oraInizio" id="field_oraInizio"
+                           formControlName="oraInizio"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.invitoEvento.dataFine" for="field_dataFine">Data Fine</label>
+                    <input type="text" class="form-control" name="dataFine" id="field_dataFine"
+                           formControlName="dataFine"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.invitoEvento.oraFine" for="field_oraFine">Ora Fine</label>
+                    <input type="text" class="form-control" name="oraFine" id="field_oraFine"
+                           formControlName="oraFine"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.invitoEvento.urlStanzaVirtuale" for="field_urlStanzaVirtuale">Url Stanza Virtuale</label>
+                    <input type="text" class="form-control" name="urlStanzaVirtuale" id="field_urlStanzaVirtuale"
+                           formControlName="urlStanzaVirtuale"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.invitoEvento.idAttivita" for="field_idAttivita">Id Attivita</label>
+                    <select class="form-control" id="field_idAttivita" name="idAttivita" formControlName="idAttivitaId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="invitoOption.id" *ngFor="let invitoOption of idattivitas; trackBy: trackById">{{ invitoOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.invitoEvento.previsioneEvento" for="field_previsioneEvento">Previsione Evento</label>
+                    <select class="form-control" id="field_previsioneEvento" name="previsioneEvento" formControlName="previsioneEventoId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="previsioneEventoOption.id" *ngFor="let previsioneEventoOption of previsioneeventos; trackBy: trackById">{{ previsioneEventoOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

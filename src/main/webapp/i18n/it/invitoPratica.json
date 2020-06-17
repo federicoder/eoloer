@@ -1,0 +1,25 @@
+{
+  "eoloprjApp": {
+    "invitoPratica": {
+      "home": {
+        "title": "InvitoPraticas",
+        "createLabel": "Genera un nuovo Invito Pratica",
+        "createOrEditLabel": "Genera o modifica un Invito Pratica",
+        "search": "Cerca Invito Pratica",
+        "notFound": "No Invito Praticas found"
+      },
+      "created": "&Egrave; stato generato un nuovo Invito Pratica con identificatore {{ param }}",
+      "updated": "&Egrave; stato aggiornato Invito Pratica identificato da {{ param }}",
+      "deleted": "&Egrave; stato eliminato Invito Pratica con identificatore {{ param }}",
+      "delete": {
+        "question": "Sei sicuro di volere eliminare Invito Pratica {{ id }}?"
+      },
+      "detail": {
+        "title": "Invito Pratica"
+      },
+      "idPratica": "Id Pratica",
+      "idPratica": "Id Pratica",
+      "pratica": "Pratica"
+    }
+  }
+}

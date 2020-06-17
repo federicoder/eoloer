@@ -1,0 +1,80 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="allegatoTask">
+            <h2><span jhiTranslate="eoloprjApp.allegatoTask.detail.title">Allegato Task</span> {{ allegatoTask.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="eoloprjApp.allegatoTask.idAllegatoTask">Id Allegato Task</span></dt>
+                <dd>
+                    <span>{{ allegatoTask.idAllegatoTask }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.allegatoTask.idTipo">Id Tipo</span></dt>
+                <dd>
+                    <span>{{ allegatoTask.idTipo }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.allegatoTask.idTask">Id Task</span></dt>
+                <dd>
+                    <span>{{ allegatoTask.idTask }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.allegatoTask.formato">Formato</span></dt>
+                <dd>
+                    <span>{{ allegatoTask.formato }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.allegatoTask.note">Note</span></dt>
+                <dd>
+                    <span>{{ allegatoTask.note }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.allegatoTask.stato">Stato</span></dt>
+                <dd>
+                    <span>{{ allegatoTask.stato }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.allegatoTask.pubblico">Pubblico</span></dt>
+                <dd>
+                    <span>{{ allegatoTask.pubblico }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.allegatoTask.version">Version</span></dt>
+                <dd>
+                    <span>{{ allegatoTask.version }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.allegatoTask.idAllegatoMaster">Id Allegato Master</span></dt>
+                <dd>
+                    <span>{{ allegatoTask.idAllegatoMaster }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.allegatoTask.tipoAllegato">Tipo Allegato</span></dt>
+                <dd>
+                    <div *ngIf="allegatoTask.tipoAllegatoId">
+                        <a [routerLink]="['/tipo-allegato', allegatoTask.tipoAllegatoId, 'view']">{{ allegatoTask.tipoAllegatoId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.allegatoTask.allegatoTask">Allegato Task</span></dt>
+                <dd>
+                    <div *ngIf="allegatoTask.allegatoTaskId">
+                        <a [routerLink]="['/allegato-task', allegatoTask.allegatoTaskId, 'view']">{{ allegatoTask.allegatoTaskId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.allegatoTask.task">Task</span></dt>
+                <dd>
+                    <div *ngIf="allegatoTask.taskId">
+                        <a [routerLink]="['/task', allegatoTask.taskId, 'view']">{{ allegatoTask.taskId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/allegato-task', allegatoTask.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

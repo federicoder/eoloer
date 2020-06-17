@@ -1,0 +1,54 @@
+{
+  "name": "IndirizzoPersona",
+  "fields": [
+    {
+      "fieldName": "idPersona",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "indirizzo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "comune",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "cap",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "provincia",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "regione",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nazione",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "persona",
+      "otherEntityRelationshipName": "id",
+      "relationshipName": "idPersona",
+      "ownerSide": false
+    }
+  ],
+  "changelogDate": "20200617085028",
+  "entityTableName": "indirizzo_persona",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["eoloprj"]
+}

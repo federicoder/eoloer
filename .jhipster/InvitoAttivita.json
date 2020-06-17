@@ -1,0 +1,37 @@
+{
+  "name": "InvitoAttivita",
+  "fields": [
+    {
+      "fieldName": "idAttivita",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "invito",
+      "otherEntityRelationshipName": "id",
+      "relationshipName": "idAttivita",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "task",
+      "otherEntityRelationshipName": "id",
+      "relationshipName": "idAttivita",
+      "ownerSide": false
+    }
+  ],
+  "changelogDate": "20200617084128",
+  "entityTableName": "invito_attivita",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["eoloprj"]
+}

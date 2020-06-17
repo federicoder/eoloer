@@ -1,0 +1,111 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="eoloprjApp.invitato.home.title">Invitatoes</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-invitato" [routerLink]="['/invitato/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="eoloprjApp.invitato.home.createLabel">
+            Create a new Invitato
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'eoloprjApp.invitato.home.search' | translate }}">
+
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon icon="search"></fa-icon>
+                    </button>
+
+                    <button class="input-group-append btn btn-danger" (click)="search('')" *ngIf="currentSearch">
+                        <fa-icon icon="trash-alt"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="invitatoes?.length === 0">
+        <span jhiTranslate="eoloprjApp.invitato.home.notFound">No invitatoes found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="invitatoes && invitatoes.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.invitato.idInvito">Id Invito</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.invitato.tokenInvito">Token Invito</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.invitato.canalePrimarioInvito">Canale Primario Invito</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.invitato.canaleBackupInvito">Canale Backup Invito</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.invitato.statoInvito">Stato Invito</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.invitato.idUserInvitato">Id User Invitato</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.invitato.idPersonaInvitata">Id Persona Invitata</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.invitato.nomeUserInvitato">Nome User Invitato</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.invitato.dataRispostaInvito">Data Risposta Invito</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.invitato.ruoloInvitato">Ruolo Invitato</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.invitato.indInvitati">Ind Invitati</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.invitato.userPersona">User Persona</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.invitato.invito">Invito</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let invitato of invitatoes ;trackBy: trackId">
+                    <td><a [routerLink]="['/invitato', invitato.id, 'view']">{{ invitato.id }}</a></td>
+                    <td>{{ invitato.idInvito }}</td>
+                    <td>{{ invitato.tokenInvito }}</td>
+                    <td>{{ invitato.canalePrimarioInvito }}</td>
+                    <td>{{ invitato.canaleBackupInvito }}</td>
+                    <td>{{ invitato.statoInvito }}</td>
+                    <td>{{ invitato.idUserInvitato }}</td>
+                    <td>{{ invitato.idPersonaInvitata }}</td>
+                    <td>{{ invitato.nomeUserInvitato }}</td>
+                    <td>{{ invitato.dataRispostaInvito }}</td>
+                    <td>{{ invitato.ruoloInvitato }}</td>
+                    <td>{{ invitato.indInvitati }}</td>
+                    <td>
+                        <div *ngIf="invitato.userPersonaId">
+                            <a [routerLink]="['/user-persona', invitato.userPersonaId , 'view']" >{{ invitato.userPersonaId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="invitato.invitoId">
+                            <a [routerLink]="['/invito', invitato.invitoId , 'view']" >{{ invitato.invitoId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/invitato', invitato.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/invitato', invitato.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(invitato)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

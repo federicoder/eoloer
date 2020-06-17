@@ -1,0 +1,84 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="pratica">
+            <h2><span jhiTranslate="eoloprjApp.pratica.detail.title">Pratica</span> {{ pratica.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="eoloprjApp.pratica.idStudio">Id Studio</span></dt>
+                <dd>
+                    <span>{{ pratica.idStudio }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.pratica.numero">Numero</span></dt>
+                <dd>
+                    <span>{{ pratica.numero }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.pratica.nome">Nome</span></dt>
+                <dd>
+                    <span>{{ pratica.nome }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.pratica.dataApertura">Data Apertura</span></dt>
+                <dd>
+                    <span>{{ pratica.dataApertura }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.pratica.dataChiusura">Data Chiusura</span></dt>
+                <dd>
+                    <span>{{ pratica.dataChiusura }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.pratica.dataScadenza">Data Scadenza</span></dt>
+                <dd>
+                    <span>{{ pratica.dataScadenza }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.pratica.stato">Stato</span></dt>
+                <dd>
+                    <span>{{ pratica.stato }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.pratica.motivoChiusura">Motivo Chiusura</span></dt>
+                <dd>
+                    <span>{{ pratica.motivoChiusura }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.pratica.idTitolare">Id Titolare</span></dt>
+                <dd>
+                    <span>{{ pratica.idTitolare }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.pratica.prcAvanzato">Prc Avanzato</span></dt>
+                <dd>
+                    <span>{{ pratica.prcAvanzato }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.pratica.version">Version</span></dt>
+                <dd>
+                    <span>{{ pratica.version }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.pratica.valuta">Valuta</span></dt>
+                <dd>
+                    <span>{{ pratica.valuta }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.pratica.idTemplatePratica">Id Template Pratica</span></dt>
+                <dd>
+                    <span>{{ pratica.idTemplatePratica }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.pratica.idTemplate">Id Template</span></dt>
+                <dd>
+                    <div *ngIf="pratica.idTemplateId">
+                        <a [routerLink]="['/template-pratica', pratica.idTemplateId, 'view']">{{ pratica.idTemplateId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/pratica', pratica.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,70 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="condivisionePratica">
+            <h2><span jhiTranslate="eoloprjApp.condivisionePratica.detail.title">Condivisione Pratica</span> {{ condivisionePratica.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="eoloprjApp.condivisionePratica.idUserAmmesso">Id User Ammesso</span></dt>
+                <dd>
+                    <span>{{ condivisionePratica.idUserAmmesso }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.condivisionePratica.ruolo">Ruolo</span></dt>
+                <dd>
+                    <span>{{ condivisionePratica.ruolo }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.condivisionePratica.idUserConcedente">Id User Concedente</span></dt>
+                <dd>
+                    <span>{{ condivisionePratica.idUserConcedente }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.condivisionePratica.statoInvito">Stato Invito</span></dt>
+                <dd>
+                    <span>{{ condivisionePratica.statoInvito }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.condivisionePratica.idPratica">Id Pratica</span></dt>
+                <dd>
+                    <span>{{ condivisionePratica.idPratica }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.condivisionePratica.ruolo">Ruolo</span></dt>
+                <dd>
+                    <div *ngIf="condivisionePratica.ruoloId">
+                        <a [routerLink]="['/rappresentanza-pratica', condivisionePratica.ruoloId, 'view']">{{ condivisionePratica.ruoloId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.condivisionePratica.idUserConcedente">Id User Concedente</span></dt>
+                <dd>
+                    <div *ngIf="condivisionePratica.idUserConcedenteId">
+                        <a [routerLink]="['/persona', condivisionePratica.idUserConcedenteId, 'view']">{{ condivisionePratica.idUserConcedenteId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.condivisionePratica.pratica">Pratica</span></dt>
+                <dd>
+                    <div *ngIf="condivisionePratica.praticaId">
+                        <a [routerLink]="['/pratica', condivisionePratica.praticaId, 'view']">{{ condivisionePratica.praticaId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.condivisionePratica.userPersona">User Persona</span></dt>
+                <dd>
+                    <div *ngIf="condivisionePratica.userPersonaId">
+                        <a [routerLink]="['/user-persona', condivisionePratica.userPersonaId, 'view']">{{ condivisionePratica.userPersonaId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/condivisione-pratica', condivisionePratica.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

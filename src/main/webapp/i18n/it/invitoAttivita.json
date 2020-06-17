@@ -1,0 +1,25 @@
+{
+  "eoloprjApp": {
+    "invitoAttivita": {
+      "home": {
+        "title": "InvitoAttivitas",
+        "createLabel": "Genera un nuovo Invito Attivita",
+        "createOrEditLabel": "Genera o modifica un Invito Attivita",
+        "search": "Cerca Invito Attivita",
+        "notFound": "No Invito Attivitas found"
+      },
+      "created": "&Egrave; stato generato un nuovo Invito Attivita con identificatore {{ param }}",
+      "updated": "&Egrave; stato aggiornato Invito Attivita identificato da {{ param }}",
+      "deleted": "&Egrave; stato eliminato Invito Attivita con identificatore {{ param }}",
+      "delete": {
+        "question": "Sei sicuro di volere eliminare Invito Attivita {{ id }}?"
+      },
+      "detail": {
+        "title": "Invito Attivita"
+      },
+      "idAttivita": "Id Attivita",
+      "idAttivita": "Id Attivita",
+      "idAttivita": "Id Attivita"
+    }
+  }
+}

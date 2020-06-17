@@ -1,0 +1,82 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="invitato">
+            <h2><span jhiTranslate="eoloprjApp.invitato.detail.title">Invitato</span> {{ invitato.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="eoloprjApp.invitato.idInvito">Id Invito</span></dt>
+                <dd>
+                    <span>{{ invitato.idInvito }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.invitato.tokenInvito">Token Invito</span></dt>
+                <dd>
+                    <span>{{ invitato.tokenInvito }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.invitato.canalePrimarioInvito">Canale Primario Invito</span></dt>
+                <dd>
+                    <span>{{ invitato.canalePrimarioInvito }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.invitato.canaleBackupInvito">Canale Backup Invito</span></dt>
+                <dd>
+                    <span>{{ invitato.canaleBackupInvito }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.invitato.statoInvito">Stato Invito</span></dt>
+                <dd>
+                    <span>{{ invitato.statoInvito }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.invitato.idUserInvitato">Id User Invitato</span></dt>
+                <dd>
+                    <span>{{ invitato.idUserInvitato }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.invitato.idPersonaInvitata">Id Persona Invitata</span></dt>
+                <dd>
+                    <span>{{ invitato.idPersonaInvitata }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.invitato.nomeUserInvitato">Nome User Invitato</span></dt>
+                <dd>
+                    <span>{{ invitato.nomeUserInvitato }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.invitato.dataRispostaInvito">Data Risposta Invito</span></dt>
+                <dd>
+                    <span>{{ invitato.dataRispostaInvito }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.invitato.ruoloInvitato">Ruolo Invitato</span></dt>
+                <dd>
+                    <span>{{ invitato.ruoloInvitato }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.invitato.indInvitati">Ind Invitati</span></dt>
+                <dd>
+                    <span>{{ invitato.indInvitati }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.invitato.userPersona">User Persona</span></dt>
+                <dd>
+                    <div *ngIf="invitato.userPersonaId">
+                        <a [routerLink]="['/user-persona', invitato.userPersonaId, 'view']">{{ invitato.userPersonaId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.invitato.invito">Invito</span></dt>
+                <dd>
+                    <div *ngIf="invitato.invitoId">
+                        <a [routerLink]="['/invito', invitato.invitoId, 'view']">{{ invitato.invitoId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/invitato', invitato.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

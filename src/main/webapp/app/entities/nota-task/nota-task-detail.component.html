@@ -1,0 +1,48 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="notaTask">
+            <h2><span jhiTranslate="eoloprjApp.notaTask.detail.title">Nota Task</span> {{ notaTask.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="eoloprjApp.notaTask.idTask">Id Task</span></dt>
+                <dd>
+                    <span>{{ notaTask.idTask }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.notaTask.data">Data</span></dt>
+                <dd>
+                    <span>{{ notaTask.data }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.notaTask.nota">Nota</span></dt>
+                <dd>
+                    <span>{{ notaTask.nota }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.notaTask.version">Version</span></dt>
+                <dd>
+                    <span>{{ notaTask.version }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.notaTask.task">Task</span></dt>
+                <dd>
+                    <div *ngIf="notaTask.taskId">
+                        <a [routerLink]="['/task', notaTask.taskId, 'view']">{{ notaTask.taskId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/nota-task', notaTask.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

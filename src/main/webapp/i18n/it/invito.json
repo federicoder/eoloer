@@ -1,0 +1,44 @@
+{
+  "eoloprjApp": {
+    "invito": {
+      "home": {
+        "title": "Invitos",
+        "createLabel": "Genera un nuovo Invito",
+        "createOrEditLabel": "Genera o modifica un Invito",
+        "search": "Cerca Invito",
+        "notFound": "No Invitos found"
+      },
+      "created": "&Egrave; stato generato un nuovo Invito con identificatore {{ param }}",
+      "updated": "&Egrave; stato aggiornato Invito identificato da {{ param }}",
+      "deleted": "&Egrave; stato eliminato Invito con identificatore {{ param }}",
+      "delete": {
+        "question": "Sei sicuro di volere eliminare Invito {{ id }}?"
+      },
+      "detail": {
+        "title": "Invito"
+      },
+      "idStudioProfessionale": "Id Studio Professionale",
+      "dataInvito": "Data Invito",
+      "idUserInvitante": "Id User Invitante",
+      "nomeUserInvitante": "Nome User Invitante",
+      "dataScadenzaInvito": "Data Scadenza Invito",
+      "testoInvito": "Testo Invito",
+      "idPratica": "Id Pratica",
+      "idAttivita": "Id Attivita",
+      "luogoFisico": "Luogo Fisico",
+      "indicazioniLuogo": "Indicazioni Luogo",
+      "dataInizio": "Data Inizio",
+      "oraInizio": "Ora Inizio",
+      "dataFine": "Data Fine",
+      "oraFine": "Ora Fine",
+      "urlStanzaVirtuale": "Url Stanza Virtuale",
+      "discriminator": "Discriminator",
+      "idStudioProfessionale": "Id Studio Professionale",
+      "id": "Id",
+      "id": "Id",
+      "id": "Id",
+      "id": "Id",
+      "assegnazioneTask": "Assegnazione Task"
+    }
+  }
+}

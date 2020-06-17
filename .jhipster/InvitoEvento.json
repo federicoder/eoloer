@@ -1,0 +1,65 @@
+{
+  "name": "InvitoEvento",
+  "fields": [
+    {
+      "fieldName": "idAttivita",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "luogoFisico",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "indicazioniLuogo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dataInizio",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "oraInizio",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dataFine",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "oraFine",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "urlStanzaVirtuale",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "invito",
+      "otherEntityRelationshipName": "id",
+      "relationshipName": "idAttivita",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "previsioneEvento",
+      "otherEntityRelationshipName": "idTask",
+      "relationshipName": "previsioneEvento",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200617084228",
+  "entityTableName": "invito_evento",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["eoloprj"]
+}

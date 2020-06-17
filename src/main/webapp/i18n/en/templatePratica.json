@@ -1,0 +1,26 @@
+{
+  "eoloprjApp": {
+    "templatePratica": {
+      "home": {
+        "title": "Template Praticas",
+        "createLabel": "Create a new Template Pratica",
+        "createOrEditLabel": "Create or edit a Template Pratica",
+        "search": "Search for Template Pratica",
+        "notFound": "No Template Praticas found"
+      },
+      "created": "A new Template Pratica is created with identifier {{ param }}",
+      "updated": "A Template Pratica is updated with identifier {{ param }}",
+      "deleted": "A Template Pratica is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Template Pratica {{ id }}?"
+      },
+      "detail": {
+        "title": "Template Pratica"
+      },
+      "idTemplate": "Id Template",
+      "nomeTemplate": "Nome Template",
+      "elencoTagAmbito": "Elenco Tag Ambito",
+      "idTemplate": "Id Template"
+    }
+  }
+}

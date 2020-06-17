@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity RuoloOrganizzazione.
+    -->
+    <changeSet id="20200617084728-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="id_id"
+                                 baseTableName="ruolo_organizzazione"
+                                 constraintName="fk_ruolo_organizzazione_id_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="organizzazione"/>
+
+        <addForeignKeyConstraint baseColumnNames="id_id"
+                                 baseTableName="ruolo_organizzazione"
+                                 constraintName="fk_ruolo_organizzazione_id_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="persona_fisica"/>
+
+    </changeSet>
+</databaseChangeLog>

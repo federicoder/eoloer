@@ -1,0 +1,52 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="previsioneAttivita">
+            <h2><span jhiTranslate="eoloprjApp.previsioneAttivita.detail.title">Previsione Attivita</span> {{ previsioneAttivita.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="eoloprjApp.previsioneAttivita.idTask">Id Task</span></dt>
+                <dd>
+                    <span>{{ previsioneAttivita.idTask }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.previsioneAttivita.dataPianificata">Data Pianificata</span></dt>
+                <dd>
+                    <span>{{ previsioneAttivita.dataPianificata }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.previsioneAttivita.oraPianificata">Ora Pianificata</span></dt>
+                <dd>
+                    <span>{{ previsioneAttivita.oraPianificata }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.previsioneAttivita.dataScadenza">Data Scadenza</span></dt>
+                <dd>
+                    <span>{{ previsioneAttivita.dataScadenza }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.previsioneAttivita.version">Version</span></dt>
+                <dd>
+                    <span>{{ previsioneAttivita.version }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.previsioneAttivita.idTask">Id Task</span></dt>
+                <dd>
+                    <div *ngIf="previsioneAttivita.idTaskId">
+                        <a [routerLink]="['/previsione-task', previsioneAttivita.idTaskId, 'view']">{{ previsioneAttivita.idTaskId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/previsione-attivita', previsioneAttivita.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

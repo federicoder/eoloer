@@ -1,0 +1,29 @@
+{
+  "eoloprjApp": {
+    "allegatoTemplateTask": {
+      "home": {
+        "title": "AllegatoTemplateTasks",
+        "createLabel": "Genera un nuovo Allegato Template Task",
+        "createOrEditLabel": "Genera o modifica un Allegato Template Task",
+        "search": "Cerca Allegato Template Task",
+        "notFound": "No Allegato Template Tasks found"
+      },
+      "created": "&Egrave; stato generato un nuovo Allegato Template Task con identificatore {{ param }}",
+      "updated": "&Egrave; stato aggiornato Allegato Template Task identificato da {{ param }}",
+      "deleted": "&Egrave; stato eliminato Allegato Template Task con identificatore {{ param }}",
+      "delete": {
+        "question": "Sei sicuro di volere eliminare Allegato Template Task {{ id }}?"
+      },
+      "detail": {
+        "title": "Allegato Template Task"
+      },
+      "idTemplateTask": "Id Template Task",
+      "tipoAllegato": "Tipo Allegato",
+      "formato": "Formato",
+      "idFile": "Id File",
+      "pubPriv": "Pub Priv",
+      "templateTask": "Template Task",
+      "tipoAllegato": "Tipo Allegato"
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "eoloprjApp": {
+    "studioProfessionale": {
+      "home": {
+        "title": "Studio Professionales",
+        "createLabel": "Create a new Studio Professionale",
+        "createOrEditLabel": "Create or edit a Studio Professionale",
+        "search": "Search for Studio Professionale",
+        "notFound": "No Studio Professionales found"
+      },
+      "created": "A new Studio Professionale is created with identifier {{ param }}",
+      "updated": "A Studio Professionale is updated with identifier {{ param }}",
+      "deleted": "A Studio Professionale is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Studio Professionale {{ id }}?"
+      },
+      "detail": {
+        "title": "Studio Professionale"
+      },
+      "idUserAmministratore": "Id User Amministratore",
+      "id": "Id",
+      "id": "Id",
+      "id": "Id",
+      "persona": "Persona"
+    }
+  }
+}

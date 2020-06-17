@@ -1,0 +1,35 @@
+{
+  "eoloprjApp": {
+    "invitato": {
+      "home": {
+        "title": "Invitatoes",
+        "createLabel": "Create a new Invitato",
+        "createOrEditLabel": "Create or edit a Invitato",
+        "search": "Search for Invitato",
+        "notFound": "No Invitatoes found"
+      },
+      "created": "A new Invitato is created with identifier {{ param }}",
+      "updated": "A Invitato is updated with identifier {{ param }}",
+      "deleted": "A Invitato is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Invitato {{ id }}?"
+      },
+      "detail": {
+        "title": "Invitato"
+      },
+      "idInvito": "Id Invito",
+      "tokenInvito": "Token Invito",
+      "canalePrimarioInvito": "Canale Primario Invito",
+      "canaleBackupInvito": "Canale Backup Invito",
+      "statoInvito": "Stato Invito",
+      "idUserInvitato": "Id User Invitato",
+      "idPersonaInvitata": "Id Persona Invitata",
+      "nomeUserInvitato": "Nome User Invitato",
+      "dataRispostaInvito": "Data Risposta Invito",
+      "ruoloInvitato": "Ruolo Invitato",
+      "indInvitati": "Ind Invitati",
+      "userPersona": "User Persona",
+      "invito": "Invito"
+    }
+  }
+}

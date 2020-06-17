@@ -1,0 +1,31 @@
+{
+  "eoloprjApp": {
+    "condivisionePratica": {
+      "home": {
+        "title": "CondivisionePraticas",
+        "createLabel": "Genera un nuovo Condivisione Pratica",
+        "createOrEditLabel": "Genera o modifica un Condivisione Pratica",
+        "search": "Cerca Condivisione Pratica",
+        "notFound": "No Condivisione Praticas found"
+      },
+      "created": "&Egrave; stato generato un nuovo Condivisione Pratica con identificatore {{ param }}",
+      "updated": "&Egrave; stato aggiornato Condivisione Pratica identificato da {{ param }}",
+      "deleted": "&Egrave; stato eliminato Condivisione Pratica con identificatore {{ param }}",
+      "delete": {
+        "question": "Sei sicuro di volere eliminare Condivisione Pratica {{ id }}?"
+      },
+      "detail": {
+        "title": "Condivisione Pratica"
+      },
+      "idUserAmmesso": "Id User Ammesso",
+      "ruolo": "Ruolo",
+      "idUserConcedente": "Id User Concedente",
+      "statoInvito": "Stato Invito",
+      "idPratica": "Id Pratica",
+      "ruolo": "Ruolo",
+      "idUserConcedente": "Id User Concedente",
+      "pratica": "Pratica",
+      "userPersona": "User Persona"
+    }
+  }
+}

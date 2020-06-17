@@ -1,0 +1,126 @@
+{
+  "name": "Invito",
+  "fields": [
+    {
+      "fieldName": "idStudioProfessionale",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["max"],
+      "fieldValidateRulesMax": "8"
+    },
+    {
+      "fieldName": "dataInvito",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "idUserInvitante",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "nomeUserInvitante",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dataScadenzaInvito",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "testoInvito",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "idPratica",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "idAttivita",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "luogoFisico",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "indicazioniLuogo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dataInizio",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "oraInizio",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dataFine",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "oraFine",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "urlStanzaVirtuale",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "discriminator",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "studioProfessionale",
+      "otherEntityRelationshipName": "id",
+      "relationshipName": "idStudioProfessionale",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "invitato",
+      "otherEntityRelationshipName": "invito",
+      "relationshipName": "id"
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "invitoPratica",
+      "otherEntityRelationshipName": "idPratica",
+      "relationshipName": "id",
+      "ownerSide": false
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "invitoAttivita",
+      "otherEntityRelationshipName": "idAttivita",
+      "relationshipName": "id",
+      "ownerSide": false
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "invitoEvento",
+      "otherEntityRelationshipName": "idAttivita",
+      "relationshipName": "id",
+      "ownerSide": false
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "assegnazioneTask",
+      "otherEntityRelationshipName": "idUserConcedente",
+      "relationshipName": "assegnazioneTask",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200617083728",
+  "entityTableName": "invito",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["eoloprj"]
+}

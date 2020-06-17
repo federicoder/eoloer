@@ -1,0 +1,78 @@
+{
+  "name": "Invitato",
+  "fields": [
+    {
+      "fieldName": "idInvito",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["max"],
+      "fieldValidateRulesMax": "8"
+    },
+    {
+      "fieldName": "tokenInvito",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "canalePrimarioInvito",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "canaleBackupInvito",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "statoInvito",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "idUserInvitato",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "idPersonaInvitata",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "nomeUserInvitato",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dataRispostaInvito",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "ruoloInvitato",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "indInvitati",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "userPersona",
+      "otherEntityRelationshipName": "id",
+      "relationshipName": "userPersona",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "invito",
+      "otherEntityRelationshipName": "id",
+      "relationshipName": "invito",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200617083828",
+  "entityTableName": "invitato",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["eoloprj"]
+}

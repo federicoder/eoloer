@@ -1,0 +1,109 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="eoloprjApp.pratica.home.title">Praticas</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-pratica" [routerLink]="['/pratica/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="eoloprjApp.pratica.home.createLabel">
+            Create a new Pratica
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'eoloprjApp.pratica.home.search' | translate }}">
+
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon icon="search"></fa-icon>
+                    </button>
+
+                    <button class="input-group-append btn btn-danger" (click)="search('')" *ngIf="currentSearch">
+                        <fa-icon icon="trash-alt"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="praticas?.length === 0">
+        <span jhiTranslate="eoloprjApp.pratica.home.notFound">No praticas found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="praticas && praticas.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.pratica.idStudio">Id Studio</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.pratica.numero">Numero</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.pratica.nome">Nome</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.pratica.dataApertura">Data Apertura</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.pratica.dataChiusura">Data Chiusura</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.pratica.dataScadenza">Data Scadenza</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.pratica.stato">Stato</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.pratica.motivoChiusura">Motivo Chiusura</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.pratica.idTitolare">Id Titolare</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.pratica.prcAvanzato">Prc Avanzato</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.pratica.version">Version</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.pratica.valuta">Valuta</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.pratica.idTemplatePratica">Id Template Pratica</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.pratica.idTemplate">Id Template</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let pratica of praticas ;trackBy: trackId">
+                    <td><a [routerLink]="['/pratica', pratica.id, 'view']">{{ pratica.id }}</a></td>
+                    <td>{{ pratica.idStudio }}</td>
+                    <td>{{ pratica.numero }}</td>
+                    <td>{{ pratica.nome }}</td>
+                    <td>{{ pratica.dataApertura }}</td>
+                    <td>{{ pratica.dataChiusura }}</td>
+                    <td>{{ pratica.dataScadenza }}</td>
+                    <td>{{ pratica.stato }}</td>
+                    <td>{{ pratica.motivoChiusura }}</td>
+                    <td>{{ pratica.idTitolare }}</td>
+                    <td>{{ pratica.prcAvanzato }}</td>
+                    <td>{{ pratica.version }}</td>
+                    <td>{{ pratica.valuta }}</td>
+                    <td>{{ pratica.idTemplatePratica }}</td>
+                    <td>
+                        <div *ngIf="pratica.idTemplateId">
+                            <a [routerLink]="['/template-pratica', pratica.idTemplateId , 'view']" >{{ pratica.idTemplateId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/pratica', pratica.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/pratica', pratica.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(pratica)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

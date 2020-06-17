@@ -1,0 +1,52 @@
+{
+  "name": "TipoAllegato",
+  "fields": [
+    {
+      "fieldName": "idTipoAllegato",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["max"],
+      "fieldValidateRulesMax": "8"
+    },
+    {
+      "fieldName": "nome",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "formatiAmmessi",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "maxDimensioneAmmessa",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "version",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "allegatoTemplateTask",
+      "otherEntityRelationshipName": "tipoAllegato",
+      "relationshipName": "idTipoAllegato"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "allegatoTask",
+      "otherEntityRelationshipName": "tipoAllegato",
+      "relationshipName": "idTipoAllegato"
+    }
+  ],
+  "changelogDate": "20200617082728",
+  "entityTableName": "tipo_allegato",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["eoloprj"]
+}

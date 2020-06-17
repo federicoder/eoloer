@@ -1,0 +1,113 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="eoloprjApp.allegatoTask.home.title">Allegato Tasks</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-allegato-task" [routerLink]="['/allegato-task/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="eoloprjApp.allegatoTask.home.createLabel">
+            Create a new Allegato Task
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'eoloprjApp.allegatoTask.home.search' | translate }}">
+
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon icon="search"></fa-icon>
+                    </button>
+
+                    <button class="input-group-append btn btn-danger" (click)="search('')" *ngIf="currentSearch">
+                        <fa-icon icon="trash-alt"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="allegatoTasks?.length === 0">
+        <span jhiTranslate="eoloprjApp.allegatoTask.home.notFound">No allegatoTasks found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="allegatoTasks && allegatoTasks.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.allegatoTask.idAllegatoTask">Id Allegato Task</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.allegatoTask.idTipo">Id Tipo</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.allegatoTask.idTask">Id Task</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.allegatoTask.formato">Formato</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.allegatoTask.note">Note</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.allegatoTask.stato">Stato</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.allegatoTask.pubblico">Pubblico</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.allegatoTask.version">Version</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.allegatoTask.idAllegatoMaster">Id Allegato Master</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.allegatoTask.tipoAllegato">Tipo Allegato</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.allegatoTask.allegatoTask">Allegato Task</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.allegatoTask.task">Task</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let allegatoTask of allegatoTasks ;trackBy: trackId">
+                    <td><a [routerLink]="['/allegato-task', allegatoTask.id, 'view']">{{ allegatoTask.id }}</a></td>
+                    <td>{{ allegatoTask.idAllegatoTask }}</td>
+                    <td>{{ allegatoTask.idTipo }}</td>
+                    <td>{{ allegatoTask.idTask }}</td>
+                    <td>{{ allegatoTask.formato }}</td>
+                    <td>{{ allegatoTask.note }}</td>
+                    <td>{{ allegatoTask.stato }}</td>
+                    <td>{{ allegatoTask.pubblico }}</td>
+                    <td>{{ allegatoTask.version }}</td>
+                    <td>{{ allegatoTask.idAllegatoMaster }}</td>
+                    <td>
+                        <div *ngIf="allegatoTask.tipoAllegatoId">
+                            <a [routerLink]="['/tipo-allegato', allegatoTask.tipoAllegatoId , 'view']" >{{ allegatoTask.tipoAllegatoId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="allegatoTask.allegatoTaskId">
+                            <a [routerLink]="['/allegato-task', allegatoTask.allegatoTaskId , 'view']" >{{ allegatoTask.allegatoTaskId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="allegatoTask.taskId">
+                            <a [routerLink]="['/task', allegatoTask.taskId , 'view']" >{{ allegatoTask.taskId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/allegato-task', allegatoTask.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/allegato-task', allegatoTask.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(allegatoTask)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

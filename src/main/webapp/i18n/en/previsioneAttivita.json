@@ -1,0 +1,28 @@
+{
+  "eoloprjApp": {
+    "previsioneAttivita": {
+      "home": {
+        "title": "Previsione Attivitas",
+        "createLabel": "Create a new Previsione Attivita",
+        "createOrEditLabel": "Create or edit a Previsione Attivita",
+        "search": "Search for Previsione Attivita",
+        "notFound": "No Previsione Attivitas found"
+      },
+      "created": "A new Previsione Attivita is created with identifier {{ param }}",
+      "updated": "A Previsione Attivita is updated with identifier {{ param }}",
+      "deleted": "A Previsione Attivita is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Previsione Attivita {{ id }}?"
+      },
+      "detail": {
+        "title": "Previsione Attivita"
+      },
+      "idTask": "Id Task",
+      "dataPianificata": "Data Pianificata",
+      "oraPianificata": "Ora Pianificata",
+      "dataScadenza": "Data Scadenza",
+      "version": "Version",
+      "idTask": "Id Task"
+    }
+  }
+}

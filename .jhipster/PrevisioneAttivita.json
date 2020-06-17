@@ -1,0 +1,48 @@
+{
+  "name": "PrevisioneAttivita",
+  "fields": [
+    {
+      "fieldName": "idTask",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["max", "required"],
+      "fieldValidateRulesMax": "8"
+    },
+    {
+      "fieldName": "dataPianificata",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "oraPianificata",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dataScadenza",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "version",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "previsioneTask",
+      "otherEntityRelationshipName": "idTask",
+      "relationshipName": "idTask",
+      "otherEntityField": "id",
+      "ownerSide": true
+    }
+  ],
+  "changelogDate": "20200617083028",
+  "entityTableName": "previsione_attivita",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["eoloprj"]
+}

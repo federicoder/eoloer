@@ -1,0 +1,54 @@
+{
+  "name": "AllegatoTemplateTask",
+  "fields": [
+    {
+      "fieldName": "idTemplateTask",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required", "max"],
+      "fieldValidateRulesMax": "8"
+    },
+    {
+      "fieldName": "tipoAllegato",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "formato",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "idFile",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "pubPriv",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "templateTask",
+      "otherEntityRelationshipName": "idTemplateTask",
+      "relationshipName": "templateTask",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "tipoAllegato",
+      "otherEntityRelationshipName": "idTipoAllegato",
+      "relationshipName": "tipoAllegato",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200617082628",
+  "entityTableName": "allegato_template_task",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["eoloprj"]
+}

@@ -1,0 +1,46 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="tipoAllegato">
+            <h2><span jhiTranslate="eoloprjApp.tipoAllegato.detail.title">Tipo Allegato</span> {{ tipoAllegato.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="eoloprjApp.tipoAllegato.idTipoAllegato">Id Tipo Allegato</span></dt>
+                <dd>
+                    <span>{{ tipoAllegato.idTipoAllegato }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.tipoAllegato.nome">Nome</span></dt>
+                <dd>
+                    <span>{{ tipoAllegato.nome }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.tipoAllegato.formatiAmmessi">Formati Ammessi</span></dt>
+                <dd>
+                    <span>{{ tipoAllegato.formatiAmmessi }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.tipoAllegato.maxDimensioneAmmessa">Max Dimensione Ammessa</span></dt>
+                <dd>
+                    <span>{{ tipoAllegato.maxDimensioneAmmessa }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.tipoAllegato.version">Version</span></dt>
+                <dd>
+                    <span>{{ tipoAllegato.version }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/tipo-allegato', tipoAllegato.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

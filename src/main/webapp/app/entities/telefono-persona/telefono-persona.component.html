@@ -1,0 +1,89 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="eoloprjApp.telefonoPersona.home.title">Telefono Personas</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-telefono-persona" [routerLink]="['/telefono-persona/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="eoloprjApp.telefonoPersona.home.createLabel">
+            Create a new Telefono Persona
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'eoloprjApp.telefonoPersona.home.search' | translate }}">
+
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon icon="search"></fa-icon>
+                    </button>
+
+                    <button class="input-group-append btn btn-danger" (click)="search('')" *ngIf="currentSearch">
+                        <fa-icon icon="trash-alt"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="telefonoPersonas?.length === 0">
+        <span jhiTranslate="eoloprjApp.telefonoPersona.home.notFound">No telefonoPersonas found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="telefonoPersonas && telefonoPersonas.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.telefonoPersona.idPersona">Id Persona</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.telefonoPersona.etichetta">Etichetta</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.telefonoPersona.valore">Valore</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.telefonoPersona.persona">Persona</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let telefonoPersona of telefonoPersonas ;trackBy: trackId">
+                    <td><a [routerLink]="['/telefono-persona', telefonoPersona.id, 'view']">{{ telefonoPersona.id }}</a></td>
+                    <td>{{ telefonoPersona.idPersona }}</td>
+                    <td>{{ telefonoPersona.etichetta }}</td>
+                    <td>{{ telefonoPersona.valore }}</td>
+                    <td>
+                        <div *ngIf="telefonoPersona.personaId">
+                            <a [routerLink]="['/persona', telefonoPersona.personaId , 'view']" >{{ telefonoPersona.personaId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/telefono-persona', telefonoPersona.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/telefono-persona', telefonoPersona.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(telefonoPersona)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

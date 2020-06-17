@@ -1,0 +1,11 @@
+{
+  "eoloprjApp": {
+    "Ruoli": {
+      "null": "",
+      "TDP": "TDP",
+      "COLLABORATOREINTERNO": "COLLABORATOREINTERNO",
+      "COLLABORATOREESTERNO": "COLLABORATOREESTERNO",
+      "CLIENTE": "CLIENTE"
+    }
+  }
+}

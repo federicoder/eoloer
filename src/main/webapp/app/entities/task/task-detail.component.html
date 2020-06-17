@@ -1,0 +1,92 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="task">
+            <h2><span jhiTranslate="eoloprjApp.task.detail.title">Task</span> {{ task.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="eoloprjApp.task.idPratica">Id Pratica</span></dt>
+                <dd>
+                    <span>{{ task.idPratica }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.task.nome">Nome</span></dt>
+                <dd>
+                    <span>{{ task.nome }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.task.stato">Stato</span></dt>
+                <dd>
+                    <span>{{ task.stato }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.task.prioritario">Prioritario</span></dt>
+                <dd>
+                    <span>{{ task.prioritario }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.task.pubblico">Pubblico</span></dt>
+                <dd>
+                    <span>{{ task.pubblico }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.task.version">Version</span></dt>
+                <dd>
+                    <span>{{ task.version }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.task.condivisionePraticaId">Condivisione Pratica Id</span></dt>
+                <dd>
+                    <span>{{ task.condivisionePraticaId }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.task.assegnazioneTaskId">Assegnazione Task Id</span></dt>
+                <dd>
+                    <span>{{ task.assegnazioneTaskId }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.task.invitoId">Invito Id</span></dt>
+                <dd>
+                    <span>{{ task.invitoId }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.task.id">Id</span></dt>
+                <dd>
+                    <div *ngIf="task.idId">
+                        <a [routerLink]="['/consuntivo-task', task.idId, 'view']">{{ task.idId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.task.id">Id</span></dt>
+                <dd>
+                    <div *ngIf="task.idId">
+                        <a [routerLink]="['/previsione-task', task.idId, 'view']">{{ task.idId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.task.id">Id</span></dt>
+                <dd>
+                    <div *ngIf="task.idId">
+                        <a [routerLink]="['/assegnazione-task', task.idId, 'view']">{{ task.idId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.task.id">Id</span></dt>
+                <dd>
+                    <div *ngIf="task.idId">
+                        <a [routerLink]="['/invito-attivita', task.idId, 'view']">{{ task.idId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.task.pratica">Pratica</span></dt>
+                <dd>
+                    <div *ngIf="task.praticaId">
+                        <a [routerLink]="['/pratica', task.praticaId, 'view']">{{ task.praticaId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/task', task.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

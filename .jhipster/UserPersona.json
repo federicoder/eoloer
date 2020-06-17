@@ -1,0 +1,51 @@
+{
+  "name": "UserPersona",
+  "fields": [
+    {
+      "fieldName": "idPersona",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "nomeUser",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "condivisionePratica",
+      "otherEntityRelationshipName": "userPersona",
+      "relationshipName": "id"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "assegnazioneTask",
+      "otherEntityRelationshipName": "userPersona",
+      "relationshipName": "id"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "invitato",
+      "otherEntityRelationshipName": "userPersona",
+      "relationshipName": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "personaFisica",
+      "otherEntityRelationshipName": "idPersonaFisica",
+      "relationshipName": "personaFisica",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200617083928",
+  "entityTableName": "user_persona",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["eoloprj"]
+}

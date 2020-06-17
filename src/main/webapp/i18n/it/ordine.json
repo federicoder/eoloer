@@ -1,0 +1,29 @@
+{
+  "eoloprjApp": {
+    "ordine": {
+      "home": {
+        "title": "Ordines",
+        "createLabel": "Genera un nuovo Ordine",
+        "createOrEditLabel": "Genera o modifica un Ordine",
+        "search": "Cerca Ordine",
+        "notFound": "No Ordines found"
+      },
+      "created": "&Egrave; stato generato un nuovo Ordine con identificatore {{ param }}",
+      "updated": "&Egrave; stato aggiornato Ordine identificato da {{ param }}",
+      "deleted": "&Egrave; stato eliminato Ordine con identificatore {{ param }}",
+      "delete": {
+        "question": "Sei sicuro di volere eliminare Ordine {{ id }}?"
+      },
+      "detail": {
+        "title": "Ordine"
+      },
+      "idStudioProfessionale": "Id Studio Professionale",
+      "statoOrdine": "Stato Ordine",
+      "totImponibile": "Tot Imponibile",
+      "totIva": "Tot Iva",
+      "totOrdine": "Tot Ordine",
+      "id": "Id",
+      "studioProfessionale": "Studio Professionale"
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "eoloprjApp": {
+    "personaFisica": {
+      "home": {
+        "title": "Persona Fisicas",
+        "createLabel": "Create a new Persona Fisica",
+        "createOrEditLabel": "Create or edit a Persona Fisica",
+        "search": "Search for Persona Fisica",
+        "notFound": "No Persona Fisicas found"
+      },
+      "created": "A new Persona Fisica is created with identifier {{ param }}",
+      "updated": "A Persona Fisica is updated with identifier {{ param }}",
+      "deleted": "A Persona Fisica is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Persona Fisica {{ id }}?"
+      },
+      "detail": {
+        "title": "Persona Fisica"
+      },
+      "idPersonaFisica": "Id Persona Fisica",
+      "idPersona": "Id Persona",
+      "idRuoloPersona": "Id Ruolo Persona",
+      "titolo": "Titolo",
+      "cognome": "Cognome",
+      "nome": "Nome",
+      "dataDiNascita": "Data Di Nascita",
+      "luogoDiNascita": "Luogo Di Nascita",
+      "professione": "Professione",
+      "idPersona": "Id Persona",
+      "idPersonaFisica": "Id Persona Fisica",
+      "idRuoloPersona": "Id Ruolo Persona"
+    }
+  }
+}

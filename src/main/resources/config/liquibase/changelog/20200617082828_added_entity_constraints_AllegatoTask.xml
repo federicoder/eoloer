@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity AllegatoTask.
+    -->
+    <changeSet id="20200617082828-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="tipo_allegato_id"
+                                 baseTableName="allegato_task"
+                                 constraintName="fk_allegato_task_tipo_allegato_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tipo_allegato"/>
+
+        <addForeignKeyConstraint baseColumnNames="allegato_task_id"
+                                 baseTableName="allegato_task"
+                                 constraintName="fk_allegato_task_allegato_task_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="allegato_task"/>
+
+        <addForeignKeyConstraint baseColumnNames="task_id"
+                                 baseTableName="allegato_task"
+                                 constraintName="fk_allegato_task_task_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="task"/>
+
+    </changeSet>
+</databaseChangeLog>

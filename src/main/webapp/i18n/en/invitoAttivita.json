@@ -1,0 +1,25 @@
+{
+  "eoloprjApp": {
+    "invitoAttivita": {
+      "home": {
+        "title": "Invito Attivitas",
+        "createLabel": "Create a new Invito Attivita",
+        "createOrEditLabel": "Create or edit a Invito Attivita",
+        "search": "Search for Invito Attivita",
+        "notFound": "No Invito Attivitas found"
+      },
+      "created": "A new Invito Attivita is created with identifier {{ param }}",
+      "updated": "A Invito Attivita is updated with identifier {{ param }}",
+      "deleted": "A Invito Attivita is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Invito Attivita {{ id }}?"
+      },
+      "detail": {
+        "title": "Invito Attivita"
+      },
+      "idAttivita": "Id Attivita",
+      "idAttivita": "Id Attivita",
+      "idAttivita": "Id Attivita"
+    }
+  }
+}

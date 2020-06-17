@@ -1,0 +1,86 @@
+{
+  "name": "PrevisioneTask",
+  "fields": [
+    {
+      "fieldName": "idTask",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["max", "required"],
+      "fieldValidateRulesMax": "8"
+    },
+    {
+      "fieldName": "qntOrdine",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["max"],
+      "fieldValidateRulesMax": "8"
+    },
+    {
+      "fieldName": "prcPrevisione",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["max"],
+      "fieldValidateRulesMax": "1"
+    },
+    {
+      "fieldName": "checkList",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "idTaskMilestone",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "tipoTask",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "version",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "previsioneTask",
+      "otherEntityRelationshipName": "previsioneTask",
+      "relationshipName": "idTask"
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "previsioneAttivita",
+      "otherEntityRelationshipName": "idTask",
+      "relationshipName": "idTask",
+      "ownerSide": false
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "previsioneEvento",
+      "otherEntityRelationshipName": "idTask",
+      "relationshipName": "idTask",
+      "ownerSide": false
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "task",
+      "otherEntityRelationshipName": "id",
+      "relationshipName": "idTask",
+      "ownerSide": false
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "previsioneTask",
+      "otherEntityRelationshipName": "idTask",
+      "relationshipName": "previsioneTask",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200617082928",
+  "entityTableName": "previsione_task",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["eoloprj"]
+}

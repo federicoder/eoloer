@@ -1,0 +1,42 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="ruoloOrganizzazione">
+            <h2><span jhiTranslate="eoloprjApp.ruoloOrganizzazione.detail.title">Ruolo Organizzazione</span> {{ ruoloOrganizzazione.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="eoloprjApp.ruoloOrganizzazione.ruoloInOrg">Ruolo In Org</span></dt>
+                <dd>
+                    <span>{{ ruoloOrganizzazione.ruoloInOrg }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.ruoloOrganizzazione.id">Id</span></dt>
+                <dd>
+                    <div *ngIf="ruoloOrganizzazione.idId">
+                        <a [routerLink]="['/organizzazione', ruoloOrganizzazione.idId, 'view']">{{ ruoloOrganizzazione.idId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.ruoloOrganizzazione.id">Id</span></dt>
+                <dd>
+                    <div *ngIf="ruoloOrganizzazione.idId">
+                        <a [routerLink]="['/persona-fisica', ruoloOrganizzazione.idId, 'view']">{{ ruoloOrganizzazione.idId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/ruolo-organizzazione', ruoloOrganizzazione.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

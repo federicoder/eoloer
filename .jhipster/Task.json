@@ -1,0 +1,111 @@
+{
+  "name": "Task",
+  "fields": [
+    {
+      "fieldName": "idPratica",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["max"],
+      "fieldValidateRulesMax": "8"
+    },
+    {
+      "fieldName": "nome",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "stato",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "prioritario",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "pubblico",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "version",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "condivisionePraticaId",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "assegnazioneTaskId",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["max"],
+      "fieldValidateRulesMax": "8"
+    },
+    {
+      "fieldName": "invitoId",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["max"],
+      "fieldValidateRulesMax": "8"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "consuntivoTask",
+      "otherEntityRelationshipName": "idTask",
+      "relationshipName": "id",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "previsioneTask",
+      "otherEntityRelationshipName": "idTask",
+      "relationshipName": "id",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "assegnazioneTask",
+      "otherEntityRelationshipName": "idAttivita",
+      "relationshipName": "id",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "invitoAttivita",
+      "otherEntityRelationshipName": "idAttivita",
+      "relationshipName": "id",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "allegatoTask",
+      "otherEntityRelationshipName": "task",
+      "relationshipName": "id"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "notaTask",
+      "otherEntityRelationshipName": "task",
+      "relationshipName": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "pratica",
+      "otherEntityRelationshipName": "id",
+      "relationshipName": "pratica",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200617082328",
+  "entityTableName": "task",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["eoloprj"]
+}

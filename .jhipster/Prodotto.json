@@ -1,0 +1,38 @@
+{
+  "name": "Prodotto",
+  "fields": [
+    {
+      "fieldName": "nuovaLicenza",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "rinnovoLicenza",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "storage",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "lineaOrdine",
+      "otherEntityRelationshipName": "idProdotto",
+      "relationshipName": "id",
+      "otherEntityField": "id",
+      "ownerSide": true
+    }
+  ],
+  "changelogDate": "20200617085828",
+  "entityTableName": "prodotto",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["eoloprj"]
+}

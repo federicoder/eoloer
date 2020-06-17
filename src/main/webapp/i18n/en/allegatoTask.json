@@ -1,0 +1,35 @@
+{
+  "eoloprjApp": {
+    "allegatoTask": {
+      "home": {
+        "title": "Allegato Tasks",
+        "createLabel": "Create a new Allegato Task",
+        "createOrEditLabel": "Create or edit a Allegato Task",
+        "search": "Search for Allegato Task",
+        "notFound": "No Allegato Tasks found"
+      },
+      "created": "A new Allegato Task is created with identifier {{ param }}",
+      "updated": "A Allegato Task is updated with identifier {{ param }}",
+      "deleted": "A Allegato Task is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Allegato Task {{ id }}?"
+      },
+      "detail": {
+        "title": "Allegato Task"
+      },
+      "idAllegatoTask": "Id Allegato Task",
+      "idTipo": "Id Tipo",
+      "idTask": "Id Task",
+      "formato": "Formato",
+      "note": "Note",
+      "stato": "Stato",
+      "pubblico": "Pubblico",
+      "version": "Version",
+      "idAllegatoMaster": "Id Allegato Master",
+      "idAllegatoTask": "Id Allegato Task",
+      "tipoAllegato": "Tipo Allegato",
+      "allegatoTask": "Allegato Task",
+      "task": "Task"
+    }
+  }
+}

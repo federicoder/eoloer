@@ -1,0 +1,42 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="invitoPratica">
+            <h2><span jhiTranslate="eoloprjApp.invitoPratica.detail.title">Invito Pratica</span> {{ invitoPratica.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="eoloprjApp.invitoPratica.idPratica">Id Pratica</span></dt>
+                <dd>
+                    <span>{{ invitoPratica.idPratica }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.invitoPratica.idPratica">Id Pratica</span></dt>
+                <dd>
+                    <div *ngIf="invitoPratica.idPraticaId">
+                        <a [routerLink]="['/invito', invitoPratica.idPraticaId, 'view']">{{ invitoPratica.idPraticaId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.invitoPratica.pratica">Pratica</span></dt>
+                <dd>
+                    <div *ngIf="invitoPratica.praticaId">
+                        <a [routerLink]="['/pratica', invitoPratica.praticaId, 'view']">{{ invitoPratica.praticaId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/invito-pratica', invitoPratica.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

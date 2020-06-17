@@ -1,0 +1,97 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="eoloprjApp.previsioneTask.home.title">Previsione Tasks</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-previsione-task" [routerLink]="['/previsione-task/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="eoloprjApp.previsioneTask.home.createLabel">
+            Create a new Previsione Task
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'eoloprjApp.previsioneTask.home.search' | translate }}">
+
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon icon="search"></fa-icon>
+                    </button>
+
+                    <button class="input-group-append btn btn-danger" (click)="search('')" *ngIf="currentSearch">
+                        <fa-icon icon="trash-alt"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="previsioneTasks?.length === 0">
+        <span jhiTranslate="eoloprjApp.previsioneTask.home.notFound">No previsioneTasks found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="previsioneTasks && previsioneTasks.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.previsioneTask.idTask">Id Task</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.previsioneTask.qntOrdine">Qnt Ordine</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.previsioneTask.prcPrevisione">Prc Previsione</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.previsioneTask.checkList">Check List</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.previsioneTask.idTaskMilestone">Id Task Milestone</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.previsioneTask.tipoTask">Tipo Task</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.previsioneTask.version">Version</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.previsioneTask.previsioneTask">Previsione Task</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let previsioneTask of previsioneTasks ;trackBy: trackId">
+                    <td><a [routerLink]="['/previsione-task', previsioneTask.id, 'view']">{{ previsioneTask.id }}</a></td>
+                    <td>{{ previsioneTask.idTask }}</td>
+                    <td>{{ previsioneTask.qntOrdine }}</td>
+                    <td>{{ previsioneTask.prcPrevisione }}</td>
+                    <td>{{ previsioneTask.checkList }}</td>
+                    <td>{{ previsioneTask.idTaskMilestone }}</td>
+                    <td>{{ previsioneTask.tipoTask }}</td>
+                    <td>{{ previsioneTask.version }}</td>
+                    <td>
+                        <div *ngIf="previsioneTask.previsioneTaskId">
+                            <a [routerLink]="['/previsione-task', previsioneTask.previsioneTaskId , 'view']" >{{ previsioneTask.previsioneTaskId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/previsione-task', previsioneTask.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/previsione-task', previsioneTask.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(previsioneTask)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+{
+  "eoloprjApp": {
+    "invitoPratica": {
+      "home": {
+        "title": "Invito Praticas",
+        "createLabel": "Create a new Invito Pratica",
+        "createOrEditLabel": "Create or edit a Invito Pratica",
+        "search": "Search for Invito Pratica",
+        "notFound": "No Invito Praticas found"
+      },
+      "created": "A new Invito Pratica is created with identifier {{ param }}",
+      "updated": "A Invito Pratica is updated with identifier {{ param }}",
+      "deleted": "A Invito Pratica is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Invito Pratica {{ id }}?"
+      },
+      "detail": {
+        "title": "Invito Pratica"
+      },
+      "idPratica": "Id Pratica",
+      "idPratica": "Id Pratica",
+      "pratica": "Pratica"
+    }
+  }
+}

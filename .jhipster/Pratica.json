@@ -1,0 +1,105 @@
+{
+  "name": "Pratica",
+  "fields": [
+    {
+      "fieldName": "idStudio",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["max"],
+      "fieldValidateRulesMax": "8"
+    },
+    {
+      "fieldName": "numero",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nome",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dataApertura",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dataChiusura",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dataScadenza",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "stato",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "motivoChiusura",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "idTitolare",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["max"],
+      "fieldValidateRulesMax": "8"
+    },
+    {
+      "fieldName": "prcAvanzato",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "version",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "valuta",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "idTemplatePratica",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "task",
+      "otherEntityRelationshipName": "pratica",
+      "relationshipName": "id"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "notaPratica",
+      "otherEntityRelationshipName": "pratica",
+      "relationshipName": "id"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "condivisionePratica",
+      "otherEntityRelationshipName": "pratica",
+      "relationshipName": "id"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "invitoPratica",
+      "otherEntityRelationshipName": "pratica",
+      "relationshipName": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "templatePratica",
+      "otherEntityRelationshipName": "pratica",
+      "relationshipName": "idTemplate",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200617082228",
+  "entityTableName": "pratica",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["eoloprj"]
+}

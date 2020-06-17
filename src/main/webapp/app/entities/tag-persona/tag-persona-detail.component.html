@@ -1,0 +1,40 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="tagPersona">
+            <h2><span jhiTranslate="eoloprjApp.tagPersona.detail.title">Tag Persona</span> {{ tagPersona.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="eoloprjApp.tagPersona.idPersona">Id Persona</span></dt>
+                <dd>
+                    <span>{{ tagPersona.idPersona }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.tagPersona.tag">Tag</span></dt>
+                <dd>
+                    <span>{{ tagPersona.tag }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.tagPersona.persona">Persona</span></dt>
+                <dd>
+                    <div *ngIf="tagPersona.personaId">
+                        <a [routerLink]="['/persona', tagPersona.personaId, 'view']">{{ tagPersona.personaId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/tag-persona', tagPersona.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

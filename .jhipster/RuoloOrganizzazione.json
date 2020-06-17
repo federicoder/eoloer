@@ -1,0 +1,38 @@
+{
+  "name": "RuoloOrganizzazione",
+  "fields": [
+    {
+      "fieldName": "ruoloInOrg",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "organizzazione",
+      "otherEntityRelationshipName": "idOrganizzazione",
+      "relationshipName": "id",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "personaFisica",
+      "otherEntityRelationshipName": "idRuoloPersona",
+      "relationshipName": "id",
+      "otherEntityField": "id",
+      "ownerSide": true
+    }
+  ],
+  "changelogDate": "20200617084728",
+  "entityTableName": "ruolo_organizzazione",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["eoloprj"]
+}

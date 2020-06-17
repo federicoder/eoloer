@@ -1,0 +1,46 @@
+{
+  "eoloprjApp": {
+    "persona": {
+      "home": {
+        "title": "Personas",
+        "createLabel": "Genera un nuovo Persona",
+        "createOrEditLabel": "Genera o modifica un Persona",
+        "search": "Cerca Persona",
+        "notFound": "No Personas found"
+      },
+      "created": "&Egrave; stato generato un nuovo Persona con identificatore {{ param }}",
+      "updated": "&Egrave; stato aggiornato Persona identificato da {{ param }}",
+      "deleted": "&Egrave; stato eliminato Persona con identificatore {{ param }}",
+      "delete": {
+        "question": "Sei sicuro di volere eliminare Persona {{ id }}?"
+      },
+      "detail": {
+        "title": "Persona"
+      },
+      "idStudio": "Id Studio",
+      "codiceFiscale": "Codice Fiscale",
+      "areaDiInteresse": "Area Di Interesse",
+      "titolo": "Titolo",
+      "cognome": "Cognome",
+      "nome": "Nome",
+      "dataDiNascita": "Data Di Nascita",
+      "luogoDiNascita": "Luogo Di Nascita",
+      "professione": "Professione",
+      "tipo": "Tipo",
+      "discriminator": "Discriminator",
+      "idRuoloPersona": "Id Ruolo Persona",
+      "tipoRuoloUtente": "Tipo Ruolo Utente",
+      "id": "Id",
+      "id": "Id",
+      "id": "Id",
+      "id": "Id",
+      "id": "Id",
+      "id": "Id",
+      "id": "Id",
+      "id": "Id",
+      "id": "Id",
+      "id": "Id",
+      "idPersona": "Id Persona"
+    }
+  }
+}

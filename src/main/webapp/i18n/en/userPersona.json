@@ -1,0 +1,28 @@
+{
+  "eoloprjApp": {
+    "userPersona": {
+      "home": {
+        "title": "User Personas",
+        "createLabel": "Create a new User Persona",
+        "createOrEditLabel": "Create or edit a User Persona",
+        "search": "Search for User Persona",
+        "notFound": "No User Personas found"
+      },
+      "created": "A new User Persona is created with identifier {{ param }}",
+      "updated": "A User Persona is updated with identifier {{ param }}",
+      "deleted": "A User Persona is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete User Persona {{ id }}?"
+      },
+      "detail": {
+        "title": "User Persona"
+      },
+      "idPersona": "Id Persona",
+      "nomeUser": "Nome User",
+      "id": "Id",
+      "id": "Id",
+      "id": "Id",
+      "personaFisica": "Persona Fisica"
+    }
+  }
+}

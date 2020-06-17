@@ -1,0 +1,27 @@
+{
+  "eoloprjApp": {
+    "notaTask": {
+      "home": {
+        "title": "NotaTasks",
+        "createLabel": "Genera un nuovo Nota Task",
+        "createOrEditLabel": "Genera o modifica un Nota Task",
+        "search": "Cerca Nota Task",
+        "notFound": "No Nota Tasks found"
+      },
+      "created": "&Egrave; stato generato un nuovo Nota Task con identificatore {{ param }}",
+      "updated": "&Egrave; stato aggiornato Nota Task identificato da {{ param }}",
+      "deleted": "&Egrave; stato eliminato Nota Task con identificatore {{ param }}",
+      "delete": {
+        "question": "Sei sicuro di volere eliminare Nota Task {{ id }}?"
+      },
+      "detail": {
+        "title": "Nota Task"
+      },
+      "idTask": "Id Task",
+      "data": "Data",
+      "nota": "Nota",
+      "version": "Version",
+      "task": "Task"
+    }
+  }
+}

@@ -1,0 +1,143 @@
+{
+  "name": "Persona",
+  "fields": [
+    {
+      "fieldName": "idStudio",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["max"],
+      "fieldValidateRulesMax": "8"
+    },
+    {
+      "fieldName": "codiceFiscale",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "areaDiInteresse",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "titolo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "cognome",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nome",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dataDiNascita",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "luogoDiNascita",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "professione",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tipo",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "discriminator",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "idRuoloPersona",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "tipoRuoloUtente",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "indirizzoPersona",
+      "otherEntityRelationshipName": "idPersona",
+      "relationshipName": "id",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "datiContabili",
+      "otherEntityRelationshipName": "persona",
+      "relationshipName": "id"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "emailPersona",
+      "otherEntityRelationshipName": "persona",
+      "relationshipName": "id"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "tagPersona",
+      "otherEntityRelationshipName": "persona",
+      "relationshipName": "id"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "telefonoPersona",
+      "otherEntityRelationshipName": "persona",
+      "relationshipName": "id"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "notePersona",
+      "otherEntityRelationshipName": "persona",
+      "relationshipName": "id"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "studioProfessionale",
+      "otherEntityRelationshipName": "persona",
+      "relationshipName": "id"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "rappresentanzaPratica",
+      "otherEntityRelationshipName": "persona",
+      "relationshipName": "id"
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "personaFisica",
+      "otherEntityRelationshipName": "idPersona",
+      "relationshipName": "id",
+      "ownerSide": false
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "organizzazione",
+      "otherEntityRelationshipName": "idPersona",
+      "relationshipName": "id",
+      "ownerSide": false
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "condivisionePratica",
+      "otherEntityRelationshipName": "idUserConcedente",
+      "relationshipName": "idPersona",
+      "ownerSide": false
+    }
+  ],
+  "changelogDate": "20200617084428",
+  "entityTableName": "persona",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["eoloprj"]
+}

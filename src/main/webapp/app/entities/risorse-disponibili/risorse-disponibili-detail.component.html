@@ -1,0 +1,48 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="risorseDisponibili">
+            <h2><span jhiTranslate="eoloprjApp.risorseDisponibili.detail.title">Risorse Disponibili</span> {{ risorseDisponibili.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="eoloprjApp.risorseDisponibili.idStudioProfessionale">Id Studio Professionale</span></dt>
+                <dd>
+                    <span>{{ risorseDisponibili.idStudioProfessionale }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.risorseDisponibili.dataAttivazioneLicenza">Data Attivazione Licenza</span></dt>
+                <dd>
+                    <span>{{ risorseDisponibili.dataAttivazioneLicenza }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.risorseDisponibili.nrLicenza">Nr Licenza</span></dt>
+                <dd>
+                    <span>{{ risorseDisponibili.nrLicenza }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.risorseDisponibili.storageTotale">Storage Totale</span></dt>
+                <dd>
+                    <span>{{ risorseDisponibili.storageTotale }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.risorseDisponibili.studioProfessionale">Studio Professionale</span></dt>
+                <dd>
+                    <div *ngIf="risorseDisponibili.studioProfessionaleId">
+                        <a [routerLink]="['/studio-professionale', risorseDisponibili.studioProfessionaleId, 'view']">{{ risorseDisponibili.studioProfessionaleId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/risorse-disponibili', risorseDisponibili.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

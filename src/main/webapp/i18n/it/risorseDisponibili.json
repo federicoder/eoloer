@@ -1,0 +1,27 @@
+{
+  "eoloprjApp": {
+    "risorseDisponibili": {
+      "home": {
+        "title": "RisorseDisponibilis",
+        "createLabel": "Genera un nuovo Risorse Disponibili",
+        "createOrEditLabel": "Genera o modifica un Risorse Disponibili",
+        "search": "Cerca Risorse Disponibili",
+        "notFound": "No Risorse Disponibilis found"
+      },
+      "created": "&Egrave; stato generato un nuovo Risorse Disponibili con identificatore {{ param }}",
+      "updated": "&Egrave; stato aggiornato Risorse Disponibili identificato da {{ param }}",
+      "deleted": "&Egrave; stato eliminato Risorse Disponibili con identificatore {{ param }}",
+      "delete": {
+        "question": "Sei sicuro di volere eliminare Risorse Disponibili {{ id }}?"
+      },
+      "detail": {
+        "title": "Risorse Disponibili"
+      },
+      "idStudioProfessionale": "Id Studio Professionale",
+      "dataAttivazioneLicenza": "Data Attivazione Licenza",
+      "nrLicenza": "Nr Licenza",
+      "storageTotale": "Storage Totale",
+      "studioProfessionale": "Studio Professionale"
+    }
+  }
+}

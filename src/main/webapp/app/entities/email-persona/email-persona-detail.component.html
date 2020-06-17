@@ -1,0 +1,44 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="emailPersona">
+            <h2><span jhiTranslate="eoloprjApp.emailPersona.detail.title">Email Persona</span> {{ emailPersona.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="eoloprjApp.emailPersona.idPersona">Id Persona</span></dt>
+                <dd>
+                    <span>{{ emailPersona.idPersona }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.emailPersona.etichetta">Etichetta</span></dt>
+                <dd>
+                    <span>{{ emailPersona.etichetta }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.emailPersona.numero">Numero</span></dt>
+                <dd>
+                    <span>{{ emailPersona.numero }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.emailPersona.persona">Persona</span></dt>
+                <dd>
+                    <div *ngIf="emailPersona.personaId">
+                        <a [routerLink]="['/persona', emailPersona.personaId, 'view']">{{ emailPersona.personaId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/email-persona', emailPersona.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

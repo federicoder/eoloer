@@ -1,0 +1,36 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="studioProfessionale">
+            <h2><span jhiTranslate="eoloprjApp.studioProfessionale.detail.title">Studio Professionale</span> {{ studioProfessionale.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="eoloprjApp.studioProfessionale.idUserAmministratore">Id User Amministratore</span></dt>
+                <dd>
+                    <span>{{ studioProfessionale.idUserAmministratore }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.studioProfessionale.persona">Persona</span></dt>
+                <dd>
+                    <div *ngIf="studioProfessionale.personaId">
+                        <a [routerLink]="['/persona', studioProfessionale.personaId, 'view']">{{ studioProfessionale.personaId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/studio-professionale', studioProfessionale.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

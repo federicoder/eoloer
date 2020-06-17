@@ -1,0 +1,102 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="invito">
+            <h2><span jhiTranslate="eoloprjApp.invito.detail.title">Invito</span> {{ invito.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="eoloprjApp.invito.idStudioProfessionale">Id Studio Professionale</span></dt>
+                <dd>
+                    <span>{{ invito.idStudioProfessionale }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.invito.dataInvito">Data Invito</span></dt>
+                <dd>
+                    <span>{{ invito.dataInvito }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.invito.idUserInvitante">Id User Invitante</span></dt>
+                <dd>
+                    <span>{{ invito.idUserInvitante }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.invito.nomeUserInvitante">Nome User Invitante</span></dt>
+                <dd>
+                    <span>{{ invito.nomeUserInvitante }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.invito.dataScadenzaInvito">Data Scadenza Invito</span></dt>
+                <dd>
+                    <span>{{ invito.dataScadenzaInvito }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.invito.testoInvito">Testo Invito</span></dt>
+                <dd>
+                    <span>{{ invito.testoInvito }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.invito.idPratica">Id Pratica</span></dt>
+                <dd>
+                    <span>{{ invito.idPratica }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.invito.idAttivita">Id Attivita</span></dt>
+                <dd>
+                    <span>{{ invito.idAttivita }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.invito.luogoFisico">Luogo Fisico</span></dt>
+                <dd>
+                    <span>{{ invito.luogoFisico }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.invito.indicazioniLuogo">Indicazioni Luogo</span></dt>
+                <dd>
+                    <span>{{ invito.indicazioniLuogo }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.invito.dataInizio">Data Inizio</span></dt>
+                <dd>
+                    <span>{{ invito.dataInizio }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.invito.oraInizio">Ora Inizio</span></dt>
+                <dd>
+                    <span>{{ invito.oraInizio }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.invito.dataFine">Data Fine</span></dt>
+                <dd>
+                    <span>{{ invito.dataFine }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.invito.oraFine">Ora Fine</span></dt>
+                <dd>
+                    <span>{{ invito.oraFine }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.invito.urlStanzaVirtuale">Url Stanza Virtuale</span></dt>
+                <dd>
+                    <span>{{ invito.urlStanzaVirtuale }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.invito.discriminator">Discriminator</span></dt>
+                <dd>
+                    <span>{{ invito.discriminator }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.invito.idStudioProfessionale">Id Studio Professionale</span></dt>
+                <dd>
+                    <div *ngIf="invito.idStudioProfessionaleId">
+                        <a [routerLink]="['/studio-professionale', invito.idStudioProfessionaleId, 'view']">{{ invito.idStudioProfessionaleId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.invito.assegnazioneTask">Assegnazione Task</span></dt>
+                <dd>
+                    <div *ngIf="invito.assegnazioneTaskId">
+                        <a [routerLink]="['/assegnazione-task', invito.assegnazioneTaskId, 'view']">{{ invito.assegnazioneTaskId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/invito', invito.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

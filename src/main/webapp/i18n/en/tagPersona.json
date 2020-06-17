@@ -1,0 +1,25 @@
+{
+  "eoloprjApp": {
+    "tagPersona": {
+      "home": {
+        "title": "Tag Personas",
+        "createLabel": "Create a new Tag Persona",
+        "createOrEditLabel": "Create or edit a Tag Persona",
+        "search": "Search for Tag Persona",
+        "notFound": "No Tag Personas found"
+      },
+      "created": "A new Tag Persona is created with identifier {{ param }}",
+      "updated": "A Tag Persona is updated with identifier {{ param }}",
+      "deleted": "A Tag Persona is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Tag Persona {{ id }}?"
+      },
+      "detail": {
+        "title": "Tag Persona"
+      },
+      "idPersona": "Id Persona",
+      "tag": "Tag",
+      "persona": "Persona"
+    }
+  }
+}

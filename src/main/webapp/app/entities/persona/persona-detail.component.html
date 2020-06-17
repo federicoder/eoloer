@@ -1,0 +1,84 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="persona">
+            <h2><span jhiTranslate="eoloprjApp.persona.detail.title">Persona</span> {{ persona.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="eoloprjApp.persona.idStudio">Id Studio</span></dt>
+                <dd>
+                    <span>{{ persona.idStudio }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.persona.codiceFiscale">Codice Fiscale</span></dt>
+                <dd>
+                    <span>{{ persona.codiceFiscale }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.persona.areaDiInteresse">Area Di Interesse</span></dt>
+                <dd>
+                    <span>{{ persona.areaDiInteresse }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.persona.titolo">Titolo</span></dt>
+                <dd>
+                    <span>{{ persona.titolo }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.persona.cognome">Cognome</span></dt>
+                <dd>
+                    <span>{{ persona.cognome }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.persona.nome">Nome</span></dt>
+                <dd>
+                    <span>{{ persona.nome }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.persona.dataDiNascita">Data Di Nascita</span></dt>
+                <dd>
+                    <span>{{ persona.dataDiNascita }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.persona.luogoDiNascita">Luogo Di Nascita</span></dt>
+                <dd>
+                    <span>{{ persona.luogoDiNascita }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.persona.professione">Professione</span></dt>
+                <dd>
+                    <span>{{ persona.professione }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.persona.tipo">Tipo</span></dt>
+                <dd>
+                    <span>{{ persona.tipo }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.persona.discriminator">Discriminator</span></dt>
+                <dd>
+                    <span>{{ persona.discriminator }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.persona.idRuoloPersona">Id Ruolo Persona</span></dt>
+                <dd>
+                    <span>{{ persona.idRuoloPersona }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.persona.tipoRuoloUtente">Tipo Ruolo Utente</span></dt>
+                <dd>
+                    <span>{{ persona.tipoRuoloUtente }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.persona.id">Id</span></dt>
+                <dd>
+                    <div *ngIf="persona.idId">
+                        <a [routerLink]="['/indirizzo-persona', persona.idId, 'view']">{{ persona.idId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/persona', persona.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

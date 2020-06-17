@@ -1,0 +1,49 @@
+{
+  "name": "StudioProfessionale",
+  "fields": [
+    {
+      "fieldName": "idUserAmministratore",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "risorseDisponibili",
+      "otherEntityRelationshipName": "studioProfessionale",
+      "relationshipName": "id"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "ordine",
+      "otherEntityRelationshipName": "studioProfessionale",
+      "relationshipName": "id"
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "invito",
+      "otherEntityRelationshipName": "idStudioProfessionale",
+      "relationshipName": "id",
+      "ownerSide": false
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "persona",
+      "otherEntityRelationshipName": "id",
+      "relationshipName": "persona",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200617085428",
+  "entityTableName": "studio_professionale",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["eoloprj"]
+}

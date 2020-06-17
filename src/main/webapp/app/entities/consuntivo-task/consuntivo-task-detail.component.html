@@ -1,0 +1,46 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="consuntivoTask">
+            <h2><span jhiTranslate="eoloprjApp.consuntivoTask.detail.title">Consuntivo Task</span> {{ consuntivoTask.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="eoloprjApp.consuntivoTask.idTask">Id Task</span></dt>
+                <dd>
+                    <span>{{ consuntivoTask.idTask }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.consuntivoTask.dataInizio">Data Inizio</span></dt>
+                <dd>
+                    <span>{{ consuntivoTask.dataInizio }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.consuntivoTask.dataFine">Data Fine</span></dt>
+                <dd>
+                    <span>{{ consuntivoTask.dataFine }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.consuntivoTask.timeLine">Time Line</span></dt>
+                <dd>
+                    <span>{{ consuntivoTask.timeLine }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.consuntivoTask.version">Version</span></dt>
+                <dd>
+                    <span>{{ consuntivoTask.version }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/consuntivo-task', consuntivoTask.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

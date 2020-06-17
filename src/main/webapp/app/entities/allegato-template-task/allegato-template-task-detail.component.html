@@ -1,0 +1,58 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="allegatoTemplateTask">
+            <h2><span jhiTranslate="eoloprjApp.allegatoTemplateTask.detail.title">Allegato Template Task</span> {{ allegatoTemplateTask.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="eoloprjApp.allegatoTemplateTask.idTemplateTask">Id Template Task</span></dt>
+                <dd>
+                    <span>{{ allegatoTemplateTask.idTemplateTask }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.allegatoTemplateTask.tipoAllegato">Tipo Allegato</span></dt>
+                <dd>
+                    <span>{{ allegatoTemplateTask.tipoAllegato }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.allegatoTemplateTask.formato">Formato</span></dt>
+                <dd>
+                    <span>{{ allegatoTemplateTask.formato }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.allegatoTemplateTask.idFile">Id File</span></dt>
+                <dd>
+                    <span>{{ allegatoTemplateTask.idFile }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.allegatoTemplateTask.pubPriv">Pub Priv</span></dt>
+                <dd>
+                    <span>{{ allegatoTemplateTask.pubPriv }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.allegatoTemplateTask.templateTask">Template Task</span></dt>
+                <dd>
+                    <div *ngIf="allegatoTemplateTask.templateTaskId">
+                        <a [routerLink]="['/template-task', allegatoTemplateTask.templateTaskId, 'view']">{{ allegatoTemplateTask.templateTaskId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.allegatoTemplateTask.tipoAllegato">Tipo Allegato</span></dt>
+                <dd>
+                    <div *ngIf="allegatoTemplateTask.tipoAllegatoId">
+                        <a [routerLink]="['/tipo-allegato', allegatoTemplateTask.tipoAllegatoId, 'view']">{{ allegatoTemplateTask.tipoAllegatoId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/allegato-template-task', allegatoTemplateTask.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

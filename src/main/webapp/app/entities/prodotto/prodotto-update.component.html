@@ -1,0 +1,52 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-prodotto-heading" jhiTranslate="eoloprjApp.prodotto.home.createOrEditLabel">Create or edit a Prodotto</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.prodotto.nuovaLicenza" for="field_nuovaLicenza">Nuova Licenza</label>
+                    <input type="number" class="form-control" name="nuovaLicenza" id="field_nuovaLicenza"
+                           formControlName="nuovaLicenza"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.prodotto.rinnovoLicenza" for="field_rinnovoLicenza">Rinnovo Licenza</label>
+                    <input type="number" class="form-control" name="rinnovoLicenza" id="field_rinnovoLicenza"
+                           formControlName="rinnovoLicenza"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.prodotto.storage" for="field_storage">Storage</label>
+                    <input type="number" class="form-control" name="storage" id="field_storage"
+                           formControlName="storage"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.prodotto.id" for="field_id">Id</label>
+                    <select class="form-control" id="field_id" name="id" formControlName="idId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="lineaOrdineOption.id" *ngFor="let lineaOrdineOption of ids; trackBy: trackById">{{ lineaOrdineOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
