@@ -444,6 +444,8 @@ relationship OneToOne {
 
 //Use Data Transfert Objects (DTO)
 dto * with mapstruct
+service all with serviceImpl
+service all with serviceClass
 application{
 	config{
     	databaseType sql,	
@@ -458,11 +460,11 @@ application{
         searchEngine elasticsearch,
         testFrameworks [protractor],
         websocket spring-websocket,
+        
     }
 }
 
 // Set service options to all except few
-service all with serviceImpl
 //qui volendo si possono implementare le entità da far puntare a elastichsearch
 //search * with elasticsearch
 
