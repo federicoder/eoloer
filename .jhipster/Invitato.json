@@ -52,15 +52,15 @@
     {
       "relationshipType": "many-to-one",
       "otherEntityName": "userPersona",
-      "otherEntityRelationshipName": "id",
-      "relationshipName": "userPersona",
+      "otherEntityRelationshipName": "invitato",
+      "relationshipName": "idUserInvitato",
       "otherEntityField": "id"
     },
     {
       "relationshipType": "many-to-one",
       "otherEntityName": "invito",
-      "otherEntityRelationshipName": "id",
-      "relationshipName": "invito",
+      "otherEntityRelationshipName": "invitato",
+      "relationshipName": "idInvitoRef",
       "otherEntityField": "id"
     }
   ],

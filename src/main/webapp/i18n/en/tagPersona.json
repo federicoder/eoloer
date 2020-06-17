@@ -19,7 +19,7 @@
       },
       "idPersonaRef": "Id Persona Ref",
       "tag": "Tag",
-      "persona": "Persona"
+      "idPersonaRef": "Id Persona Ref"
     }
   }
 }

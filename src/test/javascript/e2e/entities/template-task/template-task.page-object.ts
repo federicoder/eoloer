@@ -35,7 +35,8 @@ export class TemplateTaskUpdatePage {
   pubPrivInput = element(by.id('field_pubPriv'));
   idTemplatePraticaRefInput = element(by.id('field_idTemplatePraticaRef'));
 
-  templatePraticaSelect = element(by.id('field_templatePratica'));
+  idTemplatePraticaRefSelect = element(by.id('field_idTemplatePraticaRef'));
+  idSelect = element(by.id('field_id'));
   templateTaskSelect = element(by.id('field_templateTask'));
 
   async getPageTitle(): Promise<string> {
@@ -82,20 +83,36 @@ export class TemplateTaskUpdatePage {
     return await this.idTemplatePraticaRefInput.getAttribute('value');
   }
 
-  async templatePraticaSelectLastOption(): Promise<void> {
-    await this.templatePraticaSelect.all(by.tagName('option')).last().click();
+  async idTemplatePraticaRefSelectLastOption(): Promise<void> {
+    await this.idTemplatePraticaRefSelect.all(by.tagName('option')).last().click();
   }
 
-  async templatePraticaSelectOption(option: string): Promise<void> {
-    await this.templatePraticaSelect.sendKeys(option);
+  async idTemplatePraticaRefSelectOption(option: string): Promise<void> {
+    await this.idTemplatePraticaRefSelect.sendKeys(option);
   }
 
-  getTemplatePraticaSelect(): ElementFinder {
-    return this.templatePraticaSelect;
+  getIdTemplatePraticaRefSelect(): ElementFinder {
+    return this.idTemplatePraticaRefSelect;
   }
 
-  async getTemplatePraticaSelectedOption(): Promise<string> {
-    return await this.templatePraticaSelect.element(by.css('option:checked')).getText();
+  async getIdTemplatePraticaRefSelectedOption(): Promise<string> {
+    return await this.idTemplatePraticaRefSelect.element(by.css('option:checked')).getText();
+  }
+
+  async idSelectLastOption(): Promise<void> {
+    await this.idSelect.all(by.tagName('option')).last().click();
+  }
+
+  async idSelectOption(option: string): Promise<void> {
+    await this.idSelect.sendKeys(option);
+  }
+
+  getIdSelect(): ElementFinder {
+    return this.idSelect;
+  }
+
+  async getIdSelectedOption(): Promise<string> {
+    return await this.idSelect.element(by.css('option:checked')).getText();
   }
 
   async templateTaskSelectLastOption(): Promise<void> {

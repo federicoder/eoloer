@@ -18,7 +18,7 @@ public class TelefonoPersonaDTO implements Serializable {
     private Long valore;
 
 
-    private Long personaId;
+    private Long idPersonaRefId;
     
     public Long getId() {
         return id;
@@ -52,12 +52,12 @@ public class TelefonoPersonaDTO implements Serializable {
         this.valore = valore;
     }
 
-    public Long getPersonaId() {
-        return personaId;
+    public Long getIdPersonaRefId() {
+        return idPersonaRefId;
     }
 
-    public void setPersonaId(Long personaId) {
-        this.personaId = personaId;
+    public void setIdPersonaRefId(Long personaId) {
+        this.idPersonaRefId = personaId;
     }
 
     @Override
@@ -85,7 +85,7 @@ public class TelefonoPersonaDTO implements Serializable {
             ", idPersonaRef=" + getIdPersonaRef() +
             ", etichetta=" + getEtichetta() +
             ", valore=" + getValore() +
-            ", personaId=" + getPersonaId() +
+            ", idPersonaRefId=" + getIdPersonaRefId() +
             "}";
     }
 }

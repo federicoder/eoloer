@@ -13,14 +13,14 @@ import org.mapstruct.*;
 public interface AssegnazioneTaskMapper extends EntityMapper<AssegnazioneTaskDTO, AssegnazioneTask> {
 
     @Mapping(source = "ruolo.id", target = "ruoloId")
-    @Mapping(source = "userPersona.id", target = "userPersonaId")
+    @Mapping(source = "idUserAmmesso.id", target = "idUserAmmessoId")
     AssegnazioneTaskDTO toDto(AssegnazioneTask assegnazioneTask);
 
     @Mapping(source = "ruoloId", target = "ruolo")
     @Mapping(target = "idUserConcedentes", ignore = true)
     @Mapping(target = "removeIdUserConcedente", ignore = true)
+    @Mapping(source = "idUserAmmessoId", target = "idUserAmmesso")
     @Mapping(target = "idTaskRef", ignore = true)
-    @Mapping(source = "userPersonaId", target = "userPersona")
     AssegnazioneTask toEntity(AssegnazioneTaskDTO assegnazioneTaskDTO);
 
     default AssegnazioneTask fromId(Long id) {

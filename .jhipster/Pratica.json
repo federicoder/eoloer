@@ -59,30 +59,6 @@
   ],
   "relationships": [
     {
-      "relationshipType": "one-to-many",
-      "otherEntityName": "task",
-      "otherEntityRelationshipName": "pratica",
-      "relationshipName": "id"
-    },
-    {
-      "relationshipType": "one-to-many",
-      "otherEntityName": "notaPratica",
-      "otherEntityRelationshipName": "pratica",
-      "relationshipName": "id"
-    },
-    {
-      "relationshipType": "one-to-many",
-      "otherEntityName": "condivisionePratica",
-      "otherEntityRelationshipName": "pratica",
-      "relationshipName": "id"
-    },
-    {
-      "relationshipType": "one-to-many",
-      "otherEntityName": "invitoPratica",
-      "otherEntityRelationshipName": "pratica",
-      "relationshipName": "id"
-    },
-    {
       "relationshipType": "many-to-one",
       "otherEntityName": "templatePratica",
       "otherEntityRelationshipName": "pratica",

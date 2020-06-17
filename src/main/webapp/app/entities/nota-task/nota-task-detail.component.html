@@ -28,10 +28,10 @@
                 <dd>
                     <span>{{ notaTask.version }}</span>
                 </dd>
-                <dt><span jhiTranslate="eoloprjApp.notaTask.task">Task</span></dt>
+                <dt><span jhiTranslate="eoloprjApp.notaTask.idTaskRef">Id Task Ref</span></dt>
                 <dd>
-                    <div *ngIf="notaTask.taskId">
-                        <a [routerLink]="['/task', notaTask.taskId, 'view']">{{ notaTask.taskId }}</a>
+                    <div *ngIf="notaTask.idTaskRefId">
+                        <a [routerLink]="['/task', notaTask.idTaskRefId, 'view']">{{ notaTask.idTaskRefId }}</a>
                     </div>
                 </dd>
             </dl>

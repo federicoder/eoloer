@@ -46,13 +46,13 @@ public class TemplateTask implements Serializable {
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     private Set<TemplateTask> ids = new HashSet<>();
 
-    @OneToMany(mappedBy = "templateTask")
-    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<AllegatoTemplateTask> ids = new HashSet<>();
+    @ManyToOne
+    @JsonIgnoreProperties(value = "templateTasks", allowSetters = true)
+    private TemplatePratica idTemplatePraticaRef;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "ids", allowSetters = true)
-    private TemplatePratica templatePratica;
+    @JsonIgnoreProperties(value = "templateTasks", allowSetters = true)
+    private TemplateTask id;
 
     @ManyToOne
     @JsonIgnoreProperties(value = "ids", allowSetters = true)
@@ -157,42 +157,30 @@ public class TemplateTask implements Serializable {
         this.ids = templateTasks;
     }
 
-    public Set<AllegatoTemplateTask> getIds() {
-        return ids;
+    public TemplatePratica getIdTemplatePraticaRef() {
+        return idTemplatePraticaRef;
     }
 
-    public TemplateTask ids(Set<AllegatoTemplateTask> allegatoTemplateTasks) {
-        this.ids = allegatoTemplateTasks;
+    public TemplateTask idTemplatePraticaRef(TemplatePratica templatePratica) {
+        this.idTemplatePraticaRef = templatePratica;
         return this;
     }
 
-    public TemplateTask addId(AllegatoTemplateTask allegatoTemplateTask) {
-        this.ids.add(allegatoTemplateTask);
-        allegatoTemplateTask.setTemplateTask(this);
+    public void setIdTemplatePraticaRef(TemplatePratica templatePratica) {
+        this.idTemplatePraticaRef = templatePratica;
+    }
+
+    public TemplateTask getId() {
+        return id;
+    }
+
+    public TemplateTask id(TemplateTask templateTask) {
+        this.id = templateTask;
         return this;
     }
 
-    public TemplateTask removeId(AllegatoTemplateTask allegatoTemplateTask) {
-        this.ids.remove(allegatoTemplateTask);
-        allegatoTemplateTask.setTemplateTask(null);
-        return this;
-    }
-
-    public void setIds(Set<AllegatoTemplateTask> allegatoTemplateTasks) {
-        this.ids = allegatoTemplateTasks;
-    }
-
-    public TemplatePratica getTemplatePratica() {
-        return templatePratica;
-    }
-
-    public TemplateTask templatePratica(TemplatePratica templatePratica) {
-        this.templatePratica = templatePratica;
-        return this;
-    }
-
-    public void setTemplatePratica(TemplatePratica templatePratica) {
-        this.templatePratica = templatePratica;
+    public void setId(TemplateTask templateTask) {
+        this.id = templateTask;
     }
 
     public TemplateTask getTemplateTask() {

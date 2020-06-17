@@ -22,8 +22,7 @@
       "totImponibile": "Tot Imponibile",
       "totIva": "Tot Iva",
       "totOrdine": "Tot Ordine",
-      "id": "Id",
-      "studioProfessionale": "Studio Professionale"
+      "idStudioProfessionaleRef": "Id Studio Professionale Ref"
     }
   }
 }

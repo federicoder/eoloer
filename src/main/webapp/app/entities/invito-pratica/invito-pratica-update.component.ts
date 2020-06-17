@@ -28,7 +28,7 @@ export class InvitoPraticaUpdateComponent implements OnInit {
     id: [],
     idPraticaRef: [],
     idPraticaRefId: [],
-    praticaId: [],
+    idPraticaId: [],
   });
 
   constructor(
@@ -74,7 +74,7 @@ export class InvitoPraticaUpdateComponent implements OnInit {
       id: invitoPratica.id,
       idPraticaRef: invitoPratica.idPraticaRef,
       idPraticaRefId: invitoPratica.idPraticaRefId,
-      praticaId: invitoPratica.praticaId,
+      idPraticaId: invitoPratica.idPraticaId,
     });
   }
 
@@ -98,7 +98,7 @@ export class InvitoPraticaUpdateComponent implements OnInit {
       id: this.editForm.get(['id'])!.value,
       idPraticaRef: this.editForm.get(['idPraticaRef'])!.value,
       idPraticaRefId: this.editForm.get(['idPraticaRefId'])!.value,
-      praticaId: this.editForm.get(['praticaId'])!.value,
+      idPraticaId: this.editForm.get(['idPraticaId'])!.value,
     };
   }
 

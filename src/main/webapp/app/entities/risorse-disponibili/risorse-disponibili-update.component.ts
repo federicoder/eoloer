@@ -24,7 +24,7 @@ export class RisorseDisponibiliUpdateComponent implements OnInit {
     dataAttivazioneLicenza: [],
     nrLicenza: [],
     storageTotale: [],
-    studioProfessionaleId: [],
+    idStudioProfessionaleRefId: [],
   });
 
   constructor(
@@ -51,7 +51,7 @@ export class RisorseDisponibiliUpdateComponent implements OnInit {
       dataAttivazioneLicenza: risorseDisponibili.dataAttivazioneLicenza,
       nrLicenza: risorseDisponibili.nrLicenza,
       storageTotale: risorseDisponibili.storageTotale,
-      studioProfessionaleId: risorseDisponibili.studioProfessionaleId,
+      idStudioProfessionaleRefId: risorseDisponibili.idStudioProfessionaleRefId,
     });
   }
 
@@ -77,7 +77,7 @@ export class RisorseDisponibiliUpdateComponent implements OnInit {
       dataAttivazioneLicenza: this.editForm.get(['dataAttivazioneLicenza'])!.value,
       nrLicenza: this.editForm.get(['nrLicenza'])!.value,
       storageTotale: this.editForm.get(['storageTotale'])!.value,
-      studioProfessionaleId: this.editForm.get(['studioProfessionaleId'])!.value,
+      idStudioProfessionaleRefId: this.editForm.get(['idStudioProfessionaleRefId'])!.value,
     };
   }
 

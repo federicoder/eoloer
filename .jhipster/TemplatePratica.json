@@ -10,14 +10,7 @@
       "fieldType": "Long"
     }
   ],
-  "relationships": [
-    {
-      "relationshipType": "one-to-many",
-      "otherEntityName": "templateTask",
-      "otherEntityRelationshipName": "templatePratica",
-      "relationshipName": "id"
-    }
-  ],
+  "relationships": [],
   "changelogDate": "20200617082428",
   "entityTableName": "template_pratica",
   "dto": "mapstruct",

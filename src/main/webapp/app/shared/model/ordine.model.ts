@@ -1,5 +1,3 @@
-import { ILineaOrdine } from 'app/shared/model/linea-ordine.model';
-
 export interface IOrdine {
   id?: number;
   idStudioProfessionaleRef?: number;
@@ -7,8 +5,7 @@ export interface IOrdine {
   totImponibile?: number;
   totIva?: number;
   totOrdine?: number;
-  ids?: ILineaOrdine[];
-  studioProfessionaleId?: number;
+  idStudioProfessionaleRefId?: number;
 }
 
 export class Ordine implements IOrdine {
@@ -19,7 +16,6 @@ export class Ordine implements IOrdine {
     public totImponibile?: number,
     public totIva?: number,
     public totOrdine?: number,
-    public ids?: ILineaOrdine[],
-    public studioProfessionaleId?: number
+    public idStudioProfessionaleRefId?: number
   ) {}
 }

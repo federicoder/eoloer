@@ -20,9 +20,7 @@
       "nome": "Nome",
       "formatiAmmessi": "Formati Ammessi",
       "maxDimensioneAmmessa": "Max Dimensione Ammessa",
-      "version": "Version",
-      "id": "Id",
-      "id": "Id"
+      "version": "Version"
     }
   }
 }

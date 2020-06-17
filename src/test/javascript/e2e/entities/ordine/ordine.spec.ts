@@ -46,7 +46,7 @@ describe('Ordine e2e test', () => {
       ordineUpdatePage.setTotImponibileInput('5'),
       ordineUpdatePage.setTotIvaInput('5'),
       ordineUpdatePage.setTotOrdineInput('5'),
-      ordineUpdatePage.studioProfessionaleSelectLastOption(),
+      ordineUpdatePage.idStudioProfessionaleRefSelectLastOption(),
     ]);
 
     expect(await ordineUpdatePage.getIdStudioProfessionaleRefInput()).to.eq(

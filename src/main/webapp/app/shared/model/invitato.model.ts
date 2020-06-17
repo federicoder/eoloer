@@ -11,8 +11,8 @@ export interface IInvitato {
   dataRispostaInvito?: string;
   ruoloInvitato?: number;
   indInvitati?: number;
-  userPersonaId?: number;
-  invitoId?: number;
+  idUserInvitatoId?: number;
+  idInvitoRefId?: number;
 }
 
 export class Invitato implements IInvitato {
@@ -29,7 +29,7 @@ export class Invitato implements IInvitato {
     public dataRispostaInvito?: string,
     public ruoloInvitato?: number,
     public indInvitati?: number,
-    public userPersonaId?: number,
-    public invitoId?: number
+    public idUserInvitatoId?: number,
+    public idInvitoRefId?: number
   ) {}
 }

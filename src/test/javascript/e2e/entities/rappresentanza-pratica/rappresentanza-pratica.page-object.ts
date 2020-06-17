@@ -33,7 +33,7 @@ export class RappresentanzaPraticaUpdatePage {
   idPersonaRefInput = element(by.id('field_idPersonaRef'));
   ruoliSelect = element(by.id('field_ruoli'));
 
-  personaSelect = element(by.id('field_persona'));
+  idPersonaRefSelect = element(by.id('field_idPersonaRef'));
 
   async getPageTitle(): Promise<string> {
     return this.pageTitle.getAttribute('jhiTranslate');
@@ -67,20 +67,20 @@ export class RappresentanzaPraticaUpdatePage {
     await this.ruoliSelect.all(by.tagName('option')).last().click();
   }
 
-  async personaSelectLastOption(): Promise<void> {
-    await this.personaSelect.all(by.tagName('option')).last().click();
+  async idPersonaRefSelectLastOption(): Promise<void> {
+    await this.idPersonaRefSelect.all(by.tagName('option')).last().click();
   }
 
-  async personaSelectOption(option: string): Promise<void> {
-    await this.personaSelect.sendKeys(option);
+  async idPersonaRefSelectOption(option: string): Promise<void> {
+    await this.idPersonaRefSelect.sendKeys(option);
   }
 
-  getPersonaSelect(): ElementFinder {
-    return this.personaSelect;
+  getIdPersonaRefSelect(): ElementFinder {
+    return this.idPersonaRefSelect;
   }
 
-  async getPersonaSelectedOption(): Promise<string> {
-    return await this.personaSelect.element(by.css('option:checked')).getText();
+  async getIdPersonaRefSelectedOption(): Promise<string> {
+    return await this.idPersonaRefSelect.element(by.css('option:checked')).getText();
   }
 
   async save(): Promise<void> {

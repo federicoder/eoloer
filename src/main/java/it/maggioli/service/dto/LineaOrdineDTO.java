@@ -23,7 +23,7 @@ public class LineaOrdineDTO implements Serializable {
     private String codIva;
 
 
-    private Long ordineId;
+    private Long idOrdineRefId;
     
     public Long getId() {
         return id;
@@ -73,12 +73,12 @@ public class LineaOrdineDTO implements Serializable {
         this.codIva = codIva;
     }
 
-    public Long getOrdineId() {
-        return ordineId;
+    public Long getIdOrdineRefId() {
+        return idOrdineRefId;
     }
 
-    public void setOrdineId(Long ordineId) {
-        this.ordineId = ordineId;
+    public void setIdOrdineRefId(Long ordineId) {
+        this.idOrdineRefId = ordineId;
     }
 
     @Override
@@ -108,7 +108,7 @@ public class LineaOrdineDTO implements Serializable {
             ", quantita=" + getQuantita() +
             ", importo=" + getImporto() +
             ", codIva='" + getCodIva() + "'" +
-            ", ordineId=" + getOrdineId() +
+            ", idOrdineRefId=" + getIdOrdineRefId() +
             "}";
     }
 }

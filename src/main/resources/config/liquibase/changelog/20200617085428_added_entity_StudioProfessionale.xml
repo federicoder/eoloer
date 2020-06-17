@@ -18,7 +18,7 @@
             <column name="id_user_amministratore" type="bigint">
                 <constraints nullable="false" />
             </column>
-            <column name="persona_id" type="bigint">
+            <column name="id_user_amministratore_id" type="bigint">
                 <constraints nullable="true" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->

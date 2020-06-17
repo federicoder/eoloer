@@ -23,8 +23,8 @@
       "pubPriv": "Pub Priv",
       "idTemplatePraticaRef": "Id Template Pratica Ref",
       "id": "Id",
+      "idTemplatePraticaRef": "Id Template Pratica Ref",
       "id": "Id",
-      "templatePratica": "Template Pratica",
       "templateTask": "Template Task"
     }
   }

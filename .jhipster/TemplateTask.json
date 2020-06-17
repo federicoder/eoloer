@@ -30,16 +30,17 @@
       "relationshipName": "id"
     },
     {
-      "relationshipType": "one-to-many",
-      "otherEntityName": "allegatoTemplateTask",
+      "relationshipType": "many-to-one",
+      "otherEntityName": "templatePratica",
       "otherEntityRelationshipName": "templateTask",
-      "relationshipName": "id"
+      "relationshipName": "idTemplatePraticaRef",
+      "otherEntityField": "id"
     },
     {
       "relationshipType": "many-to-one",
-      "otherEntityName": "templatePratica",
-      "otherEntityRelationshipName": "id",
-      "relationshipName": "templatePratica",
+      "otherEntityName": "templateTask",
+      "otherEntityRelationshipName": "templateTask",
+      "relationshipName": "id",
       "otherEntityField": "id"
     },
     {

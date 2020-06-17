@@ -9,8 +9,6 @@ import javax.validation.constraints.*;
 
 import org.springframework.data.elasticsearch.annotations.FieldType;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * A Ordine.
@@ -44,13 +42,9 @@ public class Ordine implements Serializable {
     @Column(name = "tot_ordine")
     private Long totOrdine;
 
-    @OneToMany(mappedBy = "ordine")
-    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<LineaOrdine> ids = new HashSet<>();
-
     @ManyToOne
-    @JsonIgnoreProperties(value = "ids", allowSetters = true)
-    private StudioProfessionale studioProfessionale;
+    @JsonIgnoreProperties(value = "ordines", allowSetters = true)
+    private StudioProfessionale idStudioProfessionaleRef;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -126,42 +120,17 @@ public class Ordine implements Serializable {
         this.totOrdine = totOrdine;
     }
 
-    public Set<LineaOrdine> getIds() {
-        return ids;
+    public StudioProfessionale getIdStudioProfessionaleRef() {
+        return idStudioProfessionaleRef;
     }
 
-    public Ordine ids(Set<LineaOrdine> lineaOrdines) {
-        this.ids = lineaOrdines;
+    public Ordine idStudioProfessionaleRef(StudioProfessionale studioProfessionale) {
+        this.idStudioProfessionaleRef = studioProfessionale;
         return this;
     }
 
-    public Ordine addId(LineaOrdine lineaOrdine) {
-        this.ids.add(lineaOrdine);
-        lineaOrdine.setOrdine(this);
-        return this;
-    }
-
-    public Ordine removeId(LineaOrdine lineaOrdine) {
-        this.ids.remove(lineaOrdine);
-        lineaOrdine.setOrdine(null);
-        return this;
-    }
-
-    public void setIds(Set<LineaOrdine> lineaOrdines) {
-        this.ids = lineaOrdines;
-    }
-
-    public StudioProfessionale getStudioProfessionale() {
-        return studioProfessionale;
-    }
-
-    public Ordine studioProfessionale(StudioProfessionale studioProfessionale) {
-        this.studioProfessionale = studioProfessionale;
-        return this;
-    }
-
-    public void setStudioProfessionale(StudioProfessionale studioProfessionale) {
-        this.studioProfessionale = studioProfessionale;
+    public void setIdStudioProfessionaleRef(StudioProfessionale studioProfessionale) {
+        this.idStudioProfessionaleRef = studioProfessionale;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

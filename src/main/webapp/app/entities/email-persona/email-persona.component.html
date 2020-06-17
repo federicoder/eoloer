@@ -44,7 +44,7 @@
                     <th scope="col" ><span jhiTranslate="eoloprjApp.emailPersona.idPersonaRef">Id Persona Ref</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.emailPersona.etichetta">Etichetta</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.emailPersona.numero">Numero</span></th>
-                    <th scope="col" ><span jhiTranslate="eoloprjApp.emailPersona.persona">Persona</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.emailPersona.idPersonaRef">Id Persona Ref</span></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -55,8 +55,8 @@
                     <td>{{ emailPersona.etichetta }}</td>
                     <td>{{ emailPersona.numero }}</td>
                     <td>
-                        <div *ngIf="emailPersona.personaId">
-                            <a [routerLink]="['/persona', emailPersona.personaId , 'view']" >{{ emailPersona.personaId }}</a>
+                        <div *ngIf="emailPersona.idPersonaRefId">
+                            <a [routerLink]="['/persona', emailPersona.idPersonaRefId , 'view']" >{{ emailPersona.idPersonaRefId }}</a>
                         </div>
                     </td>
                     <td class="text-right">

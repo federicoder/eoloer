@@ -48,7 +48,7 @@ export class TaskUpdateComponent implements OnInit {
     idId: [],
     idId: [],
     idId: [],
-    praticaId: [],
+    idPraticaRefId: [],
   });
 
   constructor(
@@ -174,7 +174,7 @@ export class TaskUpdateComponent implements OnInit {
       idId: task.idId,
       idId: task.idId,
       idId: task.idId,
-      praticaId: task.praticaId,
+      idPraticaRefId: task.idPraticaRefId,
     });
   }
 
@@ -209,7 +209,7 @@ export class TaskUpdateComponent implements OnInit {
       idId: this.editForm.get(['idId'])!.value,
       idId: this.editForm.get(['idId'])!.value,
       idId: this.editForm.get(['idId'])!.value,
-      praticaId: this.editForm.get(['praticaId'])!.value,
+      idPraticaRefId: this.editForm.get(['idPraticaRefId'])!.value,
     };
   }
 

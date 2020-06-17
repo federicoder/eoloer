@@ -15,8 +15,8 @@
     {
       "relationshipType": "many-to-one",
       "otherEntityName": "persona",
-      "otherEntityRelationshipName": "id",
-      "relationshipName": "persona",
+      "otherEntityRelationshipName": "tagPersona",
+      "relationshipName": "idPersonaRef",
       "otherEntityField": "id"
     }
   ],

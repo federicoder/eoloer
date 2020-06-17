@@ -34,7 +34,7 @@ export class RisorseDisponibiliUpdatePage {
   nrLicenzaInput = element(by.id('field_nrLicenza'));
   storageTotaleInput = element(by.id('field_storageTotale'));
 
-  studioProfessionaleSelect = element(by.id('field_studioProfessionale'));
+  idStudioProfessionaleRefSelect = element(by.id('field_idStudioProfessionaleRef'));
 
   async getPageTitle(): Promise<string> {
     return this.pageTitle.getAttribute('jhiTranslate');
@@ -72,20 +72,20 @@ export class RisorseDisponibiliUpdatePage {
     return await this.storageTotaleInput.getAttribute('value');
   }
 
-  async studioProfessionaleSelectLastOption(): Promise<void> {
-    await this.studioProfessionaleSelect.all(by.tagName('option')).last().click();
+  async idStudioProfessionaleRefSelectLastOption(): Promise<void> {
+    await this.idStudioProfessionaleRefSelect.all(by.tagName('option')).last().click();
   }
 
-  async studioProfessionaleSelectOption(option: string): Promise<void> {
-    await this.studioProfessionaleSelect.sendKeys(option);
+  async idStudioProfessionaleRefSelectOption(option: string): Promise<void> {
+    await this.idStudioProfessionaleRefSelect.sendKeys(option);
   }
 
-  getStudioProfessionaleSelect(): ElementFinder {
-    return this.studioProfessionaleSelect;
+  getIdStudioProfessionaleRefSelect(): ElementFinder {
+    return this.idStudioProfessionaleRefSelect;
   }
 
-  async getStudioProfessionaleSelectedOption(): Promise<string> {
-    return await this.studioProfessionaleSelect.element(by.css('option:checked')).getText();
+  async getIdStudioProfessionaleRefSelectedOption(): Promise<string> {
+    return await this.idStudioProfessionaleRefSelect.element(by.css('option:checked')).getText();
   }
 
   async save(): Promise<void> {

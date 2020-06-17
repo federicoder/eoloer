@@ -18,8 +18,8 @@
     {
       "relationshipType": "many-to-one",
       "otherEntityName": "pratica",
-      "otherEntityRelationshipName": "id",
-      "relationshipName": "pratica",
+      "otherEntityRelationshipName": "invitoPratica",
+      "relationshipName": "idPratica",
       "otherEntityField": "id"
     }
   ],

@@ -20,17 +20,17 @@
                                  referencedColumnNames="id"
                                  referencedTableName="persona"/>
 
-        <addForeignKeyConstraint baseColumnNames="pratica_id"
+        <addForeignKeyConstraint baseColumnNames="id_user_ammesso_id"
                                  baseTableName="condivisione_pratica"
-                                 constraintName="fk_condivisione_pratica_pratica_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="pratica"/>
-
-        <addForeignKeyConstraint baseColumnNames="user_persona_id"
-                                 baseTableName="condivisione_pratica"
-                                 constraintName="fk_condivisione_pratica_user_persona_id"
+                                 constraintName="fk_condivisione_pratica_id_user_ammesso_id"
                                  referencedColumnNames="id"
                                  referencedTableName="user_persona"/>
+
+        <addForeignKeyConstraint baseColumnNames="id_pratica_ref_id"
+                                 baseTableName="condivisione_pratica"
+                                 constraintName="fk_condivisione_pratica_id_pratica_ref_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="pratica"/>
 
     </changeSet>
 </databaseChangeLog>

@@ -78,12 +78,6 @@
       "ownerSide": true
     },
     {
-      "relationshipType": "one-to-many",
-      "otherEntityName": "invitato",
-      "otherEntityRelationshipName": "invito",
-      "relationshipName": "id"
-    },
-    {
       "relationshipType": "one-to-one",
       "otherEntityName": "invitoPratica",
       "otherEntityRelationshipName": "idPraticaRef",

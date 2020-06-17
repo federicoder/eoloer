@@ -14,7 +14,7 @@ public class UserPersonaDTO implements Serializable {
     private Long nomeUser;
 
 
-    private Long personaFisicaId;
+    private Long idPersonaRefId;
     
     public Long getId() {
         return id;
@@ -40,12 +40,12 @@ public class UserPersonaDTO implements Serializable {
         this.nomeUser = nomeUser;
     }
 
-    public Long getPersonaFisicaId() {
-        return personaFisicaId;
+    public Long getIdPersonaRefId() {
+        return idPersonaRefId;
     }
 
-    public void setPersonaFisicaId(Long personaFisicaId) {
-        this.personaFisicaId = personaFisicaId;
+    public void setIdPersonaRefId(Long personaFisicaId) {
+        this.idPersonaRefId = personaFisicaId;
     }
 
     @Override
@@ -72,7 +72,7 @@ public class UserPersonaDTO implements Serializable {
             "id=" + getId() +
             ", idPersonaRef=" + getIdPersonaRef() +
             ", nomeUser=" + getNomeUser() +
-            ", personaFisicaId=" + getPersonaFisicaId() +
+            ", idPersonaRefId=" + getIdPersonaRefId() +
             "}";
     }
 }

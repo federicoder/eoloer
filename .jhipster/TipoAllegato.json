@@ -18,20 +18,7 @@
       "fieldType": "String"
     }
   ],
-  "relationships": [
-    {
-      "relationshipType": "one-to-many",
-      "otherEntityName": "allegatoTemplateTask",
-      "otherEntityRelationshipName": "tipoAllegato",
-      "relationshipName": "id"
-    },
-    {
-      "relationshipType": "one-to-many",
-      "otherEntityName": "allegatoTask",
-      "otherEntityRelationshipName": "tipoAllegato",
-      "relationshipName": "id"
-    }
-  ],
+  "relationships": [],
   "changelogDate": "20200617082728",
   "entityTableName": "tipo_allegato",
   "dto": "mapstruct",

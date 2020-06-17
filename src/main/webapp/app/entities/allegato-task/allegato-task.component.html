@@ -49,9 +49,9 @@
                     <th scope="col" ><span jhiTranslate="eoloprjApp.allegatoTask.pubblico">Pubblico</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.allegatoTask.version">Version</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.allegatoTask.idAllegatoMaster">Id Allegato Master</span></th>
-                    <th scope="col" ><span jhiTranslate="eoloprjApp.allegatoTask.tipoAllegato">Tipo Allegato</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.allegatoTask.idTipoAllegatoRef">Id Tipo Allegato Ref</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.allegatoTask.idTaskRef">Id Task Ref</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.allegatoTask.allegatoTask">Allegato Task</span></th>
-                    <th scope="col" ><span jhiTranslate="eoloprjApp.allegatoTask.task">Task</span></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -67,18 +67,18 @@
                     <td>{{ allegatoTask.version }}</td>
                     <td>{{ allegatoTask.idAllegatoMaster }}</td>
                     <td>
-                        <div *ngIf="allegatoTask.tipoAllegatoId">
-                            <a [routerLink]="['/tipo-allegato', allegatoTask.tipoAllegatoId , 'view']" >{{ allegatoTask.tipoAllegatoId }}</a>
+                        <div *ngIf="allegatoTask.idTipoAllegatoRefId">
+                            <a [routerLink]="['/tipo-allegato', allegatoTask.idTipoAllegatoRefId , 'view']" >{{ allegatoTask.idTipoAllegatoRefId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="allegatoTask.idTaskRefId">
+                            <a [routerLink]="['/task', allegatoTask.idTaskRefId , 'view']" >{{ allegatoTask.idTaskRefId }}</a>
                         </div>
                     </td>
                     <td>
                         <div *ngIf="allegatoTask.allegatoTaskId">
                             <a [routerLink]="['/allegato-task', allegatoTask.allegatoTaskId , 'view']" >{{ allegatoTask.allegatoTaskId }}</a>
-                        </div>
-                    </td>
-                    <td>
-                        <div *ngIf="allegatoTask.taskId">
-                            <a [routerLink]="['/task', allegatoTask.taskId , 'view']" >{{ allegatoTask.taskId }}</a>
                         </div>
                     </td>
                     <td class="text-right">

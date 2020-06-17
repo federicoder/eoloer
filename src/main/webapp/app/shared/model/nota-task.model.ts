@@ -5,7 +5,7 @@ export interface INotaTask {
   data?: string;
   nota?: string;
   version?: string;
-  taskId?: number;
+  idTaskRefId?: number;
 }
 
 export class NotaTask implements INotaTask {
@@ -16,6 +16,6 @@ export class NotaTask implements INotaTask {
     public data?: string,
     public nota?: string,
     public version?: string,
-    public taskId?: number
+    public idTaskRefId?: number
   ) {}
 }

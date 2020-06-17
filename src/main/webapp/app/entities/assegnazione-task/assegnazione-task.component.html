@@ -47,7 +47,7 @@
                     <th scope="col" ><span jhiTranslate="eoloprjApp.assegnazioneTask.idUserConcedente">Id User Concedente</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.assegnazioneTask.statoAssegnazione">Stato Assegnazione</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.assegnazioneTask.ruolo">Ruolo</span></th>
-                    <th scope="col" ><span jhiTranslate="eoloprjApp.assegnazioneTask.userPersona">User Persona</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.assegnazioneTask.idUserAmmesso">Id User Ammesso</span></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -65,8 +65,8 @@
                         </div>
                     </td>
                     <td>
-                        <div *ngIf="assegnazioneTask.userPersonaId">
-                            <a [routerLink]="['/user-persona', assegnazioneTask.userPersonaId , 'view']" >{{ assegnazioneTask.userPersonaId }}</a>
+                        <div *ngIf="assegnazioneTask.idUserAmmessoId">
+                            <a [routerLink]="['/user-persona', assegnazioneTask.idUserAmmessoId , 'view']" >{{ assegnazioneTask.idUserAmmessoId }}</a>
                         </div>
                     </td>
                     <td class="text-right">

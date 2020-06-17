@@ -21,7 +21,7 @@
       "dataAttivazioneLicenza": "Data Attivazione Licenza",
       "nrLicenza": "Nr Licenza",
       "storageTotale": "Storage Totale",
-      "studioProfessionale": "Studio Professionale"
+      "idStudioProfessionaleRef": "Id Studio Professionale Ref"
     }
   }
 }

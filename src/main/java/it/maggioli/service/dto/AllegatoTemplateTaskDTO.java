@@ -23,7 +23,7 @@ public class AllegatoTemplateTaskDTO implements Serializable {
     private Long pubPriv;
 
 
-    private Long templateTaskId;
+    private Long idTemplateTaskRefId;
 
     private Long tipoAllegatoId;
     
@@ -75,12 +75,12 @@ public class AllegatoTemplateTaskDTO implements Serializable {
         this.pubPriv = pubPriv;
     }
 
-    public Long getTemplateTaskId() {
-        return templateTaskId;
+    public Long getIdTemplateTaskRefId() {
+        return idTemplateTaskRefId;
     }
 
-    public void setTemplateTaskId(Long templateTaskId) {
-        this.templateTaskId = templateTaskId;
+    public void setIdTemplateTaskRefId(Long templateTaskId) {
+        this.idTemplateTaskRefId = templateTaskId;
     }
 
     public Long getTipoAllegatoId() {
@@ -118,7 +118,7 @@ public class AllegatoTemplateTaskDTO implements Serializable {
             ", formato=" + getFormato() +
             ", idFileRef=" + getIdFileRef() +
             ", pubPriv=" + getPubPriv() +
-            ", templateTaskId=" + getTemplateTaskId() +
+            ", idTemplateTaskRefId=" + getIdTemplateTaskRefId() +
             ", tipoAllegatoId=" + getTipoAllegatoId() +
             "}";
     }

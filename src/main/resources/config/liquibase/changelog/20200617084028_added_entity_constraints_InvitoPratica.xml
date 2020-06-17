@@ -14,9 +14,9 @@
                                  referencedColumnNames="id"
                                  referencedTableName="invito"/>
 
-        <addForeignKeyConstraint baseColumnNames="pratica_id"
+        <addForeignKeyConstraint baseColumnNames="id_pratica_id"
                                  baseTableName="invito_pratica"
-                                 constraintName="fk_invito_pratica_pratica_id"
+                                 constraintName="fk_invito_pratica_id_pratica_id"
                                  referencedColumnNames="id"
                                  referencedTableName="pratica"/>
 

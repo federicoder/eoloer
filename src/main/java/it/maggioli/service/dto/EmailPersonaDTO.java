@@ -18,7 +18,7 @@ public class EmailPersonaDTO implements Serializable {
     private Long numero;
 
 
-    private Long personaId;
+    private Long idPersonaRefId;
     
     public Long getId() {
         return id;
@@ -52,12 +52,12 @@ public class EmailPersonaDTO implements Serializable {
         this.numero = numero;
     }
 
-    public Long getPersonaId() {
-        return personaId;
+    public Long getIdPersonaRefId() {
+        return idPersonaRefId;
     }
 
-    public void setPersonaId(Long personaId) {
-        this.personaId = personaId;
+    public void setIdPersonaRefId(Long personaId) {
+        this.idPersonaRefId = personaId;
     }
 
     @Override
@@ -85,7 +85,7 @@ public class EmailPersonaDTO implements Serializable {
             ", idPersonaRef=" + getIdPersonaRef() +
             ", etichetta=" + getEtichetta() +
             ", numero=" + getNumero() +
-            ", personaId=" + getPersonaId() +
+            ", idPersonaRefId=" + getIdPersonaRefId() +
             "}";
     }
 }

@@ -54,13 +54,13 @@ public class AssegnazioneTask implements Serializable {
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     private Set<Invito> idUserConcedentes = new HashSet<>();
 
+    @ManyToOne
+    @JsonIgnoreProperties(value = "assegnazioneTasks", allowSetters = true)
+    private UserPersona idUserAmmesso;
+
     @OneToOne(mappedBy = "id")
     @JsonIgnore
     private Task idTaskRef;
-
-    @ManyToOne
-    @JsonIgnoreProperties(value = "ids", allowSetters = true)
-    private UserPersona userPersona;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -174,6 +174,19 @@ public class AssegnazioneTask implements Serializable {
         this.idUserConcedentes = invitos;
     }
 
+    public UserPersona getIdUserAmmesso() {
+        return idUserAmmesso;
+    }
+
+    public AssegnazioneTask idUserAmmesso(UserPersona userPersona) {
+        this.idUserAmmesso = userPersona;
+        return this;
+    }
+
+    public void setIdUserAmmesso(UserPersona userPersona) {
+        this.idUserAmmesso = userPersona;
+    }
+
     public Task getIdTaskRef() {
         return idTaskRef;
     }
@@ -185,19 +198,6 @@ public class AssegnazioneTask implements Serializable {
 
     public void setIdTaskRef(Task task) {
         this.idTaskRef = task;
-    }
-
-    public UserPersona getUserPersona() {
-        return userPersona;
-    }
-
-    public AssegnazioneTask userPersona(UserPersona userPersona) {
-        this.userPersona = userPersona;
-        return this;
-    }
-
-    public void setUserPersona(UserPersona userPersona) {
-        this.userPersona = userPersona;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

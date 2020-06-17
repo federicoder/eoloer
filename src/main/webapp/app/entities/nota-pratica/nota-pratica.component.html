@@ -45,7 +45,7 @@
                     <th scope="col" ><span jhiTranslate="eoloprjApp.notaPratica.data">Data</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.notaPratica.nota">Nota</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.notaPratica.version">Version</span></th>
-                    <th scope="col" ><span jhiTranslate="eoloprjApp.notaPratica.pratica">Pratica</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.notaPratica.idPraticaRef">Id Pratica Ref</span></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -57,8 +57,8 @@
                     <td>{{ notaPratica.nota }}</td>
                     <td>{{ notaPratica.version }}</td>
                     <td>
-                        <div *ngIf="notaPratica.praticaId">
-                            <a [routerLink]="['/pratica', notaPratica.praticaId , 'view']" >{{ notaPratica.praticaId }}</a>
+                        <div *ngIf="notaPratica.idPraticaRefId">
+                            <a [routerLink]="['/pratica', notaPratica.idPraticaRefId , 'view']" >{{ notaPratica.idPraticaRefId }}</a>
                         </div>
                     </td>
                     <td class="text-right">

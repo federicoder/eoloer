@@ -32,9 +32,9 @@
                                  referencedColumnNames="id"
                                  referencedTableName="invito_attivita"/>
 
-        <addForeignKeyConstraint baseColumnNames="pratica_id"
+        <addForeignKeyConstraint baseColumnNames="id_pratica_ref_id"
                                  baseTableName="task"
-                                 constraintName="fk_task_pratica_id"
+                                 constraintName="fk_task_id_pratica_ref_id"
                                  referencedColumnNames="id"
                                  referencedTableName="pratica"/>
 

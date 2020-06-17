@@ -24,10 +24,10 @@
                 <dd>
                     <span>{{ risorseDisponibili.storageTotale }}</span>
                 </dd>
-                <dt><span jhiTranslate="eoloprjApp.risorseDisponibili.studioProfessionale">Studio Professionale</span></dt>
+                <dt><span jhiTranslate="eoloprjApp.risorseDisponibili.idStudioProfessionaleRef">Id Studio Professionale Ref</span></dt>
                 <dd>
-                    <div *ngIf="risorseDisponibili.studioProfessionaleId">
-                        <a [routerLink]="['/studio-professionale', risorseDisponibili.studioProfessionaleId, 'view']">{{ risorseDisponibili.studioProfessionaleId }}</a>
+                    <div *ngIf="risorseDisponibili.idStudioProfessionaleRefId">
+                        <a [routerLink]="['/studio-professionale', risorseDisponibili.idStudioProfessionaleRefId, 'view']">{{ risorseDisponibili.idStudioProfessionaleRefId }}</a>
                     </div>
                 </dd>
             </dl>

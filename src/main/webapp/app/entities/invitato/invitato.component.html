@@ -52,8 +52,8 @@
                     <th scope="col" ><span jhiTranslate="eoloprjApp.invitato.dataRispostaInvito">Data Risposta Invito</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.invitato.ruoloInvitato">Ruolo Invitato</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.invitato.indInvitati">Ind Invitati</span></th>
-                    <th scope="col" ><span jhiTranslate="eoloprjApp.invitato.userPersona">User Persona</span></th>
-                    <th scope="col" ><span jhiTranslate="eoloprjApp.invitato.invito">Invito</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.invitato.idUserInvitato">Id User Invitato</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.invitato.idInvitoRef">Id Invito Ref</span></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -72,13 +72,13 @@
                     <td>{{ invitato.ruoloInvitato }}</td>
                     <td>{{ invitato.indInvitati }}</td>
                     <td>
-                        <div *ngIf="invitato.userPersonaId">
-                            <a [routerLink]="['/user-persona', invitato.userPersonaId , 'view']" >{{ invitato.userPersonaId }}</a>
+                        <div *ngIf="invitato.idUserInvitatoId">
+                            <a [routerLink]="['/user-persona', invitato.idUserInvitatoId , 'view']" >{{ invitato.idUserInvitatoId }}</a>
                         </div>
                     </td>
                     <td>
-                        <div *ngIf="invitato.invitoId">
-                            <a [routerLink]="['/invito', invitato.invitoId , 'view']" >{{ invitato.invitoId }}</a>
+                        <div *ngIf="invitato.idInvitoRefId">
+                            <a [routerLink]="['/invito', invitato.idInvitoRefId , 'view']" >{{ invitato.idInvitoRefId }}</a>
                         </div>
                     </td>
                     <td class="text-right">

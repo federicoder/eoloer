@@ -21,7 +21,7 @@
             <column name="id_pratica_ref_id" type="bigint">
                 <constraints unique="true" nullable="true" uniqueConstraintName="ux_invito_pratica_id_pratica_ref_id" />
             </column>
-            <column name="pratica_id" type="bigint">
+            <column name="id_pratica_id" type="bigint">
                 <constraints nullable="true" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->

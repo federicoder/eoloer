@@ -50,7 +50,7 @@ describe('AssegnazioneTask e2e test', () => {
       assegnazioneTaskUpdatePage.setIdUserConcedenteInput('5'),
       assegnazioneTaskUpdatePage.setStatoAssegnazioneInput('5'),
       assegnazioneTaskUpdatePage.ruoloSelectLastOption(),
-      assegnazioneTaskUpdatePage.userPersonaSelectLastOption(),
+      assegnazioneTaskUpdatePage.idUserAmmessoSelectLastOption(),
     ]);
 
     expect(await assegnazioneTaskUpdatePage.getIdTaskRefInput()).to.eq('5', 'Expected idTaskRef value to be equals to 5');

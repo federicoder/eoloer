@@ -13,11 +13,11 @@ import org.mapstruct.*;
 public interface InvitoPraticaMapper extends EntityMapper<InvitoPraticaDTO, InvitoPratica> {
 
     @Mapping(source = "idPraticaRef.id", target = "idPraticaRefId")
-    @Mapping(source = "pratica.id", target = "praticaId")
+    @Mapping(source = "idPratica.id", target = "idPraticaId")
     InvitoPraticaDTO toDto(InvitoPratica invitoPratica);
 
     @Mapping(source = "idPraticaRefId", target = "idPraticaRef")
-    @Mapping(source = "praticaId", target = "pratica")
+    @Mapping(source = "idPraticaId", target = "idPratica")
     InvitoPratica toEntity(InvitoPraticaDTO invitoPraticaDTO);
 
     default InvitoPratica fromId(Long id) {

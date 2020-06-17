@@ -30,7 +30,7 @@
             <column name="cod_iva" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="ordine_id" type="bigint">
+            <column name="id_ordine_ref_id" type="bigint">
                 <constraints nullable="true" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->

@@ -27,7 +27,7 @@
             <column name="version" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="pratica_id" type="bigint">
+            <column name="id_pratica_ref_id" type="bigint">
                 <constraints nullable="true" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->

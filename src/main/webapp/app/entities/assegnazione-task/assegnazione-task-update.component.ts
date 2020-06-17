@@ -32,7 +32,7 @@ export class AssegnazioneTaskUpdateComponent implements OnInit {
     idUserConcedente: [],
     statoAssegnazione: [],
     ruoloId: [],
-    userPersonaId: [],
+    idUserAmmessoId: [],
   });
 
   constructor(
@@ -82,7 +82,7 @@ export class AssegnazioneTaskUpdateComponent implements OnInit {
       idUserConcedente: assegnazioneTask.idUserConcedente,
       statoAssegnazione: assegnazioneTask.statoAssegnazione,
       ruoloId: assegnazioneTask.ruoloId,
-      userPersonaId: assegnazioneTask.userPersonaId,
+      idUserAmmessoId: assegnazioneTask.idUserAmmessoId,
     });
   }
 
@@ -110,7 +110,7 @@ export class AssegnazioneTaskUpdateComponent implements OnInit {
       idUserConcedente: this.editForm.get(['idUserConcedente'])!.value,
       statoAssegnazione: this.editForm.get(['statoAssegnazione'])!.value,
       ruoloId: this.editForm.get(['ruoloId'])!.value,
-      userPersonaId: this.editForm.get(['userPersonaId'])!.value,
+      idUserAmmessoId: this.editForm.get(['idUserAmmessoId'])!.value,
     };
   }
 

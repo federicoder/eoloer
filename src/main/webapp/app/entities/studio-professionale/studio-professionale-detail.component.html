@@ -12,10 +12,10 @@
                 <dd>
                     <span>{{ studioProfessionale.idUserAmministratore }}</span>
                 </dd>
-                <dt><span jhiTranslate="eoloprjApp.studioProfessionale.persona">Persona</span></dt>
+                <dt><span jhiTranslate="eoloprjApp.studioProfessionale.idUserAmministratore">Id User Amministratore</span></dt>
                 <dd>
-                    <div *ngIf="studioProfessionale.personaId">
-                        <a [routerLink]="['/persona', studioProfessionale.personaId, 'view']">{{ studioProfessionale.personaId }}</a>
+                    <div *ngIf="studioProfessionale.idUserAmministratoreId">
+                        <a [routerLink]="['/persona', studioProfessionale.idUserAmministratoreId, 'view']">{{ studioProfessionale.idUserAmministratoreId }}</a>
                     </div>
                 </dd>
             </dl>

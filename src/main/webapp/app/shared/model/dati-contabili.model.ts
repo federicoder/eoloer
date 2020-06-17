@@ -1,9 +1,9 @@
 export interface IDatiContabili {
   id?: number;
   idPersonaRef?: number;
-  personaId?: number;
+  idPersonaRefId?: number;
 }
 
 export class DatiContabili implements IDatiContabili {
-  constructor(public id?: number, public idPersonaRef?: number, public personaId?: number) {}
+  constructor(public id?: number, public idPersonaRef?: number, public idPersonaRefId?: number) {}
 }

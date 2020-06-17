@@ -9,8 +9,6 @@ import javax.validation.constraints.*;
 
 import org.springframework.data.elasticsearch.annotations.FieldType;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * A Pratica.
@@ -68,22 +66,6 @@ public class Pratica implements Serializable {
 
     @Column(name = "id_template_pratica_ref")
     private Long idTemplatePraticaRef;
-
-    @OneToMany(mappedBy = "pratica")
-    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<Task> ids = new HashSet<>();
-
-    @OneToMany(mappedBy = "pratica")
-    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<NotaPratica> ids = new HashSet<>();
-
-    @OneToMany(mappedBy = "pratica")
-    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<CondivisionePratica> ids = new HashSet<>();
-
-    @OneToMany(mappedBy = "pratica")
-    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<InvitoPratica> ids = new HashSet<>();
 
     @ManyToOne
     @JsonIgnoreProperties(value = "praticas", allowSetters = true)
@@ -265,106 +247,6 @@ public class Pratica implements Serializable {
 
     public void setIdTemplatePraticaRef(Long idTemplatePraticaRef) {
         this.idTemplatePraticaRef = idTemplatePraticaRef;
-    }
-
-    public Set<Task> getIds() {
-        return ids;
-    }
-
-    public Pratica ids(Set<Task> tasks) {
-        this.ids = tasks;
-        return this;
-    }
-
-    public Pratica addId(Task task) {
-        this.ids.add(task);
-        task.setPratica(this);
-        return this;
-    }
-
-    public Pratica removeId(Task task) {
-        this.ids.remove(task);
-        task.setPratica(null);
-        return this;
-    }
-
-    public void setIds(Set<Task> tasks) {
-        this.ids = tasks;
-    }
-
-    public Set<NotaPratica> getIds() {
-        return ids;
-    }
-
-    public Pratica ids(Set<NotaPratica> notaPraticas) {
-        this.ids = notaPraticas;
-        return this;
-    }
-
-    public Pratica addId(NotaPratica notaPratica) {
-        this.ids.add(notaPratica);
-        notaPratica.setPratica(this);
-        return this;
-    }
-
-    public Pratica removeId(NotaPratica notaPratica) {
-        this.ids.remove(notaPratica);
-        notaPratica.setPratica(null);
-        return this;
-    }
-
-    public void setIds(Set<NotaPratica> notaPraticas) {
-        this.ids = notaPraticas;
-    }
-
-    public Set<CondivisionePratica> getIds() {
-        return ids;
-    }
-
-    public Pratica ids(Set<CondivisionePratica> condivisionePraticas) {
-        this.ids = condivisionePraticas;
-        return this;
-    }
-
-    public Pratica addId(CondivisionePratica condivisionePratica) {
-        this.ids.add(condivisionePratica);
-        condivisionePratica.setPratica(this);
-        return this;
-    }
-
-    public Pratica removeId(CondivisionePratica condivisionePratica) {
-        this.ids.remove(condivisionePratica);
-        condivisionePratica.setPratica(null);
-        return this;
-    }
-
-    public void setIds(Set<CondivisionePratica> condivisionePraticas) {
-        this.ids = condivisionePraticas;
-    }
-
-    public Set<InvitoPratica> getIds() {
-        return ids;
-    }
-
-    public Pratica ids(Set<InvitoPratica> invitoPraticas) {
-        this.ids = invitoPraticas;
-        return this;
-    }
-
-    public Pratica addId(InvitoPratica invitoPratica) {
-        this.ids.add(invitoPratica);
-        invitoPratica.setPratica(this);
-        return this;
-    }
-
-    public Pratica removeId(InvitoPratica invitoPratica) {
-        this.ids.remove(invitoPratica);
-        invitoPratica.setPratica(null);
-        return this;
-    }
-
-    public void setIds(Set<InvitoPratica> invitoPraticas) {
-        this.ids = invitoPraticas;
     }
 
     public TemplatePratica getIdTemplatePraticaRef() {

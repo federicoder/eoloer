@@ -25,16 +25,10 @@
   ],
   "relationships": [
     {
-      "relationshipType": "one-to-many",
-      "otherEntityName": "lineaOrdine",
-      "otherEntityRelationshipName": "ordine",
-      "relationshipName": "id"
-    },
-    {
       "relationshipType": "many-to-one",
       "otherEntityName": "studioProfessionale",
-      "otherEntityRelationshipName": "id",
-      "relationshipName": "studioProfessionale",
+      "otherEntityRelationshipName": "ordine",
+      "relationshipName": "idStudioProfessionaleRef",
       "otherEntityField": "id"
     }
   ],

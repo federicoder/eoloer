@@ -54,7 +54,7 @@
                     <th scope="col" ><span jhiTranslate="eoloprjApp.task.id">Id</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.task.id">Id</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.task.id">Id</span></th>
-                    <th scope="col" ><span jhiTranslate="eoloprjApp.task.pratica">Pratica</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.task.idPraticaRef">Id Pratica Ref</span></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -91,8 +91,8 @@
                         </div>
                     </td>
                     <td>
-                        <div *ngIf="task.praticaId">
-                            <a [routerLink]="['/pratica', task.praticaId , 'view']" >{{ task.praticaId }}</a>
+                        <div *ngIf="task.idPraticaRefId">
+                            <a [routerLink]="['/pratica', task.idPraticaRefId , 'view']" >{{ task.idPraticaRefId }}</a>
                         </div>
                     </td>
                     <td class="text-right">

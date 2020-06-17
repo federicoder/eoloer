@@ -28,10 +28,10 @@
                 <dd>
                     <span>{{ lineaOrdine.codIva }}</span>
                 </dd>
-                <dt><span jhiTranslate="eoloprjApp.lineaOrdine.ordine">Ordine</span></dt>
+                <dt><span jhiTranslate="eoloprjApp.lineaOrdine.idOrdineRef">Id Ordine Ref</span></dt>
                 <dd>
-                    <div *ngIf="lineaOrdine.ordineId">
-                        <a [routerLink]="['/ordine', lineaOrdine.ordineId, 'view']">{{ lineaOrdine.ordineId }}</a>
+                    <div *ngIf="lineaOrdine.idOrdineRefId">
+                        <a [routerLink]="['/ordine', lineaOrdine.idOrdineRefId, 'view']">{{ lineaOrdine.idOrdineRefId }}</a>
                     </div>
                 </dd>
             </dl>

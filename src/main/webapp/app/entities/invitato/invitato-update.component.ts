@@ -36,8 +36,8 @@ export class InvitatoUpdateComponent implements OnInit {
     dataRispostaInvito: [],
     ruoloInvitato: [],
     indInvitati: [],
-    userPersonaId: [],
-    invitoId: [],
+    idUserInvitatoId: [],
+    idInvitoRefId: [],
   });
 
   constructor(
@@ -72,8 +72,8 @@ export class InvitatoUpdateComponent implements OnInit {
       dataRispostaInvito: invitato.dataRispostaInvito,
       ruoloInvitato: invitato.ruoloInvitato,
       indInvitati: invitato.indInvitati,
-      userPersonaId: invitato.userPersonaId,
-      invitoId: invitato.invitoId,
+      idUserInvitatoId: invitato.idUserInvitatoId,
+      idInvitoRefId: invitato.idInvitoRefId,
     });
   }
 
@@ -106,8 +106,8 @@ export class InvitatoUpdateComponent implements OnInit {
       dataRispostaInvito: this.editForm.get(['dataRispostaInvito'])!.value,
       ruoloInvitato: this.editForm.get(['ruoloInvitato'])!.value,
       indInvitati: this.editForm.get(['indInvitati'])!.value,
-      userPersonaId: this.editForm.get(['userPersonaId'])!.value,
-      invitoId: this.editForm.get(['invitoId'])!.value,
+      idUserInvitatoId: this.editForm.get(['idUserInvitatoId'])!.value,
+      idInvitoRefId: this.editForm.get(['idInvitoRefId'])!.value,
     };
   }
 

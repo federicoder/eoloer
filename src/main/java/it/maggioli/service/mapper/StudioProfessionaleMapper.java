@@ -12,15 +12,11 @@ import org.mapstruct.*;
 @Mapper(componentModel = "spring", uses = {PersonaMapper.class})
 public interface StudioProfessionaleMapper extends EntityMapper<StudioProfessionaleDTO, StudioProfessionale> {
 
-    @Mapping(source = "persona.id", target = "personaId")
+    @Mapping(source = "idUserAmministratore.id", target = "idUserAmministratoreId")
     StudioProfessionaleDTO toDto(StudioProfessionale studioProfessionale);
 
-    @Mapping(target = "ids", ignore = true)
-    @Mapping(target = "removeId", ignore = true)
-    @Mapping(target = "ids", ignore = true)
-    @Mapping(target = "removeId", ignore = true)
+    @Mapping(source = "idUserAmministratoreId", target = "idUserAmministratore")
     @Mapping(target = "id", ignore = true)
-    @Mapping(source = "personaId", target = "persona")
     StudioProfessionale toEntity(StudioProfessionaleDTO studioProfessionaleDTO);
 
     default StudioProfessionale fromId(Long id) {

@@ -51,7 +51,7 @@ describe('RappresentanzaPratica e2e test', () => {
       rappresentanzaPraticaUpdatePage.setIdRuoloPersonaInput('5'),
       rappresentanzaPraticaUpdatePage.setIdPersonaRefInput('5'),
       rappresentanzaPraticaUpdatePage.ruoliSelectLastOption(),
-      rappresentanzaPraticaUpdatePage.personaSelectLastOption(),
+      rappresentanzaPraticaUpdatePage.idPersonaRefSelectLastOption(),
     ]);
 
     expect(await rappresentanzaPraticaUpdatePage.getIdRuoloPersonaInput()).to.eq('5', 'Expected idRuoloPersona value to be equals to 5');

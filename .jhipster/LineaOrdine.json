@@ -26,18 +26,18 @@
   ],
   "relationships": [
     {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "ordine",
+      "otherEntityRelationshipName": "lineaOrdine",
+      "relationshipName": "idOrdineRef",
+      "otherEntityField": "id"
+    },
+    {
       "relationshipType": "one-to-one",
       "otherEntityName": "prodotto",
       "otherEntityRelationshipName": "id",
       "relationshipName": "idProdottoRef",
       "ownerSide": false
-    },
-    {
-      "relationshipType": "many-to-one",
-      "otherEntityName": "ordine",
-      "otherEntityRelationshipName": "id",
-      "relationshipName": "ordine",
-      "otherEntityField": "id"
     }
   ],
   "changelogDate": "20200617085728",

@@ -30,7 +30,7 @@ export class AllegatoTemplateTaskUpdateComponent implements OnInit {
     formato: [],
     idFileRef: [],
     pubPriv: [],
-    templateTaskId: [],
+    idTemplateTaskRefId: [],
     tipoAllegatoId: [],
   });
 
@@ -60,7 +60,7 @@ export class AllegatoTemplateTaskUpdateComponent implements OnInit {
       formato: allegatoTemplateTask.formato,
       idFileRef: allegatoTemplateTask.idFileRef,
       pubPriv: allegatoTemplateTask.pubPriv,
-      templateTaskId: allegatoTemplateTask.templateTaskId,
+      idTemplateTaskRefId: allegatoTemplateTask.idTemplateTaskRefId,
       tipoAllegatoId: allegatoTemplateTask.tipoAllegatoId,
     });
   }
@@ -88,7 +88,7 @@ export class AllegatoTemplateTaskUpdateComponent implements OnInit {
       formato: this.editForm.get(['formato'])!.value,
       idFileRef: this.editForm.get(['idFileRef'])!.value,
       pubPriv: this.editForm.get(['pubPriv'])!.value,
-      templateTaskId: this.editForm.get(['templateTaskId'])!.value,
+      idTemplateTaskRefId: this.editForm.get(['idTemplateTaskRefId'])!.value,
       tipoAllegatoId: this.editForm.get(['tipoAllegatoId'])!.value,
     };
   }

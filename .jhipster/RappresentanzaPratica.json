@@ -19,6 +19,13 @@
   ],
   "relationships": [
     {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "persona",
+      "otherEntityRelationshipName": "rappresentanzaPratica",
+      "relationshipName": "idPersonaRef",
+      "otherEntityField": "id"
+    },
+    {
       "relationshipType": "one-to-one",
       "otherEntityName": "condivisionePratica",
       "otherEntityRelationshipName": "ruolo",
@@ -31,13 +38,6 @@
       "otherEntityRelationshipName": "ruolo",
       "relationshipName": "idRuoloPersona",
       "ownerSide": false
-    },
-    {
-      "relationshipType": "many-to-one",
-      "otherEntityName": "persona",
-      "otherEntityRelationshipName": "id",
-      "relationshipName": "persona",
-      "otherEntityField": "id"
     }
   ],
   "changelogDate": "20200617084328",

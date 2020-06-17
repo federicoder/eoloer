@@ -20,7 +20,9 @@ public class TemplateTaskDTO implements Serializable {
     private Long idTemplatePraticaRef;
 
 
-    private Long templatePraticaId;
+    private Long idTemplatePraticaRefId;
+
+    private Long idId;
 
     private Long templateTaskId;
     
@@ -72,12 +74,20 @@ public class TemplateTaskDTO implements Serializable {
         this.idTemplatePraticaRef = idTemplatePraticaRef;
     }
 
-    public Long getTemplatePraticaId() {
-        return templatePraticaId;
+    public Long getIdTemplatePraticaRefId() {
+        return idTemplatePraticaRefId;
     }
 
-    public void setTemplatePraticaId(Long templatePraticaId) {
-        this.templatePraticaId = templatePraticaId;
+    public void setIdTemplatePraticaRefId(Long templatePraticaId) {
+        this.idTemplatePraticaRefId = templatePraticaId;
+    }
+
+    public Long getIdId() {
+        return idId;
+    }
+
+    public void setIdId(Long templateTaskId) {
+        this.idId = templateTaskId;
     }
 
     public Long getTemplateTaskId() {
@@ -115,7 +125,8 @@ public class TemplateTaskDTO implements Serializable {
             ", note=" + getNote() +
             ", pubPriv=" + getPubPriv() +
             ", idTemplatePraticaRef=" + getIdTemplatePraticaRef() +
-            ", templatePraticaId=" + getTemplatePraticaId() +
+            ", idTemplatePraticaRefId=" + getIdTemplatePraticaRefId() +
+            ", idId=" + getIdId() +
             ", templateTaskId=" + getTemplateTaskId() +
             "}";
     }

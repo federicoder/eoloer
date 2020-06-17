@@ -48,10 +48,10 @@
             <column name="ind_invitati" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="user_persona_id" type="bigint">
+            <column name="id_user_invitato_id" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="invito_id" type="bigint">
+            <column name="id_invito_ref_id" type="bigint">
                 <constraints nullable="true" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->

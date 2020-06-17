@@ -43,16 +43,16 @@
     },
     {
       "relationshipType": "many-to-one",
-      "otherEntityName": "pratica",
-      "otherEntityRelationshipName": "id",
-      "relationshipName": "pratica",
+      "otherEntityName": "userPersona",
+      "otherEntityRelationshipName": "condivisionePratica",
+      "relationshipName": "idUserAmmesso",
       "otherEntityField": "id"
     },
     {
       "relationshipType": "many-to-one",
-      "otherEntityName": "userPersona",
-      "otherEntityRelationshipName": "id",
-      "relationshipName": "userPersona",
+      "otherEntityName": "pratica",
+      "otherEntityRelationshipName": "condivisionePratica",
+      "relationshipName": "idPraticaRef",
       "otherEntityField": "id"
     }
   ],

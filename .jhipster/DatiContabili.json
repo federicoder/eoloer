@@ -11,8 +11,8 @@
     {
       "relationshipType": "many-to-one",
       "otherEntityName": "persona",
-      "otherEntityRelationshipName": "id",
-      "relationshipName": "persona",
+      "otherEntityRelationshipName": "datiContabili",
+      "relationshipName": "idPersonaRef",
       "otherEntityField": "id"
     }
   ],

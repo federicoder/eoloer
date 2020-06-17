@@ -21,7 +21,7 @@
       "data": "Data",
       "nota": "Nota",
       "version": "Version",
-      "pratica": "Pratica"
+      "idPraticaRef": "Id Pratica Ref"
     }
   }
 }

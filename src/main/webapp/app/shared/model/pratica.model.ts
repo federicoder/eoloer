@@ -1,8 +1,3 @@
-import { ITask } from 'app/shared/model/task.model';
-import { INotaPratica } from 'app/shared/model/nota-pratica.model';
-import { ICondivisionePratica } from 'app/shared/model/condivisione-pratica.model';
-import { IInvitoPratica } from 'app/shared/model/invito-pratica.model';
-
 export interface IPratica {
   id?: number;
   idStudioProfessionaleRef?: number;
@@ -18,10 +13,6 @@ export interface IPratica {
   version?: string;
   valuta?: string;
   idTemplatePraticaRef?: number;
-  ids?: ITask[];
-  ids?: INotaPratica[];
-  ids?: ICondivisionePratica[];
-  ids?: IInvitoPratica[];
   idTemplatePraticaRefId?: number;
 }
 
@@ -41,10 +32,6 @@ export class Pratica implements IPratica {
     public version?: string,
     public valuta?: string,
     public idTemplatePraticaRef?: number,
-    public ids?: ITask[],
-    public ids?: INotaPratica[],
-    public ids?: ICondivisionePratica[],
-    public ids?: IInvitoPratica[],
     public idTemplatePraticaRefId?: number
   ) {}
 }

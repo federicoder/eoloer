@@ -41,6 +41,10 @@ public class RappresentanzaPratica implements Serializable {
     @Column(name = "ruoli")
     private Ruoli ruoli;
 
+    @ManyToOne
+    @JsonIgnoreProperties(value = "rappresentanzaPraticas", allowSetters = true)
+    private Persona idPersonaRef;
+
     @OneToOne(mappedBy = "ruolo")
     @JsonIgnore
     private CondivisionePratica idRuoloPersona;
@@ -48,10 +52,6 @@ public class RappresentanzaPratica implements Serializable {
     @OneToOne(mappedBy = "ruolo")
     @JsonIgnore
     private AssegnazioneTask idRuoloPersona;
-
-    @ManyToOne
-    @JsonIgnoreProperties(value = "ids", allowSetters = true)
-    private Persona persona;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -101,6 +101,19 @@ public class RappresentanzaPratica implements Serializable {
         this.ruoli = ruoli;
     }
 
+    public Persona getIdPersonaRef() {
+        return idPersonaRef;
+    }
+
+    public RappresentanzaPratica idPersonaRef(Persona persona) {
+        this.idPersonaRef = persona;
+        return this;
+    }
+
+    public void setIdPersonaRef(Persona persona) {
+        this.idPersonaRef = persona;
+    }
+
     public CondivisionePratica getIdRuoloPersona() {
         return idRuoloPersona;
     }
@@ -125,19 +138,6 @@ public class RappresentanzaPratica implements Serializable {
 
     public void setIdRuoloPersona(AssegnazioneTask assegnazioneTask) {
         this.idRuoloPersona = assegnazioneTask;
-    }
-
-    public Persona getPersona() {
-        return persona;
-    }
-
-    public RappresentanzaPratica persona(Persona persona) {
-        this.persona = persona;
-        return this;
-    }
-
-    public void setPersona(Persona persona) {
-        this.persona = persona;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

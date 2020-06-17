@@ -24,8 +24,8 @@
       "idPraticaRef": "Id Pratica Ref",
       "ruolo": "Ruolo",
       "idUserConcedente": "Id User Concedente",
-      "pratica": "Pratica",
-      "userPersona": "User Persona"
+      "idUserAmmesso": "Id User Ammesso",
+      "idPraticaRef": "Id Pratica Ref"
     }
   }
 }

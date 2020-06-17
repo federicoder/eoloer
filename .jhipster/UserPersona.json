@@ -12,28 +12,10 @@
   ],
   "relationships": [
     {
-      "relationshipType": "one-to-many",
-      "otherEntityName": "condivisionePratica",
-      "otherEntityRelationshipName": "userPersona",
-      "relationshipName": "id"
-    },
-    {
-      "relationshipType": "one-to-many",
-      "otherEntityName": "assegnazioneTask",
-      "otherEntityRelationshipName": "userPersona",
-      "relationshipName": "id"
-    },
-    {
-      "relationshipType": "one-to-many",
-      "otherEntityName": "invitato",
-      "otherEntityRelationshipName": "userPersona",
-      "relationshipName": "id"
-    },
-    {
       "relationshipType": "many-to-one",
       "otherEntityName": "personaFisica",
-      "otherEntityRelationshipName": "id",
-      "relationshipName": "personaFisica",
+      "otherEntityRelationshipName": "userPersona",
+      "relationshipName": "idPersonaRef",
       "otherEntityField": "id"
     }
   ],

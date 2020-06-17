@@ -52,8 +52,8 @@ describe('Invitato e2e test', () => {
       invitatoUpdatePage.setDataRispostaInvitoInput('dataRispostaInvito'),
       invitatoUpdatePage.setRuoloInvitatoInput('5'),
       invitatoUpdatePage.setIndInvitatiInput('5'),
-      invitatoUpdatePage.userPersonaSelectLastOption(),
-      invitatoUpdatePage.invitoSelectLastOption(),
+      invitatoUpdatePage.idUserInvitatoSelectLastOption(),
+      invitatoUpdatePage.idInvitoRefSelectLastOption(),
     ]);
 
     expect(await invitatoUpdatePage.getIdInvitoRefInput()).to.eq('5', 'Expected idInvitoRef value to be equals to 5');

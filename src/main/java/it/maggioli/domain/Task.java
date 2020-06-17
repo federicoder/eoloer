@@ -9,8 +9,6 @@ import javax.validation.constraints.*;
 
 import org.springframework.data.elasticsearch.annotations.FieldType;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * A Task.
@@ -74,17 +72,9 @@ public class Task implements Serializable {
     @JoinColumn(unique = true)
     private InvitoAttivita id;
 
-    @OneToMany(mappedBy = "task")
-    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<AllegatoTask> ids = new HashSet<>();
-
-    @OneToMany(mappedBy = "task")
-    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<NotaTask> ids = new HashSet<>();
-
     @ManyToOne
-    @JsonIgnoreProperties(value = "ids", allowSetters = true)
-    private Pratica pratica;
+    @JsonIgnoreProperties(value = "tasks", allowSetters = true)
+    private Pratica idPraticaRef;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -264,67 +254,17 @@ public class Task implements Serializable {
         this.id = invitoAttivita;
     }
 
-    public Set<AllegatoTask> getIds() {
-        return ids;
+    public Pratica getIdPraticaRef() {
+        return idPraticaRef;
     }
 
-    public Task ids(Set<AllegatoTask> allegatoTasks) {
-        this.ids = allegatoTasks;
+    public Task idPraticaRef(Pratica pratica) {
+        this.idPraticaRef = pratica;
         return this;
     }
 
-    public Task addId(AllegatoTask allegatoTask) {
-        this.ids.add(allegatoTask);
-        allegatoTask.setTask(this);
-        return this;
-    }
-
-    public Task removeId(AllegatoTask allegatoTask) {
-        this.ids.remove(allegatoTask);
-        allegatoTask.setTask(null);
-        return this;
-    }
-
-    public void setIds(Set<AllegatoTask> allegatoTasks) {
-        this.ids = allegatoTasks;
-    }
-
-    public Set<NotaTask> getIds() {
-        return ids;
-    }
-
-    public Task ids(Set<NotaTask> notaTasks) {
-        this.ids = notaTasks;
-        return this;
-    }
-
-    public Task addId(NotaTask notaTask) {
-        this.ids.add(notaTask);
-        notaTask.setTask(this);
-        return this;
-    }
-
-    public Task removeId(NotaTask notaTask) {
-        this.ids.remove(notaTask);
-        notaTask.setTask(null);
-        return this;
-    }
-
-    public void setIds(Set<NotaTask> notaTasks) {
-        this.ids = notaTasks;
-    }
-
-    public Pratica getPratica() {
-        return pratica;
-    }
-
-    public Task pratica(Pratica pratica) {
-        this.pratica = pratica;
-        return this;
-    }
-
-    public void setPratica(Pratica pratica) {
-        this.pratica = pratica;
+    public void setIdPraticaRef(Pratica pratica) {
+        this.idPraticaRef = pratica;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

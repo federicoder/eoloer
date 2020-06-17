@@ -23,7 +23,7 @@ export class EmailPersonaUpdateComponent implements OnInit {
     idPersonaRef: [null, [Validators.required]],
     etichetta: [],
     numero: [],
-    personaId: [],
+    idPersonaRefId: [],
   });
 
   constructor(
@@ -47,7 +47,7 @@ export class EmailPersonaUpdateComponent implements OnInit {
       idPersonaRef: emailPersona.idPersonaRef,
       etichetta: emailPersona.etichetta,
       numero: emailPersona.numero,
-      personaId: emailPersona.personaId,
+      idPersonaRefId: emailPersona.idPersonaRefId,
     });
   }
 
@@ -72,7 +72,7 @@ export class EmailPersonaUpdateComponent implements OnInit {
       idPersonaRef: this.editForm.get(['idPersonaRef'])!.value,
       etichetta: this.editForm.get(['etichetta'])!.value,
       numero: this.editForm.get(['numero'])!.value,
-      personaId: this.editForm.get(['personaId'])!.value,
+      idPersonaRefId: this.editForm.get(['idPersonaRefId'])!.value,
     };
   }
 

@@ -32,7 +32,7 @@ export class InvitoPraticaUpdatePage {
   idPraticaRefInput = element(by.id('field_idPraticaRef'));
 
   idPraticaRefSelect = element(by.id('field_idPraticaRef'));
-  praticaSelect = element(by.id('field_pratica'));
+  idPraticaSelect = element(by.id('field_idPratica'));
 
   async getPageTitle(): Promise<string> {
     return this.pageTitle.getAttribute('jhiTranslate');
@@ -62,20 +62,20 @@ export class InvitoPraticaUpdatePage {
     return await this.idPraticaRefSelect.element(by.css('option:checked')).getText();
   }
 
-  async praticaSelectLastOption(): Promise<void> {
-    await this.praticaSelect.all(by.tagName('option')).last().click();
+  async idPraticaSelectLastOption(): Promise<void> {
+    await this.idPraticaSelect.all(by.tagName('option')).last().click();
   }
 
-  async praticaSelectOption(option: string): Promise<void> {
-    await this.praticaSelect.sendKeys(option);
+  async idPraticaSelectOption(option: string): Promise<void> {
+    await this.idPraticaSelect.sendKeys(option);
   }
 
-  getPraticaSelect(): ElementFinder {
-    return this.praticaSelect;
+  getIdPraticaSelect(): ElementFinder {
+    return this.idPraticaSelect;
   }
 
-  async getPraticaSelectedOption(): Promise<string> {
-    return await this.praticaSelect.element(by.css('option:checked')).getText();
+  async getIdPraticaSelectedOption(): Promise<string> {
+    return await this.idPraticaSelect.element(by.css('option:checked')).getText();
   }
 
   async save(): Promise<void> {

@@ -5,8 +5,8 @@ export interface ILineaOrdine {
   quantita?: number;
   importo?: number;
   codIva?: string;
+  idOrdineRefId?: number;
   idProdottoRefId?: number;
-  ordineId?: number;
 }
 
 export class LineaOrdine implements ILineaOrdine {
@@ -17,7 +17,7 @@ export class LineaOrdine implements ILineaOrdine {
     public quantita?: number,
     public importo?: number,
     public codIva?: string,
-    public idProdottoRefId?: number,
-    public ordineId?: number
+    public idOrdineRefId?: number,
+    public idProdottoRefId?: number
   ) {}
 }

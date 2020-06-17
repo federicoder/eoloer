@@ -12,11 +12,11 @@ import org.mapstruct.*;
 @Mapper(componentModel = "spring", uses = {TemplateTaskMapper.class, TipoAllegatoMapper.class})
 public interface AllegatoTemplateTaskMapper extends EntityMapper<AllegatoTemplateTaskDTO, AllegatoTemplateTask> {
 
-    @Mapping(source = "templateTask.id", target = "templateTaskId")
+    @Mapping(source = "idTemplateTaskRef.id", target = "idTemplateTaskRefId")
     @Mapping(source = "tipoAllegato.id", target = "tipoAllegatoId")
     AllegatoTemplateTaskDTO toDto(AllegatoTemplateTask allegatoTemplateTask);
 
-    @Mapping(source = "templateTaskId", target = "templateTask")
+    @Mapping(source = "idTemplateTaskRefId", target = "idTemplateTaskRef")
     @Mapping(source = "tipoAllegatoId", target = "tipoAllegato")
     AllegatoTemplateTask toEntity(AllegatoTemplateTaskDTO allegatoTemplateTaskDTO);
 
