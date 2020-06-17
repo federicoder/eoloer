@@ -10,21 +10,17 @@ public class AssegnazioneTaskDTO implements Serializable {
     
     private Long id;
 
-    @NotNull
-    @Max(value = 8)
-    private Integer idAssegnazioneTask;
+    @Max(value = 8L)
+    private Long idTaskRef;
 
-    @Max(value = 8)
-    private Integer idTaskRef;
+    @Max(value = 8L)
+    private Long idUserAmmesso;
 
-    @Max(value = 8)
-    private Integer idUserAmmesso;
+    private Long ruolo;
 
-    private Integer ruolo;
+    private Long idUserConcedente;
 
-    private Integer idUserConcedente;
-
-    private Integer statoAssegnazione;
+    private Long statoAssegnazione;
 
 
     private Long ruoloId;
@@ -39,51 +35,43 @@ public class AssegnazioneTaskDTO implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdAssegnazioneTask() {
-        return idAssegnazioneTask;
-    }
-
-    public void setIdAssegnazioneTask(Integer idAssegnazioneTask) {
-        this.idAssegnazioneTask = idAssegnazioneTask;
-    }
-
-    public Integer getIdTaskRef() {
+    public Long getIdTaskRef() {
         return idTaskRef;
     }
 
-    public void setIdTaskRef(Integer idTaskRef) {
+    public void setIdTaskRef(Long idTaskRef) {
         this.idTaskRef = idTaskRef;
     }
 
-    public Integer getIdUserAmmesso() {
+    public Long getIdUserAmmesso() {
         return idUserAmmesso;
     }
 
-    public void setIdUserAmmesso(Integer idUserAmmesso) {
+    public void setIdUserAmmesso(Long idUserAmmesso) {
         this.idUserAmmesso = idUserAmmesso;
     }
 
-    public Integer getRuolo() {
+    public Long getRuolo() {
         return ruolo;
     }
 
-    public void setRuolo(Integer ruolo) {
+    public void setRuolo(Long ruolo) {
         this.ruolo = ruolo;
     }
 
-    public Integer getIdUserConcedente() {
+    public Long getIdUserConcedente() {
         return idUserConcedente;
     }
 
-    public void setIdUserConcedente(Integer idUserConcedente) {
+    public void setIdUserConcedente(Long idUserConcedente) {
         this.idUserConcedente = idUserConcedente;
     }
 
-    public Integer getStatoAssegnazione() {
+    public Long getStatoAssegnazione() {
         return statoAssegnazione;
     }
 
-    public void setStatoAssegnazione(Integer statoAssegnazione) {
+    public void setStatoAssegnazione(Long statoAssegnazione) {
         this.statoAssegnazione = statoAssegnazione;
     }
 
@@ -125,7 +113,6 @@ public class AssegnazioneTaskDTO implements Serializable {
     public String toString() {
         return "AssegnazioneTaskDTO{" +
             "id=" + getId() +
-            ", idAssegnazioneTask=" + getIdAssegnazioneTask() +
             ", idTaskRef=" + getIdTaskRef() +
             ", idUserAmmesso=" + getIdUserAmmesso() +
             ", ruolo=" + getRuolo() +

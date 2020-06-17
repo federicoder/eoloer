@@ -41,7 +41,6 @@ describe('Persona e2e test', () => {
     await personaComponentsPage.clickOnCreateButton();
 
     await promise.all([
-      personaUpdatePage.setIdPersonaInput('5'),
       personaUpdatePage.setIdStudioProfessionaleRefInput('5'),
       personaUpdatePage.setCodiceFiscaleInput('codiceFiscale'),
       personaUpdatePage.setAreaDiInteresseInput('areaDiInteresse'),
@@ -55,10 +54,9 @@ describe('Persona e2e test', () => {
       personaUpdatePage.setDiscriminatorInput('discriminator'),
       personaUpdatePage.setIdRuoloPersonaRefInput('5'),
       personaUpdatePage.setTipoRuoloUtenteInput('5'),
-      personaUpdatePage.idPersonaSelectLastOption(),
+      personaUpdatePage.idSelectLastOption(),
     ]);
 
-    expect(await personaUpdatePage.getIdPersonaInput()).to.eq('5', 'Expected idPersona value to be equals to 5');
     expect(await personaUpdatePage.getIdStudioProfessionaleRefInput()).to.eq(
       '5',
       'Expected idStudioProfessionaleRef value to be equals to 5'

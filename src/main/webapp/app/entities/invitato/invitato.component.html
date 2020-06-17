@@ -41,7 +41,6 @@
             <thead>
                 <tr>
                     <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
-                    <th scope="col" ><span jhiTranslate="eoloprjApp.invitato.idInvitato">Id Invitato</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.invitato.idInvitoRef">Id Invito Ref</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.invitato.tokenInvito">Token Invito</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.invitato.canalePrimarioInvito">Canale Primario Invito</span></th>
@@ -61,7 +60,6 @@
             <tbody>
                 <tr *ngFor="let invitato of invitatoes ;trackBy: trackId">
                     <td><a [routerLink]="['/invitato', invitato.id, 'view']">{{ invitato.id }}</a></td>
-                    <td>{{ invitato.idInvitato }}</td>
                     <td>{{ invitato.idInvitoRef }}</td>
                     <td>{{ invitato.tokenInvito }}</td>
                     <td>{{ invitato.canalePrimarioInvito }}</td>

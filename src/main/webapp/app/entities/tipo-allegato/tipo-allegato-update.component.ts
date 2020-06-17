@@ -17,7 +17,6 @@ export class TipoAllegatoUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    idTipoAllegato: [null, [Validators.max(8)]],
     nome: [],
     formatiAmmessi: [],
     maxDimensioneAmmessa: [],
@@ -35,7 +34,6 @@ export class TipoAllegatoUpdateComponent implements OnInit {
   updateForm(tipoAllegato: ITipoAllegato): void {
     this.editForm.patchValue({
       id: tipoAllegato.id,
-      idTipoAllegato: tipoAllegato.idTipoAllegato,
       nome: tipoAllegato.nome,
       formatiAmmessi: tipoAllegato.formatiAmmessi,
       maxDimensioneAmmessa: tipoAllegato.maxDimensioneAmmessa,
@@ -61,7 +59,6 @@ export class TipoAllegatoUpdateComponent implements OnInit {
     return {
       ...new TipoAllegato(),
       id: this.editForm.get(['id'])!.value,
-      idTipoAllegato: this.editForm.get(['idTipoAllegato'])!.value,
       nome: this.editForm.get(['nome'])!.value,
       formatiAmmessi: this.editForm.get(['formatiAmmessi'])!.value,
       maxDimensioneAmmessa: this.editForm.get(['maxDimensioneAmmessa'])!.value,

@@ -3,29 +3,29 @@
   "fields": [
     {
       "fieldName": "idTaskRef",
-      "fieldType": "Integer",
+      "fieldType": "Long",
       "fieldValidateRules": ["max", "required"],
       "fieldValidateRulesMax": "8"
     },
     {
       "fieldName": "qntOrdine",
-      "fieldType": "Integer",
+      "fieldType": "Long",
       "fieldValidateRules": ["max"],
       "fieldValidateRulesMax": "8"
     },
     {
       "fieldName": "prcPrevisione",
-      "fieldType": "Integer",
+      "fieldType": "Long",
       "fieldValidateRules": ["max"],
       "fieldValidateRulesMax": "1"
     },
     {
       "fieldName": "checkList",
-      "fieldType": "Integer"
+      "fieldType": "Long"
     },
     {
       "fieldName": "idTaskMilestone",
-      "fieldType": "Integer"
+      "fieldType": "Long"
     },
     {
       "fieldName": "tipoTask",
@@ -60,7 +60,7 @@
     {
       "relationshipType": "one-to-one",
       "otherEntityName": "task",
-      "otherEntityRelationshipName": "idTask",
+      "otherEntityRelationshipName": "id",
       "relationshipName": "idTaskRef",
       "ownerSide": false
     },

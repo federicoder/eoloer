@@ -2,32 +2,26 @@
   "name": "CondivisionePratica",
   "fields": [
     {
-      "fieldName": "idCondivisionePratica",
-      "fieldType": "Integer",
-      "fieldValidateRules": ["max", "required"],
-      "fieldValidateRulesMax": "8"
-    },
-    {
       "fieldName": "idUserAmmesso",
-      "fieldType": "Integer",
+      "fieldType": "Long",
       "fieldValidateRules": ["max"],
       "fieldValidateRulesMax": "8"
     },
     {
       "fieldName": "ruolo",
-      "fieldType": "Integer"
+      "fieldType": "Long"
     },
     {
       "fieldName": "idUserConcedente",
-      "fieldType": "Integer"
+      "fieldType": "Long"
     },
     {
       "fieldName": "statoInvito",
-      "fieldType": "Integer"
+      "fieldType": "Long"
     },
     {
       "fieldName": "idPraticaRef",
-      "fieldType": "Integer"
+      "fieldType": "Long"
     }
   ],
   "relationships": [
@@ -42,7 +36,7 @@
     {
       "relationshipType": "one-to-one",
       "otherEntityName": "persona",
-      "otherEntityRelationshipName": "idPersona",
+      "otherEntityRelationshipName": "id",
       "relationshipName": "idUserConcedente",
       "otherEntityField": "id",
       "ownerSide": true
@@ -50,14 +44,14 @@
     {
       "relationshipType": "many-to-one",
       "otherEntityName": "pratica",
-      "otherEntityRelationshipName": "idPratica",
+      "otherEntityRelationshipName": "id",
       "relationshipName": "pratica",
       "otherEntityField": "id"
     },
     {
       "relationshipType": "many-to-one",
       "otherEntityName": "userPersona",
-      "otherEntityRelationshipName": "idUserPersona",
+      "otherEntityRelationshipName": "id",
       "relationshipName": "userPersona",
       "otherEntityField": "id"
     }

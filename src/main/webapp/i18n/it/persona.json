@@ -17,7 +17,6 @@
       "detail": {
         "title": "Persona"
       },
-      "idPersona": "Id Persona",
       "idStudioProfessionaleRef": "Id Studio Professionale Ref",
       "codiceFiscale": "Codice Fiscale",
       "areaDiInteresse": "Area Di Interesse",
@@ -31,17 +30,17 @@
       "discriminator": "Discriminator",
       "idRuoloPersonaRef": "Id Ruolo Persona Ref",
       "tipoRuoloUtente": "Tipo Ruolo Utente",
-      "idPersona": "Id Persona",
-      "idPersona": "Id Persona",
-      "idPersona": "Id Persona",
-      "idPersona": "Id Persona",
-      "idPersona": "Id Persona",
-      "idPersona": "Id Persona",
-      "idPersona": "Id Persona",
-      "idPersona": "Id Persona",
-      "idPersona": "Id Persona",
-      "idPersona": "Id Persona",
-      "idPersona": "Id Persona"
+      "id": "Id",
+      "id": "Id",
+      "id": "Id",
+      "id": "Id",
+      "id": "Id",
+      "id": "Id",
+      "id": "Id",
+      "id": "Id",
+      "id": "Id",
+      "id": "Id",
+      "id": "Id"
     }
   }
 }

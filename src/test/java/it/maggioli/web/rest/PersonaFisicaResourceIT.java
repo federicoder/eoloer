@@ -40,14 +40,11 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WithMockUser
 public class PersonaFisicaResourceIT {
 
-    private static final Integer DEFAULT_ID_PERSONA_FISICA = 1;
-    private static final Integer UPDATED_ID_PERSONA_FISICA = 2;
+    private static final Long DEFAULT_ID_PERSONA_REF = 1L;
+    private static final Long UPDATED_ID_PERSONA_REF = 2L;
 
-    private static final Integer DEFAULT_ID_PERSONA_REF = 1;
-    private static final Integer UPDATED_ID_PERSONA_REF = 2;
-
-    private static final Integer DEFAULT_ID_RUOLO_PERSONA_REF = 1;
-    private static final Integer UPDATED_ID_RUOLO_PERSONA_REF = 2;
+    private static final Long DEFAULT_ID_RUOLO_PERSONA_REF = 1L;
+    private static final Long UPDATED_ID_RUOLO_PERSONA_REF = 2L;
 
     private static final String DEFAULT_TITOLO = "AAAAAAAAAA";
     private static final String UPDATED_TITOLO = "BBBBBBBBBB";
@@ -100,7 +97,6 @@ public class PersonaFisicaResourceIT {
      */
     public static PersonaFisica createEntity(EntityManager em) {
         PersonaFisica personaFisica = new PersonaFisica()
-            .idPersonaFisica(DEFAULT_ID_PERSONA_FISICA)
             .idPersonaRef(DEFAULT_ID_PERSONA_REF)
             .idRuoloPersonaRef(DEFAULT_ID_RUOLO_PERSONA_REF)
             .titolo(DEFAULT_TITOLO)
@@ -119,7 +115,6 @@ public class PersonaFisicaResourceIT {
      */
     public static PersonaFisica createUpdatedEntity(EntityManager em) {
         PersonaFisica personaFisica = new PersonaFisica()
-            .idPersonaFisica(UPDATED_ID_PERSONA_FISICA)
             .idPersonaRef(UPDATED_ID_PERSONA_REF)
             .idRuoloPersonaRef(UPDATED_ID_RUOLO_PERSONA_REF)
             .titolo(UPDATED_TITOLO)
@@ -151,7 +146,6 @@ public class PersonaFisicaResourceIT {
         List<PersonaFisica> personaFisicaList = personaFisicaRepository.findAll();
         assertThat(personaFisicaList).hasSize(databaseSizeBeforeCreate + 1);
         PersonaFisica testPersonaFisica = personaFisicaList.get(personaFisicaList.size() - 1);
-        assertThat(testPersonaFisica.getIdPersonaFisica()).isEqualTo(DEFAULT_ID_PERSONA_FISICA);
         assertThat(testPersonaFisica.getIdPersonaRef()).isEqualTo(DEFAULT_ID_PERSONA_REF);
         assertThat(testPersonaFisica.getIdRuoloPersonaRef()).isEqualTo(DEFAULT_ID_RUOLO_PERSONA_REF);
         assertThat(testPersonaFisica.getTitolo()).isEqualTo(DEFAULT_TITOLO);
@@ -191,26 +185,6 @@ public class PersonaFisicaResourceIT {
 
     @Test
     @Transactional
-    public void checkIdPersonaFisicaIsRequired() throws Exception {
-        int databaseSizeBeforeTest = personaFisicaRepository.findAll().size();
-        // set the field null
-        personaFisica.setIdPersonaFisica(null);
-
-        // Create the PersonaFisica, which fails.
-        PersonaFisicaDTO personaFisicaDTO = personaFisicaMapper.toDto(personaFisica);
-
-
-        restPersonaFisicaMockMvc.perform(post("/api/persona-fisicas")
-            .contentType(MediaType.APPLICATION_JSON)
-            .content(TestUtil.convertObjectToJsonBytes(personaFisicaDTO)))
-            .andExpect(status().isBadRequest());
-
-        List<PersonaFisica> personaFisicaList = personaFisicaRepository.findAll();
-        assertThat(personaFisicaList).hasSize(databaseSizeBeforeTest);
-    }
-
-    @Test
-    @Transactional
     public void checkIdPersonaRefIsRequired() throws Exception {
         int databaseSizeBeforeTest = personaFisicaRepository.findAll().size();
         // set the field null
@@ -240,9 +214,8 @@ public class PersonaFisicaResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(personaFisica.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idPersonaFisica").value(hasItem(DEFAULT_ID_PERSONA_FISICA)))
-            .andExpect(jsonPath("$.[*].idPersonaRef").value(hasItem(DEFAULT_ID_PERSONA_REF)))
-            .andExpect(jsonPath("$.[*].idRuoloPersonaRef").value(hasItem(DEFAULT_ID_RUOLO_PERSONA_REF)))
+            .andExpect(jsonPath("$.[*].idPersonaRef").value(hasItem(DEFAULT_ID_PERSONA_REF.intValue())))
+            .andExpect(jsonPath("$.[*].idRuoloPersonaRef").value(hasItem(DEFAULT_ID_RUOLO_PERSONA_REF.intValue())))
             .andExpect(jsonPath("$.[*].titolo").value(hasItem(DEFAULT_TITOLO)))
             .andExpect(jsonPath("$.[*].cognome").value(hasItem(DEFAULT_COGNOME)))
             .andExpect(jsonPath("$.[*].nome").value(hasItem(DEFAULT_NOME)))
@@ -262,9 +235,8 @@ public class PersonaFisicaResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(personaFisica.getId().intValue()))
-            .andExpect(jsonPath("$.idPersonaFisica").value(DEFAULT_ID_PERSONA_FISICA))
-            .andExpect(jsonPath("$.idPersonaRef").value(DEFAULT_ID_PERSONA_REF))
-            .andExpect(jsonPath("$.idRuoloPersonaRef").value(DEFAULT_ID_RUOLO_PERSONA_REF))
+            .andExpect(jsonPath("$.idPersonaRef").value(DEFAULT_ID_PERSONA_REF.intValue()))
+            .andExpect(jsonPath("$.idRuoloPersonaRef").value(DEFAULT_ID_RUOLO_PERSONA_REF.intValue()))
             .andExpect(jsonPath("$.titolo").value(DEFAULT_TITOLO))
             .andExpect(jsonPath("$.cognome").value(DEFAULT_COGNOME))
             .andExpect(jsonPath("$.nome").value(DEFAULT_NOME))
@@ -293,7 +265,6 @@ public class PersonaFisicaResourceIT {
         // Disconnect from session so that the updates on updatedPersonaFisica are not directly saved in db
         em.detach(updatedPersonaFisica);
         updatedPersonaFisica
-            .idPersonaFisica(UPDATED_ID_PERSONA_FISICA)
             .idPersonaRef(UPDATED_ID_PERSONA_REF)
             .idRuoloPersonaRef(UPDATED_ID_RUOLO_PERSONA_REF)
             .titolo(UPDATED_TITOLO)
@@ -313,7 +284,6 @@ public class PersonaFisicaResourceIT {
         List<PersonaFisica> personaFisicaList = personaFisicaRepository.findAll();
         assertThat(personaFisicaList).hasSize(databaseSizeBeforeUpdate);
         PersonaFisica testPersonaFisica = personaFisicaList.get(personaFisicaList.size() - 1);
-        assertThat(testPersonaFisica.getIdPersonaFisica()).isEqualTo(UPDATED_ID_PERSONA_FISICA);
         assertThat(testPersonaFisica.getIdPersonaRef()).isEqualTo(UPDATED_ID_PERSONA_REF);
         assertThat(testPersonaFisica.getIdRuoloPersonaRef()).isEqualTo(UPDATED_ID_RUOLO_PERSONA_REF);
         assertThat(testPersonaFisica.getTitolo()).isEqualTo(UPDATED_TITOLO);
@@ -384,9 +354,8 @@ public class PersonaFisicaResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(personaFisica.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idPersonaFisica").value(hasItem(DEFAULT_ID_PERSONA_FISICA)))
-            .andExpect(jsonPath("$.[*].idPersonaRef").value(hasItem(DEFAULT_ID_PERSONA_REF)))
-            .andExpect(jsonPath("$.[*].idRuoloPersonaRef").value(hasItem(DEFAULT_ID_RUOLO_PERSONA_REF)))
+            .andExpect(jsonPath("$.[*].idPersonaRef").value(hasItem(DEFAULT_ID_PERSONA_REF.intValue())))
+            .andExpect(jsonPath("$.[*].idRuoloPersonaRef").value(hasItem(DEFAULT_ID_RUOLO_PERSONA_REF.intValue())))
             .andExpect(jsonPath("$.[*].titolo").value(hasItem(DEFAULT_TITOLO)))
             .andExpect(jsonPath("$.[*].cognome").value(hasItem(DEFAULT_COGNOME)))
             .andExpect(jsonPath("$.[*].nome").value(hasItem(DEFAULT_NOME)))

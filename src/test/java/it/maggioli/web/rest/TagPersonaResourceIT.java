@@ -40,11 +40,11 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WithMockUser
 public class TagPersonaResourceIT {
 
-    private static final Integer DEFAULT_ID_PERSONA_REF = 1;
-    private static final Integer UPDATED_ID_PERSONA_REF = 2;
+    private static final Long DEFAULT_ID_PERSONA_REF = 1L;
+    private static final Long UPDATED_ID_PERSONA_REF = 2L;
 
-    private static final Integer DEFAULT_TAG = 1;
-    private static final Integer UPDATED_TAG = 2;
+    private static final Long DEFAULT_TAG = 1L;
+    private static final Long UPDATED_TAG = 2L;
 
     @Autowired
     private TagPersonaRepository tagPersonaRepository;
@@ -178,8 +178,8 @@ public class TagPersonaResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(tagPersona.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idPersonaRef").value(hasItem(DEFAULT_ID_PERSONA_REF)))
-            .andExpect(jsonPath("$.[*].tag").value(hasItem(DEFAULT_TAG)));
+            .andExpect(jsonPath("$.[*].idPersonaRef").value(hasItem(DEFAULT_ID_PERSONA_REF.intValue())))
+            .andExpect(jsonPath("$.[*].tag").value(hasItem(DEFAULT_TAG.intValue())));
     }
     
     @Test
@@ -193,8 +193,8 @@ public class TagPersonaResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(tagPersona.getId().intValue()))
-            .andExpect(jsonPath("$.idPersonaRef").value(DEFAULT_ID_PERSONA_REF))
-            .andExpect(jsonPath("$.tag").value(DEFAULT_TAG));
+            .andExpect(jsonPath("$.idPersonaRef").value(DEFAULT_ID_PERSONA_REF.intValue()))
+            .andExpect(jsonPath("$.tag").value(DEFAULT_TAG.intValue()));
     }
     @Test
     @Transactional
@@ -294,7 +294,7 @@ public class TagPersonaResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(tagPersona.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idPersonaRef").value(hasItem(DEFAULT_ID_PERSONA_REF)))
-            .andExpect(jsonPath("$.[*].tag").value(hasItem(DEFAULT_TAG)));
+            .andExpect(jsonPath("$.[*].idPersonaRef").value(hasItem(DEFAULT_ID_PERSONA_REF.intValue())))
+            .andExpect(jsonPath("$.[*].tag").value(hasItem(DEFAULT_TAG.intValue())));
     }
 }

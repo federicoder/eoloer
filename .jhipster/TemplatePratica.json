@@ -2,18 +2,12 @@
   "name": "TemplatePratica",
   "fields": [
     {
-      "fieldName": "idTemplatePratica",
-      "fieldType": "Integer",
-      "fieldValidateRules": ["required", "max"],
-      "fieldValidateRulesMax": "8"
-    },
-    {
       "fieldName": "nomeTemplate",
-      "fieldType": "Integer"
+      "fieldType": "Long"
     },
     {
       "fieldName": "elencoTagAmbito",
-      "fieldType": "Integer"
+      "fieldType": "Long"
     }
   ],
   "relationships": [
@@ -21,7 +15,7 @@
       "relationshipType": "one-to-many",
       "otherEntityName": "templateTask",
       "otherEntityRelationshipName": "templatePratica",
-      "relationshipName": "idTemplatePratica"
+      "relationshipName": "id"
     }
   ],
   "changelogDate": "20200617082428",

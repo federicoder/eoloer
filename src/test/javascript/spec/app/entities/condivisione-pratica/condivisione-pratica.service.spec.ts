@@ -20,7 +20,7 @@ describe('Service Tests', () => {
       service = injector.get(CondivisionePraticaService);
       httpMock = injector.get(HttpTestingController);
 
-      elemDefault = new CondivisionePratica(0, 0, 0, 0, 0, 0, 0);
+      elemDefault = new CondivisionePratica(0, 0, 0, 0, 0, 0);
     });
 
     describe('Service methods', () => {
@@ -54,7 +54,6 @@ describe('Service Tests', () => {
       it('should update a CondivisionePratica', () => {
         const returnedFromService = Object.assign(
           {
-            idCondivisionePratica: 1,
             idUserAmmesso: 1,
             ruolo: 1,
             idUserConcedente: 1,
@@ -76,7 +75,6 @@ describe('Service Tests', () => {
       it('should return a list of CondivisionePratica', () => {
         const returnedFromService = Object.assign(
           {
-            idCondivisionePratica: 1,
             idUserAmmesso: 1,
             ruolo: 1,
             idUserConcedente: 1,

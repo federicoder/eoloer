@@ -11,11 +11,11 @@ public class EmailPersonaDTO implements Serializable {
     private Long id;
 
     @NotNull
-    private Integer idPersonaRef;
+    private Long idPersonaRef;
 
-    private Integer etichetta;
+    private Long etichetta;
 
-    private Integer numero;
+    private Long numero;
 
 
     private Long personaId;
@@ -28,27 +28,27 @@ public class EmailPersonaDTO implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdPersonaRef() {
+    public Long getIdPersonaRef() {
         return idPersonaRef;
     }
 
-    public void setIdPersonaRef(Integer idPersonaRef) {
+    public void setIdPersonaRef(Long idPersonaRef) {
         this.idPersonaRef = idPersonaRef;
     }
 
-    public Integer getEtichetta() {
+    public Long getEtichetta() {
         return etichetta;
     }
 
-    public void setEtichetta(Integer etichetta) {
+    public void setEtichetta(Long etichetta) {
         this.etichetta = etichetta;
     }
 
-    public Integer getNumero() {
+    public Long getNumero() {
         return numero;
     }
 
-    public void setNumero(Integer numero) {
+    public void setNumero(Long numero) {
         this.numero = numero;
     }
 

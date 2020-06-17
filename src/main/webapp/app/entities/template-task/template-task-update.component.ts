@@ -23,7 +23,6 @@ export class TemplateTaskUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    idTemplateTask: [null, [Validators.required, Validators.max(8)]],
     ordineEsecuzione: [],
     nome: [],
     note: [],
@@ -53,7 +52,6 @@ export class TemplateTaskUpdateComponent implements OnInit {
   updateForm(templateTask: ITemplateTask): void {
     this.editForm.patchValue({
       id: templateTask.id,
-      idTemplateTask: templateTask.idTemplateTask,
       ordineEsecuzione: templateTask.ordineEsecuzione,
       nome: templateTask.nome,
       note: templateTask.note,
@@ -82,7 +80,6 @@ export class TemplateTaskUpdateComponent implements OnInit {
     return {
       ...new TemplateTask(),
       id: this.editForm.get(['id'])!.value,
-      idTemplateTask: this.editForm.get(['idTemplateTask'])!.value,
       ordineEsecuzione: this.editForm.get(['ordineEsecuzione'])!.value,
       nome: this.editForm.get(['nome'])!.value,
       note: this.editForm.get(['note'])!.value,

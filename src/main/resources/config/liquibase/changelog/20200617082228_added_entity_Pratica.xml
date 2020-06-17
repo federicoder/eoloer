@@ -15,11 +15,8 @@
             <column name="id" type="bigint">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="id_pratica" type="integer">
-                <constraints nullable="true" />
-            </column>
-            <column name="id_studio_professionale_ref" type="integer">
-                <constraints nullable="true" />
+            <column name="id_studio_professionale_ref" type="bigint">
+                <constraints nullable="false" />
             </column>
             <column name="numero" type="varchar(255)">
                 <constraints nullable="true" />
@@ -36,16 +33,16 @@
             <column name="data_scadenza" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="stato" type="integer">
+            <column name="stato" type="bigint">
                 <constraints nullable="true" />
             </column>
             <column name="motivo_chiusura" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="id_titolare" type="integer">
+            <column name="id_titolare" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="prc_avanzato" type="integer">
+            <column name="prc_avanzato" type="bigint">
                 <constraints nullable="true" />
             </column>
             <column name="version" type="varchar(255)">
@@ -54,7 +51,7 @@
             <column name="valuta" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="id_template_pratica_ref" type="integer">
+            <column name="id_template_pratica_ref" type="bigint">
                 <constraints nullable="true" />
             </column>
             <column name="id_template_pratica_ref_id" type="bigint">
@@ -83,7 +80,6 @@
                   separator=";"
                   tableName="pratica">
             <column name="id" type="numeric"/>
-            <column name="id_pratica" type="numeric"/>
             <column name="id_studio_professionale_ref" type="numeric"/>
             <column name="numero" type="string"/>
             <column name="nome" type="string"/>

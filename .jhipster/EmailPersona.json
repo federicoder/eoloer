@@ -3,23 +3,23 @@
   "fields": [
     {
       "fieldName": "idPersonaRef",
-      "fieldType": "Integer",
+      "fieldType": "Long",
       "fieldValidateRules": ["required"]
     },
     {
       "fieldName": "etichetta",
-      "fieldType": "Integer"
+      "fieldType": "Long"
     },
     {
       "fieldName": "numero",
-      "fieldType": "Integer"
+      "fieldType": "Long"
     }
   ],
   "relationships": [
     {
       "relationshipType": "many-to-one",
       "otherEntityName": "persona",
-      "otherEntityRelationshipName": "idPersona",
+      "otherEntityRelationshipName": "id",
       "relationshipName": "persona",
       "otherEntityField": "id"
     }

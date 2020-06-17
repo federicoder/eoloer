@@ -20,7 +20,7 @@ describe('Service Tests', () => {
       service = injector.get(AllegatoTaskService);
       httpMock = injector.get(HttpTestingController);
 
-      elemDefault = new AllegatoTask(0, 0, 0, 0, 0, 'AAAAAAA', 0, 0, 'AAAAAAA', 0);
+      elemDefault = new AllegatoTask(0, 0, 0, 0, 'AAAAAAA', 0, 0, 'AAAAAAA', 0);
     });
 
     describe('Service methods', () => {
@@ -54,7 +54,6 @@ describe('Service Tests', () => {
       it('should update a AllegatoTask', () => {
         const returnedFromService = Object.assign(
           {
-            idAllegatoTask: 1,
             idTipoAllegatoRef: 1,
             idTaskRef: 1,
             formato: 1,
@@ -79,7 +78,6 @@ describe('Service Tests', () => {
       it('should return a list of AllegatoTask', () => {
         const returnedFromService = Object.assign(
           {
-            idAllegatoTask: 1,
             idTipoAllegatoRef: 1,
             idTaskRef: 1,
             formato: 1,

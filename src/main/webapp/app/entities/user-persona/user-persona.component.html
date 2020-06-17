@@ -41,7 +41,6 @@
             <thead>
                 <tr>
                     <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
-                    <th scope="col" ><span jhiTranslate="eoloprjApp.userPersona.idUserPersona">Id User Persona</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.userPersona.idPersonaRef">Id Persona Ref</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.userPersona.nomeUser">Nome User</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.userPersona.personaFisica">Persona Fisica</span></th>
@@ -51,7 +50,6 @@
             <tbody>
                 <tr *ngFor="let userPersona of userPersonas ;trackBy: trackId">
                     <td><a [routerLink]="['/user-persona', userPersona.id, 'view']">{{ userPersona.id }}</a></td>
-                    <td>{{ userPersona.idUserPersona }}</td>
                     <td>{{ userPersona.idPersonaRef }}</td>
                     <td>{{ userPersona.nomeUser }}</td>
                     <td>

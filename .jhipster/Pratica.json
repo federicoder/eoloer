@@ -2,16 +2,9 @@
   "name": "Pratica",
   "fields": [
     {
-      "fieldName": "idPratica",
-      "fieldType": "Integer",
-      "fieldValidateRules": ["max"],
-      "fieldValidateRulesMax": "8"
-    },
-    {
       "fieldName": "idStudioProfessionaleRef",
-      "fieldType": "Integer",
-      "fieldValidateRules": ["max"],
-      "fieldValidateRulesMax": "8"
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
     },
     {
       "fieldName": "numero",
@@ -35,7 +28,7 @@
     },
     {
       "fieldName": "stato",
-      "fieldType": "Integer"
+      "fieldType": "Long"
     },
     {
       "fieldName": "motivoChiusura",
@@ -43,13 +36,13 @@
     },
     {
       "fieldName": "idTitolare",
-      "fieldType": "Integer",
+      "fieldType": "Long",
       "fieldValidateRules": ["max"],
       "fieldValidateRulesMax": "8"
     },
     {
       "fieldName": "prcAvanzato",
-      "fieldType": "Integer"
+      "fieldType": "Long"
     },
     {
       "fieldName": "version",
@@ -61,7 +54,7 @@
     },
     {
       "fieldName": "idTemplatePraticaRef",
-      "fieldType": "Integer"
+      "fieldType": "Long"
     }
   ],
   "relationships": [
@@ -69,25 +62,25 @@
       "relationshipType": "one-to-many",
       "otherEntityName": "task",
       "otherEntityRelationshipName": "pratica",
-      "relationshipName": "idPratica"
+      "relationshipName": "id"
     },
     {
       "relationshipType": "one-to-many",
       "otherEntityName": "notaPratica",
       "otherEntityRelationshipName": "pratica",
-      "relationshipName": "idPratica"
+      "relationshipName": "id"
     },
     {
       "relationshipType": "one-to-many",
       "otherEntityName": "condivisionePratica",
       "otherEntityRelationshipName": "pratica",
-      "relationshipName": "idPratica"
+      "relationshipName": "id"
     },
     {
       "relationshipType": "one-to-many",
       "otherEntityName": "invitoPratica",
       "otherEntityRelationshipName": "pratica",
-      "relationshipName": "idPratica"
+      "relationshipName": "id"
     },
     {
       "relationshipType": "many-to-one",

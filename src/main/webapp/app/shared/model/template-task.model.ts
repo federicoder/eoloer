@@ -2,14 +2,13 @@ import { IAllegatoTemplateTask } from 'app/shared/model/allegato-template-task.m
 
 export interface ITemplateTask {
   id?: number;
-  idTemplateTask?: number;
   ordineEsecuzione?: number;
   nome?: number;
   note?: number;
   pubPriv?: number;
   idTemplatePraticaRef?: number;
-  idTemplateTasks?: ITemplateTask[];
-  idTemplateTasks?: IAllegatoTemplateTask[];
+  ids?: ITemplateTask[];
+  ids?: IAllegatoTemplateTask[];
   templatePraticaId?: number;
   templateTaskId?: number;
 }
@@ -17,14 +16,13 @@ export interface ITemplateTask {
 export class TemplateTask implements ITemplateTask {
   constructor(
     public id?: number,
-    public idTemplateTask?: number,
     public ordineEsecuzione?: number,
     public nome?: number,
     public note?: number,
     public pubPriv?: number,
     public idTemplatePraticaRef?: number,
-    public idTemplateTasks?: ITemplateTask[],
-    public idTemplateTasks?: IAllegatoTemplateTask[],
+    public ids?: ITemplateTask[],
+    public ids?: IAllegatoTemplateTask[],
     public templatePraticaId?: number,
     public templateTaskId?: number
   ) {}

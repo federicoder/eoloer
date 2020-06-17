@@ -28,9 +28,9 @@ public class PrevisioneEvento implements Serializable {
     private Long id;
 
     @NotNull
-    @Max(value = 8)
+    @Max(value = 8L)
     @Column(name = "id_task_ref", nullable = false)
-    private Integer idTaskRef;
+    private Long idTaskRef;
 
     @Column(name = "data_inizio")
     private String dataInizio;
@@ -64,16 +64,16 @@ public class PrevisioneEvento implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdTaskRef() {
+    public Long getIdTaskRef() {
         return idTaskRef;
     }
 
-    public PrevisioneEvento idTaskRef(Integer idTaskRef) {
+    public PrevisioneEvento idTaskRef(Long idTaskRef) {
         this.idTaskRef = idTaskRef;
         return this;
     }
 
-    public void setIdTaskRef(Integer idTaskRef) {
+    public void setIdTaskRef(Long idTaskRef) {
         this.idTaskRef = idTaskRef;
     }
 

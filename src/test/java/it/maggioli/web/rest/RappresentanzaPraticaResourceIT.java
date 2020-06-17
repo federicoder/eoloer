@@ -41,11 +41,11 @@ import it.maggioli.domain.enumeration.Ruoli;
 @WithMockUser
 public class RappresentanzaPraticaResourceIT {
 
-    private static final Integer DEFAULT_ID_RUOLO_PERSONA = 1;
-    private static final Integer UPDATED_ID_RUOLO_PERSONA = 2;
+    private static final Long DEFAULT_ID_RUOLO_PERSONA = 1L;
+    private static final Long UPDATED_ID_RUOLO_PERSONA = 2L;
 
-    private static final Integer DEFAULT_ID_PERSONA_REF = 1;
-    private static final Integer UPDATED_ID_PERSONA_REF = 2;
+    private static final Long DEFAULT_ID_PERSONA_REF = 1L;
+    private static final Long UPDATED_ID_PERSONA_REF = 2L;
 
     private static final Ruoli DEFAULT_RUOLI = Ruoli.TDP;
     private static final Ruoli UPDATED_RUOLI = Ruoli.COLLABORATOREINTERNO;
@@ -205,8 +205,8 @@ public class RappresentanzaPraticaResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(rappresentanzaPratica.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idRuoloPersona").value(hasItem(DEFAULT_ID_RUOLO_PERSONA)))
-            .andExpect(jsonPath("$.[*].idPersonaRef").value(hasItem(DEFAULT_ID_PERSONA_REF)))
+            .andExpect(jsonPath("$.[*].idRuoloPersona").value(hasItem(DEFAULT_ID_RUOLO_PERSONA.intValue())))
+            .andExpect(jsonPath("$.[*].idPersonaRef").value(hasItem(DEFAULT_ID_PERSONA_REF.intValue())))
             .andExpect(jsonPath("$.[*].ruoli").value(hasItem(DEFAULT_RUOLI.toString())));
     }
     
@@ -221,8 +221,8 @@ public class RappresentanzaPraticaResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(rappresentanzaPratica.getId().intValue()))
-            .andExpect(jsonPath("$.idRuoloPersona").value(DEFAULT_ID_RUOLO_PERSONA))
-            .andExpect(jsonPath("$.idPersonaRef").value(DEFAULT_ID_PERSONA_REF))
+            .andExpect(jsonPath("$.idRuoloPersona").value(DEFAULT_ID_RUOLO_PERSONA.intValue()))
+            .andExpect(jsonPath("$.idPersonaRef").value(DEFAULT_ID_PERSONA_REF.intValue()))
             .andExpect(jsonPath("$.ruoli").value(DEFAULT_RUOLI.toString()));
     }
     @Test
@@ -325,8 +325,8 @@ public class RappresentanzaPraticaResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(rappresentanzaPratica.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idRuoloPersona").value(hasItem(DEFAULT_ID_RUOLO_PERSONA)))
-            .andExpect(jsonPath("$.[*].idPersonaRef").value(hasItem(DEFAULT_ID_PERSONA_REF)))
+            .andExpect(jsonPath("$.[*].idRuoloPersona").value(hasItem(DEFAULT_ID_RUOLO_PERSONA.intValue())))
+            .andExpect(jsonPath("$.[*].idPersonaRef").value(hasItem(DEFAULT_ID_PERSONA_REF.intValue())))
             .andExpect(jsonPath("$.[*].ruoli").value(hasItem(DEFAULT_RUOLI.toString())));
     }
 }

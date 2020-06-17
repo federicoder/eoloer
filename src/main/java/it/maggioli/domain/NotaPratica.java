@@ -26,14 +26,9 @@ public class NotaPratica implements Serializable {
     @SequenceGenerator(name = "sequenceGenerator")
     private Long id;
 
-    @NotNull
-    @Max(value = 8)
-    @Column(name = "id_nota_pratica", nullable = false)
-    private Integer idNotaPratica;
-
-    @Max(value = 8)
+    @Max(value = 8L)
     @Column(name = "id_pratica_ref")
-    private Integer idPraticaRef;
+    private Long idPraticaRef;
 
     @Column(name = "data")
     private String data;
@@ -45,7 +40,7 @@ public class NotaPratica implements Serializable {
     private String version;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "idPraticas", allowSetters = true)
+    @JsonIgnoreProperties(value = "ids", allowSetters = true)
     private Pratica pratica;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
@@ -57,29 +52,16 @@ public class NotaPratica implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdNotaPratica() {
-        return idNotaPratica;
-    }
-
-    public NotaPratica idNotaPratica(Integer idNotaPratica) {
-        this.idNotaPratica = idNotaPratica;
-        return this;
-    }
-
-    public void setIdNotaPratica(Integer idNotaPratica) {
-        this.idNotaPratica = idNotaPratica;
-    }
-
-    public Integer getIdPraticaRef() {
+    public Long getIdPraticaRef() {
         return idPraticaRef;
     }
 
-    public NotaPratica idPraticaRef(Integer idPraticaRef) {
+    public NotaPratica idPraticaRef(Long idPraticaRef) {
         this.idPraticaRef = idPraticaRef;
         return this;
     }
 
-    public void setIdPraticaRef(Integer idPraticaRef) {
+    public void setIdPraticaRef(Long idPraticaRef) {
         this.idPraticaRef = idPraticaRef;
     }
 
@@ -157,7 +139,6 @@ public class NotaPratica implements Serializable {
     public String toString() {
         return "NotaPratica{" +
             "id=" + getId() +
-            ", idNotaPratica=" + getIdNotaPratica() +
             ", idPraticaRef=" + getIdPraticaRef() +
             ", data='" + getData() + "'" +
             ", nota='" + getNota() + "'" +

@@ -27,13 +27,13 @@ public class NotaTask implements Serializable {
     private Long id;
 
     @NotNull
-    @Max(value = 8)
+    @Max(value = 8L)
     @Column(name = "id_nota_task", nullable = false)
-    private Integer idNotaTask;
+    private Long idNotaTask;
 
-    @Max(value = 8)
+    @Max(value = 8L)
     @Column(name = "id_task_ref")
-    private Integer idTaskRef;
+    private Long idTaskRef;
 
     @Column(name = "data")
     private String data;
@@ -45,7 +45,7 @@ public class NotaTask implements Serializable {
     private String version;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "idTasks", allowSetters = true)
+    @JsonIgnoreProperties(value = "ids", allowSetters = true)
     private Task task;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
@@ -57,29 +57,29 @@ public class NotaTask implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdNotaTask() {
+    public Long getIdNotaTask() {
         return idNotaTask;
     }
 
-    public NotaTask idNotaTask(Integer idNotaTask) {
+    public NotaTask idNotaTask(Long idNotaTask) {
         this.idNotaTask = idNotaTask;
         return this;
     }
 
-    public void setIdNotaTask(Integer idNotaTask) {
+    public void setIdNotaTask(Long idNotaTask) {
         this.idNotaTask = idNotaTask;
     }
 
-    public Integer getIdTaskRef() {
+    public Long getIdTaskRef() {
         return idTaskRef;
     }
 
-    public NotaTask idTaskRef(Integer idTaskRef) {
+    public NotaTask idTaskRef(Long idTaskRef) {
         this.idTaskRef = idTaskRef;
         return this;
     }
 
-    public void setIdTaskRef(Integer idTaskRef) {
+    public void setIdTaskRef(Long idTaskRef) {
         this.idTaskRef = idTaskRef;
     }
 

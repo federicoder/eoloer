@@ -41,7 +41,6 @@
             <thead>
                 <tr>
                     <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
-                    <th scope="col" ><span jhiTranslate="eoloprjApp.persona.idPersona">Id Persona</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.persona.idStudioProfessionaleRef">Id Studio Professionale Ref</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.persona.codiceFiscale">Codice Fiscale</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.persona.areaDiInteresse">Area Di Interesse</span></th>
@@ -55,14 +54,13 @@
                     <th scope="col" ><span jhiTranslate="eoloprjApp.persona.discriminator">Discriminator</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.persona.idRuoloPersonaRef">Id Ruolo Persona Ref</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.persona.tipoRuoloUtente">Tipo Ruolo Utente</span></th>
-                    <th scope="col" ><span jhiTranslate="eoloprjApp.persona.idPersona">Id Persona</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.persona.id">Id</span></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let persona of personas ;trackBy: trackId">
                     <td><a [routerLink]="['/persona', persona.id, 'view']">{{ persona.id }}</a></td>
-                    <td>{{ persona.idPersona }}</td>
                     <td>{{ persona.idStudioProfessionaleRef }}</td>
                     <td>{{ persona.codiceFiscale }}</td>
                     <td>{{ persona.areaDiInteresse }}</td>
@@ -77,8 +75,8 @@
                     <td>{{ persona.idRuoloPersonaRef }}</td>
                     <td>{{ persona.tipoRuoloUtente }}</td>
                     <td>
-                        <div *ngIf="persona.idPersonaId">
-                            <a [routerLink]="['/indirizzo-persona', persona.idPersonaId , 'view']" >{{ persona.idPersonaId }}</a>
+                        <div *ngIf="persona.idId">
+                            <a [routerLink]="['/indirizzo-persona', persona.idId , 'view']" >{{ persona.idId }}</a>
                         </div>
                     </td>
                     <td class="text-right">

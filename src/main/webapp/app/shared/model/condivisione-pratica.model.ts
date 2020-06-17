@@ -1,6 +1,5 @@
 export interface ICondivisionePratica {
   id?: number;
-  idCondivisionePratica?: number;
   idUserAmmesso?: number;
   ruolo?: number;
   idUserConcedente?: number;
@@ -15,7 +14,6 @@ export interface ICondivisionePratica {
 export class CondivisionePratica implements ICondivisionePratica {
   constructor(
     public id?: number,
-    public idCondivisionePratica?: number,
     public idUserAmmesso?: number,
     public ruolo?: number,
     public idUserConcedente?: number,

@@ -1,6 +1,5 @@
 export interface IAllegatoTask {
   id?: number;
-  idAllegatoTask?: number;
   idTipoAllegatoRef?: number;
   idTaskRef?: number;
   formato?: number;
@@ -9,7 +8,7 @@ export interface IAllegatoTask {
   pubblico?: number;
   version?: string;
   idAllegatoMaster?: number;
-  idAllegatoTasks?: IAllegatoTask[];
+  ids?: IAllegatoTask[];
   tipoAllegatoId?: number;
   allegatoTaskId?: number;
   taskId?: number;
@@ -18,7 +17,6 @@ export interface IAllegatoTask {
 export class AllegatoTask implements IAllegatoTask {
   constructor(
     public id?: number,
-    public idAllegatoTask?: number,
     public idTipoAllegatoRef?: number,
     public idTaskRef?: number,
     public formato?: number,
@@ -27,7 +25,7 @@ export class AllegatoTask implements IAllegatoTask {
     public pubblico?: number,
     public version?: string,
     public idAllegatoMaster?: number,
-    public idAllegatoTasks?: IAllegatoTask[],
+    public ids?: IAllegatoTask[],
     public tipoAllegatoId?: number,
     public allegatoTaskId?: number,
     public taskId?: number

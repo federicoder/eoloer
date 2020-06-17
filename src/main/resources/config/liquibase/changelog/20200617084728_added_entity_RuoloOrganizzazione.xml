@@ -15,17 +15,14 @@
             <column name="id" type="bigint">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="id_ruolo_organizzazione" type="integer">
-                <constraints nullable="false" />
-            </column>
-            <column name="ruolo_in_org" type="integer">
+            <column name="ruolo_in_org" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="id_ruolo_organizzazione_id" type="bigint">
-                <constraints unique="true" nullable="true" uniqueConstraintName="ux_ruolo_organizzazione_id_ruolo_organizzazione_id" />
+            <column name="id_id" type="bigint">
+                <constraints unique="true" nullable="true" uniqueConstraintName="ux_ruolo_organizzazione_id_id" />
             </column>
-            <column name="id_ruolo_organizzazione_id" type="bigint">
-                <constraints unique="true" nullable="true" uniqueConstraintName="ux_ruolo_organizzazione_id_ruolo_organizzazione_id" />
+            <column name="id_id" type="bigint">
+                <constraints unique="true" nullable="true" uniqueConstraintName="ux_ruolo_organizzazione_id_id" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
         </createTable>
@@ -50,7 +47,6 @@
                   separator=";"
                   tableName="ruolo_organizzazione">
             <column name="id" type="numeric"/>
-            <column name="id_ruolo_organizzazione" type="numeric"/>
             <column name="ruolo_in_org" type="numeric"/>
             <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
         </loadData>

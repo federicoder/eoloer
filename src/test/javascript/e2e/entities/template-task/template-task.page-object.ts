@@ -29,7 +29,6 @@ export class TemplateTaskUpdatePage {
   saveButton = element(by.id('save-entity'));
   cancelButton = element(by.id('cancel-save'));
 
-  idTemplateTaskInput = element(by.id('field_idTemplateTask'));
   ordineEsecuzioneInput = element(by.id('field_ordineEsecuzione'));
   nomeInput = element(by.id('field_nome'));
   noteInput = element(by.id('field_note'));
@@ -41,14 +40,6 @@ export class TemplateTaskUpdatePage {
 
   async getPageTitle(): Promise<string> {
     return this.pageTitle.getAttribute('jhiTranslate');
-  }
-
-  async setIdTemplateTaskInput(idTemplateTask: string): Promise<void> {
-    await this.idTemplateTaskInput.sendKeys(idTemplateTask);
-  }
-
-  async getIdTemplateTaskInput(): Promise<string> {
-    return await this.idTemplateTaskInput.getAttribute('value');
   }
 
   async setOrdineEsecuzioneInput(ordineEsecuzione: string): Promise<void> {

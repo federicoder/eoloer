@@ -20,7 +20,7 @@ describe('Service Tests', () => {
       service = injector.get(RuoloOrganizzazioneService);
       httpMock = injector.get(HttpTestingController);
 
-      elemDefault = new RuoloOrganizzazione(0, 0, 0);
+      elemDefault = new RuoloOrganizzazione(0, 0);
     });
 
     describe('Service methods', () => {
@@ -54,7 +54,6 @@ describe('Service Tests', () => {
       it('should update a RuoloOrganizzazione', () => {
         const returnedFromService = Object.assign(
           {
-            idRuoloOrganizzazione: 1,
             ruoloInOrg: 1,
           },
           elemDefault
@@ -72,7 +71,6 @@ describe('Service Tests', () => {
       it('should return a list of RuoloOrganizzazione', () => {
         const returnedFromService = Object.assign(
           {
-            idRuoloOrganizzazione: 1,
             ruoloInOrg: 1,
           },
           elemDefault

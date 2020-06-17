@@ -20,7 +20,7 @@ describe('Service Tests', () => {
       service = injector.get(InvitatoService);
       httpMock = injector.get(HttpTestingController);
 
-      elemDefault = new Invitato(0, 0, 0, 'AAAAAAA', 0, 0, 0, 0, 0, 'AAAAAAA', 'AAAAAAA', 0, 0);
+      elemDefault = new Invitato(0, 0, 'AAAAAAA', 0, 0, 0, 0, 0, 'AAAAAAA', 'AAAAAAA', 0, 0);
     });
 
     describe('Service methods', () => {
@@ -54,7 +54,6 @@ describe('Service Tests', () => {
       it('should update a Invitato', () => {
         const returnedFromService = Object.assign(
           {
-            idInvitato: 1,
             idInvitoRef: 1,
             tokenInvito: 'BBBBBB',
             canalePrimarioInvito: 1,
@@ -82,7 +81,6 @@ describe('Service Tests', () => {
       it('should return a list of Invitato', () => {
         const returnedFromService = Object.assign(
           {
-            idInvitato: 1,
             idInvitoRef: 1,
             tokenInvito: 'BBBBBB',
             canalePrimarioInvito: 1,

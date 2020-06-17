@@ -48,16 +48,11 @@ describe('RuoloOrganizzazione e2e test', () => {
     await ruoloOrganizzazioneComponentsPage.clickOnCreateButton();
 
     await promise.all([
-      ruoloOrganizzazioneUpdatePage.setIdRuoloOrganizzazioneInput('5'),
       ruoloOrganizzazioneUpdatePage.setRuoloInOrgInput('5'),
-      ruoloOrganizzazioneUpdatePage.idRuoloOrganizzazioneSelectLastOption(),
-      ruoloOrganizzazioneUpdatePage.idRuoloOrganizzazioneSelectLastOption(),
+      ruoloOrganizzazioneUpdatePage.idSelectLastOption(),
+      ruoloOrganizzazioneUpdatePage.idSelectLastOption(),
     ]);
 
-    expect(await ruoloOrganizzazioneUpdatePage.getIdRuoloOrganizzazioneInput()).to.eq(
-      '5',
-      'Expected idRuoloOrganizzazione value to be equals to 5'
-    );
     expect(await ruoloOrganizzazioneUpdatePage.getRuoloInOrgInput()).to.eq('5', 'Expected ruoloInOrg value to be equals to 5');
 
     await ruoloOrganizzazioneUpdatePage.save();

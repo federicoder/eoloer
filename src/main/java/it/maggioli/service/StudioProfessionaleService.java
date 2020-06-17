@@ -71,15 +71,15 @@ public class StudioProfessionaleService {
 
 
     /**
-     *  Get all the studioProfessionales where IdStudioProfessionale is {@code null}.
+     *  Get all the studioProfessionales where Id is {@code null}.
      *  @return the list of entities.
      */
     @Transactional(readOnly = true) 
-    public List<StudioProfessionaleDTO> findAllWhereIdStudioProfessionaleIsNull() {
-        log.debug("Request to get all studioProfessionales where IdStudioProfessionale is null");
+    public List<StudioProfessionaleDTO> findAllWhereIdIsNull() {
+        log.debug("Request to get all studioProfessionales where Id is null");
         return StreamSupport
             .stream(studioProfessionaleRepository.findAll().spliterator(), false)
-            .filter(studioProfessionale -> studioProfessionale.getIdStudioProfessionale() == null)
+            .filter(studioProfessionale -> studioProfessionale.getId() == null)
             .map(studioProfessionaleMapper::toDto)
             .collect(Collectors.toCollection(LinkedList::new));
     }

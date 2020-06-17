@@ -8,7 +8,6 @@ import { IRappresentanzaPratica } from 'app/shared/model/rappresentanza-pratica.
 
 export interface IPersona {
   id?: number;
-  idPersona?: number;
   idStudioProfessionaleRef?: number;
   codiceFiscale?: string;
   areaDiInteresse?: string;
@@ -22,23 +21,22 @@ export interface IPersona {
   discriminator?: string;
   idRuoloPersonaRef?: number;
   tipoRuoloUtente?: number;
-  idPersonaId?: number;
-  idPersonas?: IDatiContabili[];
-  idPersonas?: IEmailPersona[];
-  idPersonas?: ITagPersona[];
-  idPersonas?: ITelefonoPersona[];
-  idPersonas?: INotePersona[];
-  idPersonas?: IStudioProfessionale[];
-  idPersonas?: IRappresentanzaPratica[];
-  idPersonaId?: number;
-  idPersonaId?: number;
-  idPersonaId?: number;
+  idId?: number;
+  ids?: IDatiContabili[];
+  ids?: IEmailPersona[];
+  ids?: ITagPersona[];
+  ids?: ITelefonoPersona[];
+  ids?: INotePersona[];
+  ids?: IStudioProfessionale[];
+  ids?: IRappresentanzaPratica[];
+  idId?: number;
+  idId?: number;
+  idId?: number;
 }
 
 export class Persona implements IPersona {
   constructor(
     public id?: number,
-    public idPersona?: number,
     public idStudioProfessionaleRef?: number,
     public codiceFiscale?: string,
     public areaDiInteresse?: string,
@@ -52,16 +50,16 @@ export class Persona implements IPersona {
     public discriminator?: string,
     public idRuoloPersonaRef?: number,
     public tipoRuoloUtente?: number,
-    public idPersonaId?: number,
-    public idPersonas?: IDatiContabili[],
-    public idPersonas?: IEmailPersona[],
-    public idPersonas?: ITagPersona[],
-    public idPersonas?: ITelefonoPersona[],
-    public idPersonas?: INotePersona[],
-    public idPersonas?: IStudioProfessionale[],
-    public idPersonas?: IRappresentanzaPratica[],
-    public idPersonaId?: number,
-    public idPersonaId?: number,
-    public idPersonaId?: number
+    public idId?: number,
+    public ids?: IDatiContabili[],
+    public ids?: IEmailPersona[],
+    public ids?: ITagPersona[],
+    public ids?: ITelefonoPersona[],
+    public ids?: INotePersona[],
+    public ids?: IStudioProfessionale[],
+    public ids?: IRappresentanzaPratica[],
+    public idId?: number,
+    public idId?: number,
+    public idId?: number
   ) {}
 }

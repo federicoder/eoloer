@@ -40,11 +40,11 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WithMockUser
 public class NotaTaskResourceIT {
 
-    private static final Integer DEFAULT_ID_NOTA_TASK = 8;
-    private static final Integer UPDATED_ID_NOTA_TASK = 7;
+    private static final Long DEFAULT_ID_NOTA_TASK = 8L;
+    private static final Long UPDATED_ID_NOTA_TASK = 7L;
 
-    private static final Integer DEFAULT_ID_TASK_REF = 8;
-    private static final Integer UPDATED_ID_TASK_REF = 7;
+    private static final Long DEFAULT_ID_TASK_REF = 8L;
+    private static final Long UPDATED_ID_TASK_REF = 7L;
 
     private static final String DEFAULT_DATA = "AAAAAAAAAA";
     private static final String UPDATED_DATA = "BBBBBBBBBB";
@@ -196,8 +196,8 @@ public class NotaTaskResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(notaTask.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idNotaTask").value(hasItem(DEFAULT_ID_NOTA_TASK)))
-            .andExpect(jsonPath("$.[*].idTaskRef").value(hasItem(DEFAULT_ID_TASK_REF)))
+            .andExpect(jsonPath("$.[*].idNotaTask").value(hasItem(DEFAULT_ID_NOTA_TASK.intValue())))
+            .andExpect(jsonPath("$.[*].idTaskRef").value(hasItem(DEFAULT_ID_TASK_REF.intValue())))
             .andExpect(jsonPath("$.[*].data").value(hasItem(DEFAULT_DATA)))
             .andExpect(jsonPath("$.[*].nota").value(hasItem(DEFAULT_NOTA)))
             .andExpect(jsonPath("$.[*].version").value(hasItem(DEFAULT_VERSION)));
@@ -214,8 +214,8 @@ public class NotaTaskResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(notaTask.getId().intValue()))
-            .andExpect(jsonPath("$.idNotaTask").value(DEFAULT_ID_NOTA_TASK))
-            .andExpect(jsonPath("$.idTaskRef").value(DEFAULT_ID_TASK_REF))
+            .andExpect(jsonPath("$.idNotaTask").value(DEFAULT_ID_NOTA_TASK.intValue()))
+            .andExpect(jsonPath("$.idTaskRef").value(DEFAULT_ID_TASK_REF.intValue()))
             .andExpect(jsonPath("$.data").value(DEFAULT_DATA))
             .andExpect(jsonPath("$.nota").value(DEFAULT_NOTA))
             .andExpect(jsonPath("$.version").value(DEFAULT_VERSION));
@@ -324,8 +324,8 @@ public class NotaTaskResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(notaTask.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idNotaTask").value(hasItem(DEFAULT_ID_NOTA_TASK)))
-            .andExpect(jsonPath("$.[*].idTaskRef").value(hasItem(DEFAULT_ID_TASK_REF)))
+            .andExpect(jsonPath("$.[*].idNotaTask").value(hasItem(DEFAULT_ID_NOTA_TASK.intValue())))
+            .andExpect(jsonPath("$.[*].idTaskRef").value(hasItem(DEFAULT_ID_TASK_REF.intValue())))
             .andExpect(jsonPath("$.[*].data").value(hasItem(DEFAULT_DATA)))
             .andExpect(jsonPath("$.[*].nota").value(hasItem(DEFAULT_NOTA)))
             .andExpect(jsonPath("$.[*].version").value(hasItem(DEFAULT_VERSION)));

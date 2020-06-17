@@ -40,17 +40,17 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WithMockUser
 public class RisorseDisponibiliResourceIT {
 
-    private static final Integer DEFAULT_ID_STUDIO_PROFESSIONALE_REF = 1;
-    private static final Integer UPDATED_ID_STUDIO_PROFESSIONALE_REF = 2;
+    private static final Long DEFAULT_ID_STUDIO_PROFESSIONALE_REF = 1L;
+    private static final Long UPDATED_ID_STUDIO_PROFESSIONALE_REF = 2L;
 
     private static final String DEFAULT_DATA_ATTIVAZIONE_LICENZA = "AAAAAAAAAA";
     private static final String UPDATED_DATA_ATTIVAZIONE_LICENZA = "BBBBBBBBBB";
 
-    private static final Integer DEFAULT_NR_LICENZA = 1;
-    private static final Integer UPDATED_NR_LICENZA = 2;
+    private static final Long DEFAULT_NR_LICENZA = 1L;
+    private static final Long UPDATED_NR_LICENZA = 2L;
 
-    private static final Integer DEFAULT_STORAGE_TOTALE = 1;
-    private static final Integer UPDATED_STORAGE_TOTALE = 2;
+    private static final Long DEFAULT_STORAGE_TOTALE = 1L;
+    private static final Long UPDATED_STORAGE_TOTALE = 2L;
 
     @Autowired
     private RisorseDisponibiliRepository risorseDisponibiliRepository;
@@ -190,10 +190,10 @@ public class RisorseDisponibiliResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(risorseDisponibili.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idStudioProfessionaleRef").value(hasItem(DEFAULT_ID_STUDIO_PROFESSIONALE_REF)))
+            .andExpect(jsonPath("$.[*].idStudioProfessionaleRef").value(hasItem(DEFAULT_ID_STUDIO_PROFESSIONALE_REF.intValue())))
             .andExpect(jsonPath("$.[*].dataAttivazioneLicenza").value(hasItem(DEFAULT_DATA_ATTIVAZIONE_LICENZA)))
-            .andExpect(jsonPath("$.[*].nrLicenza").value(hasItem(DEFAULT_NR_LICENZA)))
-            .andExpect(jsonPath("$.[*].storageTotale").value(hasItem(DEFAULT_STORAGE_TOTALE)));
+            .andExpect(jsonPath("$.[*].nrLicenza").value(hasItem(DEFAULT_NR_LICENZA.intValue())))
+            .andExpect(jsonPath("$.[*].storageTotale").value(hasItem(DEFAULT_STORAGE_TOTALE.intValue())));
     }
     
     @Test
@@ -207,10 +207,10 @@ public class RisorseDisponibiliResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(risorseDisponibili.getId().intValue()))
-            .andExpect(jsonPath("$.idStudioProfessionaleRef").value(DEFAULT_ID_STUDIO_PROFESSIONALE_REF))
+            .andExpect(jsonPath("$.idStudioProfessionaleRef").value(DEFAULT_ID_STUDIO_PROFESSIONALE_REF.intValue()))
             .andExpect(jsonPath("$.dataAttivazioneLicenza").value(DEFAULT_DATA_ATTIVAZIONE_LICENZA))
-            .andExpect(jsonPath("$.nrLicenza").value(DEFAULT_NR_LICENZA))
-            .andExpect(jsonPath("$.storageTotale").value(DEFAULT_STORAGE_TOTALE));
+            .andExpect(jsonPath("$.nrLicenza").value(DEFAULT_NR_LICENZA.intValue()))
+            .andExpect(jsonPath("$.storageTotale").value(DEFAULT_STORAGE_TOTALE.intValue()));
     }
     @Test
     @Transactional
@@ -314,9 +314,9 @@ public class RisorseDisponibiliResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(risorseDisponibili.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idStudioProfessionaleRef").value(hasItem(DEFAULT_ID_STUDIO_PROFESSIONALE_REF)))
+            .andExpect(jsonPath("$.[*].idStudioProfessionaleRef").value(hasItem(DEFAULT_ID_STUDIO_PROFESSIONALE_REF.intValue())))
             .andExpect(jsonPath("$.[*].dataAttivazioneLicenza").value(hasItem(DEFAULT_DATA_ATTIVAZIONE_LICENZA)))
-            .andExpect(jsonPath("$.[*].nrLicenza").value(hasItem(DEFAULT_NR_LICENZA)))
-            .andExpect(jsonPath("$.[*].storageTotale").value(hasItem(DEFAULT_STORAGE_TOTALE)));
+            .andExpect(jsonPath("$.[*].nrLicenza").value(hasItem(DEFAULT_NR_LICENZA.intValue())))
+            .andExpect(jsonPath("$.[*].storageTotale").value(hasItem(DEFAULT_STORAGE_TOTALE.intValue())));
     }
 }

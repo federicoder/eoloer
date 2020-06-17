@@ -40,14 +40,14 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WithMockUser
 public class TelefonoPersonaResourceIT {
 
-    private static final Integer DEFAULT_ID_PERSONA_REF = 1;
-    private static final Integer UPDATED_ID_PERSONA_REF = 2;
+    private static final Long DEFAULT_ID_PERSONA_REF = 1L;
+    private static final Long UPDATED_ID_PERSONA_REF = 2L;
 
-    private static final Integer DEFAULT_ETICHETTA = 1;
-    private static final Integer UPDATED_ETICHETTA = 2;
+    private static final Long DEFAULT_ETICHETTA = 1L;
+    private static final Long UPDATED_ETICHETTA = 2L;
 
-    private static final Integer DEFAULT_VALORE = 1;
-    private static final Integer UPDATED_VALORE = 2;
+    private static final Long DEFAULT_VALORE = 1L;
+    private static final Long UPDATED_VALORE = 2L;
 
     @Autowired
     private TelefonoPersonaRepository telefonoPersonaRepository;
@@ -184,9 +184,9 @@ public class TelefonoPersonaResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(telefonoPersona.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idPersonaRef").value(hasItem(DEFAULT_ID_PERSONA_REF)))
-            .andExpect(jsonPath("$.[*].etichetta").value(hasItem(DEFAULT_ETICHETTA)))
-            .andExpect(jsonPath("$.[*].valore").value(hasItem(DEFAULT_VALORE)));
+            .andExpect(jsonPath("$.[*].idPersonaRef").value(hasItem(DEFAULT_ID_PERSONA_REF.intValue())))
+            .andExpect(jsonPath("$.[*].etichetta").value(hasItem(DEFAULT_ETICHETTA.intValue())))
+            .andExpect(jsonPath("$.[*].valore").value(hasItem(DEFAULT_VALORE.intValue())));
     }
     
     @Test
@@ -200,9 +200,9 @@ public class TelefonoPersonaResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(telefonoPersona.getId().intValue()))
-            .andExpect(jsonPath("$.idPersonaRef").value(DEFAULT_ID_PERSONA_REF))
-            .andExpect(jsonPath("$.etichetta").value(DEFAULT_ETICHETTA))
-            .andExpect(jsonPath("$.valore").value(DEFAULT_VALORE));
+            .andExpect(jsonPath("$.idPersonaRef").value(DEFAULT_ID_PERSONA_REF.intValue()))
+            .andExpect(jsonPath("$.etichetta").value(DEFAULT_ETICHETTA.intValue()))
+            .andExpect(jsonPath("$.valore").value(DEFAULT_VALORE.intValue()));
     }
     @Test
     @Transactional
@@ -304,8 +304,8 @@ public class TelefonoPersonaResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(telefonoPersona.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idPersonaRef").value(hasItem(DEFAULT_ID_PERSONA_REF)))
-            .andExpect(jsonPath("$.[*].etichetta").value(hasItem(DEFAULT_ETICHETTA)))
-            .andExpect(jsonPath("$.[*].valore").value(hasItem(DEFAULT_VALORE)));
+            .andExpect(jsonPath("$.[*].idPersonaRef").value(hasItem(DEFAULT_ID_PERSONA_REF.intValue())))
+            .andExpect(jsonPath("$.[*].etichetta").value(hasItem(DEFAULT_ETICHETTA.intValue())))
+            .andExpect(jsonPath("$.[*].valore").value(hasItem(DEFAULT_VALORE.intValue())));
     }
 }

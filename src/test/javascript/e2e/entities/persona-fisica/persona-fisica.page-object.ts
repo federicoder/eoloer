@@ -29,7 +29,6 @@ export class PersonaFisicaUpdatePage {
   saveButton = element(by.id('save-entity'));
   cancelButton = element(by.id('cancel-save'));
 
-  idPersonaFisicaInput = element(by.id('field_idPersonaFisica'));
   idPersonaRefInput = element(by.id('field_idPersonaRef'));
   idRuoloPersonaRefInput = element(by.id('field_idRuoloPersonaRef'));
   titoloInput = element(by.id('field_titolo'));
@@ -43,14 +42,6 @@ export class PersonaFisicaUpdatePage {
 
   async getPageTitle(): Promise<string> {
     return this.pageTitle.getAttribute('jhiTranslate');
-  }
-
-  async setIdPersonaFisicaInput(idPersonaFisica: string): Promise<void> {
-    await this.idPersonaFisicaInput.sendKeys(idPersonaFisica);
-  }
-
-  async getIdPersonaFisicaInput(): Promise<string> {
-    return await this.idPersonaFisicaInput.getAttribute('value');
   }
 
   async setIdPersonaRefInput(idPersonaRef: string): Promise<void> {

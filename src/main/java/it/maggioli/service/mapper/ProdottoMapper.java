@@ -12,10 +12,10 @@ import org.mapstruct.*;
 @Mapper(componentModel = "spring", uses = {LineaOrdineMapper.class})
 public interface ProdottoMapper extends EntityMapper<ProdottoDTO, Prodotto> {
 
-    @Mapping(source = "idProdotto.id", target = "idProdottoId")
+    @Mapping(source = "id.id", target = "idId")
     ProdottoDTO toDto(Prodotto prodotto);
 
-    @Mapping(source = "idProdottoId", target = "idProdotto")
+    @Mapping(source = "idId", target = "id")
     Prodotto toEntity(ProdottoDTO prodottoDTO);
 
     default Prodotto fromId(Long id) {

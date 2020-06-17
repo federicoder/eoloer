@@ -23,7 +23,6 @@ describe('Service Tests', () => {
       elemDefault = new Invito(
         0,
         0,
-        0,
         'AAAAAAA',
         0,
         'AAAAAAA',
@@ -73,7 +72,6 @@ describe('Service Tests', () => {
       it('should update a Invito', () => {
         const returnedFromService = Object.assign(
           {
-            idInvito: 1,
             idStudioProfessionaleRef: 1,
             dataInvito: 'BBBBBB',
             idUserInvitante: 1,
@@ -106,7 +104,6 @@ describe('Service Tests', () => {
       it('should return a list of Invito', () => {
         const returnedFromService = Object.assign(
           {
-            idInvito: 1,
             idStudioProfessionaleRef: 1,
             dataInvito: 'BBBBBB',
             idUserInvitante: 1,

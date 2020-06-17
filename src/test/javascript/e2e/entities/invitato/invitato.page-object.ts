@@ -29,7 +29,6 @@ export class InvitatoUpdatePage {
   saveButton = element(by.id('save-entity'));
   cancelButton = element(by.id('cancel-save'));
 
-  idInvitatoInput = element(by.id('field_idInvitato'));
   idInvitoRefInput = element(by.id('field_idInvitoRef'));
   tokenInvitoInput = element(by.id('field_tokenInvito'));
   canalePrimarioInvitoInput = element(by.id('field_canalePrimarioInvito'));
@@ -47,14 +46,6 @@ export class InvitatoUpdatePage {
 
   async getPageTitle(): Promise<string> {
     return this.pageTitle.getAttribute('jhiTranslate');
-  }
-
-  async setIdInvitatoInput(idInvitato: string): Promise<void> {
-    await this.idInvitatoInput.sendKeys(idInvitato);
-  }
-
-  async getIdInvitatoInput(): Promise<string> {
-    return await this.idInvitatoInput.getAttribute('value');
   }
 
   async setIdInvitoRefInput(idInvitoRef: string): Promise<void> {

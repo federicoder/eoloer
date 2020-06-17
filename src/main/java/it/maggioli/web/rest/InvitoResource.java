@@ -89,17 +89,17 @@ public class InvitoResource {
      */
     @GetMapping("/invitos")
     public List<InvitoDTO> getAllInvitos(@RequestParam(required = false) String filter) {
-        if ("idinvito-is-null".equals(filter)) {
-            log.debug("REST request to get all Invitos where idInvito is null");
-            return invitoService.findAllWhereIdInvitoIsNull();
+        if ("id-is-null".equals(filter)) {
+            log.debug("REST request to get all Invitos where id is null");
+            return invitoService.findAllWhereIdIsNull();
         }
-        if ("idinvito-is-null".equals(filter)) {
-            log.debug("REST request to get all Invitos where idInvito is null");
-            return invitoService.findAllWhereIdInvitoIsNull();
+        if ("id-is-null".equals(filter)) {
+            log.debug("REST request to get all Invitos where id is null");
+            return invitoService.findAllWhereIdIsNull();
         }
-        if ("idinvito-is-null".equals(filter)) {
-            log.debug("REST request to get all Invitos where idInvito is null");
-            return invitoService.findAllWhereIdInvitoIsNull();
+        if ("id-is-null".equals(filter)) {
+            log.debug("REST request to get all Invitos where id is null");
+            return invitoService.findAllWhereIdIsNull();
         }
         log.debug("REST request to get all Invitos");
         return invitoService.findAll();

@@ -17,8 +17,8 @@ public interface AllegatoTaskMapper extends EntityMapper<AllegatoTaskDTO, Allega
     @Mapping(source = "task.id", target = "taskId")
     AllegatoTaskDTO toDto(AllegatoTask allegatoTask);
 
-    @Mapping(target = "idAllegatoTasks", ignore = true)
-    @Mapping(target = "removeIdAllegatoTask", ignore = true)
+    @Mapping(target = "ids", ignore = true)
+    @Mapping(target = "removeId", ignore = true)
     @Mapping(source = "tipoAllegatoId", target = "tipoAllegato")
     @Mapping(source = "allegatoTaskId", target = "allegatoTask")
     @Mapping(source = "taskId", target = "task")

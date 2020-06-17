@@ -2,13 +2,8 @@
   "name": "DatiContabili",
   "fields": [
     {
-      "fieldName": "idDatiContabili",
-      "fieldType": "Integer",
-      "fieldValidateRules": ["required"]
-    },
-    {
       "fieldName": "idPersonaRef",
-      "fieldType": "Integer",
+      "fieldType": "Long",
       "fieldValidateRules": ["required"]
     }
   ],
@@ -16,7 +11,7 @@
     {
       "relationshipType": "many-to-one",
       "otherEntityName": "persona",
-      "otherEntityRelationshipName": "idPersona",
+      "otherEntityRelationshipName": "id",
       "relationshipName": "persona",
       "otherEntityField": "id"
     }

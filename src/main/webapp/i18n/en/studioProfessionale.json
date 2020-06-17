@@ -17,11 +17,10 @@
       "detail": {
         "title": "Studio Professionale"
       },
-      "idStudioProfessionale": "Id Studio Professionale",
       "idUserAmministratore": "Id User Amministratore",
-      "idStudioProfessionale": "Id Studio Professionale",
-      "idStudioProfessionale": "Id Studio Professionale",
-      "idStudioProfessionale": "Id Studio Professionale",
+      "id": "Id",
+      "id": "Id",
+      "id": "Id",
       "persona": "Persona"
     }
   }

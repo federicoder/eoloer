@@ -40,8 +40,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WithMockUser
 public class IndirizzoPersonaResourceIT {
 
-    private static final Integer DEFAULT_ID_PERSONA_REF = 1;
-    private static final Integer UPDATED_ID_PERSONA_REF = 2;
+    private static final Long DEFAULT_ID_PERSONA_REF = 1L;
+    private static final Long UPDATED_ID_PERSONA_REF = 2L;
 
     private static final String DEFAULT_INDIRIZZO = "AAAAAAAAAA";
     private static final String UPDATED_INDIRIZZO = "BBBBBBBBBB";
@@ -49,8 +49,8 @@ public class IndirizzoPersonaResourceIT {
     private static final String DEFAULT_COMUNE = "AAAAAAAAAA";
     private static final String UPDATED_COMUNE = "BBBBBBBBBB";
 
-    private static final Integer DEFAULT_CAP = 1;
-    private static final Integer UPDATED_CAP = 2;
+    private static final Long DEFAULT_CAP = 1L;
+    private static final Long UPDATED_CAP = 2L;
 
     private static final String DEFAULT_PROVINCIA = "AAAAAAAAAA";
     private static final String UPDATED_PROVINCIA = "BBBBBBBBBB";
@@ -208,10 +208,10 @@ public class IndirizzoPersonaResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(indirizzoPersona.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idPersonaRef").value(hasItem(DEFAULT_ID_PERSONA_REF)))
+            .andExpect(jsonPath("$.[*].idPersonaRef").value(hasItem(DEFAULT_ID_PERSONA_REF.intValue())))
             .andExpect(jsonPath("$.[*].indirizzo").value(hasItem(DEFAULT_INDIRIZZO)))
             .andExpect(jsonPath("$.[*].comune").value(hasItem(DEFAULT_COMUNE)))
-            .andExpect(jsonPath("$.[*].cap").value(hasItem(DEFAULT_CAP)))
+            .andExpect(jsonPath("$.[*].cap").value(hasItem(DEFAULT_CAP.intValue())))
             .andExpect(jsonPath("$.[*].provincia").value(hasItem(DEFAULT_PROVINCIA)))
             .andExpect(jsonPath("$.[*].regione").value(hasItem(DEFAULT_REGIONE)))
             .andExpect(jsonPath("$.[*].nazione").value(hasItem(DEFAULT_NAZIONE)));
@@ -228,10 +228,10 @@ public class IndirizzoPersonaResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(indirizzoPersona.getId().intValue()))
-            .andExpect(jsonPath("$.idPersonaRef").value(DEFAULT_ID_PERSONA_REF))
+            .andExpect(jsonPath("$.idPersonaRef").value(DEFAULT_ID_PERSONA_REF.intValue()))
             .andExpect(jsonPath("$.indirizzo").value(DEFAULT_INDIRIZZO))
             .andExpect(jsonPath("$.comune").value(DEFAULT_COMUNE))
-            .andExpect(jsonPath("$.cap").value(DEFAULT_CAP))
+            .andExpect(jsonPath("$.cap").value(DEFAULT_CAP.intValue()))
             .andExpect(jsonPath("$.provincia").value(DEFAULT_PROVINCIA))
             .andExpect(jsonPath("$.regione").value(DEFAULT_REGIONE))
             .andExpect(jsonPath("$.nazione").value(DEFAULT_NAZIONE));
@@ -344,10 +344,10 @@ public class IndirizzoPersonaResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(indirizzoPersona.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idPersonaRef").value(hasItem(DEFAULT_ID_PERSONA_REF)))
+            .andExpect(jsonPath("$.[*].idPersonaRef").value(hasItem(DEFAULT_ID_PERSONA_REF.intValue())))
             .andExpect(jsonPath("$.[*].indirizzo").value(hasItem(DEFAULT_INDIRIZZO)))
             .andExpect(jsonPath("$.[*].comune").value(hasItem(DEFAULT_COMUNE)))
-            .andExpect(jsonPath("$.[*].cap").value(hasItem(DEFAULT_CAP)))
+            .andExpect(jsonPath("$.[*].cap").value(hasItem(DEFAULT_CAP.intValue())))
             .andExpect(jsonPath("$.[*].provincia").value(hasItem(DEFAULT_PROVINCIA)))
             .andExpect(jsonPath("$.[*].regione").value(hasItem(DEFAULT_REGIONE)))
             .andExpect(jsonPath("$.[*].nazione").value(hasItem(DEFAULT_NAZIONE)));

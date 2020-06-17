@@ -41,7 +41,6 @@
             <thead>
                 <tr>
                     <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
-                    <th scope="col" ><span jhiTranslate="eoloprjApp.templateTask.idTemplateTask">Id Template Task</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.templateTask.ordineEsecuzione">Ordine Esecuzione</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.templateTask.nome">Nome</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.templateTask.note">Note</span></th>
@@ -55,7 +54,6 @@
             <tbody>
                 <tr *ngFor="let templateTask of templateTasks ;trackBy: trackId">
                     <td><a [routerLink]="['/template-task', templateTask.id, 'view']">{{ templateTask.id }}</a></td>
-                    <td>{{ templateTask.idTemplateTask }}</td>
                     <td>{{ templateTask.ordineEsecuzione }}</td>
                     <td>{{ templateTask.nome }}</td>
                     <td>{{ templateTask.note }}</td>

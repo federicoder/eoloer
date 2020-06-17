@@ -16,8 +16,8 @@ public interface PersonaFisicaMapper extends EntityMapper<PersonaFisicaDTO, Pers
     PersonaFisicaDTO toDto(PersonaFisica personaFisica);
 
     @Mapping(source = "idPersonaRefId", target = "idPersonaRef")
-    @Mapping(target = "idPersonaFisicas", ignore = true)
-    @Mapping(target = "removeIdPersonaFisica", ignore = true)
+    @Mapping(target = "ids", ignore = true)
+    @Mapping(target = "removeId", ignore = true)
     @Mapping(target = "idRuoloPersona", ignore = true)
     PersonaFisica toEntity(PersonaFisicaDTO personaFisicaDTO);
 

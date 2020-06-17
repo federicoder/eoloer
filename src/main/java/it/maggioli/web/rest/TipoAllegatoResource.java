@@ -12,7 +12,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -49,7 +48,7 @@ public class TipoAllegatoResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/tipo-allegatoes")
-    public ResponseEntity<TipoAllegatoDTO> createTipoAllegato(@Valid @RequestBody TipoAllegatoDTO tipoAllegatoDTO) throws URISyntaxException {
+    public ResponseEntity<TipoAllegatoDTO> createTipoAllegato(@RequestBody TipoAllegatoDTO tipoAllegatoDTO) throws URISyntaxException {
         log.debug("REST request to save TipoAllegato : {}", tipoAllegatoDTO);
         if (tipoAllegatoDTO.getId() != null) {
             throw new BadRequestAlertException("A new tipoAllegato cannot already have an ID", ENTITY_NAME, "idexists");
@@ -70,7 +69,7 @@ public class TipoAllegatoResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PutMapping("/tipo-allegatoes")
-    public ResponseEntity<TipoAllegatoDTO> updateTipoAllegato(@Valid @RequestBody TipoAllegatoDTO tipoAllegatoDTO) throws URISyntaxException {
+    public ResponseEntity<TipoAllegatoDTO> updateTipoAllegato(@RequestBody TipoAllegatoDTO tipoAllegatoDTO) throws URISyntaxException {
         log.debug("REST request to update TipoAllegato : {}", tipoAllegatoDTO);
         if (tipoAllegatoDTO.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");

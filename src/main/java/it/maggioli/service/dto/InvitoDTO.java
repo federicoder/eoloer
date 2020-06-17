@@ -10,16 +10,12 @@ public class InvitoDTO implements Serializable {
     
     private Long id;
 
-    @NotNull
-    @Max(value = 8)
-    private Integer idInvito;
-
-    @Max(value = 8)
-    private Integer idStudioProfessionaleRef;
+    @Max(value = 8L)
+    private Long idStudioProfessionaleRef;
 
     private String dataInvito;
 
-    private Integer idUserInvitante;
+    private Long idUserInvitante;
 
     private String nomeUserInvitante;
 
@@ -27,9 +23,9 @@ public class InvitoDTO implements Serializable {
 
     private String testoInvito;
 
-    private Integer idPraticaRef;
+    private Long idPraticaRef;
 
-    private Integer idTaskRef;
+    private Long idTaskRef;
 
     private String luogoFisico;
 
@@ -60,19 +56,11 @@ public class InvitoDTO implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdInvito() {
-        return idInvito;
-    }
-
-    public void setIdInvito(Integer idInvito) {
-        this.idInvito = idInvito;
-    }
-
-    public Integer getIdStudioProfessionaleRef() {
+    public Long getIdStudioProfessionaleRef() {
         return idStudioProfessionaleRef;
     }
 
-    public void setIdStudioProfessionaleRef(Integer idStudioProfessionaleRef) {
+    public void setIdStudioProfessionaleRef(Long idStudioProfessionaleRef) {
         this.idStudioProfessionaleRef = idStudioProfessionaleRef;
     }
 
@@ -84,11 +72,11 @@ public class InvitoDTO implements Serializable {
         this.dataInvito = dataInvito;
     }
 
-    public Integer getIdUserInvitante() {
+    public Long getIdUserInvitante() {
         return idUserInvitante;
     }
 
-    public void setIdUserInvitante(Integer idUserInvitante) {
+    public void setIdUserInvitante(Long idUserInvitante) {
         this.idUserInvitante = idUserInvitante;
     }
 
@@ -116,19 +104,19 @@ public class InvitoDTO implements Serializable {
         this.testoInvito = testoInvito;
     }
 
-    public Integer getIdPraticaRef() {
+    public Long getIdPraticaRef() {
         return idPraticaRef;
     }
 
-    public void setIdPraticaRef(Integer idPraticaRef) {
+    public void setIdPraticaRef(Long idPraticaRef) {
         this.idPraticaRef = idPraticaRef;
     }
 
-    public Integer getIdTaskRef() {
+    public Long getIdTaskRef() {
         return idTaskRef;
     }
 
-    public void setIdTaskRef(Integer idTaskRef) {
+    public void setIdTaskRef(Long idTaskRef) {
         this.idTaskRef = idTaskRef;
     }
 
@@ -234,7 +222,6 @@ public class InvitoDTO implements Serializable {
     public String toString() {
         return "InvitoDTO{" +
             "id=" + getId() +
-            ", idInvito=" + getIdInvito() +
             ", idStudioProfessionaleRef=" + getIdStudioProfessionaleRef() +
             ", dataInvito='" + getDataInvito() + "'" +
             ", idUserInvitante=" + getIdUserInvitante() +

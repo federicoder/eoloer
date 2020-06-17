@@ -2,13 +2,8 @@
   "name": "Invitato",
   "fields": [
     {
-      "fieldName": "idInvitato",
-      "fieldType": "Integer",
-      "fieldValidateRules": ["required"]
-    },
-    {
       "fieldName": "idInvitoRef",
-      "fieldType": "Integer",
+      "fieldType": "Long",
       "fieldValidateRules": ["max"],
       "fieldValidateRulesMax": "8"
     },
@@ -18,23 +13,23 @@
     },
     {
       "fieldName": "canalePrimarioInvito",
-      "fieldType": "Integer"
+      "fieldType": "Long"
     },
     {
       "fieldName": "canaleBackupInvito",
-      "fieldType": "Integer"
+      "fieldType": "Long"
     },
     {
       "fieldName": "statoInvito",
-      "fieldType": "Integer"
+      "fieldType": "Long"
     },
     {
       "fieldName": "idUserInvitato",
-      "fieldType": "Integer"
+      "fieldType": "Long"
     },
     {
       "fieldName": "idPersonaInvitata",
-      "fieldType": "Integer"
+      "fieldType": "Long"
     },
     {
       "fieldName": "nomeUserInvitato",
@@ -46,25 +41,25 @@
     },
     {
       "fieldName": "ruoloInvitato",
-      "fieldType": "Integer"
+      "fieldType": "Long"
     },
     {
       "fieldName": "indInvitati",
-      "fieldType": "Integer"
+      "fieldType": "Long"
     }
   ],
   "relationships": [
     {
       "relationshipType": "many-to-one",
       "otherEntityName": "userPersona",
-      "otherEntityRelationshipName": "idUserPersona",
+      "otherEntityRelationshipName": "id",
       "relationshipName": "userPersona",
       "otherEntityField": "id"
     },
     {
       "relationshipType": "many-to-one",
       "otherEntityName": "invito",
-      "otherEntityRelationshipName": "idInvito",
+      "otherEntityRelationshipName": "id",
       "relationshipName": "invito",
       "otherEntityField": "id"
     }

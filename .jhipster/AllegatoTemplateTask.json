@@ -3,39 +3,39 @@
   "fields": [
     {
       "fieldName": "idTemplateTaskRef",
-      "fieldType": "Integer",
+      "fieldType": "Long",
       "fieldValidateRules": ["required", "max"],
       "fieldValidateRulesMax": "8"
     },
     {
       "fieldName": "idTipoAllegatoRef",
-      "fieldType": "Integer"
+      "fieldType": "Long"
     },
     {
       "fieldName": "formato",
-      "fieldType": "Integer"
+      "fieldType": "Long"
     },
     {
       "fieldName": "idFileRef",
-      "fieldType": "Integer"
+      "fieldType": "Long"
     },
     {
       "fieldName": "pubPriv",
-      "fieldType": "Integer"
+      "fieldType": "Long"
     }
   ],
   "relationships": [
     {
       "relationshipType": "many-to-one",
       "otherEntityName": "templateTask",
-      "otherEntityRelationshipName": "idTemplateTask",
+      "otherEntityRelationshipName": "id",
       "relationshipName": "templateTask",
       "otherEntityField": "id"
     },
     {
       "relationshipType": "many-to-one",
       "otherEntityName": "tipoAllegato",
-      "otherEntityRelationshipName": "idTipoAllegato",
+      "otherEntityRelationshipName": "id",
       "relationshipName": "tipoAllegato",
       "otherEntityField": "id"
     }

@@ -20,7 +20,7 @@ describe('Service Tests', () => {
       service = injector.get(TemplatePraticaService);
       httpMock = injector.get(HttpTestingController);
 
-      elemDefault = new TemplatePratica(0, 0, 0, 0);
+      elemDefault = new TemplatePratica(0, 0, 0);
     });
 
     describe('Service methods', () => {
@@ -54,7 +54,6 @@ describe('Service Tests', () => {
       it('should update a TemplatePratica', () => {
         const returnedFromService = Object.assign(
           {
-            idTemplatePratica: 1,
             nomeTemplate: 1,
             elencoTagAmbito: 1,
           },
@@ -73,7 +72,6 @@ describe('Service Tests', () => {
       it('should return a list of TemplatePratica', () => {
         const returnedFromService = Object.assign(
           {
-            idTemplatePratica: 1,
             nomeTemplate: 1,
             elencoTagAmbito: 1,
           },

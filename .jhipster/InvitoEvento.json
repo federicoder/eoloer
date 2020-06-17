@@ -3,7 +3,7 @@
   "fields": [
     {
       "fieldName": "idTaskRef",
-      "fieldType": "Integer"
+      "fieldType": "Long"
     },
     {
       "fieldName": "luogoFisico",
@@ -38,7 +38,7 @@
     {
       "relationshipType": "one-to-one",
       "otherEntityName": "invito",
-      "otherEntityRelationshipName": "idInvito",
+      "otherEntityRelationshipName": "id",
       "relationshipName": "idTaskRef",
       "otherEntityField": "id",
       "ownerSide": true

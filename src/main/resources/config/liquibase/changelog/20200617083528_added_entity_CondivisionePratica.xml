@@ -15,22 +15,19 @@
             <column name="id" type="bigint">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="id_condivisione_pratica" type="integer">
-                <constraints nullable="false" />
-            </column>
-            <column name="id_user_ammesso" type="integer">
+            <column name="id_user_ammesso" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="ruolo" type="integer">
+            <column name="ruolo" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="id_user_concedente" type="integer">
+            <column name="id_user_concedente" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="stato_invito" type="integer">
+            <column name="stato_invito" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="id_pratica_ref" type="integer">
+            <column name="id_pratica_ref" type="bigint">
                 <constraints nullable="true" />
             </column>
             <column name="ruolo_id" type="bigint">
@@ -68,7 +65,6 @@
                   separator=";"
                   tableName="condivisione_pratica">
             <column name="id" type="numeric"/>
-            <column name="id_condivisione_pratica" type="numeric"/>
             <column name="id_user_ammesso" type="numeric"/>
             <column name="ruolo" type="numeric"/>
             <column name="id_user_concedente" type="numeric"/>

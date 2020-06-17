@@ -41,7 +41,6 @@ describe('Invito e2e test', () => {
     await invitoComponentsPage.clickOnCreateButton();
 
     await promise.all([
-      invitoUpdatePage.setIdInvitoInput('5'),
       invitoUpdatePage.setIdStudioProfessionaleRefInput('5'),
       invitoUpdatePage.setDataInvitoInput('dataInvito'),
       invitoUpdatePage.setIdUserInvitanteInput('5'),
@@ -62,7 +61,6 @@ describe('Invito e2e test', () => {
       invitoUpdatePage.assegnazioneTaskSelectLastOption(),
     ]);
 
-    expect(await invitoUpdatePage.getIdInvitoInput()).to.eq('5', 'Expected idInvito value to be equals to 5');
     expect(await invitoUpdatePage.getIdStudioProfessionaleRefInput()).to.eq(
       '5',
       'Expected idStudioProfessionaleRef value to be equals to 5'

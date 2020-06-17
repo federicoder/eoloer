@@ -41,7 +41,6 @@
             <thead>
                 <tr>
                     <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
-                    <th scope="col" ><span jhiTranslate="eoloprjApp.notaPratica.idNotaPratica">Id Nota Pratica</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.notaPratica.idPraticaRef">Id Pratica Ref</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.notaPratica.data">Data</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.notaPratica.nota">Nota</span></th>
@@ -53,7 +52,6 @@
             <tbody>
                 <tr *ngFor="let notaPratica of notaPraticas ;trackBy: trackId">
                     <td><a [routerLink]="['/nota-pratica', notaPratica.id, 'view']">{{ notaPratica.id }}</a></td>
-                    <td>{{ notaPratica.idNotaPratica }}</td>
                     <td>{{ notaPratica.idPraticaRef }}</td>
                     <td>{{ notaPratica.data }}</td>
                     <td>{{ notaPratica.nota }}</td>

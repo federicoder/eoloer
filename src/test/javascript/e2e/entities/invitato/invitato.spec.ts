@@ -41,7 +41,6 @@ describe('Invitato e2e test', () => {
     await invitatoComponentsPage.clickOnCreateButton();
 
     await promise.all([
-      invitatoUpdatePage.setIdInvitatoInput('5'),
       invitatoUpdatePage.setIdInvitoRefInput('5'),
       invitatoUpdatePage.setTokenInvitoInput('tokenInvito'),
       invitatoUpdatePage.setCanalePrimarioInvitoInput('5'),
@@ -57,7 +56,6 @@ describe('Invitato e2e test', () => {
       invitatoUpdatePage.invitoSelectLastOption(),
     ]);
 
-    expect(await invitatoUpdatePage.getIdInvitatoInput()).to.eq('5', 'Expected idInvitato value to be equals to 5');
     expect(await invitatoUpdatePage.getIdInvitoRefInput()).to.eq('5', 'Expected idInvitoRef value to be equals to 5');
     expect(await invitatoUpdatePage.getTokenInvitoInput()).to.eq('tokenInvito', 'Expected TokenInvito value to be equals to tokenInvito');
     expect(await invitatoUpdatePage.getCanalePrimarioInvitoInput()).to.eq('5', 'Expected canalePrimarioInvito value to be equals to 5');

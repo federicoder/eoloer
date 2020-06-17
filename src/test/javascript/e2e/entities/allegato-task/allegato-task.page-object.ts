@@ -29,7 +29,6 @@ export class AllegatoTaskUpdatePage {
   saveButton = element(by.id('save-entity'));
   cancelButton = element(by.id('cancel-save'));
 
-  idAllegatoTaskInput = element(by.id('field_idAllegatoTask'));
   idTipoAllegatoRefInput = element(by.id('field_idTipoAllegatoRef'));
   idTaskRefInput = element(by.id('field_idTaskRef'));
   formatoInput = element(by.id('field_formato'));
@@ -45,14 +44,6 @@ export class AllegatoTaskUpdatePage {
 
   async getPageTitle(): Promise<string> {
     return this.pageTitle.getAttribute('jhiTranslate');
-  }
-
-  async setIdAllegatoTaskInput(idAllegatoTask: string): Promise<void> {
-    await this.idAllegatoTaskInput.sendKeys(idAllegatoTask);
-  }
-
-  async getIdAllegatoTaskInput(): Promise<string> {
-    return await this.idAllegatoTaskInput.getAttribute('value');
   }
 
   async setIdTipoAllegatoRefInput(idTipoAllegatoRef: string): Promise<void> {

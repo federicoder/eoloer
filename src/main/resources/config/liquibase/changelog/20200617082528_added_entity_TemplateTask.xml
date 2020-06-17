@@ -15,22 +15,19 @@
             <column name="id" type="bigint">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="id_template_task" type="integer">
-                <constraints nullable="false" />
-            </column>
-            <column name="ordine_esecuzione" type="integer">
+            <column name="ordine_esecuzione" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="nome" type="integer">
+            <column name="nome" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="note" type="integer">
+            <column name="note" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="pub_priv" type="integer">
+            <column name="pub_priv" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="id_template_pratica_ref" type="integer">
+            <column name="id_template_pratica_ref" type="bigint">
                 <constraints nullable="true" />
             </column>
             <column name="template_pratica_id" type="bigint">
@@ -62,7 +59,6 @@
                   separator=";"
                   tableName="template_task">
             <column name="id" type="numeric"/>
-            <column name="id_template_task" type="numeric"/>
             <column name="ordine_esecuzione" type="numeric"/>
             <column name="nome" type="numeric"/>
             <column name="note" type="numeric"/>

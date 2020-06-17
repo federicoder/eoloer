@@ -15,47 +15,44 @@
             <column name="id" type="bigint">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="id_task" type="integer">
-                <constraints nullable="false" />
-            </column>
-            <column name="id_pratica_ref" type="integer">
+            <column name="id_pratica_ref" type="bigint">
                 <constraints nullable="true" />
             </column>
             <column name="nome" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="stato" type="integer">
+            <column name="stato" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="prioritario" type="integer">
+            <column name="prioritario" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="pubblico" type="integer">
+            <column name="pubblico" type="bigint">
                 <constraints nullable="true" />
             </column>
             <column name="version" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="id_condivisione_pratica_ref" type="integer">
+            <column name="id_condivisione_pratica_ref" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="id_assegnazione_task_ref" type="integer">
+            <column name="id_assegnazione_task_ref" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="id_invito_ref" type="integer">
+            <column name="id_invito_ref" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="id_task_id" type="bigint">
-                <constraints unique="true" nullable="true" uniqueConstraintName="ux_task_id_task_id" />
+            <column name="id_id" type="bigint">
+                <constraints unique="true" nullable="true" uniqueConstraintName="ux_task_id_id" />
             </column>
-            <column name="id_task_id" type="bigint">
-                <constraints unique="true" nullable="true" uniqueConstraintName="ux_task_id_task_id" />
+            <column name="id_id" type="bigint">
+                <constraints unique="true" nullable="true" uniqueConstraintName="ux_task_id_id" />
             </column>
-            <column name="id_task_id" type="bigint">
-                <constraints unique="true" nullable="true" uniqueConstraintName="ux_task_id_task_id" />
+            <column name="id_id" type="bigint">
+                <constraints unique="true" nullable="true" uniqueConstraintName="ux_task_id_id" />
             </column>
-            <column name="id_task_id" type="bigint">
-                <constraints unique="true" nullable="true" uniqueConstraintName="ux_task_id_task_id" />
+            <column name="id_id" type="bigint">
+                <constraints unique="true" nullable="true" uniqueConstraintName="ux_task_id_id" />
             </column>
             <column name="pratica_id" type="bigint">
                 <constraints nullable="true" />
@@ -83,7 +80,6 @@
                   separator=";"
                   tableName="task">
             <column name="id" type="numeric"/>
-            <column name="id_task" type="numeric"/>
             <column name="id_pratica_ref" type="numeric"/>
             <column name="nome" type="string"/>
             <column name="stato" type="numeric"/>

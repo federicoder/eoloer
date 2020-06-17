@@ -48,7 +48,6 @@ describe('CondivisionePratica e2e test', () => {
     await condivisionePraticaComponentsPage.clickOnCreateButton();
 
     await promise.all([
-      condivisionePraticaUpdatePage.setIdCondivisionePraticaInput('5'),
       condivisionePraticaUpdatePage.setIdUserAmmessoInput('5'),
       condivisionePraticaUpdatePage.setRuoloInput('5'),
       condivisionePraticaUpdatePage.setIdUserConcedenteInput('5'),
@@ -60,10 +59,6 @@ describe('CondivisionePratica e2e test', () => {
       condivisionePraticaUpdatePage.userPersonaSelectLastOption(),
     ]);
 
-    expect(await condivisionePraticaUpdatePage.getIdCondivisionePraticaInput()).to.eq(
-      '5',
-      'Expected idCondivisionePratica value to be equals to 5'
-    );
     expect(await condivisionePraticaUpdatePage.getIdUserAmmessoInput()).to.eq('5', 'Expected idUserAmmesso value to be equals to 5');
     expect(await condivisionePraticaUpdatePage.getRuoloInput()).to.eq('5', 'Expected ruolo value to be equals to 5');
     expect(await condivisionePraticaUpdatePage.getIdUserConcedenteInput()).to.eq('5', 'Expected idUserConcedente value to be equals to 5');

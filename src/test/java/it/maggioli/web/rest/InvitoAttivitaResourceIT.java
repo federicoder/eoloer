@@ -40,8 +40,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WithMockUser
 public class InvitoAttivitaResourceIT {
 
-    private static final Integer DEFAULT_ID_TASK_REF = 1;
-    private static final Integer UPDATED_ID_TASK_REF = 2;
+    private static final Long DEFAULT_ID_TASK_REF = 1L;
+    private static final Long UPDATED_ID_TASK_REF = 2L;
 
     @Autowired
     private InvitoAttivitaRepository invitoAttivitaRepository;
@@ -152,7 +152,7 @@ public class InvitoAttivitaResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(invitoAttivita.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idTaskRef").value(hasItem(DEFAULT_ID_TASK_REF)));
+            .andExpect(jsonPath("$.[*].idTaskRef").value(hasItem(DEFAULT_ID_TASK_REF.intValue())));
     }
     
     @Test
@@ -166,7 +166,7 @@ public class InvitoAttivitaResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(invitoAttivita.getId().intValue()))
-            .andExpect(jsonPath("$.idTaskRef").value(DEFAULT_ID_TASK_REF));
+            .andExpect(jsonPath("$.idTaskRef").value(DEFAULT_ID_TASK_REF.intValue()));
     }
     @Test
     @Transactional
@@ -264,6 +264,6 @@ public class InvitoAttivitaResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(invitoAttivita.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idTaskRef").value(hasItem(DEFAULT_ID_TASK_REF)));
+            .andExpect(jsonPath("$.[*].idTaskRef").value(hasItem(DEFAULT_ID_TASK_REF.intValue())));
     }
 }

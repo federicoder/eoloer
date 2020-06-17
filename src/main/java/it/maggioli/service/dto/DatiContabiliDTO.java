@@ -11,10 +11,7 @@ public class DatiContabiliDTO implements Serializable {
     private Long id;
 
     @NotNull
-    private Integer idDatiContabili;
-
-    @NotNull
-    private Integer idPersonaRef;
+    private Long idPersonaRef;
 
 
     private Long personaId;
@@ -27,19 +24,11 @@ public class DatiContabiliDTO implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdDatiContabili() {
-        return idDatiContabili;
-    }
-
-    public void setIdDatiContabili(Integer idDatiContabili) {
-        this.idDatiContabili = idDatiContabili;
-    }
-
-    public Integer getIdPersonaRef() {
+    public Long getIdPersonaRef() {
         return idPersonaRef;
     }
 
-    public void setIdPersonaRef(Integer idPersonaRef) {
+    public void setIdPersonaRef(Long idPersonaRef) {
         this.idPersonaRef = idPersonaRef;
     }
 
@@ -73,7 +62,6 @@ public class DatiContabiliDTO implements Serializable {
     public String toString() {
         return "DatiContabiliDTO{" +
             "id=" + getId() +
-            ", idDatiContabili=" + getIdDatiContabili() +
             ", idPersonaRef=" + getIdPersonaRef() +
             ", personaId=" + getPersonaId() +
             "}";

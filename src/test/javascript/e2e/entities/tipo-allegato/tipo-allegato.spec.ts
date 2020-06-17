@@ -44,14 +44,12 @@ describe('TipoAllegato e2e test', () => {
     await tipoAllegatoComponentsPage.clickOnCreateButton();
 
     await promise.all([
-      tipoAllegatoUpdatePage.setIdTipoAllegatoInput('5'),
       tipoAllegatoUpdatePage.setNomeInput('nome'),
       tipoAllegatoUpdatePage.setFormatiAmmessiInput('formatiAmmessi'),
       tipoAllegatoUpdatePage.setMaxDimensioneAmmessaInput('maxDimensioneAmmessa'),
       tipoAllegatoUpdatePage.setVersionInput('version'),
     ]);
 
-    expect(await tipoAllegatoUpdatePage.getIdTipoAllegatoInput()).to.eq('5', 'Expected idTipoAllegato value to be equals to 5');
     expect(await tipoAllegatoUpdatePage.getNomeInput()).to.eq('nome', 'Expected Nome value to be equals to nome');
     expect(await tipoAllegatoUpdatePage.getFormatiAmmessiInput()).to.eq(
       'formatiAmmessi',

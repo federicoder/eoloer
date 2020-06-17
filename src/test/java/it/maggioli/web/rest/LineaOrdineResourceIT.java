@@ -40,17 +40,17 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WithMockUser
 public class LineaOrdineResourceIT {
 
-    private static final Integer DEFAULT_ID_ORDINE_REF = 1;
-    private static final Integer UPDATED_ID_ORDINE_REF = 2;
+    private static final Long DEFAULT_ID_ORDINE_REF = 1L;
+    private static final Long UPDATED_ID_ORDINE_REF = 2L;
 
-    private static final Integer DEFAULT_ID_PRODOTTO_REF = 1;
-    private static final Integer UPDATED_ID_PRODOTTO_REF = 2;
+    private static final Long DEFAULT_ID_PRODOTTO_REF = 1L;
+    private static final Long UPDATED_ID_PRODOTTO_REF = 2L;
 
-    private static final Integer DEFAULT_QUANTITA = 1;
-    private static final Integer UPDATED_QUANTITA = 2;
+    private static final Long DEFAULT_QUANTITA = 1L;
+    private static final Long UPDATED_QUANTITA = 2L;
 
-    private static final Integer DEFAULT_IMPORTO = 1;
-    private static final Integer UPDATED_IMPORTO = 2;
+    private static final Long DEFAULT_IMPORTO = 1L;
+    private static final Long UPDATED_IMPORTO = 2L;
 
     private static final String DEFAULT_COD_IVA = "AAAAAAAAAA";
     private static final String UPDATED_COD_IVA = "BBBBBBBBBB";
@@ -216,10 +216,10 @@ public class LineaOrdineResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(lineaOrdine.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idOrdineRef").value(hasItem(DEFAULT_ID_ORDINE_REF)))
-            .andExpect(jsonPath("$.[*].idProdottoRef").value(hasItem(DEFAULT_ID_PRODOTTO_REF)))
-            .andExpect(jsonPath("$.[*].quantita").value(hasItem(DEFAULT_QUANTITA)))
-            .andExpect(jsonPath("$.[*].importo").value(hasItem(DEFAULT_IMPORTO)))
+            .andExpect(jsonPath("$.[*].idOrdineRef").value(hasItem(DEFAULT_ID_ORDINE_REF.intValue())))
+            .andExpect(jsonPath("$.[*].idProdottoRef").value(hasItem(DEFAULT_ID_PRODOTTO_REF.intValue())))
+            .andExpect(jsonPath("$.[*].quantita").value(hasItem(DEFAULT_QUANTITA.intValue())))
+            .andExpect(jsonPath("$.[*].importo").value(hasItem(DEFAULT_IMPORTO.intValue())))
             .andExpect(jsonPath("$.[*].codIva").value(hasItem(DEFAULT_COD_IVA)));
     }
     
@@ -234,10 +234,10 @@ public class LineaOrdineResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(lineaOrdine.getId().intValue()))
-            .andExpect(jsonPath("$.idOrdineRef").value(DEFAULT_ID_ORDINE_REF))
-            .andExpect(jsonPath("$.idProdottoRef").value(DEFAULT_ID_PRODOTTO_REF))
-            .andExpect(jsonPath("$.quantita").value(DEFAULT_QUANTITA))
-            .andExpect(jsonPath("$.importo").value(DEFAULT_IMPORTO))
+            .andExpect(jsonPath("$.idOrdineRef").value(DEFAULT_ID_ORDINE_REF.intValue()))
+            .andExpect(jsonPath("$.idProdottoRef").value(DEFAULT_ID_PRODOTTO_REF.intValue()))
+            .andExpect(jsonPath("$.quantita").value(DEFAULT_QUANTITA.intValue()))
+            .andExpect(jsonPath("$.importo").value(DEFAULT_IMPORTO.intValue()))
             .andExpect(jsonPath("$.codIva").value(DEFAULT_COD_IVA));
     }
     @Test
@@ -344,10 +344,10 @@ public class LineaOrdineResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(lineaOrdine.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idOrdineRef").value(hasItem(DEFAULT_ID_ORDINE_REF)))
-            .andExpect(jsonPath("$.[*].idProdottoRef").value(hasItem(DEFAULT_ID_PRODOTTO_REF)))
-            .andExpect(jsonPath("$.[*].quantita").value(hasItem(DEFAULT_QUANTITA)))
-            .andExpect(jsonPath("$.[*].importo").value(hasItem(DEFAULT_IMPORTO)))
+            .andExpect(jsonPath("$.[*].idOrdineRef").value(hasItem(DEFAULT_ID_ORDINE_REF.intValue())))
+            .andExpect(jsonPath("$.[*].idProdottoRef").value(hasItem(DEFAULT_ID_PRODOTTO_REF.intValue())))
+            .andExpect(jsonPath("$.[*].quantita").value(hasItem(DEFAULT_QUANTITA.intValue())))
+            .andExpect(jsonPath("$.[*].importo").value(hasItem(DEFAULT_IMPORTO.intValue())))
             .andExpect(jsonPath("$.[*].codIva").value(hasItem(DEFAULT_COD_IVA)));
     }
 }

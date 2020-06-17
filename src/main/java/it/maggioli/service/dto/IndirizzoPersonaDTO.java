@@ -11,13 +11,13 @@ public class IndirizzoPersonaDTO implements Serializable {
     private Long id;
 
     @NotNull
-    private Integer idPersonaRef;
+    private Long idPersonaRef;
 
     private String indirizzo;
 
     private String comune;
 
-    private Integer cap;
+    private Long cap;
 
     private String provincia;
 
@@ -34,11 +34,11 @@ public class IndirizzoPersonaDTO implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdPersonaRef() {
+    public Long getIdPersonaRef() {
         return idPersonaRef;
     }
 
-    public void setIdPersonaRef(Integer idPersonaRef) {
+    public void setIdPersonaRef(Long idPersonaRef) {
         this.idPersonaRef = idPersonaRef;
     }
 
@@ -58,11 +58,11 @@ public class IndirizzoPersonaDTO implements Serializable {
         this.comune = comune;
     }
 
-    public Integer getCap() {
+    public Long getCap() {
         return cap;
     }
 
-    public void setCap(Integer cap) {
+    public void setCap(Long cap) {
         this.cap = cap;
     }
 

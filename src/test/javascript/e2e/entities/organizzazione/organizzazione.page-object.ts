@@ -29,7 +29,6 @@ export class OrganizzazioneUpdatePage {
   saveButton = element(by.id('save-entity'));
   cancelButton = element(by.id('cancel-save'));
 
-  idOrganizzazioneInput = element(by.id('field_idOrganizzazione'));
   idPersonaRefInput = element(by.id('field_idPersonaRef'));
   nomeInput = element(by.id('field_nome'));
   tipoInput = element(by.id('field_tipo'));
@@ -38,14 +37,6 @@ export class OrganizzazioneUpdatePage {
 
   async getPageTitle(): Promise<string> {
     return this.pageTitle.getAttribute('jhiTranslate');
-  }
-
-  async setIdOrganizzazioneInput(idOrganizzazione: string): Promise<void> {
-    await this.idOrganizzazioneInput.sendKeys(idOrganizzazione);
-  }
-
-  async getIdOrganizzazioneInput(): Promise<string> {
-    return await this.idOrganizzazioneInput.getAttribute('value');
   }
 
   async setIdPersonaRefInput(idPersonaRef: string): Promise<void> {

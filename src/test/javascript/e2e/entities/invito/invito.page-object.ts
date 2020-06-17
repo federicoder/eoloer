@@ -29,7 +29,6 @@ export class InvitoUpdatePage {
   saveButton = element(by.id('save-entity'));
   cancelButton = element(by.id('cancel-save'));
 
-  idInvitoInput = element(by.id('field_idInvito'));
   idStudioProfessionaleRefInput = element(by.id('field_idStudioProfessionaleRef'));
   dataInvitoInput = element(by.id('field_dataInvito'));
   idUserInvitanteInput = element(by.id('field_idUserInvitante'));
@@ -52,14 +51,6 @@ export class InvitoUpdatePage {
 
   async getPageTitle(): Promise<string> {
     return this.pageTitle.getAttribute('jhiTranslate');
-  }
-
-  async setIdInvitoInput(idInvito: string): Promise<void> {
-    await this.idInvitoInput.sendKeys(idInvito);
-  }
-
-  async getIdInvitoInput(): Promise<string> {
-    return await this.idInvitoInput.getAttribute('value');
   }
 
   async setIdStudioProfessionaleRefInput(idStudioProfessionaleRef: string): Promise<void> {

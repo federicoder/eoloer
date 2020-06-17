@@ -40,29 +40,26 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WithMockUser
 public class InvitatoResourceIT {
 
-    private static final Integer DEFAULT_ID_INVITATO = 1;
-    private static final Integer UPDATED_ID_INVITATO = 2;
-
-    private static final Integer DEFAULT_ID_INVITO_REF = 8;
-    private static final Integer UPDATED_ID_INVITO_REF = 7;
+    private static final Long DEFAULT_ID_INVITO_REF = 8L;
+    private static final Long UPDATED_ID_INVITO_REF = 7L;
 
     private static final String DEFAULT_TOKEN_INVITO = "AAAAAAAAAA";
     private static final String UPDATED_TOKEN_INVITO = "BBBBBBBBBB";
 
-    private static final Integer DEFAULT_CANALE_PRIMARIO_INVITO = 1;
-    private static final Integer UPDATED_CANALE_PRIMARIO_INVITO = 2;
+    private static final Long DEFAULT_CANALE_PRIMARIO_INVITO = 1L;
+    private static final Long UPDATED_CANALE_PRIMARIO_INVITO = 2L;
 
-    private static final Integer DEFAULT_CANALE_BACKUP_INVITO = 1;
-    private static final Integer UPDATED_CANALE_BACKUP_INVITO = 2;
+    private static final Long DEFAULT_CANALE_BACKUP_INVITO = 1L;
+    private static final Long UPDATED_CANALE_BACKUP_INVITO = 2L;
 
-    private static final Integer DEFAULT_STATO_INVITO = 1;
-    private static final Integer UPDATED_STATO_INVITO = 2;
+    private static final Long DEFAULT_STATO_INVITO = 1L;
+    private static final Long UPDATED_STATO_INVITO = 2L;
 
-    private static final Integer DEFAULT_ID_USER_INVITATO = 1;
-    private static final Integer UPDATED_ID_USER_INVITATO = 2;
+    private static final Long DEFAULT_ID_USER_INVITATO = 1L;
+    private static final Long UPDATED_ID_USER_INVITATO = 2L;
 
-    private static final Integer DEFAULT_ID_PERSONA_INVITATA = 1;
-    private static final Integer UPDATED_ID_PERSONA_INVITATA = 2;
+    private static final Long DEFAULT_ID_PERSONA_INVITATA = 1L;
+    private static final Long UPDATED_ID_PERSONA_INVITATA = 2L;
 
     private static final String DEFAULT_NOME_USER_INVITATO = "AAAAAAAAAA";
     private static final String UPDATED_NOME_USER_INVITATO = "BBBBBBBBBB";
@@ -70,11 +67,11 @@ public class InvitatoResourceIT {
     private static final String DEFAULT_DATA_RISPOSTA_INVITO = "AAAAAAAAAA";
     private static final String UPDATED_DATA_RISPOSTA_INVITO = "BBBBBBBBBB";
 
-    private static final Integer DEFAULT_RUOLO_INVITATO = 1;
-    private static final Integer UPDATED_RUOLO_INVITATO = 2;
+    private static final Long DEFAULT_RUOLO_INVITATO = 1L;
+    private static final Long UPDATED_RUOLO_INVITATO = 2L;
 
-    private static final Integer DEFAULT_IND_INVITATI = 1;
-    private static final Integer UPDATED_IND_INVITATI = 2;
+    private static final Long DEFAULT_IND_INVITATI = 1L;
+    private static final Long UPDATED_IND_INVITATI = 2L;
 
     @Autowired
     private InvitatoRepository invitatoRepository;
@@ -109,7 +106,6 @@ public class InvitatoResourceIT {
      */
     public static Invitato createEntity(EntityManager em) {
         Invitato invitato = new Invitato()
-            .idInvitato(DEFAULT_ID_INVITATO)
             .idInvitoRef(DEFAULT_ID_INVITO_REF)
             .tokenInvito(DEFAULT_TOKEN_INVITO)
             .canalePrimarioInvito(DEFAULT_CANALE_PRIMARIO_INVITO)
@@ -131,7 +127,6 @@ public class InvitatoResourceIT {
      */
     public static Invitato createUpdatedEntity(EntityManager em) {
         Invitato invitato = new Invitato()
-            .idInvitato(UPDATED_ID_INVITATO)
             .idInvitoRef(UPDATED_ID_INVITO_REF)
             .tokenInvito(UPDATED_TOKEN_INVITO)
             .canalePrimarioInvito(UPDATED_CANALE_PRIMARIO_INVITO)
@@ -166,7 +161,6 @@ public class InvitatoResourceIT {
         List<Invitato> invitatoList = invitatoRepository.findAll();
         assertThat(invitatoList).hasSize(databaseSizeBeforeCreate + 1);
         Invitato testInvitato = invitatoList.get(invitatoList.size() - 1);
-        assertThat(testInvitato.getIdInvitato()).isEqualTo(DEFAULT_ID_INVITATO);
         assertThat(testInvitato.getIdInvitoRef()).isEqualTo(DEFAULT_ID_INVITO_REF);
         assertThat(testInvitato.getTokenInvito()).isEqualTo(DEFAULT_TOKEN_INVITO);
         assertThat(testInvitato.getCanalePrimarioInvito()).isEqualTo(DEFAULT_CANALE_PRIMARIO_INVITO);
@@ -209,26 +203,6 @@ public class InvitatoResourceIT {
 
     @Test
     @Transactional
-    public void checkIdInvitatoIsRequired() throws Exception {
-        int databaseSizeBeforeTest = invitatoRepository.findAll().size();
-        // set the field null
-        invitato.setIdInvitato(null);
-
-        // Create the Invitato, which fails.
-        InvitatoDTO invitatoDTO = invitatoMapper.toDto(invitato);
-
-
-        restInvitatoMockMvc.perform(post("/api/invitatoes")
-            .contentType(MediaType.APPLICATION_JSON)
-            .content(TestUtil.convertObjectToJsonBytes(invitatoDTO)))
-            .andExpect(status().isBadRequest());
-
-        List<Invitato> invitatoList = invitatoRepository.findAll();
-        assertThat(invitatoList).hasSize(databaseSizeBeforeTest);
-    }
-
-    @Test
-    @Transactional
     public void getAllInvitatoes() throws Exception {
         // Initialize the database
         invitatoRepository.saveAndFlush(invitato);
@@ -238,18 +212,17 @@ public class InvitatoResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(invitato.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idInvitato").value(hasItem(DEFAULT_ID_INVITATO)))
-            .andExpect(jsonPath("$.[*].idInvitoRef").value(hasItem(DEFAULT_ID_INVITO_REF)))
+            .andExpect(jsonPath("$.[*].idInvitoRef").value(hasItem(DEFAULT_ID_INVITO_REF.intValue())))
             .andExpect(jsonPath("$.[*].tokenInvito").value(hasItem(DEFAULT_TOKEN_INVITO)))
-            .andExpect(jsonPath("$.[*].canalePrimarioInvito").value(hasItem(DEFAULT_CANALE_PRIMARIO_INVITO)))
-            .andExpect(jsonPath("$.[*].canaleBackupInvito").value(hasItem(DEFAULT_CANALE_BACKUP_INVITO)))
-            .andExpect(jsonPath("$.[*].statoInvito").value(hasItem(DEFAULT_STATO_INVITO)))
-            .andExpect(jsonPath("$.[*].idUserInvitato").value(hasItem(DEFAULT_ID_USER_INVITATO)))
-            .andExpect(jsonPath("$.[*].idPersonaInvitata").value(hasItem(DEFAULT_ID_PERSONA_INVITATA)))
+            .andExpect(jsonPath("$.[*].canalePrimarioInvito").value(hasItem(DEFAULT_CANALE_PRIMARIO_INVITO.intValue())))
+            .andExpect(jsonPath("$.[*].canaleBackupInvito").value(hasItem(DEFAULT_CANALE_BACKUP_INVITO.intValue())))
+            .andExpect(jsonPath("$.[*].statoInvito").value(hasItem(DEFAULT_STATO_INVITO.intValue())))
+            .andExpect(jsonPath("$.[*].idUserInvitato").value(hasItem(DEFAULT_ID_USER_INVITATO.intValue())))
+            .andExpect(jsonPath("$.[*].idPersonaInvitata").value(hasItem(DEFAULT_ID_PERSONA_INVITATA.intValue())))
             .andExpect(jsonPath("$.[*].nomeUserInvitato").value(hasItem(DEFAULT_NOME_USER_INVITATO)))
             .andExpect(jsonPath("$.[*].dataRispostaInvito").value(hasItem(DEFAULT_DATA_RISPOSTA_INVITO)))
-            .andExpect(jsonPath("$.[*].ruoloInvitato").value(hasItem(DEFAULT_RUOLO_INVITATO)))
-            .andExpect(jsonPath("$.[*].indInvitati").value(hasItem(DEFAULT_IND_INVITATI)));
+            .andExpect(jsonPath("$.[*].ruoloInvitato").value(hasItem(DEFAULT_RUOLO_INVITATO.intValue())))
+            .andExpect(jsonPath("$.[*].indInvitati").value(hasItem(DEFAULT_IND_INVITATI.intValue())));
     }
     
     @Test
@@ -263,18 +236,17 @@ public class InvitatoResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(invitato.getId().intValue()))
-            .andExpect(jsonPath("$.idInvitato").value(DEFAULT_ID_INVITATO))
-            .andExpect(jsonPath("$.idInvitoRef").value(DEFAULT_ID_INVITO_REF))
+            .andExpect(jsonPath("$.idInvitoRef").value(DEFAULT_ID_INVITO_REF.intValue()))
             .andExpect(jsonPath("$.tokenInvito").value(DEFAULT_TOKEN_INVITO))
-            .andExpect(jsonPath("$.canalePrimarioInvito").value(DEFAULT_CANALE_PRIMARIO_INVITO))
-            .andExpect(jsonPath("$.canaleBackupInvito").value(DEFAULT_CANALE_BACKUP_INVITO))
-            .andExpect(jsonPath("$.statoInvito").value(DEFAULT_STATO_INVITO))
-            .andExpect(jsonPath("$.idUserInvitato").value(DEFAULT_ID_USER_INVITATO))
-            .andExpect(jsonPath("$.idPersonaInvitata").value(DEFAULT_ID_PERSONA_INVITATA))
+            .andExpect(jsonPath("$.canalePrimarioInvito").value(DEFAULT_CANALE_PRIMARIO_INVITO.intValue()))
+            .andExpect(jsonPath("$.canaleBackupInvito").value(DEFAULT_CANALE_BACKUP_INVITO.intValue()))
+            .andExpect(jsonPath("$.statoInvito").value(DEFAULT_STATO_INVITO.intValue()))
+            .andExpect(jsonPath("$.idUserInvitato").value(DEFAULT_ID_USER_INVITATO.intValue()))
+            .andExpect(jsonPath("$.idPersonaInvitata").value(DEFAULT_ID_PERSONA_INVITATA.intValue()))
             .andExpect(jsonPath("$.nomeUserInvitato").value(DEFAULT_NOME_USER_INVITATO))
             .andExpect(jsonPath("$.dataRispostaInvito").value(DEFAULT_DATA_RISPOSTA_INVITO))
-            .andExpect(jsonPath("$.ruoloInvitato").value(DEFAULT_RUOLO_INVITATO))
-            .andExpect(jsonPath("$.indInvitati").value(DEFAULT_IND_INVITATI));
+            .andExpect(jsonPath("$.ruoloInvitato").value(DEFAULT_RUOLO_INVITATO.intValue()))
+            .andExpect(jsonPath("$.indInvitati").value(DEFAULT_IND_INVITATI.intValue()));
     }
     @Test
     @Transactional
@@ -297,7 +269,6 @@ public class InvitatoResourceIT {
         // Disconnect from session so that the updates on updatedInvitato are not directly saved in db
         em.detach(updatedInvitato);
         updatedInvitato
-            .idInvitato(UPDATED_ID_INVITATO)
             .idInvitoRef(UPDATED_ID_INVITO_REF)
             .tokenInvito(UPDATED_TOKEN_INVITO)
             .canalePrimarioInvito(UPDATED_CANALE_PRIMARIO_INVITO)
@@ -320,7 +291,6 @@ public class InvitatoResourceIT {
         List<Invitato> invitatoList = invitatoRepository.findAll();
         assertThat(invitatoList).hasSize(databaseSizeBeforeUpdate);
         Invitato testInvitato = invitatoList.get(invitatoList.size() - 1);
-        assertThat(testInvitato.getIdInvitato()).isEqualTo(UPDATED_ID_INVITATO);
         assertThat(testInvitato.getIdInvitoRef()).isEqualTo(UPDATED_ID_INVITO_REF);
         assertThat(testInvitato.getTokenInvito()).isEqualTo(UPDATED_TOKEN_INVITO);
         assertThat(testInvitato.getCanalePrimarioInvito()).isEqualTo(UPDATED_CANALE_PRIMARIO_INVITO);
@@ -394,17 +364,16 @@ public class InvitatoResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(invitato.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idInvitato").value(hasItem(DEFAULT_ID_INVITATO)))
-            .andExpect(jsonPath("$.[*].idInvitoRef").value(hasItem(DEFAULT_ID_INVITO_REF)))
+            .andExpect(jsonPath("$.[*].idInvitoRef").value(hasItem(DEFAULT_ID_INVITO_REF.intValue())))
             .andExpect(jsonPath("$.[*].tokenInvito").value(hasItem(DEFAULT_TOKEN_INVITO)))
-            .andExpect(jsonPath("$.[*].canalePrimarioInvito").value(hasItem(DEFAULT_CANALE_PRIMARIO_INVITO)))
-            .andExpect(jsonPath("$.[*].canaleBackupInvito").value(hasItem(DEFAULT_CANALE_BACKUP_INVITO)))
-            .andExpect(jsonPath("$.[*].statoInvito").value(hasItem(DEFAULT_STATO_INVITO)))
-            .andExpect(jsonPath("$.[*].idUserInvitato").value(hasItem(DEFAULT_ID_USER_INVITATO)))
-            .andExpect(jsonPath("$.[*].idPersonaInvitata").value(hasItem(DEFAULT_ID_PERSONA_INVITATA)))
+            .andExpect(jsonPath("$.[*].canalePrimarioInvito").value(hasItem(DEFAULT_CANALE_PRIMARIO_INVITO.intValue())))
+            .andExpect(jsonPath("$.[*].canaleBackupInvito").value(hasItem(DEFAULT_CANALE_BACKUP_INVITO.intValue())))
+            .andExpect(jsonPath("$.[*].statoInvito").value(hasItem(DEFAULT_STATO_INVITO.intValue())))
+            .andExpect(jsonPath("$.[*].idUserInvitato").value(hasItem(DEFAULT_ID_USER_INVITATO.intValue())))
+            .andExpect(jsonPath("$.[*].idPersonaInvitata").value(hasItem(DEFAULT_ID_PERSONA_INVITATA.intValue())))
             .andExpect(jsonPath("$.[*].nomeUserInvitato").value(hasItem(DEFAULT_NOME_USER_INVITATO)))
             .andExpect(jsonPath("$.[*].dataRispostaInvito").value(hasItem(DEFAULT_DATA_RISPOSTA_INVITO)))
-            .andExpect(jsonPath("$.[*].ruoloInvitato").value(hasItem(DEFAULT_RUOLO_INVITATO)))
-            .andExpect(jsonPath("$.[*].indInvitati").value(hasItem(DEFAULT_IND_INVITATI)));
+            .andExpect(jsonPath("$.[*].ruoloInvitato").value(hasItem(DEFAULT_RUOLO_INVITATO.intValue())))
+            .andExpect(jsonPath("$.[*].indInvitati").value(hasItem(DEFAULT_IND_INVITATI.intValue())));
     }
 }

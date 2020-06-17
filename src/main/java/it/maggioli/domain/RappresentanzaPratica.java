@@ -31,11 +31,11 @@ public class RappresentanzaPratica implements Serializable {
 
     @NotNull
     @Column(name = "id_ruolo_persona", nullable = false)
-    private Integer idRuoloPersona;
+    private Long idRuoloPersona;
 
     @NotNull
     @Column(name = "id_persona_ref", nullable = false)
-    private Integer idPersonaRef;
+    private Long idPersonaRef;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "ruoli")
@@ -50,7 +50,7 @@ public class RappresentanzaPratica implements Serializable {
     private AssegnazioneTask idRuoloPersona;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "idPersonas", allowSetters = true)
+    @JsonIgnoreProperties(value = "ids", allowSetters = true)
     private Persona persona;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
@@ -62,29 +62,29 @@ public class RappresentanzaPratica implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdRuoloPersona() {
+    public Long getIdRuoloPersona() {
         return idRuoloPersona;
     }
 
-    public RappresentanzaPratica idRuoloPersona(Integer idRuoloPersona) {
+    public RappresentanzaPratica idRuoloPersona(Long idRuoloPersona) {
         this.idRuoloPersona = idRuoloPersona;
         return this;
     }
 
-    public void setIdRuoloPersona(Integer idRuoloPersona) {
+    public void setIdRuoloPersona(Long idRuoloPersona) {
         this.idRuoloPersona = idRuoloPersona;
     }
 
-    public Integer getIdPersonaRef() {
+    public Long getIdPersonaRef() {
         return idPersonaRef;
     }
 
-    public RappresentanzaPratica idPersonaRef(Integer idPersonaRef) {
+    public RappresentanzaPratica idPersonaRef(Long idPersonaRef) {
         this.idPersonaRef = idPersonaRef;
         return this;
     }
 
-    public void setIdPersonaRef(Integer idPersonaRef) {
+    public void setIdPersonaRef(Long idPersonaRef) {
         this.idPersonaRef = idPersonaRef;
     }
 

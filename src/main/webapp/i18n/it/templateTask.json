@@ -17,14 +17,13 @@
       "detail": {
         "title": "Template Task"
       },
-      "idTemplateTask": "Id Template Task",
       "ordineEsecuzione": "Ordine Esecuzione",
       "nome": "Nome",
       "note": "Note",
       "pubPriv": "Pub Priv",
       "idTemplatePraticaRef": "Id Template Pratica Ref",
-      "idTemplateTask": "Id Template Task",
-      "idTemplateTask": "Id Template Task",
+      "id": "Id",
+      "id": "Id",
       "templatePratica": "Template Pratica",
       "templateTask": "Template Task"
     }

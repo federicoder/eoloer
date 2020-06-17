@@ -41,7 +41,6 @@
             <thead>
                 <tr>
                     <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
-                    <th scope="col" ><span jhiTranslate="eoloprjApp.assegnazioneTask.idAssegnazioneTask">Id Assegnazione Task</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.assegnazioneTask.idTaskRef">Id Task Ref</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.assegnazioneTask.idUserAmmesso">Id User Ammesso</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.assegnazioneTask.ruolo">Ruolo</span></th>
@@ -55,7 +54,6 @@
             <tbody>
                 <tr *ngFor="let assegnazioneTask of assegnazioneTasks ;trackBy: trackId">
                     <td><a [routerLink]="['/assegnazione-task', assegnazioneTask.id, 'view']">{{ assegnazioneTask.id }}</a></td>
-                    <td>{{ assegnazioneTask.idAssegnazioneTask }}</td>
                     <td>{{ assegnazioneTask.idTaskRef }}</td>
                     <td>{{ assegnazioneTask.idUserAmmesso }}</td>
                     <td>{{ assegnazioneTask.ruolo }}</td>

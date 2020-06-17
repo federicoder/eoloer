@@ -40,23 +40,20 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WithMockUser
 public class CondivisionePraticaResourceIT {
 
-    private static final Integer DEFAULT_ID_CONDIVISIONE_PRATICA = 8;
-    private static final Integer UPDATED_ID_CONDIVISIONE_PRATICA = 7;
+    private static final Long DEFAULT_ID_USER_AMMESSO = 8L;
+    private static final Long UPDATED_ID_USER_AMMESSO = 7L;
 
-    private static final Integer DEFAULT_ID_USER_AMMESSO = 8;
-    private static final Integer UPDATED_ID_USER_AMMESSO = 7;
+    private static final Long DEFAULT_RUOLO = 1L;
+    private static final Long UPDATED_RUOLO = 2L;
 
-    private static final Integer DEFAULT_RUOLO = 1;
-    private static final Integer UPDATED_RUOLO = 2;
+    private static final Long DEFAULT_ID_USER_CONCEDENTE = 1L;
+    private static final Long UPDATED_ID_USER_CONCEDENTE = 2L;
 
-    private static final Integer DEFAULT_ID_USER_CONCEDENTE = 1;
-    private static final Integer UPDATED_ID_USER_CONCEDENTE = 2;
+    private static final Long DEFAULT_STATO_INVITO = 1L;
+    private static final Long UPDATED_STATO_INVITO = 2L;
 
-    private static final Integer DEFAULT_STATO_INVITO = 1;
-    private static final Integer UPDATED_STATO_INVITO = 2;
-
-    private static final Integer DEFAULT_ID_PRATICA_REF = 1;
-    private static final Integer UPDATED_ID_PRATICA_REF = 2;
+    private static final Long DEFAULT_ID_PRATICA_REF = 1L;
+    private static final Long UPDATED_ID_PRATICA_REF = 2L;
 
     @Autowired
     private CondivisionePraticaRepository condivisionePraticaRepository;
@@ -91,7 +88,6 @@ public class CondivisionePraticaResourceIT {
      */
     public static CondivisionePratica createEntity(EntityManager em) {
         CondivisionePratica condivisionePratica = new CondivisionePratica()
-            .idCondivisionePratica(DEFAULT_ID_CONDIVISIONE_PRATICA)
             .idUserAmmesso(DEFAULT_ID_USER_AMMESSO)
             .ruolo(DEFAULT_RUOLO)
             .idUserConcedente(DEFAULT_ID_USER_CONCEDENTE)
@@ -107,7 +103,6 @@ public class CondivisionePraticaResourceIT {
      */
     public static CondivisionePratica createUpdatedEntity(EntityManager em) {
         CondivisionePratica condivisionePratica = new CondivisionePratica()
-            .idCondivisionePratica(UPDATED_ID_CONDIVISIONE_PRATICA)
             .idUserAmmesso(UPDATED_ID_USER_AMMESSO)
             .ruolo(UPDATED_RUOLO)
             .idUserConcedente(UPDATED_ID_USER_CONCEDENTE)
@@ -136,7 +131,6 @@ public class CondivisionePraticaResourceIT {
         List<CondivisionePratica> condivisionePraticaList = condivisionePraticaRepository.findAll();
         assertThat(condivisionePraticaList).hasSize(databaseSizeBeforeCreate + 1);
         CondivisionePratica testCondivisionePratica = condivisionePraticaList.get(condivisionePraticaList.size() - 1);
-        assertThat(testCondivisionePratica.getIdCondivisionePratica()).isEqualTo(DEFAULT_ID_CONDIVISIONE_PRATICA);
         assertThat(testCondivisionePratica.getIdUserAmmesso()).isEqualTo(DEFAULT_ID_USER_AMMESSO);
         assertThat(testCondivisionePratica.getRuolo()).isEqualTo(DEFAULT_RUOLO);
         assertThat(testCondivisionePratica.getIdUserConcedente()).isEqualTo(DEFAULT_ID_USER_CONCEDENTE);
@@ -173,26 +167,6 @@ public class CondivisionePraticaResourceIT {
 
     @Test
     @Transactional
-    public void checkIdCondivisionePraticaIsRequired() throws Exception {
-        int databaseSizeBeforeTest = condivisionePraticaRepository.findAll().size();
-        // set the field null
-        condivisionePratica.setIdCondivisionePratica(null);
-
-        // Create the CondivisionePratica, which fails.
-        CondivisionePraticaDTO condivisionePraticaDTO = condivisionePraticaMapper.toDto(condivisionePratica);
-
-
-        restCondivisionePraticaMockMvc.perform(post("/api/condivisione-praticas")
-            .contentType(MediaType.APPLICATION_JSON)
-            .content(TestUtil.convertObjectToJsonBytes(condivisionePraticaDTO)))
-            .andExpect(status().isBadRequest());
-
-        List<CondivisionePratica> condivisionePraticaList = condivisionePraticaRepository.findAll();
-        assertThat(condivisionePraticaList).hasSize(databaseSizeBeforeTest);
-    }
-
-    @Test
-    @Transactional
     public void getAllCondivisionePraticas() throws Exception {
         // Initialize the database
         condivisionePraticaRepository.saveAndFlush(condivisionePratica);
@@ -202,12 +176,11 @@ public class CondivisionePraticaResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(condivisionePratica.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idCondivisionePratica").value(hasItem(DEFAULT_ID_CONDIVISIONE_PRATICA)))
-            .andExpect(jsonPath("$.[*].idUserAmmesso").value(hasItem(DEFAULT_ID_USER_AMMESSO)))
-            .andExpect(jsonPath("$.[*].ruolo").value(hasItem(DEFAULT_RUOLO)))
-            .andExpect(jsonPath("$.[*].idUserConcedente").value(hasItem(DEFAULT_ID_USER_CONCEDENTE)))
-            .andExpect(jsonPath("$.[*].statoInvito").value(hasItem(DEFAULT_STATO_INVITO)))
-            .andExpect(jsonPath("$.[*].idPraticaRef").value(hasItem(DEFAULT_ID_PRATICA_REF)));
+            .andExpect(jsonPath("$.[*].idUserAmmesso").value(hasItem(DEFAULT_ID_USER_AMMESSO.intValue())))
+            .andExpect(jsonPath("$.[*].ruolo").value(hasItem(DEFAULT_RUOLO.intValue())))
+            .andExpect(jsonPath("$.[*].idUserConcedente").value(hasItem(DEFAULT_ID_USER_CONCEDENTE.intValue())))
+            .andExpect(jsonPath("$.[*].statoInvito").value(hasItem(DEFAULT_STATO_INVITO.intValue())))
+            .andExpect(jsonPath("$.[*].idPraticaRef").value(hasItem(DEFAULT_ID_PRATICA_REF.intValue())));
     }
     
     @Test
@@ -221,12 +194,11 @@ public class CondivisionePraticaResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(condivisionePratica.getId().intValue()))
-            .andExpect(jsonPath("$.idCondivisionePratica").value(DEFAULT_ID_CONDIVISIONE_PRATICA))
-            .andExpect(jsonPath("$.idUserAmmesso").value(DEFAULT_ID_USER_AMMESSO))
-            .andExpect(jsonPath("$.ruolo").value(DEFAULT_RUOLO))
-            .andExpect(jsonPath("$.idUserConcedente").value(DEFAULT_ID_USER_CONCEDENTE))
-            .andExpect(jsonPath("$.statoInvito").value(DEFAULT_STATO_INVITO))
-            .andExpect(jsonPath("$.idPraticaRef").value(DEFAULT_ID_PRATICA_REF));
+            .andExpect(jsonPath("$.idUserAmmesso").value(DEFAULT_ID_USER_AMMESSO.intValue()))
+            .andExpect(jsonPath("$.ruolo").value(DEFAULT_RUOLO.intValue()))
+            .andExpect(jsonPath("$.idUserConcedente").value(DEFAULT_ID_USER_CONCEDENTE.intValue()))
+            .andExpect(jsonPath("$.statoInvito").value(DEFAULT_STATO_INVITO.intValue()))
+            .andExpect(jsonPath("$.idPraticaRef").value(DEFAULT_ID_PRATICA_REF.intValue()));
     }
     @Test
     @Transactional
@@ -249,7 +221,6 @@ public class CondivisionePraticaResourceIT {
         // Disconnect from session so that the updates on updatedCondivisionePratica are not directly saved in db
         em.detach(updatedCondivisionePratica);
         updatedCondivisionePratica
-            .idCondivisionePratica(UPDATED_ID_CONDIVISIONE_PRATICA)
             .idUserAmmesso(UPDATED_ID_USER_AMMESSO)
             .ruolo(UPDATED_RUOLO)
             .idUserConcedente(UPDATED_ID_USER_CONCEDENTE)
@@ -266,7 +237,6 @@ public class CondivisionePraticaResourceIT {
         List<CondivisionePratica> condivisionePraticaList = condivisionePraticaRepository.findAll();
         assertThat(condivisionePraticaList).hasSize(databaseSizeBeforeUpdate);
         CondivisionePratica testCondivisionePratica = condivisionePraticaList.get(condivisionePraticaList.size() - 1);
-        assertThat(testCondivisionePratica.getIdCondivisionePratica()).isEqualTo(UPDATED_ID_CONDIVISIONE_PRATICA);
         assertThat(testCondivisionePratica.getIdUserAmmesso()).isEqualTo(UPDATED_ID_USER_AMMESSO);
         assertThat(testCondivisionePratica.getRuolo()).isEqualTo(UPDATED_RUOLO);
         assertThat(testCondivisionePratica.getIdUserConcedente()).isEqualTo(UPDATED_ID_USER_CONCEDENTE);
@@ -334,11 +304,10 @@ public class CondivisionePraticaResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(condivisionePratica.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idCondivisionePratica").value(hasItem(DEFAULT_ID_CONDIVISIONE_PRATICA)))
-            .andExpect(jsonPath("$.[*].idUserAmmesso").value(hasItem(DEFAULT_ID_USER_AMMESSO)))
-            .andExpect(jsonPath("$.[*].ruolo").value(hasItem(DEFAULT_RUOLO)))
-            .andExpect(jsonPath("$.[*].idUserConcedente").value(hasItem(DEFAULT_ID_USER_CONCEDENTE)))
-            .andExpect(jsonPath("$.[*].statoInvito").value(hasItem(DEFAULT_STATO_INVITO)))
-            .andExpect(jsonPath("$.[*].idPraticaRef").value(hasItem(DEFAULT_ID_PRATICA_REF)));
+            .andExpect(jsonPath("$.[*].idUserAmmesso").value(hasItem(DEFAULT_ID_USER_AMMESSO.intValue())))
+            .andExpect(jsonPath("$.[*].ruolo").value(hasItem(DEFAULT_RUOLO.intValue())))
+            .andExpect(jsonPath("$.[*].idUserConcedente").value(hasItem(DEFAULT_ID_USER_CONCEDENTE.intValue())))
+            .andExpect(jsonPath("$.[*].statoInvito").value(hasItem(DEFAULT_STATO_INVITO.intValue())))
+            .andExpect(jsonPath("$.[*].idPraticaRef").value(hasItem(DEFAULT_ID_PRATICA_REF.intValue())));
     }
 }

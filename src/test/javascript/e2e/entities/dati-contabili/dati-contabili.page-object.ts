@@ -29,21 +29,12 @@ export class DatiContabiliUpdatePage {
   saveButton = element(by.id('save-entity'));
   cancelButton = element(by.id('cancel-save'));
 
-  idDatiContabiliInput = element(by.id('field_idDatiContabili'));
   idPersonaRefInput = element(by.id('field_idPersonaRef'));
 
   personaSelect = element(by.id('field_persona'));
 
   async getPageTitle(): Promise<string> {
     return this.pageTitle.getAttribute('jhiTranslate');
-  }
-
-  async setIdDatiContabiliInput(idDatiContabili: string): Promise<void> {
-    await this.idDatiContabiliInput.sendKeys(idDatiContabili);
-  }
-
-  async getIdDatiContabiliInput(): Promise<string> {
-    return await this.idDatiContabiliInput.getAttribute('value');
   }
 
   async setIdPersonaRefInput(idPersonaRef: string): Promise<void> {

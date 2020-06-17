@@ -2,21 +2,16 @@
   "name": "RuoloOrganizzazione",
   "fields": [
     {
-      "fieldName": "idRuoloOrganizzazione",
-      "fieldType": "Integer",
-      "fieldValidateRules": ["required"]
-    },
-    {
       "fieldName": "ruoloInOrg",
-      "fieldType": "Integer"
+      "fieldType": "Long"
     }
   ],
   "relationships": [
     {
       "relationshipType": "one-to-one",
       "otherEntityName": "organizzazione",
-      "otherEntityRelationshipName": "idOrganizzazione",
-      "relationshipName": "idRuoloOrganizzazione",
+      "otherEntityRelationshipName": "id",
+      "relationshipName": "id",
       "otherEntityField": "id",
       "ownerSide": true
     },
@@ -24,7 +19,7 @@
       "relationshipType": "one-to-one",
       "otherEntityName": "personaFisica",
       "otherEntityRelationshipName": "idRuoloPersona",
-      "relationshipName": "idRuoloOrganizzazione",
+      "relationshipName": "id",
       "otherEntityField": "id",
       "ownerSide": true
     }

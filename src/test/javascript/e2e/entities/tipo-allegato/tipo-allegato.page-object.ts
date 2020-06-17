@@ -29,7 +29,6 @@ export class TipoAllegatoUpdatePage {
   saveButton = element(by.id('save-entity'));
   cancelButton = element(by.id('cancel-save'));
 
-  idTipoAllegatoInput = element(by.id('field_idTipoAllegato'));
   nomeInput = element(by.id('field_nome'));
   formatiAmmessiInput = element(by.id('field_formatiAmmessi'));
   maxDimensioneAmmessaInput = element(by.id('field_maxDimensioneAmmessa'));
@@ -37,14 +36,6 @@ export class TipoAllegatoUpdatePage {
 
   async getPageTitle(): Promise<string> {
     return this.pageTitle.getAttribute('jhiTranslate');
-  }
-
-  async setIdTipoAllegatoInput(idTipoAllegato: string): Promise<void> {
-    await this.idTipoAllegatoInput.sendKeys(idTipoAllegato);
-  }
-
-  async getIdTipoAllegatoInput(): Promise<string> {
-    return await this.idTipoAllegatoInput.getAttribute('value');
   }
 
   async setNomeInput(nome: string): Promise<void> {

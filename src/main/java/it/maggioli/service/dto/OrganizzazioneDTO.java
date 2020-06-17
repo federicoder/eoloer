@@ -11,10 +11,7 @@ public class OrganizzazioneDTO implements Serializable {
     private Long id;
 
     @NotNull
-    private Integer idOrganizzazione;
-
-    @NotNull
-    private Integer idPersonaRef;
+    private Long idPersonaRef;
 
     private String nome;
 
@@ -31,19 +28,11 @@ public class OrganizzazioneDTO implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdOrganizzazione() {
-        return idOrganizzazione;
-    }
-
-    public void setIdOrganizzazione(Integer idOrganizzazione) {
-        this.idOrganizzazione = idOrganizzazione;
-    }
-
-    public Integer getIdPersonaRef() {
+    public Long getIdPersonaRef() {
         return idPersonaRef;
     }
 
-    public void setIdPersonaRef(Integer idPersonaRef) {
+    public void setIdPersonaRef(Long idPersonaRef) {
         this.idPersonaRef = idPersonaRef;
     }
 
@@ -93,7 +82,6 @@ public class OrganizzazioneDTO implements Serializable {
     public String toString() {
         return "OrganizzazioneDTO{" +
             "id=" + getId() +
-            ", idOrganizzazione=" + getIdOrganizzazione() +
             ", idPersonaRef=" + getIdPersonaRef() +
             ", nome='" + getNome() + "'" +
             ", tipo='" + getTipo() + "'" +

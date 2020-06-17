@@ -2,18 +2,13 @@
   "name": "PersonaFisica",
   "fields": [
     {
-      "fieldName": "idPersonaFisica",
-      "fieldType": "Integer",
-      "fieldValidateRules": ["required"]
-    },
-    {
       "fieldName": "idPersonaRef",
-      "fieldType": "Integer",
+      "fieldType": "Long",
       "fieldValidateRules": ["required"]
     },
     {
       "fieldName": "idRuoloPersonaRef",
-      "fieldType": "Integer"
+      "fieldType": "Long"
     },
     {
       "fieldName": "titolo",
@@ -44,7 +39,7 @@
     {
       "relationshipType": "one-to-one",
       "otherEntityName": "persona",
-      "otherEntityRelationshipName": "idPersona",
+      "otherEntityRelationshipName": "id",
       "relationshipName": "idPersonaRef",
       "otherEntityField": "id",
       "ownerSide": true
@@ -53,12 +48,12 @@
       "relationshipType": "one-to-many",
       "otherEntityName": "userPersona",
       "otherEntityRelationshipName": "personaFisica",
-      "relationshipName": "idPersonaFisica"
+      "relationshipName": "id"
     },
     {
       "relationshipType": "one-to-one",
       "otherEntityName": "ruoloOrganizzazione",
-      "otherEntityRelationshipName": "idRuoloOrganizzazione",
+      "otherEntityRelationshipName": "id",
       "relationshipName": "idRuoloPersona",
       "ownerSide": false
     }

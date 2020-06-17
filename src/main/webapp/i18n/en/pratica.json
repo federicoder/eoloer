@@ -17,7 +17,6 @@
       "detail": {
         "title": "Pratica"
       },
-      "idPratica": "Id Pratica",
       "idStudioProfessionaleRef": "Id Studio Professionale Ref",
       "numero": "Numero",
       "nome": "Nome",
@@ -31,10 +30,10 @@
       "version": "Version",
       "valuta": "Valuta",
       "idTemplatePraticaRef": "Id Template Pratica Ref",
-      "idPratica": "Id Pratica",
-      "idPratica": "Id Pratica",
-      "idPratica": "Id Pratica",
-      "idPratica": "Id Pratica",
+      "id": "Id",
+      "id": "Id",
+      "id": "Id",
+      "id": "Id",
       "idTemplatePraticaRef": "Id Template Pratica Ref"
     }
   }

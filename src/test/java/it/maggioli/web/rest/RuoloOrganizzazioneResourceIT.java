@@ -40,11 +40,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WithMockUser
 public class RuoloOrganizzazioneResourceIT {
 
-    private static final Integer DEFAULT_ID_RUOLO_ORGANIZZAZIONE = 1;
-    private static final Integer UPDATED_ID_RUOLO_ORGANIZZAZIONE = 2;
-
-    private static final Integer DEFAULT_RUOLO_IN_ORG = 1;
-    private static final Integer UPDATED_RUOLO_IN_ORG = 2;
+    private static final Long DEFAULT_RUOLO_IN_ORG = 1L;
+    private static final Long UPDATED_RUOLO_IN_ORG = 2L;
 
     @Autowired
     private RuoloOrganizzazioneRepository ruoloOrganizzazioneRepository;
@@ -79,7 +76,6 @@ public class RuoloOrganizzazioneResourceIT {
      */
     public static RuoloOrganizzazione createEntity(EntityManager em) {
         RuoloOrganizzazione ruoloOrganizzazione = new RuoloOrganizzazione()
-            .idRuoloOrganizzazione(DEFAULT_ID_RUOLO_ORGANIZZAZIONE)
             .ruoloInOrg(DEFAULT_RUOLO_IN_ORG);
         return ruoloOrganizzazione;
     }
@@ -91,7 +87,6 @@ public class RuoloOrganizzazioneResourceIT {
      */
     public static RuoloOrganizzazione createUpdatedEntity(EntityManager em) {
         RuoloOrganizzazione ruoloOrganizzazione = new RuoloOrganizzazione()
-            .idRuoloOrganizzazione(UPDATED_ID_RUOLO_ORGANIZZAZIONE)
             .ruoloInOrg(UPDATED_RUOLO_IN_ORG);
         return ruoloOrganizzazione;
     }
@@ -116,7 +111,6 @@ public class RuoloOrganizzazioneResourceIT {
         List<RuoloOrganizzazione> ruoloOrganizzazioneList = ruoloOrganizzazioneRepository.findAll();
         assertThat(ruoloOrganizzazioneList).hasSize(databaseSizeBeforeCreate + 1);
         RuoloOrganizzazione testRuoloOrganizzazione = ruoloOrganizzazioneList.get(ruoloOrganizzazioneList.size() - 1);
-        assertThat(testRuoloOrganizzazione.getIdRuoloOrganizzazione()).isEqualTo(DEFAULT_ID_RUOLO_ORGANIZZAZIONE);
         assertThat(testRuoloOrganizzazione.getRuoloInOrg()).isEqualTo(DEFAULT_RUOLO_IN_ORG);
 
         // Validate the RuoloOrganizzazione in Elasticsearch
@@ -149,26 +143,6 @@ public class RuoloOrganizzazioneResourceIT {
 
     @Test
     @Transactional
-    public void checkIdRuoloOrganizzazioneIsRequired() throws Exception {
-        int databaseSizeBeforeTest = ruoloOrganizzazioneRepository.findAll().size();
-        // set the field null
-        ruoloOrganizzazione.setIdRuoloOrganizzazione(null);
-
-        // Create the RuoloOrganizzazione, which fails.
-        RuoloOrganizzazioneDTO ruoloOrganizzazioneDTO = ruoloOrganizzazioneMapper.toDto(ruoloOrganizzazione);
-
-
-        restRuoloOrganizzazioneMockMvc.perform(post("/api/ruolo-organizzaziones")
-            .contentType(MediaType.APPLICATION_JSON)
-            .content(TestUtil.convertObjectToJsonBytes(ruoloOrganizzazioneDTO)))
-            .andExpect(status().isBadRequest());
-
-        List<RuoloOrganizzazione> ruoloOrganizzazioneList = ruoloOrganizzazioneRepository.findAll();
-        assertThat(ruoloOrganizzazioneList).hasSize(databaseSizeBeforeTest);
-    }
-
-    @Test
-    @Transactional
     public void getAllRuoloOrganizzaziones() throws Exception {
         // Initialize the database
         ruoloOrganizzazioneRepository.saveAndFlush(ruoloOrganizzazione);
@@ -178,8 +152,7 @@ public class RuoloOrganizzazioneResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(ruoloOrganizzazione.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idRuoloOrganizzazione").value(hasItem(DEFAULT_ID_RUOLO_ORGANIZZAZIONE)))
-            .andExpect(jsonPath("$.[*].ruoloInOrg").value(hasItem(DEFAULT_RUOLO_IN_ORG)));
+            .andExpect(jsonPath("$.[*].ruoloInOrg").value(hasItem(DEFAULT_RUOLO_IN_ORG.intValue())));
     }
     
     @Test
@@ -193,8 +166,7 @@ public class RuoloOrganizzazioneResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(ruoloOrganizzazione.getId().intValue()))
-            .andExpect(jsonPath("$.idRuoloOrganizzazione").value(DEFAULT_ID_RUOLO_ORGANIZZAZIONE))
-            .andExpect(jsonPath("$.ruoloInOrg").value(DEFAULT_RUOLO_IN_ORG));
+            .andExpect(jsonPath("$.ruoloInOrg").value(DEFAULT_RUOLO_IN_ORG.intValue()));
     }
     @Test
     @Transactional
@@ -217,7 +189,6 @@ public class RuoloOrganizzazioneResourceIT {
         // Disconnect from session so that the updates on updatedRuoloOrganizzazione are not directly saved in db
         em.detach(updatedRuoloOrganizzazione);
         updatedRuoloOrganizzazione
-            .idRuoloOrganizzazione(UPDATED_ID_RUOLO_ORGANIZZAZIONE)
             .ruoloInOrg(UPDATED_RUOLO_IN_ORG);
         RuoloOrganizzazioneDTO ruoloOrganizzazioneDTO = ruoloOrganizzazioneMapper.toDto(updatedRuoloOrganizzazione);
 
@@ -230,7 +201,6 @@ public class RuoloOrganizzazioneResourceIT {
         List<RuoloOrganizzazione> ruoloOrganizzazioneList = ruoloOrganizzazioneRepository.findAll();
         assertThat(ruoloOrganizzazioneList).hasSize(databaseSizeBeforeUpdate);
         RuoloOrganizzazione testRuoloOrganizzazione = ruoloOrganizzazioneList.get(ruoloOrganizzazioneList.size() - 1);
-        assertThat(testRuoloOrganizzazione.getIdRuoloOrganizzazione()).isEqualTo(UPDATED_ID_RUOLO_ORGANIZZAZIONE);
         assertThat(testRuoloOrganizzazione.getRuoloInOrg()).isEqualTo(UPDATED_RUOLO_IN_ORG);
 
         // Validate the RuoloOrganizzazione in Elasticsearch
@@ -294,7 +264,6 @@ public class RuoloOrganizzazioneResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(ruoloOrganizzazione.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idRuoloOrganizzazione").value(hasItem(DEFAULT_ID_RUOLO_ORGANIZZAZIONE)))
-            .andExpect(jsonPath("$.[*].ruoloInOrg").value(hasItem(DEFAULT_RUOLO_IN_ORG)));
+            .andExpect(jsonPath("$.[*].ruoloInOrg").value(hasItem(DEFAULT_RUOLO_IN_ORG.intValue())));
     }
 }

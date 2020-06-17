@@ -15,31 +15,28 @@
             <column name="id" type="bigint">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="id_allegato_task" type="integer">
-                <constraints nullable="false" />
-            </column>
-            <column name="id_tipo_allegato_ref" type="integer">
+            <column name="id_tipo_allegato_ref" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="id_task_ref" type="integer">
+            <column name="id_task_ref" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="formato" type="integer">
+            <column name="formato" type="bigint">
                 <constraints nullable="true" />
             </column>
             <column name="note" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="stato" type="integer">
+            <column name="stato" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="pubblico" type="integer">
+            <column name="pubblico" type="bigint">
                 <constraints nullable="true" />
             </column>
             <column name="version" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="id_allegato_master" type="integer">
+            <column name="id_allegato_master" type="bigint">
                 <constraints nullable="false" />
             </column>
             <column name="tipo_allegato_id" type="bigint">
@@ -74,7 +71,6 @@
                   separator=";"
                   tableName="allegato_task">
             <column name="id" type="numeric"/>
-            <column name="id_allegato_task" type="numeric"/>
             <column name="id_tipo_allegato_ref" type="numeric"/>
             <column name="id_task_ref" type="numeric"/>
             <column name="formato" type="numeric"/>

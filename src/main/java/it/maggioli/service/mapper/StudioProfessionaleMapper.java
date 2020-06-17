@@ -15,11 +15,11 @@ public interface StudioProfessionaleMapper extends EntityMapper<StudioProfession
     @Mapping(source = "persona.id", target = "personaId")
     StudioProfessionaleDTO toDto(StudioProfessionale studioProfessionale);
 
-    @Mapping(target = "idStudioProfessionales", ignore = true)
-    @Mapping(target = "removeIdStudioProfessionale", ignore = true)
-    @Mapping(target = "idStudioProfessionales", ignore = true)
-    @Mapping(target = "removeIdStudioProfessionale", ignore = true)
-    @Mapping(target = "idStudioProfessionale", ignore = true)
+    @Mapping(target = "ids", ignore = true)
+    @Mapping(target = "removeId", ignore = true)
+    @Mapping(target = "ids", ignore = true)
+    @Mapping(target = "removeId", ignore = true)
+    @Mapping(target = "id", ignore = true)
     @Mapping(source = "personaId", target = "persona")
     StudioProfessionale toEntity(StudioProfessionaleDTO studioProfessionaleDTO);
 

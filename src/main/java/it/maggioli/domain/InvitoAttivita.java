@@ -26,13 +26,13 @@ public class InvitoAttivita implements Serializable {
     private Long id;
 
     @Column(name = "id_task_ref")
-    private Integer idTaskRef;
+    private Long idTaskRef;
 
     @OneToOne
     @JoinColumn(unique = true)
     private Invito idTaskRef;
 
-    @OneToOne(mappedBy = "idTask")
+    @OneToOne(mappedBy = "id")
     @JsonIgnore
     private Task idTaskRef;
 
@@ -45,16 +45,16 @@ public class InvitoAttivita implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdTaskRef() {
+    public Long getIdTaskRef() {
         return idTaskRef;
     }
 
-    public InvitoAttivita idTaskRef(Integer idTaskRef) {
+    public InvitoAttivita idTaskRef(Long idTaskRef) {
         this.idTaskRef = idTaskRef;
         return this;
     }
 
-    public void setIdTaskRef(Integer idTaskRef) {
+    public void setIdTaskRef(Long idTaskRef) {
         this.idTaskRef = idTaskRef;
     }
 

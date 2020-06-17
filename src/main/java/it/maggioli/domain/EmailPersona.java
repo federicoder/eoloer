@@ -28,16 +28,16 @@ public class EmailPersona implements Serializable {
 
     @NotNull
     @Column(name = "id_persona_ref", nullable = false)
-    private Integer idPersonaRef;
+    private Long idPersonaRef;
 
     @Column(name = "etichetta")
-    private Integer etichetta;
+    private Long etichetta;
 
     @Column(name = "numero")
-    private Integer numero;
+    private Long numero;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "idPersonas", allowSetters = true)
+    @JsonIgnoreProperties(value = "ids", allowSetters = true)
     private Persona persona;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
@@ -49,42 +49,42 @@ public class EmailPersona implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdPersonaRef() {
+    public Long getIdPersonaRef() {
         return idPersonaRef;
     }
 
-    public EmailPersona idPersonaRef(Integer idPersonaRef) {
+    public EmailPersona idPersonaRef(Long idPersonaRef) {
         this.idPersonaRef = idPersonaRef;
         return this;
     }
 
-    public void setIdPersonaRef(Integer idPersonaRef) {
+    public void setIdPersonaRef(Long idPersonaRef) {
         this.idPersonaRef = idPersonaRef;
     }
 
-    public Integer getEtichetta() {
+    public Long getEtichetta() {
         return etichetta;
     }
 
-    public EmailPersona etichetta(Integer etichetta) {
+    public EmailPersona etichetta(Long etichetta) {
         this.etichetta = etichetta;
         return this;
     }
 
-    public void setEtichetta(Integer etichetta) {
+    public void setEtichetta(Long etichetta) {
         this.etichetta = etichetta;
     }
 
-    public Integer getNumero() {
+    public Long getNumero() {
         return numero;
     }
 
-    public EmailPersona numero(Integer numero) {
+    public EmailPersona numero(Long numero) {
         this.numero = numero;
         return this;
     }
 
-    public void setNumero(Integer numero) {
+    public void setNumero(Long numero) {
         this.numero = numero;
     }
 

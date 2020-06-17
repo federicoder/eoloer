@@ -15,16 +15,16 @@
             <column name="id" type="bigint">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="id_studio_professionale_ref" type="integer">
+            <column name="id_studio_professionale_ref" type="bigint">
                 <constraints nullable="false" />
             </column>
             <column name="data_attivazione_licenza" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="nr_licenza" type="integer">
+            <column name="nr_licenza" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="storage_totale" type="integer">
+            <column name="storage_totale" type="bigint">
                 <constraints nullable="true" />
             </column>
             <column name="studio_professionale_id" type="bigint">

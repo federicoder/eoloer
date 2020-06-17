@@ -40,11 +40,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WithMockUser
 public class PersonaResourceIT {
 
-    private static final Integer DEFAULT_ID_PERSONA = 8;
-    private static final Integer UPDATED_ID_PERSONA = 7;
-
-    private static final Integer DEFAULT_ID_STUDIO_PROFESSIONALE_REF = 8;
-    private static final Integer UPDATED_ID_STUDIO_PROFESSIONALE_REF = 7;
+    private static final Long DEFAULT_ID_STUDIO_PROFESSIONALE_REF = 8L;
+    private static final Long UPDATED_ID_STUDIO_PROFESSIONALE_REF = 7L;
 
     private static final String DEFAULT_CODICE_FISCALE = "AAAAAAAAAA";
     private static final String UPDATED_CODICE_FISCALE = "BBBBBBBBBB";
@@ -70,17 +67,17 @@ public class PersonaResourceIT {
     private static final String DEFAULT_PROFESSIONE = "AAAAAAAAAA";
     private static final String UPDATED_PROFESSIONE = "BBBBBBBBBB";
 
-    private static final Integer DEFAULT_TIPO = 1;
-    private static final Integer UPDATED_TIPO = 2;
+    private static final Long DEFAULT_TIPO = 1L;
+    private static final Long UPDATED_TIPO = 2L;
 
     private static final String DEFAULT_DISCRIMINATOR = "AAAAAAAAAA";
     private static final String UPDATED_DISCRIMINATOR = "BBBBBBBBBB";
 
-    private static final Integer DEFAULT_ID_RUOLO_PERSONA_REF = 1;
-    private static final Integer UPDATED_ID_RUOLO_PERSONA_REF = 2;
+    private static final Long DEFAULT_ID_RUOLO_PERSONA_REF = 1L;
+    private static final Long UPDATED_ID_RUOLO_PERSONA_REF = 2L;
 
-    private static final Integer DEFAULT_TIPO_RUOLO_UTENTE = 1;
-    private static final Integer UPDATED_TIPO_RUOLO_UTENTE = 2;
+    private static final Long DEFAULT_TIPO_RUOLO_UTENTE = 1L;
+    private static final Long UPDATED_TIPO_RUOLO_UTENTE = 2L;
 
     @Autowired
     private PersonaRepository personaRepository;
@@ -115,7 +112,6 @@ public class PersonaResourceIT {
      */
     public static Persona createEntity(EntityManager em) {
         Persona persona = new Persona()
-            .idPersona(DEFAULT_ID_PERSONA)
             .idStudioProfessionaleRef(DEFAULT_ID_STUDIO_PROFESSIONALE_REF)
             .codiceFiscale(DEFAULT_CODICE_FISCALE)
             .areaDiInteresse(DEFAULT_AREA_DI_INTERESSE)
@@ -139,7 +135,6 @@ public class PersonaResourceIT {
      */
     public static Persona createUpdatedEntity(EntityManager em) {
         Persona persona = new Persona()
-            .idPersona(UPDATED_ID_PERSONA)
             .idStudioProfessionaleRef(UPDATED_ID_STUDIO_PROFESSIONALE_REF)
             .codiceFiscale(UPDATED_CODICE_FISCALE)
             .areaDiInteresse(UPDATED_AREA_DI_INTERESSE)
@@ -176,7 +171,6 @@ public class PersonaResourceIT {
         List<Persona> personaList = personaRepository.findAll();
         assertThat(personaList).hasSize(databaseSizeBeforeCreate + 1);
         Persona testPersona = personaList.get(personaList.size() - 1);
-        assertThat(testPersona.getIdPersona()).isEqualTo(DEFAULT_ID_PERSONA);
         assertThat(testPersona.getIdStudioProfessionaleRef()).isEqualTo(DEFAULT_ID_STUDIO_PROFESSIONALE_REF);
         assertThat(testPersona.getCodiceFiscale()).isEqualTo(DEFAULT_CODICE_FISCALE);
         assertThat(testPersona.getAreaDiInteresse()).isEqualTo(DEFAULT_AREA_DI_INTERESSE);
@@ -221,26 +215,6 @@ public class PersonaResourceIT {
 
     @Test
     @Transactional
-    public void checkIdPersonaIsRequired() throws Exception {
-        int databaseSizeBeforeTest = personaRepository.findAll().size();
-        // set the field null
-        persona.setIdPersona(null);
-
-        // Create the Persona, which fails.
-        PersonaDTO personaDTO = personaMapper.toDto(persona);
-
-
-        restPersonaMockMvc.perform(post("/api/personas")
-            .contentType(MediaType.APPLICATION_JSON)
-            .content(TestUtil.convertObjectToJsonBytes(personaDTO)))
-            .andExpect(status().isBadRequest());
-
-        List<Persona> personaList = personaRepository.findAll();
-        assertThat(personaList).hasSize(databaseSizeBeforeTest);
-    }
-
-    @Test
-    @Transactional
     public void getAllPersonas() throws Exception {
         // Initialize the database
         personaRepository.saveAndFlush(persona);
@@ -250,8 +224,7 @@ public class PersonaResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(persona.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idPersona").value(hasItem(DEFAULT_ID_PERSONA)))
-            .andExpect(jsonPath("$.[*].idStudioProfessionaleRef").value(hasItem(DEFAULT_ID_STUDIO_PROFESSIONALE_REF)))
+            .andExpect(jsonPath("$.[*].idStudioProfessionaleRef").value(hasItem(DEFAULT_ID_STUDIO_PROFESSIONALE_REF.intValue())))
             .andExpect(jsonPath("$.[*].codiceFiscale").value(hasItem(DEFAULT_CODICE_FISCALE)))
             .andExpect(jsonPath("$.[*].areaDiInteresse").value(hasItem(DEFAULT_AREA_DI_INTERESSE)))
             .andExpect(jsonPath("$.[*].titolo").value(hasItem(DEFAULT_TITOLO)))
@@ -260,10 +233,10 @@ public class PersonaResourceIT {
             .andExpect(jsonPath("$.[*].dataDiNascita").value(hasItem(DEFAULT_DATA_DI_NASCITA)))
             .andExpect(jsonPath("$.[*].luogoDiNascita").value(hasItem(DEFAULT_LUOGO_DI_NASCITA)))
             .andExpect(jsonPath("$.[*].professione").value(hasItem(DEFAULT_PROFESSIONE)))
-            .andExpect(jsonPath("$.[*].tipo").value(hasItem(DEFAULT_TIPO)))
+            .andExpect(jsonPath("$.[*].tipo").value(hasItem(DEFAULT_TIPO.intValue())))
             .andExpect(jsonPath("$.[*].discriminator").value(hasItem(DEFAULT_DISCRIMINATOR)))
-            .andExpect(jsonPath("$.[*].idRuoloPersonaRef").value(hasItem(DEFAULT_ID_RUOLO_PERSONA_REF)))
-            .andExpect(jsonPath("$.[*].tipoRuoloUtente").value(hasItem(DEFAULT_TIPO_RUOLO_UTENTE)));
+            .andExpect(jsonPath("$.[*].idRuoloPersonaRef").value(hasItem(DEFAULT_ID_RUOLO_PERSONA_REF.intValue())))
+            .andExpect(jsonPath("$.[*].tipoRuoloUtente").value(hasItem(DEFAULT_TIPO_RUOLO_UTENTE.intValue())));
     }
     
     @Test
@@ -277,8 +250,7 @@ public class PersonaResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(persona.getId().intValue()))
-            .andExpect(jsonPath("$.idPersona").value(DEFAULT_ID_PERSONA))
-            .andExpect(jsonPath("$.idStudioProfessionaleRef").value(DEFAULT_ID_STUDIO_PROFESSIONALE_REF))
+            .andExpect(jsonPath("$.idStudioProfessionaleRef").value(DEFAULT_ID_STUDIO_PROFESSIONALE_REF.intValue()))
             .andExpect(jsonPath("$.codiceFiscale").value(DEFAULT_CODICE_FISCALE))
             .andExpect(jsonPath("$.areaDiInteresse").value(DEFAULT_AREA_DI_INTERESSE))
             .andExpect(jsonPath("$.titolo").value(DEFAULT_TITOLO))
@@ -287,10 +259,10 @@ public class PersonaResourceIT {
             .andExpect(jsonPath("$.dataDiNascita").value(DEFAULT_DATA_DI_NASCITA))
             .andExpect(jsonPath("$.luogoDiNascita").value(DEFAULT_LUOGO_DI_NASCITA))
             .andExpect(jsonPath("$.professione").value(DEFAULT_PROFESSIONE))
-            .andExpect(jsonPath("$.tipo").value(DEFAULT_TIPO))
+            .andExpect(jsonPath("$.tipo").value(DEFAULT_TIPO.intValue()))
             .andExpect(jsonPath("$.discriminator").value(DEFAULT_DISCRIMINATOR))
-            .andExpect(jsonPath("$.idRuoloPersonaRef").value(DEFAULT_ID_RUOLO_PERSONA_REF))
-            .andExpect(jsonPath("$.tipoRuoloUtente").value(DEFAULT_TIPO_RUOLO_UTENTE));
+            .andExpect(jsonPath("$.idRuoloPersonaRef").value(DEFAULT_ID_RUOLO_PERSONA_REF.intValue()))
+            .andExpect(jsonPath("$.tipoRuoloUtente").value(DEFAULT_TIPO_RUOLO_UTENTE.intValue()));
     }
     @Test
     @Transactional
@@ -313,7 +285,6 @@ public class PersonaResourceIT {
         // Disconnect from session so that the updates on updatedPersona are not directly saved in db
         em.detach(updatedPersona);
         updatedPersona
-            .idPersona(UPDATED_ID_PERSONA)
             .idStudioProfessionaleRef(UPDATED_ID_STUDIO_PROFESSIONALE_REF)
             .codiceFiscale(UPDATED_CODICE_FISCALE)
             .areaDiInteresse(UPDATED_AREA_DI_INTERESSE)
@@ -338,7 +309,6 @@ public class PersonaResourceIT {
         List<Persona> personaList = personaRepository.findAll();
         assertThat(personaList).hasSize(databaseSizeBeforeUpdate);
         Persona testPersona = personaList.get(personaList.size() - 1);
-        assertThat(testPersona.getIdPersona()).isEqualTo(UPDATED_ID_PERSONA);
         assertThat(testPersona.getIdStudioProfessionaleRef()).isEqualTo(UPDATED_ID_STUDIO_PROFESSIONALE_REF);
         assertThat(testPersona.getCodiceFiscale()).isEqualTo(UPDATED_CODICE_FISCALE);
         assertThat(testPersona.getAreaDiInteresse()).isEqualTo(UPDATED_AREA_DI_INTERESSE);
@@ -414,8 +384,7 @@ public class PersonaResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(persona.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idPersona").value(hasItem(DEFAULT_ID_PERSONA)))
-            .andExpect(jsonPath("$.[*].idStudioProfessionaleRef").value(hasItem(DEFAULT_ID_STUDIO_PROFESSIONALE_REF)))
+            .andExpect(jsonPath("$.[*].idStudioProfessionaleRef").value(hasItem(DEFAULT_ID_STUDIO_PROFESSIONALE_REF.intValue())))
             .andExpect(jsonPath("$.[*].codiceFiscale").value(hasItem(DEFAULT_CODICE_FISCALE)))
             .andExpect(jsonPath("$.[*].areaDiInteresse").value(hasItem(DEFAULT_AREA_DI_INTERESSE)))
             .andExpect(jsonPath("$.[*].titolo").value(hasItem(DEFAULT_TITOLO)))
@@ -424,9 +393,9 @@ public class PersonaResourceIT {
             .andExpect(jsonPath("$.[*].dataDiNascita").value(hasItem(DEFAULT_DATA_DI_NASCITA)))
             .andExpect(jsonPath("$.[*].luogoDiNascita").value(hasItem(DEFAULT_LUOGO_DI_NASCITA)))
             .andExpect(jsonPath("$.[*].professione").value(hasItem(DEFAULT_PROFESSIONE)))
-            .andExpect(jsonPath("$.[*].tipo").value(hasItem(DEFAULT_TIPO)))
+            .andExpect(jsonPath("$.[*].tipo").value(hasItem(DEFAULT_TIPO.intValue())))
             .andExpect(jsonPath("$.[*].discriminator").value(hasItem(DEFAULT_DISCRIMINATOR)))
-            .andExpect(jsonPath("$.[*].idRuoloPersonaRef").value(hasItem(DEFAULT_ID_RUOLO_PERSONA_REF)))
-            .andExpect(jsonPath("$.[*].tipoRuoloUtente").value(hasItem(DEFAULT_TIPO_RUOLO_UTENTE)));
+            .andExpect(jsonPath("$.[*].idRuoloPersonaRef").value(hasItem(DEFAULT_ID_RUOLO_PERSONA_REF.intValue())))
+            .andExpect(jsonPath("$.[*].tipoRuoloUtente").value(hasItem(DEFAULT_TIPO_RUOLO_UTENTE.intValue())));
     }
 }

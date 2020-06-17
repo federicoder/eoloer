@@ -17,12 +17,11 @@
       "detail": {
         "title": "Organizzazione"
       },
-      "idOrganizzazione": "Id Organizzazione",
       "idPersonaRef": "Id Persona Ref",
       "nome": "Nome",
       "tipo": "Tipo",
       "idPersonaRef": "Id Persona Ref",
-      "idOrganizzazione": "Id Organizzazione"
+      "id": "Id"
     }
   }
 }

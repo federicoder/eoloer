@@ -29,7 +29,6 @@ export class PraticaUpdatePage {
   saveButton = element(by.id('save-entity'));
   cancelButton = element(by.id('cancel-save'));
 
-  idPraticaInput = element(by.id('field_idPratica'));
   idStudioProfessionaleRefInput = element(by.id('field_idStudioProfessionaleRef'));
   numeroInput = element(by.id('field_numero'));
   nomeInput = element(by.id('field_nome'));
@@ -48,14 +47,6 @@ export class PraticaUpdatePage {
 
   async getPageTitle(): Promise<string> {
     return this.pageTitle.getAttribute('jhiTranslate');
-  }
-
-  async setIdPraticaInput(idPratica: string): Promise<void> {
-    await this.idPraticaInput.sendKeys(idPratica);
-  }
-
-  async getIdPraticaInput(): Promise<string> {
-    return await this.idPraticaInput.getAttribute('value');
   }
 
   async setIdStudioProfessionaleRefInput(idStudioProfessionaleRef: string): Promise<void> {

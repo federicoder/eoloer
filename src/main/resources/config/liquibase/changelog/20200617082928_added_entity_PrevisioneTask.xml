@@ -15,19 +15,19 @@
             <column name="id" type="bigint">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="id_task_ref" type="integer">
+            <column name="id_task_ref" type="bigint">
                 <constraints nullable="false" />
             </column>
-            <column name="qnt_ordine" type="integer">
+            <column name="qnt_ordine" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="prc_previsione" type="integer">
+            <column name="prc_previsione" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="check_list" type="integer">
+            <column name="check_list" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="id_task_milestone" type="integer">
+            <column name="id_task_milestone" type="bigint">
                 <constraints nullable="true" />
             </column>
             <column name="tipo_task" type="varchar(255)">

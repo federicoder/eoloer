@@ -40,8 +40,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WithMockUser
 public class ConsuntivoTaskResourceIT {
 
-    private static final Integer DEFAULT_ID_TASK_REF = 8;
-    private static final Integer UPDATED_ID_TASK_REF = 7;
+    private static final Long DEFAULT_ID_TASK_REF = 8L;
+    private static final Long UPDATED_ID_TASK_REF = 7L;
 
     private static final String DEFAULT_DATA_INIZIO = "AAAAAAAAAA";
     private static final String UPDATED_DATA_INIZIO = "BBBBBBBBBB";
@@ -49,8 +49,8 @@ public class ConsuntivoTaskResourceIT {
     private static final String DEFAULT_DATA_FINE = "AAAAAAAAAA";
     private static final String UPDATED_DATA_FINE = "BBBBBBBBBB";
 
-    private static final Integer DEFAULT_TIME_LINE = 1;
-    private static final Integer UPDATED_TIME_LINE = 2;
+    private static final Long DEFAULT_TIME_LINE = 1L;
+    private static final Long UPDATED_TIME_LINE = 2L;
 
     private static final String DEFAULT_VERSION = "AAAAAAAAAA";
     private static final String UPDATED_VERSION = "BBBBBBBBBB";
@@ -196,10 +196,10 @@ public class ConsuntivoTaskResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(consuntivoTask.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idTaskRef").value(hasItem(DEFAULT_ID_TASK_REF)))
+            .andExpect(jsonPath("$.[*].idTaskRef").value(hasItem(DEFAULT_ID_TASK_REF.intValue())))
             .andExpect(jsonPath("$.[*].dataInizio").value(hasItem(DEFAULT_DATA_INIZIO)))
             .andExpect(jsonPath("$.[*].dataFine").value(hasItem(DEFAULT_DATA_FINE)))
-            .andExpect(jsonPath("$.[*].timeLine").value(hasItem(DEFAULT_TIME_LINE)))
+            .andExpect(jsonPath("$.[*].timeLine").value(hasItem(DEFAULT_TIME_LINE.intValue())))
             .andExpect(jsonPath("$.[*].version").value(hasItem(DEFAULT_VERSION)));
     }
     
@@ -214,10 +214,10 @@ public class ConsuntivoTaskResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(consuntivoTask.getId().intValue()))
-            .andExpect(jsonPath("$.idTaskRef").value(DEFAULT_ID_TASK_REF))
+            .andExpect(jsonPath("$.idTaskRef").value(DEFAULT_ID_TASK_REF.intValue()))
             .andExpect(jsonPath("$.dataInizio").value(DEFAULT_DATA_INIZIO))
             .andExpect(jsonPath("$.dataFine").value(DEFAULT_DATA_FINE))
-            .andExpect(jsonPath("$.timeLine").value(DEFAULT_TIME_LINE))
+            .andExpect(jsonPath("$.timeLine").value(DEFAULT_TIME_LINE.intValue()))
             .andExpect(jsonPath("$.version").value(DEFAULT_VERSION));
     }
     @Test
@@ -324,10 +324,10 @@ public class ConsuntivoTaskResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(consuntivoTask.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idTaskRef").value(hasItem(DEFAULT_ID_TASK_REF)))
+            .andExpect(jsonPath("$.[*].idTaskRef").value(hasItem(DEFAULT_ID_TASK_REF.intValue())))
             .andExpect(jsonPath("$.[*].dataInizio").value(hasItem(DEFAULT_DATA_INIZIO)))
             .andExpect(jsonPath("$.[*].dataFine").value(hasItem(DEFAULT_DATA_FINE)))
-            .andExpect(jsonPath("$.[*].timeLine").value(hasItem(DEFAULT_TIME_LINE)))
+            .andExpect(jsonPath("$.[*].timeLine").value(hasItem(DEFAULT_TIME_LINE.intValue())))
             .andExpect(jsonPath("$.[*].version").value(hasItem(DEFAULT_VERSION)));
     }
 }

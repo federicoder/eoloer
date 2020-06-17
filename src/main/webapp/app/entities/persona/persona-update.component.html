@@ -12,26 +12,6 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="eoloprjApp.persona.idPersona" for="field_idPersona">Id Persona</label>
-                    <input type="number" class="form-control" name="idPersona" id="field_idPersona"
-                           formControlName="idPersona"/>
-                    <div *ngIf="editForm.get('idPersona')!.invalid && (editForm.get('idPersona')!.dirty || editForm.get('idPersona')!.touched)">
-                        <small class="form-text text-danger"
-                               *ngIf="editForm.get('idPersona')?.errors?.required" jhiTranslate="entity.validation.required">
-                        This field is required.
-                        </small>
-                        <small class="form-text text-danger"
-                               *ngIf="editForm.get('idPersona')?.errors?.max" jhiTranslate="entity.validation.max" [translateValues]="{ max: 8 }">
-                            This field cannot be more than 8.
-                        </small>
-                        <small class="form-text text-danger"
-                            [hidden]="!editForm.get('idPersona')?.errors?.number" jhiTranslate="entity.validation.number">
-                            This field should be a number.
-                        </small>
-                    </div>
-                </div>
-
-                <div class="form-group">
                     <label class="form-control-label" jhiTranslate="eoloprjApp.persona.idStudioProfessionaleRef" for="field_idStudioProfessionaleRef">Id Studio Professionale Ref</label>
                     <input type="number" class="form-control" name="idStudioProfessionaleRef" id="field_idStudioProfessionaleRef"
                            formControlName="idStudioProfessionaleRef"/>
@@ -120,10 +100,10 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="eoloprjApp.persona.idPersona" for="field_idPersona">Id Persona</label>
-                    <select class="form-control" id="field_idPersona" name="idPersona" formControlName="idPersonaId">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.persona.id" for="field_id">Id</label>
+                    <select class="form-control" id="field_id" name="id" formControlName="idId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="indirizzoPersonaOption.id" *ngFor="let indirizzoPersonaOption of idpersonas; trackBy: trackById">{{ indirizzoPersonaOption.id }}</option>
+                        <option [ngValue]="indirizzoPersonaOption.id" *ngFor="let indirizzoPersonaOption of ids; trackBy: trackById">{{ indirizzoPersonaOption.id }}</option>
                     </select>
                 </div>
             </div>

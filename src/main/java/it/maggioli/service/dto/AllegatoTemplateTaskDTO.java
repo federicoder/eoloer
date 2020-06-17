@@ -11,16 +11,16 @@ public class AllegatoTemplateTaskDTO implements Serializable {
     private Long id;
 
     @NotNull
-    @Max(value = 8)
-    private Integer idTemplateTaskRef;
+    @Max(value = 8L)
+    private Long idTemplateTaskRef;
 
-    private Integer idTipoAllegatoRef;
+    private Long idTipoAllegatoRef;
 
-    private Integer formato;
+    private Long formato;
 
-    private Integer idFileRef;
+    private Long idFileRef;
 
-    private Integer pubPriv;
+    private Long pubPriv;
 
 
     private Long templateTaskId;
@@ -35,43 +35,43 @@ public class AllegatoTemplateTaskDTO implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdTemplateTaskRef() {
+    public Long getIdTemplateTaskRef() {
         return idTemplateTaskRef;
     }
 
-    public void setIdTemplateTaskRef(Integer idTemplateTaskRef) {
+    public void setIdTemplateTaskRef(Long idTemplateTaskRef) {
         this.idTemplateTaskRef = idTemplateTaskRef;
     }
 
-    public Integer getIdTipoAllegatoRef() {
+    public Long getIdTipoAllegatoRef() {
         return idTipoAllegatoRef;
     }
 
-    public void setIdTipoAllegatoRef(Integer idTipoAllegatoRef) {
+    public void setIdTipoAllegatoRef(Long idTipoAllegatoRef) {
         this.idTipoAllegatoRef = idTipoAllegatoRef;
     }
 
-    public Integer getFormato() {
+    public Long getFormato() {
         return formato;
     }
 
-    public void setFormato(Integer formato) {
+    public void setFormato(Long formato) {
         this.formato = formato;
     }
 
-    public Integer getIdFileRef() {
+    public Long getIdFileRef() {
         return idFileRef;
     }
 
-    public void setIdFileRef(Integer idFileRef) {
+    public void setIdFileRef(Long idFileRef) {
         this.idFileRef = idFileRef;
     }
 
-    public Integer getPubPriv() {
+    public Long getPubPriv() {
         return pubPriv;
     }
 
-    public void setPubPriv(Integer pubPriv) {
+    public void setPubPriv(Long pubPriv) {
         this.pubPriv = pubPriv;
     }
 

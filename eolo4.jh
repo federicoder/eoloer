@@ -1,0 +1,457 @@
+//DICHIARAZIONE DELLE COSTANTI GLOBALI:
+DEFAULT_MAX = 8
+//QUESTA ADE ESEMPIO PUÒ ESSERE UTILIZZATA COME MAX DI OGNI CAMPO INT CHE SI VUOLE SATURARE.
+
+
+//CONVENZIONE : ATTRIBUTI PK INDICATI CON idNomeEntita; ATTRIBUTI FK INDICATI CON idNomeEntiaRef
+//PARTE DI PRATICA-TASK-TEMPLATE
+//ENTITÀ:
+entity Pratica {
+	idStudioProfessionaleRef Long required,
+    numero String,
+    nome String,
+    dataApertura String,
+    dataChiusura String,
+    dataScadenza String,
+    stato Long,
+    motivoChiusura String,
+    idTitolare Long max(8),
+    prcAvanzato Long ,
+    version String ,
+    valuta String,
+    idTemplatePraticaRef Long
+}
+
+entity Task {
+	idPraticaRef Long max(8),
+    nome String,
+    stato Long,
+    prioritario Long,
+    pubblico Long,
+    version String,
+	idCondivisionePraticaRef Long,
+    idAssegnazioneTaskRef Long max(8),
+    idInvitoRef Long max(8)
+}
+
+entity TemplatePratica {
+	nomeTemplate Long,
+	elencoTagAmbito Long
+}
+
+entity TemplateTask {
+	ordineEsecuzione Long,
+	nome Long,
+    note Long,
+    pubPriv Long,
+    idTemplatePraticaRef Long
+    }
+
+
+entity AllegatoTemplateTask {
+	idTemplateTaskRef Long required max(8),
+	idTipoAllegatoRef Long,
+	formato Long,
+    idFileRef Long,
+    pubPriv Long
+}
+
+entity TipoAllegato {
+	
+	nome String,
+	formatiAmmessi String,
+	maxDimensioneAmmessa String,
+	version String
+}
+
+entity AllegatoTask {
+	idTipoAllegatoRef Long max(8),
+	idTaskRef Long max(8),
+    formato Long,
+    note String,
+    stato Long,
+    pubblico Long,
+    version String,
+    idAllegatoMaster Long required
+}
+
+entity PrevisioneTask {
+	idTaskRef Long max(8) required,
+	qntOrdine Long max(8),
+	prcPrevisione Long max(1),
+    checkList Long,
+    idTaskMilestone Long,
+    tipoTask String,
+    version String
+}
+
+//Generalizzazione  di PrevisioneTask:
+entity PrevisioneAttivita {
+	idTaskRef Long max(8) required,
+	dataPianificata String,
+	oraPianificata String ,
+    dataScadenza String,
+    version String
+}
+
+//Generalizzazione  di PrevisioneTask:
+entity PrevisioneEvento {
+	idTaskRef Long max(8) required,
+	dataInizio String,
+	dataFine String ,
+    luogo String,
+    indicazioniLuogo String,
+    version String
+}
+
+entity NotaTask {
+	idNotaTask Long max(8) required,
+	idTaskRef Long max(8),
+	data String ,
+    nota String,
+    version String
+}
+
+entity NotaPratica {
+	idPraticaRef Long max(8),
+	data String ,
+    nota String,
+    version String
+}
+
+entity ConsuntivoTask {
+	idTaskRef Long max(8) required,
+	dataInizio String,
+	dataFine String ,
+    timeLine Long,
+    version String
+}
+
+//PARTE DI CONDIVISIONE E INVITI:
+//ENTITÀ:
+entity CondivisionePratica {
+    idUserAmmesso Long max(8),
+    ruolo Long,
+    idUserConcedente Long,
+    statoInvito Long,
+    idPraticaRef Long
+}
+
+entity AssegnazioneTask {
+    idTaskRef Long max(8),
+    idUserAmmesso Long max(8),
+    ruolo Long,
+    idUserConcedente Long,
+    statoAssegnazione Long
+}
+
+entity Invito {
+    idStudioProfessionaleRef Long max(8),
+    dataInvito String,
+    idUserInvitante Long,
+    nomeUserInvitante String,
+    dataScadenzaInvito String,
+    testoInvito String,
+    idPraticaRef Long,
+    idTaskRef Long,
+    luogoFisico String,
+    indicazioniLuogo String,
+    dataInizio String,
+    oraInizio String,
+    dataFine String,
+    oraFine String,
+    urlStanzaVirtuale String,
+    discriminator String 
+}
+
+entity Invitato {
+    idInvitoRef Long max(8),
+    tokenInvito String,
+    canalePrimarioInvito Long,
+    canaleBackupInvito Long,
+    statoInvito Long,
+    idUserInvitato Long,
+    idPersonaInvitata Long,
+    nomeUserInvitato String,
+    dataRispostaInvito String,
+    ruoloInvitato Long,
+    indInvitati Long
+}
+
+entity UserPersona{
+    idPersonaRef Long,
+    nomeUser Long
+}
+
+entity InvitoPratica{
+	idPraticaRef Long
+}
+
+entity InvitoAttivita{
+	idTaskRef Long
+}
+
+entity InvitoEvento{
+	idTaskRef Long,
+    luogoFisico String,
+    indicazioniLuogo String,
+    dataInizio String,
+    oraInizio String,
+    dataFine String,
+    oraFine String,
+    urlStanzaVirtuale String
+}
+
+entity RappresentanzaPratica{
+	idRuoloPersona Long required,
+    idPersonaRef Long required,
+    ruoli Ruoli
+}
+enum Ruoli {
+    TDP, COLLABORATOREINTERNO, COLLABORATOREESTERNO, CLIENTE
+}
+
+//PARTE DI RUBRICA-PERSONA-PERSONAFISICA-ALTRI CAMPI CORRELATI:
+//ENTITÀ:
+entity Persona{
+    idStudioProfessionaleRef Long max(8),
+    codiceFiscale String,
+    areaDiInteresse String,
+    titolo String,
+    cognome String,
+    nome String,
+    dataDiNascita String,
+    luogoDiNascita String,
+    professione String,
+    tipo Long,
+    discriminator String,
+    idRuoloPersonaRef Long,
+    tipoRuoloUtente Long
+}
+
+entity PersonaFisica{
+    idPersonaRef Long required,
+    idRuoloPersonaRef Long,  // qui perchè si ripete il ruolo se è gia presente in Persona?
+    titolo String,
+    cognome String,
+    nome String,
+    dataDiNascita String,
+    luogoDiNascita String,
+    professione String
+}
+
+entity Organizzazione{
+    idPersonaRef Long required,
+    nome String,
+    tipo String
+}
+
+entity RuoloOrganizzazione{
+    ruoloInOrg Long
+}
+
+entity NotePersona{
+	idPersonaRef Long required,
+    testo String
+}
+entity DatiContabili{
+    idPersonaRef Long required
+}
+
+entity IndirizzoPersona{
+	idPersonaRef Long required,
+    indirizzo String,
+    comune String,
+    cap Long,
+    provincia String,
+    regione String,
+    nazione String
+}
+
+entity EmailPersona{
+	idPersonaRef Long required,
+    etichetta Long,
+    numero Long
+}
+
+entity TagPersona{
+	idPersonaRef Long required,
+    tag Long
+}
+
+entity TelefonoPersona{
+	idPersonaRef Long required,
+    etichetta Long,
+    valore Long
+}
+
+//PARTE DI STUDIOPROFESSIONALE-LICENZA
+//ENTITÀ:
+entity StudioProfessionale{
+    idUserAmministratore Long required
+}
+
+entity RisorseDisponibili{
+	idStudioProfessionaleRef Long required,
+    dataAttivazioneLicenza String,
+    nrLicenza Long,
+    storageTotale Long
+}
+
+entity Ordine {
+    idStudioProfessionaleRef Long required,
+    statoOrdine Long,
+    totImponibile Long,
+    totIva Long,
+    totOrdine Long
+}
+
+entity LineaOrdine{
+	idOrdineRef Long required,
+    idProdottoRef Long required,
+    quantita Long,
+    importo Long,
+    codIva String
+}
+
+entity Prodotto{
+    nuovaLicenza Long,
+    rinnovoLicenza Long,
+    storage Long
+}
+
+//PARTE DI CONDIVISIONE E INVITI:
+//RELAZIONI:
+//Generalizzazioni indicate con relazione uno a uno:
+relationship OneToOne {
+	PrevisioneAttivita{idTaskRef} to PrevisioneTask{idTaskRef},
+    PrevisioneEvento{idTaskRef} to PrevisioneTask{idTaskRef},
+}
+
+//realzioni OneToOne tra entità Task-ConsuntivoTask-PrevisioneTask
+relationship OneToOne {
+    Task{id} to ConsuntivoTask{idTaskRef},
+    Task{id} to PrevisioneTask{idTaskRef}
+
+}
+
+
+//relationship ManyToMany {
+	//Job{task(title)} to Task{job}
+//}
+
+// Pratica - TemplatePratica - Task OneToMany -Task
+relationship OneToMany {
+	TemplatePratica{id} to TemplateTask
+    TemplateTask{id} to TemplateTask
+	TemplateTask{id} to AllegatoTemplateTask
+    TipoAllegato{id} to AllegatoTemplateTask
+    TipoAllegato{id} to AllegatoTask
+	AllegatoTask{id} to AllegatoTask
+    Task{id} to AllegatoTask
+    PrevisioneTask{idTaskRef} to PrevisioneTask
+	Pratica{id} to Task
+	Task{id} to NotaTask
+	Pratica{id} to NotaPratica
+	
+}
+
+relationship ManyToOne {
+	Pratica{idTemplatePraticaRef} to TemplatePratica
+	}
+
+
+//PARTE DI PERSONA E RUBRICA:
+//RELAZIONI:
+relationship OneToMany {
+	Persona{id} to DatiContabili
+    Persona{id} to EmailPersona
+	Persona{id} to TagPersona
+	Persona{id} to TelefonoPersona
+    Persona{id} to NotePersona
+    PersonaFisica{id} to UserPersona
+}
+relationship OneToOne {
+	Persona{id} to IndirizzoPersona{idPersonaRef},
+    PersonaFisica{idPersonaRef} to Persona{id},
+    Organizzazione{idPersonaRef} to Persona{id},
+    RuoloOrganizzazione{id} to Organizzazione{id},
+    RuoloOrganizzazione{id} to PersonaFisica{idRuoloPersona}
+
+}
+
+
+//PARTE DI STUDIOPROFESSIONALE E LICENZA
+//RELAZIONI:
+relationship OneToMany {
+	Persona{id} to StudioProfessionale
+    StudioProfessionale{id} to RisorseDisponibili,
+    StudioProfessionale{id} to Ordine,
+    Ordine{id} to LineaOrdine
+
+}
+relationship OneToOne {
+	Prodotto{id} to LineaOrdine{idProdottoRef}
+}
+
+//PARTE DI CONDIVISIONE E INVITI:
+//RELAZIONI:
+relationship OneToMany {
+	Persona{id} to RappresentanzaPratica
+    Pratica{id} to CondivisionePratica
+	Ordine{id} to LineaOrdine
+    Pratica{id} to InvitoPratica
+    PrevisioneEvento{idTaskRef} to InvitoEvento
+    AssegnazioneTask{idUserConcedente} to Invito
+    UserPersona{id} to CondivisionePratica
+	UserPersona{id} to AssegnazioneTask
+    UserPersona{id} to Invitato
+	Invito{id} to Invitato
+}
+
+relationship OneToOne {
+	Prodotto{id} to LineaOrdine{idProdottoRef},
+	CondivisionePratica{ruolo} to RappresentanzaPratica{idRuoloPersona},
+    Task{id} to AssegnazioneTask{idTaskRef},
+    AssegnazioneTask{ruolo} to RappresentanzaPratica{idRuoloPersona},
+    Task{id} to InvitoAttivita{idTaskRef},
+    InvitoPratica{idPraticaRef} to Invito{id},
+    InvitoAttivita{idTaskRef} to Invito{id},
+    InvitoEvento{idTaskRef} to Invito{id},
+    CondivisionePratica{idUserConcedente} to Persona{id},
+    Invito{idStudioProfessionaleRef} to StudioProfessionale{id}
+}
+
+
+//Use Data Transfert Objects (DTO)
+dto * with mapstruct
+service all with serviceImpl
+service all with serviceClass
+application{
+	config{
+    	databaseType sql,	
+		prodDatabaseType postgresql,
+        enableSwaggerCodegen true
+        baseName eoloprj,
+        applicationType monolith,
+        //qui volendo si può cambiare in microservice più in là se si vogliono implementare i singoli cluster di entità e db.
+        languages [it, en],
+        nativeLanguage it,
+        packageName it.maggioli,
+        searchEngine elasticsearch,
+        testFrameworks [protractor],
+        websocket spring-websocket,
+        
+    }
+    entities all
+}
+
+// Set service options to all except few
+//qui volendo si possono implementare le entità da far puntare a elastichsearch
+//search * with elasticsearch
+
+// Set an angular suffix
+// angularSuffix * with mySuffix
+
+
+

@@ -40,11 +40,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WithMockUser
 public class OrganizzazioneResourceIT {
 
-    private static final Integer DEFAULT_ID_ORGANIZZAZIONE = 1;
-    private static final Integer UPDATED_ID_ORGANIZZAZIONE = 2;
-
-    private static final Integer DEFAULT_ID_PERSONA_REF = 1;
-    private static final Integer UPDATED_ID_PERSONA_REF = 2;
+    private static final Long DEFAULT_ID_PERSONA_REF = 1L;
+    private static final Long UPDATED_ID_PERSONA_REF = 2L;
 
     private static final String DEFAULT_NOME = "AAAAAAAAAA";
     private static final String UPDATED_NOME = "BBBBBBBBBB";
@@ -85,7 +82,6 @@ public class OrganizzazioneResourceIT {
      */
     public static Organizzazione createEntity(EntityManager em) {
         Organizzazione organizzazione = new Organizzazione()
-            .idOrganizzazione(DEFAULT_ID_ORGANIZZAZIONE)
             .idPersonaRef(DEFAULT_ID_PERSONA_REF)
             .nome(DEFAULT_NOME)
             .tipo(DEFAULT_TIPO);
@@ -99,7 +95,6 @@ public class OrganizzazioneResourceIT {
      */
     public static Organizzazione createUpdatedEntity(EntityManager em) {
         Organizzazione organizzazione = new Organizzazione()
-            .idOrganizzazione(UPDATED_ID_ORGANIZZAZIONE)
             .idPersonaRef(UPDATED_ID_PERSONA_REF)
             .nome(UPDATED_NOME)
             .tipo(UPDATED_TIPO);
@@ -126,7 +121,6 @@ public class OrganizzazioneResourceIT {
         List<Organizzazione> organizzazioneList = organizzazioneRepository.findAll();
         assertThat(organizzazioneList).hasSize(databaseSizeBeforeCreate + 1);
         Organizzazione testOrganizzazione = organizzazioneList.get(organizzazioneList.size() - 1);
-        assertThat(testOrganizzazione.getIdOrganizzazione()).isEqualTo(DEFAULT_ID_ORGANIZZAZIONE);
         assertThat(testOrganizzazione.getIdPersonaRef()).isEqualTo(DEFAULT_ID_PERSONA_REF);
         assertThat(testOrganizzazione.getNome()).isEqualTo(DEFAULT_NOME);
         assertThat(testOrganizzazione.getTipo()).isEqualTo(DEFAULT_TIPO);
@@ -161,26 +155,6 @@ public class OrganizzazioneResourceIT {
 
     @Test
     @Transactional
-    public void checkIdOrganizzazioneIsRequired() throws Exception {
-        int databaseSizeBeforeTest = organizzazioneRepository.findAll().size();
-        // set the field null
-        organizzazione.setIdOrganizzazione(null);
-
-        // Create the Organizzazione, which fails.
-        OrganizzazioneDTO organizzazioneDTO = organizzazioneMapper.toDto(organizzazione);
-
-
-        restOrganizzazioneMockMvc.perform(post("/api/organizzaziones")
-            .contentType(MediaType.APPLICATION_JSON)
-            .content(TestUtil.convertObjectToJsonBytes(organizzazioneDTO)))
-            .andExpect(status().isBadRequest());
-
-        List<Organizzazione> organizzazioneList = organizzazioneRepository.findAll();
-        assertThat(organizzazioneList).hasSize(databaseSizeBeforeTest);
-    }
-
-    @Test
-    @Transactional
     public void checkIdPersonaRefIsRequired() throws Exception {
         int databaseSizeBeforeTest = organizzazioneRepository.findAll().size();
         // set the field null
@@ -210,8 +184,7 @@ public class OrganizzazioneResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(organizzazione.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idOrganizzazione").value(hasItem(DEFAULT_ID_ORGANIZZAZIONE)))
-            .andExpect(jsonPath("$.[*].idPersonaRef").value(hasItem(DEFAULT_ID_PERSONA_REF)))
+            .andExpect(jsonPath("$.[*].idPersonaRef").value(hasItem(DEFAULT_ID_PERSONA_REF.intValue())))
             .andExpect(jsonPath("$.[*].nome").value(hasItem(DEFAULT_NOME)))
             .andExpect(jsonPath("$.[*].tipo").value(hasItem(DEFAULT_TIPO)));
     }
@@ -227,8 +200,7 @@ public class OrganizzazioneResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(organizzazione.getId().intValue()))
-            .andExpect(jsonPath("$.idOrganizzazione").value(DEFAULT_ID_ORGANIZZAZIONE))
-            .andExpect(jsonPath("$.idPersonaRef").value(DEFAULT_ID_PERSONA_REF))
+            .andExpect(jsonPath("$.idPersonaRef").value(DEFAULT_ID_PERSONA_REF.intValue()))
             .andExpect(jsonPath("$.nome").value(DEFAULT_NOME))
             .andExpect(jsonPath("$.tipo").value(DEFAULT_TIPO));
     }
@@ -253,7 +225,6 @@ public class OrganizzazioneResourceIT {
         // Disconnect from session so that the updates on updatedOrganizzazione are not directly saved in db
         em.detach(updatedOrganizzazione);
         updatedOrganizzazione
-            .idOrganizzazione(UPDATED_ID_ORGANIZZAZIONE)
             .idPersonaRef(UPDATED_ID_PERSONA_REF)
             .nome(UPDATED_NOME)
             .tipo(UPDATED_TIPO);
@@ -268,7 +239,6 @@ public class OrganizzazioneResourceIT {
         List<Organizzazione> organizzazioneList = organizzazioneRepository.findAll();
         assertThat(organizzazioneList).hasSize(databaseSizeBeforeUpdate);
         Organizzazione testOrganizzazione = organizzazioneList.get(organizzazioneList.size() - 1);
-        assertThat(testOrganizzazione.getIdOrganizzazione()).isEqualTo(UPDATED_ID_ORGANIZZAZIONE);
         assertThat(testOrganizzazione.getIdPersonaRef()).isEqualTo(UPDATED_ID_PERSONA_REF);
         assertThat(testOrganizzazione.getNome()).isEqualTo(UPDATED_NOME);
         assertThat(testOrganizzazione.getTipo()).isEqualTo(UPDATED_TIPO);
@@ -334,8 +304,7 @@ public class OrganizzazioneResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(organizzazione.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idOrganizzazione").value(hasItem(DEFAULT_ID_ORGANIZZAZIONE)))
-            .andExpect(jsonPath("$.[*].idPersonaRef").value(hasItem(DEFAULT_ID_PERSONA_REF)))
+            .andExpect(jsonPath("$.[*].idPersonaRef").value(hasItem(DEFAULT_ID_PERSONA_REF.intValue())))
             .andExpect(jsonPath("$.[*].nome").value(hasItem(DEFAULT_NOME)))
             .andExpect(jsonPath("$.[*].tipo").value(hasItem(DEFAULT_TIPO)));
     }

@@ -29,7 +29,6 @@ export class AssegnazioneTaskUpdatePage {
   saveButton = element(by.id('save-entity'));
   cancelButton = element(by.id('cancel-save'));
 
-  idAssegnazioneTaskInput = element(by.id('field_idAssegnazioneTask'));
   idTaskRefInput = element(by.id('field_idTaskRef'));
   idUserAmmessoInput = element(by.id('field_idUserAmmesso'));
   ruoloInput = element(by.id('field_ruolo'));
@@ -41,14 +40,6 @@ export class AssegnazioneTaskUpdatePage {
 
   async getPageTitle(): Promise<string> {
     return this.pageTitle.getAttribute('jhiTranslate');
-  }
-
-  async setIdAssegnazioneTaskInput(idAssegnazioneTask: string): Promise<void> {
-    await this.idAssegnazioneTaskInput.sendKeys(idAssegnazioneTask);
-  }
-
-  async getIdAssegnazioneTaskInput(): Promise<string> {
-    return await this.idAssegnazioneTaskInput.getAttribute('value');
   }
 
   async setIdTaskRefInput(idTaskRef: string): Promise<void> {

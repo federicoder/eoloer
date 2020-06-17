@@ -3,14 +3,14 @@
   "fields": [
     {
       "fieldName": "idTaskRef",
-      "fieldType": "Integer"
+      "fieldType": "Long"
     }
   ],
   "relationships": [
     {
       "relationshipType": "one-to-one",
       "otherEntityName": "invito",
-      "otherEntityRelationshipName": "idInvito",
+      "otherEntityRelationshipName": "id",
       "relationshipName": "idTaskRef",
       "otherEntityField": "id",
       "ownerSide": true
@@ -18,7 +18,7 @@
     {
       "relationshipType": "one-to-one",
       "otherEntityName": "task",
-      "otherEntityRelationshipName": "idTask",
+      "otherEntityRelationshipName": "id",
       "relationshipName": "idTaskRef",
       "ownerSide": false
     }

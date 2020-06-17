@@ -11,18 +11,15 @@ public class OrdineDTO implements Serializable {
     private Long id;
 
     @NotNull
-    private Integer idOrdine;
+    private Long idStudioProfessionaleRef;
 
-    @NotNull
-    private Integer idStudioProfessionaleRef;
+    private Long statoOrdine;
 
-    private Integer statoOrdine;
+    private Long totImponibile;
 
-    private Integer totImponibile;
+    private Long totIva;
 
-    private Integer totIva;
-
-    private Integer totOrdine;
+    private Long totOrdine;
 
 
     private Long studioProfessionaleId;
@@ -35,51 +32,43 @@ public class OrdineDTO implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdOrdine() {
-        return idOrdine;
-    }
-
-    public void setIdOrdine(Integer idOrdine) {
-        this.idOrdine = idOrdine;
-    }
-
-    public Integer getIdStudioProfessionaleRef() {
+    public Long getIdStudioProfessionaleRef() {
         return idStudioProfessionaleRef;
     }
 
-    public void setIdStudioProfessionaleRef(Integer idStudioProfessionaleRef) {
+    public void setIdStudioProfessionaleRef(Long idStudioProfessionaleRef) {
         this.idStudioProfessionaleRef = idStudioProfessionaleRef;
     }
 
-    public Integer getStatoOrdine() {
+    public Long getStatoOrdine() {
         return statoOrdine;
     }
 
-    public void setStatoOrdine(Integer statoOrdine) {
+    public void setStatoOrdine(Long statoOrdine) {
         this.statoOrdine = statoOrdine;
     }
 
-    public Integer getTotImponibile() {
+    public Long getTotImponibile() {
         return totImponibile;
     }
 
-    public void setTotImponibile(Integer totImponibile) {
+    public void setTotImponibile(Long totImponibile) {
         this.totImponibile = totImponibile;
     }
 
-    public Integer getTotIva() {
+    public Long getTotIva() {
         return totIva;
     }
 
-    public void setTotIva(Integer totIva) {
+    public void setTotIva(Long totIva) {
         this.totIva = totIva;
     }
 
-    public Integer getTotOrdine() {
+    public Long getTotOrdine() {
         return totOrdine;
     }
 
-    public void setTotOrdine(Integer totOrdine) {
+    public void setTotOrdine(Long totOrdine) {
         this.totOrdine = totOrdine;
     }
 
@@ -113,7 +102,6 @@ public class OrdineDTO implements Serializable {
     public String toString() {
         return "OrdineDTO{" +
             "id=" + getId() +
-            ", idOrdine=" + getIdOrdine() +
             ", idStudioProfessionaleRef=" + getIdStudioProfessionaleRef() +
             ", statoOrdine=" + getStatoOrdine() +
             ", totImponibile=" + getTotImponibile() +

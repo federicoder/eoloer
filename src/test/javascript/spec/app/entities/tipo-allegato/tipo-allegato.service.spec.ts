@@ -20,7 +20,7 @@ describe('Service Tests', () => {
       service = injector.get(TipoAllegatoService);
       httpMock = injector.get(HttpTestingController);
 
-      elemDefault = new TipoAllegato(0, 0, 'AAAAAAA', 'AAAAAAA', 'AAAAAAA', 'AAAAAAA');
+      elemDefault = new TipoAllegato(0, 'AAAAAAA', 'AAAAAAA', 'AAAAAAA', 'AAAAAAA');
     });
 
     describe('Service methods', () => {
@@ -54,7 +54,6 @@ describe('Service Tests', () => {
       it('should update a TipoAllegato', () => {
         const returnedFromService = Object.assign(
           {
-            idTipoAllegato: 1,
             nome: 'BBBBBB',
             formatiAmmessi: 'BBBBBB',
             maxDimensioneAmmessa: 'BBBBBB',
@@ -75,7 +74,6 @@ describe('Service Tests', () => {
       it('should return a list of TipoAllegato', () => {
         const returnedFromService = Object.assign(
           {
-            idTipoAllegato: 1,
             nome: 'BBBBBB',
             formatiAmmessi: 'BBBBBB',
             maxDimensioneAmmessa: 'BBBBBB',

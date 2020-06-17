@@ -3,21 +3,21 @@
   "fields": [
     {
       "fieldName": "idOrdineRef",
-      "fieldType": "Integer",
+      "fieldType": "Long",
       "fieldValidateRules": ["required"]
     },
     {
       "fieldName": "idProdottoRef",
-      "fieldType": "Integer",
+      "fieldType": "Long",
       "fieldValidateRules": ["required"]
     },
     {
       "fieldName": "quantita",
-      "fieldType": "Integer"
+      "fieldType": "Long"
     },
     {
       "fieldName": "importo",
-      "fieldType": "Integer"
+      "fieldType": "Long"
     },
     {
       "fieldName": "codIva",
@@ -28,14 +28,14 @@
     {
       "relationshipType": "one-to-one",
       "otherEntityName": "prodotto",
-      "otherEntityRelationshipName": "idProdotto",
+      "otherEntityRelationshipName": "id",
       "relationshipName": "idProdottoRef",
       "ownerSide": false
     },
     {
       "relationshipType": "many-to-one",
       "otherEntityName": "ordine",
-      "otherEntityRelationshipName": "idOrdine",
+      "otherEntityRelationshipName": "id",
       "relationshipName": "ordine",
       "otherEntityField": "id"
     }

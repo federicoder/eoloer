@@ -20,7 +20,7 @@ describe('Service Tests', () => {
       service = injector.get(TaskService);
       httpMock = injector.get(HttpTestingController);
 
-      elemDefault = new Task(0, 0, 0, 'AAAAAAA', 0, 0, 0, 'AAAAAAA', 0, 0, 0);
+      elemDefault = new Task(0, 0, 'AAAAAAA', 0, 0, 0, 'AAAAAAA', 0, 0, 0);
     });
 
     describe('Service methods', () => {
@@ -54,7 +54,6 @@ describe('Service Tests', () => {
       it('should update a Task', () => {
         const returnedFromService = Object.assign(
           {
-            idTask: 1,
             idPraticaRef: 1,
             nome: 'BBBBBB',
             stato: 1,
@@ -80,7 +79,6 @@ describe('Service Tests', () => {
       it('should return a list of Task', () => {
         const returnedFromService = Object.assign(
           {
-            idTask: 1,
             idPraticaRef: 1,
             nome: 'BBBBBB',
             stato: 1,

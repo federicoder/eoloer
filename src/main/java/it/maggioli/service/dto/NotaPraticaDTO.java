@@ -10,12 +10,8 @@ public class NotaPraticaDTO implements Serializable {
     
     private Long id;
 
-    @NotNull
-    @Max(value = 8)
-    private Integer idNotaPratica;
-
-    @Max(value = 8)
-    private Integer idPraticaRef;
+    @Max(value = 8L)
+    private Long idPraticaRef;
 
     private String data;
 
@@ -34,19 +30,11 @@ public class NotaPraticaDTO implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdNotaPratica() {
-        return idNotaPratica;
-    }
-
-    public void setIdNotaPratica(Integer idNotaPratica) {
-        this.idNotaPratica = idNotaPratica;
-    }
-
-    public Integer getIdPraticaRef() {
+    public Long getIdPraticaRef() {
         return idPraticaRef;
     }
 
-    public void setIdPraticaRef(Integer idPraticaRef) {
+    public void setIdPraticaRef(Long idPraticaRef) {
         this.idPraticaRef = idPraticaRef;
     }
 
@@ -104,7 +92,6 @@ public class NotaPraticaDTO implements Serializable {
     public String toString() {
         return "NotaPraticaDTO{" +
             "id=" + getId() +
-            ", idNotaPratica=" + getIdNotaPratica() +
             ", idPraticaRef=" + getIdPraticaRef() +
             ", data='" + getData() + "'" +
             ", nota='" + getNota() + "'" +

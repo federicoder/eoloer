@@ -17,13 +17,12 @@
       "detail": {
         "title": "Tipo Allegato"
       },
-      "idTipoAllegato": "Id Tipo Allegato",
       "nome": "Nome",
       "formatiAmmessi": "Formati Ammessi",
       "maxDimensioneAmmessa": "Max Dimensione Ammessa",
       "version": "Version",
-      "idTipoAllegato": "Id Tipo Allegato",
-      "idTipoAllegato": "Id Tipo Allegato"
+      "id": "Id",
+      "id": "Id"
     }
   }
 }

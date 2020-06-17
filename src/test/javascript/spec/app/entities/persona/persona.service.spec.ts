@@ -23,7 +23,6 @@ describe('Service Tests', () => {
       elemDefault = new Persona(
         0,
         0,
-        0,
         'AAAAAAA',
         'AAAAAAA',
         'AAAAAAA',
@@ -70,7 +69,6 @@ describe('Service Tests', () => {
       it('should update a Persona', () => {
         const returnedFromService = Object.assign(
           {
-            idPersona: 1,
             idStudioProfessionaleRef: 1,
             codiceFiscale: 'BBBBBB',
             areaDiInteresse: 'BBBBBB',
@@ -100,7 +98,6 @@ describe('Service Tests', () => {
       it('should return a list of Persona', () => {
         const returnedFromService = Object.assign(
           {
-            idPersona: 1,
             idStudioProfessionaleRef: 1,
             codiceFiscale: 'BBBBBB',
             areaDiInteresse: 'BBBBBB',

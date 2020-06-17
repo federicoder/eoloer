@@ -9,7 +9,7 @@ public class InvitoEventoDTO implements Serializable {
     
     private Long id;
 
-    private Integer idTaskRef;
+    private Long idTaskRef;
 
     private String luogoFisico;
 
@@ -38,11 +38,11 @@ public class InvitoEventoDTO implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdTaskRef() {
+    public Long getIdTaskRef() {
         return idTaskRef;
     }
 
-    public void setIdTaskRef(Integer idTaskRef) {
+    public void setIdTaskRef(Long idTaskRef) {
         this.idTaskRef = idTaskRef;
     }
 

@@ -12,26 +12,6 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="eoloprjApp.task.idTask" for="field_idTask">Id Task</label>
-                    <input type="number" class="form-control" name="idTask" id="field_idTask"
-                           formControlName="idTask"/>
-                    <div *ngIf="editForm.get('idTask')!.invalid && (editForm.get('idTask')!.dirty || editForm.get('idTask')!.touched)">
-                        <small class="form-text text-danger"
-                               *ngIf="editForm.get('idTask')?.errors?.required" jhiTranslate="entity.validation.required">
-                        This field is required.
-                        </small>
-                        <small class="form-text text-danger"
-                               *ngIf="editForm.get('idTask')?.errors?.max" jhiTranslate="entity.validation.max" [translateValues]="{ max: 8 }">
-                            This field cannot be more than 8.
-                        </small>
-                        <small class="form-text text-danger"
-                            [hidden]="!editForm.get('idTask')?.errors?.number" jhiTranslate="entity.validation.number">
-                            This field should be a number.
-                        </small>
-                    </div>
-                </div>
-
-                <div class="form-group">
                     <label class="form-control-label" jhiTranslate="eoloprjApp.task.idPraticaRef" for="field_idPraticaRef">Id Pratica Ref</label>
                     <input type="number" class="form-control" name="idPraticaRef" id="field_idPraticaRef"
                            formControlName="idPraticaRef"/>
@@ -116,34 +96,34 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="eoloprjApp.task.idTask" for="field_idTask">Id Task</label>
-                    <select class="form-control" id="field_idTask" name="idTask" formControlName="idTaskId">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.task.id" for="field_id">Id</label>
+                    <select class="form-control" id="field_id" name="id" formControlName="idId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="consuntivoTaskOption.id" *ngFor="let consuntivoTaskOption of idtasks; trackBy: trackById">{{ consuntivoTaskOption.id }}</option>
+                        <option [ngValue]="consuntivoTaskOption.id" *ngFor="let consuntivoTaskOption of ids; trackBy: trackById">{{ consuntivoTaskOption.id }}</option>
                     </select>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="eoloprjApp.task.idTask" for="field_idTask">Id Task</label>
-                    <select class="form-control" id="field_idTask" name="idTask" formControlName="idTaskId">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.task.id" for="field_id">Id</label>
+                    <select class="form-control" id="field_id" name="id" formControlName="idId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="previsioneTaskOption.id" *ngFor="let previsioneTaskOption of idtasks; trackBy: trackById">{{ previsioneTaskOption.id }}</option>
+                        <option [ngValue]="previsioneTaskOption.id" *ngFor="let previsioneTaskOption of ids; trackBy: trackById">{{ previsioneTaskOption.id }}</option>
                     </select>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="eoloprjApp.task.idTask" for="field_idTask">Id Task</label>
-                    <select class="form-control" id="field_idTask" name="idTask" formControlName="idTaskId">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.task.id" for="field_id">Id</label>
+                    <select class="form-control" id="field_id" name="id" formControlName="idId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="assegnazioneTaskOption.id" *ngFor="let assegnazioneTaskOption of idtasks; trackBy: trackById">{{ assegnazioneTaskOption.id }}</option>
+                        <option [ngValue]="assegnazioneTaskOption.id" *ngFor="let assegnazioneTaskOption of ids; trackBy: trackById">{{ assegnazioneTaskOption.id }}</option>
                     </select>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="eoloprjApp.task.idTask" for="field_idTask">Id Task</label>
-                    <select class="form-control" id="field_idTask" name="idTask" formControlName="idTaskId">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.task.id" for="field_id">Id</label>
+                    <select class="form-control" id="field_id" name="id" formControlName="idId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="invitoAttivitaOption.id" *ngFor="let invitoAttivitaOption of idtasks; trackBy: trackById">{{ invitoAttivitaOption.id }}</option>
+                        <option [ngValue]="invitoAttivitaOption.id" *ngFor="let invitoAttivitaOption of ids; trackBy: trackById">{{ invitoAttivitaOption.id }}</option>
                     </select>
                 </div>
 

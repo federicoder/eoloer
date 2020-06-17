@@ -4,7 +4,6 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
-import javax.validation.constraints.*;
 
 import org.springframework.data.elasticsearch.annotations.FieldType;
 import java.io.Serializable;
@@ -27,20 +26,15 @@ public class TemplatePratica implements Serializable {
     @SequenceGenerator(name = "sequenceGenerator")
     private Long id;
 
-    @NotNull
-    @Max(value = 8)
-    @Column(name = "id_template_pratica", nullable = false)
-    private Integer idTemplatePratica;
-
     @Column(name = "nome_template")
-    private Integer nomeTemplate;
+    private Long nomeTemplate;
 
     @Column(name = "elenco_tag_ambito")
-    private Integer elencoTagAmbito;
+    private Long elencoTagAmbito;
 
     @OneToMany(mappedBy = "templatePratica")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<TemplateTask> idTemplatePraticas = new HashSet<>();
+    private Set<TemplateTask> ids = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -51,68 +45,55 @@ public class TemplatePratica implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdTemplatePratica() {
-        return idTemplatePratica;
-    }
-
-    public TemplatePratica idTemplatePratica(Integer idTemplatePratica) {
-        this.idTemplatePratica = idTemplatePratica;
-        return this;
-    }
-
-    public void setIdTemplatePratica(Integer idTemplatePratica) {
-        this.idTemplatePratica = idTemplatePratica;
-    }
-
-    public Integer getNomeTemplate() {
+    public Long getNomeTemplate() {
         return nomeTemplate;
     }
 
-    public TemplatePratica nomeTemplate(Integer nomeTemplate) {
+    public TemplatePratica nomeTemplate(Long nomeTemplate) {
         this.nomeTemplate = nomeTemplate;
         return this;
     }
 
-    public void setNomeTemplate(Integer nomeTemplate) {
+    public void setNomeTemplate(Long nomeTemplate) {
         this.nomeTemplate = nomeTemplate;
     }
 
-    public Integer getElencoTagAmbito() {
+    public Long getElencoTagAmbito() {
         return elencoTagAmbito;
     }
 
-    public TemplatePratica elencoTagAmbito(Integer elencoTagAmbito) {
+    public TemplatePratica elencoTagAmbito(Long elencoTagAmbito) {
         this.elencoTagAmbito = elencoTagAmbito;
         return this;
     }
 
-    public void setElencoTagAmbito(Integer elencoTagAmbito) {
+    public void setElencoTagAmbito(Long elencoTagAmbito) {
         this.elencoTagAmbito = elencoTagAmbito;
     }
 
-    public Set<TemplateTask> getIdTemplatePraticas() {
-        return idTemplatePraticas;
+    public Set<TemplateTask> getIds() {
+        return ids;
     }
 
-    public TemplatePratica idTemplatePraticas(Set<TemplateTask> templateTasks) {
-        this.idTemplatePraticas = templateTasks;
+    public TemplatePratica ids(Set<TemplateTask> templateTasks) {
+        this.ids = templateTasks;
         return this;
     }
 
-    public TemplatePratica addIdTemplatePratica(TemplateTask templateTask) {
-        this.idTemplatePraticas.add(templateTask);
+    public TemplatePratica addId(TemplateTask templateTask) {
+        this.ids.add(templateTask);
         templateTask.setTemplatePratica(this);
         return this;
     }
 
-    public TemplatePratica removeIdTemplatePratica(TemplateTask templateTask) {
-        this.idTemplatePraticas.remove(templateTask);
+    public TemplatePratica removeId(TemplateTask templateTask) {
+        this.ids.remove(templateTask);
         templateTask.setTemplatePratica(null);
         return this;
     }
 
-    public void setIdTemplatePraticas(Set<TemplateTask> templateTasks) {
-        this.idTemplatePraticas = templateTasks;
+    public void setIds(Set<TemplateTask> templateTasks) {
+        this.ids = templateTasks;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 
@@ -137,7 +118,6 @@ public class TemplatePratica implements Serializable {
     public String toString() {
         return "TemplatePratica{" +
             "id=" + getId() +
-            ", idTemplatePratica=" + getIdTemplatePratica() +
             ", nomeTemplate=" + getNomeTemplate() +
             ", elencoTagAmbito=" + getElencoTagAmbito() +
             "}";

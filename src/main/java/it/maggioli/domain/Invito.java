@@ -29,20 +29,15 @@ public class Invito implements Serializable {
     @SequenceGenerator(name = "sequenceGenerator")
     private Long id;
 
-    @NotNull
-    @Max(value = 8)
-    @Column(name = "id_invito", nullable = false)
-    private Integer idInvito;
-
-    @Max(value = 8)
+    @Max(value = 8L)
     @Column(name = "id_studio_professionale_ref")
-    private Integer idStudioProfessionaleRef;
+    private Long idStudioProfessionaleRef;
 
     @Column(name = "data_invito")
     private String dataInvito;
 
     @Column(name = "id_user_invitante")
-    private Integer idUserInvitante;
+    private Long idUserInvitante;
 
     @Column(name = "nome_user_invitante")
     private String nomeUserInvitante;
@@ -54,10 +49,10 @@ public class Invito implements Serializable {
     private String testoInvito;
 
     @Column(name = "id_pratica_ref")
-    private Integer idPraticaRef;
+    private Long idPraticaRef;
 
     @Column(name = "id_task_ref")
-    private Integer idTaskRef;
+    private Long idTaskRef;
 
     @Column(name = "luogo_fisico")
     private String luogoFisico;
@@ -89,19 +84,19 @@ public class Invito implements Serializable {
 
     @OneToMany(mappedBy = "invito")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<Invitato> idInvitos = new HashSet<>();
+    private Set<Invitato> ids = new HashSet<>();
 
     @OneToOne(mappedBy = "idPraticaRef")
     @JsonIgnore
-    private InvitoPratica idInvito;
+    private InvitoPratica id;
 
     @OneToOne(mappedBy = "idTaskRef")
     @JsonIgnore
-    private InvitoAttivita idInvito;
+    private InvitoAttivita id;
 
     @OneToOne(mappedBy = "idTaskRef")
     @JsonIgnore
-    private InvitoEvento idInvito;
+    private InvitoEvento id;
 
     @ManyToOne
     @JsonIgnoreProperties(value = "idUserConcedentes", allowSetters = true)
@@ -116,29 +111,16 @@ public class Invito implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdInvito() {
-        return idInvito;
-    }
-
-    public Invito idInvito(Integer idInvito) {
-        this.idInvito = idInvito;
-        return this;
-    }
-
-    public void setIdInvito(Integer idInvito) {
-        this.idInvito = idInvito;
-    }
-
-    public Integer getIdStudioProfessionaleRef() {
+    public Long getIdStudioProfessionaleRef() {
         return idStudioProfessionaleRef;
     }
 
-    public Invito idStudioProfessionaleRef(Integer idStudioProfessionaleRef) {
+    public Invito idStudioProfessionaleRef(Long idStudioProfessionaleRef) {
         this.idStudioProfessionaleRef = idStudioProfessionaleRef;
         return this;
     }
 
-    public void setIdStudioProfessionaleRef(Integer idStudioProfessionaleRef) {
+    public void setIdStudioProfessionaleRef(Long idStudioProfessionaleRef) {
         this.idStudioProfessionaleRef = idStudioProfessionaleRef;
     }
 
@@ -155,16 +137,16 @@ public class Invito implements Serializable {
         this.dataInvito = dataInvito;
     }
 
-    public Integer getIdUserInvitante() {
+    public Long getIdUserInvitante() {
         return idUserInvitante;
     }
 
-    public Invito idUserInvitante(Integer idUserInvitante) {
+    public Invito idUserInvitante(Long idUserInvitante) {
         this.idUserInvitante = idUserInvitante;
         return this;
     }
 
-    public void setIdUserInvitante(Integer idUserInvitante) {
+    public void setIdUserInvitante(Long idUserInvitante) {
         this.idUserInvitante = idUserInvitante;
     }
 
@@ -207,29 +189,29 @@ public class Invito implements Serializable {
         this.testoInvito = testoInvito;
     }
 
-    public Integer getIdPraticaRef() {
+    public Long getIdPraticaRef() {
         return idPraticaRef;
     }
 
-    public Invito idPraticaRef(Integer idPraticaRef) {
+    public Invito idPraticaRef(Long idPraticaRef) {
         this.idPraticaRef = idPraticaRef;
         return this;
     }
 
-    public void setIdPraticaRef(Integer idPraticaRef) {
+    public void setIdPraticaRef(Long idPraticaRef) {
         this.idPraticaRef = idPraticaRef;
     }
 
-    public Integer getIdTaskRef() {
+    public Long getIdTaskRef() {
         return idTaskRef;
     }
 
-    public Invito idTaskRef(Integer idTaskRef) {
+    public Invito idTaskRef(Long idTaskRef) {
         this.idTaskRef = idTaskRef;
         return this;
     }
 
-    public void setIdTaskRef(Integer idTaskRef) {
+    public void setIdTaskRef(Long idTaskRef) {
         this.idTaskRef = idTaskRef;
     }
 
@@ -350,68 +332,68 @@ public class Invito implements Serializable {
         this.idStudioProfessionaleRef = studioProfessionale;
     }
 
-    public Set<Invitato> getIdInvitos() {
-        return idInvitos;
+    public Set<Invitato> getIds() {
+        return ids;
     }
 
-    public Invito idInvitos(Set<Invitato> invitatoes) {
-        this.idInvitos = invitatoes;
+    public Invito ids(Set<Invitato> invitatoes) {
+        this.ids = invitatoes;
         return this;
     }
 
-    public Invito addIdInvito(Invitato invitato) {
-        this.idInvitos.add(invitato);
+    public Invito addId(Invitato invitato) {
+        this.ids.add(invitato);
         invitato.setInvito(this);
         return this;
     }
 
-    public Invito removeIdInvito(Invitato invitato) {
-        this.idInvitos.remove(invitato);
+    public Invito removeId(Invitato invitato) {
+        this.ids.remove(invitato);
         invitato.setInvito(null);
         return this;
     }
 
-    public void setIdInvitos(Set<Invitato> invitatoes) {
-        this.idInvitos = invitatoes;
+    public void setIds(Set<Invitato> invitatoes) {
+        this.ids = invitatoes;
     }
 
-    public InvitoPratica getIdInvito() {
-        return idInvito;
+    public InvitoPratica getId() {
+        return id;
     }
 
-    public Invito idInvito(InvitoPratica invitoPratica) {
-        this.idInvito = invitoPratica;
+    public Invito id(InvitoPratica invitoPratica) {
+        this.id = invitoPratica;
         return this;
     }
 
-    public void setIdInvito(InvitoPratica invitoPratica) {
-        this.idInvito = invitoPratica;
+    public void setId(InvitoPratica invitoPratica) {
+        this.id = invitoPratica;
     }
 
-    public InvitoAttivita getIdInvito() {
-        return idInvito;
+    public InvitoAttivita getId() {
+        return id;
     }
 
-    public Invito idInvito(InvitoAttivita invitoAttivita) {
-        this.idInvito = invitoAttivita;
+    public Invito id(InvitoAttivita invitoAttivita) {
+        this.id = invitoAttivita;
         return this;
     }
 
-    public void setIdInvito(InvitoAttivita invitoAttivita) {
-        this.idInvito = invitoAttivita;
+    public void setId(InvitoAttivita invitoAttivita) {
+        this.id = invitoAttivita;
     }
 
-    public InvitoEvento getIdInvito() {
-        return idInvito;
+    public InvitoEvento getId() {
+        return id;
     }
 
-    public Invito idInvito(InvitoEvento invitoEvento) {
-        this.idInvito = invitoEvento;
+    public Invito id(InvitoEvento invitoEvento) {
+        this.id = invitoEvento;
         return this;
     }
 
-    public void setIdInvito(InvitoEvento invitoEvento) {
-        this.idInvito = invitoEvento;
+    public void setId(InvitoEvento invitoEvento) {
+        this.id = invitoEvento;
     }
 
     public AssegnazioneTask getAssegnazioneTask() {
@@ -449,7 +431,6 @@ public class Invito implements Serializable {
     public String toString() {
         return "Invito{" +
             "id=" + getId() +
-            ", idInvito=" + getIdInvito() +
             ", idStudioProfessionaleRef=" + getIdStudioProfessionaleRef() +
             ", dataInvito='" + getDataInvito() + "'" +
             ", idUserInvitante=" + getIdUserInvitante() +

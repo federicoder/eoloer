@@ -29,7 +29,6 @@ export class PersonaUpdatePage {
   saveButton = element(by.id('save-entity'));
   cancelButton = element(by.id('cancel-save'));
 
-  idPersonaInput = element(by.id('field_idPersona'));
   idStudioProfessionaleRefInput = element(by.id('field_idStudioProfessionaleRef'));
   codiceFiscaleInput = element(by.id('field_codiceFiscale'));
   areaDiInteresseInput = element(by.id('field_areaDiInteresse'));
@@ -44,18 +43,10 @@ export class PersonaUpdatePage {
   idRuoloPersonaRefInput = element(by.id('field_idRuoloPersonaRef'));
   tipoRuoloUtenteInput = element(by.id('field_tipoRuoloUtente'));
 
-  idPersonaSelect = element(by.id('field_idPersona'));
+  idSelect = element(by.id('field_id'));
 
   async getPageTitle(): Promise<string> {
     return this.pageTitle.getAttribute('jhiTranslate');
-  }
-
-  async setIdPersonaInput(idPersona: string): Promise<void> {
-    await this.idPersonaInput.sendKeys(idPersona);
-  }
-
-  async getIdPersonaInput(): Promise<string> {
-    return await this.idPersonaInput.getAttribute('value');
   }
 
   async setIdStudioProfessionaleRefInput(idStudioProfessionaleRef: string): Promise<void> {
@@ -162,20 +153,20 @@ export class PersonaUpdatePage {
     return await this.tipoRuoloUtenteInput.getAttribute('value');
   }
 
-  async idPersonaSelectLastOption(): Promise<void> {
-    await this.idPersonaSelect.all(by.tagName('option')).last().click();
+  async idSelectLastOption(): Promise<void> {
+    await this.idSelect.all(by.tagName('option')).last().click();
   }
 
-  async idPersonaSelectOption(option: string): Promise<void> {
-    await this.idPersonaSelect.sendKeys(option);
+  async idSelectOption(option: string): Promise<void> {
+    await this.idSelect.sendKeys(option);
   }
 
-  getIdPersonaSelect(): ElementFinder {
-    return this.idPersonaSelect;
+  getIdSelect(): ElementFinder {
+    return this.idSelect;
   }
 
-  async getIdPersonaSelectedOption(): Promise<string> {
-    return await this.idPersonaSelect.element(by.css('option:checked')).getText();
+  async getIdSelectedOption(): Promise<string> {
+    return await this.idSelect.element(by.css('option:checked')).getText();
   }
 
   async save(): Promise<void> {

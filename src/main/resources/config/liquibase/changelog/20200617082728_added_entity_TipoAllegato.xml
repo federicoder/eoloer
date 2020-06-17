@@ -15,9 +15,6 @@
             <column name="id" type="bigint">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="id_tipo_allegato" type="integer">
-                <constraints nullable="true" />
-            </column>
             <column name="nome" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
@@ -53,7 +50,6 @@
                   separator=";"
                   tableName="tipo_allegato">
             <column name="id" type="numeric"/>
-            <column name="id_tipo_allegato" type="numeric"/>
             <column name="nome" type="string"/>
             <column name="formati_ammessi" type="string"/>
             <column name="max_dimensione_ammessa" type="string"/>

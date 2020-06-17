@@ -15,13 +15,10 @@
             <column name="id" type="bigint">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="id_template_pratica" type="integer">
-                <constraints nullable="false" />
-            </column>
-            <column name="nome_template" type="integer">
+            <column name="nome_template" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="elenco_tag_ambito" type="integer">
+            <column name="elenco_tag_ambito" type="bigint">
                 <constraints nullable="true" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
@@ -47,7 +44,6 @@
                   separator=";"
                   tableName="template_pratica">
             <column name="id" type="numeric"/>
-            <column name="id_template_pratica" type="numeric"/>
             <column name="nome_template" type="numeric"/>
             <column name="elenco_tag_ambito" type="numeric"/>
             <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->

@@ -17,10 +17,9 @@
       "detail": {
         "title": "Template Pratica"
       },
-      "idTemplatePratica": "Id Template Pratica",
       "nomeTemplate": "Nome Template",
       "elencoTagAmbito": "Elenco Tag Ambito",
-      "idTemplatePratica": "Id Template Pratica"
+      "id": "Id"
     }
   }
 }

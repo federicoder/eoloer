@@ -28,67 +28,62 @@ public class Task implements Serializable {
     @SequenceGenerator(name = "sequenceGenerator")
     private Long id;
 
-    @NotNull
-    @Max(value = 8)
-    @Column(name = "id_task", nullable = false)
-    private Integer idTask;
-
-    @Max(value = 8)
+    @Max(value = 8L)
     @Column(name = "id_pratica_ref")
-    private Integer idPraticaRef;
+    private Long idPraticaRef;
 
     @Column(name = "nome")
     private String nome;
 
     @Column(name = "stato")
-    private Integer stato;
+    private Long stato;
 
     @Column(name = "prioritario")
-    private Integer prioritario;
+    private Long prioritario;
 
     @Column(name = "pubblico")
-    private Integer pubblico;
+    private Long pubblico;
 
     @Column(name = "version")
     private String version;
 
     @Column(name = "id_condivisione_pratica_ref")
-    private Integer idCondivisionePraticaRef;
+    private Long idCondivisionePraticaRef;
 
-    @Max(value = 8)
+    @Max(value = 8L)
     @Column(name = "id_assegnazione_task_ref")
-    private Integer idAssegnazioneTaskRef;
+    private Long idAssegnazioneTaskRef;
 
-    @Max(value = 8)
+    @Max(value = 8L)
     @Column(name = "id_invito_ref")
-    private Integer idInvitoRef;
+    private Long idInvitoRef;
 
     @OneToOne
     @JoinColumn(unique = true)
-    private ConsuntivoTask idTask;
+    private ConsuntivoTask id;
 
     @OneToOne
     @JoinColumn(unique = true)
-    private PrevisioneTask idTask;
+    private PrevisioneTask id;
 
     @OneToOne
     @JoinColumn(unique = true)
-    private AssegnazioneTask idTask;
+    private AssegnazioneTask id;
 
     @OneToOne
     @JoinColumn(unique = true)
-    private InvitoAttivita idTask;
+    private InvitoAttivita id;
 
     @OneToMany(mappedBy = "task")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<AllegatoTask> idTasks = new HashSet<>();
+    private Set<AllegatoTask> ids = new HashSet<>();
 
     @OneToMany(mappedBy = "task")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<NotaTask> idTasks = new HashSet<>();
+    private Set<NotaTask> ids = new HashSet<>();
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "idPraticas", allowSetters = true)
+    @JsonIgnoreProperties(value = "ids", allowSetters = true)
     private Pratica pratica;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
@@ -100,29 +95,16 @@ public class Task implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdTask() {
-        return idTask;
-    }
-
-    public Task idTask(Integer idTask) {
-        this.idTask = idTask;
-        return this;
-    }
-
-    public void setIdTask(Integer idTask) {
-        this.idTask = idTask;
-    }
-
-    public Integer getIdPraticaRef() {
+    public Long getIdPraticaRef() {
         return idPraticaRef;
     }
 
-    public Task idPraticaRef(Integer idPraticaRef) {
+    public Task idPraticaRef(Long idPraticaRef) {
         this.idPraticaRef = idPraticaRef;
         return this;
     }
 
-    public void setIdPraticaRef(Integer idPraticaRef) {
+    public void setIdPraticaRef(Long idPraticaRef) {
         this.idPraticaRef = idPraticaRef;
     }
 
@@ -139,42 +121,42 @@ public class Task implements Serializable {
         this.nome = nome;
     }
 
-    public Integer getStato() {
+    public Long getStato() {
         return stato;
     }
 
-    public Task stato(Integer stato) {
+    public Task stato(Long stato) {
         this.stato = stato;
         return this;
     }
 
-    public void setStato(Integer stato) {
+    public void setStato(Long stato) {
         this.stato = stato;
     }
 
-    public Integer getPrioritario() {
+    public Long getPrioritario() {
         return prioritario;
     }
 
-    public Task prioritario(Integer prioritario) {
+    public Task prioritario(Long prioritario) {
         this.prioritario = prioritario;
         return this;
     }
 
-    public void setPrioritario(Integer prioritario) {
+    public void setPrioritario(Long prioritario) {
         this.prioritario = prioritario;
     }
 
-    public Integer getPubblico() {
+    public Long getPubblico() {
         return pubblico;
     }
 
-    public Task pubblico(Integer pubblico) {
+    public Task pubblico(Long pubblico) {
         this.pubblico = pubblico;
         return this;
     }
 
-    public void setPubblico(Integer pubblico) {
+    public void setPubblico(Long pubblico) {
         this.pubblico = pubblico;
     }
 
@@ -191,145 +173,145 @@ public class Task implements Serializable {
         this.version = version;
     }
 
-    public Integer getIdCondivisionePraticaRef() {
+    public Long getIdCondivisionePraticaRef() {
         return idCondivisionePraticaRef;
     }
 
-    public Task idCondivisionePraticaRef(Integer idCondivisionePraticaRef) {
+    public Task idCondivisionePraticaRef(Long idCondivisionePraticaRef) {
         this.idCondivisionePraticaRef = idCondivisionePraticaRef;
         return this;
     }
 
-    public void setIdCondivisionePraticaRef(Integer idCondivisionePraticaRef) {
+    public void setIdCondivisionePraticaRef(Long idCondivisionePraticaRef) {
         this.idCondivisionePraticaRef = idCondivisionePraticaRef;
     }
 
-    public Integer getIdAssegnazioneTaskRef() {
+    public Long getIdAssegnazioneTaskRef() {
         return idAssegnazioneTaskRef;
     }
 
-    public Task idAssegnazioneTaskRef(Integer idAssegnazioneTaskRef) {
+    public Task idAssegnazioneTaskRef(Long idAssegnazioneTaskRef) {
         this.idAssegnazioneTaskRef = idAssegnazioneTaskRef;
         return this;
     }
 
-    public void setIdAssegnazioneTaskRef(Integer idAssegnazioneTaskRef) {
+    public void setIdAssegnazioneTaskRef(Long idAssegnazioneTaskRef) {
         this.idAssegnazioneTaskRef = idAssegnazioneTaskRef;
     }
 
-    public Integer getIdInvitoRef() {
+    public Long getIdInvitoRef() {
         return idInvitoRef;
     }
 
-    public Task idInvitoRef(Integer idInvitoRef) {
+    public Task idInvitoRef(Long idInvitoRef) {
         this.idInvitoRef = idInvitoRef;
         return this;
     }
 
-    public void setIdInvitoRef(Integer idInvitoRef) {
+    public void setIdInvitoRef(Long idInvitoRef) {
         this.idInvitoRef = idInvitoRef;
     }
 
-    public ConsuntivoTask getIdTask() {
-        return idTask;
+    public ConsuntivoTask getId() {
+        return id;
     }
 
-    public Task idTask(ConsuntivoTask consuntivoTask) {
-        this.idTask = consuntivoTask;
+    public Task id(ConsuntivoTask consuntivoTask) {
+        this.id = consuntivoTask;
         return this;
     }
 
-    public void setIdTask(ConsuntivoTask consuntivoTask) {
-        this.idTask = consuntivoTask;
+    public void setId(ConsuntivoTask consuntivoTask) {
+        this.id = consuntivoTask;
     }
 
-    public PrevisioneTask getIdTask() {
-        return idTask;
+    public PrevisioneTask getId() {
+        return id;
     }
 
-    public Task idTask(PrevisioneTask previsioneTask) {
-        this.idTask = previsioneTask;
+    public Task id(PrevisioneTask previsioneTask) {
+        this.id = previsioneTask;
         return this;
     }
 
-    public void setIdTask(PrevisioneTask previsioneTask) {
-        this.idTask = previsioneTask;
+    public void setId(PrevisioneTask previsioneTask) {
+        this.id = previsioneTask;
     }
 
-    public AssegnazioneTask getIdTask() {
-        return idTask;
+    public AssegnazioneTask getId() {
+        return id;
     }
 
-    public Task idTask(AssegnazioneTask assegnazioneTask) {
-        this.idTask = assegnazioneTask;
+    public Task id(AssegnazioneTask assegnazioneTask) {
+        this.id = assegnazioneTask;
         return this;
     }
 
-    public void setIdTask(AssegnazioneTask assegnazioneTask) {
-        this.idTask = assegnazioneTask;
+    public void setId(AssegnazioneTask assegnazioneTask) {
+        this.id = assegnazioneTask;
     }
 
-    public InvitoAttivita getIdTask() {
-        return idTask;
+    public InvitoAttivita getId() {
+        return id;
     }
 
-    public Task idTask(InvitoAttivita invitoAttivita) {
-        this.idTask = invitoAttivita;
+    public Task id(InvitoAttivita invitoAttivita) {
+        this.id = invitoAttivita;
         return this;
     }
 
-    public void setIdTask(InvitoAttivita invitoAttivita) {
-        this.idTask = invitoAttivita;
+    public void setId(InvitoAttivita invitoAttivita) {
+        this.id = invitoAttivita;
     }
 
-    public Set<AllegatoTask> getIdTasks() {
-        return idTasks;
+    public Set<AllegatoTask> getIds() {
+        return ids;
     }
 
-    public Task idTasks(Set<AllegatoTask> allegatoTasks) {
-        this.idTasks = allegatoTasks;
+    public Task ids(Set<AllegatoTask> allegatoTasks) {
+        this.ids = allegatoTasks;
         return this;
     }
 
-    public Task addIdTask(AllegatoTask allegatoTask) {
-        this.idTasks.add(allegatoTask);
+    public Task addId(AllegatoTask allegatoTask) {
+        this.ids.add(allegatoTask);
         allegatoTask.setTask(this);
         return this;
     }
 
-    public Task removeIdTask(AllegatoTask allegatoTask) {
-        this.idTasks.remove(allegatoTask);
+    public Task removeId(AllegatoTask allegatoTask) {
+        this.ids.remove(allegatoTask);
         allegatoTask.setTask(null);
         return this;
     }
 
-    public void setIdTasks(Set<AllegatoTask> allegatoTasks) {
-        this.idTasks = allegatoTasks;
+    public void setIds(Set<AllegatoTask> allegatoTasks) {
+        this.ids = allegatoTasks;
     }
 
-    public Set<NotaTask> getIdTasks() {
-        return idTasks;
+    public Set<NotaTask> getIds() {
+        return ids;
     }
 
-    public Task idTasks(Set<NotaTask> notaTasks) {
-        this.idTasks = notaTasks;
+    public Task ids(Set<NotaTask> notaTasks) {
+        this.ids = notaTasks;
         return this;
     }
 
-    public Task addIdTask(NotaTask notaTask) {
-        this.idTasks.add(notaTask);
+    public Task addId(NotaTask notaTask) {
+        this.ids.add(notaTask);
         notaTask.setTask(this);
         return this;
     }
 
-    public Task removeIdTask(NotaTask notaTask) {
-        this.idTasks.remove(notaTask);
+    public Task removeId(NotaTask notaTask) {
+        this.ids.remove(notaTask);
         notaTask.setTask(null);
         return this;
     }
 
-    public void setIdTasks(Set<NotaTask> notaTasks) {
-        this.idTasks = notaTasks;
+    public void setIds(Set<NotaTask> notaTasks) {
+        this.ids = notaTasks;
     }
 
     public Pratica getPratica() {
@@ -367,7 +349,6 @@ public class Task implements Serializable {
     public String toString() {
         return "Task{" +
             "id=" + getId() +
-            ", idTask=" + getIdTask() +
             ", idPraticaRef=" + getIdPraticaRef() +
             ", nome='" + getNome() + "'" +
             ", stato=" + getStato() +

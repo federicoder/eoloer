@@ -40,20 +40,20 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WithMockUser
 public class PrevisioneTaskResourceIT {
 
-    private static final Integer DEFAULT_ID_TASK_REF = 8;
-    private static final Integer UPDATED_ID_TASK_REF = 7;
+    private static final Long DEFAULT_ID_TASK_REF = 8L;
+    private static final Long UPDATED_ID_TASK_REF = 7L;
 
-    private static final Integer DEFAULT_QNT_ORDINE = 8;
-    private static final Integer UPDATED_QNT_ORDINE = 7;
+    private static final Long DEFAULT_QNT_ORDINE = 8L;
+    private static final Long UPDATED_QNT_ORDINE = 7L;
 
-    private static final Integer DEFAULT_PRC_PREVISIONE = 1;
-    private static final Integer UPDATED_PRC_PREVISIONE = 0;
+    private static final Long DEFAULT_PRC_PREVISIONE = 1L;
+    private static final Long UPDATED_PRC_PREVISIONE = 0L;
 
-    private static final Integer DEFAULT_CHECK_LIST = 1;
-    private static final Integer UPDATED_CHECK_LIST = 2;
+    private static final Long DEFAULT_CHECK_LIST = 1L;
+    private static final Long UPDATED_CHECK_LIST = 2L;
 
-    private static final Integer DEFAULT_ID_TASK_MILESTONE = 1;
-    private static final Integer UPDATED_ID_TASK_MILESTONE = 2;
+    private static final Long DEFAULT_ID_TASK_MILESTONE = 1L;
+    private static final Long UPDATED_ID_TASK_MILESTONE = 2L;
 
     private static final String DEFAULT_TIPO_TASK = "AAAAAAAAAA";
     private static final String UPDATED_TIPO_TASK = "BBBBBBBBBB";
@@ -208,11 +208,11 @@ public class PrevisioneTaskResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(previsioneTask.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idTaskRef").value(hasItem(DEFAULT_ID_TASK_REF)))
-            .andExpect(jsonPath("$.[*].qntOrdine").value(hasItem(DEFAULT_QNT_ORDINE)))
-            .andExpect(jsonPath("$.[*].prcPrevisione").value(hasItem(DEFAULT_PRC_PREVISIONE)))
-            .andExpect(jsonPath("$.[*].checkList").value(hasItem(DEFAULT_CHECK_LIST)))
-            .andExpect(jsonPath("$.[*].idTaskMilestone").value(hasItem(DEFAULT_ID_TASK_MILESTONE)))
+            .andExpect(jsonPath("$.[*].idTaskRef").value(hasItem(DEFAULT_ID_TASK_REF.intValue())))
+            .andExpect(jsonPath("$.[*].qntOrdine").value(hasItem(DEFAULT_QNT_ORDINE.intValue())))
+            .andExpect(jsonPath("$.[*].prcPrevisione").value(hasItem(DEFAULT_PRC_PREVISIONE.intValue())))
+            .andExpect(jsonPath("$.[*].checkList").value(hasItem(DEFAULT_CHECK_LIST.intValue())))
+            .andExpect(jsonPath("$.[*].idTaskMilestone").value(hasItem(DEFAULT_ID_TASK_MILESTONE.intValue())))
             .andExpect(jsonPath("$.[*].tipoTask").value(hasItem(DEFAULT_TIPO_TASK)))
             .andExpect(jsonPath("$.[*].version").value(hasItem(DEFAULT_VERSION)));
     }
@@ -228,11 +228,11 @@ public class PrevisioneTaskResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(previsioneTask.getId().intValue()))
-            .andExpect(jsonPath("$.idTaskRef").value(DEFAULT_ID_TASK_REF))
-            .andExpect(jsonPath("$.qntOrdine").value(DEFAULT_QNT_ORDINE))
-            .andExpect(jsonPath("$.prcPrevisione").value(DEFAULT_PRC_PREVISIONE))
-            .andExpect(jsonPath("$.checkList").value(DEFAULT_CHECK_LIST))
-            .andExpect(jsonPath("$.idTaskMilestone").value(DEFAULT_ID_TASK_MILESTONE))
+            .andExpect(jsonPath("$.idTaskRef").value(DEFAULT_ID_TASK_REF.intValue()))
+            .andExpect(jsonPath("$.qntOrdine").value(DEFAULT_QNT_ORDINE.intValue()))
+            .andExpect(jsonPath("$.prcPrevisione").value(DEFAULT_PRC_PREVISIONE.intValue()))
+            .andExpect(jsonPath("$.checkList").value(DEFAULT_CHECK_LIST.intValue()))
+            .andExpect(jsonPath("$.idTaskMilestone").value(DEFAULT_ID_TASK_MILESTONE.intValue()))
             .andExpect(jsonPath("$.tipoTask").value(DEFAULT_TIPO_TASK))
             .andExpect(jsonPath("$.version").value(DEFAULT_VERSION));
     }
@@ -344,11 +344,11 @@ public class PrevisioneTaskResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(previsioneTask.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idTaskRef").value(hasItem(DEFAULT_ID_TASK_REF)))
-            .andExpect(jsonPath("$.[*].qntOrdine").value(hasItem(DEFAULT_QNT_ORDINE)))
-            .andExpect(jsonPath("$.[*].prcPrevisione").value(hasItem(DEFAULT_PRC_PREVISIONE)))
-            .andExpect(jsonPath("$.[*].checkList").value(hasItem(DEFAULT_CHECK_LIST)))
-            .andExpect(jsonPath("$.[*].idTaskMilestone").value(hasItem(DEFAULT_ID_TASK_MILESTONE)))
+            .andExpect(jsonPath("$.[*].idTaskRef").value(hasItem(DEFAULT_ID_TASK_REF.intValue())))
+            .andExpect(jsonPath("$.[*].qntOrdine").value(hasItem(DEFAULT_QNT_ORDINE.intValue())))
+            .andExpect(jsonPath("$.[*].prcPrevisione").value(hasItem(DEFAULT_PRC_PREVISIONE.intValue())))
+            .andExpect(jsonPath("$.[*].checkList").value(hasItem(DEFAULT_CHECK_LIST.intValue())))
+            .andExpect(jsonPath("$.[*].idTaskMilestone").value(hasItem(DEFAULT_ID_TASK_MILESTONE.intValue())))
             .andExpect(jsonPath("$.[*].tipoTask").value(hasItem(DEFAULT_TIPO_TASK)))
             .andExpect(jsonPath("$.[*].version").value(hasItem(DEFAULT_VERSION)));
     }

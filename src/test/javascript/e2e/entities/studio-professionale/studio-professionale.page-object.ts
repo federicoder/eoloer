@@ -29,21 +29,12 @@ export class StudioProfessionaleUpdatePage {
   saveButton = element(by.id('save-entity'));
   cancelButton = element(by.id('cancel-save'));
 
-  idStudioProfessionaleInput = element(by.id('field_idStudioProfessionale'));
   idUserAmministratoreInput = element(by.id('field_idUserAmministratore'));
 
   personaSelect = element(by.id('field_persona'));
 
   async getPageTitle(): Promise<string> {
     return this.pageTitle.getAttribute('jhiTranslate');
-  }
-
-  async setIdStudioProfessionaleInput(idStudioProfessionale: string): Promise<void> {
-    await this.idStudioProfessionaleInput.sendKeys(idStudioProfessionale);
-  }
-
-  async getIdStudioProfessionaleInput(): Promise<string> {
-    return await this.idStudioProfessionaleInput.getAttribute('value');
   }
 
   async setIdUserAmministratoreInput(idUserAmministratore: string): Promise<void> {

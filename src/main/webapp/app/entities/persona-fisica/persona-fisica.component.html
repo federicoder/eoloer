@@ -41,7 +41,6 @@
             <thead>
                 <tr>
                     <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
-                    <th scope="col" ><span jhiTranslate="eoloprjApp.personaFisica.idPersonaFisica">Id Persona Fisica</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.personaFisica.idPersonaRef">Id Persona Ref</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.personaFisica.idRuoloPersonaRef">Id Ruolo Persona Ref</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.personaFisica.titolo">Titolo</span></th>
@@ -57,7 +56,6 @@
             <tbody>
                 <tr *ngFor="let personaFisica of personaFisicas ;trackBy: trackId">
                     <td><a [routerLink]="['/persona-fisica', personaFisica.id, 'view']">{{ personaFisica.id }}</a></td>
-                    <td>{{ personaFisica.idPersonaFisica }}</td>
                     <td>{{ personaFisica.idPersonaRef }}</td>
                     <td>{{ personaFisica.idRuoloPersonaRef }}</td>
                     <td>{{ personaFisica.titolo }}</td>

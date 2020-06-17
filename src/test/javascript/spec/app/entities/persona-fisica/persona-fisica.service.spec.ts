@@ -20,7 +20,7 @@ describe('Service Tests', () => {
       service = injector.get(PersonaFisicaService);
       httpMock = injector.get(HttpTestingController);
 
-      elemDefault = new PersonaFisica(0, 0, 0, 0, 'AAAAAAA', 'AAAAAAA', 'AAAAAAA', 'AAAAAAA', 'AAAAAAA', 'AAAAAAA');
+      elemDefault = new PersonaFisica(0, 0, 0, 'AAAAAAA', 'AAAAAAA', 'AAAAAAA', 'AAAAAAA', 'AAAAAAA', 'AAAAAAA');
     });
 
     describe('Service methods', () => {
@@ -54,7 +54,6 @@ describe('Service Tests', () => {
       it('should update a PersonaFisica', () => {
         const returnedFromService = Object.assign(
           {
-            idPersonaFisica: 1,
             idPersonaRef: 1,
             idRuoloPersonaRef: 1,
             titolo: 'BBBBBB',
@@ -79,7 +78,6 @@ describe('Service Tests', () => {
       it('should return a list of PersonaFisica', () => {
         const returnedFromService = Object.assign(
           {
-            idPersonaFisica: 1,
             idPersonaRef: 1,
             idRuoloPersonaRef: 1,
             titolo: 'BBBBBB',

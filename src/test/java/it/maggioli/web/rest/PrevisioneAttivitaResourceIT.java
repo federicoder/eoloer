@@ -40,8 +40,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WithMockUser
 public class PrevisioneAttivitaResourceIT {
 
-    private static final Integer DEFAULT_ID_TASK_REF = 8;
-    private static final Integer UPDATED_ID_TASK_REF = 7;
+    private static final Long DEFAULT_ID_TASK_REF = 8L;
+    private static final Long UPDATED_ID_TASK_REF = 7L;
 
     private static final String DEFAULT_DATA_PIANIFICATA = "AAAAAAAAAA";
     private static final String UPDATED_DATA_PIANIFICATA = "BBBBBBBBBB";
@@ -196,7 +196,7 @@ public class PrevisioneAttivitaResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(previsioneAttivita.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idTaskRef").value(hasItem(DEFAULT_ID_TASK_REF)))
+            .andExpect(jsonPath("$.[*].idTaskRef").value(hasItem(DEFAULT_ID_TASK_REF.intValue())))
             .andExpect(jsonPath("$.[*].dataPianificata").value(hasItem(DEFAULT_DATA_PIANIFICATA)))
             .andExpect(jsonPath("$.[*].oraPianificata").value(hasItem(DEFAULT_ORA_PIANIFICATA)))
             .andExpect(jsonPath("$.[*].dataScadenza").value(hasItem(DEFAULT_DATA_SCADENZA)))
@@ -214,7 +214,7 @@ public class PrevisioneAttivitaResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(previsioneAttivita.getId().intValue()))
-            .andExpect(jsonPath("$.idTaskRef").value(DEFAULT_ID_TASK_REF))
+            .andExpect(jsonPath("$.idTaskRef").value(DEFAULT_ID_TASK_REF.intValue()))
             .andExpect(jsonPath("$.dataPianificata").value(DEFAULT_DATA_PIANIFICATA))
             .andExpect(jsonPath("$.oraPianificata").value(DEFAULT_ORA_PIANIFICATA))
             .andExpect(jsonPath("$.dataScadenza").value(DEFAULT_DATA_SCADENZA))
@@ -324,7 +324,7 @@ public class PrevisioneAttivitaResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(previsioneAttivita.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idTaskRef").value(hasItem(DEFAULT_ID_TASK_REF)))
+            .andExpect(jsonPath("$.[*].idTaskRef").value(hasItem(DEFAULT_ID_TASK_REF.intValue())))
             .andExpect(jsonPath("$.[*].dataPianificata").value(hasItem(DEFAULT_DATA_PIANIFICATA)))
             .andExpect(jsonPath("$.[*].oraPianificata").value(hasItem(DEFAULT_ORA_PIANIFICATA)))
             .andExpect(jsonPath("$.[*].dataScadenza").value(hasItem(DEFAULT_DATA_SCADENZA)))

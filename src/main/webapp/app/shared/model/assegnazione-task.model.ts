@@ -2,7 +2,6 @@ import { IInvito } from 'app/shared/model/invito.model';
 
 export interface IAssegnazioneTask {
   id?: number;
-  idAssegnazioneTask?: number;
   idTaskRef?: number;
   idUserAmmesso?: number;
   ruolo?: number;
@@ -17,7 +16,6 @@ export interface IAssegnazioneTask {
 export class AssegnazioneTask implements IAssegnazioneTask {
   constructor(
     public id?: number,
-    public idAssegnazioneTask?: number,
     public idTaskRef?: number,
     public idUserAmmesso?: number,
     public ruolo?: number,

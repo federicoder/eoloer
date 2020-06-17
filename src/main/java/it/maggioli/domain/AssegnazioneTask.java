@@ -29,27 +29,22 @@ public class AssegnazioneTask implements Serializable {
     @SequenceGenerator(name = "sequenceGenerator")
     private Long id;
 
-    @NotNull
-    @Max(value = 8)
-    @Column(name = "id_assegnazione_task", nullable = false)
-    private Integer idAssegnazioneTask;
-
-    @Max(value = 8)
+    @Max(value = 8L)
     @Column(name = "id_task_ref")
-    private Integer idTaskRef;
+    private Long idTaskRef;
 
-    @Max(value = 8)
+    @Max(value = 8L)
     @Column(name = "id_user_ammesso")
-    private Integer idUserAmmesso;
+    private Long idUserAmmesso;
 
     @Column(name = "ruolo")
-    private Integer ruolo;
+    private Long ruolo;
 
     @Column(name = "id_user_concedente")
-    private Integer idUserConcedente;
+    private Long idUserConcedente;
 
     @Column(name = "stato_assegnazione")
-    private Integer statoAssegnazione;
+    private Long statoAssegnazione;
 
     @OneToOne
     @JoinColumn(unique = true)
@@ -59,12 +54,12 @@ public class AssegnazioneTask implements Serializable {
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     private Set<Invito> idUserConcedentes = new HashSet<>();
 
-    @OneToOne(mappedBy = "idTask")
+    @OneToOne(mappedBy = "id")
     @JsonIgnore
     private Task idTaskRef;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "idUserPersonas", allowSetters = true)
+    @JsonIgnoreProperties(value = "ids", allowSetters = true)
     private UserPersona userPersona;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
@@ -76,81 +71,68 @@ public class AssegnazioneTask implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdAssegnazioneTask() {
-        return idAssegnazioneTask;
-    }
-
-    public AssegnazioneTask idAssegnazioneTask(Integer idAssegnazioneTask) {
-        this.idAssegnazioneTask = idAssegnazioneTask;
-        return this;
-    }
-
-    public void setIdAssegnazioneTask(Integer idAssegnazioneTask) {
-        this.idAssegnazioneTask = idAssegnazioneTask;
-    }
-
-    public Integer getIdTaskRef() {
+    public Long getIdTaskRef() {
         return idTaskRef;
     }
 
-    public AssegnazioneTask idTaskRef(Integer idTaskRef) {
+    public AssegnazioneTask idTaskRef(Long idTaskRef) {
         this.idTaskRef = idTaskRef;
         return this;
     }
 
-    public void setIdTaskRef(Integer idTaskRef) {
+    public void setIdTaskRef(Long idTaskRef) {
         this.idTaskRef = idTaskRef;
     }
 
-    public Integer getIdUserAmmesso() {
+    public Long getIdUserAmmesso() {
         return idUserAmmesso;
     }
 
-    public AssegnazioneTask idUserAmmesso(Integer idUserAmmesso) {
+    public AssegnazioneTask idUserAmmesso(Long idUserAmmesso) {
         this.idUserAmmesso = idUserAmmesso;
         return this;
     }
 
-    public void setIdUserAmmesso(Integer idUserAmmesso) {
+    public void setIdUserAmmesso(Long idUserAmmesso) {
         this.idUserAmmesso = idUserAmmesso;
     }
 
-    public Integer getRuolo() {
+    public Long getRuolo() {
         return ruolo;
     }
 
-    public AssegnazioneTask ruolo(Integer ruolo) {
+    public AssegnazioneTask ruolo(Long ruolo) {
         this.ruolo = ruolo;
         return this;
     }
 
-    public void setRuolo(Integer ruolo) {
+    public void setRuolo(Long ruolo) {
         this.ruolo = ruolo;
     }
 
-    public Integer getIdUserConcedente() {
+    public Long getIdUserConcedente() {
         return idUserConcedente;
     }
 
-    public AssegnazioneTask idUserConcedente(Integer idUserConcedente) {
+    public AssegnazioneTask idUserConcedente(Long idUserConcedente) {
         this.idUserConcedente = idUserConcedente;
         return this;
     }
 
-    public void setIdUserConcedente(Integer idUserConcedente) {
+    public void setIdUserConcedente(Long idUserConcedente) {
         this.idUserConcedente = idUserConcedente;
     }
 
-    public Integer getStatoAssegnazione() {
+    public Long getStatoAssegnazione() {
         return statoAssegnazione;
     }
 
-    public AssegnazioneTask statoAssegnazione(Integer statoAssegnazione) {
+    public AssegnazioneTask statoAssegnazione(Long statoAssegnazione) {
         this.statoAssegnazione = statoAssegnazione;
         return this;
     }
 
-    public void setStatoAssegnazione(Integer statoAssegnazione) {
+    public void setStatoAssegnazione(Long statoAssegnazione) {
         this.statoAssegnazione = statoAssegnazione;
     }
 
@@ -240,7 +222,6 @@ public class AssegnazioneTask implements Serializable {
     public String toString() {
         return "AssegnazioneTask{" +
             "id=" + getId() +
-            ", idAssegnazioneTask=" + getIdAssegnazioneTask() +
             ", idTaskRef=" + getIdTaskRef() +
             ", idUserAmmesso=" + getIdUserAmmesso() +
             ", ruolo=" + getRuolo() +

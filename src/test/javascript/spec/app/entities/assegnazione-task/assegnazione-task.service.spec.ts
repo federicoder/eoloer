@@ -20,7 +20,7 @@ describe('Service Tests', () => {
       service = injector.get(AssegnazioneTaskService);
       httpMock = injector.get(HttpTestingController);
 
-      elemDefault = new AssegnazioneTask(0, 0, 0, 0, 0, 0, 0);
+      elemDefault = new AssegnazioneTask(0, 0, 0, 0, 0, 0);
     });
 
     describe('Service methods', () => {
@@ -54,7 +54,6 @@ describe('Service Tests', () => {
       it('should update a AssegnazioneTask', () => {
         const returnedFromService = Object.assign(
           {
-            idAssegnazioneTask: 1,
             idTaskRef: 1,
             idUserAmmesso: 1,
             ruolo: 1,
@@ -76,7 +75,6 @@ describe('Service Tests', () => {
       it('should return a list of AssegnazioneTask', () => {
         const returnedFromService = Object.assign(
           {
-            idAssegnazioneTask: 1,
             idTaskRef: 1,
             idUserAmmesso: 1,
             ruolo: 1,

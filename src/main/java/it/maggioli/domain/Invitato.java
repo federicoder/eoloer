@@ -26,31 +26,27 @@ public class Invitato implements Serializable {
     @SequenceGenerator(name = "sequenceGenerator")
     private Long id;
 
-    @NotNull
-    @Column(name = "id_invitato", nullable = false)
-    private Integer idInvitato;
-
-    @Max(value = 8)
+    @Max(value = 8L)
     @Column(name = "id_invito_ref")
-    private Integer idInvitoRef;
+    private Long idInvitoRef;
 
     @Column(name = "token_invito")
     private String tokenInvito;
 
     @Column(name = "canale_primario_invito")
-    private Integer canalePrimarioInvito;
+    private Long canalePrimarioInvito;
 
     @Column(name = "canale_backup_invito")
-    private Integer canaleBackupInvito;
+    private Long canaleBackupInvito;
 
     @Column(name = "stato_invito")
-    private Integer statoInvito;
+    private Long statoInvito;
 
     @Column(name = "id_user_invitato")
-    private Integer idUserInvitato;
+    private Long idUserInvitato;
 
     @Column(name = "id_persona_invitata")
-    private Integer idPersonaInvitata;
+    private Long idPersonaInvitata;
 
     @Column(name = "nome_user_invitato")
     private String nomeUserInvitato;
@@ -59,17 +55,17 @@ public class Invitato implements Serializable {
     private String dataRispostaInvito;
 
     @Column(name = "ruolo_invitato")
-    private Integer ruoloInvitato;
+    private Long ruoloInvitato;
 
     @Column(name = "ind_invitati")
-    private Integer indInvitati;
+    private Long indInvitati;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "idUserPersonas", allowSetters = true)
+    @JsonIgnoreProperties(value = "ids", allowSetters = true)
     private UserPersona userPersona;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "idInvitos", allowSetters = true)
+    @JsonIgnoreProperties(value = "ids", allowSetters = true)
     private Invito invito;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
@@ -81,29 +77,16 @@ public class Invitato implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdInvitato() {
-        return idInvitato;
-    }
-
-    public Invitato idInvitato(Integer idInvitato) {
-        this.idInvitato = idInvitato;
-        return this;
-    }
-
-    public void setIdInvitato(Integer idInvitato) {
-        this.idInvitato = idInvitato;
-    }
-
-    public Integer getIdInvitoRef() {
+    public Long getIdInvitoRef() {
         return idInvitoRef;
     }
 
-    public Invitato idInvitoRef(Integer idInvitoRef) {
+    public Invitato idInvitoRef(Long idInvitoRef) {
         this.idInvitoRef = idInvitoRef;
         return this;
     }
 
-    public void setIdInvitoRef(Integer idInvitoRef) {
+    public void setIdInvitoRef(Long idInvitoRef) {
         this.idInvitoRef = idInvitoRef;
     }
 
@@ -120,68 +103,68 @@ public class Invitato implements Serializable {
         this.tokenInvito = tokenInvito;
     }
 
-    public Integer getCanalePrimarioInvito() {
+    public Long getCanalePrimarioInvito() {
         return canalePrimarioInvito;
     }
 
-    public Invitato canalePrimarioInvito(Integer canalePrimarioInvito) {
+    public Invitato canalePrimarioInvito(Long canalePrimarioInvito) {
         this.canalePrimarioInvito = canalePrimarioInvito;
         return this;
     }
 
-    public void setCanalePrimarioInvito(Integer canalePrimarioInvito) {
+    public void setCanalePrimarioInvito(Long canalePrimarioInvito) {
         this.canalePrimarioInvito = canalePrimarioInvito;
     }
 
-    public Integer getCanaleBackupInvito() {
+    public Long getCanaleBackupInvito() {
         return canaleBackupInvito;
     }
 
-    public Invitato canaleBackupInvito(Integer canaleBackupInvito) {
+    public Invitato canaleBackupInvito(Long canaleBackupInvito) {
         this.canaleBackupInvito = canaleBackupInvito;
         return this;
     }
 
-    public void setCanaleBackupInvito(Integer canaleBackupInvito) {
+    public void setCanaleBackupInvito(Long canaleBackupInvito) {
         this.canaleBackupInvito = canaleBackupInvito;
     }
 
-    public Integer getStatoInvito() {
+    public Long getStatoInvito() {
         return statoInvito;
     }
 
-    public Invitato statoInvito(Integer statoInvito) {
+    public Invitato statoInvito(Long statoInvito) {
         this.statoInvito = statoInvito;
         return this;
     }
 
-    public void setStatoInvito(Integer statoInvito) {
+    public void setStatoInvito(Long statoInvito) {
         this.statoInvito = statoInvito;
     }
 
-    public Integer getIdUserInvitato() {
+    public Long getIdUserInvitato() {
         return idUserInvitato;
     }
 
-    public Invitato idUserInvitato(Integer idUserInvitato) {
+    public Invitato idUserInvitato(Long idUserInvitato) {
         this.idUserInvitato = idUserInvitato;
         return this;
     }
 
-    public void setIdUserInvitato(Integer idUserInvitato) {
+    public void setIdUserInvitato(Long idUserInvitato) {
         this.idUserInvitato = idUserInvitato;
     }
 
-    public Integer getIdPersonaInvitata() {
+    public Long getIdPersonaInvitata() {
         return idPersonaInvitata;
     }
 
-    public Invitato idPersonaInvitata(Integer idPersonaInvitata) {
+    public Invitato idPersonaInvitata(Long idPersonaInvitata) {
         this.idPersonaInvitata = idPersonaInvitata;
         return this;
     }
 
-    public void setIdPersonaInvitata(Integer idPersonaInvitata) {
+    public void setIdPersonaInvitata(Long idPersonaInvitata) {
         this.idPersonaInvitata = idPersonaInvitata;
     }
 
@@ -211,29 +194,29 @@ public class Invitato implements Serializable {
         this.dataRispostaInvito = dataRispostaInvito;
     }
 
-    public Integer getRuoloInvitato() {
+    public Long getRuoloInvitato() {
         return ruoloInvitato;
     }
 
-    public Invitato ruoloInvitato(Integer ruoloInvitato) {
+    public Invitato ruoloInvitato(Long ruoloInvitato) {
         this.ruoloInvitato = ruoloInvitato;
         return this;
     }
 
-    public void setRuoloInvitato(Integer ruoloInvitato) {
+    public void setRuoloInvitato(Long ruoloInvitato) {
         this.ruoloInvitato = ruoloInvitato;
     }
 
-    public Integer getIndInvitati() {
+    public Long getIndInvitati() {
         return indInvitati;
     }
 
-    public Invitato indInvitati(Integer indInvitati) {
+    public Invitato indInvitati(Long indInvitati) {
         this.indInvitati = indInvitati;
         return this;
     }
 
-    public void setIndInvitati(Integer indInvitati) {
+    public void setIndInvitati(Long indInvitati) {
         this.indInvitati = indInvitati;
     }
 
@@ -285,7 +268,6 @@ public class Invitato implements Serializable {
     public String toString() {
         return "Invitato{" +
             "id=" + getId() +
-            ", idInvitato=" + getIdInvitato() +
             ", idInvitoRef=" + getIdInvitoRef() +
             ", tokenInvito='" + getTokenInvito() + "'" +
             ", canalePrimarioInvito=" + getCanalePrimarioInvito() +

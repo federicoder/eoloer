@@ -1,6 +1,5 @@
 package it.maggioli.service.dto;
 
-import javax.validation.constraints.*;
 import java.io.Serializable;
 
 /**
@@ -10,17 +9,14 @@ public class ProdottoDTO implements Serializable {
     
     private Long id;
 
-    @NotNull
-    private Integer idProdotto;
+    private Long nuovaLicenza;
 
-    private Integer nuovaLicenza;
+    private Long rinnovoLicenza;
 
-    private Integer rinnovoLicenza;
-
-    private Integer storage;
+    private Long storage;
 
 
-    private Long idProdottoId;
+    private Long idId;
     
     public Long getId() {
         return id;
@@ -30,44 +26,36 @@ public class ProdottoDTO implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdProdotto() {
-        return idProdotto;
-    }
-
-    public void setIdProdotto(Integer idProdotto) {
-        this.idProdotto = idProdotto;
-    }
-
-    public Integer getNuovaLicenza() {
+    public Long getNuovaLicenza() {
         return nuovaLicenza;
     }
 
-    public void setNuovaLicenza(Integer nuovaLicenza) {
+    public void setNuovaLicenza(Long nuovaLicenza) {
         this.nuovaLicenza = nuovaLicenza;
     }
 
-    public Integer getRinnovoLicenza() {
+    public Long getRinnovoLicenza() {
         return rinnovoLicenza;
     }
 
-    public void setRinnovoLicenza(Integer rinnovoLicenza) {
+    public void setRinnovoLicenza(Long rinnovoLicenza) {
         this.rinnovoLicenza = rinnovoLicenza;
     }
 
-    public Integer getStorage() {
+    public Long getStorage() {
         return storage;
     }
 
-    public void setStorage(Integer storage) {
+    public void setStorage(Long storage) {
         this.storage = storage;
     }
 
-    public Long getIdProdottoId() {
-        return idProdottoId;
+    public Long getIdId() {
+        return idId;
     }
 
-    public void setIdProdottoId(Long lineaOrdineId) {
-        this.idProdottoId = lineaOrdineId;
+    public void setIdId(Long lineaOrdineId) {
+        this.idId = lineaOrdineId;
     }
 
     @Override
@@ -92,11 +80,10 @@ public class ProdottoDTO implements Serializable {
     public String toString() {
         return "ProdottoDTO{" +
             "id=" + getId() +
-            ", idProdotto=" + getIdProdotto() +
             ", nuovaLicenza=" + getNuovaLicenza() +
             ", rinnovoLicenza=" + getRinnovoLicenza() +
             ", storage=" + getStorage() +
-            ", idProdottoId=" + getIdProdottoId() +
+            ", idId=" + getIdId() +
             "}";
     }
 }

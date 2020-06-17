@@ -17,7 +17,6 @@
       "detail": {
         "title": "Condivisione Pratica"
       },
-      "idCondivisionePratica": "Id Condivisione Pratica",
       "idUserAmmesso": "Id User Ammesso",
       "ruolo": "Ruolo",
       "idUserConcedente": "Id User Concedente",

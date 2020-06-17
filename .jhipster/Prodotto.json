@@ -2,21 +2,16 @@
   "name": "Prodotto",
   "fields": [
     {
-      "fieldName": "idProdotto",
-      "fieldType": "Integer",
-      "fieldValidateRules": ["required"]
-    },
-    {
       "fieldName": "nuovaLicenza",
-      "fieldType": "Integer"
+      "fieldType": "Long"
     },
     {
       "fieldName": "rinnovoLicenza",
-      "fieldType": "Integer"
+      "fieldType": "Long"
     },
     {
       "fieldName": "storage",
-      "fieldType": "Integer"
+      "fieldType": "Long"
     }
   ],
   "relationships": [
@@ -24,7 +19,7 @@
       "relationshipType": "one-to-one",
       "otherEntityName": "lineaOrdine",
       "otherEntityRelationshipName": "idProdottoRef",
-      "relationshipName": "idProdotto",
+      "relationshipName": "id",
       "otherEntityField": "id",
       "ownerSide": true
     }

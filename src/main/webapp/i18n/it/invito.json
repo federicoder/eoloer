@@ -17,7 +17,6 @@
       "detail": {
         "title": "Invito"
       },
-      "idInvito": "Id Invito",
       "idStudioProfessionaleRef": "Id Studio Professionale Ref",
       "dataInvito": "Data Invito",
       "idUserInvitante": "Id User Invitante",
@@ -35,10 +34,10 @@
       "urlStanzaVirtuale": "Url Stanza Virtuale",
       "discriminator": "Discriminator",
       "idStudioProfessionaleRef": "Id Studio Professionale Ref",
-      "idInvito": "Id Invito",
-      "idInvito": "Id Invito",
-      "idInvito": "Id Invito",
-      "idInvito": "Id Invito",
+      "id": "Id",
+      "id": "Id",
+      "id": "Id",
+      "id": "Id",
       "assegnazioneTask": "Assegnazione Task"
     }
   }

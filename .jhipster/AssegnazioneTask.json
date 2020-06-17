@@ -2,34 +2,28 @@
   "name": "AssegnazioneTask",
   "fields": [
     {
-      "fieldName": "idAssegnazioneTask",
-      "fieldType": "Integer",
-      "fieldValidateRules": ["max", "required"],
-      "fieldValidateRulesMax": "8"
-    },
-    {
       "fieldName": "idTaskRef",
-      "fieldType": "Integer",
+      "fieldType": "Long",
       "fieldValidateRules": ["max"],
       "fieldValidateRulesMax": "8"
     },
     {
       "fieldName": "idUserAmmesso",
-      "fieldType": "Integer",
+      "fieldType": "Long",
       "fieldValidateRules": ["max"],
       "fieldValidateRulesMax": "8"
     },
     {
       "fieldName": "ruolo",
-      "fieldType": "Integer"
+      "fieldType": "Long"
     },
     {
       "fieldName": "idUserConcedente",
-      "fieldType": "Integer"
+      "fieldType": "Long"
     },
     {
       "fieldName": "statoAssegnazione",
-      "fieldType": "Integer"
+      "fieldType": "Long"
     }
   ],
   "relationships": [
@@ -50,14 +44,14 @@
     {
       "relationshipType": "one-to-one",
       "otherEntityName": "task",
-      "otherEntityRelationshipName": "idTask",
+      "otherEntityRelationshipName": "id",
       "relationshipName": "idTaskRef",
       "ownerSide": false
     },
     {
       "relationshipType": "many-to-one",
       "otherEntityName": "userPersona",
-      "otherEntityRelationshipName": "idUserPersona",
+      "otherEntityRelationshipName": "id",
       "relationshipName": "userPersona",
       "otherEntityField": "id"
     }

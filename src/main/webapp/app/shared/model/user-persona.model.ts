@@ -4,24 +4,22 @@ import { IInvitato } from 'app/shared/model/invitato.model';
 
 export interface IUserPersona {
   id?: number;
-  idUserPersona?: number;
   idPersonaRef?: number;
   nomeUser?: number;
-  idUserPersonas?: ICondivisionePratica[];
-  idUserPersonas?: IAssegnazioneTask[];
-  idUserPersonas?: IInvitato[];
+  ids?: ICondivisionePratica[];
+  ids?: IAssegnazioneTask[];
+  ids?: IInvitato[];
   personaFisicaId?: number;
 }
 
 export class UserPersona implements IUserPersona {
   constructor(
     public id?: number,
-    public idUserPersona?: number,
     public idPersonaRef?: number,
     public nomeUser?: number,
-    public idUserPersonas?: ICondivisionePratica[],
-    public idUserPersonas?: IAssegnazioneTask[],
-    public idUserPersonas?: IInvitato[],
+    public ids?: ICondivisionePratica[],
+    public ids?: IAssegnazioneTask[],
+    public ids?: IInvitato[],
     public personaFisicaId?: number
   ) {}
 }

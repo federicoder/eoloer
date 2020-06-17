@@ -28,13 +28,9 @@ public class Pratica implements Serializable {
     @SequenceGenerator(name = "sequenceGenerator")
     private Long id;
 
-    @Max(value = 8)
-    @Column(name = "id_pratica")
-    private Integer idPratica;
-
-    @Max(value = 8)
-    @Column(name = "id_studio_professionale_ref")
-    private Integer idStudioProfessionaleRef;
+    @NotNull
+    @Column(name = "id_studio_professionale_ref", nullable = false)
+    private Long idStudioProfessionaleRef;
 
     @Column(name = "numero")
     private String numero;
@@ -52,17 +48,17 @@ public class Pratica implements Serializable {
     private String dataScadenza;
 
     @Column(name = "stato")
-    private Integer stato;
+    private Long stato;
 
     @Column(name = "motivo_chiusura")
     private String motivoChiusura;
 
-    @Max(value = 8)
+    @Max(value = 8L)
     @Column(name = "id_titolare")
-    private Integer idTitolare;
+    private Long idTitolare;
 
     @Column(name = "prc_avanzato")
-    private Integer prcAvanzato;
+    private Long prcAvanzato;
 
     @Column(name = "version")
     private String version;
@@ -71,23 +67,23 @@ public class Pratica implements Serializable {
     private String valuta;
 
     @Column(name = "id_template_pratica_ref")
-    private Integer idTemplatePraticaRef;
+    private Long idTemplatePraticaRef;
 
     @OneToMany(mappedBy = "pratica")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<Task> idPraticas = new HashSet<>();
+    private Set<Task> ids = new HashSet<>();
 
     @OneToMany(mappedBy = "pratica")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<NotaPratica> idPraticas = new HashSet<>();
+    private Set<NotaPratica> ids = new HashSet<>();
 
     @OneToMany(mappedBy = "pratica")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<CondivisionePratica> idPraticas = new HashSet<>();
+    private Set<CondivisionePratica> ids = new HashSet<>();
 
     @OneToMany(mappedBy = "pratica")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<InvitoPratica> idPraticas = new HashSet<>();
+    private Set<InvitoPratica> ids = new HashSet<>();
 
     @ManyToOne
     @JsonIgnoreProperties(value = "praticas", allowSetters = true)
@@ -102,29 +98,16 @@ public class Pratica implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdPratica() {
-        return idPratica;
-    }
-
-    public Pratica idPratica(Integer idPratica) {
-        this.idPratica = idPratica;
-        return this;
-    }
-
-    public void setIdPratica(Integer idPratica) {
-        this.idPratica = idPratica;
-    }
-
-    public Integer getIdStudioProfessionaleRef() {
+    public Long getIdStudioProfessionaleRef() {
         return idStudioProfessionaleRef;
     }
 
-    public Pratica idStudioProfessionaleRef(Integer idStudioProfessionaleRef) {
+    public Pratica idStudioProfessionaleRef(Long idStudioProfessionaleRef) {
         this.idStudioProfessionaleRef = idStudioProfessionaleRef;
         return this;
     }
 
-    public void setIdStudioProfessionaleRef(Integer idStudioProfessionaleRef) {
+    public void setIdStudioProfessionaleRef(Long idStudioProfessionaleRef) {
         this.idStudioProfessionaleRef = idStudioProfessionaleRef;
     }
 
@@ -193,16 +176,16 @@ public class Pratica implements Serializable {
         this.dataScadenza = dataScadenza;
     }
 
-    public Integer getStato() {
+    public Long getStato() {
         return stato;
     }
 
-    public Pratica stato(Integer stato) {
+    public Pratica stato(Long stato) {
         this.stato = stato;
         return this;
     }
 
-    public void setStato(Integer stato) {
+    public void setStato(Long stato) {
         this.stato = stato;
     }
 
@@ -219,29 +202,29 @@ public class Pratica implements Serializable {
         this.motivoChiusura = motivoChiusura;
     }
 
-    public Integer getIdTitolare() {
+    public Long getIdTitolare() {
         return idTitolare;
     }
 
-    public Pratica idTitolare(Integer idTitolare) {
+    public Pratica idTitolare(Long idTitolare) {
         this.idTitolare = idTitolare;
         return this;
     }
 
-    public void setIdTitolare(Integer idTitolare) {
+    public void setIdTitolare(Long idTitolare) {
         this.idTitolare = idTitolare;
     }
 
-    public Integer getPrcAvanzato() {
+    public Long getPrcAvanzato() {
         return prcAvanzato;
     }
 
-    public Pratica prcAvanzato(Integer prcAvanzato) {
+    public Pratica prcAvanzato(Long prcAvanzato) {
         this.prcAvanzato = prcAvanzato;
         return this;
     }
 
-    public void setPrcAvanzato(Integer prcAvanzato) {
+    public void setPrcAvanzato(Long prcAvanzato) {
         this.prcAvanzato = prcAvanzato;
     }
 
@@ -271,117 +254,117 @@ public class Pratica implements Serializable {
         this.valuta = valuta;
     }
 
-    public Integer getIdTemplatePraticaRef() {
+    public Long getIdTemplatePraticaRef() {
         return idTemplatePraticaRef;
     }
 
-    public Pratica idTemplatePraticaRef(Integer idTemplatePraticaRef) {
+    public Pratica idTemplatePraticaRef(Long idTemplatePraticaRef) {
         this.idTemplatePraticaRef = idTemplatePraticaRef;
         return this;
     }
 
-    public void setIdTemplatePraticaRef(Integer idTemplatePraticaRef) {
+    public void setIdTemplatePraticaRef(Long idTemplatePraticaRef) {
         this.idTemplatePraticaRef = idTemplatePraticaRef;
     }
 
-    public Set<Task> getIdPraticas() {
-        return idPraticas;
+    public Set<Task> getIds() {
+        return ids;
     }
 
-    public Pratica idPraticas(Set<Task> tasks) {
-        this.idPraticas = tasks;
+    public Pratica ids(Set<Task> tasks) {
+        this.ids = tasks;
         return this;
     }
 
-    public Pratica addIdPratica(Task task) {
-        this.idPraticas.add(task);
+    public Pratica addId(Task task) {
+        this.ids.add(task);
         task.setPratica(this);
         return this;
     }
 
-    public Pratica removeIdPratica(Task task) {
-        this.idPraticas.remove(task);
+    public Pratica removeId(Task task) {
+        this.ids.remove(task);
         task.setPratica(null);
         return this;
     }
 
-    public void setIdPraticas(Set<Task> tasks) {
-        this.idPraticas = tasks;
+    public void setIds(Set<Task> tasks) {
+        this.ids = tasks;
     }
 
-    public Set<NotaPratica> getIdPraticas() {
-        return idPraticas;
+    public Set<NotaPratica> getIds() {
+        return ids;
     }
 
-    public Pratica idPraticas(Set<NotaPratica> notaPraticas) {
-        this.idPraticas = notaPraticas;
+    public Pratica ids(Set<NotaPratica> notaPraticas) {
+        this.ids = notaPraticas;
         return this;
     }
 
-    public Pratica addIdPratica(NotaPratica notaPratica) {
-        this.idPraticas.add(notaPratica);
+    public Pratica addId(NotaPratica notaPratica) {
+        this.ids.add(notaPratica);
         notaPratica.setPratica(this);
         return this;
     }
 
-    public Pratica removeIdPratica(NotaPratica notaPratica) {
-        this.idPraticas.remove(notaPratica);
+    public Pratica removeId(NotaPratica notaPratica) {
+        this.ids.remove(notaPratica);
         notaPratica.setPratica(null);
         return this;
     }
 
-    public void setIdPraticas(Set<NotaPratica> notaPraticas) {
-        this.idPraticas = notaPraticas;
+    public void setIds(Set<NotaPratica> notaPraticas) {
+        this.ids = notaPraticas;
     }
 
-    public Set<CondivisionePratica> getIdPraticas() {
-        return idPraticas;
+    public Set<CondivisionePratica> getIds() {
+        return ids;
     }
 
-    public Pratica idPraticas(Set<CondivisionePratica> condivisionePraticas) {
-        this.idPraticas = condivisionePraticas;
+    public Pratica ids(Set<CondivisionePratica> condivisionePraticas) {
+        this.ids = condivisionePraticas;
         return this;
     }
 
-    public Pratica addIdPratica(CondivisionePratica condivisionePratica) {
-        this.idPraticas.add(condivisionePratica);
+    public Pratica addId(CondivisionePratica condivisionePratica) {
+        this.ids.add(condivisionePratica);
         condivisionePratica.setPratica(this);
         return this;
     }
 
-    public Pratica removeIdPratica(CondivisionePratica condivisionePratica) {
-        this.idPraticas.remove(condivisionePratica);
+    public Pratica removeId(CondivisionePratica condivisionePratica) {
+        this.ids.remove(condivisionePratica);
         condivisionePratica.setPratica(null);
         return this;
     }
 
-    public void setIdPraticas(Set<CondivisionePratica> condivisionePraticas) {
-        this.idPraticas = condivisionePraticas;
+    public void setIds(Set<CondivisionePratica> condivisionePraticas) {
+        this.ids = condivisionePraticas;
     }
 
-    public Set<InvitoPratica> getIdPraticas() {
-        return idPraticas;
+    public Set<InvitoPratica> getIds() {
+        return ids;
     }
 
-    public Pratica idPraticas(Set<InvitoPratica> invitoPraticas) {
-        this.idPraticas = invitoPraticas;
+    public Pratica ids(Set<InvitoPratica> invitoPraticas) {
+        this.ids = invitoPraticas;
         return this;
     }
 
-    public Pratica addIdPratica(InvitoPratica invitoPratica) {
-        this.idPraticas.add(invitoPratica);
+    public Pratica addId(InvitoPratica invitoPratica) {
+        this.ids.add(invitoPratica);
         invitoPratica.setPratica(this);
         return this;
     }
 
-    public Pratica removeIdPratica(InvitoPratica invitoPratica) {
-        this.idPraticas.remove(invitoPratica);
+    public Pratica removeId(InvitoPratica invitoPratica) {
+        this.ids.remove(invitoPratica);
         invitoPratica.setPratica(null);
         return this;
     }
 
-    public void setIdPraticas(Set<InvitoPratica> invitoPraticas) {
-        this.idPraticas = invitoPraticas;
+    public void setIds(Set<InvitoPratica> invitoPraticas) {
+        this.ids = invitoPraticas;
     }
 
     public TemplatePratica getIdTemplatePraticaRef() {
@@ -419,7 +402,6 @@ public class Pratica implements Serializable {
     public String toString() {
         return "Pratica{" +
             "id=" + getId() +
-            ", idPratica=" + getIdPratica() +
             ", idStudioProfessionaleRef=" + getIdStudioProfessionaleRef() +
             ", numero='" + getNumero() + "'" +
             ", nome='" + getNome() + "'" +

@@ -20,7 +20,7 @@ describe('Service Tests', () => {
       service = injector.get(TemplateTaskService);
       httpMock = injector.get(HttpTestingController);
 
-      elemDefault = new TemplateTask(0, 0, 0, 0, 0, 0, 0);
+      elemDefault = new TemplateTask(0, 0, 0, 0, 0, 0);
     });
 
     describe('Service methods', () => {
@@ -54,7 +54,6 @@ describe('Service Tests', () => {
       it('should update a TemplateTask', () => {
         const returnedFromService = Object.assign(
           {
-            idTemplateTask: 1,
             ordineEsecuzione: 1,
             nome: 1,
             note: 1,
@@ -76,7 +75,6 @@ describe('Service Tests', () => {
       it('should return a list of TemplateTask', () => {
         const returnedFromService = Object.assign(
           {
-            idTemplateTask: 1,
             ordineEsecuzione: 1,
             nome: 1,
             note: 1,
