@@ -7,8 +7,8 @@ export interface ITemplateTask {
   nome?: number;
   note?: number;
   pubPriv?: number;
-  idTemplatePratica?: number;
-  idTemplates?: ITemplateTask[];
+  idTemplatePraticaRef?: number;
+  idTemplateTasks?: ITemplateTask[];
   idTemplateTasks?: IAllegatoTemplateTask[];
   templatePraticaId?: number;
   templateTaskId?: number;
@@ -22,8 +22,8 @@ export class TemplateTask implements ITemplateTask {
     public nome?: number,
     public note?: number,
     public pubPriv?: number,
-    public idTemplatePratica?: number,
-    public idTemplates?: ITemplateTask[],
+    public idTemplatePraticaRef?: number,
+    public idTemplateTasks?: ITemplateTask[],
     public idTemplateTasks?: IAllegatoTemplateTask[],
     public templatePraticaId?: number,
     public templateTaskId?: number

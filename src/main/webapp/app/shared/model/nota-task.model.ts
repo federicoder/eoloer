@@ -1,6 +1,7 @@
 export interface INotaTask {
   id?: number;
-  idTask?: number;
+  idNotaTask?: number;
+  idTaskRef?: number;
   data?: string;
   nota?: string;
   version?: string;
@@ -10,7 +11,8 @@ export interface INotaTask {
 export class NotaTask implements INotaTask {
   constructor(
     public id?: number,
-    public idTask?: number,
+    public idNotaTask?: number,
+    public idTaskRef?: number,
     public data?: string,
     public nota?: string,
     public version?: string,

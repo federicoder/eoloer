@@ -40,8 +40,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WithMockUser
 public class InvitoEventoResourceIT {
 
-    private static final Integer DEFAULT_ID_ATTIVITA = 1;
-    private static final Integer UPDATED_ID_ATTIVITA = 2;
+    private static final Integer DEFAULT_ID_TASK_REF = 1;
+    private static final Integer UPDATED_ID_TASK_REF = 2;
 
     private static final String DEFAULT_LUOGO_FISICO = "AAAAAAAAAA";
     private static final String UPDATED_LUOGO_FISICO = "BBBBBBBBBB";
@@ -97,7 +97,7 @@ public class InvitoEventoResourceIT {
      */
     public static InvitoEvento createEntity(EntityManager em) {
         InvitoEvento invitoEvento = new InvitoEvento()
-            .idAttivita(DEFAULT_ID_ATTIVITA)
+            .idTaskRef(DEFAULT_ID_TASK_REF)
             .luogoFisico(DEFAULT_LUOGO_FISICO)
             .indicazioniLuogo(DEFAULT_INDICAZIONI_LUOGO)
             .dataInizio(DEFAULT_DATA_INIZIO)
@@ -115,7 +115,7 @@ public class InvitoEventoResourceIT {
      */
     public static InvitoEvento createUpdatedEntity(EntityManager em) {
         InvitoEvento invitoEvento = new InvitoEvento()
-            .idAttivita(UPDATED_ID_ATTIVITA)
+            .idTaskRef(UPDATED_ID_TASK_REF)
             .luogoFisico(UPDATED_LUOGO_FISICO)
             .indicazioniLuogo(UPDATED_INDICAZIONI_LUOGO)
             .dataInizio(UPDATED_DATA_INIZIO)
@@ -146,7 +146,7 @@ public class InvitoEventoResourceIT {
         List<InvitoEvento> invitoEventoList = invitoEventoRepository.findAll();
         assertThat(invitoEventoList).hasSize(databaseSizeBeforeCreate + 1);
         InvitoEvento testInvitoEvento = invitoEventoList.get(invitoEventoList.size() - 1);
-        assertThat(testInvitoEvento.getIdAttivita()).isEqualTo(DEFAULT_ID_ATTIVITA);
+        assertThat(testInvitoEvento.getIdTaskRef()).isEqualTo(DEFAULT_ID_TASK_REF);
         assertThat(testInvitoEvento.getLuogoFisico()).isEqualTo(DEFAULT_LUOGO_FISICO);
         assertThat(testInvitoEvento.getIndicazioniLuogo()).isEqualTo(DEFAULT_INDICAZIONI_LUOGO);
         assertThat(testInvitoEvento.getDataInizio()).isEqualTo(DEFAULT_DATA_INIZIO);
@@ -194,7 +194,7 @@ public class InvitoEventoResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(invitoEvento.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idAttivita").value(hasItem(DEFAULT_ID_ATTIVITA)))
+            .andExpect(jsonPath("$.[*].idTaskRef").value(hasItem(DEFAULT_ID_TASK_REF)))
             .andExpect(jsonPath("$.[*].luogoFisico").value(hasItem(DEFAULT_LUOGO_FISICO)))
             .andExpect(jsonPath("$.[*].indicazioniLuogo").value(hasItem(DEFAULT_INDICAZIONI_LUOGO)))
             .andExpect(jsonPath("$.[*].dataInizio").value(hasItem(DEFAULT_DATA_INIZIO)))
@@ -215,7 +215,7 @@ public class InvitoEventoResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(invitoEvento.getId().intValue()))
-            .andExpect(jsonPath("$.idAttivita").value(DEFAULT_ID_ATTIVITA))
+            .andExpect(jsonPath("$.idTaskRef").value(DEFAULT_ID_TASK_REF))
             .andExpect(jsonPath("$.luogoFisico").value(DEFAULT_LUOGO_FISICO))
             .andExpect(jsonPath("$.indicazioniLuogo").value(DEFAULT_INDICAZIONI_LUOGO))
             .andExpect(jsonPath("$.dataInizio").value(DEFAULT_DATA_INIZIO))
@@ -245,7 +245,7 @@ public class InvitoEventoResourceIT {
         // Disconnect from session so that the updates on updatedInvitoEvento are not directly saved in db
         em.detach(updatedInvitoEvento);
         updatedInvitoEvento
-            .idAttivita(UPDATED_ID_ATTIVITA)
+            .idTaskRef(UPDATED_ID_TASK_REF)
             .luogoFisico(UPDATED_LUOGO_FISICO)
             .indicazioniLuogo(UPDATED_INDICAZIONI_LUOGO)
             .dataInizio(UPDATED_DATA_INIZIO)
@@ -264,7 +264,7 @@ public class InvitoEventoResourceIT {
         List<InvitoEvento> invitoEventoList = invitoEventoRepository.findAll();
         assertThat(invitoEventoList).hasSize(databaseSizeBeforeUpdate);
         InvitoEvento testInvitoEvento = invitoEventoList.get(invitoEventoList.size() - 1);
-        assertThat(testInvitoEvento.getIdAttivita()).isEqualTo(UPDATED_ID_ATTIVITA);
+        assertThat(testInvitoEvento.getIdTaskRef()).isEqualTo(UPDATED_ID_TASK_REF);
         assertThat(testInvitoEvento.getLuogoFisico()).isEqualTo(UPDATED_LUOGO_FISICO);
         assertThat(testInvitoEvento.getIndicazioniLuogo()).isEqualTo(UPDATED_INDICAZIONI_LUOGO);
         assertThat(testInvitoEvento.getDataInizio()).isEqualTo(UPDATED_DATA_INIZIO);
@@ -334,7 +334,7 @@ public class InvitoEventoResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(invitoEvento.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idAttivita").value(hasItem(DEFAULT_ID_ATTIVITA)))
+            .andExpect(jsonPath("$.[*].idTaskRef").value(hasItem(DEFAULT_ID_TASK_REF)))
             .andExpect(jsonPath("$.[*].luogoFisico").value(hasItem(DEFAULT_LUOGO_FISICO)))
             .andExpect(jsonPath("$.[*].indicazioniLuogo").value(hasItem(DEFAULT_INDICAZIONI_LUOGO)))
             .andExpect(jsonPath("$.[*].dataInizio").value(hasItem(DEFAULT_DATA_INIZIO)))

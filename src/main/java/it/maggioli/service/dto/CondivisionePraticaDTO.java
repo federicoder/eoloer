@@ -10,6 +10,10 @@ public class CondivisionePraticaDTO implements Serializable {
     
     private Long id;
 
+    @NotNull
+    @Max(value = 8)
+    private Integer idCondivisionePratica;
+
     @Max(value = 8)
     private Integer idUserAmmesso;
 
@@ -19,7 +23,7 @@ public class CondivisionePraticaDTO implements Serializable {
 
     private Integer statoInvito;
 
-    private Integer idPratica;
+    private Integer idPraticaRef;
 
 
     private Long ruoloId;
@@ -36,6 +40,14 @@ public class CondivisionePraticaDTO implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Integer getIdCondivisionePratica() {
+        return idCondivisionePratica;
+    }
+
+    public void setIdCondivisionePratica(Integer idCondivisionePratica) {
+        this.idCondivisionePratica = idCondivisionePratica;
     }
 
     public Integer getIdUserAmmesso() {
@@ -70,12 +82,12 @@ public class CondivisionePraticaDTO implements Serializable {
         this.statoInvito = statoInvito;
     }
 
-    public Integer getIdPratica() {
-        return idPratica;
+    public Integer getIdPraticaRef() {
+        return idPraticaRef;
     }
 
-    public void setIdPratica(Integer idPratica) {
-        this.idPratica = idPratica;
+    public void setIdPraticaRef(Integer idPraticaRef) {
+        this.idPraticaRef = idPraticaRef;
     }
 
     public Long getRuoloId() {
@@ -132,11 +144,12 @@ public class CondivisionePraticaDTO implements Serializable {
     public String toString() {
         return "CondivisionePraticaDTO{" +
             "id=" + getId() +
+            ", idCondivisionePratica=" + getIdCondivisionePratica() +
             ", idUserAmmesso=" + getIdUserAmmesso() +
             ", ruolo=" + getRuolo() +
             ", idUserConcedente=" + getIdUserConcedente() +
             ", statoInvito=" + getStatoInvito() +
-            ", idPratica=" + getIdPratica() +
+            ", idPraticaRef=" + getIdPraticaRef() +
             ", ruoloId=" + getRuoloId() +
             ", idUserConcedenteId=" + getIdUserConcedenteId() +
             ", praticaId=" + getPraticaId() +

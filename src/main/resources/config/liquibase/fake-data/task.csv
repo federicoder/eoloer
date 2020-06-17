@@ -1,11 +1,11 @@
-id;id_pratica;nome;stato;prioritario;pubblico;version;condivisione_pratica_id;assegnazione_task_id;invito_id
-1;6;open-source Avon;22402;34158;98914;Technician deposit;29717;5;8
-2;5;Chair methodologies;2316;63818;3494;morph Rubber;80834;2;7
-3;1;Turnpike Stream circuit;87674;76635;79916;Designer Quality withdrawal;5627;6;8
-4;0;Officer;84521;14683;84228;Clothing optical web-enabled;79898;1;7
-5;7;Ramp;83396;71770;506;Reduced;8128;8;4
-6;0;recontextualize Checking Account integrate;22993;72381;45984;programming;3066;8;7
-7;3;Executive multi-tasking;97777;26223;77196;matrix Valley mint green;98019;6;2
-8;5;index THX optimize;14730;22436;26991;Hat withdrawal;60856;0;7
-9;3;Organized Rubber parse;55140;57651;63923;Gorgeous Frozen Bacon whiteboard;17207;3;1
-10;1;enhance;74653;36024;85725;24/7;54973;6;8
+id;id_task;id_pratica_ref;nome;stato;prioritario;pubblico;version;id_condivisione_pratica_ref;id_assegnazione_task_ref;id_invito_ref
+1;6;5;Moldovan Leu Intelligent;34158;98914;48132;payment Gloves Washington;64501;5;1
+2;0;3;Baby Baby morph;14638;56576;80834;back-end;99818;4;8
+3;4;7;Human transmit Usability;55986;96003;69872;proactive reboot;1959;2;8
+4;1;7;synthesizing;3157;69521;79811;web-enabled back-end optical;627;4;6
+5;7;6;Gorgeous Soft Car;94192;48628;9752;recontextualize Checking Account integrate;22993;6;4
+6;2;7;Industrial ADP Western Sahara;11869;28011;66568;real-time navigate Applications;91635;1;1
+7;8;6;Personal Loan Account;75240;44274;85204;optimize Concrete;26991;5;1
+8;4;5;Checking Account;82622;36533;82613;Connecticut;55282;6;8
+9;4;5;deposit Vision-oriented;79766;38586;67369;initiatives;21358;1;3
+10;2;6;GB 24/7;54973;72320;97663;toolset collaboration Egyptian Pound;28507;4;8

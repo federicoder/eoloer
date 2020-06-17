@@ -33,11 +33,11 @@ public class PersonaFisica implements Serializable {
     private Integer idPersonaFisica;
 
     @NotNull
-    @Column(name = "id_persona", nullable = false)
-    private Integer idPersona;
+    @Column(name = "id_persona_ref", nullable = false)
+    private Integer idPersonaRef;
 
-    @Column(name = "id_ruolo_persona")
-    private Integer idRuoloPersona;
+    @Column(name = "id_ruolo_persona_ref")
+    private Integer idRuoloPersonaRef;
 
     @Column(name = "titolo")
     private String titolo;
@@ -59,13 +59,13 @@ public class PersonaFisica implements Serializable {
 
     @OneToOne
     @JoinColumn(unique = true)
-    private Persona idPersona;
+    private Persona idPersonaRef;
 
     @OneToMany(mappedBy = "personaFisica")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     private Set<UserPersona> idPersonaFisicas = new HashSet<>();
 
-    @OneToOne(mappedBy = "id")
+    @OneToOne(mappedBy = "idRuoloOrganizzazione")
     @JsonIgnore
     private RuoloOrganizzazione idRuoloPersona;
 
@@ -91,30 +91,30 @@ public class PersonaFisica implements Serializable {
         this.idPersonaFisica = idPersonaFisica;
     }
 
-    public Integer getIdPersona() {
-        return idPersona;
+    public Integer getIdPersonaRef() {
+        return idPersonaRef;
     }
 
-    public PersonaFisica idPersona(Integer idPersona) {
-        this.idPersona = idPersona;
+    public PersonaFisica idPersonaRef(Integer idPersonaRef) {
+        this.idPersonaRef = idPersonaRef;
         return this;
     }
 
-    public void setIdPersona(Integer idPersona) {
-        this.idPersona = idPersona;
+    public void setIdPersonaRef(Integer idPersonaRef) {
+        this.idPersonaRef = idPersonaRef;
     }
 
-    public Integer getIdRuoloPersona() {
-        return idRuoloPersona;
+    public Integer getIdRuoloPersonaRef() {
+        return idRuoloPersonaRef;
     }
 
-    public PersonaFisica idRuoloPersona(Integer idRuoloPersona) {
-        this.idRuoloPersona = idRuoloPersona;
+    public PersonaFisica idRuoloPersonaRef(Integer idRuoloPersonaRef) {
+        this.idRuoloPersonaRef = idRuoloPersonaRef;
         return this;
     }
 
-    public void setIdRuoloPersona(Integer idRuoloPersona) {
-        this.idRuoloPersona = idRuoloPersona;
+    public void setIdRuoloPersonaRef(Integer idRuoloPersonaRef) {
+        this.idRuoloPersonaRef = idRuoloPersonaRef;
     }
 
     public String getTitolo() {
@@ -195,17 +195,17 @@ public class PersonaFisica implements Serializable {
         this.professione = professione;
     }
 
-    public Persona getIdPersona() {
-        return idPersona;
+    public Persona getIdPersonaRef() {
+        return idPersonaRef;
     }
 
-    public PersonaFisica idPersona(Persona persona) {
-        this.idPersona = persona;
+    public PersonaFisica idPersonaRef(Persona persona) {
+        this.idPersonaRef = persona;
         return this;
     }
 
-    public void setIdPersona(Persona persona) {
-        this.idPersona = persona;
+    public void setIdPersonaRef(Persona persona) {
+        this.idPersonaRef = persona;
     }
 
     public Set<UserPersona> getIdPersonaFisicas() {
@@ -269,8 +269,8 @@ public class PersonaFisica implements Serializable {
         return "PersonaFisica{" +
             "id=" + getId() +
             ", idPersonaFisica=" + getIdPersonaFisica() +
-            ", idPersona=" + getIdPersona() +
-            ", idRuoloPersona=" + getIdRuoloPersona() +
+            ", idPersonaRef=" + getIdPersonaRef() +
+            ", idRuoloPersonaRef=" + getIdRuoloPersonaRef() +
             ", titolo='" + getTitolo() + "'" +
             ", cognome='" + getCognome() + "'" +
             ", nome='" + getNome() + "'" +

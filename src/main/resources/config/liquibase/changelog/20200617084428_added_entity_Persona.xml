@@ -15,7 +15,10 @@
             <column name="id" type="bigint">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="id_studio" type="integer">
+            <column name="id_persona" type="integer">
+                <constraints nullable="false" />
+            </column>
+            <column name="id_studio_professionale_ref" type="integer">
                 <constraints nullable="true" />
             </column>
             <column name="codice_fiscale" type="varchar(255)">
@@ -48,14 +51,14 @@
             <column name="discriminator" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="id_ruolo_persona" type="integer">
+            <column name="id_ruolo_persona_ref" type="integer">
                 <constraints nullable="true" />
             </column>
             <column name="tipo_ruolo_utente" type="integer">
                 <constraints nullable="true" />
             </column>
-            <column name="id_id" type="bigint">
-                <constraints unique="true" nullable="true" uniqueConstraintName="ux_persona_id_id" />
+            <column name="id_persona_id" type="bigint">
+                <constraints unique="true" nullable="true" uniqueConstraintName="ux_persona_id_persona_id" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
         </createTable>
@@ -80,7 +83,8 @@
                   separator=";"
                   tableName="persona">
             <column name="id" type="numeric"/>
-            <column name="id_studio" type="numeric"/>
+            <column name="id_persona" type="numeric"/>
+            <column name="id_studio_professionale_ref" type="numeric"/>
             <column name="codice_fiscale" type="string"/>
             <column name="area_di_interesse" type="string"/>
             <column name="titolo" type="string"/>
@@ -91,7 +95,7 @@
             <column name="professione" type="string"/>
             <column name="tipo" type="numeric"/>
             <column name="discriminator" type="string"/>
-            <column name="id_ruolo_persona" type="numeric"/>
+            <column name="id_ruolo_persona_ref" type="numeric"/>
             <column name="tipo_ruolo_utente" type="numeric"/>
             <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
         </loadData>

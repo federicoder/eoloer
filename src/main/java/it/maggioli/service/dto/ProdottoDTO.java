@@ -1,5 +1,6 @@
 package it.maggioli.service.dto;
 
+import javax.validation.constraints.*;
 import java.io.Serializable;
 
 /**
@@ -9,6 +10,9 @@ public class ProdottoDTO implements Serializable {
     
     private Long id;
 
+    @NotNull
+    private Integer idProdotto;
+
     private Integer nuovaLicenza;
 
     private Integer rinnovoLicenza;
@@ -16,7 +20,7 @@ public class ProdottoDTO implements Serializable {
     private Integer storage;
 
 
-    private Long idId;
+    private Long idProdottoId;
     
     public Long getId() {
         return id;
@@ -24,6 +28,14 @@ public class ProdottoDTO implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Integer getIdProdotto() {
+        return idProdotto;
+    }
+
+    public void setIdProdotto(Integer idProdotto) {
+        this.idProdotto = idProdotto;
     }
 
     public Integer getNuovaLicenza() {
@@ -50,12 +62,12 @@ public class ProdottoDTO implements Serializable {
         this.storage = storage;
     }
 
-    public Long getIdId() {
-        return idId;
+    public Long getIdProdottoId() {
+        return idProdottoId;
     }
 
-    public void setIdId(Long lineaOrdineId) {
-        this.idId = lineaOrdineId;
+    public void setIdProdottoId(Long lineaOrdineId) {
+        this.idProdottoId = lineaOrdineId;
     }
 
     @Override
@@ -80,10 +92,11 @@ public class ProdottoDTO implements Serializable {
     public String toString() {
         return "ProdottoDTO{" +
             "id=" + getId() +
+            ", idProdotto=" + getIdProdotto() +
             ", nuovaLicenza=" + getNuovaLicenza() +
             ", rinnovoLicenza=" + getRinnovoLicenza() +
             ", storage=" + getStorage() +
-            ", idId=" + getIdId() +
+            ", idProdottoId=" + getIdProdottoId() +
             "}";
     }
 }

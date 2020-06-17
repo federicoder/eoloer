@@ -2,7 +2,12 @@
   "name": "UserPersona",
   "fields": [
     {
-      "fieldName": "idPersona",
+      "fieldName": "idUserPersona",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "idPersonaRef",
       "fieldType": "Integer"
     },
     {
@@ -15,19 +20,19 @@
       "relationshipType": "one-to-many",
       "otherEntityName": "condivisionePratica",
       "otherEntityRelationshipName": "userPersona",
-      "relationshipName": "id"
+      "relationshipName": "idUserPersona"
     },
     {
       "relationshipType": "one-to-many",
       "otherEntityName": "assegnazioneTask",
       "otherEntityRelationshipName": "userPersona",
-      "relationshipName": "id"
+      "relationshipName": "idUserPersona"
     },
     {
       "relationshipType": "one-to-many",
       "otherEntityName": "invitato",
       "otherEntityRelationshipName": "userPersona",
-      "relationshipName": "id"
+      "relationshipName": "idUserPersona"
     },
     {
       "relationshipType": "many-to-one",

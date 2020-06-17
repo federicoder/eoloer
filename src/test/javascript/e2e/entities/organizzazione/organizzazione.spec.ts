@@ -45,14 +45,14 @@ describe('Organizzazione e2e test', () => {
 
     await promise.all([
       organizzazioneUpdatePage.setIdOrganizzazioneInput('5'),
-      organizzazioneUpdatePage.setIdPersonaInput('5'),
+      organizzazioneUpdatePage.setIdPersonaRefInput('5'),
       organizzazioneUpdatePage.setNomeInput('nome'),
       organizzazioneUpdatePage.setTipoInput('tipo'),
-      organizzazioneUpdatePage.idPersonaSelectLastOption(),
+      organizzazioneUpdatePage.idPersonaRefSelectLastOption(),
     ]);
 
     expect(await organizzazioneUpdatePage.getIdOrganizzazioneInput()).to.eq('5', 'Expected idOrganizzazione value to be equals to 5');
-    expect(await organizzazioneUpdatePage.getIdPersonaInput()).to.eq('5', 'Expected idPersona value to be equals to 5');
+    expect(await organizzazioneUpdatePage.getIdPersonaRefInput()).to.eq('5', 'Expected idPersonaRef value to be equals to 5');
     expect(await organizzazioneUpdatePage.getNomeInput()).to.eq('nome', 'Expected Nome value to be equals to nome');
     expect(await organizzazioneUpdatePage.getTipoInput()).to.eq('tipo', 'Expected Tipo value to be equals to tipo');
 

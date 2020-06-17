@@ -1,21 +1,21 @@
 export interface IConsuntivoTask {
   id?: number;
-  idTask?: number;
+  idTaskRef?: number;
   dataInizio?: string;
   dataFine?: string;
   timeLine?: number;
   version?: string;
-  idTaskId?: number;
+  idTaskRefId?: number;
 }
 
 export class ConsuntivoTask implements IConsuntivoTask {
   constructor(
     public id?: number,
-    public idTask?: number,
+    public idTaskRef?: number,
     public dataInizio?: string,
     public dataFine?: string,
     public timeLine?: number,
     public version?: string,
-    public idTaskId?: number
+    public idTaskRefId?: number
   ) {}
 }

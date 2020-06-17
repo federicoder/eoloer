@@ -17,17 +17,17 @@ import { PrevisioneTaskService } from 'app/entities/previsione-task/previsione-t
 })
 export class PrevisioneEventoUpdateComponent implements OnInit {
   isSaving = false;
-  idtasks: IPrevisioneTask[] = [];
+  idtaskrefs: IPrevisioneTask[] = [];
 
   editForm = this.fb.group({
     id: [],
-    idTask: [null, [Validators.required, Validators.max(8)]],
+    idTaskRef: [null, [Validators.required, Validators.max(8)]],
     dataInizio: [],
     dataFine: [],
     luogo: [],
     indicazioniLuogo: [],
     version: [],
-    idTaskId: [],
+    idTaskRefId: [],
   });
 
   constructor(
@@ -42,24 +42,24 @@ export class PrevisioneEventoUpdateComponent implements OnInit {
       this.updateForm(previsioneEvento);
 
       this.previsioneTaskService
-        .query({ filter: 'idtask-is-null' })
+        .query({ filter: 'idtaskref-is-null' })
         .pipe(
           map((res: HttpResponse<IPrevisioneTask[]>) => {
             return res.body || [];
           })
         )
         .subscribe((resBody: IPrevisioneTask[]) => {
-          if (!previsioneEvento.idTaskId) {
-            this.idtasks = resBody;
+          if (!previsioneEvento.idTaskRefId) {
+            this.idtaskrefs = resBody;
           } else {
             this.previsioneTaskService
-              .find(previsioneEvento.idTaskId)
+              .find(previsioneEvento.idTaskRefId)
               .pipe(
                 map((subRes: HttpResponse<IPrevisioneTask>) => {
                   return subRes.body ? [subRes.body].concat(resBody) : resBody;
                 })
               )
-              .subscribe((concatRes: IPrevisioneTask[]) => (this.idtasks = concatRes));
+              .subscribe((concatRes: IPrevisioneTask[]) => (this.idtaskrefs = concatRes));
           }
         });
     });
@@ -68,13 +68,13 @@ export class PrevisioneEventoUpdateComponent implements OnInit {
   updateForm(previsioneEvento: IPrevisioneEvento): void {
     this.editForm.patchValue({
       id: previsioneEvento.id,
-      idTask: previsioneEvento.idTask,
+      idTaskRef: previsioneEvento.idTaskRef,
       dataInizio: previsioneEvento.dataInizio,
       dataFine: previsioneEvento.dataFine,
       luogo: previsioneEvento.luogo,
       indicazioniLuogo: previsioneEvento.indicazioniLuogo,
       version: previsioneEvento.version,
-      idTaskId: previsioneEvento.idTaskId,
+      idTaskRefId: previsioneEvento.idTaskRefId,
     });
   }
 
@@ -96,13 +96,13 @@ export class PrevisioneEventoUpdateComponent implements OnInit {
     return {
       ...new PrevisioneEvento(),
       id: this.editForm.get(['id'])!.value,
-      idTask: this.editForm.get(['idTask'])!.value,
+      idTaskRef: this.editForm.get(['idTaskRef'])!.value,
       dataInizio: this.editForm.get(['dataInizio'])!.value,
       dataFine: this.editForm.get(['dataFine'])!.value,
       luogo: this.editForm.get(['luogo'])!.value,
       indicazioniLuogo: this.editForm.get(['indicazioniLuogo'])!.value,
       version: this.editForm.get(['version'])!.value,
-      idTaskId: this.editForm.get(['idTaskId'])!.value,
+      idTaskRefId: this.editForm.get(['idTaskRefId'])!.value,
     };
   }
 

@@ -11,7 +11,7 @@ public class TagPersonaDTO implements Serializable {
     private Long id;
 
     @NotNull
-    private Integer idPersona;
+    private Integer idPersonaRef;
 
     private Integer tag;
 
@@ -26,12 +26,12 @@ public class TagPersonaDTO implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdPersona() {
-        return idPersona;
+    public Integer getIdPersonaRef() {
+        return idPersonaRef;
     }
 
-    public void setIdPersona(Integer idPersona) {
-        this.idPersona = idPersona;
+    public void setIdPersonaRef(Integer idPersonaRef) {
+        this.idPersonaRef = idPersonaRef;
     }
 
     public Integer getTag() {
@@ -72,7 +72,7 @@ public class TagPersonaDTO implements Serializable {
     public String toString() {
         return "TagPersonaDTO{" +
             "id=" + getId() +
-            ", idPersona=" + getIdPersona() +
+            ", idPersonaRef=" + getIdPersonaRef() +
             ", tag=" + getTag() +
             ", personaId=" + getPersonaId() +
             "}";

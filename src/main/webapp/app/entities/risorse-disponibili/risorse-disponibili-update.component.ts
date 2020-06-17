@@ -20,7 +20,7 @@ export class RisorseDisponibiliUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    idStudioProfessionale: [null, [Validators.required]],
+    idStudioProfessionaleRef: [null, [Validators.required]],
     dataAttivazioneLicenza: [],
     nrLicenza: [],
     storageTotale: [],
@@ -47,7 +47,7 @@ export class RisorseDisponibiliUpdateComponent implements OnInit {
   updateForm(risorseDisponibili: IRisorseDisponibili): void {
     this.editForm.patchValue({
       id: risorseDisponibili.id,
-      idStudioProfessionale: risorseDisponibili.idStudioProfessionale,
+      idStudioProfessionaleRef: risorseDisponibili.idStudioProfessionaleRef,
       dataAttivazioneLicenza: risorseDisponibili.dataAttivazioneLicenza,
       nrLicenza: risorseDisponibili.nrLicenza,
       storageTotale: risorseDisponibili.storageTotale,
@@ -73,7 +73,7 @@ export class RisorseDisponibiliUpdateComponent implements OnInit {
     return {
       ...new RisorseDisponibili(),
       id: this.editForm.get(['id'])!.value,
-      idStudioProfessionale: this.editForm.get(['idStudioProfessionale'])!.value,
+      idStudioProfessionaleRef: this.editForm.get(['idStudioProfessionaleRef'])!.value,
       dataAttivazioneLicenza: this.editForm.get(['dataAttivazioneLicenza'])!.value,
       nrLicenza: this.editForm.get(['nrLicenza'])!.value,
       storageTotale: this.editForm.get(['storageTotale'])!.value,

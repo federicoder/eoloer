@@ -11,10 +11,10 @@ public class NotePersonaDTO implements Serializable {
     private Long id;
 
     @NotNull
-    private Integer idPersona;
+    private Integer idPersonaRef;
 
     @NotNull
-    private Integer idNote;
+    private Integer idNotePersona;
 
     private String testo;
 
@@ -29,20 +29,20 @@ public class NotePersonaDTO implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdPersona() {
-        return idPersona;
+    public Integer getIdPersonaRef() {
+        return idPersonaRef;
     }
 
-    public void setIdPersona(Integer idPersona) {
-        this.idPersona = idPersona;
+    public void setIdPersonaRef(Integer idPersonaRef) {
+        this.idPersonaRef = idPersonaRef;
     }
 
-    public Integer getIdNote() {
-        return idNote;
+    public Integer getIdNotePersona() {
+        return idNotePersona;
     }
 
-    public void setIdNote(Integer idNote) {
-        this.idNote = idNote;
+    public void setIdNotePersona(Integer idNotePersona) {
+        this.idNotePersona = idNotePersona;
     }
 
     public String getTesto() {
@@ -83,8 +83,8 @@ public class NotePersonaDTO implements Serializable {
     public String toString() {
         return "NotePersonaDTO{" +
             "id=" + getId() +
-            ", idPersona=" + getIdPersona() +
-            ", idNote=" + getIdNote() +
+            ", idPersonaRef=" + getIdPersonaRef() +
+            ", idNotePersona=" + getIdNotePersona() +
             ", testo='" + getTesto() + "'" +
             ", personaId=" + getPersonaId() +
             "}";

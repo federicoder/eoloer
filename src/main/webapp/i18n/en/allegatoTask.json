@@ -18,8 +18,8 @@
         "title": "Allegato Task"
       },
       "idAllegatoTask": "Id Allegato Task",
-      "idTipo": "Id Tipo",
-      "idTask": "Id Task",
+      "idTipoAllegatoRef": "Id Tipo Allegato Ref",
+      "idTaskRef": "Id Task Ref",
       "formato": "Formato",
       "note": "Note",
       "stato": "Stato",

@@ -27,18 +27,18 @@ public class NotePersona implements Serializable {
     private Long id;
 
     @NotNull
-    @Column(name = "id_persona", nullable = false)
-    private Integer idPersona;
+    @Column(name = "id_persona_ref", nullable = false)
+    private Integer idPersonaRef;
 
     @NotNull
-    @Column(name = "id_note", nullable = false)
-    private Integer idNote;
+    @Column(name = "id_note_persona", nullable = false)
+    private Integer idNotePersona;
 
     @Column(name = "testo")
     private String testo;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "ids", allowSetters = true)
+    @JsonIgnoreProperties(value = "idPersonas", allowSetters = true)
     private Persona persona;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
@@ -50,30 +50,30 @@ public class NotePersona implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdPersona() {
-        return idPersona;
+    public Integer getIdPersonaRef() {
+        return idPersonaRef;
     }
 
-    public NotePersona idPersona(Integer idPersona) {
-        this.idPersona = idPersona;
+    public NotePersona idPersonaRef(Integer idPersonaRef) {
+        this.idPersonaRef = idPersonaRef;
         return this;
     }
 
-    public void setIdPersona(Integer idPersona) {
-        this.idPersona = idPersona;
+    public void setIdPersonaRef(Integer idPersonaRef) {
+        this.idPersonaRef = idPersonaRef;
     }
 
-    public Integer getIdNote() {
-        return idNote;
+    public Integer getIdNotePersona() {
+        return idNotePersona;
     }
 
-    public NotePersona idNote(Integer idNote) {
-        this.idNote = idNote;
+    public NotePersona idNotePersona(Integer idNotePersona) {
+        this.idNotePersona = idNotePersona;
         return this;
     }
 
-    public void setIdNote(Integer idNote) {
-        this.idNote = idNote;
+    public void setIdNotePersona(Integer idNotePersona) {
+        this.idNotePersona = idNotePersona;
     }
 
     public String getTesto() {
@@ -124,8 +124,8 @@ public class NotePersona implements Serializable {
     public String toString() {
         return "NotePersona{" +
             "id=" + getId() +
-            ", idPersona=" + getIdPersona() +
-            ", idNote=" + getIdNote() +
+            ", idPersonaRef=" + getIdPersonaRef() +
+            ", idNotePersona=" + getIdNotePersona() +
             ", testo='" + getTesto() + "'" +
             "}";
     }

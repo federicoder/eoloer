@@ -1,4 +1,4 @@
-id;id_ruolo_persona;id_persona;ruoli
+id;id_ruolo_persona;id_persona_ref;ruoli
 1;35685;18153;COLLABORATOREINTERNO
 2;18685;96715;COLLABORATOREESTERNO
 3;9292;68206;COLLABORATOREINTERNO

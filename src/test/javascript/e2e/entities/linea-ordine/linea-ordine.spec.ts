@@ -44,16 +44,16 @@ describe('LineaOrdine e2e test', () => {
     await lineaOrdineComponentsPage.clickOnCreateButton();
 
     await promise.all([
-      lineaOrdineUpdatePage.setIdOrdineInput('5'),
-      lineaOrdineUpdatePage.setIdProdottoInput('5'),
+      lineaOrdineUpdatePage.setIdOrdineRefInput('5'),
+      lineaOrdineUpdatePage.setIdProdottoRefInput('5'),
       lineaOrdineUpdatePage.setQuantitaInput('5'),
       lineaOrdineUpdatePage.setImportoInput('5'),
       lineaOrdineUpdatePage.setCodIvaInput('codIva'),
       lineaOrdineUpdatePage.ordineSelectLastOption(),
     ]);
 
-    expect(await lineaOrdineUpdatePage.getIdOrdineInput()).to.eq('5', 'Expected idOrdine value to be equals to 5');
-    expect(await lineaOrdineUpdatePage.getIdProdottoInput()).to.eq('5', 'Expected idProdotto value to be equals to 5');
+    expect(await lineaOrdineUpdatePage.getIdOrdineRefInput()).to.eq('5', 'Expected idOrdineRef value to be equals to 5');
+    expect(await lineaOrdineUpdatePage.getIdProdottoRefInput()).to.eq('5', 'Expected idProdottoRef value to be equals to 5');
     expect(await lineaOrdineUpdatePage.getQuantitaInput()).to.eq('5', 'Expected quantita value to be equals to 5');
     expect(await lineaOrdineUpdatePage.getImportoInput()).to.eq('5', 'Expected importo value to be equals to 5');
     expect(await lineaOrdineUpdatePage.getCodIvaInput()).to.eq('codIva', 'Expected CodIva value to be equals to codIva');

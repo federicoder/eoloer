@@ -17,14 +17,15 @@
       "detail": {
         "title": "Assegnazione Task"
       },
-      "idAttivita": "Id Attivita",
+      "idAssegnazioneTask": "Id Assegnazione Task",
+      "idTaskRef": "Id Task Ref",
       "idUserAmmesso": "Id User Ammesso",
       "ruolo": "Ruolo",
       "idUserConcedente": "Id User Concedente",
       "statoAssegnazione": "Stato Assegnazione",
       "ruolo": "Ruolo",
       "idUserConcedente": "Id User Concedente",
-      "idAttivita": "Id Attivita",
+      "idTaskRef": "Id Task Ref",
       "userPersona": "User Persona"
     }
   }

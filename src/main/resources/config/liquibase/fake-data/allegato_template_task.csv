@@ -1,4 +1,4 @@
-id;id_template_task;tipo_allegato;formato;id_file;pub_priv
+id;id_template_task_ref;id_tipo_allegato_ref;formato;id_file_ref;pub_priv
 1;4;99712;66884;17565;171
 2;8;93604;55385;71581;98797
 3;7;4840;10261;41220;20096

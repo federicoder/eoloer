@@ -21,7 +21,7 @@ export class DatiContabiliUpdateComponent implements OnInit {
   editForm = this.fb.group({
     id: [],
     idDatiContabili: [null, [Validators.required]],
-    idPersona: [null, [Validators.required]],
+    idPersonaRef: [null, [Validators.required]],
     personaId: [],
   });
 
@@ -44,7 +44,7 @@ export class DatiContabiliUpdateComponent implements OnInit {
     this.editForm.patchValue({
       id: datiContabili.id,
       idDatiContabili: datiContabili.idDatiContabili,
-      idPersona: datiContabili.idPersona,
+      idPersonaRef: datiContabili.idPersonaRef,
       personaId: datiContabili.personaId,
     });
   }
@@ -68,7 +68,7 @@ export class DatiContabiliUpdateComponent implements OnInit {
       ...new DatiContabili(),
       id: this.editForm.get(['id'])!.value,
       idDatiContabili: this.editForm.get(['idDatiContabili'])!.value,
-      idPersona: this.editForm.get(['idPersona'])!.value,
+      idPersonaRef: this.editForm.get(['idPersonaRef'])!.value,
       personaId: this.editForm.get(['personaId'])!.value,
     };
   }

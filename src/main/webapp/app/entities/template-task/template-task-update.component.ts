@@ -28,7 +28,7 @@ export class TemplateTaskUpdateComponent implements OnInit {
     nome: [],
     note: [],
     pubPriv: [],
-    idTemplatePratica: [],
+    idTemplatePraticaRef: [],
     templatePraticaId: [],
     templateTaskId: [],
   });
@@ -58,7 +58,7 @@ export class TemplateTaskUpdateComponent implements OnInit {
       nome: templateTask.nome,
       note: templateTask.note,
       pubPriv: templateTask.pubPriv,
-      idTemplatePratica: templateTask.idTemplatePratica,
+      idTemplatePraticaRef: templateTask.idTemplatePraticaRef,
       templatePraticaId: templateTask.templatePraticaId,
       templateTaskId: templateTask.templateTaskId,
     });
@@ -87,7 +87,7 @@ export class TemplateTaskUpdateComponent implements OnInit {
       nome: this.editForm.get(['nome'])!.value,
       note: this.editForm.get(['note'])!.value,
       pubPriv: this.editForm.get(['pubPriv'])!.value,
-      idTemplatePratica: this.editForm.get(['idTemplatePratica'])!.value,
+      idTemplatePraticaRef: this.editForm.get(['idTemplatePraticaRef'])!.value,
       templatePraticaId: this.editForm.get(['templatePraticaId'])!.value,
       templateTaskId: this.editForm.get(['templateTaskId'])!.value,
     };

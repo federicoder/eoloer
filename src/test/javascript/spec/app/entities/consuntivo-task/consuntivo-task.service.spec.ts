@@ -54,7 +54,7 @@ describe('Service Tests', () => {
       it('should update a ConsuntivoTask', () => {
         const returnedFromService = Object.assign(
           {
-            idTask: 1,
+            idTaskRef: 1,
             dataInizio: 'BBBBBB',
             dataFine: 'BBBBBB',
             timeLine: 1,
@@ -75,7 +75,7 @@ describe('Service Tests', () => {
       it('should return a list of ConsuntivoTask', () => {
         const returnedFromService = Object.assign(
           {
-            idTask: 1,
+            idTaskRef: 1,
             dataInizio: 'BBBBBB',
             dataFine: 'BBBBBB',
             timeLine: 1,

@@ -13,7 +13,7 @@ import org.mapstruct.*;
 public interface ConsuntivoTaskMapper extends EntityMapper<ConsuntivoTaskDTO, ConsuntivoTask> {
 
 
-    @Mapping(target = "idTask", ignore = true)
+    @Mapping(target = "idTaskRef", ignore = true)
     ConsuntivoTask toEntity(ConsuntivoTaskDTO consuntivoTaskDTO);
 
     default ConsuntivoTask fromId(Long id) {

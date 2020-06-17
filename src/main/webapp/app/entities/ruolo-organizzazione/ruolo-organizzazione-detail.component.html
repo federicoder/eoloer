@@ -8,20 +8,24 @@
             <jhi-alert-error></jhi-alert-error>
 
             <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="eoloprjApp.ruoloOrganizzazione.idRuoloOrganizzazione">Id Ruolo Organizzazione</span></dt>
+                <dd>
+                    <span>{{ ruoloOrganizzazione.idRuoloOrganizzazione }}</span>
+                </dd>
                 <dt><span jhiTranslate="eoloprjApp.ruoloOrganizzazione.ruoloInOrg">Ruolo In Org</span></dt>
                 <dd>
                     <span>{{ ruoloOrganizzazione.ruoloInOrg }}</span>
                 </dd>
-                <dt><span jhiTranslate="eoloprjApp.ruoloOrganizzazione.id">Id</span></dt>
+                <dt><span jhiTranslate="eoloprjApp.ruoloOrganizzazione.idRuoloOrganizzazione">Id Ruolo Organizzazione</span></dt>
                 <dd>
-                    <div *ngIf="ruoloOrganizzazione.idId">
-                        <a [routerLink]="['/organizzazione', ruoloOrganizzazione.idId, 'view']">{{ ruoloOrganizzazione.idId }}</a>
+                    <div *ngIf="ruoloOrganizzazione.idRuoloOrganizzazioneId">
+                        <a [routerLink]="['/organizzazione', ruoloOrganizzazione.idRuoloOrganizzazioneId, 'view']">{{ ruoloOrganizzazione.idRuoloOrganizzazioneId }}</a>
                     </div>
                 </dd>
-                <dt><span jhiTranslate="eoloprjApp.ruoloOrganizzazione.id">Id</span></dt>
+                <dt><span jhiTranslate="eoloprjApp.ruoloOrganizzazione.idRuoloOrganizzazione">Id Ruolo Organizzazione</span></dt>
                 <dd>
-                    <div *ngIf="ruoloOrganizzazione.idId">
-                        <a [routerLink]="['/persona-fisica', ruoloOrganizzazione.idId, 'view']">{{ ruoloOrganizzazione.idId }}</a>
+                    <div *ngIf="ruoloOrganizzazione.idRuoloOrganizzazioneId">
+                        <a [routerLink]="['/persona-fisica', ruoloOrganizzazione.idRuoloOrganizzazioneId, 'view']">{{ ruoloOrganizzazione.idRuoloOrganizzazioneId }}</a>
                     </div>
                 </dd>
             </dl>

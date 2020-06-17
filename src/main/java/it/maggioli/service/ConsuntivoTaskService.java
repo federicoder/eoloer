@@ -71,15 +71,15 @@ public class ConsuntivoTaskService {
 
 
     /**
-     *  Get all the consuntivoTasks where IdTask is {@code null}.
+     *  Get all the consuntivoTasks where IdTaskRef is {@code null}.
      *  @return the list of entities.
      */
     @Transactional(readOnly = true) 
-    public List<ConsuntivoTaskDTO> findAllWhereIdTaskIsNull() {
-        log.debug("Request to get all consuntivoTasks where IdTask is null");
+    public List<ConsuntivoTaskDTO> findAllWhereIdTaskRefIsNull() {
+        log.debug("Request to get all consuntivoTasks where IdTaskRef is null");
         return StreamSupport
             .stream(consuntivoTaskRepository.findAll().spliterator(), false)
-            .filter(consuntivoTask -> consuntivoTask.getIdTask() == null)
+            .filter(consuntivoTask -> consuntivoTask.getIdTaskRef() == null)
             .map(consuntivoTaskMapper::toDto)
             .collect(Collectors.toCollection(LinkedList::new));
     }

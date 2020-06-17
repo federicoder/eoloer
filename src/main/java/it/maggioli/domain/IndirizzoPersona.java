@@ -27,8 +27,8 @@ public class IndirizzoPersona implements Serializable {
     private Long id;
 
     @NotNull
-    @Column(name = "id_persona", nullable = false)
-    private Integer idPersona;
+    @Column(name = "id_persona_ref", nullable = false)
+    private Integer idPersonaRef;
 
     @Column(name = "indirizzo")
     private String indirizzo;
@@ -48,9 +48,9 @@ public class IndirizzoPersona implements Serializable {
     @Column(name = "nazione")
     private String nazione;
 
-    @OneToOne(mappedBy = "id")
+    @OneToOne(mappedBy = "idPersona")
     @JsonIgnore
-    private Persona idPersona;
+    private Persona idPersonaRef;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -61,17 +61,17 @@ public class IndirizzoPersona implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdPersona() {
-        return idPersona;
+    public Integer getIdPersonaRef() {
+        return idPersonaRef;
     }
 
-    public IndirizzoPersona idPersona(Integer idPersona) {
-        this.idPersona = idPersona;
+    public IndirizzoPersona idPersonaRef(Integer idPersonaRef) {
+        this.idPersonaRef = idPersonaRef;
         return this;
     }
 
-    public void setIdPersona(Integer idPersona) {
-        this.idPersona = idPersona;
+    public void setIdPersonaRef(Integer idPersonaRef) {
+        this.idPersonaRef = idPersonaRef;
     }
 
     public String getIndirizzo() {
@@ -152,17 +152,17 @@ public class IndirizzoPersona implements Serializable {
         this.nazione = nazione;
     }
 
-    public Persona getIdPersona() {
-        return idPersona;
+    public Persona getIdPersonaRef() {
+        return idPersonaRef;
     }
 
-    public IndirizzoPersona idPersona(Persona persona) {
-        this.idPersona = persona;
+    public IndirizzoPersona idPersonaRef(Persona persona) {
+        this.idPersonaRef = persona;
         return this;
     }
 
-    public void setIdPersona(Persona persona) {
-        this.idPersona = persona;
+    public void setIdPersonaRef(Persona persona) {
+        this.idPersonaRef = persona;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 
@@ -187,7 +187,7 @@ public class IndirizzoPersona implements Serializable {
     public String toString() {
         return "IndirizzoPersona{" +
             "id=" + getId() +
-            ", idPersona=" + getIdPersona() +
+            ", idPersonaRef=" + getIdPersonaRef() +
             ", indirizzo='" + getIndirizzo() + "'" +
             ", comune='" + getComune() + "'" +
             ", cap=" + getCap() +

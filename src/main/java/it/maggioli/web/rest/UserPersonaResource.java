@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -48,7 +49,7 @@ public class UserPersonaResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/user-personas")
-    public ResponseEntity<UserPersonaDTO> createUserPersona(@RequestBody UserPersonaDTO userPersonaDTO) throws URISyntaxException {
+    public ResponseEntity<UserPersonaDTO> createUserPersona(@Valid @RequestBody UserPersonaDTO userPersonaDTO) throws URISyntaxException {
         log.debug("REST request to save UserPersona : {}", userPersonaDTO);
         if (userPersonaDTO.getId() != null) {
             throw new BadRequestAlertException("A new userPersona cannot already have an ID", ENTITY_NAME, "idexists");
@@ -69,7 +70,7 @@ public class UserPersonaResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PutMapping("/user-personas")
-    public ResponseEntity<UserPersonaDTO> updateUserPersona(@RequestBody UserPersonaDTO userPersonaDTO) throws URISyntaxException {
+    public ResponseEntity<UserPersonaDTO> updateUserPersona(@Valid @RequestBody UserPersonaDTO userPersonaDTO) throws URISyntaxException {
         log.debug("REST request to update UserPersona : {}", userPersonaDTO);
         if (userPersonaDTO.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");

@@ -15,10 +15,10 @@
             <column name="id" type="bigint">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="id_ordine" type="integer">
+            <column name="id_ordine_ref" type="integer">
                 <constraints nullable="false" />
             </column>
-            <column name="id_prodotto" type="integer">
+            <column name="id_prodotto_ref" type="integer">
                 <constraints nullable="false" />
             </column>
             <column name="quantita" type="integer">
@@ -56,8 +56,8 @@
                   separator=";"
                   tableName="linea_ordine">
             <column name="id" type="numeric"/>
-            <column name="id_ordine" type="numeric"/>
-            <column name="id_prodotto" type="numeric"/>
+            <column name="id_ordine_ref" type="numeric"/>
+            <column name="id_prodotto_ref" type="numeric"/>
             <column name="quantita" type="numeric"/>
             <column name="importo" type="numeric"/>
             <column name="cod_iva" type="string"/>

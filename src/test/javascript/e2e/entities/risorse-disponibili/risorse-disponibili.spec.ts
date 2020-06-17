@@ -48,16 +48,16 @@ describe('RisorseDisponibili e2e test', () => {
     await risorseDisponibiliComponentsPage.clickOnCreateButton();
 
     await promise.all([
-      risorseDisponibiliUpdatePage.setIdStudioProfessionaleInput('5'),
+      risorseDisponibiliUpdatePage.setIdStudioProfessionaleRefInput('5'),
       risorseDisponibiliUpdatePage.setDataAttivazioneLicenzaInput('dataAttivazioneLicenza'),
       risorseDisponibiliUpdatePage.setNrLicenzaInput('5'),
       risorseDisponibiliUpdatePage.setStorageTotaleInput('5'),
       risorseDisponibiliUpdatePage.studioProfessionaleSelectLastOption(),
     ]);
 
-    expect(await risorseDisponibiliUpdatePage.getIdStudioProfessionaleInput()).to.eq(
+    expect(await risorseDisponibiliUpdatePage.getIdStudioProfessionaleRefInput()).to.eq(
       '5',
-      'Expected idStudioProfessionale value to be equals to 5'
+      'Expected idStudioProfessionaleRef value to be equals to 5'
     );
     expect(await risorseDisponibiliUpdatePage.getDataAttivazioneLicenzaInput()).to.eq(
       'dataAttivazioneLicenza',

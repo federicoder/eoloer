@@ -17,15 +17,15 @@ import { PersonaService } from 'app/entities/persona/persona.service';
 })
 export class OrganizzazioneUpdateComponent implements OnInit {
   isSaving = false;
-  idpersonas: IPersona[] = [];
+  idpersonarefs: IPersona[] = [];
 
   editForm = this.fb.group({
     id: [],
     idOrganizzazione: [null, [Validators.required]],
-    idPersona: [null, [Validators.required]],
+    idPersonaRef: [null, [Validators.required]],
     nome: [],
     tipo: [],
-    idPersonaId: [],
+    idPersonaRefId: [],
   });
 
   constructor(
@@ -40,24 +40,24 @@ export class OrganizzazioneUpdateComponent implements OnInit {
       this.updateForm(organizzazione);
 
       this.personaService
-        .query({ filter: 'id-is-null' })
+        .query({ filter: 'idpersona-is-null' })
         .pipe(
           map((res: HttpResponse<IPersona[]>) => {
             return res.body || [];
           })
         )
         .subscribe((resBody: IPersona[]) => {
-          if (!organizzazione.idPersonaId) {
-            this.idpersonas = resBody;
+          if (!organizzazione.idPersonaRefId) {
+            this.idpersonarefs = resBody;
           } else {
             this.personaService
-              .find(organizzazione.idPersonaId)
+              .find(organizzazione.idPersonaRefId)
               .pipe(
                 map((subRes: HttpResponse<IPersona>) => {
                   return subRes.body ? [subRes.body].concat(resBody) : resBody;
                 })
               )
-              .subscribe((concatRes: IPersona[]) => (this.idpersonas = concatRes));
+              .subscribe((concatRes: IPersona[]) => (this.idpersonarefs = concatRes));
           }
         });
     });
@@ -67,10 +67,10 @@ export class OrganizzazioneUpdateComponent implements OnInit {
     this.editForm.patchValue({
       id: organizzazione.id,
       idOrganizzazione: organizzazione.idOrganizzazione,
-      idPersona: organizzazione.idPersona,
+      idPersonaRef: organizzazione.idPersonaRef,
       nome: organizzazione.nome,
       tipo: organizzazione.tipo,
-      idPersonaId: organizzazione.idPersonaId,
+      idPersonaRefId: organizzazione.idPersonaRefId,
     });
   }
 
@@ -93,10 +93,10 @@ export class OrganizzazioneUpdateComponent implements OnInit {
       ...new Organizzazione(),
       id: this.editForm.get(['id'])!.value,
       idOrganizzazione: this.editForm.get(['idOrganizzazione'])!.value,
-      idPersona: this.editForm.get(['idPersona'])!.value,
+      idPersonaRef: this.editForm.get(['idPersonaRef'])!.value,
       nome: this.editForm.get(['nome'])!.value,
       tipo: this.editForm.get(['tipo'])!.value,
-      idPersonaId: this.editForm.get(['idPersonaId'])!.value,
+      idPersonaRefId: this.editForm.get(['idPersonaRefId'])!.value,
     };
   }
 

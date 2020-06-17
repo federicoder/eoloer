@@ -1,4 +1,4 @@
-id;id_organizzazione;id_persona;nome;tipo
+id;id_organizzazione;id_persona_ref;nome;tipo
 1;32712;97173;Incredible Table;Director National Bedfordshire
 2;59324;84281;Global Sausages Unbranded;Investment Account virtual
 3;20245;78727;Borders Guarani;target silver International

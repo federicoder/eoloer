@@ -1,11 +1,11 @@
-id;id_invito;token_invito;canale_primario_invito;canale_backup_invito;stato_invito;id_user_invitato;id_persona_invitata;nome_user_invitato;data_risposta_invito;ruolo_invitato;ind_invitati
-1;0;payment Programmable hack;46345;40688;45753;60573;26984;Coordinator;program Corporate Liaison;46177;71589
-2;8;access eyeballs Ball;9418;33754;30795;39705;3500;Isle Designer;connecting optimize Functionality;36714;21221
-3;8;red pink;89600;59541;8971;50635;84985;Uganda ADP Handmade;Personal Loan Account Incredible International;4609;93686
-4;1;Money Market Account;12135;20669;66945;89285;53921;open-source Refined;SSL Credit Card Account Future-proofed;55905;26292
-5;4;Wooden Seychelles;41154;48;27950;69442;1918;Expanded indexing;Checking Account New Hampshire Switchable;28187;54252
-6;6;Shoes Checking Account;60389;7683;2162;24067;49731;project;feed ivory;74720;29539
-7;4;system;82506;56716;33969;17761;41336;Fiji e-business;next generation;59990;53776
-8;0;killer Health deposit;40287;76339;38555;94185;39796;e-markets Incredible;revolutionary card;3749;38387
-9;3;Developer Cambridgeshire Auto Loan Account;82683;75280;77741;11679;12818;Assistant deposit;Plain digital navigating;8680;25604
-10;6;Vision-oriented salmon Investor;90200;97506;68187;19672;88077;repurpose;monetize payment;25540;967
+id;id_invitato;id_invito_ref;token_invito;canale_primario_invito;canale_backup_invito;stato_invito;id_user_invitato;id_persona_invitata;nome_user_invitato;data_risposta_invito;ruolo_invitato;ind_invitati
+1;4846;6;compress Dobra;12131;46345;40688;45753;60573;Tasty Cotton Pizza;azure Chips Shoes;71589;92139
+2;67250;2;eyeballs;18132;26081;9418;33754;30795;Toys Isle;Washington connecting optimize;95431;25767
+3;36714;1;channels Electronics superstructure;59541;8971;50635;84985;82812;Accountability partnerships;Communications RAM support;69770;4609
+4;93686;1;Money Market Account;12135;20669;66945;89285;53921;open-source Refined;SSL Credit Card Account Future-proofed;55905;26292
+5;53921;3;Granite;79599;41154;48;27950;69442;eyeballs;indexing;66946;59537
+6;5407;5;Switchable interactive;67420;35342;1560;74133;62081;Checking Account;Networked;18966;31656
+7;79625;5;Czech Koruna input heuristic;20193;73123;41735;82506;56716;Shirt Home Loan Account;e-business;17496;27761
+8;70800;5;Refined killer;1304;49165;66340;6471;40287;matrix incubate e-markets;fault-tolerant;35840;8214
+9;72155;2;facilitate;97669;98602;68564;48206;84603;neural input;Rubber;98769;83888
+10;63948;0;Plain digital navigating;8680;25604;68999;94396;25086;salmon Investor Principal;cyan Tools Moldovan Leu;38085;32648

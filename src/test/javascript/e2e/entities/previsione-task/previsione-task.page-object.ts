@@ -29,7 +29,7 @@ export class PrevisioneTaskUpdatePage {
   saveButton = element(by.id('save-entity'));
   cancelButton = element(by.id('cancel-save'));
 
-  idTaskInput = element(by.id('field_idTask'));
+  idTaskRefInput = element(by.id('field_idTaskRef'));
   qntOrdineInput = element(by.id('field_qntOrdine'));
   prcPrevisioneInput = element(by.id('field_prcPrevisione'));
   checkListInput = element(by.id('field_checkList'));
@@ -43,12 +43,12 @@ export class PrevisioneTaskUpdatePage {
     return this.pageTitle.getAttribute('jhiTranslate');
   }
 
-  async setIdTaskInput(idTask: string): Promise<void> {
-    await this.idTaskInput.sendKeys(idTask);
+  async setIdTaskRefInput(idTaskRef: string): Promise<void> {
+    await this.idTaskRefInput.sendKeys(idTaskRef);
   }
 
-  async getIdTaskInput(): Promise<string> {
-    return await this.idTaskInput.getAttribute('value');
+  async getIdTaskRefInput(): Promise<string> {
+    return await this.idTaskRefInput.getAttribute('value');
   }
 
   async setQntOrdineInput(qntOrdine: string): Promise<void> {

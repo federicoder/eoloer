@@ -19,7 +19,7 @@ public interface AssegnazioneTaskMapper extends EntityMapper<AssegnazioneTaskDTO
     @Mapping(source = "ruoloId", target = "ruolo")
     @Mapping(target = "idUserConcedentes", ignore = true)
     @Mapping(target = "removeIdUserConcedente", ignore = true)
-    @Mapping(target = "idAttivita", ignore = true)
+    @Mapping(target = "idTaskRef", ignore = true)
     @Mapping(source = "userPersonaId", target = "userPersona")
     AssegnazioneTask toEntity(AssegnazioneTaskDTO assegnazioneTaskDTO);
 

@@ -8,27 +8,27 @@
     -->
     <changeSet id="20200617082328-2" author="jhipster">
         
-        <addForeignKeyConstraint baseColumnNames="id_id"
+        <addForeignKeyConstraint baseColumnNames="id_task_id"
                                  baseTableName="task"
-                                 constraintName="fk_task_id_id"
+                                 constraintName="fk_task_id_task_id"
                                  referencedColumnNames="id"
                                  referencedTableName="consuntivo_task"/>
 
-        <addForeignKeyConstraint baseColumnNames="id_id"
+        <addForeignKeyConstraint baseColumnNames="id_task_id"
                                  baseTableName="task"
-                                 constraintName="fk_task_id_id"
+                                 constraintName="fk_task_id_task_id"
                                  referencedColumnNames="id"
                                  referencedTableName="previsione_task"/>
 
-        <addForeignKeyConstraint baseColumnNames="id_id"
+        <addForeignKeyConstraint baseColumnNames="id_task_id"
                                  baseTableName="task"
-                                 constraintName="fk_task_id_id"
+                                 constraintName="fk_task_id_task_id"
                                  referencedColumnNames="id"
                                  referencedTableName="assegnazione_task"/>
 
-        <addForeignKeyConstraint baseColumnNames="id_id"
+        <addForeignKeyConstraint baseColumnNames="id_task_id"
                                  baseTableName="task"
-                                 constraintName="fk_task_id_id"
+                                 constraintName="fk_task_id_task_id"
                                  referencedColumnNames="id"
                                  referencedTableName="invito_attivita"/>
 

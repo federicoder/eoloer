@@ -1,6 +1,7 @@
 export interface IInvitato {
   id?: number;
-  idInvito?: number;
+  idInvitato?: number;
+  idInvitoRef?: number;
   tokenInvito?: string;
   canalePrimarioInvito?: number;
   canaleBackupInvito?: number;
@@ -18,7 +19,8 @@ export interface IInvitato {
 export class Invitato implements IInvitato {
   constructor(
     public id?: number,
-    public idInvito?: number,
+    public idInvitato?: number,
+    public idInvitoRef?: number,
     public tokenInvito?: string,
     public canalePrimarioInvito?: number,
     public canaleBackupInvito?: number,

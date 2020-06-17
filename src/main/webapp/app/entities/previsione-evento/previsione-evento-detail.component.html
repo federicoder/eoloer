@@ -8,9 +8,9 @@
             <jhi-alert-error></jhi-alert-error>
 
             <dl class="row-md jh-entity-details">
-                <dt><span jhiTranslate="eoloprjApp.previsioneEvento.idTask">Id Task</span></dt>
+                <dt><span jhiTranslate="eoloprjApp.previsioneEvento.idTaskRef">Id Task Ref</span></dt>
                 <dd>
-                    <span>{{ previsioneEvento.idTask }}</span>
+                    <span>{{ previsioneEvento.idTaskRef }}</span>
                 </dd>
                 <dt><span jhiTranslate="eoloprjApp.previsioneEvento.dataInizio">Data Inizio</span></dt>
                 <dd>
@@ -32,10 +32,10 @@
                 <dd>
                     <span>{{ previsioneEvento.version }}</span>
                 </dd>
-                <dt><span jhiTranslate="eoloprjApp.previsioneEvento.idTask">Id Task</span></dt>
+                <dt><span jhiTranslate="eoloprjApp.previsioneEvento.idTaskRef">Id Task Ref</span></dt>
                 <dd>
-                    <div *ngIf="previsioneEvento.idTaskId">
-                        <a [routerLink]="['/previsione-task', previsioneEvento.idTaskId, 'view']">{{ previsioneEvento.idTaskId }}</a>
+                    <div *ngIf="previsioneEvento.idTaskRefId">
+                        <a [routerLink]="['/previsione-task', previsioneEvento.idTaskRefId, 'view']">{{ previsioneEvento.idTaskRefId }}</a>
                     </div>
                 </dd>
             </dl>

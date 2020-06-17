@@ -23,6 +23,7 @@ describe('Service Tests', () => {
       elemDefault = new Invito(
         0,
         0,
+        0,
         'AAAAAAA',
         0,
         'AAAAAAA',
@@ -72,14 +73,15 @@ describe('Service Tests', () => {
       it('should update a Invito', () => {
         const returnedFromService = Object.assign(
           {
-            idStudioProfessionale: 1,
+            idInvito: 1,
+            idStudioProfessionaleRef: 1,
             dataInvito: 'BBBBBB',
             idUserInvitante: 1,
             nomeUserInvitante: 'BBBBBB',
             dataScadenzaInvito: 'BBBBBB',
             testoInvito: 'BBBBBB',
-            idPratica: 1,
-            idAttivita: 1,
+            idPraticaRef: 1,
+            idTaskRef: 1,
             luogoFisico: 'BBBBBB',
             indicazioniLuogo: 'BBBBBB',
             dataInizio: 'BBBBBB',
@@ -104,14 +106,15 @@ describe('Service Tests', () => {
       it('should return a list of Invito', () => {
         const returnedFromService = Object.assign(
           {
-            idStudioProfessionale: 1,
+            idInvito: 1,
+            idStudioProfessionaleRef: 1,
             dataInvito: 'BBBBBB',
             idUserInvitante: 1,
             nomeUserInvitante: 'BBBBBB',
             dataScadenzaInvito: 'BBBBBB',
             testoInvito: 'BBBBBB',
-            idPratica: 1,
-            idAttivita: 1,
+            idPraticaRef: 1,
+            idTaskRef: 1,
             luogoFisico: 'BBBBBB',
             indicazioniLuogo: 'BBBBBB',
             dataInizio: 'BBBBBB',

@@ -29,7 +29,8 @@ export class PraticaUpdatePage {
   saveButton = element(by.id('save-entity'));
   cancelButton = element(by.id('cancel-save'));
 
-  idStudioInput = element(by.id('field_idStudio'));
+  idPraticaInput = element(by.id('field_idPratica'));
+  idStudioProfessionaleRefInput = element(by.id('field_idStudioProfessionaleRef'));
   numeroInput = element(by.id('field_numero'));
   nomeInput = element(by.id('field_nome'));
   dataAperturaInput = element(by.id('field_dataApertura'));
@@ -41,20 +42,28 @@ export class PraticaUpdatePage {
   prcAvanzatoInput = element(by.id('field_prcAvanzato'));
   versionInput = element(by.id('field_version'));
   valutaInput = element(by.id('field_valuta'));
-  idTemplatePraticaInput = element(by.id('field_idTemplatePratica'));
+  idTemplatePraticaRefInput = element(by.id('field_idTemplatePraticaRef'));
 
-  idTemplateSelect = element(by.id('field_idTemplate'));
+  idTemplatePraticaRefSelect = element(by.id('field_idTemplatePraticaRef'));
 
   async getPageTitle(): Promise<string> {
     return this.pageTitle.getAttribute('jhiTranslate');
   }
 
-  async setIdStudioInput(idStudio: string): Promise<void> {
-    await this.idStudioInput.sendKeys(idStudio);
+  async setIdPraticaInput(idPratica: string): Promise<void> {
+    await this.idPraticaInput.sendKeys(idPratica);
   }
 
-  async getIdStudioInput(): Promise<string> {
-    return await this.idStudioInput.getAttribute('value');
+  async getIdPraticaInput(): Promise<string> {
+    return await this.idPraticaInput.getAttribute('value');
+  }
+
+  async setIdStudioProfessionaleRefInput(idStudioProfessionaleRef: string): Promise<void> {
+    await this.idStudioProfessionaleRefInput.sendKeys(idStudioProfessionaleRef);
+  }
+
+  async getIdStudioProfessionaleRefInput(): Promise<string> {
+    return await this.idStudioProfessionaleRefInput.getAttribute('value');
   }
 
   async setNumeroInput(numero: string): Promise<void> {
@@ -145,28 +154,28 @@ export class PraticaUpdatePage {
     return await this.valutaInput.getAttribute('value');
   }
 
-  async setIdTemplatePraticaInput(idTemplatePratica: string): Promise<void> {
-    await this.idTemplatePraticaInput.sendKeys(idTemplatePratica);
+  async setIdTemplatePraticaRefInput(idTemplatePraticaRef: string): Promise<void> {
+    await this.idTemplatePraticaRefInput.sendKeys(idTemplatePraticaRef);
   }
 
-  async getIdTemplatePraticaInput(): Promise<string> {
-    return await this.idTemplatePraticaInput.getAttribute('value');
+  async getIdTemplatePraticaRefInput(): Promise<string> {
+    return await this.idTemplatePraticaRefInput.getAttribute('value');
   }
 
-  async idTemplateSelectLastOption(): Promise<void> {
-    await this.idTemplateSelect.all(by.tagName('option')).last().click();
+  async idTemplatePraticaRefSelectLastOption(): Promise<void> {
+    await this.idTemplatePraticaRefSelect.all(by.tagName('option')).last().click();
   }
 
-  async idTemplateSelectOption(option: string): Promise<void> {
-    await this.idTemplateSelect.sendKeys(option);
+  async idTemplatePraticaRefSelectOption(option: string): Promise<void> {
+    await this.idTemplatePraticaRefSelect.sendKeys(option);
   }
 
-  getIdTemplateSelect(): ElementFinder {
-    return this.idTemplateSelect;
+  getIdTemplatePraticaRefSelect(): ElementFinder {
+    return this.idTemplatePraticaRefSelect;
   }
 
-  async getIdTemplateSelectedOption(): Promise<string> {
-    return await this.idTemplateSelect.element(by.css('option:checked')).getText();
+  async getIdTemplatePraticaRefSelectedOption(): Promise<string> {
+    return await this.idTemplatePraticaRefSelect.element(by.css('option:checked')).getText();
   }
 
   async save(): Promise<void> {

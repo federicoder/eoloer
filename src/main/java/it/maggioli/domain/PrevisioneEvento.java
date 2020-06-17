@@ -29,8 +29,8 @@ public class PrevisioneEvento implements Serializable {
 
     @NotNull
     @Max(value = 8)
-    @Column(name = "id_task", nullable = false)
-    private Integer idTask;
+    @Column(name = "id_task_ref", nullable = false)
+    private Integer idTaskRef;
 
     @Column(name = "data_inizio")
     private String dataInizio;
@@ -49,11 +49,11 @@ public class PrevisioneEvento implements Serializable {
 
     @OneToOne
     @JoinColumn(unique = true)
-    private PrevisioneTask idTask;
+    private PrevisioneTask idTaskRef;
 
     @OneToMany(mappedBy = "previsioneEvento")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<InvitoEvento> idTasks = new HashSet<>();
+    private Set<InvitoEvento> idTaskRefs = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -64,17 +64,17 @@ public class PrevisioneEvento implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdTask() {
-        return idTask;
+    public Integer getIdTaskRef() {
+        return idTaskRef;
     }
 
-    public PrevisioneEvento idTask(Integer idTask) {
-        this.idTask = idTask;
+    public PrevisioneEvento idTaskRef(Integer idTaskRef) {
+        this.idTaskRef = idTaskRef;
         return this;
     }
 
-    public void setIdTask(Integer idTask) {
-        this.idTask = idTask;
+    public void setIdTaskRef(Integer idTaskRef) {
+        this.idTaskRef = idTaskRef;
     }
 
     public String getDataInizio() {
@@ -142,42 +142,42 @@ public class PrevisioneEvento implements Serializable {
         this.version = version;
     }
 
-    public PrevisioneTask getIdTask() {
-        return idTask;
+    public PrevisioneTask getIdTaskRef() {
+        return idTaskRef;
     }
 
-    public PrevisioneEvento idTask(PrevisioneTask previsioneTask) {
-        this.idTask = previsioneTask;
+    public PrevisioneEvento idTaskRef(PrevisioneTask previsioneTask) {
+        this.idTaskRef = previsioneTask;
         return this;
     }
 
-    public void setIdTask(PrevisioneTask previsioneTask) {
-        this.idTask = previsioneTask;
+    public void setIdTaskRef(PrevisioneTask previsioneTask) {
+        this.idTaskRef = previsioneTask;
     }
 
-    public Set<InvitoEvento> getIdTasks() {
-        return idTasks;
+    public Set<InvitoEvento> getIdTaskRefs() {
+        return idTaskRefs;
     }
 
-    public PrevisioneEvento idTasks(Set<InvitoEvento> invitoEventos) {
-        this.idTasks = invitoEventos;
+    public PrevisioneEvento idTaskRefs(Set<InvitoEvento> invitoEventos) {
+        this.idTaskRefs = invitoEventos;
         return this;
     }
 
-    public PrevisioneEvento addIdTask(InvitoEvento invitoEvento) {
-        this.idTasks.add(invitoEvento);
+    public PrevisioneEvento addIdTaskRef(InvitoEvento invitoEvento) {
+        this.idTaskRefs.add(invitoEvento);
         invitoEvento.setPrevisioneEvento(this);
         return this;
     }
 
-    public PrevisioneEvento removeIdTask(InvitoEvento invitoEvento) {
-        this.idTasks.remove(invitoEvento);
+    public PrevisioneEvento removeIdTaskRef(InvitoEvento invitoEvento) {
+        this.idTaskRefs.remove(invitoEvento);
         invitoEvento.setPrevisioneEvento(null);
         return this;
     }
 
-    public void setIdTasks(Set<InvitoEvento> invitoEventos) {
-        this.idTasks = invitoEventos;
+    public void setIdTaskRefs(Set<InvitoEvento> invitoEventos) {
+        this.idTaskRefs = invitoEventos;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 
@@ -202,7 +202,7 @@ public class PrevisioneEvento implements Serializable {
     public String toString() {
         return "PrevisioneEvento{" +
             "id=" + getId() +
-            ", idTask=" + getIdTask() +
+            ", idTaskRef=" + getIdTaskRef() +
             ", dataInizio='" + getDataInizio() + "'" +
             ", dataFine='" + getDataFine() + "'" +
             ", luogo='" + getLuogo() + "'" +

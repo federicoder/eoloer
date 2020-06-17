@@ -15,7 +15,7 @@
             <column name="id" type="bigint">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="id_persona" type="integer">
+            <column name="id_persona_ref" type="integer">
                 <constraints nullable="false" />
             </column>
             <column name="indirizzo" type="varchar(255)">
@@ -59,7 +59,7 @@
                   separator=";"
                   tableName="indirizzo_persona">
             <column name="id" type="numeric"/>
-            <column name="id_persona" type="numeric"/>
+            <column name="id_persona_ref" type="numeric"/>
             <column name="indirizzo" type="string"/>
             <column name="comune" type="string"/>
             <column name="cap" type="numeric"/>

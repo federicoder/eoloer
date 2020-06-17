@@ -41,31 +41,33 @@ describe('Task e2e test', () => {
     await taskComponentsPage.clickOnCreateButton();
 
     await promise.all([
-      taskUpdatePage.setIdPraticaInput('5'),
+      taskUpdatePage.setIdTaskInput('5'),
+      taskUpdatePage.setIdPraticaRefInput('5'),
       taskUpdatePage.setNomeInput('nome'),
       taskUpdatePage.setStatoInput('5'),
       taskUpdatePage.setPrioritarioInput('5'),
       taskUpdatePage.setPubblicoInput('5'),
       taskUpdatePage.setVersionInput('version'),
-      taskUpdatePage.setCondivisionePraticaIdInput('5'),
-      taskUpdatePage.setAssegnazioneTaskIdInput('5'),
-      taskUpdatePage.setInvitoIdInput('5'),
-      taskUpdatePage.idSelectLastOption(),
-      taskUpdatePage.idSelectLastOption(),
-      taskUpdatePage.idSelectLastOption(),
-      taskUpdatePage.idSelectLastOption(),
+      taskUpdatePage.setIdCondivisionePraticaRefInput('5'),
+      taskUpdatePage.setIdAssegnazioneTaskRefInput('5'),
+      taskUpdatePage.setIdInvitoRefInput('5'),
+      taskUpdatePage.idTaskSelectLastOption(),
+      taskUpdatePage.idTaskSelectLastOption(),
+      taskUpdatePage.idTaskSelectLastOption(),
+      taskUpdatePage.idTaskSelectLastOption(),
       taskUpdatePage.praticaSelectLastOption(),
     ]);
 
-    expect(await taskUpdatePage.getIdPraticaInput()).to.eq('5', 'Expected idPratica value to be equals to 5');
+    expect(await taskUpdatePage.getIdTaskInput()).to.eq('5', 'Expected idTask value to be equals to 5');
+    expect(await taskUpdatePage.getIdPraticaRefInput()).to.eq('5', 'Expected idPraticaRef value to be equals to 5');
     expect(await taskUpdatePage.getNomeInput()).to.eq('nome', 'Expected Nome value to be equals to nome');
     expect(await taskUpdatePage.getStatoInput()).to.eq('5', 'Expected stato value to be equals to 5');
     expect(await taskUpdatePage.getPrioritarioInput()).to.eq('5', 'Expected prioritario value to be equals to 5');
     expect(await taskUpdatePage.getPubblicoInput()).to.eq('5', 'Expected pubblico value to be equals to 5');
     expect(await taskUpdatePage.getVersionInput()).to.eq('version', 'Expected Version value to be equals to version');
-    expect(await taskUpdatePage.getCondivisionePraticaIdInput()).to.eq('5', 'Expected condivisionePraticaId value to be equals to 5');
-    expect(await taskUpdatePage.getAssegnazioneTaskIdInput()).to.eq('5', 'Expected assegnazioneTaskId value to be equals to 5');
-    expect(await taskUpdatePage.getInvitoIdInput()).to.eq('5', 'Expected invitoId value to be equals to 5');
+    expect(await taskUpdatePage.getIdCondivisionePraticaRefInput()).to.eq('5', 'Expected idCondivisionePraticaRef value to be equals to 5');
+    expect(await taskUpdatePage.getIdAssegnazioneTaskRefInput()).to.eq('5', 'Expected idAssegnazioneTaskRef value to be equals to 5');
+    expect(await taskUpdatePage.getIdInvitoRefInput()).to.eq('5', 'Expected idInvitoRef value to be equals to 5');
 
     await taskUpdatePage.save();
     expect(await taskUpdatePage.getSaveButton().isPresent(), 'Expected save button disappear').to.be.false;

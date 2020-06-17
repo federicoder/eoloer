@@ -2,7 +2,7 @@
   "name": "InvitoPratica",
   "fields": [
     {
-      "fieldName": "idPratica",
+      "fieldName": "idPraticaRef",
       "fieldType": "Integer"
     }
   ],
@@ -10,15 +10,15 @@
     {
       "relationshipType": "one-to-one",
       "otherEntityName": "invito",
-      "otherEntityRelationshipName": "id",
-      "relationshipName": "idPratica",
+      "otherEntityRelationshipName": "idInvito",
+      "relationshipName": "idPraticaRef",
       "otherEntityField": "id",
       "ownerSide": true
     },
     {
       "relationshipType": "many-to-one",
       "otherEntityName": "pratica",
-      "otherEntityRelationshipName": "id",
+      "otherEntityRelationshipName": "idPratica",
       "relationshipName": "pratica",
       "otherEntityField": "id"
     }

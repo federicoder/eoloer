@@ -2,18 +2,18 @@ import { ITemplateTask } from 'app/shared/model/template-task.model';
 
 export interface ITemplatePratica {
   id?: number;
-  idTemplate?: number;
+  idTemplatePratica?: number;
   nomeTemplate?: number;
   elencoTagAmbito?: number;
-  idTemplates?: ITemplateTask[];
+  idTemplatePraticas?: ITemplateTask[];
 }
 
 export class TemplatePratica implements ITemplatePratica {
   constructor(
     public id?: number,
-    public idTemplate?: number,
+    public idTemplatePratica?: number,
     public nomeTemplate?: number,
     public elencoTagAmbito?: number,
-    public idTemplates?: ITemplateTask[]
+    public idTemplatePraticas?: ITemplateTask[]
   ) {}
 }

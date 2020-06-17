@@ -45,23 +45,23 @@ public class TemplateTask implements Serializable {
     @Column(name = "pub_priv")
     private Integer pubPriv;
 
-    @Column(name = "id_template_pratica")
-    private Integer idTemplatePratica;
+    @Column(name = "id_template_pratica_ref")
+    private Integer idTemplatePraticaRef;
 
     @OneToMany(mappedBy = "templateTask")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<TemplateTask> idTemplates = new HashSet<>();
+    private Set<TemplateTask> idTemplateTasks = new HashSet<>();
 
     @OneToMany(mappedBy = "templateTask")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     private Set<AllegatoTemplateTask> idTemplateTasks = new HashSet<>();
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "idTemplates", allowSetters = true)
+    @JsonIgnoreProperties(value = "idTemplatePraticas", allowSetters = true)
     private TemplatePratica templatePratica;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "idTemplates", allowSetters = true)
+    @JsonIgnoreProperties(value = "idTemplateTasks", allowSetters = true)
     private TemplateTask templateTask;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
@@ -138,42 +138,42 @@ public class TemplateTask implements Serializable {
         this.pubPriv = pubPriv;
     }
 
-    public Integer getIdTemplatePratica() {
-        return idTemplatePratica;
+    public Integer getIdTemplatePraticaRef() {
+        return idTemplatePraticaRef;
     }
 
-    public TemplateTask idTemplatePratica(Integer idTemplatePratica) {
-        this.idTemplatePratica = idTemplatePratica;
+    public TemplateTask idTemplatePraticaRef(Integer idTemplatePraticaRef) {
+        this.idTemplatePraticaRef = idTemplatePraticaRef;
         return this;
     }
 
-    public void setIdTemplatePratica(Integer idTemplatePratica) {
-        this.idTemplatePratica = idTemplatePratica;
+    public void setIdTemplatePraticaRef(Integer idTemplatePraticaRef) {
+        this.idTemplatePraticaRef = idTemplatePraticaRef;
     }
 
-    public Set<TemplateTask> getIdTemplates() {
-        return idTemplates;
+    public Set<TemplateTask> getIdTemplateTasks() {
+        return idTemplateTasks;
     }
 
-    public TemplateTask idTemplates(Set<TemplateTask> templateTasks) {
-        this.idTemplates = templateTasks;
+    public TemplateTask idTemplateTasks(Set<TemplateTask> templateTasks) {
+        this.idTemplateTasks = templateTasks;
         return this;
     }
 
-    public TemplateTask addIdTemplate(TemplateTask templateTask) {
-        this.idTemplates.add(templateTask);
+    public TemplateTask addIdTemplateTask(TemplateTask templateTask) {
+        this.idTemplateTasks.add(templateTask);
         templateTask.setTemplateTask(this);
         return this;
     }
 
-    public TemplateTask removeIdTemplate(TemplateTask templateTask) {
-        this.idTemplates.remove(templateTask);
+    public TemplateTask removeIdTemplateTask(TemplateTask templateTask) {
+        this.idTemplateTasks.remove(templateTask);
         templateTask.setTemplateTask(null);
         return this;
     }
 
-    public void setIdTemplates(Set<TemplateTask> templateTasks) {
-        this.idTemplates = templateTasks;
+    public void setIdTemplateTasks(Set<TemplateTask> templateTasks) {
+        this.idTemplateTasks = templateTasks;
     }
 
     public Set<AllegatoTemplateTask> getIdTemplateTasks() {
@@ -254,7 +254,7 @@ public class TemplateTask implements Serializable {
             ", nome=" + getNome() +
             ", note=" + getNote() +
             ", pubPriv=" + getPubPriv() +
-            ", idTemplatePratica=" + getIdTemplatePratica() +
+            ", idTemplatePraticaRef=" + getIdTemplatePraticaRef() +
             "}";
     }
 }

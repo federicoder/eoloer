@@ -29,10 +29,10 @@ export class AllegatoTemplateTaskUpdatePage {
   saveButton = element(by.id('save-entity'));
   cancelButton = element(by.id('cancel-save'));
 
-  idTemplateTaskInput = element(by.id('field_idTemplateTask'));
-  tipoAllegatoInput = element(by.id('field_tipoAllegato'));
+  idTemplateTaskRefInput = element(by.id('field_idTemplateTaskRef'));
+  idTipoAllegatoRefInput = element(by.id('field_idTipoAllegatoRef'));
   formatoInput = element(by.id('field_formato'));
-  idFileInput = element(by.id('field_idFile'));
+  idFileRefInput = element(by.id('field_idFileRef'));
   pubPrivInput = element(by.id('field_pubPriv'));
 
   templateTaskSelect = element(by.id('field_templateTask'));
@@ -42,20 +42,20 @@ export class AllegatoTemplateTaskUpdatePage {
     return this.pageTitle.getAttribute('jhiTranslate');
   }
 
-  async setIdTemplateTaskInput(idTemplateTask: string): Promise<void> {
-    await this.idTemplateTaskInput.sendKeys(idTemplateTask);
+  async setIdTemplateTaskRefInput(idTemplateTaskRef: string): Promise<void> {
+    await this.idTemplateTaskRefInput.sendKeys(idTemplateTaskRef);
   }
 
-  async getIdTemplateTaskInput(): Promise<string> {
-    return await this.idTemplateTaskInput.getAttribute('value');
+  async getIdTemplateTaskRefInput(): Promise<string> {
+    return await this.idTemplateTaskRefInput.getAttribute('value');
   }
 
-  async setTipoAllegatoInput(tipoAllegato: string): Promise<void> {
-    await this.tipoAllegatoInput.sendKeys(tipoAllegato);
+  async setIdTipoAllegatoRefInput(idTipoAllegatoRef: string): Promise<void> {
+    await this.idTipoAllegatoRefInput.sendKeys(idTipoAllegatoRef);
   }
 
-  async getTipoAllegatoInput(): Promise<string> {
-    return await this.tipoAllegatoInput.getAttribute('value');
+  async getIdTipoAllegatoRefInput(): Promise<string> {
+    return await this.idTipoAllegatoRefInput.getAttribute('value');
   }
 
   async setFormatoInput(formato: string): Promise<void> {
@@ -66,12 +66,12 @@ export class AllegatoTemplateTaskUpdatePage {
     return await this.formatoInput.getAttribute('value');
   }
 
-  async setIdFileInput(idFile: string): Promise<void> {
-    await this.idFileInput.sendKeys(idFile);
+  async setIdFileRefInput(idFileRef: string): Promise<void> {
+    await this.idFileRefInput.sendKeys(idFileRef);
   }
 
-  async getIdFileInput(): Promise<string> {
-    return await this.idFileInput.getAttribute('value');
+  async getIdFileRefInput(): Promise<string> {
+    return await this.idFileRefInput.getAttribute('value');
   }
 
   async setPubPrivInput(pubPriv: string): Promise<void> {

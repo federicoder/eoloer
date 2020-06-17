@@ -41,6 +41,7 @@
             <thead>
                 <tr>
                     <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.studioProfessionale.idStudioProfessionale">Id Studio Professionale</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.studioProfessionale.idUserAmministratore">Id User Amministratore</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.studioProfessionale.persona">Persona</span></th>
                     <th scope="col"></th>
@@ -49,6 +50,7 @@
             <tbody>
                 <tr *ngFor="let studioProfessionale of studioProfessionales ;trackBy: trackId">
                     <td><a [routerLink]="['/studio-professionale', studioProfessionale.id, 'view']">{{ studioProfessionale.id }}</a></td>
+                    <td>{{ studioProfessionale.idStudioProfessionale }}</td>
                     <td>{{ studioProfessionale.idUserAmministratore }}</td>
                     <td>
                         <div *ngIf="studioProfessionale.personaId">

@@ -10,8 +10,11 @@ public class InvitatoDTO implements Serializable {
     
     private Long id;
 
+    @NotNull
+    private Integer idInvitato;
+
     @Max(value = 8)
-    private Integer idInvito;
+    private Integer idInvitoRef;
 
     private String tokenInvito;
 
@@ -46,12 +49,20 @@ public class InvitatoDTO implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdInvito() {
-        return idInvito;
+    public Integer getIdInvitato() {
+        return idInvitato;
     }
 
-    public void setIdInvito(Integer idInvito) {
-        this.idInvito = idInvito;
+    public void setIdInvitato(Integer idInvitato) {
+        this.idInvitato = idInvitato;
+    }
+
+    public Integer getIdInvitoRef() {
+        return idInvitoRef;
+    }
+
+    public void setIdInvitoRef(Integer idInvitoRef) {
+        this.idInvitoRef = idInvitoRef;
     }
 
     public String getTokenInvito() {
@@ -172,7 +183,8 @@ public class InvitatoDTO implements Serializable {
     public String toString() {
         return "InvitatoDTO{" +
             "id=" + getId() +
-            ", idInvito=" + getIdInvito() +
+            ", idInvitato=" + getIdInvitato() +
+            ", idInvitoRef=" + getIdInvitoRef() +
             ", tokenInvito='" + getTokenInvito() + "'" +
             ", canalePrimarioInvito=" + getCanalePrimarioInvito() +
             ", canaleBackupInvito=" + getCanaleBackupInvito() +

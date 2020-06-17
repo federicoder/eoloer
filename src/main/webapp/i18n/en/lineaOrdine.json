@@ -17,12 +17,12 @@
       "detail": {
         "title": "Linea Ordine"
       },
-      "idOrdine": "Id Ordine",
-      "idProdotto": "Id Prodotto",
+      "idOrdineRef": "Id Ordine Ref",
+      "idProdottoRef": "Id Prodotto Ref",
       "quantita": "Quantita",
       "importo": "Importo",
       "codIva": "Cod Iva",
-      "idProdotto": "Id Prodotto",
+      "idProdottoRef": "Id Prodotto Ref",
       "ordine": "Ordine"
     }
   }

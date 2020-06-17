@@ -29,14 +29,15 @@ export class InvitoUpdatePage {
   saveButton = element(by.id('save-entity'));
   cancelButton = element(by.id('cancel-save'));
 
-  idStudioProfessionaleInput = element(by.id('field_idStudioProfessionale'));
+  idInvitoInput = element(by.id('field_idInvito'));
+  idStudioProfessionaleRefInput = element(by.id('field_idStudioProfessionaleRef'));
   dataInvitoInput = element(by.id('field_dataInvito'));
   idUserInvitanteInput = element(by.id('field_idUserInvitante'));
   nomeUserInvitanteInput = element(by.id('field_nomeUserInvitante'));
   dataScadenzaInvitoInput = element(by.id('field_dataScadenzaInvito'));
   testoInvitoInput = element(by.id('field_testoInvito'));
-  idPraticaInput = element(by.id('field_idPratica'));
-  idAttivitaInput = element(by.id('field_idAttivita'));
+  idPraticaRefInput = element(by.id('field_idPraticaRef'));
+  idTaskRefInput = element(by.id('field_idTaskRef'));
   luogoFisicoInput = element(by.id('field_luogoFisico'));
   indicazioniLuogoInput = element(by.id('field_indicazioniLuogo'));
   dataInizioInput = element(by.id('field_dataInizio'));
@@ -46,19 +47,27 @@ export class InvitoUpdatePage {
   urlStanzaVirtualeInput = element(by.id('field_urlStanzaVirtuale'));
   discriminatorInput = element(by.id('field_discriminator'));
 
-  idStudioProfessionaleSelect = element(by.id('field_idStudioProfessionale'));
+  idStudioProfessionaleRefSelect = element(by.id('field_idStudioProfessionaleRef'));
   assegnazioneTaskSelect = element(by.id('field_assegnazioneTask'));
 
   async getPageTitle(): Promise<string> {
     return this.pageTitle.getAttribute('jhiTranslate');
   }
 
-  async setIdStudioProfessionaleInput(idStudioProfessionale: string): Promise<void> {
-    await this.idStudioProfessionaleInput.sendKeys(idStudioProfessionale);
+  async setIdInvitoInput(idInvito: string): Promise<void> {
+    await this.idInvitoInput.sendKeys(idInvito);
   }
 
-  async getIdStudioProfessionaleInput(): Promise<string> {
-    return await this.idStudioProfessionaleInput.getAttribute('value');
+  async getIdInvitoInput(): Promise<string> {
+    return await this.idInvitoInput.getAttribute('value');
+  }
+
+  async setIdStudioProfessionaleRefInput(idStudioProfessionaleRef: string): Promise<void> {
+    await this.idStudioProfessionaleRefInput.sendKeys(idStudioProfessionaleRef);
+  }
+
+  async getIdStudioProfessionaleRefInput(): Promise<string> {
+    return await this.idStudioProfessionaleRefInput.getAttribute('value');
   }
 
   async setDataInvitoInput(dataInvito: string): Promise<void> {
@@ -101,20 +110,20 @@ export class InvitoUpdatePage {
     return await this.testoInvitoInput.getAttribute('value');
   }
 
-  async setIdPraticaInput(idPratica: string): Promise<void> {
-    await this.idPraticaInput.sendKeys(idPratica);
+  async setIdPraticaRefInput(idPraticaRef: string): Promise<void> {
+    await this.idPraticaRefInput.sendKeys(idPraticaRef);
   }
 
-  async getIdPraticaInput(): Promise<string> {
-    return await this.idPraticaInput.getAttribute('value');
+  async getIdPraticaRefInput(): Promise<string> {
+    return await this.idPraticaRefInput.getAttribute('value');
   }
 
-  async setIdAttivitaInput(idAttivita: string): Promise<void> {
-    await this.idAttivitaInput.sendKeys(idAttivita);
+  async setIdTaskRefInput(idTaskRef: string): Promise<void> {
+    await this.idTaskRefInput.sendKeys(idTaskRef);
   }
 
-  async getIdAttivitaInput(): Promise<string> {
-    return await this.idAttivitaInput.getAttribute('value');
+  async getIdTaskRefInput(): Promise<string> {
+    return await this.idTaskRefInput.getAttribute('value');
   }
 
   async setLuogoFisicoInput(luogoFisico: string): Promise<void> {
@@ -181,20 +190,20 @@ export class InvitoUpdatePage {
     return await this.discriminatorInput.getAttribute('value');
   }
 
-  async idStudioProfessionaleSelectLastOption(): Promise<void> {
-    await this.idStudioProfessionaleSelect.all(by.tagName('option')).last().click();
+  async idStudioProfessionaleRefSelectLastOption(): Promise<void> {
+    await this.idStudioProfessionaleRefSelect.all(by.tagName('option')).last().click();
   }
 
-  async idStudioProfessionaleSelectOption(option: string): Promise<void> {
-    await this.idStudioProfessionaleSelect.sendKeys(option);
+  async idStudioProfessionaleRefSelectOption(option: string): Promise<void> {
+    await this.idStudioProfessionaleRefSelect.sendKeys(option);
   }
 
-  getIdStudioProfessionaleSelect(): ElementFinder {
-    return this.idStudioProfessionaleSelect;
+  getIdStudioProfessionaleRefSelect(): ElementFinder {
+    return this.idStudioProfessionaleRefSelect;
   }
 
-  async getIdStudioProfessionaleSelectedOption(): Promise<string> {
-    return await this.idStudioProfessionaleSelect.element(by.css('option:checked')).getText();
+  async getIdStudioProfessionaleRefSelectedOption(): Promise<string> {
+    return await this.idStudioProfessionaleRefSelect.element(by.css('option:checked')).getText();
   }
 
   async assegnazioneTaskSelectLastOption(): Promise<void> {

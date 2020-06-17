@@ -12,16 +12,32 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="eoloprjApp.pratica.idStudio" for="field_idStudio">Id Studio</label>
-                    <input type="number" class="form-control" name="idStudio" id="field_idStudio"
-                           formControlName="idStudio"/>
-                    <div *ngIf="editForm.get('idStudio')!.invalid && (editForm.get('idStudio')!.dirty || editForm.get('idStudio')!.touched)">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.pratica.idPratica" for="field_idPratica">Id Pratica</label>
+                    <input type="number" class="form-control" name="idPratica" id="field_idPratica"
+                           formControlName="idPratica"/>
+                    <div *ngIf="editForm.get('idPratica')!.invalid && (editForm.get('idPratica')!.dirty || editForm.get('idPratica')!.touched)">
                         <small class="form-text text-danger"
-                               *ngIf="editForm.get('idStudio')?.errors?.max" jhiTranslate="entity.validation.max" [translateValues]="{ max: 8 }">
+                               *ngIf="editForm.get('idPratica')?.errors?.max" jhiTranslate="entity.validation.max" [translateValues]="{ max: 8 }">
                             This field cannot be more than 8.
                         </small>
                         <small class="form-text text-danger"
-                            [hidden]="!editForm.get('idStudio')?.errors?.number" jhiTranslate="entity.validation.number">
+                            [hidden]="!editForm.get('idPratica')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.pratica.idStudioProfessionaleRef" for="field_idStudioProfessionaleRef">Id Studio Professionale Ref</label>
+                    <input type="number" class="form-control" name="idStudioProfessionaleRef" id="field_idStudioProfessionaleRef"
+                           formControlName="idStudioProfessionaleRef"/>
+                    <div *ngIf="editForm.get('idStudioProfessionaleRef')!.invalid && (editForm.get('idStudioProfessionaleRef')!.dirty || editForm.get('idStudioProfessionaleRef')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('idStudioProfessionaleRef')?.errors?.max" jhiTranslate="entity.validation.max" [translateValues]="{ max: 8 }">
+                            This field cannot be more than 8.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('idStudioProfessionaleRef')?.errors?.number" jhiTranslate="entity.validation.number">
                             This field should be a number.
                         </small>
                     </div>
@@ -104,14 +120,14 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="eoloprjApp.pratica.idTemplatePratica" for="field_idTemplatePratica">Id Template Pratica</label>
-                    <input type="number" class="form-control" name="idTemplatePratica" id="field_idTemplatePratica"
-                           formControlName="idTemplatePratica"/>
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.pratica.idTemplatePraticaRef" for="field_idTemplatePraticaRef">Id Template Pratica Ref</label>
+                    <input type="number" class="form-control" name="idTemplatePraticaRef" id="field_idTemplatePraticaRef"
+                           formControlName="idTemplatePraticaRef"/>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="eoloprjApp.pratica.idTemplate" for="field_idTemplate">Id Template</label>
-                    <select class="form-control" id="field_idTemplate" name="idTemplate" formControlName="idTemplateId">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.pratica.idTemplatePraticaRef" for="field_idTemplatePraticaRef">Id Template Pratica Ref</label>
+                    <select class="form-control" id="field_idTemplatePraticaRef" name="idTemplatePraticaRef" formControlName="idTemplatePraticaRefId">
                         <option [ngValue]="null"></option>
                         <option [ngValue]="templatePraticaOption.id" *ngFor="let templatePraticaOption of templatepraticas; trackBy: trackById">{{ templatePraticaOption.id }}</option>
                     </select>

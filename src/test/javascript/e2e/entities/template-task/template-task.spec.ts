@@ -49,7 +49,7 @@ describe('TemplateTask e2e test', () => {
       templateTaskUpdatePage.setNomeInput('5'),
       templateTaskUpdatePage.setNoteInput('5'),
       templateTaskUpdatePage.setPubPrivInput('5'),
-      templateTaskUpdatePage.setIdTemplatePraticaInput('5'),
+      templateTaskUpdatePage.setIdTemplatePraticaRefInput('5'),
       templateTaskUpdatePage.templatePraticaSelectLastOption(),
       templateTaskUpdatePage.templateTaskSelectLastOption(),
     ]);
@@ -59,7 +59,7 @@ describe('TemplateTask e2e test', () => {
     expect(await templateTaskUpdatePage.getNomeInput()).to.eq('5', 'Expected nome value to be equals to 5');
     expect(await templateTaskUpdatePage.getNoteInput()).to.eq('5', 'Expected note value to be equals to 5');
     expect(await templateTaskUpdatePage.getPubPrivInput()).to.eq('5', 'Expected pubPriv value to be equals to 5');
-    expect(await templateTaskUpdatePage.getIdTemplatePraticaInput()).to.eq('5', 'Expected idTemplatePratica value to be equals to 5');
+    expect(await templateTaskUpdatePage.getIdTemplatePraticaRefInput()).to.eq('5', 'Expected idTemplatePraticaRef value to be equals to 5');
 
     await templateTaskUpdatePage.save();
     expect(await templateTaskUpdatePage.getSaveButton().isPresent(), 'Expected save button disappear').to.be.false;

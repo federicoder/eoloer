@@ -40,8 +40,11 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WithMockUser
 public class NotaTaskResourceIT {
 
-    private static final Integer DEFAULT_ID_TASK = 8;
-    private static final Integer UPDATED_ID_TASK = 7;
+    private static final Integer DEFAULT_ID_NOTA_TASK = 8;
+    private static final Integer UPDATED_ID_NOTA_TASK = 7;
+
+    private static final Integer DEFAULT_ID_TASK_REF = 8;
+    private static final Integer UPDATED_ID_TASK_REF = 7;
 
     private static final String DEFAULT_DATA = "AAAAAAAAAA";
     private static final String UPDATED_DATA = "BBBBBBBBBB";
@@ -85,7 +88,8 @@ public class NotaTaskResourceIT {
      */
     public static NotaTask createEntity(EntityManager em) {
         NotaTask notaTask = new NotaTask()
-            .idTask(DEFAULT_ID_TASK)
+            .idNotaTask(DEFAULT_ID_NOTA_TASK)
+            .idTaskRef(DEFAULT_ID_TASK_REF)
             .data(DEFAULT_DATA)
             .nota(DEFAULT_NOTA)
             .version(DEFAULT_VERSION);
@@ -99,7 +103,8 @@ public class NotaTaskResourceIT {
      */
     public static NotaTask createUpdatedEntity(EntityManager em) {
         NotaTask notaTask = new NotaTask()
-            .idTask(UPDATED_ID_TASK)
+            .idNotaTask(UPDATED_ID_NOTA_TASK)
+            .idTaskRef(UPDATED_ID_TASK_REF)
             .data(UPDATED_DATA)
             .nota(UPDATED_NOTA)
             .version(UPDATED_VERSION);
@@ -126,7 +131,8 @@ public class NotaTaskResourceIT {
         List<NotaTask> notaTaskList = notaTaskRepository.findAll();
         assertThat(notaTaskList).hasSize(databaseSizeBeforeCreate + 1);
         NotaTask testNotaTask = notaTaskList.get(notaTaskList.size() - 1);
-        assertThat(testNotaTask.getIdTask()).isEqualTo(DEFAULT_ID_TASK);
+        assertThat(testNotaTask.getIdNotaTask()).isEqualTo(DEFAULT_ID_NOTA_TASK);
+        assertThat(testNotaTask.getIdTaskRef()).isEqualTo(DEFAULT_ID_TASK_REF);
         assertThat(testNotaTask.getData()).isEqualTo(DEFAULT_DATA);
         assertThat(testNotaTask.getNota()).isEqualTo(DEFAULT_NOTA);
         assertThat(testNotaTask.getVersion()).isEqualTo(DEFAULT_VERSION);
@@ -161,6 +167,26 @@ public class NotaTaskResourceIT {
 
     @Test
     @Transactional
+    public void checkIdNotaTaskIsRequired() throws Exception {
+        int databaseSizeBeforeTest = notaTaskRepository.findAll().size();
+        // set the field null
+        notaTask.setIdNotaTask(null);
+
+        // Create the NotaTask, which fails.
+        NotaTaskDTO notaTaskDTO = notaTaskMapper.toDto(notaTask);
+
+
+        restNotaTaskMockMvc.perform(post("/api/nota-tasks")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(notaTaskDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<NotaTask> notaTaskList = notaTaskRepository.findAll();
+        assertThat(notaTaskList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllNotaTasks() throws Exception {
         // Initialize the database
         notaTaskRepository.saveAndFlush(notaTask);
@@ -170,7 +196,8 @@ public class NotaTaskResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(notaTask.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idTask").value(hasItem(DEFAULT_ID_TASK)))
+            .andExpect(jsonPath("$.[*].idNotaTask").value(hasItem(DEFAULT_ID_NOTA_TASK)))
+            .andExpect(jsonPath("$.[*].idTaskRef").value(hasItem(DEFAULT_ID_TASK_REF)))
             .andExpect(jsonPath("$.[*].data").value(hasItem(DEFAULT_DATA)))
             .andExpect(jsonPath("$.[*].nota").value(hasItem(DEFAULT_NOTA)))
             .andExpect(jsonPath("$.[*].version").value(hasItem(DEFAULT_VERSION)));
@@ -187,7 +214,8 @@ public class NotaTaskResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(notaTask.getId().intValue()))
-            .andExpect(jsonPath("$.idTask").value(DEFAULT_ID_TASK))
+            .andExpect(jsonPath("$.idNotaTask").value(DEFAULT_ID_NOTA_TASK))
+            .andExpect(jsonPath("$.idTaskRef").value(DEFAULT_ID_TASK_REF))
             .andExpect(jsonPath("$.data").value(DEFAULT_DATA))
             .andExpect(jsonPath("$.nota").value(DEFAULT_NOTA))
             .andExpect(jsonPath("$.version").value(DEFAULT_VERSION));
@@ -213,7 +241,8 @@ public class NotaTaskResourceIT {
         // Disconnect from session so that the updates on updatedNotaTask are not directly saved in db
         em.detach(updatedNotaTask);
         updatedNotaTask
-            .idTask(UPDATED_ID_TASK)
+            .idNotaTask(UPDATED_ID_NOTA_TASK)
+            .idTaskRef(UPDATED_ID_TASK_REF)
             .data(UPDATED_DATA)
             .nota(UPDATED_NOTA)
             .version(UPDATED_VERSION);
@@ -228,7 +257,8 @@ public class NotaTaskResourceIT {
         List<NotaTask> notaTaskList = notaTaskRepository.findAll();
         assertThat(notaTaskList).hasSize(databaseSizeBeforeUpdate);
         NotaTask testNotaTask = notaTaskList.get(notaTaskList.size() - 1);
-        assertThat(testNotaTask.getIdTask()).isEqualTo(UPDATED_ID_TASK);
+        assertThat(testNotaTask.getIdNotaTask()).isEqualTo(UPDATED_ID_NOTA_TASK);
+        assertThat(testNotaTask.getIdTaskRef()).isEqualTo(UPDATED_ID_TASK_REF);
         assertThat(testNotaTask.getData()).isEqualTo(UPDATED_DATA);
         assertThat(testNotaTask.getNota()).isEqualTo(UPDATED_NOTA);
         assertThat(testNotaTask.getVersion()).isEqualTo(UPDATED_VERSION);
@@ -294,7 +324,8 @@ public class NotaTaskResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(notaTask.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idTask").value(hasItem(DEFAULT_ID_TASK)))
+            .andExpect(jsonPath("$.[*].idNotaTask").value(hasItem(DEFAULT_ID_NOTA_TASK)))
+            .andExpect(jsonPath("$.[*].idTaskRef").value(hasItem(DEFAULT_ID_TASK_REF)))
             .andExpect(jsonPath("$.[*].data").value(hasItem(DEFAULT_DATA)))
             .andExpect(jsonPath("$.[*].nota").value(hasItem(DEFAULT_NOTA)))
             .andExpect(jsonPath("$.[*].version").value(hasItem(DEFAULT_VERSION)));

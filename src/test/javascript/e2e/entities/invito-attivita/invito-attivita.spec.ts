@@ -43,9 +43,9 @@ describe('InvitoAttivita e2e test', () => {
 
     await invitoAttivitaComponentsPage.clickOnCreateButton();
 
-    await promise.all([invitoAttivitaUpdatePage.setIdAttivitaInput('5'), invitoAttivitaUpdatePage.idAttivitaSelectLastOption()]);
+    await promise.all([invitoAttivitaUpdatePage.setIdTaskRefInput('5'), invitoAttivitaUpdatePage.idTaskRefSelectLastOption()]);
 
-    expect(await invitoAttivitaUpdatePage.getIdAttivitaInput()).to.eq('5', 'Expected idAttivita value to be equals to 5');
+    expect(await invitoAttivitaUpdatePage.getIdTaskRefInput()).to.eq('5', 'Expected idTaskRef value to be equals to 5');
 
     await invitoAttivitaUpdatePage.save();
     expect(await invitoAttivitaUpdatePage.getSaveButton().isPresent(), 'Expected save button disappear').to.be.false;

@@ -48,15 +48,15 @@ describe('PrevisioneAttivita e2e test', () => {
     await previsioneAttivitaComponentsPage.clickOnCreateButton();
 
     await promise.all([
-      previsioneAttivitaUpdatePage.setIdTaskInput('5'),
+      previsioneAttivitaUpdatePage.setIdTaskRefInput('5'),
       previsioneAttivitaUpdatePage.setDataPianificataInput('dataPianificata'),
       previsioneAttivitaUpdatePage.setOraPianificataInput('oraPianificata'),
       previsioneAttivitaUpdatePage.setDataScadenzaInput('dataScadenza'),
       previsioneAttivitaUpdatePage.setVersionInput('version'),
-      previsioneAttivitaUpdatePage.idTaskSelectLastOption(),
+      previsioneAttivitaUpdatePage.idTaskRefSelectLastOption(),
     ]);
 
-    expect(await previsioneAttivitaUpdatePage.getIdTaskInput()).to.eq('5', 'Expected idTask value to be equals to 5');
+    expect(await previsioneAttivitaUpdatePage.getIdTaskRefInput()).to.eq('5', 'Expected idTaskRef value to be equals to 5');
     expect(await previsioneAttivitaUpdatePage.getDataPianificataInput()).to.eq(
       'dataPianificata',
       'Expected DataPianificata value to be equals to dataPianificata'

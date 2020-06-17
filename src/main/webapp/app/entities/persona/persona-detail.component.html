@@ -8,9 +8,13 @@
             <jhi-alert-error></jhi-alert-error>
 
             <dl class="row-md jh-entity-details">
-                <dt><span jhiTranslate="eoloprjApp.persona.idStudio">Id Studio</span></dt>
+                <dt><span jhiTranslate="eoloprjApp.persona.idPersona">Id Persona</span></dt>
                 <dd>
-                    <span>{{ persona.idStudio }}</span>
+                    <span>{{ persona.idPersona }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.persona.idStudioProfessionaleRef">Id Studio Professionale Ref</span></dt>
+                <dd>
+                    <span>{{ persona.idStudioProfessionaleRef }}</span>
                 </dd>
                 <dt><span jhiTranslate="eoloprjApp.persona.codiceFiscale">Codice Fiscale</span></dt>
                 <dd>
@@ -52,18 +56,18 @@
                 <dd>
                     <span>{{ persona.discriminator }}</span>
                 </dd>
-                <dt><span jhiTranslate="eoloprjApp.persona.idRuoloPersona">Id Ruolo Persona</span></dt>
+                <dt><span jhiTranslate="eoloprjApp.persona.idRuoloPersonaRef">Id Ruolo Persona Ref</span></dt>
                 <dd>
-                    <span>{{ persona.idRuoloPersona }}</span>
+                    <span>{{ persona.idRuoloPersonaRef }}</span>
                 </dd>
                 <dt><span jhiTranslate="eoloprjApp.persona.tipoRuoloUtente">Tipo Ruolo Utente</span></dt>
                 <dd>
                     <span>{{ persona.tipoRuoloUtente }}</span>
                 </dd>
-                <dt><span jhiTranslate="eoloprjApp.persona.id">Id</span></dt>
+                <dt><span jhiTranslate="eoloprjApp.persona.idPersona">Id Persona</span></dt>
                 <dd>
-                    <div *ngIf="persona.idId">
-                        <a [routerLink]="['/indirizzo-persona', persona.idId, 'view']">{{ persona.idId }}</a>
+                    <div *ngIf="persona.idPersonaId">
+                        <a [routerLink]="['/indirizzo-persona', persona.idPersonaId, 'view']">{{ persona.idPersonaId }}</a>
                     </div>
                 </dd>
             </dl>

@@ -29,7 +29,8 @@ export class OrdineUpdatePage {
   saveButton = element(by.id('save-entity'));
   cancelButton = element(by.id('cancel-save'));
 
-  idStudioProfessionaleInput = element(by.id('field_idStudioProfessionale'));
+  idOrdineInput = element(by.id('field_idOrdine'));
+  idStudioProfessionaleRefInput = element(by.id('field_idStudioProfessionaleRef'));
   statoOrdineInput = element(by.id('field_statoOrdine'));
   totImponibileInput = element(by.id('field_totImponibile'));
   totIvaInput = element(by.id('field_totIva'));
@@ -41,12 +42,20 @@ export class OrdineUpdatePage {
     return this.pageTitle.getAttribute('jhiTranslate');
   }
 
-  async setIdStudioProfessionaleInput(idStudioProfessionale: string): Promise<void> {
-    await this.idStudioProfessionaleInput.sendKeys(idStudioProfessionale);
+  async setIdOrdineInput(idOrdine: string): Promise<void> {
+    await this.idOrdineInput.sendKeys(idOrdine);
   }
 
-  async getIdStudioProfessionaleInput(): Promise<string> {
-    return await this.idStudioProfessionaleInput.getAttribute('value');
+  async getIdOrdineInput(): Promise<string> {
+    return await this.idOrdineInput.getAttribute('value');
+  }
+
+  async setIdStudioProfessionaleRefInput(idStudioProfessionaleRef: string): Promise<void> {
+    await this.idStudioProfessionaleRefInput.sendKeys(idStudioProfessionaleRef);
+  }
+
+  async getIdStudioProfessionaleRefInput(): Promise<string> {
+    return await this.idStudioProfessionaleRefInput.getAttribute('value');
   }
 
   async setStatoOrdineInput(statoOrdine: string): Promise<void> {

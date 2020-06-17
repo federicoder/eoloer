@@ -10,8 +10,12 @@ public class AssegnazioneTaskDTO implements Serializable {
     
     private Long id;
 
+    @NotNull
     @Max(value = 8)
-    private Integer idAttivita;
+    private Integer idAssegnazioneTask;
+
+    @Max(value = 8)
+    private Integer idTaskRef;
 
     @Max(value = 8)
     private Integer idUserAmmesso;
@@ -35,12 +39,20 @@ public class AssegnazioneTaskDTO implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdAttivita() {
-        return idAttivita;
+    public Integer getIdAssegnazioneTask() {
+        return idAssegnazioneTask;
     }
 
-    public void setIdAttivita(Integer idAttivita) {
-        this.idAttivita = idAttivita;
+    public void setIdAssegnazioneTask(Integer idAssegnazioneTask) {
+        this.idAssegnazioneTask = idAssegnazioneTask;
+    }
+
+    public Integer getIdTaskRef() {
+        return idTaskRef;
+    }
+
+    public void setIdTaskRef(Integer idTaskRef) {
+        this.idTaskRef = idTaskRef;
     }
 
     public Integer getIdUserAmmesso() {
@@ -113,7 +125,8 @@ public class AssegnazioneTaskDTO implements Serializable {
     public String toString() {
         return "AssegnazioneTaskDTO{" +
             "id=" + getId() +
-            ", idAttivita=" + getIdAttivita() +
+            ", idAssegnazioneTask=" + getIdAssegnazioneTask() +
+            ", idTaskRef=" + getIdTaskRef() +
             ", idUserAmmesso=" + getIdUserAmmesso() +
             ", ruolo=" + getRuolo() +
             ", idUserConcedente=" + getIdUserConcedente() +

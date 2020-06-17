@@ -2,7 +2,7 @@
   "name": "ConsuntivoTask",
   "fields": [
     {
-      "fieldName": "idTask",
+      "fieldName": "idTaskRef",
       "fieldType": "Integer",
       "fieldValidateRules": ["max", "required"],
       "fieldValidateRulesMax": "8"
@@ -28,8 +28,8 @@
     {
       "relationshipType": "one-to-one",
       "otherEntityName": "task",
-      "otherEntityRelationshipName": "id",
-      "relationshipName": "idTask",
+      "otherEntityRelationshipName": "idTask",
+      "relationshipName": "idTaskRef",
       "ownerSide": false
     }
   ],

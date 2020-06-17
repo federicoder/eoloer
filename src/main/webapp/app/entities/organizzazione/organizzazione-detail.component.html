@@ -12,9 +12,9 @@
                 <dd>
                     <span>{{ organizzazione.idOrganizzazione }}</span>
                 </dd>
-                <dt><span jhiTranslate="eoloprjApp.organizzazione.idPersona">Id Persona</span></dt>
+                <dt><span jhiTranslate="eoloprjApp.organizzazione.idPersonaRef">Id Persona Ref</span></dt>
                 <dd>
-                    <span>{{ organizzazione.idPersona }}</span>
+                    <span>{{ organizzazione.idPersonaRef }}</span>
                 </dd>
                 <dt><span jhiTranslate="eoloprjApp.organizzazione.nome">Nome</span></dt>
                 <dd>
@@ -24,10 +24,10 @@
                 <dd>
                     <span>{{ organizzazione.tipo }}</span>
                 </dd>
-                <dt><span jhiTranslate="eoloprjApp.organizzazione.idPersona">Id Persona</span></dt>
+                <dt><span jhiTranslate="eoloprjApp.organizzazione.idPersonaRef">Id Persona Ref</span></dt>
                 <dd>
-                    <div *ngIf="organizzazione.idPersonaId">
-                        <a [routerLink]="['/persona', organizzazione.idPersonaId, 'view']">{{ organizzazione.idPersonaId }}</a>
+                    <div *ngIf="organizzazione.idPersonaRefId">
+                        <a [routerLink]="['/persona', organizzazione.idPersonaRefId, 'view']">{{ organizzazione.idPersonaRefId }}</a>
                     </div>
                 </dd>
             </dl>

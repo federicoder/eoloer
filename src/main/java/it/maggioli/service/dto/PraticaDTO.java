@@ -11,7 +11,10 @@ public class PraticaDTO implements Serializable {
     private Long id;
 
     @Max(value = 8)
-    private Integer idStudio;
+    private Integer idPratica;
+
+    @Max(value = 8)
+    private Integer idStudioProfessionaleRef;
 
     private String numero;
 
@@ -36,10 +39,10 @@ public class PraticaDTO implements Serializable {
 
     private String valuta;
 
-    private Integer idTemplatePratica;
+    private Integer idTemplatePraticaRef;
 
 
-    private Long idTemplateId;
+    private Long idTemplatePraticaRefId;
     
     public Long getId() {
         return id;
@@ -49,12 +52,20 @@ public class PraticaDTO implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdStudio() {
-        return idStudio;
+    public Integer getIdPratica() {
+        return idPratica;
     }
 
-    public void setIdStudio(Integer idStudio) {
-        this.idStudio = idStudio;
+    public void setIdPratica(Integer idPratica) {
+        this.idPratica = idPratica;
+    }
+
+    public Integer getIdStudioProfessionaleRef() {
+        return idStudioProfessionaleRef;
+    }
+
+    public void setIdStudioProfessionaleRef(Integer idStudioProfessionaleRef) {
+        this.idStudioProfessionaleRef = idStudioProfessionaleRef;
     }
 
     public String getNumero() {
@@ -145,20 +156,20 @@ public class PraticaDTO implements Serializable {
         this.valuta = valuta;
     }
 
-    public Integer getIdTemplatePratica() {
-        return idTemplatePratica;
+    public Integer getIdTemplatePraticaRef() {
+        return idTemplatePraticaRef;
     }
 
-    public void setIdTemplatePratica(Integer idTemplatePratica) {
-        this.idTemplatePratica = idTemplatePratica;
+    public void setIdTemplatePraticaRef(Integer idTemplatePraticaRef) {
+        this.idTemplatePraticaRef = idTemplatePraticaRef;
     }
 
-    public Long getIdTemplateId() {
-        return idTemplateId;
+    public Long getIdTemplatePraticaRefId() {
+        return idTemplatePraticaRefId;
     }
 
-    public void setIdTemplateId(Long templatePraticaId) {
-        this.idTemplateId = templatePraticaId;
+    public void setIdTemplatePraticaRefId(Long templatePraticaId) {
+        this.idTemplatePraticaRefId = templatePraticaId;
     }
 
     @Override
@@ -183,7 +194,8 @@ public class PraticaDTO implements Serializable {
     public String toString() {
         return "PraticaDTO{" +
             "id=" + getId() +
-            ", idStudio=" + getIdStudio() +
+            ", idPratica=" + getIdPratica() +
+            ", idStudioProfessionaleRef=" + getIdStudioProfessionaleRef() +
             ", numero='" + getNumero() + "'" +
             ", nome='" + getNome() + "'" +
             ", dataApertura='" + getDataApertura() + "'" +
@@ -195,8 +207,8 @@ public class PraticaDTO implements Serializable {
             ", prcAvanzato=" + getPrcAvanzato() +
             ", version='" + getVersion() + "'" +
             ", valuta='" + getValuta() + "'" +
-            ", idTemplatePratica=" + getIdTemplatePratica() +
-            ", idTemplateId=" + getIdTemplateId() +
+            ", idTemplatePraticaRef=" + getIdTemplatePraticaRef() +
+            ", idTemplatePraticaRefId=" + getIdTemplatePraticaRefId() +
             "}";
     }
 }

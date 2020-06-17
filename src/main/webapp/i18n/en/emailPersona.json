@@ -17,7 +17,7 @@
       "detail": {
         "title": "Email Persona"
       },
-      "idPersona": "Id Persona",
+      "idPersonaRef": "Id Persona Ref",
       "etichetta": "Etichetta",
       "numero": "Numero",
       "persona": "Persona"

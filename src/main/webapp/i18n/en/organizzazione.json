@@ -18,10 +18,10 @@
         "title": "Organizzazione"
       },
       "idOrganizzazione": "Id Organizzazione",
-      "idPersona": "Id Persona",
+      "idPersonaRef": "Id Persona Ref",
       "nome": "Nome",
       "tipo": "Tipo",
-      "idPersona": "Id Persona",
+      "idPersonaRef": "Id Persona Ref",
       "idOrganizzazione": "Id Organizzazione"
     }
   }

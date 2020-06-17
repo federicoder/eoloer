@@ -12,16 +12,36 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="eoloprjApp.invito.idStudioProfessionale" for="field_idStudioProfessionale">Id Studio Professionale</label>
-                    <input type="number" class="form-control" name="idStudioProfessionale" id="field_idStudioProfessionale"
-                           formControlName="idStudioProfessionale"/>
-                    <div *ngIf="editForm.get('idStudioProfessionale')!.invalid && (editForm.get('idStudioProfessionale')!.dirty || editForm.get('idStudioProfessionale')!.touched)">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.invito.idInvito" for="field_idInvito">Id Invito</label>
+                    <input type="number" class="form-control" name="idInvito" id="field_idInvito"
+                           formControlName="idInvito"/>
+                    <div *ngIf="editForm.get('idInvito')!.invalid && (editForm.get('idInvito')!.dirty || editForm.get('idInvito')!.touched)">
                         <small class="form-text text-danger"
-                               *ngIf="editForm.get('idStudioProfessionale')?.errors?.max" jhiTranslate="entity.validation.max" [translateValues]="{ max: 8 }">
+                               *ngIf="editForm.get('idInvito')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('idInvito')?.errors?.max" jhiTranslate="entity.validation.max" [translateValues]="{ max: 8 }">
                             This field cannot be more than 8.
                         </small>
                         <small class="form-text text-danger"
-                            [hidden]="!editForm.get('idStudioProfessionale')?.errors?.number" jhiTranslate="entity.validation.number">
+                            [hidden]="!editForm.get('idInvito')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.invito.idStudioProfessionaleRef" for="field_idStudioProfessionaleRef">Id Studio Professionale Ref</label>
+                    <input type="number" class="form-control" name="idStudioProfessionaleRef" id="field_idStudioProfessionaleRef"
+                           formControlName="idStudioProfessionaleRef"/>
+                    <div *ngIf="editForm.get('idStudioProfessionaleRef')!.invalid && (editForm.get('idStudioProfessionaleRef')!.dirty || editForm.get('idStudioProfessionaleRef')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('idStudioProfessionaleRef')?.errors?.max" jhiTranslate="entity.validation.max" [translateValues]="{ max: 8 }">
+                            This field cannot be more than 8.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('idStudioProfessionaleRef')?.errors?.number" jhiTranslate="entity.validation.number">
                             This field should be a number.
                         </small>
                     </div>
@@ -58,15 +78,15 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="eoloprjApp.invito.idPratica" for="field_idPratica">Id Pratica</label>
-                    <input type="number" class="form-control" name="idPratica" id="field_idPratica"
-                           formControlName="idPratica"/>
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.invito.idPraticaRef" for="field_idPraticaRef">Id Pratica Ref</label>
+                    <input type="number" class="form-control" name="idPraticaRef" id="field_idPraticaRef"
+                           formControlName="idPraticaRef"/>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="eoloprjApp.invito.idAttivita" for="field_idAttivita">Id Attivita</label>
-                    <input type="number" class="form-control" name="idAttivita" id="field_idAttivita"
-                           formControlName="idAttivita"/>
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.invito.idTaskRef" for="field_idTaskRef">Id Task Ref</label>
+                    <input type="number" class="form-control" name="idTaskRef" id="field_idTaskRef"
+                           formControlName="idTaskRef"/>
                 </div>
 
                 <div class="form-group">
@@ -118,10 +138,10 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="eoloprjApp.invito.idStudioProfessionale" for="field_idStudioProfessionale">Id Studio Professionale</label>
-                    <select class="form-control" id="field_idStudioProfessionale" name="idStudioProfessionale" formControlName="idStudioProfessionaleId">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.invito.idStudioProfessionaleRef" for="field_idStudioProfessionaleRef">Id Studio Professionale Ref</label>
+                    <select class="form-control" id="field_idStudioProfessionaleRef" name="idStudioProfessionaleRef" formControlName="idStudioProfessionaleRefId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="studioProfessionaleOption.id" *ngFor="let studioProfessionaleOption of idstudioprofessionales; trackBy: trackById">{{ studioProfessionaleOption.id }}</option>
+                        <option [ngValue]="studioProfessionaleOption.id" *ngFor="let studioProfessionaleOption of idstudioprofessionalerefs; trackBy: trackById">{{ studioProfessionaleOption.id }}</option>
                     </select>
                 </div>
 

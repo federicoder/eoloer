@@ -29,8 +29,8 @@ export class LineaOrdineUpdatePage {
   saveButton = element(by.id('save-entity'));
   cancelButton = element(by.id('cancel-save'));
 
-  idOrdineInput = element(by.id('field_idOrdine'));
-  idProdottoInput = element(by.id('field_idProdotto'));
+  idOrdineRefInput = element(by.id('field_idOrdineRef'));
+  idProdottoRefInput = element(by.id('field_idProdottoRef'));
   quantitaInput = element(by.id('field_quantita'));
   importoInput = element(by.id('field_importo'));
   codIvaInput = element(by.id('field_codIva'));
@@ -41,20 +41,20 @@ export class LineaOrdineUpdatePage {
     return this.pageTitle.getAttribute('jhiTranslate');
   }
 
-  async setIdOrdineInput(idOrdine: string): Promise<void> {
-    await this.idOrdineInput.sendKeys(idOrdine);
+  async setIdOrdineRefInput(idOrdineRef: string): Promise<void> {
+    await this.idOrdineRefInput.sendKeys(idOrdineRef);
   }
 
-  async getIdOrdineInput(): Promise<string> {
-    return await this.idOrdineInput.getAttribute('value');
+  async getIdOrdineRefInput(): Promise<string> {
+    return await this.idOrdineRefInput.getAttribute('value');
   }
 
-  async setIdProdottoInput(idProdotto: string): Promise<void> {
-    await this.idProdottoInput.sendKeys(idProdotto);
+  async setIdProdottoRefInput(idProdottoRef: string): Promise<void> {
+    await this.idProdottoRefInput.sendKeys(idProdottoRef);
   }
 
-  async getIdProdottoInput(): Promise<string> {
-    return await this.idProdottoInput.getAttribute('value');
+  async getIdProdottoRefInput(): Promise<string> {
+    return await this.idProdottoRefInput.getAttribute('value');
   }
 
   async setQuantitaInput(quantita: string): Promise<void> {

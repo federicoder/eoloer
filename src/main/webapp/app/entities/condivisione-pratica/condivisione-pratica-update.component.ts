@@ -32,11 +32,12 @@ export class CondivisionePraticaUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
+    idCondivisionePratica: [null, [Validators.required, Validators.max(8)]],
     idUserAmmesso: [null, [Validators.max(8)]],
     ruolo: [],
     idUserConcedente: [],
     statoInvito: [],
-    idPratica: [],
+    idPraticaRef: [],
     ruoloId: [],
     idUserConcedenteId: [],
     praticaId: [],
@@ -110,11 +111,12 @@ export class CondivisionePraticaUpdateComponent implements OnInit {
   updateForm(condivisionePratica: ICondivisionePratica): void {
     this.editForm.patchValue({
       id: condivisionePratica.id,
+      idCondivisionePratica: condivisionePratica.idCondivisionePratica,
       idUserAmmesso: condivisionePratica.idUserAmmesso,
       ruolo: condivisionePratica.ruolo,
       idUserConcedente: condivisionePratica.idUserConcedente,
       statoInvito: condivisionePratica.statoInvito,
-      idPratica: condivisionePratica.idPratica,
+      idPraticaRef: condivisionePratica.idPraticaRef,
       ruoloId: condivisionePratica.ruoloId,
       idUserConcedenteId: condivisionePratica.idUserConcedenteId,
       praticaId: condivisionePratica.praticaId,
@@ -140,11 +142,12 @@ export class CondivisionePraticaUpdateComponent implements OnInit {
     return {
       ...new CondivisionePratica(),
       id: this.editForm.get(['id'])!.value,
+      idCondivisionePratica: this.editForm.get(['idCondivisionePratica'])!.value,
       idUserAmmesso: this.editForm.get(['idUserAmmesso'])!.value,
       ruolo: this.editForm.get(['ruolo'])!.value,
       idUserConcedente: this.editForm.get(['idUserConcedente'])!.value,
       statoInvito: this.editForm.get(['statoInvito'])!.value,
-      idPratica: this.editForm.get(['idPratica'])!.value,
+      idPraticaRef: this.editForm.get(['idPraticaRef'])!.value,
       ruoloId: this.editForm.get(['ruoloId'])!.value,
       idUserConcedenteId: this.editForm.get(['idUserConcedenteId'])!.value,
       praticaId: this.editForm.get(['praticaId'])!.value,

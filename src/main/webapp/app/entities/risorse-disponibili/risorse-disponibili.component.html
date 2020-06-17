@@ -41,7 +41,7 @@
             <thead>
                 <tr>
                     <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
-                    <th scope="col" ><span jhiTranslate="eoloprjApp.risorseDisponibili.idStudioProfessionale">Id Studio Professionale</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.risorseDisponibili.idStudioProfessionaleRef">Id Studio Professionale Ref</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.risorseDisponibili.dataAttivazioneLicenza">Data Attivazione Licenza</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.risorseDisponibili.nrLicenza">Nr Licenza</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.risorseDisponibili.storageTotale">Storage Totale</span></th>
@@ -52,7 +52,7 @@
             <tbody>
                 <tr *ngFor="let risorseDisponibili of risorseDisponibilis ;trackBy: trackId">
                     <td><a [routerLink]="['/risorse-disponibili', risorseDisponibili.id, 'view']">{{ risorseDisponibili.id }}</a></td>
-                    <td>{{ risorseDisponibili.idStudioProfessionale }}</td>
+                    <td>{{ risorseDisponibili.idStudioProfessionaleRef }}</td>
                     <td>{{ risorseDisponibili.dataAttivazioneLicenza }}</td>
                     <td>{{ risorseDisponibili.nrLicenza }}</td>
                     <td>{{ risorseDisponibili.storageTotale }}</td>

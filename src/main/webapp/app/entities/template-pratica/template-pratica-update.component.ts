@@ -17,7 +17,7 @@ export class TemplatePraticaUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    idTemplate: [null, [Validators.required, Validators.max(8)]],
+    idTemplatePratica: [null, [Validators.required, Validators.max(8)]],
     nomeTemplate: [],
     elencoTagAmbito: [],
   });
@@ -37,7 +37,7 @@ export class TemplatePraticaUpdateComponent implements OnInit {
   updateForm(templatePratica: ITemplatePratica): void {
     this.editForm.patchValue({
       id: templatePratica.id,
-      idTemplate: templatePratica.idTemplate,
+      idTemplatePratica: templatePratica.idTemplatePratica,
       nomeTemplate: templatePratica.nomeTemplate,
       elencoTagAmbito: templatePratica.elencoTagAmbito,
     });
@@ -61,7 +61,7 @@ export class TemplatePraticaUpdateComponent implements OnInit {
     return {
       ...new TemplatePratica(),
       id: this.editForm.get(['id'])!.value,
-      idTemplate: this.editForm.get(['idTemplate'])!.value,
+      idTemplatePratica: this.editForm.get(['idTemplatePratica'])!.value,
       nomeTemplate: this.editForm.get(['nomeTemplate'])!.value,
       elencoTagAmbito: this.editForm.get(['elencoTagAmbito'])!.value,
     };

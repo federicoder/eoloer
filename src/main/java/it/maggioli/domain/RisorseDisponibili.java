@@ -27,8 +27,8 @@ public class RisorseDisponibili implements Serializable {
     private Long id;
 
     @NotNull
-    @Column(name = "id_studio_professionale", nullable = false)
-    private Integer idStudioProfessionale;
+    @Column(name = "id_studio_professionale_ref", nullable = false)
+    private Integer idStudioProfessionaleRef;
 
     @Column(name = "data_attivazione_licenza")
     private String dataAttivazioneLicenza;
@@ -40,7 +40,7 @@ public class RisorseDisponibili implements Serializable {
     private Integer storageTotale;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "ids", allowSetters = true)
+    @JsonIgnoreProperties(value = "idStudioProfessionales", allowSetters = true)
     private StudioProfessionale studioProfessionale;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
@@ -52,17 +52,17 @@ public class RisorseDisponibili implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdStudioProfessionale() {
-        return idStudioProfessionale;
+    public Integer getIdStudioProfessionaleRef() {
+        return idStudioProfessionaleRef;
     }
 
-    public RisorseDisponibili idStudioProfessionale(Integer idStudioProfessionale) {
-        this.idStudioProfessionale = idStudioProfessionale;
+    public RisorseDisponibili idStudioProfessionaleRef(Integer idStudioProfessionaleRef) {
+        this.idStudioProfessionaleRef = idStudioProfessionaleRef;
         return this;
     }
 
-    public void setIdStudioProfessionale(Integer idStudioProfessionale) {
-        this.idStudioProfessionale = idStudioProfessionale;
+    public void setIdStudioProfessionaleRef(Integer idStudioProfessionaleRef) {
+        this.idStudioProfessionaleRef = idStudioProfessionaleRef;
     }
 
     public String getDataAttivazioneLicenza() {
@@ -139,7 +139,7 @@ public class RisorseDisponibili implements Serializable {
     public String toString() {
         return "RisorseDisponibili{" +
             "id=" + getId() +
-            ", idStudioProfessionale=" + getIdStudioProfessionale() +
+            ", idStudioProfessionaleRef=" + getIdStudioProfessionaleRef() +
             ", dataAttivazioneLicenza='" + getDataAttivazioneLicenza() + "'" +
             ", nrLicenza=" + getNrLicenza() +
             ", storageTotale=" + getStorageTotale() +

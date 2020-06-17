@@ -15,6 +15,9 @@
             <column name="id" type="bigint">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
+            <column name="id_prodotto" type="integer">
+                <constraints nullable="false" />
+            </column>
             <column name="nuova_licenza" type="integer">
                 <constraints nullable="true" />
             </column>
@@ -24,8 +27,8 @@
             <column name="storage" type="integer">
                 <constraints nullable="true" />
             </column>
-            <column name="id_id" type="bigint">
-                <constraints unique="true" nullable="true" uniqueConstraintName="ux_prodotto_id_id" />
+            <column name="id_prodotto_id" type="bigint">
+                <constraints unique="true" nullable="true" uniqueConstraintName="ux_prodotto_id_prodotto_id" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
         </createTable>
@@ -50,6 +53,7 @@
                   separator=";"
                   tableName="prodotto">
             <column name="id" type="numeric"/>
+            <column name="id_prodotto" type="numeric"/>
             <column name="nuova_licenza" type="numeric"/>
             <column name="rinnovo_licenza" type="numeric"/>
             <column name="storage" type="numeric"/>

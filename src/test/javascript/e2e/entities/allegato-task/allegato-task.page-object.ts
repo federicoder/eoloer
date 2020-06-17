@@ -30,8 +30,8 @@ export class AllegatoTaskUpdatePage {
   cancelButton = element(by.id('cancel-save'));
 
   idAllegatoTaskInput = element(by.id('field_idAllegatoTask'));
-  idTipoInput = element(by.id('field_idTipo'));
-  idTaskInput = element(by.id('field_idTask'));
+  idTipoAllegatoRefInput = element(by.id('field_idTipoAllegatoRef'));
+  idTaskRefInput = element(by.id('field_idTaskRef'));
   formatoInput = element(by.id('field_formato'));
   noteInput = element(by.id('field_note'));
   statoInput = element(by.id('field_stato'));
@@ -55,20 +55,20 @@ export class AllegatoTaskUpdatePage {
     return await this.idAllegatoTaskInput.getAttribute('value');
   }
 
-  async setIdTipoInput(idTipo: string): Promise<void> {
-    await this.idTipoInput.sendKeys(idTipo);
+  async setIdTipoAllegatoRefInput(idTipoAllegatoRef: string): Promise<void> {
+    await this.idTipoAllegatoRefInput.sendKeys(idTipoAllegatoRef);
   }
 
-  async getIdTipoInput(): Promise<string> {
-    return await this.idTipoInput.getAttribute('value');
+  async getIdTipoAllegatoRefInput(): Promise<string> {
+    return await this.idTipoAllegatoRefInput.getAttribute('value');
   }
 
-  async setIdTaskInput(idTask: string): Promise<void> {
-    await this.idTaskInput.sendKeys(idTask);
+  async setIdTaskRefInput(idTaskRef: string): Promise<void> {
+    await this.idTaskRefInput.sendKeys(idTaskRef);
   }
 
-  async getIdTaskInput(): Promise<string> {
-    return await this.idTaskInput.getAttribute('value');
+  async getIdTaskRefInput(): Promise<string> {
+    return await this.idTaskRefInput.getAttribute('value');
   }
 
   async setFormatoInput(formato: string): Promise<void> {

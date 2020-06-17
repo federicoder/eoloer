@@ -17,7 +17,8 @@
       "detail": {
         "title": "Nota Task"
       },
-      "idTask": "Id Task",
+      "idNotaTask": "Id Nota Task",
+      "idTaskRef": "Id Task Ref",
       "data": "Data",
       "nota": "Nota",
       "version": "Version",

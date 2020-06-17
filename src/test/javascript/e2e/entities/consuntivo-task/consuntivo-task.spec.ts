@@ -44,14 +44,14 @@ describe('ConsuntivoTask e2e test', () => {
     await consuntivoTaskComponentsPage.clickOnCreateButton();
 
     await promise.all([
-      consuntivoTaskUpdatePage.setIdTaskInput('5'),
+      consuntivoTaskUpdatePage.setIdTaskRefInput('5'),
       consuntivoTaskUpdatePage.setDataInizioInput('dataInizio'),
       consuntivoTaskUpdatePage.setDataFineInput('dataFine'),
       consuntivoTaskUpdatePage.setTimeLineInput('5'),
       consuntivoTaskUpdatePage.setVersionInput('version'),
     ]);
 
-    expect(await consuntivoTaskUpdatePage.getIdTaskInput()).to.eq('5', 'Expected idTask value to be equals to 5');
+    expect(await consuntivoTaskUpdatePage.getIdTaskRefInput()).to.eq('5', 'Expected idTaskRef value to be equals to 5');
     expect(await consuntivoTaskUpdatePage.getDataInizioInput()).to.eq('dataInizio', 'Expected DataInizio value to be equals to dataInizio');
     expect(await consuntivoTaskUpdatePage.getDataFineInput()).to.eq('dataFine', 'Expected DataFine value to be equals to dataFine');
     expect(await consuntivoTaskUpdatePage.getTimeLineInput()).to.eq('5', 'Expected timeLine value to be equals to 5');

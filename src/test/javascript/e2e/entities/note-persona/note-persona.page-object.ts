@@ -29,8 +29,8 @@ export class NotePersonaUpdatePage {
   saveButton = element(by.id('save-entity'));
   cancelButton = element(by.id('cancel-save'));
 
-  idPersonaInput = element(by.id('field_idPersona'));
-  idNoteInput = element(by.id('field_idNote'));
+  idPersonaRefInput = element(by.id('field_idPersonaRef'));
+  idNotePersonaInput = element(by.id('field_idNotePersona'));
   testoInput = element(by.id('field_testo'));
 
   personaSelect = element(by.id('field_persona'));
@@ -39,20 +39,20 @@ export class NotePersonaUpdatePage {
     return this.pageTitle.getAttribute('jhiTranslate');
   }
 
-  async setIdPersonaInput(idPersona: string): Promise<void> {
-    await this.idPersonaInput.sendKeys(idPersona);
+  async setIdPersonaRefInput(idPersonaRef: string): Promise<void> {
+    await this.idPersonaRefInput.sendKeys(idPersonaRef);
   }
 
-  async getIdPersonaInput(): Promise<string> {
-    return await this.idPersonaInput.getAttribute('value');
+  async getIdPersonaRefInput(): Promise<string> {
+    return await this.idPersonaRefInput.getAttribute('value');
   }
 
-  async setIdNoteInput(idNote: string): Promise<void> {
-    await this.idNoteInput.sendKeys(idNote);
+  async setIdNotePersonaInput(idNotePersona: string): Promise<void> {
+    await this.idNotePersonaInput.sendKeys(idNotePersona);
   }
 
-  async getIdNoteInput(): Promise<string> {
-    return await this.idNoteInput.getAttribute('value');
+  async getIdNotePersonaInput(): Promise<string> {
+    return await this.idNotePersonaInput.getAttribute('value');
   }
 
   async setTestoInput(testo: string): Promise<void> {

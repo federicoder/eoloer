@@ -17,7 +17,8 @@
       "detail": {
         "title": "Nota Pratica"
       },
-      "idPratica": "Id Pratica",
+      "idNotaPratica": "Id Nota Pratica",
+      "idPraticaRef": "Id Pratica Ref",
       "data": "Data",
       "nota": "Nota",
       "version": "Version",

@@ -89,9 +89,9 @@ public class IndirizzoPersonaResource {
      */
     @GetMapping("/indirizzo-personas")
     public List<IndirizzoPersonaDTO> getAllIndirizzoPersonas(@RequestParam(required = false) String filter) {
-        if ("idpersona-is-null".equals(filter)) {
-            log.debug("REST request to get all IndirizzoPersonas where idPersona is null");
-            return indirizzoPersonaService.findAllWhereIdPersonaIsNull();
+        if ("idpersonaref-is-null".equals(filter)) {
+            log.debug("REST request to get all IndirizzoPersonas where idPersonaRef is null");
+            return indirizzoPersonaService.findAllWhereIdPersonaRefIsNull();
         }
         log.debug("REST request to get all IndirizzoPersonas");
         return indirizzoPersonaService.findAll();

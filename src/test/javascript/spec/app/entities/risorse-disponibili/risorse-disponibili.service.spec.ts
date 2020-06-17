@@ -54,7 +54,7 @@ describe('Service Tests', () => {
       it('should update a RisorseDisponibili', () => {
         const returnedFromService = Object.assign(
           {
-            idStudioProfessionale: 1,
+            idStudioProfessionaleRef: 1,
             dataAttivazioneLicenza: 'BBBBBB',
             nrLicenza: 1,
             storageTotale: 1,
@@ -74,7 +74,7 @@ describe('Service Tests', () => {
       it('should return a list of RisorseDisponibili', () => {
         const returnedFromService = Object.assign(
           {
-            idStudioProfessionale: 1,
+            idStudioProfessionaleRef: 1,
             dataAttivazioneLicenza: 'BBBBBB',
             nrLicenza: 1,
             storageTotale: 1,

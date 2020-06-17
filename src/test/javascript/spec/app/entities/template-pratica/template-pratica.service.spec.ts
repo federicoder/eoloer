@@ -54,7 +54,7 @@ describe('Service Tests', () => {
       it('should update a TemplatePratica', () => {
         const returnedFromService = Object.assign(
           {
-            idTemplate: 1,
+            idTemplatePratica: 1,
             nomeTemplate: 1,
             elencoTagAmbito: 1,
           },
@@ -73,7 +73,7 @@ describe('Service Tests', () => {
       it('should return a list of TemplatePratica', () => {
         const returnedFromService = Object.assign(
           {
-            idTemplate: 1,
+            idTemplatePratica: 1,
             nomeTemplate: 1,
             elencoTagAmbito: 1,
           },

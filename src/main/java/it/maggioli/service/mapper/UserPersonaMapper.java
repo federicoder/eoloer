@@ -15,12 +15,12 @@ public interface UserPersonaMapper extends EntityMapper<UserPersonaDTO, UserPers
     @Mapping(source = "personaFisica.id", target = "personaFisicaId")
     UserPersonaDTO toDto(UserPersona userPersona);
 
-    @Mapping(target = "ids", ignore = true)
-    @Mapping(target = "removeId", ignore = true)
-    @Mapping(target = "ids", ignore = true)
-    @Mapping(target = "removeId", ignore = true)
-    @Mapping(target = "ids", ignore = true)
-    @Mapping(target = "removeId", ignore = true)
+    @Mapping(target = "idUserPersonas", ignore = true)
+    @Mapping(target = "removeIdUserPersona", ignore = true)
+    @Mapping(target = "idUserPersonas", ignore = true)
+    @Mapping(target = "removeIdUserPersona", ignore = true)
+    @Mapping(target = "idUserPersonas", ignore = true)
+    @Mapping(target = "removeIdUserPersona", ignore = true)
     @Mapping(source = "personaFisicaId", target = "personaFisica")
     UserPersona toEntity(UserPersonaDTO userPersonaDTO);
 

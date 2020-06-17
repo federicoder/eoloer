@@ -54,7 +54,7 @@ describe('Service Tests', () => {
       it('should update a IndirizzoPersona', () => {
         const returnedFromService = Object.assign(
           {
-            idPersona: 1,
+            idPersonaRef: 1,
             indirizzo: 'BBBBBB',
             comune: 'BBBBBB',
             cap: 1,
@@ -77,7 +77,7 @@ describe('Service Tests', () => {
       it('should return a list of IndirizzoPersona', () => {
         const returnedFromService = Object.assign(
           {
-            idPersona: 1,
+            idPersonaRef: 1,
             indirizzo: 'BBBBBB',
             comune: 'BBBBBB',
             cap: 1,

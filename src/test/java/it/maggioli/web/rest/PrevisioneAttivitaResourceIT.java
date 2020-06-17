@@ -40,8 +40,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WithMockUser
 public class PrevisioneAttivitaResourceIT {
 
-    private static final Integer DEFAULT_ID_TASK = 8;
-    private static final Integer UPDATED_ID_TASK = 7;
+    private static final Integer DEFAULT_ID_TASK_REF = 8;
+    private static final Integer UPDATED_ID_TASK_REF = 7;
 
     private static final String DEFAULT_DATA_PIANIFICATA = "AAAAAAAAAA";
     private static final String UPDATED_DATA_PIANIFICATA = "BBBBBBBBBB";
@@ -88,7 +88,7 @@ public class PrevisioneAttivitaResourceIT {
      */
     public static PrevisioneAttivita createEntity(EntityManager em) {
         PrevisioneAttivita previsioneAttivita = new PrevisioneAttivita()
-            .idTask(DEFAULT_ID_TASK)
+            .idTaskRef(DEFAULT_ID_TASK_REF)
             .dataPianificata(DEFAULT_DATA_PIANIFICATA)
             .oraPianificata(DEFAULT_ORA_PIANIFICATA)
             .dataScadenza(DEFAULT_DATA_SCADENZA)
@@ -103,7 +103,7 @@ public class PrevisioneAttivitaResourceIT {
      */
     public static PrevisioneAttivita createUpdatedEntity(EntityManager em) {
         PrevisioneAttivita previsioneAttivita = new PrevisioneAttivita()
-            .idTask(UPDATED_ID_TASK)
+            .idTaskRef(UPDATED_ID_TASK_REF)
             .dataPianificata(UPDATED_DATA_PIANIFICATA)
             .oraPianificata(UPDATED_ORA_PIANIFICATA)
             .dataScadenza(UPDATED_DATA_SCADENZA)
@@ -131,7 +131,7 @@ public class PrevisioneAttivitaResourceIT {
         List<PrevisioneAttivita> previsioneAttivitaList = previsioneAttivitaRepository.findAll();
         assertThat(previsioneAttivitaList).hasSize(databaseSizeBeforeCreate + 1);
         PrevisioneAttivita testPrevisioneAttivita = previsioneAttivitaList.get(previsioneAttivitaList.size() - 1);
-        assertThat(testPrevisioneAttivita.getIdTask()).isEqualTo(DEFAULT_ID_TASK);
+        assertThat(testPrevisioneAttivita.getIdTaskRef()).isEqualTo(DEFAULT_ID_TASK_REF);
         assertThat(testPrevisioneAttivita.getDataPianificata()).isEqualTo(DEFAULT_DATA_PIANIFICATA);
         assertThat(testPrevisioneAttivita.getOraPianificata()).isEqualTo(DEFAULT_ORA_PIANIFICATA);
         assertThat(testPrevisioneAttivita.getDataScadenza()).isEqualTo(DEFAULT_DATA_SCADENZA);
@@ -167,10 +167,10 @@ public class PrevisioneAttivitaResourceIT {
 
     @Test
     @Transactional
-    public void checkIdTaskIsRequired() throws Exception {
+    public void checkIdTaskRefIsRequired() throws Exception {
         int databaseSizeBeforeTest = previsioneAttivitaRepository.findAll().size();
         // set the field null
-        previsioneAttivita.setIdTask(null);
+        previsioneAttivita.setIdTaskRef(null);
 
         // Create the PrevisioneAttivita, which fails.
         PrevisioneAttivitaDTO previsioneAttivitaDTO = previsioneAttivitaMapper.toDto(previsioneAttivita);
@@ -196,7 +196,7 @@ public class PrevisioneAttivitaResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(previsioneAttivita.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idTask").value(hasItem(DEFAULT_ID_TASK)))
+            .andExpect(jsonPath("$.[*].idTaskRef").value(hasItem(DEFAULT_ID_TASK_REF)))
             .andExpect(jsonPath("$.[*].dataPianificata").value(hasItem(DEFAULT_DATA_PIANIFICATA)))
             .andExpect(jsonPath("$.[*].oraPianificata").value(hasItem(DEFAULT_ORA_PIANIFICATA)))
             .andExpect(jsonPath("$.[*].dataScadenza").value(hasItem(DEFAULT_DATA_SCADENZA)))
@@ -214,7 +214,7 @@ public class PrevisioneAttivitaResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(previsioneAttivita.getId().intValue()))
-            .andExpect(jsonPath("$.idTask").value(DEFAULT_ID_TASK))
+            .andExpect(jsonPath("$.idTaskRef").value(DEFAULT_ID_TASK_REF))
             .andExpect(jsonPath("$.dataPianificata").value(DEFAULT_DATA_PIANIFICATA))
             .andExpect(jsonPath("$.oraPianificata").value(DEFAULT_ORA_PIANIFICATA))
             .andExpect(jsonPath("$.dataScadenza").value(DEFAULT_DATA_SCADENZA))
@@ -241,7 +241,7 @@ public class PrevisioneAttivitaResourceIT {
         // Disconnect from session so that the updates on updatedPrevisioneAttivita are not directly saved in db
         em.detach(updatedPrevisioneAttivita);
         updatedPrevisioneAttivita
-            .idTask(UPDATED_ID_TASK)
+            .idTaskRef(UPDATED_ID_TASK_REF)
             .dataPianificata(UPDATED_DATA_PIANIFICATA)
             .oraPianificata(UPDATED_ORA_PIANIFICATA)
             .dataScadenza(UPDATED_DATA_SCADENZA)
@@ -257,7 +257,7 @@ public class PrevisioneAttivitaResourceIT {
         List<PrevisioneAttivita> previsioneAttivitaList = previsioneAttivitaRepository.findAll();
         assertThat(previsioneAttivitaList).hasSize(databaseSizeBeforeUpdate);
         PrevisioneAttivita testPrevisioneAttivita = previsioneAttivitaList.get(previsioneAttivitaList.size() - 1);
-        assertThat(testPrevisioneAttivita.getIdTask()).isEqualTo(UPDATED_ID_TASK);
+        assertThat(testPrevisioneAttivita.getIdTaskRef()).isEqualTo(UPDATED_ID_TASK_REF);
         assertThat(testPrevisioneAttivita.getDataPianificata()).isEqualTo(UPDATED_DATA_PIANIFICATA);
         assertThat(testPrevisioneAttivita.getOraPianificata()).isEqualTo(UPDATED_ORA_PIANIFICATA);
         assertThat(testPrevisioneAttivita.getDataScadenza()).isEqualTo(UPDATED_DATA_SCADENZA);
@@ -324,7 +324,7 @@ public class PrevisioneAttivitaResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(previsioneAttivita.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idTask").value(hasItem(DEFAULT_ID_TASK)))
+            .andExpect(jsonPath("$.[*].idTaskRef").value(hasItem(DEFAULT_ID_TASK_REF)))
             .andExpect(jsonPath("$.[*].dataPianificata").value(hasItem(DEFAULT_DATA_PIANIFICATA)))
             .andExpect(jsonPath("$.[*].oraPianificata").value(hasItem(DEFAULT_ORA_PIANIFICATA)))
             .andExpect(jsonPath("$.[*].dataScadenza").value(hasItem(DEFAULT_DATA_SCADENZA)))

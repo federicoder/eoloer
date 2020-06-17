@@ -40,8 +40,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WithMockUser
 public class EmailPersonaResourceIT {
 
-    private static final Integer DEFAULT_ID_PERSONA = 1;
-    private static final Integer UPDATED_ID_PERSONA = 2;
+    private static final Integer DEFAULT_ID_PERSONA_REF = 1;
+    private static final Integer UPDATED_ID_PERSONA_REF = 2;
 
     private static final Integer DEFAULT_ETICHETTA = 1;
     private static final Integer UPDATED_ETICHETTA = 2;
@@ -82,7 +82,7 @@ public class EmailPersonaResourceIT {
      */
     public static EmailPersona createEntity(EntityManager em) {
         EmailPersona emailPersona = new EmailPersona()
-            .idPersona(DEFAULT_ID_PERSONA)
+            .idPersonaRef(DEFAULT_ID_PERSONA_REF)
             .etichetta(DEFAULT_ETICHETTA)
             .numero(DEFAULT_NUMERO);
         return emailPersona;
@@ -95,7 +95,7 @@ public class EmailPersonaResourceIT {
      */
     public static EmailPersona createUpdatedEntity(EntityManager em) {
         EmailPersona emailPersona = new EmailPersona()
-            .idPersona(UPDATED_ID_PERSONA)
+            .idPersonaRef(UPDATED_ID_PERSONA_REF)
             .etichetta(UPDATED_ETICHETTA)
             .numero(UPDATED_NUMERO);
         return emailPersona;
@@ -121,7 +121,7 @@ public class EmailPersonaResourceIT {
         List<EmailPersona> emailPersonaList = emailPersonaRepository.findAll();
         assertThat(emailPersonaList).hasSize(databaseSizeBeforeCreate + 1);
         EmailPersona testEmailPersona = emailPersonaList.get(emailPersonaList.size() - 1);
-        assertThat(testEmailPersona.getIdPersona()).isEqualTo(DEFAULT_ID_PERSONA);
+        assertThat(testEmailPersona.getIdPersonaRef()).isEqualTo(DEFAULT_ID_PERSONA_REF);
         assertThat(testEmailPersona.getEtichetta()).isEqualTo(DEFAULT_ETICHETTA);
         assertThat(testEmailPersona.getNumero()).isEqualTo(DEFAULT_NUMERO);
 
@@ -155,10 +155,10 @@ public class EmailPersonaResourceIT {
 
     @Test
     @Transactional
-    public void checkIdPersonaIsRequired() throws Exception {
+    public void checkIdPersonaRefIsRequired() throws Exception {
         int databaseSizeBeforeTest = emailPersonaRepository.findAll().size();
         // set the field null
-        emailPersona.setIdPersona(null);
+        emailPersona.setIdPersonaRef(null);
 
         // Create the EmailPersona, which fails.
         EmailPersonaDTO emailPersonaDTO = emailPersonaMapper.toDto(emailPersona);
@@ -184,7 +184,7 @@ public class EmailPersonaResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(emailPersona.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idPersona").value(hasItem(DEFAULT_ID_PERSONA)))
+            .andExpect(jsonPath("$.[*].idPersonaRef").value(hasItem(DEFAULT_ID_PERSONA_REF)))
             .andExpect(jsonPath("$.[*].etichetta").value(hasItem(DEFAULT_ETICHETTA)))
             .andExpect(jsonPath("$.[*].numero").value(hasItem(DEFAULT_NUMERO)));
     }
@@ -200,7 +200,7 @@ public class EmailPersonaResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(emailPersona.getId().intValue()))
-            .andExpect(jsonPath("$.idPersona").value(DEFAULT_ID_PERSONA))
+            .andExpect(jsonPath("$.idPersonaRef").value(DEFAULT_ID_PERSONA_REF))
             .andExpect(jsonPath("$.etichetta").value(DEFAULT_ETICHETTA))
             .andExpect(jsonPath("$.numero").value(DEFAULT_NUMERO));
     }
@@ -225,7 +225,7 @@ public class EmailPersonaResourceIT {
         // Disconnect from session so that the updates on updatedEmailPersona are not directly saved in db
         em.detach(updatedEmailPersona);
         updatedEmailPersona
-            .idPersona(UPDATED_ID_PERSONA)
+            .idPersonaRef(UPDATED_ID_PERSONA_REF)
             .etichetta(UPDATED_ETICHETTA)
             .numero(UPDATED_NUMERO);
         EmailPersonaDTO emailPersonaDTO = emailPersonaMapper.toDto(updatedEmailPersona);
@@ -239,7 +239,7 @@ public class EmailPersonaResourceIT {
         List<EmailPersona> emailPersonaList = emailPersonaRepository.findAll();
         assertThat(emailPersonaList).hasSize(databaseSizeBeforeUpdate);
         EmailPersona testEmailPersona = emailPersonaList.get(emailPersonaList.size() - 1);
-        assertThat(testEmailPersona.getIdPersona()).isEqualTo(UPDATED_ID_PERSONA);
+        assertThat(testEmailPersona.getIdPersonaRef()).isEqualTo(UPDATED_ID_PERSONA_REF);
         assertThat(testEmailPersona.getEtichetta()).isEqualTo(UPDATED_ETICHETTA);
         assertThat(testEmailPersona.getNumero()).isEqualTo(UPDATED_NUMERO);
 
@@ -304,7 +304,7 @@ public class EmailPersonaResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(emailPersona.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idPersona").value(hasItem(DEFAULT_ID_PERSONA)))
+            .andExpect(jsonPath("$.[*].idPersonaRef").value(hasItem(DEFAULT_ID_PERSONA_REF)))
             .andExpect(jsonPath("$.[*].etichetta").value(hasItem(DEFAULT_ETICHETTA)))
             .andExpect(jsonPath("$.[*].numero").value(hasItem(DEFAULT_NUMERO)));
     }

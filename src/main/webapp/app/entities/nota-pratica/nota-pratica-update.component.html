@@ -12,16 +12,36 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="eoloprjApp.notaPratica.idPratica" for="field_idPratica">Id Pratica</label>
-                    <input type="number" class="form-control" name="idPratica" id="field_idPratica"
-                           formControlName="idPratica"/>
-                    <div *ngIf="editForm.get('idPratica')!.invalid && (editForm.get('idPratica')!.dirty || editForm.get('idPratica')!.touched)">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.notaPratica.idNotaPratica" for="field_idNotaPratica">Id Nota Pratica</label>
+                    <input type="number" class="form-control" name="idNotaPratica" id="field_idNotaPratica"
+                           formControlName="idNotaPratica"/>
+                    <div *ngIf="editForm.get('idNotaPratica')!.invalid && (editForm.get('idNotaPratica')!.dirty || editForm.get('idNotaPratica')!.touched)">
                         <small class="form-text text-danger"
-                               *ngIf="editForm.get('idPratica')?.errors?.max" jhiTranslate="entity.validation.max" [translateValues]="{ max: 8 }">
+                               *ngIf="editForm.get('idNotaPratica')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('idNotaPratica')?.errors?.max" jhiTranslate="entity.validation.max" [translateValues]="{ max: 8 }">
                             This field cannot be more than 8.
                         </small>
                         <small class="form-text text-danger"
-                            [hidden]="!editForm.get('idPratica')?.errors?.number" jhiTranslate="entity.validation.number">
+                            [hidden]="!editForm.get('idNotaPratica')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.notaPratica.idPraticaRef" for="field_idPraticaRef">Id Pratica Ref</label>
+                    <input type="number" class="form-control" name="idPraticaRef" id="field_idPraticaRef"
+                           formControlName="idPraticaRef"/>
+                    <div *ngIf="editForm.get('idPraticaRef')!.invalid && (editForm.get('idPraticaRef')!.dirty || editForm.get('idPraticaRef')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('idPraticaRef')?.errors?.max" jhiTranslate="entity.validation.max" [translateValues]="{ max: 8 }">
+                            This field cannot be more than 8.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('idPraticaRef')?.errors?.number" jhiTranslate="entity.validation.number">
                             This field should be a number.
                         </small>
                     </div>

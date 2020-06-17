@@ -2,7 +2,12 @@
   "name": "Invitato",
   "fields": [
     {
-      "fieldName": "idInvito",
+      "fieldName": "idInvitato",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "idInvitoRef",
       "fieldType": "Integer",
       "fieldValidateRules": ["max"],
       "fieldValidateRulesMax": "8"
@@ -52,14 +57,14 @@
     {
       "relationshipType": "many-to-one",
       "otherEntityName": "userPersona",
-      "otherEntityRelationshipName": "id",
+      "otherEntityRelationshipName": "idUserPersona",
       "relationshipName": "userPersona",
       "otherEntityField": "id"
     },
     {
       "relationshipType": "many-to-one",
       "otherEntityName": "invito",
-      "otherEntityRelationshipName": "id",
+      "otherEntityRelationshipName": "idInvito",
       "relationshipName": "invito",
       "otherEntityField": "id"
     }

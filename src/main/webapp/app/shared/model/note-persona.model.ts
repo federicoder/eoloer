@@ -1,11 +1,17 @@
 export interface INotePersona {
   id?: number;
-  idPersona?: number;
-  idNote?: number;
+  idPersonaRef?: number;
+  idNotePersona?: number;
   testo?: string;
   personaId?: number;
 }
 
 export class NotePersona implements INotePersona {
-  constructor(public id?: number, public idPersona?: number, public idNote?: number, public testo?: string, public personaId?: number) {}
+  constructor(
+    public id?: number,
+    public idPersonaRef?: number,
+    public idNotePersona?: number,
+    public testo?: string,
+    public personaId?: number
+  ) {}
 }

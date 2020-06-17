@@ -1,4 +1,4 @@
-id;id_template_task;ordine_esecuzione;nome;note;pub_priv;id_template_pratica
+id;id_template_task;ordine_esecuzione;nome;note;pub_priv;id_template_pratica_ref
 1;4;6987;8620;11849;38672;43189
 2;2;52167;72354;376;76392;48956
 3;5;72183;80328;43051;57254;61007

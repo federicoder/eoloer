@@ -40,8 +40,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WithMockUser
 public class PrevisioneTaskResourceIT {
 
-    private static final Integer DEFAULT_ID_TASK = 8;
-    private static final Integer UPDATED_ID_TASK = 7;
+    private static final Integer DEFAULT_ID_TASK_REF = 8;
+    private static final Integer UPDATED_ID_TASK_REF = 7;
 
     private static final Integer DEFAULT_QNT_ORDINE = 8;
     private static final Integer UPDATED_QNT_ORDINE = 7;
@@ -94,7 +94,7 @@ public class PrevisioneTaskResourceIT {
      */
     public static PrevisioneTask createEntity(EntityManager em) {
         PrevisioneTask previsioneTask = new PrevisioneTask()
-            .idTask(DEFAULT_ID_TASK)
+            .idTaskRef(DEFAULT_ID_TASK_REF)
             .qntOrdine(DEFAULT_QNT_ORDINE)
             .prcPrevisione(DEFAULT_PRC_PREVISIONE)
             .checkList(DEFAULT_CHECK_LIST)
@@ -111,7 +111,7 @@ public class PrevisioneTaskResourceIT {
      */
     public static PrevisioneTask createUpdatedEntity(EntityManager em) {
         PrevisioneTask previsioneTask = new PrevisioneTask()
-            .idTask(UPDATED_ID_TASK)
+            .idTaskRef(UPDATED_ID_TASK_REF)
             .qntOrdine(UPDATED_QNT_ORDINE)
             .prcPrevisione(UPDATED_PRC_PREVISIONE)
             .checkList(UPDATED_CHECK_LIST)
@@ -141,7 +141,7 @@ public class PrevisioneTaskResourceIT {
         List<PrevisioneTask> previsioneTaskList = previsioneTaskRepository.findAll();
         assertThat(previsioneTaskList).hasSize(databaseSizeBeforeCreate + 1);
         PrevisioneTask testPrevisioneTask = previsioneTaskList.get(previsioneTaskList.size() - 1);
-        assertThat(testPrevisioneTask.getIdTask()).isEqualTo(DEFAULT_ID_TASK);
+        assertThat(testPrevisioneTask.getIdTaskRef()).isEqualTo(DEFAULT_ID_TASK_REF);
         assertThat(testPrevisioneTask.getQntOrdine()).isEqualTo(DEFAULT_QNT_ORDINE);
         assertThat(testPrevisioneTask.getPrcPrevisione()).isEqualTo(DEFAULT_PRC_PREVISIONE);
         assertThat(testPrevisioneTask.getCheckList()).isEqualTo(DEFAULT_CHECK_LIST);
@@ -179,10 +179,10 @@ public class PrevisioneTaskResourceIT {
 
     @Test
     @Transactional
-    public void checkIdTaskIsRequired() throws Exception {
+    public void checkIdTaskRefIsRequired() throws Exception {
         int databaseSizeBeforeTest = previsioneTaskRepository.findAll().size();
         // set the field null
-        previsioneTask.setIdTask(null);
+        previsioneTask.setIdTaskRef(null);
 
         // Create the PrevisioneTask, which fails.
         PrevisioneTaskDTO previsioneTaskDTO = previsioneTaskMapper.toDto(previsioneTask);
@@ -208,7 +208,7 @@ public class PrevisioneTaskResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(previsioneTask.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idTask").value(hasItem(DEFAULT_ID_TASK)))
+            .andExpect(jsonPath("$.[*].idTaskRef").value(hasItem(DEFAULT_ID_TASK_REF)))
             .andExpect(jsonPath("$.[*].qntOrdine").value(hasItem(DEFAULT_QNT_ORDINE)))
             .andExpect(jsonPath("$.[*].prcPrevisione").value(hasItem(DEFAULT_PRC_PREVISIONE)))
             .andExpect(jsonPath("$.[*].checkList").value(hasItem(DEFAULT_CHECK_LIST)))
@@ -228,7 +228,7 @@ public class PrevisioneTaskResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(previsioneTask.getId().intValue()))
-            .andExpect(jsonPath("$.idTask").value(DEFAULT_ID_TASK))
+            .andExpect(jsonPath("$.idTaskRef").value(DEFAULT_ID_TASK_REF))
             .andExpect(jsonPath("$.qntOrdine").value(DEFAULT_QNT_ORDINE))
             .andExpect(jsonPath("$.prcPrevisione").value(DEFAULT_PRC_PREVISIONE))
             .andExpect(jsonPath("$.checkList").value(DEFAULT_CHECK_LIST))
@@ -257,7 +257,7 @@ public class PrevisioneTaskResourceIT {
         // Disconnect from session so that the updates on updatedPrevisioneTask are not directly saved in db
         em.detach(updatedPrevisioneTask);
         updatedPrevisioneTask
-            .idTask(UPDATED_ID_TASK)
+            .idTaskRef(UPDATED_ID_TASK_REF)
             .qntOrdine(UPDATED_QNT_ORDINE)
             .prcPrevisione(UPDATED_PRC_PREVISIONE)
             .checkList(UPDATED_CHECK_LIST)
@@ -275,7 +275,7 @@ public class PrevisioneTaskResourceIT {
         List<PrevisioneTask> previsioneTaskList = previsioneTaskRepository.findAll();
         assertThat(previsioneTaskList).hasSize(databaseSizeBeforeUpdate);
         PrevisioneTask testPrevisioneTask = previsioneTaskList.get(previsioneTaskList.size() - 1);
-        assertThat(testPrevisioneTask.getIdTask()).isEqualTo(UPDATED_ID_TASK);
+        assertThat(testPrevisioneTask.getIdTaskRef()).isEqualTo(UPDATED_ID_TASK_REF);
         assertThat(testPrevisioneTask.getQntOrdine()).isEqualTo(UPDATED_QNT_ORDINE);
         assertThat(testPrevisioneTask.getPrcPrevisione()).isEqualTo(UPDATED_PRC_PREVISIONE);
         assertThat(testPrevisioneTask.getCheckList()).isEqualTo(UPDATED_CHECK_LIST);
@@ -344,7 +344,7 @@ public class PrevisioneTaskResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(previsioneTask.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idTask").value(hasItem(DEFAULT_ID_TASK)))
+            .andExpect(jsonPath("$.[*].idTaskRef").value(hasItem(DEFAULT_ID_TASK_REF)))
             .andExpect(jsonPath("$.[*].qntOrdine").value(hasItem(DEFAULT_QNT_ORDINE)))
             .andExpect(jsonPath("$.[*].prcPrevisione").value(hasItem(DEFAULT_PRC_PREVISIONE)))
             .andExpect(jsonPath("$.[*].checkList").value(hasItem(DEFAULT_CHECK_LIST)))

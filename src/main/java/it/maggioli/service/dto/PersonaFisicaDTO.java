@@ -14,9 +14,9 @@ public class PersonaFisicaDTO implements Serializable {
     private Integer idPersonaFisica;
 
     @NotNull
-    private Integer idPersona;
+    private Integer idPersonaRef;
 
-    private Integer idRuoloPersona;
+    private Integer idRuoloPersonaRef;
 
     private String titolo;
 
@@ -31,7 +31,7 @@ public class PersonaFisicaDTO implements Serializable {
     private String professione;
 
 
-    private Long idPersonaId;
+    private Long idPersonaRefId;
     
     public Long getId() {
         return id;
@@ -49,20 +49,20 @@ public class PersonaFisicaDTO implements Serializable {
         this.idPersonaFisica = idPersonaFisica;
     }
 
-    public Integer getIdPersona() {
-        return idPersona;
+    public Integer getIdPersonaRef() {
+        return idPersonaRef;
     }
 
-    public void setIdPersona(Integer idPersona) {
-        this.idPersona = idPersona;
+    public void setIdPersonaRef(Integer idPersonaRef) {
+        this.idPersonaRef = idPersonaRef;
     }
 
-    public Integer getIdRuoloPersona() {
-        return idRuoloPersona;
+    public Integer getIdRuoloPersonaRef() {
+        return idRuoloPersonaRef;
     }
 
-    public void setIdRuoloPersona(Integer idRuoloPersona) {
-        this.idRuoloPersona = idRuoloPersona;
+    public void setIdRuoloPersonaRef(Integer idRuoloPersonaRef) {
+        this.idRuoloPersonaRef = idRuoloPersonaRef;
     }
 
     public String getTitolo() {
@@ -113,12 +113,12 @@ public class PersonaFisicaDTO implements Serializable {
         this.professione = professione;
     }
 
-    public Long getIdPersonaId() {
-        return idPersonaId;
+    public Long getIdPersonaRefId() {
+        return idPersonaRefId;
     }
 
-    public void setIdPersonaId(Long personaId) {
-        this.idPersonaId = personaId;
+    public void setIdPersonaRefId(Long personaId) {
+        this.idPersonaRefId = personaId;
     }
 
     @Override
@@ -144,15 +144,15 @@ public class PersonaFisicaDTO implements Serializable {
         return "PersonaFisicaDTO{" +
             "id=" + getId() +
             ", idPersonaFisica=" + getIdPersonaFisica() +
-            ", idPersona=" + getIdPersona() +
-            ", idRuoloPersona=" + getIdRuoloPersona() +
+            ", idPersonaRef=" + getIdPersonaRef() +
+            ", idRuoloPersonaRef=" + getIdRuoloPersonaRef() +
             ", titolo='" + getTitolo() + "'" +
             ", cognome='" + getCognome() + "'" +
             ", nome='" + getNome() + "'" +
             ", dataDiNascita='" + getDataDiNascita() + "'" +
             ", luogoDiNascita='" + getLuogoDiNascita() + "'" +
             ", professione='" + getProfessione() + "'" +
-            ", idPersonaId=" + getIdPersonaId() +
+            ", idPersonaRefId=" + getIdPersonaRefId() +
             "}";
     }
 }

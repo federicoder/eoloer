@@ -31,8 +31,8 @@ public class PrevisioneTask implements Serializable {
 
     @NotNull
     @Max(value = 8)
-    @Column(name = "id_task", nullable = false)
-    private Integer idTask;
+    @Column(name = "id_task_ref", nullable = false)
+    private Integer idTaskRef;
 
     @Max(value = 8)
     @Column(name = "qnt_ordine")
@@ -56,22 +56,22 @@ public class PrevisioneTask implements Serializable {
 
     @OneToMany(mappedBy = "previsioneTask")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<PrevisioneTask> idTasks = new HashSet<>();
+    private Set<PrevisioneTask> idTaskRefs = new HashSet<>();
+
+    @OneToOne(mappedBy = "idTaskRef")
+    @JsonIgnore
+    private PrevisioneAttivita idTaskRef;
+
+    @OneToOne(mappedBy = "idTaskRef")
+    @JsonIgnore
+    private PrevisioneEvento idTaskRef;
 
     @OneToOne(mappedBy = "idTask")
     @JsonIgnore
-    private PrevisioneAttivita idTask;
-
-    @OneToOne(mappedBy = "idTask")
-    @JsonIgnore
-    private PrevisioneEvento idTask;
-
-    @OneToOne(mappedBy = "id")
-    @JsonIgnore
-    private Task idTask;
+    private Task idTaskRef;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "idTasks", allowSetters = true)
+    @JsonIgnoreProperties(value = "idTaskRefs", allowSetters = true)
     private PrevisioneTask previsioneTask;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
@@ -83,17 +83,17 @@ public class PrevisioneTask implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdTask() {
-        return idTask;
+    public Integer getIdTaskRef() {
+        return idTaskRef;
     }
 
-    public PrevisioneTask idTask(Integer idTask) {
-        this.idTask = idTask;
+    public PrevisioneTask idTaskRef(Integer idTaskRef) {
+        this.idTaskRef = idTaskRef;
         return this;
     }
 
-    public void setIdTask(Integer idTask) {
-        this.idTask = idTask;
+    public void setIdTaskRef(Integer idTaskRef) {
+        this.idTaskRef = idTaskRef;
     }
 
     public Integer getQntOrdine() {
@@ -174,68 +174,68 @@ public class PrevisioneTask implements Serializable {
         this.version = version;
     }
 
-    public Set<PrevisioneTask> getIdTasks() {
-        return idTasks;
+    public Set<PrevisioneTask> getIdTaskRefs() {
+        return idTaskRefs;
     }
 
-    public PrevisioneTask idTasks(Set<PrevisioneTask> previsioneTasks) {
-        this.idTasks = previsioneTasks;
+    public PrevisioneTask idTaskRefs(Set<PrevisioneTask> previsioneTasks) {
+        this.idTaskRefs = previsioneTasks;
         return this;
     }
 
-    public PrevisioneTask addIdTask(PrevisioneTask previsioneTask) {
-        this.idTasks.add(previsioneTask);
+    public PrevisioneTask addIdTaskRef(PrevisioneTask previsioneTask) {
+        this.idTaskRefs.add(previsioneTask);
         previsioneTask.setPrevisioneTask(this);
         return this;
     }
 
-    public PrevisioneTask removeIdTask(PrevisioneTask previsioneTask) {
-        this.idTasks.remove(previsioneTask);
+    public PrevisioneTask removeIdTaskRef(PrevisioneTask previsioneTask) {
+        this.idTaskRefs.remove(previsioneTask);
         previsioneTask.setPrevisioneTask(null);
         return this;
     }
 
-    public void setIdTasks(Set<PrevisioneTask> previsioneTasks) {
-        this.idTasks = previsioneTasks;
+    public void setIdTaskRefs(Set<PrevisioneTask> previsioneTasks) {
+        this.idTaskRefs = previsioneTasks;
     }
 
-    public PrevisioneAttivita getIdTask() {
-        return idTask;
+    public PrevisioneAttivita getIdTaskRef() {
+        return idTaskRef;
     }
 
-    public PrevisioneTask idTask(PrevisioneAttivita previsioneAttivita) {
-        this.idTask = previsioneAttivita;
+    public PrevisioneTask idTaskRef(PrevisioneAttivita previsioneAttivita) {
+        this.idTaskRef = previsioneAttivita;
         return this;
     }
 
-    public void setIdTask(PrevisioneAttivita previsioneAttivita) {
-        this.idTask = previsioneAttivita;
+    public void setIdTaskRef(PrevisioneAttivita previsioneAttivita) {
+        this.idTaskRef = previsioneAttivita;
     }
 
-    public PrevisioneEvento getIdTask() {
-        return idTask;
+    public PrevisioneEvento getIdTaskRef() {
+        return idTaskRef;
     }
 
-    public PrevisioneTask idTask(PrevisioneEvento previsioneEvento) {
-        this.idTask = previsioneEvento;
+    public PrevisioneTask idTaskRef(PrevisioneEvento previsioneEvento) {
+        this.idTaskRef = previsioneEvento;
         return this;
     }
 
-    public void setIdTask(PrevisioneEvento previsioneEvento) {
-        this.idTask = previsioneEvento;
+    public void setIdTaskRef(PrevisioneEvento previsioneEvento) {
+        this.idTaskRef = previsioneEvento;
     }
 
-    public Task getIdTask() {
-        return idTask;
+    public Task getIdTaskRef() {
+        return idTaskRef;
     }
 
-    public PrevisioneTask idTask(Task task) {
-        this.idTask = task;
+    public PrevisioneTask idTaskRef(Task task) {
+        this.idTaskRef = task;
         return this;
     }
 
-    public void setIdTask(Task task) {
-        this.idTask = task;
+    public void setIdTaskRef(Task task) {
+        this.idTaskRef = task;
     }
 
     public PrevisioneTask getPrevisioneTask() {
@@ -273,7 +273,7 @@ public class PrevisioneTask implements Serializable {
     public String toString() {
         return "PrevisioneTask{" +
             "id=" + getId() +
-            ", idTask=" + getIdTask() +
+            ", idTaskRef=" + getIdTaskRef() +
             ", qntOrdine=" + getQntOrdine() +
             ", prcPrevisione=" + getPrcPrevisione() +
             ", checkList=" + getCheckList() +

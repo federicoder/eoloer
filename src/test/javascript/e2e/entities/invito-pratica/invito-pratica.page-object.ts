@@ -29,37 +29,37 @@ export class InvitoPraticaUpdatePage {
   saveButton = element(by.id('save-entity'));
   cancelButton = element(by.id('cancel-save'));
 
-  idPraticaInput = element(by.id('field_idPratica'));
+  idPraticaRefInput = element(by.id('field_idPraticaRef'));
 
-  idPraticaSelect = element(by.id('field_idPratica'));
+  idPraticaRefSelect = element(by.id('field_idPraticaRef'));
   praticaSelect = element(by.id('field_pratica'));
 
   async getPageTitle(): Promise<string> {
     return this.pageTitle.getAttribute('jhiTranslate');
   }
 
-  async setIdPraticaInput(idPratica: string): Promise<void> {
-    await this.idPraticaInput.sendKeys(idPratica);
+  async setIdPraticaRefInput(idPraticaRef: string): Promise<void> {
+    await this.idPraticaRefInput.sendKeys(idPraticaRef);
   }
 
-  async getIdPraticaInput(): Promise<string> {
-    return await this.idPraticaInput.getAttribute('value');
+  async getIdPraticaRefInput(): Promise<string> {
+    return await this.idPraticaRefInput.getAttribute('value');
   }
 
-  async idPraticaSelectLastOption(): Promise<void> {
-    await this.idPraticaSelect.all(by.tagName('option')).last().click();
+  async idPraticaRefSelectLastOption(): Promise<void> {
+    await this.idPraticaRefSelect.all(by.tagName('option')).last().click();
   }
 
-  async idPraticaSelectOption(option: string): Promise<void> {
-    await this.idPraticaSelect.sendKeys(option);
+  async idPraticaRefSelectOption(option: string): Promise<void> {
+    await this.idPraticaRefSelect.sendKeys(option);
   }
 
-  getIdPraticaSelect(): ElementFinder {
-    return this.idPraticaSelect;
+  getIdPraticaRefSelect(): ElementFinder {
+    return this.idPraticaRefSelect;
   }
 
-  async getIdPraticaSelectedOption(): Promise<string> {
-    return await this.idPraticaSelect.element(by.css('option:checked')).getText();
+  async getIdPraticaRefSelectedOption(): Promise<string> {
+    return await this.idPraticaRefSelect.element(by.css('option:checked')).getText();
   }
 
   async praticaSelectLastOption(): Promise<void> {

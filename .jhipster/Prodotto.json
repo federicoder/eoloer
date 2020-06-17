@@ -2,6 +2,11 @@
   "name": "Prodotto",
   "fields": [
     {
+      "fieldName": "idProdotto",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
       "fieldName": "nuovaLicenza",
       "fieldType": "Integer"
     },
@@ -18,8 +23,8 @@
     {
       "relationshipType": "one-to-one",
       "otherEntityName": "lineaOrdine",
-      "otherEntityRelationshipName": "idProdotto",
-      "relationshipName": "id",
+      "otherEntityRelationshipName": "idProdottoRef",
+      "relationshipName": "idProdotto",
       "otherEntityField": "id",
       "ownerSide": true
     }

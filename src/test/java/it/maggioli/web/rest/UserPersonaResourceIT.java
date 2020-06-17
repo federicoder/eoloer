@@ -40,8 +40,11 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WithMockUser
 public class UserPersonaResourceIT {
 
-    private static final Integer DEFAULT_ID_PERSONA = 1;
-    private static final Integer UPDATED_ID_PERSONA = 2;
+    private static final Integer DEFAULT_ID_USER_PERSONA = 1;
+    private static final Integer UPDATED_ID_USER_PERSONA = 2;
+
+    private static final Integer DEFAULT_ID_PERSONA_REF = 1;
+    private static final Integer UPDATED_ID_PERSONA_REF = 2;
 
     private static final Integer DEFAULT_NOME_USER = 1;
     private static final Integer UPDATED_NOME_USER = 2;
@@ -79,7 +82,8 @@ public class UserPersonaResourceIT {
      */
     public static UserPersona createEntity(EntityManager em) {
         UserPersona userPersona = new UserPersona()
-            .idPersona(DEFAULT_ID_PERSONA)
+            .idUserPersona(DEFAULT_ID_USER_PERSONA)
+            .idPersonaRef(DEFAULT_ID_PERSONA_REF)
             .nomeUser(DEFAULT_NOME_USER);
         return userPersona;
     }
@@ -91,7 +95,8 @@ public class UserPersonaResourceIT {
      */
     public static UserPersona createUpdatedEntity(EntityManager em) {
         UserPersona userPersona = new UserPersona()
-            .idPersona(UPDATED_ID_PERSONA)
+            .idUserPersona(UPDATED_ID_USER_PERSONA)
+            .idPersonaRef(UPDATED_ID_PERSONA_REF)
             .nomeUser(UPDATED_NOME_USER);
         return userPersona;
     }
@@ -116,7 +121,8 @@ public class UserPersonaResourceIT {
         List<UserPersona> userPersonaList = userPersonaRepository.findAll();
         assertThat(userPersonaList).hasSize(databaseSizeBeforeCreate + 1);
         UserPersona testUserPersona = userPersonaList.get(userPersonaList.size() - 1);
-        assertThat(testUserPersona.getIdPersona()).isEqualTo(DEFAULT_ID_PERSONA);
+        assertThat(testUserPersona.getIdUserPersona()).isEqualTo(DEFAULT_ID_USER_PERSONA);
+        assertThat(testUserPersona.getIdPersonaRef()).isEqualTo(DEFAULT_ID_PERSONA_REF);
         assertThat(testUserPersona.getNomeUser()).isEqualTo(DEFAULT_NOME_USER);
 
         // Validate the UserPersona in Elasticsearch
@@ -149,6 +155,26 @@ public class UserPersonaResourceIT {
 
     @Test
     @Transactional
+    public void checkIdUserPersonaIsRequired() throws Exception {
+        int databaseSizeBeforeTest = userPersonaRepository.findAll().size();
+        // set the field null
+        userPersona.setIdUserPersona(null);
+
+        // Create the UserPersona, which fails.
+        UserPersonaDTO userPersonaDTO = userPersonaMapper.toDto(userPersona);
+
+
+        restUserPersonaMockMvc.perform(post("/api/user-personas")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(userPersonaDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<UserPersona> userPersonaList = userPersonaRepository.findAll();
+        assertThat(userPersonaList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllUserPersonas() throws Exception {
         // Initialize the database
         userPersonaRepository.saveAndFlush(userPersona);
@@ -158,7 +184,8 @@ public class UserPersonaResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(userPersona.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idPersona").value(hasItem(DEFAULT_ID_PERSONA)))
+            .andExpect(jsonPath("$.[*].idUserPersona").value(hasItem(DEFAULT_ID_USER_PERSONA)))
+            .andExpect(jsonPath("$.[*].idPersonaRef").value(hasItem(DEFAULT_ID_PERSONA_REF)))
             .andExpect(jsonPath("$.[*].nomeUser").value(hasItem(DEFAULT_NOME_USER)));
     }
     
@@ -173,7 +200,8 @@ public class UserPersonaResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(userPersona.getId().intValue()))
-            .andExpect(jsonPath("$.idPersona").value(DEFAULT_ID_PERSONA))
+            .andExpect(jsonPath("$.idUserPersona").value(DEFAULT_ID_USER_PERSONA))
+            .andExpect(jsonPath("$.idPersonaRef").value(DEFAULT_ID_PERSONA_REF))
             .andExpect(jsonPath("$.nomeUser").value(DEFAULT_NOME_USER));
     }
     @Test
@@ -197,7 +225,8 @@ public class UserPersonaResourceIT {
         // Disconnect from session so that the updates on updatedUserPersona are not directly saved in db
         em.detach(updatedUserPersona);
         updatedUserPersona
-            .idPersona(UPDATED_ID_PERSONA)
+            .idUserPersona(UPDATED_ID_USER_PERSONA)
+            .idPersonaRef(UPDATED_ID_PERSONA_REF)
             .nomeUser(UPDATED_NOME_USER);
         UserPersonaDTO userPersonaDTO = userPersonaMapper.toDto(updatedUserPersona);
 
@@ -210,7 +239,8 @@ public class UserPersonaResourceIT {
         List<UserPersona> userPersonaList = userPersonaRepository.findAll();
         assertThat(userPersonaList).hasSize(databaseSizeBeforeUpdate);
         UserPersona testUserPersona = userPersonaList.get(userPersonaList.size() - 1);
-        assertThat(testUserPersona.getIdPersona()).isEqualTo(UPDATED_ID_PERSONA);
+        assertThat(testUserPersona.getIdUserPersona()).isEqualTo(UPDATED_ID_USER_PERSONA);
+        assertThat(testUserPersona.getIdPersonaRef()).isEqualTo(UPDATED_ID_PERSONA_REF);
         assertThat(testUserPersona.getNomeUser()).isEqualTo(UPDATED_NOME_USER);
 
         // Validate the UserPersona in Elasticsearch
@@ -274,7 +304,8 @@ public class UserPersonaResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(userPersona.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idPersona").value(hasItem(DEFAULT_ID_PERSONA)))
+            .andExpect(jsonPath("$.[*].idUserPersona").value(hasItem(DEFAULT_ID_USER_PERSONA)))
+            .andExpect(jsonPath("$.[*].idPersonaRef").value(hasItem(DEFAULT_ID_PERSONA_REF)))
             .andExpect(jsonPath("$.[*].nomeUser").value(hasItem(DEFAULT_NOME_USER)));
     }
 }

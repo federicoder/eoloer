@@ -41,26 +41,26 @@
             <thead>
                 <tr>
                     <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
-                    <th scope="col" ><span jhiTranslate="eoloprjApp.previsioneAttivita.idTask">Id Task</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.previsioneAttivita.idTaskRef">Id Task Ref</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.previsioneAttivita.dataPianificata">Data Pianificata</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.previsioneAttivita.oraPianificata">Ora Pianificata</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.previsioneAttivita.dataScadenza">Data Scadenza</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.previsioneAttivita.version">Version</span></th>
-                    <th scope="col" ><span jhiTranslate="eoloprjApp.previsioneAttivita.idTask">Id Task</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.previsioneAttivita.idTaskRef">Id Task Ref</span></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let previsioneAttivita of previsioneAttivitas ;trackBy: trackId">
                     <td><a [routerLink]="['/previsione-attivita', previsioneAttivita.id, 'view']">{{ previsioneAttivita.id }}</a></td>
-                    <td>{{ previsioneAttivita.idTask }}</td>
+                    <td>{{ previsioneAttivita.idTaskRef }}</td>
                     <td>{{ previsioneAttivita.dataPianificata }}</td>
                     <td>{{ previsioneAttivita.oraPianificata }}</td>
                     <td>{{ previsioneAttivita.dataScadenza }}</td>
                     <td>{{ previsioneAttivita.version }}</td>
                     <td>
-                        <div *ngIf="previsioneAttivita.idTaskId">
-                            <a [routerLink]="['/previsione-task', previsioneAttivita.idTaskId , 'view']" >{{ previsioneAttivita.idTaskId }}</a>
+                        <div *ngIf="previsioneAttivita.idTaskRefId">
+                            <a [routerLink]="['/previsione-task', previsioneAttivita.idTaskRefId , 'view']" >{{ previsioneAttivita.idTaskRefId }}</a>
                         </div>
                     </td>
                     <td class="text-right">

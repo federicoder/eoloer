@@ -17,7 +17,7 @@
       "detail": {
         "title": "Telefono Persona"
       },
-      "idPersona": "Id Persona",
+      "idPersonaRef": "Id Persona Ref",
       "etichetta": "Etichetta",
       "valore": "Valore",
       "persona": "Persona"

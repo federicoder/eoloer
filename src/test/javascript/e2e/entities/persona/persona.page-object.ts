@@ -29,7 +29,8 @@ export class PersonaUpdatePage {
   saveButton = element(by.id('save-entity'));
   cancelButton = element(by.id('cancel-save'));
 
-  idStudioInput = element(by.id('field_idStudio'));
+  idPersonaInput = element(by.id('field_idPersona'));
+  idStudioProfessionaleRefInput = element(by.id('field_idStudioProfessionaleRef'));
   codiceFiscaleInput = element(by.id('field_codiceFiscale'));
   areaDiInteresseInput = element(by.id('field_areaDiInteresse'));
   titoloInput = element(by.id('field_titolo'));
@@ -40,21 +41,29 @@ export class PersonaUpdatePage {
   professioneInput = element(by.id('field_professione'));
   tipoInput = element(by.id('field_tipo'));
   discriminatorInput = element(by.id('field_discriminator'));
-  idRuoloPersonaInput = element(by.id('field_idRuoloPersona'));
+  idRuoloPersonaRefInput = element(by.id('field_idRuoloPersonaRef'));
   tipoRuoloUtenteInput = element(by.id('field_tipoRuoloUtente'));
 
-  idSelect = element(by.id('field_id'));
+  idPersonaSelect = element(by.id('field_idPersona'));
 
   async getPageTitle(): Promise<string> {
     return this.pageTitle.getAttribute('jhiTranslate');
   }
 
-  async setIdStudioInput(idStudio: string): Promise<void> {
-    await this.idStudioInput.sendKeys(idStudio);
+  async setIdPersonaInput(idPersona: string): Promise<void> {
+    await this.idPersonaInput.sendKeys(idPersona);
   }
 
-  async getIdStudioInput(): Promise<string> {
-    return await this.idStudioInput.getAttribute('value');
+  async getIdPersonaInput(): Promise<string> {
+    return await this.idPersonaInput.getAttribute('value');
+  }
+
+  async setIdStudioProfessionaleRefInput(idStudioProfessionaleRef: string): Promise<void> {
+    await this.idStudioProfessionaleRefInput.sendKeys(idStudioProfessionaleRef);
+  }
+
+  async getIdStudioProfessionaleRefInput(): Promise<string> {
+    return await this.idStudioProfessionaleRefInput.getAttribute('value');
   }
 
   async setCodiceFiscaleInput(codiceFiscale: string): Promise<void> {
@@ -137,12 +146,12 @@ export class PersonaUpdatePage {
     return await this.discriminatorInput.getAttribute('value');
   }
 
-  async setIdRuoloPersonaInput(idRuoloPersona: string): Promise<void> {
-    await this.idRuoloPersonaInput.sendKeys(idRuoloPersona);
+  async setIdRuoloPersonaRefInput(idRuoloPersonaRef: string): Promise<void> {
+    await this.idRuoloPersonaRefInput.sendKeys(idRuoloPersonaRef);
   }
 
-  async getIdRuoloPersonaInput(): Promise<string> {
-    return await this.idRuoloPersonaInput.getAttribute('value');
+  async getIdRuoloPersonaRefInput(): Promise<string> {
+    return await this.idRuoloPersonaRefInput.getAttribute('value');
   }
 
   async setTipoRuoloUtenteInput(tipoRuoloUtente: string): Promise<void> {
@@ -153,20 +162,20 @@ export class PersonaUpdatePage {
     return await this.tipoRuoloUtenteInput.getAttribute('value');
   }
 
-  async idSelectLastOption(): Promise<void> {
-    await this.idSelect.all(by.tagName('option')).last().click();
+  async idPersonaSelectLastOption(): Promise<void> {
+    await this.idPersonaSelect.all(by.tagName('option')).last().click();
   }
 
-  async idSelectOption(option: string): Promise<void> {
-    await this.idSelect.sendKeys(option);
+  async idPersonaSelectOption(option: string): Promise<void> {
+    await this.idPersonaSelect.sendKeys(option);
   }
 
-  getIdSelect(): ElementFinder {
-    return this.idSelect;
+  getIdPersonaSelect(): ElementFinder {
+    return this.idPersonaSelect;
   }
 
-  async getIdSelectedOption(): Promise<string> {
-    return await this.idSelect.element(by.css('option:checked')).getText();
+  async getIdPersonaSelectedOption(): Promise<string> {
+    return await this.idPersonaSelect.element(by.css('option:checked')).getText();
   }
 
   async save(): Promise<void> {

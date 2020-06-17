@@ -25,16 +25,16 @@ public class InvitoAttivita implements Serializable {
     @SequenceGenerator(name = "sequenceGenerator")
     private Long id;
 
-    @Column(name = "id_attivita")
-    private Integer idAttivita;
+    @Column(name = "id_task_ref")
+    private Integer idTaskRef;
 
     @OneToOne
     @JoinColumn(unique = true)
-    private Invito idAttivita;
+    private Invito idTaskRef;
 
-    @OneToOne(mappedBy = "id")
+    @OneToOne(mappedBy = "idTask")
     @JsonIgnore
-    private Task idAttivita;
+    private Task idTaskRef;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -45,43 +45,43 @@ public class InvitoAttivita implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdAttivita() {
-        return idAttivita;
+    public Integer getIdTaskRef() {
+        return idTaskRef;
     }
 
-    public InvitoAttivita idAttivita(Integer idAttivita) {
-        this.idAttivita = idAttivita;
+    public InvitoAttivita idTaskRef(Integer idTaskRef) {
+        this.idTaskRef = idTaskRef;
         return this;
     }
 
-    public void setIdAttivita(Integer idAttivita) {
-        this.idAttivita = idAttivita;
+    public void setIdTaskRef(Integer idTaskRef) {
+        this.idTaskRef = idTaskRef;
     }
 
-    public Invito getIdAttivita() {
-        return idAttivita;
+    public Invito getIdTaskRef() {
+        return idTaskRef;
     }
 
-    public InvitoAttivita idAttivita(Invito invito) {
-        this.idAttivita = invito;
+    public InvitoAttivita idTaskRef(Invito invito) {
+        this.idTaskRef = invito;
         return this;
     }
 
-    public void setIdAttivita(Invito invito) {
-        this.idAttivita = invito;
+    public void setIdTaskRef(Invito invito) {
+        this.idTaskRef = invito;
     }
 
-    public Task getIdAttivita() {
-        return idAttivita;
+    public Task getIdTaskRef() {
+        return idTaskRef;
     }
 
-    public InvitoAttivita idAttivita(Task task) {
-        this.idAttivita = task;
+    public InvitoAttivita idTaskRef(Task task) {
+        this.idTaskRef = task;
         return this;
     }
 
-    public void setIdAttivita(Task task) {
-        this.idAttivita = task;
+    public void setIdTaskRef(Task task) {
+        this.idTaskRef = task;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 
@@ -106,7 +106,7 @@ public class InvitoAttivita implements Serializable {
     public String toString() {
         return "InvitoAttivita{" +
             "id=" + getId() +
-            ", idAttivita=" + getIdAttivita() +
+            ", idTaskRef=" + getIdTaskRef() +
             "}";
     }
 }

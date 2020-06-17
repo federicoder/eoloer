@@ -41,28 +41,28 @@
             <thead>
                 <tr>
                     <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
-                    <th scope="col" ><span jhiTranslate="eoloprjApp.previsioneEvento.idTask">Id Task</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.previsioneEvento.idTaskRef">Id Task Ref</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.previsioneEvento.dataInizio">Data Inizio</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.previsioneEvento.dataFine">Data Fine</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.previsioneEvento.luogo">Luogo</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.previsioneEvento.indicazioniLuogo">Indicazioni Luogo</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.previsioneEvento.version">Version</span></th>
-                    <th scope="col" ><span jhiTranslate="eoloprjApp.previsioneEvento.idTask">Id Task</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.previsioneEvento.idTaskRef">Id Task Ref</span></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let previsioneEvento of previsioneEventos ;trackBy: trackId">
                     <td><a [routerLink]="['/previsione-evento', previsioneEvento.id, 'view']">{{ previsioneEvento.id }}</a></td>
-                    <td>{{ previsioneEvento.idTask }}</td>
+                    <td>{{ previsioneEvento.idTaskRef }}</td>
                     <td>{{ previsioneEvento.dataInizio }}</td>
                     <td>{{ previsioneEvento.dataFine }}</td>
                     <td>{{ previsioneEvento.luogo }}</td>
                     <td>{{ previsioneEvento.indicazioniLuogo }}</td>
                     <td>{{ previsioneEvento.version }}</td>
                     <td>
-                        <div *ngIf="previsioneEvento.idTaskId">
-                            <a [routerLink]="['/previsione-task', previsioneEvento.idTaskId , 'view']" >{{ previsioneEvento.idTaskId }}</a>
+                        <div *ngIf="previsioneEvento.idTaskRefId">
+                            <a [routerLink]="['/previsione-task', previsioneEvento.idTaskRefId , 'view']" >{{ previsioneEvento.idTaskRefId }}</a>
                         </div>
                     </td>
                     <td class="text-right">

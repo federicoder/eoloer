@@ -45,8 +45,8 @@ describe('AllegatoTask e2e test', () => {
 
     await promise.all([
       allegatoTaskUpdatePage.setIdAllegatoTaskInput('5'),
-      allegatoTaskUpdatePage.setIdTipoInput('5'),
-      allegatoTaskUpdatePage.setIdTaskInput('5'),
+      allegatoTaskUpdatePage.setIdTipoAllegatoRefInput('5'),
+      allegatoTaskUpdatePage.setIdTaskRefInput('5'),
       allegatoTaskUpdatePage.setFormatoInput('5'),
       allegatoTaskUpdatePage.setNoteInput('note'),
       allegatoTaskUpdatePage.setStatoInput('5'),
@@ -59,8 +59,8 @@ describe('AllegatoTask e2e test', () => {
     ]);
 
     expect(await allegatoTaskUpdatePage.getIdAllegatoTaskInput()).to.eq('5', 'Expected idAllegatoTask value to be equals to 5');
-    expect(await allegatoTaskUpdatePage.getIdTipoInput()).to.eq('5', 'Expected idTipo value to be equals to 5');
-    expect(await allegatoTaskUpdatePage.getIdTaskInput()).to.eq('5', 'Expected idTask value to be equals to 5');
+    expect(await allegatoTaskUpdatePage.getIdTipoAllegatoRefInput()).to.eq('5', 'Expected idTipoAllegatoRef value to be equals to 5');
+    expect(await allegatoTaskUpdatePage.getIdTaskRefInput()).to.eq('5', 'Expected idTaskRef value to be equals to 5');
     expect(await allegatoTaskUpdatePage.getFormatoInput()).to.eq('5', 'Expected formato value to be equals to 5');
     expect(await allegatoTaskUpdatePage.getNoteInput()).to.eq('note', 'Expected Note value to be equals to note');
     expect(await allegatoTaskUpdatePage.getStatoInput()).to.eq('5', 'Expected stato value to be equals to 5');

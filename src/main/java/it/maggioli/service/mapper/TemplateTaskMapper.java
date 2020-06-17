@@ -16,8 +16,8 @@ public interface TemplateTaskMapper extends EntityMapper<TemplateTaskDTO, Templa
     @Mapping(source = "templateTask.id", target = "templateTaskId")
     TemplateTaskDTO toDto(TemplateTask templateTask);
 
-    @Mapping(target = "idTemplates", ignore = true)
-    @Mapping(target = "removeIdTemplate", ignore = true)
+    @Mapping(target = "idTemplateTasks", ignore = true)
+    @Mapping(target = "removeIdTemplateTask", ignore = true)
     @Mapping(target = "idTemplateTasks", ignore = true)
     @Mapping(target = "removeIdTemplateTask", ignore = true)
     @Mapping(source = "templatePraticaId", target = "templatePratica")

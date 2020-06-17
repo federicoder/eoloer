@@ -43,11 +43,11 @@ public class AllegatoTaskResourceIT {
     private static final Integer DEFAULT_ID_ALLEGATO_TASK = 8;
     private static final Integer UPDATED_ID_ALLEGATO_TASK = 7;
 
-    private static final Integer DEFAULT_ID_TIPO = 8;
-    private static final Integer UPDATED_ID_TIPO = 7;
+    private static final Integer DEFAULT_ID_TIPO_ALLEGATO_REF = 8;
+    private static final Integer UPDATED_ID_TIPO_ALLEGATO_REF = 7;
 
-    private static final Integer DEFAULT_ID_TASK = 8;
-    private static final Integer UPDATED_ID_TASK = 7;
+    private static final Integer DEFAULT_ID_TASK_REF = 8;
+    private static final Integer UPDATED_ID_TASK_REF = 7;
 
     private static final Integer DEFAULT_FORMATO = 1;
     private static final Integer UPDATED_FORMATO = 2;
@@ -101,8 +101,8 @@ public class AllegatoTaskResourceIT {
     public static AllegatoTask createEntity(EntityManager em) {
         AllegatoTask allegatoTask = new AllegatoTask()
             .idAllegatoTask(DEFAULT_ID_ALLEGATO_TASK)
-            .idTipo(DEFAULT_ID_TIPO)
-            .idTask(DEFAULT_ID_TASK)
+            .idTipoAllegatoRef(DEFAULT_ID_TIPO_ALLEGATO_REF)
+            .idTaskRef(DEFAULT_ID_TASK_REF)
             .formato(DEFAULT_FORMATO)
             .note(DEFAULT_NOTE)
             .stato(DEFAULT_STATO)
@@ -120,8 +120,8 @@ public class AllegatoTaskResourceIT {
     public static AllegatoTask createUpdatedEntity(EntityManager em) {
         AllegatoTask allegatoTask = new AllegatoTask()
             .idAllegatoTask(UPDATED_ID_ALLEGATO_TASK)
-            .idTipo(UPDATED_ID_TIPO)
-            .idTask(UPDATED_ID_TASK)
+            .idTipoAllegatoRef(UPDATED_ID_TIPO_ALLEGATO_REF)
+            .idTaskRef(UPDATED_ID_TASK_REF)
             .formato(UPDATED_FORMATO)
             .note(UPDATED_NOTE)
             .stato(UPDATED_STATO)
@@ -152,8 +152,8 @@ public class AllegatoTaskResourceIT {
         assertThat(allegatoTaskList).hasSize(databaseSizeBeforeCreate + 1);
         AllegatoTask testAllegatoTask = allegatoTaskList.get(allegatoTaskList.size() - 1);
         assertThat(testAllegatoTask.getIdAllegatoTask()).isEqualTo(DEFAULT_ID_ALLEGATO_TASK);
-        assertThat(testAllegatoTask.getIdTipo()).isEqualTo(DEFAULT_ID_TIPO);
-        assertThat(testAllegatoTask.getIdTask()).isEqualTo(DEFAULT_ID_TASK);
+        assertThat(testAllegatoTask.getIdTipoAllegatoRef()).isEqualTo(DEFAULT_ID_TIPO_ALLEGATO_REF);
+        assertThat(testAllegatoTask.getIdTaskRef()).isEqualTo(DEFAULT_ID_TASK_REF);
         assertThat(testAllegatoTask.getFormato()).isEqualTo(DEFAULT_FORMATO);
         assertThat(testAllegatoTask.getNote()).isEqualTo(DEFAULT_NOTE);
         assertThat(testAllegatoTask.getStato()).isEqualTo(DEFAULT_STATO);
@@ -241,8 +241,8 @@ public class AllegatoTaskResourceIT {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(allegatoTask.getId().intValue())))
             .andExpect(jsonPath("$.[*].idAllegatoTask").value(hasItem(DEFAULT_ID_ALLEGATO_TASK)))
-            .andExpect(jsonPath("$.[*].idTipo").value(hasItem(DEFAULT_ID_TIPO)))
-            .andExpect(jsonPath("$.[*].idTask").value(hasItem(DEFAULT_ID_TASK)))
+            .andExpect(jsonPath("$.[*].idTipoAllegatoRef").value(hasItem(DEFAULT_ID_TIPO_ALLEGATO_REF)))
+            .andExpect(jsonPath("$.[*].idTaskRef").value(hasItem(DEFAULT_ID_TASK_REF)))
             .andExpect(jsonPath("$.[*].formato").value(hasItem(DEFAULT_FORMATO)))
             .andExpect(jsonPath("$.[*].note").value(hasItem(DEFAULT_NOTE)))
             .andExpect(jsonPath("$.[*].stato").value(hasItem(DEFAULT_STATO)))
@@ -263,8 +263,8 @@ public class AllegatoTaskResourceIT {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(allegatoTask.getId().intValue()))
             .andExpect(jsonPath("$.idAllegatoTask").value(DEFAULT_ID_ALLEGATO_TASK))
-            .andExpect(jsonPath("$.idTipo").value(DEFAULT_ID_TIPO))
-            .andExpect(jsonPath("$.idTask").value(DEFAULT_ID_TASK))
+            .andExpect(jsonPath("$.idTipoAllegatoRef").value(DEFAULT_ID_TIPO_ALLEGATO_REF))
+            .andExpect(jsonPath("$.idTaskRef").value(DEFAULT_ID_TASK_REF))
             .andExpect(jsonPath("$.formato").value(DEFAULT_FORMATO))
             .andExpect(jsonPath("$.note").value(DEFAULT_NOTE))
             .andExpect(jsonPath("$.stato").value(DEFAULT_STATO))
@@ -294,8 +294,8 @@ public class AllegatoTaskResourceIT {
         em.detach(updatedAllegatoTask);
         updatedAllegatoTask
             .idAllegatoTask(UPDATED_ID_ALLEGATO_TASK)
-            .idTipo(UPDATED_ID_TIPO)
-            .idTask(UPDATED_ID_TASK)
+            .idTipoAllegatoRef(UPDATED_ID_TIPO_ALLEGATO_REF)
+            .idTaskRef(UPDATED_ID_TASK_REF)
             .formato(UPDATED_FORMATO)
             .note(UPDATED_NOTE)
             .stato(UPDATED_STATO)
@@ -314,8 +314,8 @@ public class AllegatoTaskResourceIT {
         assertThat(allegatoTaskList).hasSize(databaseSizeBeforeUpdate);
         AllegatoTask testAllegatoTask = allegatoTaskList.get(allegatoTaskList.size() - 1);
         assertThat(testAllegatoTask.getIdAllegatoTask()).isEqualTo(UPDATED_ID_ALLEGATO_TASK);
-        assertThat(testAllegatoTask.getIdTipo()).isEqualTo(UPDATED_ID_TIPO);
-        assertThat(testAllegatoTask.getIdTask()).isEqualTo(UPDATED_ID_TASK);
+        assertThat(testAllegatoTask.getIdTipoAllegatoRef()).isEqualTo(UPDATED_ID_TIPO_ALLEGATO_REF);
+        assertThat(testAllegatoTask.getIdTaskRef()).isEqualTo(UPDATED_ID_TASK_REF);
         assertThat(testAllegatoTask.getFormato()).isEqualTo(UPDATED_FORMATO);
         assertThat(testAllegatoTask.getNote()).isEqualTo(UPDATED_NOTE);
         assertThat(testAllegatoTask.getStato()).isEqualTo(UPDATED_STATO);
@@ -385,8 +385,8 @@ public class AllegatoTaskResourceIT {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(allegatoTask.getId().intValue())))
             .andExpect(jsonPath("$.[*].idAllegatoTask").value(hasItem(DEFAULT_ID_ALLEGATO_TASK)))
-            .andExpect(jsonPath("$.[*].idTipo").value(hasItem(DEFAULT_ID_TIPO)))
-            .andExpect(jsonPath("$.[*].idTask").value(hasItem(DEFAULT_ID_TASK)))
+            .andExpect(jsonPath("$.[*].idTipoAllegatoRef").value(hasItem(DEFAULT_ID_TIPO_ALLEGATO_REF)))
+            .andExpect(jsonPath("$.[*].idTaskRef").value(hasItem(DEFAULT_ID_TASK_REF)))
             .andExpect(jsonPath("$.[*].formato").value(hasItem(DEFAULT_FORMATO)))
             .andExpect(jsonPath("$.[*].note").value(hasItem(DEFAULT_NOTE)))
             .andExpect(jsonPath("$.[*].stato").value(hasItem(DEFAULT_STATO)))

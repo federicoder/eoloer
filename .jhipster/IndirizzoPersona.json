@@ -2,7 +2,7 @@
   "name": "IndirizzoPersona",
   "fields": [
     {
-      "fieldName": "idPersona",
+      "fieldName": "idPersonaRef",
       "fieldType": "Integer",
       "fieldValidateRules": ["required"]
     },
@@ -35,8 +35,8 @@
     {
       "relationshipType": "one-to-one",
       "otherEntityName": "persona",
-      "otherEntityRelationshipName": "id",
-      "relationshipName": "idPersona",
+      "otherEntityRelationshipName": "idPersona",
+      "relationshipName": "idPersonaRef",
       "ownerSide": false
     }
   ],

@@ -21,7 +21,7 @@ export class RappresentanzaPraticaUpdateComponent implements OnInit {
   editForm = this.fb.group({
     id: [],
     idRuoloPersona: [null, [Validators.required]],
-    idPersona: [null, [Validators.required]],
+    idPersonaRef: [null, [Validators.required]],
     ruoli: [],
     personaId: [],
   });
@@ -45,7 +45,7 @@ export class RappresentanzaPraticaUpdateComponent implements OnInit {
     this.editForm.patchValue({
       id: rappresentanzaPratica.id,
       idRuoloPersona: rappresentanzaPratica.idRuoloPersona,
-      idPersona: rappresentanzaPratica.idPersona,
+      idPersonaRef: rappresentanzaPratica.idPersonaRef,
       ruoli: rappresentanzaPratica.ruoli,
       personaId: rappresentanzaPratica.personaId,
     });
@@ -70,7 +70,7 @@ export class RappresentanzaPraticaUpdateComponent implements OnInit {
       ...new RappresentanzaPratica(),
       id: this.editForm.get(['id'])!.value,
       idRuoloPersona: this.editForm.get(['idRuoloPersona'])!.value,
-      idPersona: this.editForm.get(['idPersona'])!.value,
+      idPersonaRef: this.editForm.get(['idPersonaRef'])!.value,
       ruoli: this.editForm.get(['ruoli'])!.value,
       personaId: this.editForm.get(['personaId'])!.value,
     };

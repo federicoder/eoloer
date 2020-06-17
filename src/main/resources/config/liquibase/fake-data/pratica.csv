@@ -1,11 +1,11 @@
-id;id_studio;numero;nome;data_apertura;data_chiusura;data_scadenza;stato;motivo_chiusura;id_titolare;prc_avanzato;version;valuta;id_template_pratica
-1;7;Indiana Keyboard action-items;Guernsey;Handcrafted Steel Soap Practical magenta;pricing structure;clear-thinking Consultant Awesome Frozen Pants;78566;parse back-end parse;8;50815;Investment Account Solutions Buckinghamshire;relationships Rhode Island Optional;10579
-2;0;Plastic Pennsylvania SQL;enterprise Costa Rican Colon;tan cross-media;Tasty;orchestration Strategist Baby;93573;empowering payment Health;2;3053;lime conglomeration;Borders transmitting AI;65303
-3;4;global Program panel;withdrawal syndicate Officer;Grass-roots;Village Granite bandwidth-monitored;Diverse;9536;budgetary management;5;4514;United Arab Emirates Future SSL;Virtual;89998
-4;4;Wisconsin Future-proofed Buckinghamshire;Indiana Wisconsin Cocos (Keeling) Islands;heuristic Multi-lateral;systems Metal;Money Market Account;55251;whiteboard;3;49975;Cotton;Tasty;47779
-5;5;synergy backing up pink;innovative auxiliary conglomeration;Avon;Brand foreground Incredible;Incredible Soft Car;67316;Reduced;7;13919;Shirt;Internal;15652
-6;4;Synergistic Sausages;Central;scale Arkansas Program;transparent Licensed Wooden Hat;Steel;40533;circuit Gorgeous;2;23402;Practical Multi-lateral;scale SMS;65172
-7;1;invoice Switchable;reboot Tugrik;bandwidth-monitored Home Loan Account Internal;reciprocal dot-com Idaho;infomediaries hard drive;65726;Concrete;2;85516;United Arab Emirates;Falkland Islands Pound;95667
-8;5;deposit;matrix;Cambridgeshire parsing bluetooth;Ergonomic Cotton;black deploy;76326;Global Pizza;8;78615;synthesize;Cambridgeshire Consultant card;36421
-9;2;concept Internal;capacitor;withdrawal ivory navigating;salmon Handcrafted Fresh Towels Cambridgeshire;Web deposit;69095;Persevering Liberia;4;23635;Savings Account Unbranded Steel Salad;payment Internal;16819
-10;1;Investment Account;Wooden Chair payment;Gloves;feed;Buckinghamshire;31592;Automotive;5;11726;paradigms Credit Card Account;primary Washington;64595
+id;id_pratica;id_studio_professionale_ref;numero;nome;data_apertura;data_chiusura;data_scadenza;stato;motivo_chiusura;id_titolare;prc_avanzato;version;valuta;id_template_pratica_ref
+1;7;7;client-server Cotton;Beauty transparent;Argentine Peso;Practical magenta;pricing structure;69526;Chips;6;5123;Director neural;Director Saint Kitts and Nevis Representative;50815
+2;6;5;Solutions Buckinghamshire;relationships Rhode Island Optional;Sports;efficient;SQL Guam synthesize;18220;tan cross-media;2;7759;Specialist matrix Supervisor;Creative empowering;64232
+3;5;0;4th generation Cuba;conglomeration Central Cambridgeshire;AI withdrawal PCI;Program;Sausages withdrawal syndicate;99146;Computers;3;81950;Research France;database;20429
+4;0;1;Rubber;generate;Future SSL Computers;Global multi-byte Engineer;Buckinghamshire COM;26594;Designer plum;2;45103;Lodge;deposit deposit;60009
+5;2;4;whiteboard;Bedfordshire Cotton;Tasty;Personal Loan Account synergy;Intelligent Plastic Cheese innovative auxiliary;32402;Sleek;0;97004;Gorgeous Cotton Computer archive Incredible Soft Car;teal transmit Steel;14817
+6;3;2;hacking Borders Synergistic;Functionality;Buckinghamshire scale Arkansas;Generic Plastic Bacon Licensed Wooden Hat Wooden;incubate;32736;Gorgeous;2;23402;Practical Multi-lateral;scale SMS;65172
+7;1;5;Integration quantifying;Dynamic Switzerland bandwidth-monitored;Virginia calculating;navigate;Idaho Light;68877;North Carolina Rustic Concrete Gloves GB;4;93834;Falkland Islands Pound;deposit deposit Handmade Frozen Cheese;49306
+8;7;7;bluetooth Court Rustic Cotton Hat;Implemented;quantify Global;parsing;Reverse-engineered US Dollar Cambridgeshire;96480;card granular Gabon;1;91474;Handmade Accountability withdrawal;transmit;39994
+9;6;1;Handcrafted Fresh Towels Cambridgeshire;Web deposit;Flats Nebraska Berkshire;Home Loan Account;Unbranded Steel Salad;35232;Tonga GB;1;6896;bandwidth Wooden;Baby;54533
+10;0;1;next generation;tan copy Steel;Checking Account Israel Generic Metal Hat;Awesome Web sensor;Home Loan Account Morocco;18521;Electronics e-markets;1;70112;Burundi architectures Keyboard;Officer;50294

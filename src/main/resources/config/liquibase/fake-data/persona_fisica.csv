@@ -1,4 +1,4 @@
-id;id_persona_fisica;id_persona;id_ruolo_persona;titolo;cognome;nome;data_di_nascita;luogo_di_nascita;professione
+id;id_persona_fisica;id_persona_ref;id_ruolo_persona_ref;titolo;cognome;nome;data_di_nascita;luogo_di_nascita;professione
 1;2433;94215;42528;Terrace Organic;deposit Track;Analyst overriding Anguilla;Hryvnia;Consultant interactive;capability schemas HDD
 2;21861;50585;60036;USB incentivize;Electronics Handmade Cotton Car Savings Account;hard drive PNG;Architect;back up Greenland;program
 3;78446;18567;95877;Ergonomic;transmitter;Concrete generating payment;background sensor rich;Unbranded Frozen Towels multi-byte;HTTP Officer

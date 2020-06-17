@@ -89,9 +89,9 @@ public class ConsuntivoTaskResource {
      */
     @GetMapping("/consuntivo-tasks")
     public List<ConsuntivoTaskDTO> getAllConsuntivoTasks(@RequestParam(required = false) String filter) {
-        if ("idtask-is-null".equals(filter)) {
-            log.debug("REST request to get all ConsuntivoTasks where idTask is null");
-            return consuntivoTaskService.findAllWhereIdTaskIsNull();
+        if ("idtaskref-is-null".equals(filter)) {
+            log.debug("REST request to get all ConsuntivoTasks where idTaskRef is null");
+            return consuntivoTaskService.findAllWhereIdTaskRefIsNull();
         }
         log.debug("REST request to get all ConsuntivoTasks");
         return consuntivoTaskService.findAll();

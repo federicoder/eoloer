@@ -20,7 +20,7 @@ describe('Service Tests', () => {
       service = injector.get(StudioProfessionaleService);
       httpMock = injector.get(HttpTestingController);
 
-      elemDefault = new StudioProfessionale(0, 0);
+      elemDefault = new StudioProfessionale(0, 0, 0);
     });
 
     describe('Service methods', () => {
@@ -54,6 +54,7 @@ describe('Service Tests', () => {
       it('should update a StudioProfessionale', () => {
         const returnedFromService = Object.assign(
           {
+            idStudioProfessionale: 1,
             idUserAmministratore: 1,
           },
           elemDefault
@@ -71,6 +72,7 @@ describe('Service Tests', () => {
       it('should return a list of StudioProfessionale', () => {
         const returnedFromService = Object.assign(
           {
+            idStudioProfessionale: 1,
             idUserAmministratore: 1,
           },
           elemDefault

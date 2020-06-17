@@ -41,8 +41,8 @@
             <thead>
                 <tr>
                     <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
-                    <th scope="col" ><span jhiTranslate="eoloprjApp.notePersona.idPersona">Id Persona</span></th>
-                    <th scope="col" ><span jhiTranslate="eoloprjApp.notePersona.idNote">Id Note</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.notePersona.idPersonaRef">Id Persona Ref</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.notePersona.idNotePersona">Id Note Persona</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.notePersona.testo">Testo</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.notePersona.persona">Persona</span></th>
                     <th scope="col"></th>
@@ -51,8 +51,8 @@
             <tbody>
                 <tr *ngFor="let notePersona of notePersonas ;trackBy: trackId">
                     <td><a [routerLink]="['/note-persona', notePersona.id, 'view']">{{ notePersona.id }}</a></td>
-                    <td>{{ notePersona.idPersona }}</td>
-                    <td>{{ notePersona.idNote }}</td>
+                    <td>{{ notePersona.idPersonaRef }}</td>
+                    <td>{{ notePersona.idNotePersona }}</td>
                     <td>{{ notePersona.testo }}</td>
                     <td>
                         <div *ngIf="notePersona.personaId">

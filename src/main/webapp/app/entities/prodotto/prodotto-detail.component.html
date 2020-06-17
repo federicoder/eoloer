@@ -8,6 +8,10 @@
             <jhi-alert-error></jhi-alert-error>
 
             <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="eoloprjApp.prodotto.idProdotto">Id Prodotto</span></dt>
+                <dd>
+                    <span>{{ prodotto.idProdotto }}</span>
+                </dd>
                 <dt><span jhiTranslate="eoloprjApp.prodotto.nuovaLicenza">Nuova Licenza</span></dt>
                 <dd>
                     <span>{{ prodotto.nuovaLicenza }}</span>
@@ -20,10 +24,10 @@
                 <dd>
                     <span>{{ prodotto.storage }}</span>
                 </dd>
-                <dt><span jhiTranslate="eoloprjApp.prodotto.id">Id</span></dt>
+                <dt><span jhiTranslate="eoloprjApp.prodotto.idProdotto">Id Prodotto</span></dt>
                 <dd>
-                    <div *ngIf="prodotto.idId">
-                        <a [routerLink]="['/linea-ordine', prodotto.idId, 'view']">{{ prodotto.idId }}</a>
+                    <div *ngIf="prodotto.idProdottoId">
+                        <a [routerLink]="['/linea-ordine', prodotto.idProdottoId, 'view']">{{ prodotto.idProdottoId }}</a>
                     </div>
                 </dd>
             </dl>

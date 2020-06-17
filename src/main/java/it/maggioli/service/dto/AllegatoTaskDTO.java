@@ -15,10 +15,10 @@ public class AllegatoTaskDTO implements Serializable {
     private Integer idAllegatoTask;
 
     @Max(value = 8)
-    private Integer idTipo;
+    private Integer idTipoAllegatoRef;
 
     @Max(value = 8)
-    private Integer idTask;
+    private Integer idTaskRef;
 
     private Integer formato;
 
@@ -56,20 +56,20 @@ public class AllegatoTaskDTO implements Serializable {
         this.idAllegatoTask = idAllegatoTask;
     }
 
-    public Integer getIdTipo() {
-        return idTipo;
+    public Integer getIdTipoAllegatoRef() {
+        return idTipoAllegatoRef;
     }
 
-    public void setIdTipo(Integer idTipo) {
-        this.idTipo = idTipo;
+    public void setIdTipoAllegatoRef(Integer idTipoAllegatoRef) {
+        this.idTipoAllegatoRef = idTipoAllegatoRef;
     }
 
-    public Integer getIdTask() {
-        return idTask;
+    public Integer getIdTaskRef() {
+        return idTaskRef;
     }
 
-    public void setIdTask(Integer idTask) {
-        this.idTask = idTask;
+    public void setIdTaskRef(Integer idTaskRef) {
+        this.idTaskRef = idTaskRef;
     }
 
     public Integer getFormato() {
@@ -167,8 +167,8 @@ public class AllegatoTaskDTO implements Serializable {
         return "AllegatoTaskDTO{" +
             "id=" + getId() +
             ", idAllegatoTask=" + getIdAllegatoTask() +
-            ", idTipo=" + getIdTipo() +
-            ", idTask=" + getIdTask() +
+            ", idTipoAllegatoRef=" + getIdTipoAllegatoRef() +
+            ", idTaskRef=" + getIdTaskRef() +
             ", formato=" + getFormato() +
             ", note='" + getNote() + "'" +
             ", stato=" + getStato() +

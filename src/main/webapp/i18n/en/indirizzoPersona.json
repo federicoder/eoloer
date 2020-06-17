@@ -17,14 +17,14 @@
       "detail": {
         "title": "Indirizzo Persona"
       },
-      "idPersona": "Id Persona",
+      "idPersonaRef": "Id Persona Ref",
       "indirizzo": "Indirizzo",
       "comune": "Comune",
       "cap": "Cap",
       "provincia": "Provincia",
       "regione": "Regione",
       "nazione": "Nazione",
-      "idPersona": "Id Persona"
+      "idPersonaRef": "Id Persona Ref"
     }
   }
 }

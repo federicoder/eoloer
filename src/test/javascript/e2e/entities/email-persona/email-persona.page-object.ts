@@ -29,7 +29,7 @@ export class EmailPersonaUpdatePage {
   saveButton = element(by.id('save-entity'));
   cancelButton = element(by.id('cancel-save'));
 
-  idPersonaInput = element(by.id('field_idPersona'));
+  idPersonaRefInput = element(by.id('field_idPersonaRef'));
   etichettaInput = element(by.id('field_etichetta'));
   numeroInput = element(by.id('field_numero'));
 
@@ -39,12 +39,12 @@ export class EmailPersonaUpdatePage {
     return this.pageTitle.getAttribute('jhiTranslate');
   }
 
-  async setIdPersonaInput(idPersona: string): Promise<void> {
-    await this.idPersonaInput.sendKeys(idPersona);
+  async setIdPersonaRefInput(idPersonaRef: string): Promise<void> {
+    await this.idPersonaRefInput.sendKeys(idPersonaRef);
   }
 
-  async getIdPersonaInput(): Promise<string> {
-    return await this.idPersonaInput.getAttribute('value');
+  async getIdPersonaRefInput(): Promise<string> {
+    return await this.idPersonaRefInput.getAttribute('value');
   }
 
   async setEtichettaInput(etichetta: string): Promise<void> {

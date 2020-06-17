@@ -12,13 +12,13 @@ public class AllegatoTemplateTaskDTO implements Serializable {
 
     @NotNull
     @Max(value = 8)
-    private Integer idTemplateTask;
+    private Integer idTemplateTaskRef;
 
-    private Integer tipoAllegato;
+    private Integer idTipoAllegatoRef;
 
     private Integer formato;
 
-    private Integer idFile;
+    private Integer idFileRef;
 
     private Integer pubPriv;
 
@@ -35,20 +35,20 @@ public class AllegatoTemplateTaskDTO implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdTemplateTask() {
-        return idTemplateTask;
+    public Integer getIdTemplateTaskRef() {
+        return idTemplateTaskRef;
     }
 
-    public void setIdTemplateTask(Integer idTemplateTask) {
-        this.idTemplateTask = idTemplateTask;
+    public void setIdTemplateTaskRef(Integer idTemplateTaskRef) {
+        this.idTemplateTaskRef = idTemplateTaskRef;
     }
 
-    public Integer getTipoAllegato() {
-        return tipoAllegato;
+    public Integer getIdTipoAllegatoRef() {
+        return idTipoAllegatoRef;
     }
 
-    public void setTipoAllegato(Integer tipoAllegato) {
-        this.tipoAllegato = tipoAllegato;
+    public void setIdTipoAllegatoRef(Integer idTipoAllegatoRef) {
+        this.idTipoAllegatoRef = idTipoAllegatoRef;
     }
 
     public Integer getFormato() {
@@ -59,12 +59,12 @@ public class AllegatoTemplateTaskDTO implements Serializable {
         this.formato = formato;
     }
 
-    public Integer getIdFile() {
-        return idFile;
+    public Integer getIdFileRef() {
+        return idFileRef;
     }
 
-    public void setIdFile(Integer idFile) {
-        this.idFile = idFile;
+    public void setIdFileRef(Integer idFileRef) {
+        this.idFileRef = idFileRef;
     }
 
     public Integer getPubPriv() {
@@ -113,10 +113,10 @@ public class AllegatoTemplateTaskDTO implements Serializable {
     public String toString() {
         return "AllegatoTemplateTaskDTO{" +
             "id=" + getId() +
-            ", idTemplateTask=" + getIdTemplateTask() +
-            ", tipoAllegato=" + getTipoAllegato() +
+            ", idTemplateTaskRef=" + getIdTemplateTaskRef() +
+            ", idTipoAllegatoRef=" + getIdTipoAllegatoRef() +
             ", formato=" + getFormato() +
-            ", idFile=" + getIdFile() +
+            ", idFileRef=" + getIdFileRef() +
             ", pubPriv=" + getPubPriv() +
             ", templateTaskId=" + getTemplateTaskId() +
             ", tipoAllegatoId=" + getTipoAllegatoId() +

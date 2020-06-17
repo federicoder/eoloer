@@ -8,9 +8,13 @@
             <jhi-alert-error></jhi-alert-error>
 
             <dl class="row-md jh-entity-details">
-                <dt><span jhiTranslate="eoloprjApp.invito.idStudioProfessionale">Id Studio Professionale</span></dt>
+                <dt><span jhiTranslate="eoloprjApp.invito.idInvito">Id Invito</span></dt>
                 <dd>
-                    <span>{{ invito.idStudioProfessionale }}</span>
+                    <span>{{ invito.idInvito }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.invito.idStudioProfessionaleRef">Id Studio Professionale Ref</span></dt>
+                <dd>
+                    <span>{{ invito.idStudioProfessionaleRef }}</span>
                 </dd>
                 <dt><span jhiTranslate="eoloprjApp.invito.dataInvito">Data Invito</span></dt>
                 <dd>
@@ -32,13 +36,13 @@
                 <dd>
                     <span>{{ invito.testoInvito }}</span>
                 </dd>
-                <dt><span jhiTranslate="eoloprjApp.invito.idPratica">Id Pratica</span></dt>
+                <dt><span jhiTranslate="eoloprjApp.invito.idPraticaRef">Id Pratica Ref</span></dt>
                 <dd>
-                    <span>{{ invito.idPratica }}</span>
+                    <span>{{ invito.idPraticaRef }}</span>
                 </dd>
-                <dt><span jhiTranslate="eoloprjApp.invito.idAttivita">Id Attivita</span></dt>
+                <dt><span jhiTranslate="eoloprjApp.invito.idTaskRef">Id Task Ref</span></dt>
                 <dd>
-                    <span>{{ invito.idAttivita }}</span>
+                    <span>{{ invito.idTaskRef }}</span>
                 </dd>
                 <dt><span jhiTranslate="eoloprjApp.invito.luogoFisico">Luogo Fisico</span></dt>
                 <dd>
@@ -72,10 +76,10 @@
                 <dd>
                     <span>{{ invito.discriminator }}</span>
                 </dd>
-                <dt><span jhiTranslate="eoloprjApp.invito.idStudioProfessionale">Id Studio Professionale</span></dt>
+                <dt><span jhiTranslate="eoloprjApp.invito.idStudioProfessionaleRef">Id Studio Professionale Ref</span></dt>
                 <dd>
-                    <div *ngIf="invito.idStudioProfessionaleId">
-                        <a [routerLink]="['/studio-professionale', invito.idStudioProfessionaleId, 'view']">{{ invito.idStudioProfessionaleId }}</a>
+                    <div *ngIf="invito.idStudioProfessionaleRefId">
+                        <a [routerLink]="['/studio-professionale', invito.idStudioProfessionaleRefId, 'view']">{{ invito.idStudioProfessionaleRefId }}</a>
                     </div>
                 </dd>
                 <dt><span jhiTranslate="eoloprjApp.invito.assegnazioneTask">Assegnazione Task</span></dt>

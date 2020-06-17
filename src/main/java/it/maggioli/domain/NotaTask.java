@@ -26,9 +26,14 @@ public class NotaTask implements Serializable {
     @SequenceGenerator(name = "sequenceGenerator")
     private Long id;
 
+    @NotNull
     @Max(value = 8)
-    @Column(name = "id_task")
-    private Integer idTask;
+    @Column(name = "id_nota_task", nullable = false)
+    private Integer idNotaTask;
+
+    @Max(value = 8)
+    @Column(name = "id_task_ref")
+    private Integer idTaskRef;
 
     @Column(name = "data")
     private String data;
@@ -40,7 +45,7 @@ public class NotaTask implements Serializable {
     private String version;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "ids", allowSetters = true)
+    @JsonIgnoreProperties(value = "idTasks", allowSetters = true)
     private Task task;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
@@ -52,17 +57,30 @@ public class NotaTask implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdTask() {
-        return idTask;
+    public Integer getIdNotaTask() {
+        return idNotaTask;
     }
 
-    public NotaTask idTask(Integer idTask) {
-        this.idTask = idTask;
+    public NotaTask idNotaTask(Integer idNotaTask) {
+        this.idNotaTask = idNotaTask;
         return this;
     }
 
-    public void setIdTask(Integer idTask) {
-        this.idTask = idTask;
+    public void setIdNotaTask(Integer idNotaTask) {
+        this.idNotaTask = idNotaTask;
+    }
+
+    public Integer getIdTaskRef() {
+        return idTaskRef;
+    }
+
+    public NotaTask idTaskRef(Integer idTaskRef) {
+        this.idTaskRef = idTaskRef;
+        return this;
+    }
+
+    public void setIdTaskRef(Integer idTaskRef) {
+        this.idTaskRef = idTaskRef;
     }
 
     public String getData() {
@@ -139,7 +157,8 @@ public class NotaTask implements Serializable {
     public String toString() {
         return "NotaTask{" +
             "id=" + getId() +
-            ", idTask=" + getIdTask() +
+            ", idNotaTask=" + getIdNotaTask() +
+            ", idTaskRef=" + getIdTaskRef() +
             ", data='" + getData() + "'" +
             ", nota='" + getNota() + "'" +
             ", version='" + getVersion() + "'" +

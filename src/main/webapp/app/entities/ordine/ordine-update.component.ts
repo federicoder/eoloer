@@ -20,7 +20,8 @@ export class OrdineUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    idStudioProfessionale: [null, [Validators.required]],
+    idOrdine: [null, [Validators.required]],
+    idStudioProfessionaleRef: [null, [Validators.required]],
     statoOrdine: [],
     totImponibile: [],
     totIva: [],
@@ -48,7 +49,8 @@ export class OrdineUpdateComponent implements OnInit {
   updateForm(ordine: IOrdine): void {
     this.editForm.patchValue({
       id: ordine.id,
-      idStudioProfessionale: ordine.idStudioProfessionale,
+      idOrdine: ordine.idOrdine,
+      idStudioProfessionaleRef: ordine.idStudioProfessionaleRef,
       statoOrdine: ordine.statoOrdine,
       totImponibile: ordine.totImponibile,
       totIva: ordine.totIva,
@@ -75,7 +77,8 @@ export class OrdineUpdateComponent implements OnInit {
     return {
       ...new Ordine(),
       id: this.editForm.get(['id'])!.value,
-      idStudioProfessionale: this.editForm.get(['idStudioProfessionale'])!.value,
+      idOrdine: this.editForm.get(['idOrdine'])!.value,
+      idStudioProfessionaleRef: this.editForm.get(['idStudioProfessionaleRef'])!.value,
       statoOrdine: this.editForm.get(['statoOrdine'])!.value,
       totImponibile: this.editForm.get(['totImponibile'])!.value,
       totIva: this.editForm.get(['totIva'])!.value,

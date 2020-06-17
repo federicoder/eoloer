@@ -44,13 +44,13 @@ describe('EmailPersona e2e test', () => {
     await emailPersonaComponentsPage.clickOnCreateButton();
 
     await promise.all([
-      emailPersonaUpdatePage.setIdPersonaInput('5'),
+      emailPersonaUpdatePage.setIdPersonaRefInput('5'),
       emailPersonaUpdatePage.setEtichettaInput('5'),
       emailPersonaUpdatePage.setNumeroInput('5'),
       emailPersonaUpdatePage.personaSelectLastOption(),
     ]);
 
-    expect(await emailPersonaUpdatePage.getIdPersonaInput()).to.eq('5', 'Expected idPersona value to be equals to 5');
+    expect(await emailPersonaUpdatePage.getIdPersonaRefInput()).to.eq('5', 'Expected idPersonaRef value to be equals to 5');
     expect(await emailPersonaUpdatePage.getEtichettaInput()).to.eq('5', 'Expected etichetta value to be equals to 5');
     expect(await emailPersonaUpdatePage.getNumeroInput()).to.eq('5', 'Expected numero value to be equals to 5');
 

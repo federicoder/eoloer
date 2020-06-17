@@ -40,8 +40,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WithMockUser
 public class InvitoAttivitaResourceIT {
 
-    private static final Integer DEFAULT_ID_ATTIVITA = 1;
-    private static final Integer UPDATED_ID_ATTIVITA = 2;
+    private static final Integer DEFAULT_ID_TASK_REF = 1;
+    private static final Integer UPDATED_ID_TASK_REF = 2;
 
     @Autowired
     private InvitoAttivitaRepository invitoAttivitaRepository;
@@ -76,7 +76,7 @@ public class InvitoAttivitaResourceIT {
      */
     public static InvitoAttivita createEntity(EntityManager em) {
         InvitoAttivita invitoAttivita = new InvitoAttivita()
-            .idAttivita(DEFAULT_ID_ATTIVITA);
+            .idTaskRef(DEFAULT_ID_TASK_REF);
         return invitoAttivita;
     }
     /**
@@ -87,7 +87,7 @@ public class InvitoAttivitaResourceIT {
      */
     public static InvitoAttivita createUpdatedEntity(EntityManager em) {
         InvitoAttivita invitoAttivita = new InvitoAttivita()
-            .idAttivita(UPDATED_ID_ATTIVITA);
+            .idTaskRef(UPDATED_ID_TASK_REF);
         return invitoAttivita;
     }
 
@@ -111,7 +111,7 @@ public class InvitoAttivitaResourceIT {
         List<InvitoAttivita> invitoAttivitaList = invitoAttivitaRepository.findAll();
         assertThat(invitoAttivitaList).hasSize(databaseSizeBeforeCreate + 1);
         InvitoAttivita testInvitoAttivita = invitoAttivitaList.get(invitoAttivitaList.size() - 1);
-        assertThat(testInvitoAttivita.getIdAttivita()).isEqualTo(DEFAULT_ID_ATTIVITA);
+        assertThat(testInvitoAttivita.getIdTaskRef()).isEqualTo(DEFAULT_ID_TASK_REF);
 
         // Validate the InvitoAttivita in Elasticsearch
         verify(mockInvitoAttivitaSearchRepository, times(1)).save(testInvitoAttivita);
@@ -152,7 +152,7 @@ public class InvitoAttivitaResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(invitoAttivita.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idAttivita").value(hasItem(DEFAULT_ID_ATTIVITA)));
+            .andExpect(jsonPath("$.[*].idTaskRef").value(hasItem(DEFAULT_ID_TASK_REF)));
     }
     
     @Test
@@ -166,7 +166,7 @@ public class InvitoAttivitaResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(invitoAttivita.getId().intValue()))
-            .andExpect(jsonPath("$.idAttivita").value(DEFAULT_ID_ATTIVITA));
+            .andExpect(jsonPath("$.idTaskRef").value(DEFAULT_ID_TASK_REF));
     }
     @Test
     @Transactional
@@ -189,7 +189,7 @@ public class InvitoAttivitaResourceIT {
         // Disconnect from session so that the updates on updatedInvitoAttivita are not directly saved in db
         em.detach(updatedInvitoAttivita);
         updatedInvitoAttivita
-            .idAttivita(UPDATED_ID_ATTIVITA);
+            .idTaskRef(UPDATED_ID_TASK_REF);
         InvitoAttivitaDTO invitoAttivitaDTO = invitoAttivitaMapper.toDto(updatedInvitoAttivita);
 
         restInvitoAttivitaMockMvc.perform(put("/api/invito-attivitas")
@@ -201,7 +201,7 @@ public class InvitoAttivitaResourceIT {
         List<InvitoAttivita> invitoAttivitaList = invitoAttivitaRepository.findAll();
         assertThat(invitoAttivitaList).hasSize(databaseSizeBeforeUpdate);
         InvitoAttivita testInvitoAttivita = invitoAttivitaList.get(invitoAttivitaList.size() - 1);
-        assertThat(testInvitoAttivita.getIdAttivita()).isEqualTo(UPDATED_ID_ATTIVITA);
+        assertThat(testInvitoAttivita.getIdTaskRef()).isEqualTo(UPDATED_ID_TASK_REF);
 
         // Validate the InvitoAttivita in Elasticsearch
         verify(mockInvitoAttivitaSearchRepository, times(1)).save(testInvitoAttivita);
@@ -264,6 +264,6 @@ public class InvitoAttivitaResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(invitoAttivita.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idAttivita").value(hasItem(DEFAULT_ID_ATTIVITA)));
+            .andExpect(jsonPath("$.[*].idTaskRef").value(hasItem(DEFAULT_ID_TASK_REF)));
     }
 }

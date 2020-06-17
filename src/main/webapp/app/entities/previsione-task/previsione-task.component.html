@@ -41,7 +41,7 @@
             <thead>
                 <tr>
                     <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
-                    <th scope="col" ><span jhiTranslate="eoloprjApp.previsioneTask.idTask">Id Task</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.previsioneTask.idTaskRef">Id Task Ref</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.previsioneTask.qntOrdine">Qnt Ordine</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.previsioneTask.prcPrevisione">Prc Previsione</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.previsioneTask.checkList">Check List</span></th>
@@ -55,7 +55,7 @@
             <tbody>
                 <tr *ngFor="let previsioneTask of previsioneTasks ;trackBy: trackId">
                     <td><a [routerLink]="['/previsione-task', previsioneTask.id, 'view']">{{ previsioneTask.id }}</a></td>
-                    <td>{{ previsioneTask.idTask }}</td>
+                    <td>{{ previsioneTask.idTaskRef }}</td>
                     <td>{{ previsioneTask.qntOrdine }}</td>
                     <td>{{ previsioneTask.prcPrevisione }}</td>
                     <td>{{ previsioneTask.checkList }}</td>

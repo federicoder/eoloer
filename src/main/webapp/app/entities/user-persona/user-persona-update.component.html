@@ -12,9 +12,25 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="eoloprjApp.userPersona.idPersona" for="field_idPersona">Id Persona</label>
-                    <input type="number" class="form-control" name="idPersona" id="field_idPersona"
-                           formControlName="idPersona"/>
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.userPersona.idUserPersona" for="field_idUserPersona">Id User Persona</label>
+                    <input type="number" class="form-control" name="idUserPersona" id="field_idUserPersona"
+                           formControlName="idUserPersona"/>
+                    <div *ngIf="editForm.get('idUserPersona')!.invalid && (editForm.get('idUserPersona')!.dirty || editForm.get('idUserPersona')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('idUserPersona')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('idUserPersona')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.userPersona.idPersonaRef" for="field_idPersonaRef">Id Persona Ref</label>
+                    <input type="number" class="form-control" name="idPersonaRef" id="field_idPersonaRef"
+                           formControlName="idPersonaRef"/>
                 </div>
 
                 <div class="form-group">

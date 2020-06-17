@@ -17,14 +17,15 @@
       "detail": {
         "title": "Invito"
       },
-      "idStudioProfessionale": "Id Studio Professionale",
+      "idInvito": "Id Invito",
+      "idStudioProfessionaleRef": "Id Studio Professionale Ref",
       "dataInvito": "Data Invito",
       "idUserInvitante": "Id User Invitante",
       "nomeUserInvitante": "Nome User Invitante",
       "dataScadenzaInvito": "Data Scadenza Invito",
       "testoInvito": "Testo Invito",
-      "idPratica": "Id Pratica",
-      "idAttivita": "Id Attivita",
+      "idPraticaRef": "Id Pratica Ref",
+      "idTaskRef": "Id Task Ref",
       "luogoFisico": "Luogo Fisico",
       "indicazioniLuogo": "Indicazioni Luogo",
       "dataInizio": "Data Inizio",
@@ -33,11 +34,11 @@
       "oraFine": "Ora Fine",
       "urlStanzaVirtuale": "Url Stanza Virtuale",
       "discriminator": "Discriminator",
-      "idStudioProfessionale": "Id Studio Professionale",
-      "id": "Id",
-      "id": "Id",
-      "id": "Id",
-      "id": "Id",
+      "idStudioProfessionaleRef": "Id Studio Professionale Ref",
+      "idInvito": "Id Invito",
+      "idInvito": "Id Invito",
+      "idInvito": "Id Invito",
+      "idInvito": "Id Invito",
       "assegnazioneTask": "Assegnazione Task"
     }
   }

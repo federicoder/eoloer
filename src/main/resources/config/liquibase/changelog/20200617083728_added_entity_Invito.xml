@@ -15,7 +15,10 @@
             <column name="id" type="bigint">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="id_studio_professionale" type="integer">
+            <column name="id_invito" type="integer">
+                <constraints nullable="false" />
+            </column>
+            <column name="id_studio_professionale_ref" type="integer">
                 <constraints nullable="true" />
             </column>
             <column name="data_invito" type="varchar(255)">
@@ -33,10 +36,10 @@
             <column name="testo_invito" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="id_pratica" type="integer">
+            <column name="id_pratica_ref" type="integer">
                 <constraints nullable="true" />
             </column>
-            <column name="id_attivita" type="integer">
+            <column name="id_task_ref" type="integer">
                 <constraints nullable="true" />
             </column>
             <column name="luogo_fisico" type="varchar(255)">
@@ -63,8 +66,8 @@
             <column name="discriminator" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="id_studio_professionale_id" type="bigint">
-                <constraints unique="true" nullable="true" uniqueConstraintName="ux_invito_id_studio_professionale_id" />
+            <column name="id_studio_professionale_ref_id" type="bigint">
+                <constraints unique="true" nullable="true" uniqueConstraintName="ux_invito_id_studio_professionale_ref_id" />
             </column>
             <column name="assegnazione_task_id" type="bigint">
                 <constraints nullable="true" />
@@ -92,14 +95,15 @@
                   separator=";"
                   tableName="invito">
             <column name="id" type="numeric"/>
-            <column name="id_studio_professionale" type="numeric"/>
+            <column name="id_invito" type="numeric"/>
+            <column name="id_studio_professionale_ref" type="numeric"/>
             <column name="data_invito" type="string"/>
             <column name="id_user_invitante" type="numeric"/>
             <column name="nome_user_invitante" type="string"/>
             <column name="data_scadenza_invito" type="string"/>
             <column name="testo_invito" type="string"/>
-            <column name="id_pratica" type="numeric"/>
-            <column name="id_attivita" type="numeric"/>
+            <column name="id_pratica_ref" type="numeric"/>
+            <column name="id_task_ref" type="numeric"/>
             <column name="luogo_fisico" type="string"/>
             <column name="indicazioni_luogo" type="string"/>
             <column name="data_inizio" type="string"/>

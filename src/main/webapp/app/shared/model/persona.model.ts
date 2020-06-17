@@ -8,7 +8,8 @@ import { IRappresentanzaPratica } from 'app/shared/model/rappresentanza-pratica.
 
 export interface IPersona {
   id?: number;
-  idStudio?: number;
+  idPersona?: number;
+  idStudioProfessionaleRef?: number;
   codiceFiscale?: string;
   areaDiInteresse?: string;
   titolo?: string;
@@ -19,25 +20,26 @@ export interface IPersona {
   professione?: string;
   tipo?: number;
   discriminator?: string;
-  idRuoloPersona?: number;
+  idRuoloPersonaRef?: number;
   tipoRuoloUtente?: number;
-  idId?: number;
-  ids?: IDatiContabili[];
-  ids?: IEmailPersona[];
-  ids?: ITagPersona[];
-  ids?: ITelefonoPersona[];
-  ids?: INotePersona[];
-  ids?: IStudioProfessionale[];
-  ids?: IRappresentanzaPratica[];
-  idId?: number;
-  idId?: number;
+  idPersonaId?: number;
+  idPersonas?: IDatiContabili[];
+  idPersonas?: IEmailPersona[];
+  idPersonas?: ITagPersona[];
+  idPersonas?: ITelefonoPersona[];
+  idPersonas?: INotePersona[];
+  idPersonas?: IStudioProfessionale[];
+  idPersonas?: IRappresentanzaPratica[];
+  idPersonaId?: number;
+  idPersonaId?: number;
   idPersonaId?: number;
 }
 
 export class Persona implements IPersona {
   constructor(
     public id?: number,
-    public idStudio?: number,
+    public idPersona?: number,
+    public idStudioProfessionaleRef?: number,
     public codiceFiscale?: string,
     public areaDiInteresse?: string,
     public titolo?: string,
@@ -48,18 +50,18 @@ export class Persona implements IPersona {
     public professione?: string,
     public tipo?: number,
     public discriminator?: string,
-    public idRuoloPersona?: number,
+    public idRuoloPersonaRef?: number,
     public tipoRuoloUtente?: number,
-    public idId?: number,
-    public ids?: IDatiContabili[],
-    public ids?: IEmailPersona[],
-    public ids?: ITagPersona[],
-    public ids?: ITelefonoPersona[],
-    public ids?: INotePersona[],
-    public ids?: IStudioProfessionale[],
-    public ids?: IRappresentanzaPratica[],
-    public idId?: number,
-    public idId?: number,
+    public idPersonaId?: number,
+    public idPersonas?: IDatiContabili[],
+    public idPersonas?: IEmailPersona[],
+    public idPersonas?: ITagPersona[],
+    public idPersonas?: ITelefonoPersona[],
+    public idPersonas?: INotePersona[],
+    public idPersonas?: IStudioProfessionale[],
+    public idPersonas?: IRappresentanzaPratica[],
+    public idPersonaId?: number,
+    public idPersonaId?: number,
     public idPersonaId?: number
   ) {}
 }

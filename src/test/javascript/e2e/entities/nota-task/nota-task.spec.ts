@@ -41,14 +41,16 @@ describe('NotaTask e2e test', () => {
     await notaTaskComponentsPage.clickOnCreateButton();
 
     await promise.all([
-      notaTaskUpdatePage.setIdTaskInput('5'),
+      notaTaskUpdatePage.setIdNotaTaskInput('5'),
+      notaTaskUpdatePage.setIdTaskRefInput('5'),
       notaTaskUpdatePage.setDataInput('data'),
       notaTaskUpdatePage.setNotaInput('nota'),
       notaTaskUpdatePage.setVersionInput('version'),
       notaTaskUpdatePage.taskSelectLastOption(),
     ]);
 
-    expect(await notaTaskUpdatePage.getIdTaskInput()).to.eq('5', 'Expected idTask value to be equals to 5');
+    expect(await notaTaskUpdatePage.getIdNotaTaskInput()).to.eq('5', 'Expected idNotaTask value to be equals to 5');
+    expect(await notaTaskUpdatePage.getIdTaskRefInput()).to.eq('5', 'Expected idTaskRef value to be equals to 5');
     expect(await notaTaskUpdatePage.getDataInput()).to.eq('data', 'Expected Data value to be equals to data');
     expect(await notaTaskUpdatePage.getNotaInput()).to.eq('nota', 'Expected Nota value to be equals to nota');
     expect(await notaTaskUpdatePage.getVersionInput()).to.eq('version', 'Expected Version value to be equals to version');

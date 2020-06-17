@@ -4,6 +4,7 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 
 import org.springframework.data.elasticsearch.annotations.FieldType;
 import java.io.Serializable;
@@ -24,6 +25,10 @@ public class Prodotto implements Serializable {
     @SequenceGenerator(name = "sequenceGenerator")
     private Long id;
 
+    @NotNull
+    @Column(name = "id_prodotto", nullable = false)
+    private Integer idProdotto;
+
     @Column(name = "nuova_licenza")
     private Integer nuovaLicenza;
 
@@ -35,7 +40,7 @@ public class Prodotto implements Serializable {
 
     @OneToOne
     @JoinColumn(unique = true)
-    private LineaOrdine id;
+    private LineaOrdine idProdotto;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -44,6 +49,19 @@ public class Prodotto implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Integer getIdProdotto() {
+        return idProdotto;
+    }
+
+    public Prodotto idProdotto(Integer idProdotto) {
+        this.idProdotto = idProdotto;
+        return this;
+    }
+
+    public void setIdProdotto(Integer idProdotto) {
+        this.idProdotto = idProdotto;
     }
 
     public Integer getNuovaLicenza() {
@@ -85,17 +103,17 @@ public class Prodotto implements Serializable {
         this.storage = storage;
     }
 
-    public LineaOrdine getId() {
-        return id;
+    public LineaOrdine getIdProdotto() {
+        return idProdotto;
     }
 
-    public Prodotto id(LineaOrdine lineaOrdine) {
-        this.id = lineaOrdine;
+    public Prodotto idProdotto(LineaOrdine lineaOrdine) {
+        this.idProdotto = lineaOrdine;
         return this;
     }
 
-    public void setId(LineaOrdine lineaOrdine) {
-        this.id = lineaOrdine;
+    public void setIdProdotto(LineaOrdine lineaOrdine) {
+        this.idProdotto = lineaOrdine;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 
@@ -120,6 +138,7 @@ public class Prodotto implements Serializable {
     public String toString() {
         return "Prodotto{" +
             "id=" + getId() +
+            ", idProdotto=" + getIdProdotto() +
             ", nuovaLicenza=" + getNuovaLicenza() +
             ", rinnovoLicenza=" + getRinnovoLicenza() +
             ", storage=" + getStorage() +

@@ -20,7 +20,7 @@ describe('Service Tests', () => {
       service = injector.get(NotaTaskService);
       httpMock = injector.get(HttpTestingController);
 
-      elemDefault = new NotaTask(0, 0, 'AAAAAAA', 'AAAAAAA', 'AAAAAAA');
+      elemDefault = new NotaTask(0, 0, 0, 'AAAAAAA', 'AAAAAAA', 'AAAAAAA');
     });
 
     describe('Service methods', () => {
@@ -54,7 +54,8 @@ describe('Service Tests', () => {
       it('should update a NotaTask', () => {
         const returnedFromService = Object.assign(
           {
-            idTask: 1,
+            idNotaTask: 1,
+            idTaskRef: 1,
             data: 'BBBBBB',
             nota: 'BBBBBB',
             version: 'BBBBBB',
@@ -74,7 +75,8 @@ describe('Service Tests', () => {
       it('should return a list of NotaTask', () => {
         const returnedFromService = Object.assign(
           {
-            idTask: 1,
+            idNotaTask: 1,
+            idTaskRef: 1,
             data: 'BBBBBB',
             nota: 'BBBBBB',
             version: 'BBBBBB',

@@ -30,23 +30,27 @@ public class StudioProfessionale implements Serializable {
     private Long id;
 
     @NotNull
+    @Column(name = "id_studio_professionale", nullable = false)
+    private Integer idStudioProfessionale;
+
+    @NotNull
     @Column(name = "id_user_amministratore", nullable = false)
     private Integer idUserAmministratore;
 
     @OneToMany(mappedBy = "studioProfessionale")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<RisorseDisponibili> ids = new HashSet<>();
+    private Set<RisorseDisponibili> idStudioProfessionales = new HashSet<>();
 
     @OneToMany(mappedBy = "studioProfessionale")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<Ordine> ids = new HashSet<>();
+    private Set<Ordine> idStudioProfessionales = new HashSet<>();
 
-    @OneToOne(mappedBy = "idStudioProfessionale")
+    @OneToOne(mappedBy = "idStudioProfessionaleRef")
     @JsonIgnore
-    private Invito id;
+    private Invito idStudioProfessionale;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "ids", allowSetters = true)
+    @JsonIgnoreProperties(value = "idPersonas", allowSetters = true)
     private Persona persona;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
@@ -56,6 +60,19 @@ public class StudioProfessionale implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Integer getIdStudioProfessionale() {
+        return idStudioProfessionale;
+    }
+
+    public StudioProfessionale idStudioProfessionale(Integer idStudioProfessionale) {
+        this.idStudioProfessionale = idStudioProfessionale;
+        return this;
+    }
+
+    public void setIdStudioProfessionale(Integer idStudioProfessionale) {
+        this.idStudioProfessionale = idStudioProfessionale;
     }
 
     public Integer getIdUserAmministratore() {
@@ -71,67 +88,67 @@ public class StudioProfessionale implements Serializable {
         this.idUserAmministratore = idUserAmministratore;
     }
 
-    public Set<RisorseDisponibili> getIds() {
-        return ids;
+    public Set<RisorseDisponibili> getIdStudioProfessionales() {
+        return idStudioProfessionales;
     }
 
-    public StudioProfessionale ids(Set<RisorseDisponibili> risorseDisponibilis) {
-        this.ids = risorseDisponibilis;
+    public StudioProfessionale idStudioProfessionales(Set<RisorseDisponibili> risorseDisponibilis) {
+        this.idStudioProfessionales = risorseDisponibilis;
         return this;
     }
 
-    public StudioProfessionale addId(RisorseDisponibili risorseDisponibili) {
-        this.ids.add(risorseDisponibili);
+    public StudioProfessionale addIdStudioProfessionale(RisorseDisponibili risorseDisponibili) {
+        this.idStudioProfessionales.add(risorseDisponibili);
         risorseDisponibili.setStudioProfessionale(this);
         return this;
     }
 
-    public StudioProfessionale removeId(RisorseDisponibili risorseDisponibili) {
-        this.ids.remove(risorseDisponibili);
+    public StudioProfessionale removeIdStudioProfessionale(RisorseDisponibili risorseDisponibili) {
+        this.idStudioProfessionales.remove(risorseDisponibili);
         risorseDisponibili.setStudioProfessionale(null);
         return this;
     }
 
-    public void setIds(Set<RisorseDisponibili> risorseDisponibilis) {
-        this.ids = risorseDisponibilis;
+    public void setIdStudioProfessionales(Set<RisorseDisponibili> risorseDisponibilis) {
+        this.idStudioProfessionales = risorseDisponibilis;
     }
 
-    public Set<Ordine> getIds() {
-        return ids;
+    public Set<Ordine> getIdStudioProfessionales() {
+        return idStudioProfessionales;
     }
 
-    public StudioProfessionale ids(Set<Ordine> ordines) {
-        this.ids = ordines;
+    public StudioProfessionale idStudioProfessionales(Set<Ordine> ordines) {
+        this.idStudioProfessionales = ordines;
         return this;
     }
 
-    public StudioProfessionale addId(Ordine ordine) {
-        this.ids.add(ordine);
+    public StudioProfessionale addIdStudioProfessionale(Ordine ordine) {
+        this.idStudioProfessionales.add(ordine);
         ordine.setStudioProfessionale(this);
         return this;
     }
 
-    public StudioProfessionale removeId(Ordine ordine) {
-        this.ids.remove(ordine);
+    public StudioProfessionale removeIdStudioProfessionale(Ordine ordine) {
+        this.idStudioProfessionales.remove(ordine);
         ordine.setStudioProfessionale(null);
         return this;
     }
 
-    public void setIds(Set<Ordine> ordines) {
-        this.ids = ordines;
+    public void setIdStudioProfessionales(Set<Ordine> ordines) {
+        this.idStudioProfessionales = ordines;
     }
 
-    public Invito getId() {
-        return id;
+    public Invito getIdStudioProfessionale() {
+        return idStudioProfessionale;
     }
 
-    public StudioProfessionale id(Invito invito) {
-        this.id = invito;
+    public StudioProfessionale idStudioProfessionale(Invito invito) {
+        this.idStudioProfessionale = invito;
         return this;
     }
 
-    public void setId(Invito invito) {
-        this.id = invito;
+    public void setIdStudioProfessionale(Invito invito) {
+        this.idStudioProfessionale = invito;
     }
 
     public Persona getPersona() {
@@ -169,6 +186,7 @@ public class StudioProfessionale implements Serializable {
     public String toString() {
         return "StudioProfessionale{" +
             "id=" + getId() +
+            ", idStudioProfessionale=" + getIdStudioProfessionale() +
             ", idUserAmministratore=" + getIdUserAmministratore() +
             "}";
     }

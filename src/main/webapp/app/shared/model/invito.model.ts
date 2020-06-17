@@ -2,14 +2,15 @@ import { IInvitato } from 'app/shared/model/invitato.model';
 
 export interface IInvito {
   id?: number;
-  idStudioProfessionale?: number;
+  idInvito?: number;
+  idStudioProfessionaleRef?: number;
   dataInvito?: string;
   idUserInvitante?: number;
   nomeUserInvitante?: string;
   dataScadenzaInvito?: string;
   testoInvito?: string;
-  idPratica?: number;
-  idAttivita?: number;
+  idPraticaRef?: number;
+  idTaskRef?: number;
   luogoFisico?: string;
   indicazioniLuogo?: string;
   dataInizio?: string;
@@ -18,25 +19,26 @@ export interface IInvito {
   oraFine?: string;
   urlStanzaVirtuale?: string;
   discriminator?: string;
-  idStudioProfessionaleId?: number;
-  ids?: IInvitato[];
-  idId?: number;
-  idId?: number;
-  idId?: number;
+  idStudioProfessionaleRefId?: number;
+  idInvitos?: IInvitato[];
+  idInvitoId?: number;
+  idInvitoId?: number;
+  idInvitoId?: number;
   assegnazioneTaskId?: number;
 }
 
 export class Invito implements IInvito {
   constructor(
     public id?: number,
-    public idStudioProfessionale?: number,
+    public idInvito?: number,
+    public idStudioProfessionaleRef?: number,
     public dataInvito?: string,
     public idUserInvitante?: number,
     public nomeUserInvitante?: string,
     public dataScadenzaInvito?: string,
     public testoInvito?: string,
-    public idPratica?: number,
-    public idAttivita?: number,
+    public idPraticaRef?: number,
+    public idTaskRef?: number,
     public luogoFisico?: string,
     public indicazioniLuogo?: string,
     public dataInizio?: string,
@@ -45,11 +47,11 @@ export class Invito implements IInvito {
     public oraFine?: string,
     public urlStanzaVirtuale?: string,
     public discriminator?: string,
-    public idStudioProfessionaleId?: number,
-    public ids?: IInvitato[],
-    public idId?: number,
-    public idId?: number,
-    public idId?: number,
+    public idStudioProfessionaleRefId?: number,
+    public idInvitos?: IInvitato[],
+    public idInvitoId?: number,
+    public idInvitoId?: number,
+    public idInvitoId?: number,
     public assegnazioneTaskId?: number
   ) {}
 }

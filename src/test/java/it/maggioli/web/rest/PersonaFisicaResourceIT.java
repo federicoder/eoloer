@@ -43,11 +43,11 @@ public class PersonaFisicaResourceIT {
     private static final Integer DEFAULT_ID_PERSONA_FISICA = 1;
     private static final Integer UPDATED_ID_PERSONA_FISICA = 2;
 
-    private static final Integer DEFAULT_ID_PERSONA = 1;
-    private static final Integer UPDATED_ID_PERSONA = 2;
+    private static final Integer DEFAULT_ID_PERSONA_REF = 1;
+    private static final Integer UPDATED_ID_PERSONA_REF = 2;
 
-    private static final Integer DEFAULT_ID_RUOLO_PERSONA = 1;
-    private static final Integer UPDATED_ID_RUOLO_PERSONA = 2;
+    private static final Integer DEFAULT_ID_RUOLO_PERSONA_REF = 1;
+    private static final Integer UPDATED_ID_RUOLO_PERSONA_REF = 2;
 
     private static final String DEFAULT_TITOLO = "AAAAAAAAAA";
     private static final String UPDATED_TITOLO = "BBBBBBBBBB";
@@ -101,8 +101,8 @@ public class PersonaFisicaResourceIT {
     public static PersonaFisica createEntity(EntityManager em) {
         PersonaFisica personaFisica = new PersonaFisica()
             .idPersonaFisica(DEFAULT_ID_PERSONA_FISICA)
-            .idPersona(DEFAULT_ID_PERSONA)
-            .idRuoloPersona(DEFAULT_ID_RUOLO_PERSONA)
+            .idPersonaRef(DEFAULT_ID_PERSONA_REF)
+            .idRuoloPersonaRef(DEFAULT_ID_RUOLO_PERSONA_REF)
             .titolo(DEFAULT_TITOLO)
             .cognome(DEFAULT_COGNOME)
             .nome(DEFAULT_NOME)
@@ -120,8 +120,8 @@ public class PersonaFisicaResourceIT {
     public static PersonaFisica createUpdatedEntity(EntityManager em) {
         PersonaFisica personaFisica = new PersonaFisica()
             .idPersonaFisica(UPDATED_ID_PERSONA_FISICA)
-            .idPersona(UPDATED_ID_PERSONA)
-            .idRuoloPersona(UPDATED_ID_RUOLO_PERSONA)
+            .idPersonaRef(UPDATED_ID_PERSONA_REF)
+            .idRuoloPersonaRef(UPDATED_ID_RUOLO_PERSONA_REF)
             .titolo(UPDATED_TITOLO)
             .cognome(UPDATED_COGNOME)
             .nome(UPDATED_NOME)
@@ -152,8 +152,8 @@ public class PersonaFisicaResourceIT {
         assertThat(personaFisicaList).hasSize(databaseSizeBeforeCreate + 1);
         PersonaFisica testPersonaFisica = personaFisicaList.get(personaFisicaList.size() - 1);
         assertThat(testPersonaFisica.getIdPersonaFisica()).isEqualTo(DEFAULT_ID_PERSONA_FISICA);
-        assertThat(testPersonaFisica.getIdPersona()).isEqualTo(DEFAULT_ID_PERSONA);
-        assertThat(testPersonaFisica.getIdRuoloPersona()).isEqualTo(DEFAULT_ID_RUOLO_PERSONA);
+        assertThat(testPersonaFisica.getIdPersonaRef()).isEqualTo(DEFAULT_ID_PERSONA_REF);
+        assertThat(testPersonaFisica.getIdRuoloPersonaRef()).isEqualTo(DEFAULT_ID_RUOLO_PERSONA_REF);
         assertThat(testPersonaFisica.getTitolo()).isEqualTo(DEFAULT_TITOLO);
         assertThat(testPersonaFisica.getCognome()).isEqualTo(DEFAULT_COGNOME);
         assertThat(testPersonaFisica.getNome()).isEqualTo(DEFAULT_NOME);
@@ -211,10 +211,10 @@ public class PersonaFisicaResourceIT {
 
     @Test
     @Transactional
-    public void checkIdPersonaIsRequired() throws Exception {
+    public void checkIdPersonaRefIsRequired() throws Exception {
         int databaseSizeBeforeTest = personaFisicaRepository.findAll().size();
         // set the field null
-        personaFisica.setIdPersona(null);
+        personaFisica.setIdPersonaRef(null);
 
         // Create the PersonaFisica, which fails.
         PersonaFisicaDTO personaFisicaDTO = personaFisicaMapper.toDto(personaFisica);
@@ -241,8 +241,8 @@ public class PersonaFisicaResourceIT {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(personaFisica.getId().intValue())))
             .andExpect(jsonPath("$.[*].idPersonaFisica").value(hasItem(DEFAULT_ID_PERSONA_FISICA)))
-            .andExpect(jsonPath("$.[*].idPersona").value(hasItem(DEFAULT_ID_PERSONA)))
-            .andExpect(jsonPath("$.[*].idRuoloPersona").value(hasItem(DEFAULT_ID_RUOLO_PERSONA)))
+            .andExpect(jsonPath("$.[*].idPersonaRef").value(hasItem(DEFAULT_ID_PERSONA_REF)))
+            .andExpect(jsonPath("$.[*].idRuoloPersonaRef").value(hasItem(DEFAULT_ID_RUOLO_PERSONA_REF)))
             .andExpect(jsonPath("$.[*].titolo").value(hasItem(DEFAULT_TITOLO)))
             .andExpect(jsonPath("$.[*].cognome").value(hasItem(DEFAULT_COGNOME)))
             .andExpect(jsonPath("$.[*].nome").value(hasItem(DEFAULT_NOME)))
@@ -263,8 +263,8 @@ public class PersonaFisicaResourceIT {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(personaFisica.getId().intValue()))
             .andExpect(jsonPath("$.idPersonaFisica").value(DEFAULT_ID_PERSONA_FISICA))
-            .andExpect(jsonPath("$.idPersona").value(DEFAULT_ID_PERSONA))
-            .andExpect(jsonPath("$.idRuoloPersona").value(DEFAULT_ID_RUOLO_PERSONA))
+            .andExpect(jsonPath("$.idPersonaRef").value(DEFAULT_ID_PERSONA_REF))
+            .andExpect(jsonPath("$.idRuoloPersonaRef").value(DEFAULT_ID_RUOLO_PERSONA_REF))
             .andExpect(jsonPath("$.titolo").value(DEFAULT_TITOLO))
             .andExpect(jsonPath("$.cognome").value(DEFAULT_COGNOME))
             .andExpect(jsonPath("$.nome").value(DEFAULT_NOME))
@@ -294,8 +294,8 @@ public class PersonaFisicaResourceIT {
         em.detach(updatedPersonaFisica);
         updatedPersonaFisica
             .idPersonaFisica(UPDATED_ID_PERSONA_FISICA)
-            .idPersona(UPDATED_ID_PERSONA)
-            .idRuoloPersona(UPDATED_ID_RUOLO_PERSONA)
+            .idPersonaRef(UPDATED_ID_PERSONA_REF)
+            .idRuoloPersonaRef(UPDATED_ID_RUOLO_PERSONA_REF)
             .titolo(UPDATED_TITOLO)
             .cognome(UPDATED_COGNOME)
             .nome(UPDATED_NOME)
@@ -314,8 +314,8 @@ public class PersonaFisicaResourceIT {
         assertThat(personaFisicaList).hasSize(databaseSizeBeforeUpdate);
         PersonaFisica testPersonaFisica = personaFisicaList.get(personaFisicaList.size() - 1);
         assertThat(testPersonaFisica.getIdPersonaFisica()).isEqualTo(UPDATED_ID_PERSONA_FISICA);
-        assertThat(testPersonaFisica.getIdPersona()).isEqualTo(UPDATED_ID_PERSONA);
-        assertThat(testPersonaFisica.getIdRuoloPersona()).isEqualTo(UPDATED_ID_RUOLO_PERSONA);
+        assertThat(testPersonaFisica.getIdPersonaRef()).isEqualTo(UPDATED_ID_PERSONA_REF);
+        assertThat(testPersonaFisica.getIdRuoloPersonaRef()).isEqualTo(UPDATED_ID_RUOLO_PERSONA_REF);
         assertThat(testPersonaFisica.getTitolo()).isEqualTo(UPDATED_TITOLO);
         assertThat(testPersonaFisica.getCognome()).isEqualTo(UPDATED_COGNOME);
         assertThat(testPersonaFisica.getNome()).isEqualTo(UPDATED_NOME);
@@ -385,8 +385,8 @@ public class PersonaFisicaResourceIT {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(personaFisica.getId().intValue())))
             .andExpect(jsonPath("$.[*].idPersonaFisica").value(hasItem(DEFAULT_ID_PERSONA_FISICA)))
-            .andExpect(jsonPath("$.[*].idPersona").value(hasItem(DEFAULT_ID_PERSONA)))
-            .andExpect(jsonPath("$.[*].idRuoloPersona").value(hasItem(DEFAULT_ID_RUOLO_PERSONA)))
+            .andExpect(jsonPath("$.[*].idPersonaRef").value(hasItem(DEFAULT_ID_PERSONA_REF)))
+            .andExpect(jsonPath("$.[*].idRuoloPersonaRef").value(hasItem(DEFAULT_ID_RUOLO_PERSONA_REF)))
             .andExpect(jsonPath("$.[*].titolo").value(hasItem(DEFAULT_TITOLO)))
             .andExpect(jsonPath("$.[*].cognome").value(hasItem(DEFAULT_COGNOME)))
             .andExpect(jsonPath("$.[*].nome").value(hasItem(DEFAULT_NOME)))

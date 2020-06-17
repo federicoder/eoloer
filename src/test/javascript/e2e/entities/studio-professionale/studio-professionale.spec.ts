@@ -48,10 +48,15 @@ describe('StudioProfessionale e2e test', () => {
     await studioProfessionaleComponentsPage.clickOnCreateButton();
 
     await promise.all([
+      studioProfessionaleUpdatePage.setIdStudioProfessionaleInput('5'),
       studioProfessionaleUpdatePage.setIdUserAmministratoreInput('5'),
       studioProfessionaleUpdatePage.personaSelectLastOption(),
     ]);
 
+    expect(await studioProfessionaleUpdatePage.getIdStudioProfessionaleInput()).to.eq(
+      '5',
+      'Expected idStudioProfessionale value to be equals to 5'
+    );
     expect(await studioProfessionaleUpdatePage.getIdUserAmministratoreInput()).to.eq(
       '5',
       'Expected idUserAmministratore value to be equals to 5'

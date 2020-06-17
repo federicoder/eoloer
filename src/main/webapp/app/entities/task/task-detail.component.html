@@ -8,9 +8,13 @@
             <jhi-alert-error></jhi-alert-error>
 
             <dl class="row-md jh-entity-details">
-                <dt><span jhiTranslate="eoloprjApp.task.idPratica">Id Pratica</span></dt>
+                <dt><span jhiTranslate="eoloprjApp.task.idTask">Id Task</span></dt>
                 <dd>
-                    <span>{{ task.idPratica }}</span>
+                    <span>{{ task.idTask }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.task.idPraticaRef">Id Pratica Ref</span></dt>
+                <dd>
+                    <span>{{ task.idPraticaRef }}</span>
                 </dd>
                 <dt><span jhiTranslate="eoloprjApp.task.nome">Nome</span></dt>
                 <dd>
@@ -32,40 +36,40 @@
                 <dd>
                     <span>{{ task.version }}</span>
                 </dd>
-                <dt><span jhiTranslate="eoloprjApp.task.condivisionePraticaId">Condivisione Pratica Id</span></dt>
+                <dt><span jhiTranslate="eoloprjApp.task.idCondivisionePraticaRef">Id Condivisione Pratica Ref</span></dt>
                 <dd>
-                    <span>{{ task.condivisionePraticaId }}</span>
+                    <span>{{ task.idCondivisionePraticaRef }}</span>
                 </dd>
-                <dt><span jhiTranslate="eoloprjApp.task.assegnazioneTaskId">Assegnazione Task Id</span></dt>
+                <dt><span jhiTranslate="eoloprjApp.task.idAssegnazioneTaskRef">Id Assegnazione Task Ref</span></dt>
                 <dd>
-                    <span>{{ task.assegnazioneTaskId }}</span>
+                    <span>{{ task.idAssegnazioneTaskRef }}</span>
                 </dd>
-                <dt><span jhiTranslate="eoloprjApp.task.invitoId">Invito Id</span></dt>
+                <dt><span jhiTranslate="eoloprjApp.task.idInvitoRef">Id Invito Ref</span></dt>
                 <dd>
-                    <span>{{ task.invitoId }}</span>
+                    <span>{{ task.idInvitoRef }}</span>
                 </dd>
-                <dt><span jhiTranslate="eoloprjApp.task.id">Id</span></dt>
+                <dt><span jhiTranslate="eoloprjApp.task.idTask">Id Task</span></dt>
                 <dd>
-                    <div *ngIf="task.idId">
-                        <a [routerLink]="['/consuntivo-task', task.idId, 'view']">{{ task.idId }}</a>
+                    <div *ngIf="task.idTaskId">
+                        <a [routerLink]="['/consuntivo-task', task.idTaskId, 'view']">{{ task.idTaskId }}</a>
                     </div>
                 </dd>
-                <dt><span jhiTranslate="eoloprjApp.task.id">Id</span></dt>
+                <dt><span jhiTranslate="eoloprjApp.task.idTask">Id Task</span></dt>
                 <dd>
-                    <div *ngIf="task.idId">
-                        <a [routerLink]="['/previsione-task', task.idId, 'view']">{{ task.idId }}</a>
+                    <div *ngIf="task.idTaskId">
+                        <a [routerLink]="['/previsione-task', task.idTaskId, 'view']">{{ task.idTaskId }}</a>
                     </div>
                 </dd>
-                <dt><span jhiTranslate="eoloprjApp.task.id">Id</span></dt>
+                <dt><span jhiTranslate="eoloprjApp.task.idTask">Id Task</span></dt>
                 <dd>
-                    <div *ngIf="task.idId">
-                        <a [routerLink]="['/assegnazione-task', task.idId, 'view']">{{ task.idId }}</a>
+                    <div *ngIf="task.idTaskId">
+                        <a [routerLink]="['/assegnazione-task', task.idTaskId, 'view']">{{ task.idTaskId }}</a>
                     </div>
                 </dd>
-                <dt><span jhiTranslate="eoloprjApp.task.id">Id</span></dt>
+                <dt><span jhiTranslate="eoloprjApp.task.idTask">Id Task</span></dt>
                 <dd>
-                    <div *ngIf="task.idId">
-                        <a [routerLink]="['/invito-attivita', task.idId, 'view']">{{ task.idId }}</a>
+                    <div *ngIf="task.idTaskId">
+                        <a [routerLink]="['/invito-attivita', task.idTaskId, 'view']">{{ task.idTaskId }}</a>
                     </div>
                 </dd>
                 <dt><span jhiTranslate="eoloprjApp.task.pratica">Pratica</span></dt>

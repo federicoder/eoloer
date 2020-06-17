@@ -12,7 +12,7 @@ public class TemplatePraticaDTO implements Serializable {
 
     @NotNull
     @Max(value = 8)
-    private Integer idTemplate;
+    private Integer idTemplatePratica;
 
     private Integer nomeTemplate;
 
@@ -27,12 +27,12 @@ public class TemplatePraticaDTO implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdTemplate() {
-        return idTemplate;
+    public Integer getIdTemplatePratica() {
+        return idTemplatePratica;
     }
 
-    public void setIdTemplate(Integer idTemplate) {
-        this.idTemplate = idTemplate;
+    public void setIdTemplatePratica(Integer idTemplatePratica) {
+        this.idTemplatePratica = idTemplatePratica;
     }
 
     public Integer getNomeTemplate() {
@@ -73,7 +73,7 @@ public class TemplatePraticaDTO implements Serializable {
     public String toString() {
         return "TemplatePraticaDTO{" +
             "id=" + getId() +
-            ", idTemplate=" + getIdTemplate() +
+            ", idTemplatePratica=" + getIdTemplatePratica() +
             ", nomeTemplate=" + getNomeTemplate() +
             ", elencoTagAmbito=" + getElencoTagAmbito() +
             "}";

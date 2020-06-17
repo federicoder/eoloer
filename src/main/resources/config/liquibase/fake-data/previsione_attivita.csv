@@ -1,4 +1,4 @@
-id;id_task;data_pianificata;ora_pianificata;data_scadenza;version
+id;id_task_ref;data_pianificata;ora_pianificata;data_scadenza;version
 1;4;infrastructure orchestrate sticky;implement system engine;Handcrafted Soft Computer metrics;Kwanza
 2;4;Generic Pennsylvania;1080p Re-engineered;National;generating Security
 3;7;Costa Rica hardware SSL;monitor Valleys;Strategist Salad orchid;mobile

@@ -54,7 +54,7 @@ describe('Service Tests', () => {
       it('should update a TagPersona', () => {
         const returnedFromService = Object.assign(
           {
-            idPersona: 1,
+            idPersonaRef: 1,
             tag: 1,
           },
           elemDefault
@@ -72,7 +72,7 @@ describe('Service Tests', () => {
       it('should return a list of TagPersona', () => {
         const returnedFromService = Object.assign(
           {
-            idPersona: 1,
+            idPersonaRef: 1,
             tag: 1,
           },
           elemDefault

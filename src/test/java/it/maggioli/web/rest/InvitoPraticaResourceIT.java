@@ -40,8 +40,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WithMockUser
 public class InvitoPraticaResourceIT {
 
-    private static final Integer DEFAULT_ID_PRATICA = 1;
-    private static final Integer UPDATED_ID_PRATICA = 2;
+    private static final Integer DEFAULT_ID_PRATICA_REF = 1;
+    private static final Integer UPDATED_ID_PRATICA_REF = 2;
 
     @Autowired
     private InvitoPraticaRepository invitoPraticaRepository;
@@ -76,7 +76,7 @@ public class InvitoPraticaResourceIT {
      */
     public static InvitoPratica createEntity(EntityManager em) {
         InvitoPratica invitoPratica = new InvitoPratica()
-            .idPratica(DEFAULT_ID_PRATICA);
+            .idPraticaRef(DEFAULT_ID_PRATICA_REF);
         return invitoPratica;
     }
     /**
@@ -87,7 +87,7 @@ public class InvitoPraticaResourceIT {
      */
     public static InvitoPratica createUpdatedEntity(EntityManager em) {
         InvitoPratica invitoPratica = new InvitoPratica()
-            .idPratica(UPDATED_ID_PRATICA);
+            .idPraticaRef(UPDATED_ID_PRATICA_REF);
         return invitoPratica;
     }
 
@@ -111,7 +111,7 @@ public class InvitoPraticaResourceIT {
         List<InvitoPratica> invitoPraticaList = invitoPraticaRepository.findAll();
         assertThat(invitoPraticaList).hasSize(databaseSizeBeforeCreate + 1);
         InvitoPratica testInvitoPratica = invitoPraticaList.get(invitoPraticaList.size() - 1);
-        assertThat(testInvitoPratica.getIdPratica()).isEqualTo(DEFAULT_ID_PRATICA);
+        assertThat(testInvitoPratica.getIdPraticaRef()).isEqualTo(DEFAULT_ID_PRATICA_REF);
 
         // Validate the InvitoPratica in Elasticsearch
         verify(mockInvitoPraticaSearchRepository, times(1)).save(testInvitoPratica);
@@ -152,7 +152,7 @@ public class InvitoPraticaResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(invitoPratica.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idPratica").value(hasItem(DEFAULT_ID_PRATICA)));
+            .andExpect(jsonPath("$.[*].idPraticaRef").value(hasItem(DEFAULT_ID_PRATICA_REF)));
     }
     
     @Test
@@ -166,7 +166,7 @@ public class InvitoPraticaResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(invitoPratica.getId().intValue()))
-            .andExpect(jsonPath("$.idPratica").value(DEFAULT_ID_PRATICA));
+            .andExpect(jsonPath("$.idPraticaRef").value(DEFAULT_ID_PRATICA_REF));
     }
     @Test
     @Transactional
@@ -189,7 +189,7 @@ public class InvitoPraticaResourceIT {
         // Disconnect from session so that the updates on updatedInvitoPratica are not directly saved in db
         em.detach(updatedInvitoPratica);
         updatedInvitoPratica
-            .idPratica(UPDATED_ID_PRATICA);
+            .idPraticaRef(UPDATED_ID_PRATICA_REF);
         InvitoPraticaDTO invitoPraticaDTO = invitoPraticaMapper.toDto(updatedInvitoPratica);
 
         restInvitoPraticaMockMvc.perform(put("/api/invito-praticas")
@@ -201,7 +201,7 @@ public class InvitoPraticaResourceIT {
         List<InvitoPratica> invitoPraticaList = invitoPraticaRepository.findAll();
         assertThat(invitoPraticaList).hasSize(databaseSizeBeforeUpdate);
         InvitoPratica testInvitoPratica = invitoPraticaList.get(invitoPraticaList.size() - 1);
-        assertThat(testInvitoPratica.getIdPratica()).isEqualTo(UPDATED_ID_PRATICA);
+        assertThat(testInvitoPratica.getIdPraticaRef()).isEqualTo(UPDATED_ID_PRATICA_REF);
 
         // Validate the InvitoPratica in Elasticsearch
         verify(mockInvitoPraticaSearchRepository, times(1)).save(testInvitoPratica);
@@ -264,6 +264,6 @@ public class InvitoPraticaResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(invitoPratica.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idPratica").value(hasItem(DEFAULT_ID_PRATICA)));
+            .andExpect(jsonPath("$.[*].idPraticaRef").value(hasItem(DEFAULT_ID_PRATICA_REF)));
     }
 }

@@ -17,7 +17,7 @@
       "detail": {
         "title": "Invito Evento"
       },
-      "idAttivita": "Id Attivita",
+      "idTaskRef": "Id Task Ref",
       "luogoFisico": "Luogo Fisico",
       "indicazioniLuogo": "Indicazioni Luogo",
       "dataInizio": "Data Inizio",
@@ -25,7 +25,7 @@
       "dataFine": "Data Fine",
       "oraFine": "Ora Fine",
       "urlStanzaVirtuale": "Url Stanza Virtuale",
-      "idAttivita": "Id Attivita",
+      "idTaskRef": "Id Task Ref",
       "previsioneEvento": "Previsione Evento"
     }
   }

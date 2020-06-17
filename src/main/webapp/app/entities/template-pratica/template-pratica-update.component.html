@@ -12,20 +12,20 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="eoloprjApp.templatePratica.idTemplate" for="field_idTemplate">Id Template</label>
-                    <input type="number" class="form-control" name="idTemplate" id="field_idTemplate"
-                           formControlName="idTemplate"/>
-                    <div *ngIf="editForm.get('idTemplate')!.invalid && (editForm.get('idTemplate')!.dirty || editForm.get('idTemplate')!.touched)">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.templatePratica.idTemplatePratica" for="field_idTemplatePratica">Id Template Pratica</label>
+                    <input type="number" class="form-control" name="idTemplatePratica" id="field_idTemplatePratica"
+                           formControlName="idTemplatePratica"/>
+                    <div *ngIf="editForm.get('idTemplatePratica')!.invalid && (editForm.get('idTemplatePratica')!.dirty || editForm.get('idTemplatePratica')!.touched)">
                         <small class="form-text text-danger"
-                               *ngIf="editForm.get('idTemplate')?.errors?.required" jhiTranslate="entity.validation.required">
+                               *ngIf="editForm.get('idTemplatePratica')?.errors?.required" jhiTranslate="entity.validation.required">
                         This field is required.
                         </small>
                         <small class="form-text text-danger"
-                               *ngIf="editForm.get('idTemplate')?.errors?.max" jhiTranslate="entity.validation.max" [translateValues]="{ max: 8 }">
+                               *ngIf="editForm.get('idTemplatePratica')?.errors?.max" jhiTranslate="entity.validation.max" [translateValues]="{ max: 8 }">
                             This field cannot be more than 8.
                         </small>
                         <small class="form-text text-danger"
-                            [hidden]="!editForm.get('idTemplate')?.errors?.number" jhiTranslate="entity.validation.number">
+                            [hidden]="!editForm.get('idTemplatePratica')?.errors?.number" jhiTranslate="entity.validation.number">
                             This field should be a number.
                         </small>
                     </div>

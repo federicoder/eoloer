@@ -12,29 +12,29 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="eoloprjApp.allegatoTemplateTask.idTemplateTask" for="field_idTemplateTask">Id Template Task</label>
-                    <input type="number" class="form-control" name="idTemplateTask" id="field_idTemplateTask"
-                           formControlName="idTemplateTask"/>
-                    <div *ngIf="editForm.get('idTemplateTask')!.invalid && (editForm.get('idTemplateTask')!.dirty || editForm.get('idTemplateTask')!.touched)">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.allegatoTemplateTask.idTemplateTaskRef" for="field_idTemplateTaskRef">Id Template Task Ref</label>
+                    <input type="number" class="form-control" name="idTemplateTaskRef" id="field_idTemplateTaskRef"
+                           formControlName="idTemplateTaskRef"/>
+                    <div *ngIf="editForm.get('idTemplateTaskRef')!.invalid && (editForm.get('idTemplateTaskRef')!.dirty || editForm.get('idTemplateTaskRef')!.touched)">
                         <small class="form-text text-danger"
-                               *ngIf="editForm.get('idTemplateTask')?.errors?.required" jhiTranslate="entity.validation.required">
+                               *ngIf="editForm.get('idTemplateTaskRef')?.errors?.required" jhiTranslate="entity.validation.required">
                         This field is required.
                         </small>
                         <small class="form-text text-danger"
-                               *ngIf="editForm.get('idTemplateTask')?.errors?.max" jhiTranslate="entity.validation.max" [translateValues]="{ max: 8 }">
+                               *ngIf="editForm.get('idTemplateTaskRef')?.errors?.max" jhiTranslate="entity.validation.max" [translateValues]="{ max: 8 }">
                             This field cannot be more than 8.
                         </small>
                         <small class="form-text text-danger"
-                            [hidden]="!editForm.get('idTemplateTask')?.errors?.number" jhiTranslate="entity.validation.number">
+                            [hidden]="!editForm.get('idTemplateTaskRef')?.errors?.number" jhiTranslate="entity.validation.number">
                             This field should be a number.
                         </small>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="eoloprjApp.allegatoTemplateTask.tipoAllegato" for="field_tipoAllegato">Tipo Allegato</label>
-                    <input type="number" class="form-control" name="tipoAllegato" id="field_tipoAllegato"
-                           formControlName="tipoAllegato"/>
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.allegatoTemplateTask.idTipoAllegatoRef" for="field_idTipoAllegatoRef">Id Tipo Allegato Ref</label>
+                    <input type="number" class="form-control" name="idTipoAllegatoRef" id="field_idTipoAllegatoRef"
+                           formControlName="idTipoAllegatoRef"/>
                 </div>
 
                 <div class="form-group">
@@ -44,9 +44,9 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="eoloprjApp.allegatoTemplateTask.idFile" for="field_idFile">Id File</label>
-                    <input type="number" class="form-control" name="idFile" id="field_idFile"
-                           formControlName="idFile"/>
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.allegatoTemplateTask.idFileRef" for="field_idFileRef">Id File Ref</label>
+                    <input type="number" class="form-control" name="idFileRef" id="field_idFileRef"
+                           formControlName="idFileRef"/>
                 </div>
 
                 <div class="form-group">

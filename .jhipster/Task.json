@@ -2,7 +2,13 @@
   "name": "Task",
   "fields": [
     {
-      "fieldName": "idPratica",
+      "fieldName": "idTask",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required", "max"],
+      "fieldValidateRulesMax": "8"
+    },
+    {
+      "fieldName": "idPraticaRef",
       "fieldType": "Integer",
       "fieldValidateRules": ["max"],
       "fieldValidateRulesMax": "8"
@@ -28,17 +34,17 @@
       "fieldType": "String"
     },
     {
-      "fieldName": "condivisionePraticaId",
+      "fieldName": "idCondivisionePraticaRef",
       "fieldType": "Integer"
     },
     {
-      "fieldName": "assegnazioneTaskId",
+      "fieldName": "idAssegnazioneTaskRef",
       "fieldType": "Integer",
       "fieldValidateRules": ["max"],
       "fieldValidateRulesMax": "8"
     },
     {
-      "fieldName": "invitoId",
+      "fieldName": "idInvitoRef",
       "fieldType": "Integer",
       "fieldValidateRules": ["max"],
       "fieldValidateRulesMax": "8"
@@ -48,32 +54,32 @@
     {
       "relationshipType": "one-to-one",
       "otherEntityName": "consuntivoTask",
-      "otherEntityRelationshipName": "idTask",
-      "relationshipName": "id",
+      "otherEntityRelationshipName": "idTaskRef",
+      "relationshipName": "idTask",
       "otherEntityField": "id",
       "ownerSide": true
     },
     {
       "relationshipType": "one-to-one",
       "otherEntityName": "previsioneTask",
-      "otherEntityRelationshipName": "idTask",
-      "relationshipName": "id",
+      "otherEntityRelationshipName": "idTaskRef",
+      "relationshipName": "idTask",
       "otherEntityField": "id",
       "ownerSide": true
     },
     {
       "relationshipType": "one-to-one",
       "otherEntityName": "assegnazioneTask",
-      "otherEntityRelationshipName": "idAttivita",
-      "relationshipName": "id",
+      "otherEntityRelationshipName": "idTaskRef",
+      "relationshipName": "idTask",
       "otherEntityField": "id",
       "ownerSide": true
     },
     {
       "relationshipType": "one-to-one",
       "otherEntityName": "invitoAttivita",
-      "otherEntityRelationshipName": "idAttivita",
-      "relationshipName": "id",
+      "otherEntityRelationshipName": "idTaskRef",
+      "relationshipName": "idTask",
       "otherEntityField": "id",
       "ownerSide": true
     },
@@ -81,18 +87,18 @@
       "relationshipType": "one-to-many",
       "otherEntityName": "allegatoTask",
       "otherEntityRelationshipName": "task",
-      "relationshipName": "id"
+      "relationshipName": "idTask"
     },
     {
       "relationshipType": "one-to-many",
       "otherEntityName": "notaTask",
       "otherEntityRelationshipName": "task",
-      "relationshipName": "id"
+      "relationshipName": "idTask"
     },
     {
       "relationshipType": "many-to-one",
       "otherEntityName": "pratica",
-      "otherEntityRelationshipName": "id",
+      "otherEntityRelationshipName": "idPratica",
       "relationshipName": "pratica",
       "otherEntityField": "id"
     }

@@ -12,32 +12,32 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="eoloprjApp.lineaOrdine.idOrdine" for="field_idOrdine">Id Ordine</label>
-                    <input type="number" class="form-control" name="idOrdine" id="field_idOrdine"
-                           formControlName="idOrdine"/>
-                    <div *ngIf="editForm.get('idOrdine')!.invalid && (editForm.get('idOrdine')!.dirty || editForm.get('idOrdine')!.touched)">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.lineaOrdine.idOrdineRef" for="field_idOrdineRef">Id Ordine Ref</label>
+                    <input type="number" class="form-control" name="idOrdineRef" id="field_idOrdineRef"
+                           formControlName="idOrdineRef"/>
+                    <div *ngIf="editForm.get('idOrdineRef')!.invalid && (editForm.get('idOrdineRef')!.dirty || editForm.get('idOrdineRef')!.touched)">
                         <small class="form-text text-danger"
-                               *ngIf="editForm.get('idOrdine')?.errors?.required" jhiTranslate="entity.validation.required">
+                               *ngIf="editForm.get('idOrdineRef')?.errors?.required" jhiTranslate="entity.validation.required">
                         This field is required.
                         </small>
                         <small class="form-text text-danger"
-                            [hidden]="!editForm.get('idOrdine')?.errors?.number" jhiTranslate="entity.validation.number">
+                            [hidden]="!editForm.get('idOrdineRef')?.errors?.number" jhiTranslate="entity.validation.number">
                             This field should be a number.
                         </small>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="eoloprjApp.lineaOrdine.idProdotto" for="field_idProdotto">Id Prodotto</label>
-                    <input type="number" class="form-control" name="idProdotto" id="field_idProdotto"
-                           formControlName="idProdotto"/>
-                    <div *ngIf="editForm.get('idProdotto')!.invalid && (editForm.get('idProdotto')!.dirty || editForm.get('idProdotto')!.touched)">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.lineaOrdine.idProdottoRef" for="field_idProdottoRef">Id Prodotto Ref</label>
+                    <input type="number" class="form-control" name="idProdottoRef" id="field_idProdottoRef"
+                           formControlName="idProdottoRef"/>
+                    <div *ngIf="editForm.get('idProdottoRef')!.invalid && (editForm.get('idProdottoRef')!.dirty || editForm.get('idProdottoRef')!.touched)">
                         <small class="form-text text-danger"
-                               *ngIf="editForm.get('idProdotto')?.errors?.required" jhiTranslate="entity.validation.required">
+                               *ngIf="editForm.get('idProdottoRef')?.errors?.required" jhiTranslate="entity.validation.required">
                         This field is required.
                         </small>
                         <small class="form-text text-danger"
-                            [hidden]="!editForm.get('idProdotto')?.errors?.number" jhiTranslate="entity.validation.number">
+                            [hidden]="!editForm.get('idProdottoRef')?.errors?.number" jhiTranslate="entity.validation.number">
                             This field should be a number.
                         </small>
                     </div>

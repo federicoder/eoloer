@@ -20,7 +20,8 @@ export class NotaPraticaUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    idPratica: [null, [Validators.max(8)]],
+    idNotaPratica: [null, [Validators.required, Validators.max(8)]],
+    idPraticaRef: [null, [Validators.max(8)]],
     data: [],
     nota: [],
     version: [],
@@ -45,7 +46,8 @@ export class NotaPraticaUpdateComponent implements OnInit {
   updateForm(notaPratica: INotaPratica): void {
     this.editForm.patchValue({
       id: notaPratica.id,
-      idPratica: notaPratica.idPratica,
+      idNotaPratica: notaPratica.idNotaPratica,
+      idPraticaRef: notaPratica.idPraticaRef,
       data: notaPratica.data,
       nota: notaPratica.nota,
       version: notaPratica.version,
@@ -71,7 +73,8 @@ export class NotaPraticaUpdateComponent implements OnInit {
     return {
       ...new NotaPratica(),
       id: this.editForm.get(['id'])!.value,
-      idPratica: this.editForm.get(['idPratica'])!.value,
+      idNotaPratica: this.editForm.get(['idNotaPratica'])!.value,
+      idPraticaRef: this.editForm.get(['idPraticaRef'])!.value,
       data: this.editForm.get(['data'])!.value,
       nota: this.editForm.get(['nota'])!.value,
       version: this.editForm.get(['version'])!.value,

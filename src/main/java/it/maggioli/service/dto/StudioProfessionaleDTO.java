@@ -11,6 +11,9 @@ public class StudioProfessionaleDTO implements Serializable {
     private Long id;
 
     @NotNull
+    private Integer idStudioProfessionale;
+
+    @NotNull
     private Integer idUserAmministratore;
 
 
@@ -22,6 +25,14 @@ public class StudioProfessionaleDTO implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Integer getIdStudioProfessionale() {
+        return idStudioProfessionale;
+    }
+
+    public void setIdStudioProfessionale(Integer idStudioProfessionale) {
+        this.idStudioProfessionale = idStudioProfessionale;
     }
 
     public Integer getIdUserAmministratore() {
@@ -62,6 +73,7 @@ public class StudioProfessionaleDTO implements Serializable {
     public String toString() {
         return "StudioProfessionaleDTO{" +
             "id=" + getId() +
+            ", idStudioProfessionale=" + getIdStudioProfessionale() +
             ", idUserAmministratore=" + getIdUserAmministratore() +
             ", personaId=" + getPersonaId() +
             "}";

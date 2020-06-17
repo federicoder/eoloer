@@ -40,8 +40,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WithMockUser
 public class IndirizzoPersonaResourceIT {
 
-    private static final Integer DEFAULT_ID_PERSONA = 1;
-    private static final Integer UPDATED_ID_PERSONA = 2;
+    private static final Integer DEFAULT_ID_PERSONA_REF = 1;
+    private static final Integer UPDATED_ID_PERSONA_REF = 2;
 
     private static final String DEFAULT_INDIRIZZO = "AAAAAAAAAA";
     private static final String UPDATED_INDIRIZZO = "BBBBBBBBBB";
@@ -94,7 +94,7 @@ public class IndirizzoPersonaResourceIT {
      */
     public static IndirizzoPersona createEntity(EntityManager em) {
         IndirizzoPersona indirizzoPersona = new IndirizzoPersona()
-            .idPersona(DEFAULT_ID_PERSONA)
+            .idPersonaRef(DEFAULT_ID_PERSONA_REF)
             .indirizzo(DEFAULT_INDIRIZZO)
             .comune(DEFAULT_COMUNE)
             .cap(DEFAULT_CAP)
@@ -111,7 +111,7 @@ public class IndirizzoPersonaResourceIT {
      */
     public static IndirizzoPersona createUpdatedEntity(EntityManager em) {
         IndirizzoPersona indirizzoPersona = new IndirizzoPersona()
-            .idPersona(UPDATED_ID_PERSONA)
+            .idPersonaRef(UPDATED_ID_PERSONA_REF)
             .indirizzo(UPDATED_INDIRIZZO)
             .comune(UPDATED_COMUNE)
             .cap(UPDATED_CAP)
@@ -141,7 +141,7 @@ public class IndirizzoPersonaResourceIT {
         List<IndirizzoPersona> indirizzoPersonaList = indirizzoPersonaRepository.findAll();
         assertThat(indirizzoPersonaList).hasSize(databaseSizeBeforeCreate + 1);
         IndirizzoPersona testIndirizzoPersona = indirizzoPersonaList.get(indirizzoPersonaList.size() - 1);
-        assertThat(testIndirizzoPersona.getIdPersona()).isEqualTo(DEFAULT_ID_PERSONA);
+        assertThat(testIndirizzoPersona.getIdPersonaRef()).isEqualTo(DEFAULT_ID_PERSONA_REF);
         assertThat(testIndirizzoPersona.getIndirizzo()).isEqualTo(DEFAULT_INDIRIZZO);
         assertThat(testIndirizzoPersona.getComune()).isEqualTo(DEFAULT_COMUNE);
         assertThat(testIndirizzoPersona.getCap()).isEqualTo(DEFAULT_CAP);
@@ -179,10 +179,10 @@ public class IndirizzoPersonaResourceIT {
 
     @Test
     @Transactional
-    public void checkIdPersonaIsRequired() throws Exception {
+    public void checkIdPersonaRefIsRequired() throws Exception {
         int databaseSizeBeforeTest = indirizzoPersonaRepository.findAll().size();
         // set the field null
-        indirizzoPersona.setIdPersona(null);
+        indirizzoPersona.setIdPersonaRef(null);
 
         // Create the IndirizzoPersona, which fails.
         IndirizzoPersonaDTO indirizzoPersonaDTO = indirizzoPersonaMapper.toDto(indirizzoPersona);
@@ -208,7 +208,7 @@ public class IndirizzoPersonaResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(indirizzoPersona.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idPersona").value(hasItem(DEFAULT_ID_PERSONA)))
+            .andExpect(jsonPath("$.[*].idPersonaRef").value(hasItem(DEFAULT_ID_PERSONA_REF)))
             .andExpect(jsonPath("$.[*].indirizzo").value(hasItem(DEFAULT_INDIRIZZO)))
             .andExpect(jsonPath("$.[*].comune").value(hasItem(DEFAULT_COMUNE)))
             .andExpect(jsonPath("$.[*].cap").value(hasItem(DEFAULT_CAP)))
@@ -228,7 +228,7 @@ public class IndirizzoPersonaResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(indirizzoPersona.getId().intValue()))
-            .andExpect(jsonPath("$.idPersona").value(DEFAULT_ID_PERSONA))
+            .andExpect(jsonPath("$.idPersonaRef").value(DEFAULT_ID_PERSONA_REF))
             .andExpect(jsonPath("$.indirizzo").value(DEFAULT_INDIRIZZO))
             .andExpect(jsonPath("$.comune").value(DEFAULT_COMUNE))
             .andExpect(jsonPath("$.cap").value(DEFAULT_CAP))
@@ -257,7 +257,7 @@ public class IndirizzoPersonaResourceIT {
         // Disconnect from session so that the updates on updatedIndirizzoPersona are not directly saved in db
         em.detach(updatedIndirizzoPersona);
         updatedIndirizzoPersona
-            .idPersona(UPDATED_ID_PERSONA)
+            .idPersonaRef(UPDATED_ID_PERSONA_REF)
             .indirizzo(UPDATED_INDIRIZZO)
             .comune(UPDATED_COMUNE)
             .cap(UPDATED_CAP)
@@ -275,7 +275,7 @@ public class IndirizzoPersonaResourceIT {
         List<IndirizzoPersona> indirizzoPersonaList = indirizzoPersonaRepository.findAll();
         assertThat(indirizzoPersonaList).hasSize(databaseSizeBeforeUpdate);
         IndirizzoPersona testIndirizzoPersona = indirizzoPersonaList.get(indirizzoPersonaList.size() - 1);
-        assertThat(testIndirizzoPersona.getIdPersona()).isEqualTo(UPDATED_ID_PERSONA);
+        assertThat(testIndirizzoPersona.getIdPersonaRef()).isEqualTo(UPDATED_ID_PERSONA_REF);
         assertThat(testIndirizzoPersona.getIndirizzo()).isEqualTo(UPDATED_INDIRIZZO);
         assertThat(testIndirizzoPersona.getComune()).isEqualTo(UPDATED_COMUNE);
         assertThat(testIndirizzoPersona.getCap()).isEqualTo(UPDATED_CAP);
@@ -344,7 +344,7 @@ public class IndirizzoPersonaResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(indirizzoPersona.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idPersona").value(hasItem(DEFAULT_ID_PERSONA)))
+            .andExpect(jsonPath("$.[*].idPersonaRef").value(hasItem(DEFAULT_ID_PERSONA_REF)))
             .andExpect(jsonPath("$.[*].indirizzo").value(hasItem(DEFAULT_INDIRIZZO)))
             .andExpect(jsonPath("$.[*].comune").value(hasItem(DEFAULT_COMUNE)))
             .andExpect(jsonPath("$.[*].cap").value(hasItem(DEFAULT_CAP)))

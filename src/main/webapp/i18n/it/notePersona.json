@@ -17,8 +17,8 @@
       "detail": {
         "title": "Note Persona"
       },
-      "idPersona": "Id Persona",
-      "idNote": "Id Note",
+      "idPersonaRef": "Id Persona Ref",
+      "idNotePersona": "Id Note Persona",
       "testo": "Testo",
       "persona": "Persona"
     }

@@ -89,13 +89,13 @@ public class PersonaResource {
      */
     @GetMapping("/personas")
     public List<PersonaDTO> getAllPersonas(@RequestParam(required = false) String filter) {
-        if ("id-is-null".equals(filter)) {
-            log.debug("REST request to get all Personas where id is null");
-            return personaService.findAllWhereIdIsNull();
+        if ("idpersona-is-null".equals(filter)) {
+            log.debug("REST request to get all Personas where idPersona is null");
+            return personaService.findAllWhereIdPersonaIsNull();
         }
-        if ("id-is-null".equals(filter)) {
-            log.debug("REST request to get all Personas where id is null");
-            return personaService.findAllWhereIdIsNull();
+        if ("idpersona-is-null".equals(filter)) {
+            log.debug("REST request to get all Personas where idPersona is null");
+            return personaService.findAllWhereIdPersonaIsNull();
         }
         if ("idpersona-is-null".equals(filter)) {
             log.debug("REST request to get all Personas where idPersona is null");

@@ -11,7 +11,7 @@ public class TelefonoPersonaDTO implements Serializable {
     private Long id;
 
     @NotNull
-    private Integer idPersona;
+    private Integer idPersonaRef;
 
     private Integer etichetta;
 
@@ -28,12 +28,12 @@ public class TelefonoPersonaDTO implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdPersona() {
-        return idPersona;
+    public Integer getIdPersonaRef() {
+        return idPersonaRef;
     }
 
-    public void setIdPersona(Integer idPersona) {
-        this.idPersona = idPersona;
+    public void setIdPersonaRef(Integer idPersonaRef) {
+        this.idPersonaRef = idPersonaRef;
     }
 
     public Integer getEtichetta() {
@@ -82,7 +82,7 @@ public class TelefonoPersonaDTO implements Serializable {
     public String toString() {
         return "TelefonoPersonaDTO{" +
             "id=" + getId() +
-            ", idPersona=" + getIdPersona() +
+            ", idPersonaRef=" + getIdPersonaRef() +
             ", etichetta=" + getEtichetta() +
             ", valore=" + getValore() +
             ", personaId=" + getPersonaId() +

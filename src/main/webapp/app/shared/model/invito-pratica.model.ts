@@ -1,10 +1,10 @@
 export interface IInvitoPratica {
   id?: number;
-  idPratica?: number;
-  idPraticaId?: number;
+  idPraticaRef?: number;
+  idPraticaRefId?: number;
   praticaId?: number;
 }
 
 export class InvitoPratica implements IInvitoPratica {
-  constructor(public id?: number, public idPratica?: number, public idPraticaId?: number, public praticaId?: number) {}
+  constructor(public id?: number, public idPraticaRef?: number, public idPraticaRefId?: number, public praticaId?: number) {}
 }

@@ -2,7 +2,13 @@
   "name": "NotaPratica",
   "fields": [
     {
-      "fieldName": "idPratica",
+      "fieldName": "idNotaPratica",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["max", "required"],
+      "fieldValidateRulesMax": "8"
+    },
+    {
+      "fieldName": "idPraticaRef",
       "fieldType": "Integer",
       "fieldValidateRules": ["max"],
       "fieldValidateRulesMax": "8"
@@ -24,7 +30,7 @@
     {
       "relationshipType": "many-to-one",
       "otherEntityName": "pratica",
-      "otherEntityRelationshipName": "id",
+      "otherEntityRelationshipName": "idPratica",
       "relationshipName": "pratica",
       "otherEntityField": "id"
     }

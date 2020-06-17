@@ -17,9 +17,9 @@
       "detail": {
         "title": "Invito Attivita"
       },
-      "idAttivita": "Id Attivita",
-      "idAttivita": "Id Attivita",
-      "idAttivita": "Id Attivita"
+      "idTaskRef": "Id Task Ref",
+      "idTaskRef": "Id Task Ref",
+      "idTaskRef": "Id Task Ref"
     }
   }
 }

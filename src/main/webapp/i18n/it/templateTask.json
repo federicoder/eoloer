@@ -22,8 +22,8 @@
       "nome": "Nome",
       "note": "Note",
       "pubPriv": "Pub Priv",
-      "idTemplatePratica": "Id Template Pratica",
-      "idTemplate": "Id Template",
+      "idTemplatePraticaRef": "Id Template Pratica Ref",
+      "idTemplateTask": "Id Template Task",
       "idTemplateTask": "Id Template Task",
       "templatePratica": "Template Pratica",
       "templateTask": "Template Task"

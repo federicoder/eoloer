@@ -17,14 +17,14 @@
       "detail": {
         "title": "Previsione Evento"
       },
-      "idTask": "Id Task",
+      "idTaskRef": "Id Task Ref",
       "dataInizio": "Data Inizio",
       "dataFine": "Data Fine",
       "luogo": "Luogo",
       "indicazioniLuogo": "Indicazioni Luogo",
       "version": "Version",
-      "idTask": "Id Task",
-      "idTask": "Id Task"
+      "idTaskRef": "Id Task Ref",
+      "idTaskRef": "Id Task Ref"
     }
   }
 }

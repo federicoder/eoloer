@@ -2,7 +2,7 @@
   "name": "EmailPersona",
   "fields": [
     {
-      "fieldName": "idPersona",
+      "fieldName": "idPersonaRef",
       "fieldType": "Integer",
       "fieldValidateRules": ["required"]
     },
@@ -19,7 +19,7 @@
     {
       "relationshipType": "many-to-one",
       "otherEntityName": "persona",
-      "otherEntityRelationshipName": "id",
+      "otherEntityRelationshipName": "idPersona",
       "relationshipName": "persona",
       "otherEntityField": "id"
     }

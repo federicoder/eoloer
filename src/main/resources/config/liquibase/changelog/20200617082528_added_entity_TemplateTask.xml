@@ -30,7 +30,7 @@
             <column name="pub_priv" type="integer">
                 <constraints nullable="true" />
             </column>
-            <column name="id_template_pratica" type="integer">
+            <column name="id_template_pratica_ref" type="integer">
                 <constraints nullable="true" />
             </column>
             <column name="template_pratica_id" type="bigint">
@@ -67,7 +67,7 @@
             <column name="nome" type="numeric"/>
             <column name="note" type="numeric"/>
             <column name="pub_priv" type="numeric"/>
-            <column name="id_template_pratica" type="numeric"/>
+            <column name="id_template_pratica_ref" type="numeric"/>
             <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
         </loadData>
     </changeSet>

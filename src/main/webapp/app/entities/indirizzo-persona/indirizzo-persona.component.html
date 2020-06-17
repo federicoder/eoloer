@@ -41,7 +41,7 @@
             <thead>
                 <tr>
                     <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
-                    <th scope="col" ><span jhiTranslate="eoloprjApp.indirizzoPersona.idPersona">Id Persona</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.indirizzoPersona.idPersonaRef">Id Persona Ref</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.indirizzoPersona.indirizzo">Indirizzo</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.indirizzoPersona.comune">Comune</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.indirizzoPersona.cap">Cap</span></th>
@@ -54,7 +54,7 @@
             <tbody>
                 <tr *ngFor="let indirizzoPersona of indirizzoPersonas ;trackBy: trackId">
                     <td><a [routerLink]="['/indirizzo-persona', indirizzoPersona.id, 'view']">{{ indirizzoPersona.id }}</a></td>
-                    <td>{{ indirizzoPersona.idPersona }}</td>
+                    <td>{{ indirizzoPersona.idPersonaRef }}</td>
                     <td>{{ indirizzoPersona.indirizzo }}</td>
                     <td>{{ indirizzoPersona.comune }}</td>
                     <td>{{ indirizzoPersona.cap }}</td>

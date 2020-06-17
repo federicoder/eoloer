@@ -10,8 +10,12 @@ public class NotaTaskDTO implements Serializable {
     
     private Long id;
 
+    @NotNull
     @Max(value = 8)
-    private Integer idTask;
+    private Integer idNotaTask;
+
+    @Max(value = 8)
+    private Integer idTaskRef;
 
     private String data;
 
@@ -30,12 +34,20 @@ public class NotaTaskDTO implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdTask() {
-        return idTask;
+    public Integer getIdNotaTask() {
+        return idNotaTask;
     }
 
-    public void setIdTask(Integer idTask) {
-        this.idTask = idTask;
+    public void setIdNotaTask(Integer idNotaTask) {
+        this.idNotaTask = idNotaTask;
+    }
+
+    public Integer getIdTaskRef() {
+        return idTaskRef;
+    }
+
+    public void setIdTaskRef(Integer idTaskRef) {
+        this.idTaskRef = idTaskRef;
     }
 
     public String getData() {
@@ -92,7 +104,8 @@ public class NotaTaskDTO implements Serializable {
     public String toString() {
         return "NotaTaskDTO{" +
             "id=" + getId() +
-            ", idTask=" + getIdTask() +
+            ", idNotaTask=" + getIdNotaTask() +
+            ", idTaskRef=" + getIdTaskRef() +
             ", data='" + getData() + "'" +
             ", nota='" + getNota() + "'" +
             ", version='" + getVersion() + "'" +

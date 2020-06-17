@@ -1,6 +1,6 @@
 export interface IInvitoEvento {
   id?: number;
-  idAttivita?: number;
+  idTaskRef?: number;
   luogoFisico?: string;
   indicazioniLuogo?: string;
   dataInizio?: string;
@@ -8,14 +8,14 @@ export interface IInvitoEvento {
   dataFine?: string;
   oraFine?: string;
   urlStanzaVirtuale?: string;
-  idAttivitaId?: number;
+  idTaskRefId?: number;
   previsioneEventoId?: number;
 }
 
 export class InvitoEvento implements IInvitoEvento {
   constructor(
     public id?: number,
-    public idAttivita?: number,
+    public idTaskRef?: number,
     public luogoFisico?: string,
     public indicazioniLuogo?: string,
     public dataInizio?: string,
@@ -23,7 +23,7 @@ export class InvitoEvento implements IInvitoEvento {
     public dataFine?: string,
     public oraFine?: string,
     public urlStanzaVirtuale?: string,
-    public idAttivitaId?: number,
+    public idTaskRefId?: number,
     public previsioneEventoId?: number
   ) {}
 }

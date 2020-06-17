@@ -29,7 +29,7 @@ export class ConsuntivoTaskUpdatePage {
   saveButton = element(by.id('save-entity'));
   cancelButton = element(by.id('cancel-save'));
 
-  idTaskInput = element(by.id('field_idTask'));
+  idTaskRefInput = element(by.id('field_idTaskRef'));
   dataInizioInput = element(by.id('field_dataInizio'));
   dataFineInput = element(by.id('field_dataFine'));
   timeLineInput = element(by.id('field_timeLine'));
@@ -39,12 +39,12 @@ export class ConsuntivoTaskUpdatePage {
     return this.pageTitle.getAttribute('jhiTranslate');
   }
 
-  async setIdTaskInput(idTask: string): Promise<void> {
-    await this.idTaskInput.sendKeys(idTask);
+  async setIdTaskRefInput(idTaskRef: string): Promise<void> {
+    await this.idTaskRefInput.sendKeys(idTaskRef);
   }
 
-  async getIdTaskInput(): Promise<string> {
-    return await this.idTaskInput.getAttribute('value');
+  async getIdTaskRefInput(): Promise<string> {
+    return await this.idTaskRefInput.getAttribute('value');
   }
 
   async setDataInizioInput(dataInizio: string): Promise<void> {

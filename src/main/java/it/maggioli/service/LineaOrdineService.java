@@ -71,15 +71,15 @@ public class LineaOrdineService {
 
 
     /**
-     *  Get all the lineaOrdines where IdProdotto is {@code null}.
+     *  Get all the lineaOrdines where IdProdottoRef is {@code null}.
      *  @return the list of entities.
      */
     @Transactional(readOnly = true) 
-    public List<LineaOrdineDTO> findAllWhereIdProdottoIsNull() {
-        log.debug("Request to get all lineaOrdines where IdProdotto is null");
+    public List<LineaOrdineDTO> findAllWhereIdProdottoRefIsNull() {
+        log.debug("Request to get all lineaOrdines where IdProdottoRef is null");
         return StreamSupport
             .stream(lineaOrdineRepository.findAll().spliterator(), false)
-            .filter(lineaOrdine -> lineaOrdine.getIdProdotto() == null)
+            .filter(lineaOrdine -> lineaOrdine.getIdProdottoRef() == null)
             .map(lineaOrdineMapper::toDto)
             .collect(Collectors.toCollection(LinkedList::new));
     }

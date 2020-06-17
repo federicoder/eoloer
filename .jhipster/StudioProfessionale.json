@@ -2,6 +2,11 @@
   "name": "StudioProfessionale",
   "fields": [
     {
+      "fieldName": "idStudioProfessionale",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
       "fieldName": "idUserAmministratore",
       "fieldType": "Integer",
       "fieldValidateRules": ["required"]
@@ -12,25 +17,25 @@
       "relationshipType": "one-to-many",
       "otherEntityName": "risorseDisponibili",
       "otherEntityRelationshipName": "studioProfessionale",
-      "relationshipName": "id"
+      "relationshipName": "idStudioProfessionale"
     },
     {
       "relationshipType": "one-to-many",
       "otherEntityName": "ordine",
       "otherEntityRelationshipName": "studioProfessionale",
-      "relationshipName": "id"
+      "relationshipName": "idStudioProfessionale"
     },
     {
       "relationshipType": "one-to-one",
       "otherEntityName": "invito",
-      "otherEntityRelationshipName": "idStudioProfessionale",
-      "relationshipName": "id",
+      "otherEntityRelationshipName": "idStudioProfessionaleRef",
+      "relationshipName": "idStudioProfessionale",
       "ownerSide": false
     },
     {
       "relationshipType": "many-to-one",
       "otherEntityName": "persona",
-      "otherEntityRelationshipName": "id",
+      "otherEntityRelationshipName": "idPersona",
       "relationshipName": "persona",
       "otherEntityField": "id"
     }

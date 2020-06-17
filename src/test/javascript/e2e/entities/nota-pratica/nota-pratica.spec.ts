@@ -44,14 +44,16 @@ describe('NotaPratica e2e test', () => {
     await notaPraticaComponentsPage.clickOnCreateButton();
 
     await promise.all([
-      notaPraticaUpdatePage.setIdPraticaInput('5'),
+      notaPraticaUpdatePage.setIdNotaPraticaInput('5'),
+      notaPraticaUpdatePage.setIdPraticaRefInput('5'),
       notaPraticaUpdatePage.setDataInput('data'),
       notaPraticaUpdatePage.setNotaInput('nota'),
       notaPraticaUpdatePage.setVersionInput('version'),
       notaPraticaUpdatePage.praticaSelectLastOption(),
     ]);
 
-    expect(await notaPraticaUpdatePage.getIdPraticaInput()).to.eq('5', 'Expected idPratica value to be equals to 5');
+    expect(await notaPraticaUpdatePage.getIdNotaPraticaInput()).to.eq('5', 'Expected idNotaPratica value to be equals to 5');
+    expect(await notaPraticaUpdatePage.getIdPraticaRefInput()).to.eq('5', 'Expected idPraticaRef value to be equals to 5');
     expect(await notaPraticaUpdatePage.getDataInput()).to.eq('data', 'Expected Data value to be equals to data');
     expect(await notaPraticaUpdatePage.getNotaInput()).to.eq('nota', 'Expected Nota value to be equals to nota');
     expect(await notaPraticaUpdatePage.getVersionInput()).to.eq('version', 'Expected Version value to be equals to version');

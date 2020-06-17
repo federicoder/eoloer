@@ -12,21 +12,21 @@ import org.mapstruct.*;
 @Mapper(componentModel = "spring", uses = {ConsuntivoTaskMapper.class, PrevisioneTaskMapper.class, AssegnazioneTaskMapper.class, InvitoAttivitaMapper.class, PraticaMapper.class})
 public interface TaskMapper extends EntityMapper<TaskDTO, Task> {
 
-    @Mapping(source = "id.id", target = "idId")
-    @Mapping(source = "id.id", target = "idId")
-    @Mapping(source = "id.id", target = "idId")
-    @Mapping(source = "id.id", target = "idId")
+    @Mapping(source = "idTask.id", target = "idTaskId")
+    @Mapping(source = "idTask.id", target = "idTaskId")
+    @Mapping(source = "idTask.id", target = "idTaskId")
+    @Mapping(source = "idTask.id", target = "idTaskId")
     @Mapping(source = "pratica.id", target = "praticaId")
     TaskDTO toDto(Task task);
 
-    @Mapping(source = "idId", target = "id")
-    @Mapping(source = "idId", target = "id")
-    @Mapping(source = "idId", target = "id")
-    @Mapping(source = "idId", target = "id")
-    @Mapping(target = "ids", ignore = true)
-    @Mapping(target = "removeId", ignore = true)
-    @Mapping(target = "ids", ignore = true)
-    @Mapping(target = "removeId", ignore = true)
+    @Mapping(source = "idTaskId", target = "idTask")
+    @Mapping(source = "idTaskId", target = "idTask")
+    @Mapping(source = "idTaskId", target = "idTask")
+    @Mapping(source = "idTaskId", target = "idTask")
+    @Mapping(target = "idTasks", ignore = true)
+    @Mapping(target = "removeIdTask", ignore = true)
+    @Mapping(target = "idTasks", ignore = true)
+    @Mapping(target = "removeIdTask", ignore = true)
     @Mapping(source = "praticaId", target = "pratica")
     Task toEntity(TaskDTO taskDTO);
 

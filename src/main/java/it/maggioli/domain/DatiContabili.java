@@ -31,11 +31,11 @@ public class DatiContabili implements Serializable {
     private Integer idDatiContabili;
 
     @NotNull
-    @Column(name = "id_persona", nullable = false)
-    private Integer idPersona;
+    @Column(name = "id_persona_ref", nullable = false)
+    private Integer idPersonaRef;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "ids", allowSetters = true)
+    @JsonIgnoreProperties(value = "idPersonas", allowSetters = true)
     private Persona persona;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
@@ -60,17 +60,17 @@ public class DatiContabili implements Serializable {
         this.idDatiContabili = idDatiContabili;
     }
 
-    public Integer getIdPersona() {
-        return idPersona;
+    public Integer getIdPersonaRef() {
+        return idPersonaRef;
     }
 
-    public DatiContabili idPersona(Integer idPersona) {
-        this.idPersona = idPersona;
+    public DatiContabili idPersonaRef(Integer idPersonaRef) {
+        this.idPersonaRef = idPersonaRef;
         return this;
     }
 
-    public void setIdPersona(Integer idPersona) {
-        this.idPersona = idPersona;
+    public void setIdPersonaRef(Integer idPersonaRef) {
+        this.idPersonaRef = idPersonaRef;
     }
 
     public Persona getPersona() {
@@ -109,7 +109,7 @@ public class DatiContabili implements Serializable {
         return "DatiContabili{" +
             "id=" + getId() +
             ", idDatiContabili=" + getIdDatiContabili() +
-            ", idPersona=" + getIdPersona() +
+            ", idPersonaRef=" + getIdPersonaRef() +
             "}";
     }
 }

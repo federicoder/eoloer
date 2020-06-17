@@ -12,16 +12,16 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="eoloprjApp.invitoAttivita.idAttivita" for="field_idAttivita">Id Attivita</label>
-                    <input type="number" class="form-control" name="idAttivita" id="field_idAttivita"
-                           formControlName="idAttivita"/>
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.invitoAttivita.idTaskRef" for="field_idTaskRef">Id Task Ref</label>
+                    <input type="number" class="form-control" name="idTaskRef" id="field_idTaskRef"
+                           formControlName="idTaskRef"/>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="eoloprjApp.invitoAttivita.idAttivita" for="field_idAttivita">Id Attivita</label>
-                    <select class="form-control" id="field_idAttivita" name="idAttivita" formControlName="idAttivitaId">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.invitoAttivita.idTaskRef" for="field_idTaskRef">Id Task Ref</label>
+                    <select class="form-control" id="field_idTaskRef" name="idTaskRef" formControlName="idTaskRefId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="invitoOption.id" *ngFor="let invitoOption of idattivitas; trackBy: trackById">{{ invitoOption.id }}</option>
+                        <option [ngValue]="invitoOption.id" *ngFor="let invitoOption of idtaskrefs; trackBy: trackById">{{ invitoOption.id }}</option>
                     </select>
                 </div>
             </div>
