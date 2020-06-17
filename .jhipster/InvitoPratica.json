@@ -3,14 +3,14 @@
   "fields": [
     {
       "fieldName": "idPraticaRef",
-      "fieldType": "Integer"
+      "fieldType": "Long"
     }
   ],
   "relationships": [
     {
       "relationshipType": "one-to-one",
       "otherEntityName": "invito",
-      "otherEntityRelationshipName": "idInvito",
+      "otherEntityRelationshipName": "id",
       "relationshipName": "idPraticaRef",
       "otherEntityField": "id",
       "ownerSide": true
@@ -18,7 +18,7 @@
     {
       "relationshipType": "many-to-one",
       "otherEntityName": "pratica",
-      "otherEntityRelationshipName": "idPratica",
+      "otherEntityRelationshipName": "id",
       "relationshipName": "pratica",
       "otherEntityField": "id"
     }

@@ -8,15 +8,15 @@
     -->
     <changeSet id="20200617084728-2" author="jhipster">
         
-        <addForeignKeyConstraint baseColumnNames="id_ruolo_organizzazione_id"
+        <addForeignKeyConstraint baseColumnNames="id_id"
                                  baseTableName="ruolo_organizzazione"
-                                 constraintName="fk_ruolo_organizzazione_id_ruolo_organizzazione_id"
+                                 constraintName="fk_ruolo_organizzazione_id_id"
                                  referencedColumnNames="id"
                                  referencedTableName="organizzazione"/>
 
-        <addForeignKeyConstraint baseColumnNames="id_ruolo_organizzazione_id"
+        <addForeignKeyConstraint baseColumnNames="id_id"
                                  baseTableName="ruolo_organizzazione"
-                                 constraintName="fk_ruolo_organizzazione_id_ruolo_organizzazione_id"
+                                 constraintName="fk_ruolo_organizzazione_id_id"
                                  referencedColumnNames="id"
                                  referencedTableName="persona_fisica"/>
 

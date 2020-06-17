@@ -2,30 +2,25 @@
   "name": "Ordine",
   "fields": [
     {
-      "fieldName": "idOrdine",
-      "fieldType": "Integer",
-      "fieldValidateRules": ["required"]
-    },
-    {
       "fieldName": "idStudioProfessionaleRef",
-      "fieldType": "Integer",
+      "fieldType": "Long",
       "fieldValidateRules": ["required"]
     },
     {
       "fieldName": "statoOrdine",
-      "fieldType": "Integer"
+      "fieldType": "Long"
     },
     {
       "fieldName": "totImponibile",
-      "fieldType": "Integer"
+      "fieldType": "Long"
     },
     {
       "fieldName": "totIva",
-      "fieldType": "Integer"
+      "fieldType": "Long"
     },
     {
       "fieldName": "totOrdine",
-      "fieldType": "Integer"
+      "fieldType": "Long"
     }
   ],
   "relationships": [
@@ -33,12 +28,12 @@
       "relationshipType": "one-to-many",
       "otherEntityName": "lineaOrdine",
       "otherEntityRelationshipName": "ordine",
-      "relationshipName": "idOrdine"
+      "relationshipName": "id"
     },
     {
       "relationshipType": "many-to-one",
       "otherEntityName": "studioProfessionale",
-      "otherEntityRelationshipName": "idStudioProfessionale",
+      "otherEntityRelationshipName": "id",
       "relationshipName": "studioProfessionale",
       "otherEntityField": "id"
     }

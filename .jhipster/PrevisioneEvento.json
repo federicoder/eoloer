@@ -3,7 +3,7 @@
   "fields": [
     {
       "fieldName": "idTaskRef",
-      "fieldType": "Integer",
+      "fieldType": "Long",
       "fieldValidateRules": ["max", "required"],
       "fieldValidateRulesMax": "8"
     },

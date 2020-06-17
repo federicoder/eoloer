@@ -2,7 +2,6 @@ import { IInvitato } from 'app/shared/model/invitato.model';
 
 export interface IInvito {
   id?: number;
-  idInvito?: number;
   idStudioProfessionaleRef?: number;
   dataInvito?: string;
   idUserInvitante?: number;
@@ -20,17 +19,16 @@ export interface IInvito {
   urlStanzaVirtuale?: string;
   discriminator?: string;
   idStudioProfessionaleRefId?: number;
-  idInvitos?: IInvitato[];
-  idInvitoId?: number;
-  idInvitoId?: number;
-  idInvitoId?: number;
+  ids?: IInvitato[];
+  idId?: number;
+  idId?: number;
+  idId?: number;
   assegnazioneTaskId?: number;
 }
 
 export class Invito implements IInvito {
   constructor(
     public id?: number,
-    public idInvito?: number,
     public idStudioProfessionaleRef?: number,
     public dataInvito?: string,
     public idUserInvitante?: number,
@@ -48,10 +46,10 @@ export class Invito implements IInvito {
     public urlStanzaVirtuale?: string,
     public discriminator?: string,
     public idStudioProfessionaleRefId?: number,
-    public idInvitos?: IInvitato[],
-    public idInvitoId?: number,
-    public idInvitoId?: number,
-    public idInvitoId?: number,
+    public ids?: IInvitato[],
+    public idId?: number,
+    public idId?: number,
+    public idId?: number,
     public assegnazioneTaskId?: number
   ) {}
 }

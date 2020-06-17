@@ -40,9 +40,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WithMockUser
 public class TipoAllegatoResourceIT {
 
-    private static final Integer DEFAULT_ID_TIPO_ALLEGATO = 8;
-    private static final Integer UPDATED_ID_TIPO_ALLEGATO = 7;
-
     private static final String DEFAULT_NOME = "AAAAAAAAAA";
     private static final String UPDATED_NOME = "BBBBBBBBBB";
 
@@ -88,7 +85,6 @@ public class TipoAllegatoResourceIT {
      */
     public static TipoAllegato createEntity(EntityManager em) {
         TipoAllegato tipoAllegato = new TipoAllegato()
-            .idTipoAllegato(DEFAULT_ID_TIPO_ALLEGATO)
             .nome(DEFAULT_NOME)
             .formatiAmmessi(DEFAULT_FORMATI_AMMESSI)
             .maxDimensioneAmmessa(DEFAULT_MAX_DIMENSIONE_AMMESSA)
@@ -103,7 +99,6 @@ public class TipoAllegatoResourceIT {
      */
     public static TipoAllegato createUpdatedEntity(EntityManager em) {
         TipoAllegato tipoAllegato = new TipoAllegato()
-            .idTipoAllegato(UPDATED_ID_TIPO_ALLEGATO)
             .nome(UPDATED_NOME)
             .formatiAmmessi(UPDATED_FORMATI_AMMESSI)
             .maxDimensioneAmmessa(UPDATED_MAX_DIMENSIONE_AMMESSA)
@@ -131,7 +126,6 @@ public class TipoAllegatoResourceIT {
         List<TipoAllegato> tipoAllegatoList = tipoAllegatoRepository.findAll();
         assertThat(tipoAllegatoList).hasSize(databaseSizeBeforeCreate + 1);
         TipoAllegato testTipoAllegato = tipoAllegatoList.get(tipoAllegatoList.size() - 1);
-        assertThat(testTipoAllegato.getIdTipoAllegato()).isEqualTo(DEFAULT_ID_TIPO_ALLEGATO);
         assertThat(testTipoAllegato.getNome()).isEqualTo(DEFAULT_NOME);
         assertThat(testTipoAllegato.getFormatiAmmessi()).isEqualTo(DEFAULT_FORMATI_AMMESSI);
         assertThat(testTipoAllegato.getMaxDimensioneAmmessa()).isEqualTo(DEFAULT_MAX_DIMENSIONE_AMMESSA);
@@ -176,7 +170,6 @@ public class TipoAllegatoResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(tipoAllegato.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idTipoAllegato").value(hasItem(DEFAULT_ID_TIPO_ALLEGATO)))
             .andExpect(jsonPath("$.[*].nome").value(hasItem(DEFAULT_NOME)))
             .andExpect(jsonPath("$.[*].formatiAmmessi").value(hasItem(DEFAULT_FORMATI_AMMESSI)))
             .andExpect(jsonPath("$.[*].maxDimensioneAmmessa").value(hasItem(DEFAULT_MAX_DIMENSIONE_AMMESSA)))
@@ -194,7 +187,6 @@ public class TipoAllegatoResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(tipoAllegato.getId().intValue()))
-            .andExpect(jsonPath("$.idTipoAllegato").value(DEFAULT_ID_TIPO_ALLEGATO))
             .andExpect(jsonPath("$.nome").value(DEFAULT_NOME))
             .andExpect(jsonPath("$.formatiAmmessi").value(DEFAULT_FORMATI_AMMESSI))
             .andExpect(jsonPath("$.maxDimensioneAmmessa").value(DEFAULT_MAX_DIMENSIONE_AMMESSA))
@@ -221,7 +213,6 @@ public class TipoAllegatoResourceIT {
         // Disconnect from session so that the updates on updatedTipoAllegato are not directly saved in db
         em.detach(updatedTipoAllegato);
         updatedTipoAllegato
-            .idTipoAllegato(UPDATED_ID_TIPO_ALLEGATO)
             .nome(UPDATED_NOME)
             .formatiAmmessi(UPDATED_FORMATI_AMMESSI)
             .maxDimensioneAmmessa(UPDATED_MAX_DIMENSIONE_AMMESSA)
@@ -237,7 +228,6 @@ public class TipoAllegatoResourceIT {
         List<TipoAllegato> tipoAllegatoList = tipoAllegatoRepository.findAll();
         assertThat(tipoAllegatoList).hasSize(databaseSizeBeforeUpdate);
         TipoAllegato testTipoAllegato = tipoAllegatoList.get(tipoAllegatoList.size() - 1);
-        assertThat(testTipoAllegato.getIdTipoAllegato()).isEqualTo(UPDATED_ID_TIPO_ALLEGATO);
         assertThat(testTipoAllegato.getNome()).isEqualTo(UPDATED_NOME);
         assertThat(testTipoAllegato.getFormatiAmmessi()).isEqualTo(UPDATED_FORMATI_AMMESSI);
         assertThat(testTipoAllegato.getMaxDimensioneAmmessa()).isEqualTo(UPDATED_MAX_DIMENSIONE_AMMESSA);
@@ -304,7 +294,6 @@ public class TipoAllegatoResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(tipoAllegato.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idTipoAllegato").value(hasItem(DEFAULT_ID_TIPO_ALLEGATO)))
             .andExpect(jsonPath("$.[*].nome").value(hasItem(DEFAULT_NOME)))
             .andExpect(jsonPath("$.[*].formatiAmmessi").value(hasItem(DEFAULT_FORMATI_AMMESSI)))
             .andExpect(jsonPath("$.[*].maxDimensioneAmmessa").value(hasItem(DEFAULT_MAX_DIMENSIONE_AMMESSA)))

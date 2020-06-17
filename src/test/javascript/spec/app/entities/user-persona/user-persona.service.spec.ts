@@ -20,7 +20,7 @@ describe('Service Tests', () => {
       service = injector.get(UserPersonaService);
       httpMock = injector.get(HttpTestingController);
 
-      elemDefault = new UserPersona(0, 0, 0, 0);
+      elemDefault = new UserPersona(0, 0, 0);
     });
 
     describe('Service methods', () => {
@@ -54,7 +54,6 @@ describe('Service Tests', () => {
       it('should update a UserPersona', () => {
         const returnedFromService = Object.assign(
           {
-            idUserPersona: 1,
             idPersonaRef: 1,
             nomeUser: 1,
           },
@@ -73,7 +72,6 @@ describe('Service Tests', () => {
       it('should return a list of UserPersona', () => {
         const returnedFromService = Object.assign(
           {
-            idUserPersona: 1,
             idPersonaRef: 1,
             nomeUser: 1,
           },

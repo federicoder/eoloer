@@ -26,14 +26,14 @@ public class InvitoPratica implements Serializable {
     private Long id;
 
     @Column(name = "id_pratica_ref")
-    private Integer idPraticaRef;
+    private Long idPraticaRef;
 
     @OneToOne
     @JoinColumn(unique = true)
     private Invito idPraticaRef;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "idPraticas", allowSetters = true)
+    @JsonIgnoreProperties(value = "ids", allowSetters = true)
     private Pratica pratica;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
@@ -45,16 +45,16 @@ public class InvitoPratica implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdPraticaRef() {
+    public Long getIdPraticaRef() {
         return idPraticaRef;
     }
 
-    public InvitoPratica idPraticaRef(Integer idPraticaRef) {
+    public InvitoPratica idPraticaRef(Long idPraticaRef) {
         this.idPraticaRef = idPraticaRef;
         return this;
     }
 
-    public void setIdPraticaRef(Integer idPraticaRef) {
+    public void setIdPraticaRef(Long idPraticaRef) {
         this.idPraticaRef = idPraticaRef;
     }
 

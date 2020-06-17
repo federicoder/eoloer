@@ -12,10 +12,10 @@ public class RappresentanzaPraticaDTO implements Serializable {
     private Long id;
 
     @NotNull
-    private Integer idRuoloPersona;
+    private Long idRuoloPersona;
 
     @NotNull
-    private Integer idPersonaRef;
+    private Long idPersonaRef;
 
     private Ruoli ruoli;
 
@@ -30,19 +30,19 @@ public class RappresentanzaPraticaDTO implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdRuoloPersona() {
+    public Long getIdRuoloPersona() {
         return idRuoloPersona;
     }
 
-    public void setIdRuoloPersona(Integer idRuoloPersona) {
+    public void setIdRuoloPersona(Long idRuoloPersona) {
         this.idRuoloPersona = idRuoloPersona;
     }
 
-    public Integer getIdPersonaRef() {
+    public Long getIdPersonaRef() {
         return idPersonaRef;
     }
 
-    public void setIdPersonaRef(Integer idPersonaRef) {
+    public void setIdPersonaRef(Long idPersonaRef) {
         this.idPersonaRef = idPersonaRef;
     }
 

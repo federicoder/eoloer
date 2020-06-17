@@ -30,23 +30,23 @@ public class PrevisioneTask implements Serializable {
     private Long id;
 
     @NotNull
-    @Max(value = 8)
+    @Max(value = 8L)
     @Column(name = "id_task_ref", nullable = false)
-    private Integer idTaskRef;
+    private Long idTaskRef;
 
-    @Max(value = 8)
+    @Max(value = 8L)
     @Column(name = "qnt_ordine")
-    private Integer qntOrdine;
+    private Long qntOrdine;
 
-    @Max(value = 1)
+    @Max(value = 1L)
     @Column(name = "prc_previsione")
-    private Integer prcPrevisione;
+    private Long prcPrevisione;
 
     @Column(name = "check_list")
-    private Integer checkList;
+    private Long checkList;
 
     @Column(name = "id_task_milestone")
-    private Integer idTaskMilestone;
+    private Long idTaskMilestone;
 
     @Column(name = "tipo_task")
     private String tipoTask;
@@ -66,7 +66,7 @@ public class PrevisioneTask implements Serializable {
     @JsonIgnore
     private PrevisioneEvento idTaskRef;
 
-    @OneToOne(mappedBy = "idTask")
+    @OneToOne(mappedBy = "id")
     @JsonIgnore
     private Task idTaskRef;
 
@@ -83,68 +83,68 @@ public class PrevisioneTask implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdTaskRef() {
+    public Long getIdTaskRef() {
         return idTaskRef;
     }
 
-    public PrevisioneTask idTaskRef(Integer idTaskRef) {
+    public PrevisioneTask idTaskRef(Long idTaskRef) {
         this.idTaskRef = idTaskRef;
         return this;
     }
 
-    public void setIdTaskRef(Integer idTaskRef) {
+    public void setIdTaskRef(Long idTaskRef) {
         this.idTaskRef = idTaskRef;
     }
 
-    public Integer getQntOrdine() {
+    public Long getQntOrdine() {
         return qntOrdine;
     }
 
-    public PrevisioneTask qntOrdine(Integer qntOrdine) {
+    public PrevisioneTask qntOrdine(Long qntOrdine) {
         this.qntOrdine = qntOrdine;
         return this;
     }
 
-    public void setQntOrdine(Integer qntOrdine) {
+    public void setQntOrdine(Long qntOrdine) {
         this.qntOrdine = qntOrdine;
     }
 
-    public Integer getPrcPrevisione() {
+    public Long getPrcPrevisione() {
         return prcPrevisione;
     }
 
-    public PrevisioneTask prcPrevisione(Integer prcPrevisione) {
+    public PrevisioneTask prcPrevisione(Long prcPrevisione) {
         this.prcPrevisione = prcPrevisione;
         return this;
     }
 
-    public void setPrcPrevisione(Integer prcPrevisione) {
+    public void setPrcPrevisione(Long prcPrevisione) {
         this.prcPrevisione = prcPrevisione;
     }
 
-    public Integer getCheckList() {
+    public Long getCheckList() {
         return checkList;
     }
 
-    public PrevisioneTask checkList(Integer checkList) {
+    public PrevisioneTask checkList(Long checkList) {
         this.checkList = checkList;
         return this;
     }
 
-    public void setCheckList(Integer checkList) {
+    public void setCheckList(Long checkList) {
         this.checkList = checkList;
     }
 
-    public Integer getIdTaskMilestone() {
+    public Long getIdTaskMilestone() {
         return idTaskMilestone;
     }
 
-    public PrevisioneTask idTaskMilestone(Integer idTaskMilestone) {
+    public PrevisioneTask idTaskMilestone(Long idTaskMilestone) {
         this.idTaskMilestone = idTaskMilestone;
         return this;
     }
 
-    public void setIdTaskMilestone(Integer idTaskMilestone) {
+    public void setIdTaskMilestone(Long idTaskMilestone) {
         this.idTaskMilestone = idTaskMilestone;
     }
 

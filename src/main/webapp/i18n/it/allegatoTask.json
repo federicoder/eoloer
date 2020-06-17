@@ -17,7 +17,6 @@
       "detail": {
         "title": "Allegato Task"
       },
-      "idAllegatoTask": "Id Allegato Task",
       "idTipoAllegatoRef": "Id Tipo Allegato Ref",
       "idTaskRef": "Id Task Ref",
       "formato": "Formato",
@@ -26,7 +25,7 @@
       "pubblico": "Pubblico",
       "version": "Version",
       "idAllegatoMaster": "Id Allegato Master",
-      "idAllegatoTask": "Id Allegato Task",
+      "id": "Id",
       "tipoAllegato": "Tipo Allegato",
       "allegatoTask": "Allegato Task",
       "task": "Task"

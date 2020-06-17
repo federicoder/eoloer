@@ -15,16 +15,13 @@
             <column name="id" type="bigint">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="id_invito" type="integer">
-                <constraints nullable="false" />
-            </column>
-            <column name="id_studio_professionale_ref" type="integer">
+            <column name="id_studio_professionale_ref" type="bigint">
                 <constraints nullable="true" />
             </column>
             <column name="data_invito" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="id_user_invitante" type="integer">
+            <column name="id_user_invitante" type="bigint">
                 <constraints nullable="true" />
             </column>
             <column name="nome_user_invitante" type="varchar(255)">
@@ -36,10 +33,10 @@
             <column name="testo_invito" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="id_pratica_ref" type="integer">
+            <column name="id_pratica_ref" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="id_task_ref" type="integer">
+            <column name="id_task_ref" type="bigint">
                 <constraints nullable="true" />
             </column>
             <column name="luogo_fisico" type="varchar(255)">
@@ -95,7 +92,6 @@
                   separator=";"
                   tableName="invito">
             <column name="id" type="numeric"/>
-            <column name="id_invito" type="numeric"/>
             <column name="id_studio_professionale_ref" type="numeric"/>
             <column name="data_invito" type="string"/>
             <column name="id_user_invitante" type="numeric"/>

@@ -10,11 +10,8 @@ public class PraticaDTO implements Serializable {
     
     private Long id;
 
-    @Max(value = 8)
-    private Integer idPratica;
-
-    @Max(value = 8)
-    private Integer idStudioProfessionaleRef;
+    @NotNull
+    private Long idStudioProfessionaleRef;
 
     private String numero;
 
@@ -26,20 +23,20 @@ public class PraticaDTO implements Serializable {
 
     private String dataScadenza;
 
-    private Integer stato;
+    private Long stato;
 
     private String motivoChiusura;
 
-    @Max(value = 8)
-    private Integer idTitolare;
+    @Max(value = 8L)
+    private Long idTitolare;
 
-    private Integer prcAvanzato;
+    private Long prcAvanzato;
 
     private String version;
 
     private String valuta;
 
-    private Integer idTemplatePraticaRef;
+    private Long idTemplatePraticaRef;
 
 
     private Long idTemplatePraticaRefId;
@@ -52,19 +49,11 @@ public class PraticaDTO implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdPratica() {
-        return idPratica;
-    }
-
-    public void setIdPratica(Integer idPratica) {
-        this.idPratica = idPratica;
-    }
-
-    public Integer getIdStudioProfessionaleRef() {
+    public Long getIdStudioProfessionaleRef() {
         return idStudioProfessionaleRef;
     }
 
-    public void setIdStudioProfessionaleRef(Integer idStudioProfessionaleRef) {
+    public void setIdStudioProfessionaleRef(Long idStudioProfessionaleRef) {
         this.idStudioProfessionaleRef = idStudioProfessionaleRef;
     }
 
@@ -108,11 +97,11 @@ public class PraticaDTO implements Serializable {
         this.dataScadenza = dataScadenza;
     }
 
-    public Integer getStato() {
+    public Long getStato() {
         return stato;
     }
 
-    public void setStato(Integer stato) {
+    public void setStato(Long stato) {
         this.stato = stato;
     }
 
@@ -124,19 +113,19 @@ public class PraticaDTO implements Serializable {
         this.motivoChiusura = motivoChiusura;
     }
 
-    public Integer getIdTitolare() {
+    public Long getIdTitolare() {
         return idTitolare;
     }
 
-    public void setIdTitolare(Integer idTitolare) {
+    public void setIdTitolare(Long idTitolare) {
         this.idTitolare = idTitolare;
     }
 
-    public Integer getPrcAvanzato() {
+    public Long getPrcAvanzato() {
         return prcAvanzato;
     }
 
-    public void setPrcAvanzato(Integer prcAvanzato) {
+    public void setPrcAvanzato(Long prcAvanzato) {
         this.prcAvanzato = prcAvanzato;
     }
 
@@ -156,11 +145,11 @@ public class PraticaDTO implements Serializable {
         this.valuta = valuta;
     }
 
-    public Integer getIdTemplatePraticaRef() {
+    public Long getIdTemplatePraticaRef() {
         return idTemplatePraticaRef;
     }
 
-    public void setIdTemplatePraticaRef(Integer idTemplatePraticaRef) {
+    public void setIdTemplatePraticaRef(Long idTemplatePraticaRef) {
         this.idTemplatePraticaRef = idTemplatePraticaRef;
     }
 
@@ -194,7 +183,6 @@ public class PraticaDTO implements Serializable {
     public String toString() {
         return "PraticaDTO{" +
             "id=" + getId() +
-            ", idPratica=" + getIdPratica() +
             ", idStudioProfessionaleRef=" + getIdStudioProfessionaleRef() +
             ", numero='" + getNumero() + "'" +
             ", nome='" + getNome() + "'" +

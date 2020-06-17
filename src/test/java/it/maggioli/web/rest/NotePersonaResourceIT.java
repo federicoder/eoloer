@@ -40,11 +40,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WithMockUser
 public class NotePersonaResourceIT {
 
-    private static final Integer DEFAULT_ID_PERSONA_REF = 1;
-    private static final Integer UPDATED_ID_PERSONA_REF = 2;
-
-    private static final Integer DEFAULT_ID_NOTE_PERSONA = 1;
-    private static final Integer UPDATED_ID_NOTE_PERSONA = 2;
+    private static final Long DEFAULT_ID_PERSONA_REF = 1L;
+    private static final Long UPDATED_ID_PERSONA_REF = 2L;
 
     private static final String DEFAULT_TESTO = "AAAAAAAAAA";
     private static final String UPDATED_TESTO = "BBBBBBBBBB";
@@ -83,7 +80,6 @@ public class NotePersonaResourceIT {
     public static NotePersona createEntity(EntityManager em) {
         NotePersona notePersona = new NotePersona()
             .idPersonaRef(DEFAULT_ID_PERSONA_REF)
-            .idNotePersona(DEFAULT_ID_NOTE_PERSONA)
             .testo(DEFAULT_TESTO);
         return notePersona;
     }
@@ -96,7 +92,6 @@ public class NotePersonaResourceIT {
     public static NotePersona createUpdatedEntity(EntityManager em) {
         NotePersona notePersona = new NotePersona()
             .idPersonaRef(UPDATED_ID_PERSONA_REF)
-            .idNotePersona(UPDATED_ID_NOTE_PERSONA)
             .testo(UPDATED_TESTO);
         return notePersona;
     }
@@ -122,7 +117,6 @@ public class NotePersonaResourceIT {
         assertThat(notePersonaList).hasSize(databaseSizeBeforeCreate + 1);
         NotePersona testNotePersona = notePersonaList.get(notePersonaList.size() - 1);
         assertThat(testNotePersona.getIdPersonaRef()).isEqualTo(DEFAULT_ID_PERSONA_REF);
-        assertThat(testNotePersona.getIdNotePersona()).isEqualTo(DEFAULT_ID_NOTE_PERSONA);
         assertThat(testNotePersona.getTesto()).isEqualTo(DEFAULT_TESTO);
 
         // Validate the NotePersona in Elasticsearch
@@ -175,26 +169,6 @@ public class NotePersonaResourceIT {
 
     @Test
     @Transactional
-    public void checkIdNotePersonaIsRequired() throws Exception {
-        int databaseSizeBeforeTest = notePersonaRepository.findAll().size();
-        // set the field null
-        notePersona.setIdNotePersona(null);
-
-        // Create the NotePersona, which fails.
-        NotePersonaDTO notePersonaDTO = notePersonaMapper.toDto(notePersona);
-
-
-        restNotePersonaMockMvc.perform(post("/api/note-personas")
-            .contentType(MediaType.APPLICATION_JSON)
-            .content(TestUtil.convertObjectToJsonBytes(notePersonaDTO)))
-            .andExpect(status().isBadRequest());
-
-        List<NotePersona> notePersonaList = notePersonaRepository.findAll();
-        assertThat(notePersonaList).hasSize(databaseSizeBeforeTest);
-    }
-
-    @Test
-    @Transactional
     public void getAllNotePersonas() throws Exception {
         // Initialize the database
         notePersonaRepository.saveAndFlush(notePersona);
@@ -204,8 +178,7 @@ public class NotePersonaResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(notePersona.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idPersonaRef").value(hasItem(DEFAULT_ID_PERSONA_REF)))
-            .andExpect(jsonPath("$.[*].idNotePersona").value(hasItem(DEFAULT_ID_NOTE_PERSONA)))
+            .andExpect(jsonPath("$.[*].idPersonaRef").value(hasItem(DEFAULT_ID_PERSONA_REF.intValue())))
             .andExpect(jsonPath("$.[*].testo").value(hasItem(DEFAULT_TESTO)));
     }
     
@@ -220,8 +193,7 @@ public class NotePersonaResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(notePersona.getId().intValue()))
-            .andExpect(jsonPath("$.idPersonaRef").value(DEFAULT_ID_PERSONA_REF))
-            .andExpect(jsonPath("$.idNotePersona").value(DEFAULT_ID_NOTE_PERSONA))
+            .andExpect(jsonPath("$.idPersonaRef").value(DEFAULT_ID_PERSONA_REF.intValue()))
             .andExpect(jsonPath("$.testo").value(DEFAULT_TESTO));
     }
     @Test
@@ -246,7 +218,6 @@ public class NotePersonaResourceIT {
         em.detach(updatedNotePersona);
         updatedNotePersona
             .idPersonaRef(UPDATED_ID_PERSONA_REF)
-            .idNotePersona(UPDATED_ID_NOTE_PERSONA)
             .testo(UPDATED_TESTO);
         NotePersonaDTO notePersonaDTO = notePersonaMapper.toDto(updatedNotePersona);
 
@@ -260,7 +231,6 @@ public class NotePersonaResourceIT {
         assertThat(notePersonaList).hasSize(databaseSizeBeforeUpdate);
         NotePersona testNotePersona = notePersonaList.get(notePersonaList.size() - 1);
         assertThat(testNotePersona.getIdPersonaRef()).isEqualTo(UPDATED_ID_PERSONA_REF);
-        assertThat(testNotePersona.getIdNotePersona()).isEqualTo(UPDATED_ID_NOTE_PERSONA);
         assertThat(testNotePersona.getTesto()).isEqualTo(UPDATED_TESTO);
 
         // Validate the NotePersona in Elasticsearch
@@ -324,8 +294,7 @@ public class NotePersonaResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(notePersona.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idPersonaRef").value(hasItem(DEFAULT_ID_PERSONA_REF)))
-            .andExpect(jsonPath("$.[*].idNotePersona").value(hasItem(DEFAULT_ID_NOTE_PERSONA)))
+            .andExpect(jsonPath("$.[*].idPersonaRef").value(hasItem(DEFAULT_ID_PERSONA_REF.intValue())))
             .andExpect(jsonPath("$.[*].testo").value(hasItem(DEFAULT_TESTO)));
     }
 }

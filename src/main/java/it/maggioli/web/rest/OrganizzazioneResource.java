@@ -89,9 +89,9 @@ public class OrganizzazioneResource {
      */
     @GetMapping("/organizzaziones")
     public List<OrganizzazioneDTO> getAllOrganizzaziones(@RequestParam(required = false) String filter) {
-        if ("idorganizzazione-is-null".equals(filter)) {
-            log.debug("REST request to get all Organizzaziones where idOrganizzazione is null");
-            return organizzazioneService.findAllWhereIdOrganizzazioneIsNull();
+        if ("id-is-null".equals(filter)) {
+            log.debug("REST request to get all Organizzaziones where id is null");
+            return organizzazioneService.findAllWhereIdIsNull();
         }
         log.debug("REST request to get all Organizzaziones");
         return organizzazioneService.findAll();

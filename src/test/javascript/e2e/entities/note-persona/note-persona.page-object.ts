@@ -30,7 +30,6 @@ export class NotePersonaUpdatePage {
   cancelButton = element(by.id('cancel-save'));
 
   idPersonaRefInput = element(by.id('field_idPersonaRef'));
-  idNotePersonaInput = element(by.id('field_idNotePersona'));
   testoInput = element(by.id('field_testo'));
 
   personaSelect = element(by.id('field_persona'));
@@ -45,14 +44,6 @@ export class NotePersonaUpdatePage {
 
   async getIdPersonaRefInput(): Promise<string> {
     return await this.idPersonaRefInput.getAttribute('value');
-  }
-
-  async setIdNotePersonaInput(idNotePersona: string): Promise<void> {
-    await this.idNotePersonaInput.sendKeys(idNotePersona);
-  }
-
-  async getIdNotePersonaInput(): Promise<string> {
-    return await this.idNotePersonaInput.getAttribute('value');
   }
 
   async setTestoInput(testo: string): Promise<void> {

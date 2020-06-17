@@ -15,10 +15,10 @@
             <column name="id" type="bigint">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="id_ruolo_persona" type="integer">
+            <column name="id_ruolo_persona" type="bigint">
                 <constraints nullable="false" />
             </column>
-            <column name="id_persona_ref" type="integer">
+            <column name="id_persona_ref" type="bigint">
                 <constraints nullable="false" />
             </column>
             <column name="ruoli" type="varchar(255)">

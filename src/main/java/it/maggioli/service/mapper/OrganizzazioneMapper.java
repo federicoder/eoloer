@@ -16,7 +16,7 @@ public interface OrganizzazioneMapper extends EntityMapper<OrganizzazioneDTO, Or
     OrganizzazioneDTO toDto(Organizzazione organizzazione);
 
     @Mapping(source = "idPersonaRefId", target = "idPersonaRef")
-    @Mapping(target = "idOrganizzazione", ignore = true)
+    @Mapping(target = "id", ignore = true)
     Organizzazione toEntity(OrganizzazioneDTO organizzazioneDTO);
 
     default Organizzazione fromId(Long id) {

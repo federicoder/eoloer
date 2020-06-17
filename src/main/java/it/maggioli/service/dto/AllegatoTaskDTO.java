@@ -10,28 +10,24 @@ public class AllegatoTaskDTO implements Serializable {
     
     private Long id;
 
-    @NotNull
-    @Max(value = 8)
-    private Integer idAllegatoTask;
+    @Max(value = 8L)
+    private Long idTipoAllegatoRef;
 
-    @Max(value = 8)
-    private Integer idTipoAllegatoRef;
+    @Max(value = 8L)
+    private Long idTaskRef;
 
-    @Max(value = 8)
-    private Integer idTaskRef;
-
-    private Integer formato;
+    private Long formato;
 
     private String note;
 
-    private Integer stato;
+    private Long stato;
 
-    private Integer pubblico;
+    private Long pubblico;
 
     private String version;
 
     @NotNull
-    private Integer idAllegatoMaster;
+    private Long idAllegatoMaster;
 
 
     private Long tipoAllegatoId;
@@ -48,35 +44,27 @@ public class AllegatoTaskDTO implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdAllegatoTask() {
-        return idAllegatoTask;
-    }
-
-    public void setIdAllegatoTask(Integer idAllegatoTask) {
-        this.idAllegatoTask = idAllegatoTask;
-    }
-
-    public Integer getIdTipoAllegatoRef() {
+    public Long getIdTipoAllegatoRef() {
         return idTipoAllegatoRef;
     }
 
-    public void setIdTipoAllegatoRef(Integer idTipoAllegatoRef) {
+    public void setIdTipoAllegatoRef(Long idTipoAllegatoRef) {
         this.idTipoAllegatoRef = idTipoAllegatoRef;
     }
 
-    public Integer getIdTaskRef() {
+    public Long getIdTaskRef() {
         return idTaskRef;
     }
 
-    public void setIdTaskRef(Integer idTaskRef) {
+    public void setIdTaskRef(Long idTaskRef) {
         this.idTaskRef = idTaskRef;
     }
 
-    public Integer getFormato() {
+    public Long getFormato() {
         return formato;
     }
 
-    public void setFormato(Integer formato) {
+    public void setFormato(Long formato) {
         this.formato = formato;
     }
 
@@ -88,19 +76,19 @@ public class AllegatoTaskDTO implements Serializable {
         this.note = note;
     }
 
-    public Integer getStato() {
+    public Long getStato() {
         return stato;
     }
 
-    public void setStato(Integer stato) {
+    public void setStato(Long stato) {
         this.stato = stato;
     }
 
-    public Integer getPubblico() {
+    public Long getPubblico() {
         return pubblico;
     }
 
-    public void setPubblico(Integer pubblico) {
+    public void setPubblico(Long pubblico) {
         this.pubblico = pubblico;
     }
 
@@ -112,11 +100,11 @@ public class AllegatoTaskDTO implements Serializable {
         this.version = version;
     }
 
-    public Integer getIdAllegatoMaster() {
+    public Long getIdAllegatoMaster() {
         return idAllegatoMaster;
     }
 
-    public void setIdAllegatoMaster(Integer idAllegatoMaster) {
+    public void setIdAllegatoMaster(Long idAllegatoMaster) {
         this.idAllegatoMaster = idAllegatoMaster;
     }
 
@@ -166,7 +154,6 @@ public class AllegatoTaskDTO implements Serializable {
     public String toString() {
         return "AllegatoTaskDTO{" +
             "id=" + getId() +
-            ", idAllegatoTask=" + getIdAllegatoTask() +
             ", idTipoAllegatoRef=" + getIdTipoAllegatoRef() +
             ", idTaskRef=" + getIdTaskRef() +
             ", formato=" + getFormato() +

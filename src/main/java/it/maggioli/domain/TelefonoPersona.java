@@ -28,16 +28,16 @@ public class TelefonoPersona implements Serializable {
 
     @NotNull
     @Column(name = "id_persona_ref", nullable = false)
-    private Integer idPersonaRef;
+    private Long idPersonaRef;
 
     @Column(name = "etichetta")
-    private Integer etichetta;
+    private Long etichetta;
 
     @Column(name = "valore")
-    private Integer valore;
+    private Long valore;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "idPersonas", allowSetters = true)
+    @JsonIgnoreProperties(value = "ids", allowSetters = true)
     private Persona persona;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
@@ -49,42 +49,42 @@ public class TelefonoPersona implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdPersonaRef() {
+    public Long getIdPersonaRef() {
         return idPersonaRef;
     }
 
-    public TelefonoPersona idPersonaRef(Integer idPersonaRef) {
+    public TelefonoPersona idPersonaRef(Long idPersonaRef) {
         this.idPersonaRef = idPersonaRef;
         return this;
     }
 
-    public void setIdPersonaRef(Integer idPersonaRef) {
+    public void setIdPersonaRef(Long idPersonaRef) {
         this.idPersonaRef = idPersonaRef;
     }
 
-    public Integer getEtichetta() {
+    public Long getEtichetta() {
         return etichetta;
     }
 
-    public TelefonoPersona etichetta(Integer etichetta) {
+    public TelefonoPersona etichetta(Long etichetta) {
         this.etichetta = etichetta;
         return this;
     }
 
-    public void setEtichetta(Integer etichetta) {
+    public void setEtichetta(Long etichetta) {
         this.etichetta = etichetta;
     }
 
-    public Integer getValore() {
+    public Long getValore() {
         return valore;
     }
 
-    public TelefonoPersona valore(Integer valore) {
+    public TelefonoPersona valore(Long valore) {
         this.valore = valore;
         return this;
     }
 
-    public void setValore(Integer valore) {
+    public void setValore(Long valore) {
         this.valore = valore;
     }
 

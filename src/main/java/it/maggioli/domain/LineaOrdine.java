@@ -29,27 +29,27 @@ public class LineaOrdine implements Serializable {
 
     @NotNull
     @Column(name = "id_ordine_ref", nullable = false)
-    private Integer idOrdineRef;
+    private Long idOrdineRef;
 
     @NotNull
     @Column(name = "id_prodotto_ref", nullable = false)
-    private Integer idProdottoRef;
+    private Long idProdottoRef;
 
     @Column(name = "quantita")
-    private Integer quantita;
+    private Long quantita;
 
     @Column(name = "importo")
-    private Integer importo;
+    private Long importo;
 
     @Column(name = "cod_iva")
     private String codIva;
 
-    @OneToOne(mappedBy = "idProdotto")
+    @OneToOne(mappedBy = "id")
     @JsonIgnore
     private Prodotto idProdottoRef;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "idOrdines", allowSetters = true)
+    @JsonIgnoreProperties(value = "ids", allowSetters = true)
     private Ordine ordine;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
@@ -61,55 +61,55 @@ public class LineaOrdine implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdOrdineRef() {
+    public Long getIdOrdineRef() {
         return idOrdineRef;
     }
 
-    public LineaOrdine idOrdineRef(Integer idOrdineRef) {
+    public LineaOrdine idOrdineRef(Long idOrdineRef) {
         this.idOrdineRef = idOrdineRef;
         return this;
     }
 
-    public void setIdOrdineRef(Integer idOrdineRef) {
+    public void setIdOrdineRef(Long idOrdineRef) {
         this.idOrdineRef = idOrdineRef;
     }
 
-    public Integer getIdProdottoRef() {
+    public Long getIdProdottoRef() {
         return idProdottoRef;
     }
 
-    public LineaOrdine idProdottoRef(Integer idProdottoRef) {
+    public LineaOrdine idProdottoRef(Long idProdottoRef) {
         this.idProdottoRef = idProdottoRef;
         return this;
     }
 
-    public void setIdProdottoRef(Integer idProdottoRef) {
+    public void setIdProdottoRef(Long idProdottoRef) {
         this.idProdottoRef = idProdottoRef;
     }
 
-    public Integer getQuantita() {
+    public Long getQuantita() {
         return quantita;
     }
 
-    public LineaOrdine quantita(Integer quantita) {
+    public LineaOrdine quantita(Long quantita) {
         this.quantita = quantita;
         return this;
     }
 
-    public void setQuantita(Integer quantita) {
+    public void setQuantita(Long quantita) {
         this.quantita = quantita;
     }
 
-    public Integer getImporto() {
+    public Long getImporto() {
         return importo;
     }
 
-    public LineaOrdine importo(Integer importo) {
+    public LineaOrdine importo(Long importo) {
         this.importo = importo;
         return this;
     }
 
-    public void setImporto(Integer importo) {
+    public void setImporto(Long importo) {
         this.importo = importo;
     }
 

@@ -12,26 +12,6 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="eoloprjApp.allegatoTask.idAllegatoTask" for="field_idAllegatoTask">Id Allegato Task</label>
-                    <input type="number" class="form-control" name="idAllegatoTask" id="field_idAllegatoTask"
-                           formControlName="idAllegatoTask"/>
-                    <div *ngIf="editForm.get('idAllegatoTask')!.invalid && (editForm.get('idAllegatoTask')!.dirty || editForm.get('idAllegatoTask')!.touched)">
-                        <small class="form-text text-danger"
-                               *ngIf="editForm.get('idAllegatoTask')?.errors?.required" jhiTranslate="entity.validation.required">
-                        This field is required.
-                        </small>
-                        <small class="form-text text-danger"
-                               *ngIf="editForm.get('idAllegatoTask')?.errors?.max" jhiTranslate="entity.validation.max" [translateValues]="{ max: 8 }">
-                            This field cannot be more than 8.
-                        </small>
-                        <small class="form-text text-danger"
-                            [hidden]="!editForm.get('idAllegatoTask')?.errors?.number" jhiTranslate="entity.validation.number">
-                            This field should be a number.
-                        </small>
-                    </div>
-                </div>
-
-                <div class="form-group">
                     <label class="form-control-label" jhiTranslate="eoloprjApp.allegatoTask.idTipoAllegatoRef" for="field_idTipoAllegatoRef">Id Tipo Allegato Ref</label>
                     <input type="number" class="form-control" name="idTipoAllegatoRef" id="field_idTipoAllegatoRef"
                            formControlName="idTipoAllegatoRef"/>

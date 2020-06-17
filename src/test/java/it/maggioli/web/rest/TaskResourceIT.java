@@ -40,35 +40,32 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WithMockUser
 public class TaskResourceIT {
 
-    private static final Integer DEFAULT_ID_TASK = 8;
-    private static final Integer UPDATED_ID_TASK = 7;
-
-    private static final Integer DEFAULT_ID_PRATICA_REF = 8;
-    private static final Integer UPDATED_ID_PRATICA_REF = 7;
+    private static final Long DEFAULT_ID_PRATICA_REF = 8L;
+    private static final Long UPDATED_ID_PRATICA_REF = 7L;
 
     private static final String DEFAULT_NOME = "AAAAAAAAAA";
     private static final String UPDATED_NOME = "BBBBBBBBBB";
 
-    private static final Integer DEFAULT_STATO = 1;
-    private static final Integer UPDATED_STATO = 2;
+    private static final Long DEFAULT_STATO = 1L;
+    private static final Long UPDATED_STATO = 2L;
 
-    private static final Integer DEFAULT_PRIORITARIO = 1;
-    private static final Integer UPDATED_PRIORITARIO = 2;
+    private static final Long DEFAULT_PRIORITARIO = 1L;
+    private static final Long UPDATED_PRIORITARIO = 2L;
 
-    private static final Integer DEFAULT_PUBBLICO = 1;
-    private static final Integer UPDATED_PUBBLICO = 2;
+    private static final Long DEFAULT_PUBBLICO = 1L;
+    private static final Long UPDATED_PUBBLICO = 2L;
 
     private static final String DEFAULT_VERSION = "AAAAAAAAAA";
     private static final String UPDATED_VERSION = "BBBBBBBBBB";
 
-    private static final Integer DEFAULT_ID_CONDIVISIONE_PRATICA_REF = 1;
-    private static final Integer UPDATED_ID_CONDIVISIONE_PRATICA_REF = 2;
+    private static final Long DEFAULT_ID_CONDIVISIONE_PRATICA_REF = 1L;
+    private static final Long UPDATED_ID_CONDIVISIONE_PRATICA_REF = 2L;
 
-    private static final Integer DEFAULT_ID_ASSEGNAZIONE_TASK_REF = 8;
-    private static final Integer UPDATED_ID_ASSEGNAZIONE_TASK_REF = 7;
+    private static final Long DEFAULT_ID_ASSEGNAZIONE_TASK_REF = 8L;
+    private static final Long UPDATED_ID_ASSEGNAZIONE_TASK_REF = 7L;
 
-    private static final Integer DEFAULT_ID_INVITO_REF = 8;
-    private static final Integer UPDATED_ID_INVITO_REF = 7;
+    private static final Long DEFAULT_ID_INVITO_REF = 8L;
+    private static final Long UPDATED_ID_INVITO_REF = 7L;
 
     @Autowired
     private TaskRepository taskRepository;
@@ -103,7 +100,6 @@ public class TaskResourceIT {
      */
     public static Task createEntity(EntityManager em) {
         Task task = new Task()
-            .idTask(DEFAULT_ID_TASK)
             .idPraticaRef(DEFAULT_ID_PRATICA_REF)
             .nome(DEFAULT_NOME)
             .stato(DEFAULT_STATO)
@@ -123,7 +119,6 @@ public class TaskResourceIT {
      */
     public static Task createUpdatedEntity(EntityManager em) {
         Task task = new Task()
-            .idTask(UPDATED_ID_TASK)
             .idPraticaRef(UPDATED_ID_PRATICA_REF)
             .nome(UPDATED_NOME)
             .stato(UPDATED_STATO)
@@ -156,7 +151,6 @@ public class TaskResourceIT {
         List<Task> taskList = taskRepository.findAll();
         assertThat(taskList).hasSize(databaseSizeBeforeCreate + 1);
         Task testTask = taskList.get(taskList.size() - 1);
-        assertThat(testTask.getIdTask()).isEqualTo(DEFAULT_ID_TASK);
         assertThat(testTask.getIdPraticaRef()).isEqualTo(DEFAULT_ID_PRATICA_REF);
         assertThat(testTask.getNome()).isEqualTo(DEFAULT_NOME);
         assertThat(testTask.getStato()).isEqualTo(DEFAULT_STATO);
@@ -197,26 +191,6 @@ public class TaskResourceIT {
 
     @Test
     @Transactional
-    public void checkIdTaskIsRequired() throws Exception {
-        int databaseSizeBeforeTest = taskRepository.findAll().size();
-        // set the field null
-        task.setIdTask(null);
-
-        // Create the Task, which fails.
-        TaskDTO taskDTO = taskMapper.toDto(task);
-
-
-        restTaskMockMvc.perform(post("/api/tasks")
-            .contentType(MediaType.APPLICATION_JSON)
-            .content(TestUtil.convertObjectToJsonBytes(taskDTO)))
-            .andExpect(status().isBadRequest());
-
-        List<Task> taskList = taskRepository.findAll();
-        assertThat(taskList).hasSize(databaseSizeBeforeTest);
-    }
-
-    @Test
-    @Transactional
     public void getAllTasks() throws Exception {
         // Initialize the database
         taskRepository.saveAndFlush(task);
@@ -226,16 +200,15 @@ public class TaskResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(task.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idTask").value(hasItem(DEFAULT_ID_TASK)))
-            .andExpect(jsonPath("$.[*].idPraticaRef").value(hasItem(DEFAULT_ID_PRATICA_REF)))
+            .andExpect(jsonPath("$.[*].idPraticaRef").value(hasItem(DEFAULT_ID_PRATICA_REF.intValue())))
             .andExpect(jsonPath("$.[*].nome").value(hasItem(DEFAULT_NOME)))
-            .andExpect(jsonPath("$.[*].stato").value(hasItem(DEFAULT_STATO)))
-            .andExpect(jsonPath("$.[*].prioritario").value(hasItem(DEFAULT_PRIORITARIO)))
-            .andExpect(jsonPath("$.[*].pubblico").value(hasItem(DEFAULT_PUBBLICO)))
+            .andExpect(jsonPath("$.[*].stato").value(hasItem(DEFAULT_STATO.intValue())))
+            .andExpect(jsonPath("$.[*].prioritario").value(hasItem(DEFAULT_PRIORITARIO.intValue())))
+            .andExpect(jsonPath("$.[*].pubblico").value(hasItem(DEFAULT_PUBBLICO.intValue())))
             .andExpect(jsonPath("$.[*].version").value(hasItem(DEFAULT_VERSION)))
-            .andExpect(jsonPath("$.[*].idCondivisionePraticaRef").value(hasItem(DEFAULT_ID_CONDIVISIONE_PRATICA_REF)))
-            .andExpect(jsonPath("$.[*].idAssegnazioneTaskRef").value(hasItem(DEFAULT_ID_ASSEGNAZIONE_TASK_REF)))
-            .andExpect(jsonPath("$.[*].idInvitoRef").value(hasItem(DEFAULT_ID_INVITO_REF)));
+            .andExpect(jsonPath("$.[*].idCondivisionePraticaRef").value(hasItem(DEFAULT_ID_CONDIVISIONE_PRATICA_REF.intValue())))
+            .andExpect(jsonPath("$.[*].idAssegnazioneTaskRef").value(hasItem(DEFAULT_ID_ASSEGNAZIONE_TASK_REF.intValue())))
+            .andExpect(jsonPath("$.[*].idInvitoRef").value(hasItem(DEFAULT_ID_INVITO_REF.intValue())));
     }
     
     @Test
@@ -249,16 +222,15 @@ public class TaskResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(task.getId().intValue()))
-            .andExpect(jsonPath("$.idTask").value(DEFAULT_ID_TASK))
-            .andExpect(jsonPath("$.idPraticaRef").value(DEFAULT_ID_PRATICA_REF))
+            .andExpect(jsonPath("$.idPraticaRef").value(DEFAULT_ID_PRATICA_REF.intValue()))
             .andExpect(jsonPath("$.nome").value(DEFAULT_NOME))
-            .andExpect(jsonPath("$.stato").value(DEFAULT_STATO))
-            .andExpect(jsonPath("$.prioritario").value(DEFAULT_PRIORITARIO))
-            .andExpect(jsonPath("$.pubblico").value(DEFAULT_PUBBLICO))
+            .andExpect(jsonPath("$.stato").value(DEFAULT_STATO.intValue()))
+            .andExpect(jsonPath("$.prioritario").value(DEFAULT_PRIORITARIO.intValue()))
+            .andExpect(jsonPath("$.pubblico").value(DEFAULT_PUBBLICO.intValue()))
             .andExpect(jsonPath("$.version").value(DEFAULT_VERSION))
-            .andExpect(jsonPath("$.idCondivisionePraticaRef").value(DEFAULT_ID_CONDIVISIONE_PRATICA_REF))
-            .andExpect(jsonPath("$.idAssegnazioneTaskRef").value(DEFAULT_ID_ASSEGNAZIONE_TASK_REF))
-            .andExpect(jsonPath("$.idInvitoRef").value(DEFAULT_ID_INVITO_REF));
+            .andExpect(jsonPath("$.idCondivisionePraticaRef").value(DEFAULT_ID_CONDIVISIONE_PRATICA_REF.intValue()))
+            .andExpect(jsonPath("$.idAssegnazioneTaskRef").value(DEFAULT_ID_ASSEGNAZIONE_TASK_REF.intValue()))
+            .andExpect(jsonPath("$.idInvitoRef").value(DEFAULT_ID_INVITO_REF.intValue()));
     }
     @Test
     @Transactional
@@ -281,7 +253,6 @@ public class TaskResourceIT {
         // Disconnect from session so that the updates on updatedTask are not directly saved in db
         em.detach(updatedTask);
         updatedTask
-            .idTask(UPDATED_ID_TASK)
             .idPraticaRef(UPDATED_ID_PRATICA_REF)
             .nome(UPDATED_NOME)
             .stato(UPDATED_STATO)
@@ -302,7 +273,6 @@ public class TaskResourceIT {
         List<Task> taskList = taskRepository.findAll();
         assertThat(taskList).hasSize(databaseSizeBeforeUpdate);
         Task testTask = taskList.get(taskList.size() - 1);
-        assertThat(testTask.getIdTask()).isEqualTo(UPDATED_ID_TASK);
         assertThat(testTask.getIdPraticaRef()).isEqualTo(UPDATED_ID_PRATICA_REF);
         assertThat(testTask.getNome()).isEqualTo(UPDATED_NOME);
         assertThat(testTask.getStato()).isEqualTo(UPDATED_STATO);
@@ -374,15 +344,14 @@ public class TaskResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(task.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idTask").value(hasItem(DEFAULT_ID_TASK)))
-            .andExpect(jsonPath("$.[*].idPraticaRef").value(hasItem(DEFAULT_ID_PRATICA_REF)))
+            .andExpect(jsonPath("$.[*].idPraticaRef").value(hasItem(DEFAULT_ID_PRATICA_REF.intValue())))
             .andExpect(jsonPath("$.[*].nome").value(hasItem(DEFAULT_NOME)))
-            .andExpect(jsonPath("$.[*].stato").value(hasItem(DEFAULT_STATO)))
-            .andExpect(jsonPath("$.[*].prioritario").value(hasItem(DEFAULT_PRIORITARIO)))
-            .andExpect(jsonPath("$.[*].pubblico").value(hasItem(DEFAULT_PUBBLICO)))
+            .andExpect(jsonPath("$.[*].stato").value(hasItem(DEFAULT_STATO.intValue())))
+            .andExpect(jsonPath("$.[*].prioritario").value(hasItem(DEFAULT_PRIORITARIO.intValue())))
+            .andExpect(jsonPath("$.[*].pubblico").value(hasItem(DEFAULT_PUBBLICO.intValue())))
             .andExpect(jsonPath("$.[*].version").value(hasItem(DEFAULT_VERSION)))
-            .andExpect(jsonPath("$.[*].idCondivisionePraticaRef").value(hasItem(DEFAULT_ID_CONDIVISIONE_PRATICA_REF)))
-            .andExpect(jsonPath("$.[*].idAssegnazioneTaskRef").value(hasItem(DEFAULT_ID_ASSEGNAZIONE_TASK_REF)))
-            .andExpect(jsonPath("$.[*].idInvitoRef").value(hasItem(DEFAULT_ID_INVITO_REF)));
+            .andExpect(jsonPath("$.[*].idCondivisionePraticaRef").value(hasItem(DEFAULT_ID_CONDIVISIONE_PRATICA_REF.intValue())))
+            .andExpect(jsonPath("$.[*].idAssegnazioneTaskRef").value(hasItem(DEFAULT_ID_ASSEGNAZIONE_TASK_REF.intValue())))
+            .andExpect(jsonPath("$.[*].idInvitoRef").value(hasItem(DEFAULT_ID_INVITO_REF.intValue())));
     }
 }

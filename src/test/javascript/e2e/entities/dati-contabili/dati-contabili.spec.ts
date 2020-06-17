@@ -43,13 +43,8 @@ describe('DatiContabili e2e test', () => {
 
     await datiContabiliComponentsPage.clickOnCreateButton();
 
-    await promise.all([
-      datiContabiliUpdatePage.setIdDatiContabiliInput('5'),
-      datiContabiliUpdatePage.setIdPersonaRefInput('5'),
-      datiContabiliUpdatePage.personaSelectLastOption(),
-    ]);
+    await promise.all([datiContabiliUpdatePage.setIdPersonaRefInput('5'), datiContabiliUpdatePage.personaSelectLastOption()]);
 
-    expect(await datiContabiliUpdatePage.getIdDatiContabiliInput()).to.eq('5', 'Expected idDatiContabili value to be equals to 5');
     expect(await datiContabiliUpdatePage.getIdPersonaRefInput()).to.eq('5', 'Expected idPersonaRef value to be equals to 5');
 
     await datiContabiliUpdatePage.save();

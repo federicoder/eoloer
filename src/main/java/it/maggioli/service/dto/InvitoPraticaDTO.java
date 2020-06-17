@@ -9,7 +9,7 @@ public class InvitoPraticaDTO implements Serializable {
     
     private Long id;
 
-    private Integer idPraticaRef;
+    private Long idPraticaRef;
 
 
     private Long idPraticaRefId;
@@ -24,11 +24,11 @@ public class InvitoPraticaDTO implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdPraticaRef() {
+    public Long getIdPraticaRef() {
         return idPraticaRef;
     }
 
-    public void setIdPraticaRef(Integer idPraticaRef) {
+    public void setIdPraticaRef(Long idPraticaRef) {
         this.idPraticaRef = idPraticaRef;
     }
 

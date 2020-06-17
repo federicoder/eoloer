@@ -2,26 +2,20 @@
   "name": "AllegatoTask",
   "fields": [
     {
-      "fieldName": "idAllegatoTask",
-      "fieldType": "Integer",
-      "fieldValidateRules": ["max", "required"],
-      "fieldValidateRulesMax": "8"
-    },
-    {
       "fieldName": "idTipoAllegatoRef",
-      "fieldType": "Integer",
+      "fieldType": "Long",
       "fieldValidateRules": ["max"],
       "fieldValidateRulesMax": "8"
     },
     {
       "fieldName": "idTaskRef",
-      "fieldType": "Integer",
+      "fieldType": "Long",
       "fieldValidateRules": ["max"],
       "fieldValidateRulesMax": "8"
     },
     {
       "fieldName": "formato",
-      "fieldType": "Integer"
+      "fieldType": "Long"
     },
     {
       "fieldName": "note",
@@ -29,11 +23,11 @@
     },
     {
       "fieldName": "stato",
-      "fieldType": "Integer"
+      "fieldType": "Long"
     },
     {
       "fieldName": "pubblico",
-      "fieldType": "Integer"
+      "fieldType": "Long"
     },
     {
       "fieldName": "version",
@@ -41,7 +35,7 @@
     },
     {
       "fieldName": "idAllegatoMaster",
-      "fieldType": "Integer",
+      "fieldType": "Long",
       "fieldValidateRules": ["required"]
     }
   ],
@@ -50,26 +44,26 @@
       "relationshipType": "one-to-many",
       "otherEntityName": "allegatoTask",
       "otherEntityRelationshipName": "allegatoTask",
-      "relationshipName": "idAllegatoTask"
+      "relationshipName": "id"
     },
     {
       "relationshipType": "many-to-one",
       "otherEntityName": "tipoAllegato",
-      "otherEntityRelationshipName": "idTipoAllegato",
+      "otherEntityRelationshipName": "id",
       "relationshipName": "tipoAllegato",
       "otherEntityField": "id"
     },
     {
       "relationshipType": "many-to-one",
       "otherEntityName": "allegatoTask",
-      "otherEntityRelationshipName": "idAllegatoTask",
+      "otherEntityRelationshipName": "id",
       "relationshipName": "allegatoTask",
       "otherEntityField": "id"
     },
     {
       "relationshipType": "many-to-one",
       "otherEntityName": "task",
-      "otherEntityRelationshipName": "idTask",
+      "otherEntityRelationshipName": "id",
       "relationshipName": "task",
       "otherEntityField": "id"
     }

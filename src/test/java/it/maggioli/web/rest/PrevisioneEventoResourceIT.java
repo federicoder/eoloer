@@ -40,8 +40,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WithMockUser
 public class PrevisioneEventoResourceIT {
 
-    private static final Integer DEFAULT_ID_TASK_REF = 8;
-    private static final Integer UPDATED_ID_TASK_REF = 7;
+    private static final Long DEFAULT_ID_TASK_REF = 8L;
+    private static final Long UPDATED_ID_TASK_REF = 7L;
 
     private static final String DEFAULT_DATA_INIZIO = "AAAAAAAAAA";
     private static final String UPDATED_DATA_INIZIO = "BBBBBBBBBB";
@@ -202,7 +202,7 @@ public class PrevisioneEventoResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(previsioneEvento.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idTaskRef").value(hasItem(DEFAULT_ID_TASK_REF)))
+            .andExpect(jsonPath("$.[*].idTaskRef").value(hasItem(DEFAULT_ID_TASK_REF.intValue())))
             .andExpect(jsonPath("$.[*].dataInizio").value(hasItem(DEFAULT_DATA_INIZIO)))
             .andExpect(jsonPath("$.[*].dataFine").value(hasItem(DEFAULT_DATA_FINE)))
             .andExpect(jsonPath("$.[*].luogo").value(hasItem(DEFAULT_LUOGO)))
@@ -221,7 +221,7 @@ public class PrevisioneEventoResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(previsioneEvento.getId().intValue()))
-            .andExpect(jsonPath("$.idTaskRef").value(DEFAULT_ID_TASK_REF))
+            .andExpect(jsonPath("$.idTaskRef").value(DEFAULT_ID_TASK_REF.intValue()))
             .andExpect(jsonPath("$.dataInizio").value(DEFAULT_DATA_INIZIO))
             .andExpect(jsonPath("$.dataFine").value(DEFAULT_DATA_FINE))
             .andExpect(jsonPath("$.luogo").value(DEFAULT_LUOGO))
@@ -334,7 +334,7 @@ public class PrevisioneEventoResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(previsioneEvento.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idTaskRef").value(hasItem(DEFAULT_ID_TASK_REF)))
+            .andExpect(jsonPath("$.[*].idTaskRef").value(hasItem(DEFAULT_ID_TASK_REF.intValue())))
             .andExpect(jsonPath("$.[*].dataInizio").value(hasItem(DEFAULT_DATA_INIZIO)))
             .andExpect(jsonPath("$.[*].dataFine").value(hasItem(DEFAULT_DATA_FINE)))
             .andExpect(jsonPath("$.[*].luogo").value(hasItem(DEFAULT_LUOGO)))

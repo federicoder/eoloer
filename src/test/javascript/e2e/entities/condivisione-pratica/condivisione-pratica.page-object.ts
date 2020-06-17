@@ -29,7 +29,6 @@ export class CondivisionePraticaUpdatePage {
   saveButton = element(by.id('save-entity'));
   cancelButton = element(by.id('cancel-save'));
 
-  idCondivisionePraticaInput = element(by.id('field_idCondivisionePratica'));
   idUserAmmessoInput = element(by.id('field_idUserAmmesso'));
   ruoloInput = element(by.id('field_ruolo'));
   idUserConcedenteInput = element(by.id('field_idUserConcedente'));
@@ -43,14 +42,6 @@ export class CondivisionePraticaUpdatePage {
 
   async getPageTitle(): Promise<string> {
     return this.pageTitle.getAttribute('jhiTranslate');
-  }
-
-  async setIdCondivisionePraticaInput(idCondivisionePratica: string): Promise<void> {
-    await this.idCondivisionePraticaInput.sendKeys(idCondivisionePratica);
-  }
-
-  async getIdCondivisionePraticaInput(): Promise<string> {
-    return await this.idCondivisionePraticaInput.getAttribute('value');
   }
 
   async setIdUserAmmessoInput(idUserAmmesso: string): Promise<void> {

@@ -15,10 +15,10 @@
             <column name="id" type="bigint">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="id_nota_task" type="integer">
+            <column name="id_nota_task" type="bigint">
                 <constraints nullable="false" />
             </column>
-            <column name="id_task_ref" type="integer">
+            <column name="id_task_ref" type="bigint">
                 <constraints nullable="true" />
             </column>
             <column name="data" type="varchar(255)">

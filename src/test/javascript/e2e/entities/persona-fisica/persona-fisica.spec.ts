@@ -44,7 +44,6 @@ describe('PersonaFisica e2e test', () => {
     await personaFisicaComponentsPage.clickOnCreateButton();
 
     await promise.all([
-      personaFisicaUpdatePage.setIdPersonaFisicaInput('5'),
       personaFisicaUpdatePage.setIdPersonaRefInput('5'),
       personaFisicaUpdatePage.setIdRuoloPersonaRefInput('5'),
       personaFisicaUpdatePage.setTitoloInput('titolo'),
@@ -56,7 +55,6 @@ describe('PersonaFisica e2e test', () => {
       personaFisicaUpdatePage.idPersonaRefSelectLastOption(),
     ]);
 
-    expect(await personaFisicaUpdatePage.getIdPersonaFisicaInput()).to.eq('5', 'Expected idPersonaFisica value to be equals to 5');
     expect(await personaFisicaUpdatePage.getIdPersonaRefInput()).to.eq('5', 'Expected idPersonaRef value to be equals to 5');
     expect(await personaFisicaUpdatePage.getIdRuoloPersonaRefInput()).to.eq('5', 'Expected idRuoloPersonaRef value to be equals to 5');
     expect(await personaFisicaUpdatePage.getTitoloInput()).to.eq('titolo', 'Expected Titolo value to be equals to titolo');

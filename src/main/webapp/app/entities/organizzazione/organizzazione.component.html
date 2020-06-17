@@ -41,7 +41,6 @@
             <thead>
                 <tr>
                     <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
-                    <th scope="col" ><span jhiTranslate="eoloprjApp.organizzazione.idOrganizzazione">Id Organizzazione</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.organizzazione.idPersonaRef">Id Persona Ref</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.organizzazione.nome">Nome</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.organizzazione.tipo">Tipo</span></th>
@@ -52,7 +51,6 @@
             <tbody>
                 <tr *ngFor="let organizzazione of organizzaziones ;trackBy: trackId">
                     <td><a [routerLink]="['/organizzazione', organizzazione.id, 'view']">{{ organizzazione.id }}</a></td>
-                    <td>{{ organizzazione.idOrganizzazione }}</td>
                     <td>{{ organizzazione.idPersonaRef }}</td>
                     <td>{{ organizzazione.nome }}</td>
                     <td>{{ organizzazione.tipo }}</td>

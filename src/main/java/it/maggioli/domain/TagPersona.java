@@ -28,13 +28,13 @@ public class TagPersona implements Serializable {
 
     @NotNull
     @Column(name = "id_persona_ref", nullable = false)
-    private Integer idPersonaRef;
+    private Long idPersonaRef;
 
     @Column(name = "tag")
-    private Integer tag;
+    private Long tag;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "idPersonas", allowSetters = true)
+    @JsonIgnoreProperties(value = "ids", allowSetters = true)
     private Persona persona;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
@@ -46,29 +46,29 @@ public class TagPersona implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdPersonaRef() {
+    public Long getIdPersonaRef() {
         return idPersonaRef;
     }
 
-    public TagPersona idPersonaRef(Integer idPersonaRef) {
+    public TagPersona idPersonaRef(Long idPersonaRef) {
         this.idPersonaRef = idPersonaRef;
         return this;
     }
 
-    public void setIdPersonaRef(Integer idPersonaRef) {
+    public void setIdPersonaRef(Long idPersonaRef) {
         this.idPersonaRef = idPersonaRef;
     }
 
-    public Integer getTag() {
+    public Long getTag() {
         return tag;
     }
 
-    public TagPersona tag(Integer tag) {
+    public TagPersona tag(Long tag) {
         this.tag = tag;
         return this;
     }
 
-    public void setTag(Integer tag) {
+    public void setTag(Long tag) {
         this.tag = tag;
     }
 

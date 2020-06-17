@@ -44,7 +44,7 @@ export class InvitoPraticaUpdateComponent implements OnInit {
       this.updateForm(invitoPratica);
 
       this.invitoService
-        .query({ filter: 'idinvito-is-null' })
+        .query({ filter: 'id-is-null' })
         .pipe(
           map((res: HttpResponse<IInvito[]>) => {
             return res.body || [];

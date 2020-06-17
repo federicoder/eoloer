@@ -40,20 +40,20 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WithMockUser
 public class AllegatoTemplateTaskResourceIT {
 
-    private static final Integer DEFAULT_ID_TEMPLATE_TASK_REF = 8;
-    private static final Integer UPDATED_ID_TEMPLATE_TASK_REF = 7;
+    private static final Long DEFAULT_ID_TEMPLATE_TASK_REF = 8L;
+    private static final Long UPDATED_ID_TEMPLATE_TASK_REF = 7L;
 
-    private static final Integer DEFAULT_ID_TIPO_ALLEGATO_REF = 1;
-    private static final Integer UPDATED_ID_TIPO_ALLEGATO_REF = 2;
+    private static final Long DEFAULT_ID_TIPO_ALLEGATO_REF = 1L;
+    private static final Long UPDATED_ID_TIPO_ALLEGATO_REF = 2L;
 
-    private static final Integer DEFAULT_FORMATO = 1;
-    private static final Integer UPDATED_FORMATO = 2;
+    private static final Long DEFAULT_FORMATO = 1L;
+    private static final Long UPDATED_FORMATO = 2L;
 
-    private static final Integer DEFAULT_ID_FILE_REF = 1;
-    private static final Integer UPDATED_ID_FILE_REF = 2;
+    private static final Long DEFAULT_ID_FILE_REF = 1L;
+    private static final Long UPDATED_ID_FILE_REF = 2L;
 
-    private static final Integer DEFAULT_PUB_PRIV = 1;
-    private static final Integer UPDATED_PUB_PRIV = 2;
+    private static final Long DEFAULT_PUB_PRIV = 1L;
+    private static final Long UPDATED_PUB_PRIV = 2L;
 
     @Autowired
     private AllegatoTemplateTaskRepository allegatoTemplateTaskRepository;
@@ -196,11 +196,11 @@ public class AllegatoTemplateTaskResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(allegatoTemplateTask.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idTemplateTaskRef").value(hasItem(DEFAULT_ID_TEMPLATE_TASK_REF)))
-            .andExpect(jsonPath("$.[*].idTipoAllegatoRef").value(hasItem(DEFAULT_ID_TIPO_ALLEGATO_REF)))
-            .andExpect(jsonPath("$.[*].formato").value(hasItem(DEFAULT_FORMATO)))
-            .andExpect(jsonPath("$.[*].idFileRef").value(hasItem(DEFAULT_ID_FILE_REF)))
-            .andExpect(jsonPath("$.[*].pubPriv").value(hasItem(DEFAULT_PUB_PRIV)));
+            .andExpect(jsonPath("$.[*].idTemplateTaskRef").value(hasItem(DEFAULT_ID_TEMPLATE_TASK_REF.intValue())))
+            .andExpect(jsonPath("$.[*].idTipoAllegatoRef").value(hasItem(DEFAULT_ID_TIPO_ALLEGATO_REF.intValue())))
+            .andExpect(jsonPath("$.[*].formato").value(hasItem(DEFAULT_FORMATO.intValue())))
+            .andExpect(jsonPath("$.[*].idFileRef").value(hasItem(DEFAULT_ID_FILE_REF.intValue())))
+            .andExpect(jsonPath("$.[*].pubPriv").value(hasItem(DEFAULT_PUB_PRIV.intValue())));
     }
     
     @Test
@@ -214,11 +214,11 @@ public class AllegatoTemplateTaskResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(allegatoTemplateTask.getId().intValue()))
-            .andExpect(jsonPath("$.idTemplateTaskRef").value(DEFAULT_ID_TEMPLATE_TASK_REF))
-            .andExpect(jsonPath("$.idTipoAllegatoRef").value(DEFAULT_ID_TIPO_ALLEGATO_REF))
-            .andExpect(jsonPath("$.formato").value(DEFAULT_FORMATO))
-            .andExpect(jsonPath("$.idFileRef").value(DEFAULT_ID_FILE_REF))
-            .andExpect(jsonPath("$.pubPriv").value(DEFAULT_PUB_PRIV));
+            .andExpect(jsonPath("$.idTemplateTaskRef").value(DEFAULT_ID_TEMPLATE_TASK_REF.intValue()))
+            .andExpect(jsonPath("$.idTipoAllegatoRef").value(DEFAULT_ID_TIPO_ALLEGATO_REF.intValue()))
+            .andExpect(jsonPath("$.formato").value(DEFAULT_FORMATO.intValue()))
+            .andExpect(jsonPath("$.idFileRef").value(DEFAULT_ID_FILE_REF.intValue()))
+            .andExpect(jsonPath("$.pubPriv").value(DEFAULT_PUB_PRIV.intValue()));
     }
     @Test
     @Transactional
@@ -324,10 +324,10 @@ public class AllegatoTemplateTaskResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(allegatoTemplateTask.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idTemplateTaskRef").value(hasItem(DEFAULT_ID_TEMPLATE_TASK_REF)))
-            .andExpect(jsonPath("$.[*].idTipoAllegatoRef").value(hasItem(DEFAULT_ID_TIPO_ALLEGATO_REF)))
-            .andExpect(jsonPath("$.[*].formato").value(hasItem(DEFAULT_FORMATO)))
-            .andExpect(jsonPath("$.[*].idFileRef").value(hasItem(DEFAULT_ID_FILE_REF)))
-            .andExpect(jsonPath("$.[*].pubPriv").value(hasItem(DEFAULT_PUB_PRIV)));
+            .andExpect(jsonPath("$.[*].idTemplateTaskRef").value(hasItem(DEFAULT_ID_TEMPLATE_TASK_REF.intValue())))
+            .andExpect(jsonPath("$.[*].idTipoAllegatoRef").value(hasItem(DEFAULT_ID_TIPO_ALLEGATO_REF.intValue())))
+            .andExpect(jsonPath("$.[*].formato").value(hasItem(DEFAULT_FORMATO.intValue())))
+            .andExpect(jsonPath("$.[*].idFileRef").value(hasItem(DEFAULT_ID_FILE_REF.intValue())))
+            .andExpect(jsonPath("$.[*].pubPriv").value(hasItem(DEFAULT_PUB_PRIV.intValue())));
     }
 }

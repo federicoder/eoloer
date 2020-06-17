@@ -29,15 +29,11 @@ public class PersonaFisica implements Serializable {
     private Long id;
 
     @NotNull
-    @Column(name = "id_persona_fisica", nullable = false)
-    private Integer idPersonaFisica;
-
-    @NotNull
     @Column(name = "id_persona_ref", nullable = false)
-    private Integer idPersonaRef;
+    private Long idPersonaRef;
 
     @Column(name = "id_ruolo_persona_ref")
-    private Integer idRuoloPersonaRef;
+    private Long idRuoloPersonaRef;
 
     @Column(name = "titolo")
     private String titolo;
@@ -63,9 +59,9 @@ public class PersonaFisica implements Serializable {
 
     @OneToMany(mappedBy = "personaFisica")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<UserPersona> idPersonaFisicas = new HashSet<>();
+    private Set<UserPersona> ids = new HashSet<>();
 
-    @OneToOne(mappedBy = "idRuoloOrganizzazione")
+    @OneToOne(mappedBy = "id")
     @JsonIgnore
     private RuoloOrganizzazione idRuoloPersona;
 
@@ -78,42 +74,29 @@ public class PersonaFisica implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdPersonaFisica() {
-        return idPersonaFisica;
-    }
-
-    public PersonaFisica idPersonaFisica(Integer idPersonaFisica) {
-        this.idPersonaFisica = idPersonaFisica;
-        return this;
-    }
-
-    public void setIdPersonaFisica(Integer idPersonaFisica) {
-        this.idPersonaFisica = idPersonaFisica;
-    }
-
-    public Integer getIdPersonaRef() {
+    public Long getIdPersonaRef() {
         return idPersonaRef;
     }
 
-    public PersonaFisica idPersonaRef(Integer idPersonaRef) {
+    public PersonaFisica idPersonaRef(Long idPersonaRef) {
         this.idPersonaRef = idPersonaRef;
         return this;
     }
 
-    public void setIdPersonaRef(Integer idPersonaRef) {
+    public void setIdPersonaRef(Long idPersonaRef) {
         this.idPersonaRef = idPersonaRef;
     }
 
-    public Integer getIdRuoloPersonaRef() {
+    public Long getIdRuoloPersonaRef() {
         return idRuoloPersonaRef;
     }
 
-    public PersonaFisica idRuoloPersonaRef(Integer idRuoloPersonaRef) {
+    public PersonaFisica idRuoloPersonaRef(Long idRuoloPersonaRef) {
         this.idRuoloPersonaRef = idRuoloPersonaRef;
         return this;
     }
 
-    public void setIdRuoloPersonaRef(Integer idRuoloPersonaRef) {
+    public void setIdRuoloPersonaRef(Long idRuoloPersonaRef) {
         this.idRuoloPersonaRef = idRuoloPersonaRef;
     }
 
@@ -208,29 +191,29 @@ public class PersonaFisica implements Serializable {
         this.idPersonaRef = persona;
     }
 
-    public Set<UserPersona> getIdPersonaFisicas() {
-        return idPersonaFisicas;
+    public Set<UserPersona> getIds() {
+        return ids;
     }
 
-    public PersonaFisica idPersonaFisicas(Set<UserPersona> userPersonas) {
-        this.idPersonaFisicas = userPersonas;
+    public PersonaFisica ids(Set<UserPersona> userPersonas) {
+        this.ids = userPersonas;
         return this;
     }
 
-    public PersonaFisica addIdPersonaFisica(UserPersona userPersona) {
-        this.idPersonaFisicas.add(userPersona);
+    public PersonaFisica addId(UserPersona userPersona) {
+        this.ids.add(userPersona);
         userPersona.setPersonaFisica(this);
         return this;
     }
 
-    public PersonaFisica removeIdPersonaFisica(UserPersona userPersona) {
-        this.idPersonaFisicas.remove(userPersona);
+    public PersonaFisica removeId(UserPersona userPersona) {
+        this.ids.remove(userPersona);
         userPersona.setPersonaFisica(null);
         return this;
     }
 
-    public void setIdPersonaFisicas(Set<UserPersona> userPersonas) {
-        this.idPersonaFisicas = userPersonas;
+    public void setIds(Set<UserPersona> userPersonas) {
+        this.ids = userPersonas;
     }
 
     public RuoloOrganizzazione getIdRuoloPersona() {
@@ -268,7 +251,6 @@ public class PersonaFisica implements Serializable {
     public String toString() {
         return "PersonaFisica{" +
             "id=" + getId() +
-            ", idPersonaFisica=" + getIdPersonaFisica() +
             ", idPersonaRef=" + getIdPersonaRef() +
             ", idRuoloPersonaRef=" + getIdRuoloPersonaRef() +
             ", titolo='" + getTitolo() + "'" +

@@ -11,18 +11,18 @@ public class PrevisioneTaskDTO implements Serializable {
     private Long id;
 
     @NotNull
-    @Max(value = 8)
-    private Integer idTaskRef;
+    @Max(value = 8L)
+    private Long idTaskRef;
 
-    @Max(value = 8)
-    private Integer qntOrdine;
+    @Max(value = 8L)
+    private Long qntOrdine;
 
-    @Max(value = 1)
-    private Integer prcPrevisione;
+    @Max(value = 1L)
+    private Long prcPrevisione;
 
-    private Integer checkList;
+    private Long checkList;
 
-    private Integer idTaskMilestone;
+    private Long idTaskMilestone;
 
     private String tipoTask;
 
@@ -39,43 +39,43 @@ public class PrevisioneTaskDTO implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdTaskRef() {
+    public Long getIdTaskRef() {
         return idTaskRef;
     }
 
-    public void setIdTaskRef(Integer idTaskRef) {
+    public void setIdTaskRef(Long idTaskRef) {
         this.idTaskRef = idTaskRef;
     }
 
-    public Integer getQntOrdine() {
+    public Long getQntOrdine() {
         return qntOrdine;
     }
 
-    public void setQntOrdine(Integer qntOrdine) {
+    public void setQntOrdine(Long qntOrdine) {
         this.qntOrdine = qntOrdine;
     }
 
-    public Integer getPrcPrevisione() {
+    public Long getPrcPrevisione() {
         return prcPrevisione;
     }
 
-    public void setPrcPrevisione(Integer prcPrevisione) {
+    public void setPrcPrevisione(Long prcPrevisione) {
         this.prcPrevisione = prcPrevisione;
     }
 
-    public Integer getCheckList() {
+    public Long getCheckList() {
         return checkList;
     }
 
-    public void setCheckList(Integer checkList) {
+    public void setCheckList(Long checkList) {
         this.checkList = checkList;
     }
 
-    public Integer getIdTaskMilestone() {
+    public Long getIdTaskMilestone() {
         return idTaskMilestone;
     }
 
-    public void setIdTaskMilestone(Integer idTaskMilestone) {
+    public void setIdTaskMilestone(Long idTaskMilestone) {
         this.idTaskMilestone = idTaskMilestone;
     }
 

@@ -28,7 +28,7 @@ public class IndirizzoPersona implements Serializable {
 
     @NotNull
     @Column(name = "id_persona_ref", nullable = false)
-    private Integer idPersonaRef;
+    private Long idPersonaRef;
 
     @Column(name = "indirizzo")
     private String indirizzo;
@@ -37,7 +37,7 @@ public class IndirizzoPersona implements Serializable {
     private String comune;
 
     @Column(name = "cap")
-    private Integer cap;
+    private Long cap;
 
     @Column(name = "provincia")
     private String provincia;
@@ -48,7 +48,7 @@ public class IndirizzoPersona implements Serializable {
     @Column(name = "nazione")
     private String nazione;
 
-    @OneToOne(mappedBy = "idPersona")
+    @OneToOne(mappedBy = "id")
     @JsonIgnore
     private Persona idPersonaRef;
 
@@ -61,16 +61,16 @@ public class IndirizzoPersona implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdPersonaRef() {
+    public Long getIdPersonaRef() {
         return idPersonaRef;
     }
 
-    public IndirizzoPersona idPersonaRef(Integer idPersonaRef) {
+    public IndirizzoPersona idPersonaRef(Long idPersonaRef) {
         this.idPersonaRef = idPersonaRef;
         return this;
     }
 
-    public void setIdPersonaRef(Integer idPersonaRef) {
+    public void setIdPersonaRef(Long idPersonaRef) {
         this.idPersonaRef = idPersonaRef;
     }
 
@@ -100,16 +100,16 @@ public class IndirizzoPersona implements Serializable {
         this.comune = comune;
     }
 
-    public Integer getCap() {
+    public Long getCap() {
         return cap;
     }
 
-    public IndirizzoPersona cap(Integer cap) {
+    public IndirizzoPersona cap(Long cap) {
         this.cap = cap;
         return this;
     }
 
-    public void setCap(Integer cap) {
+    public void setCap(Long cap) {
         this.cap = cap;
     }
 

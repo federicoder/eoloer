@@ -40,32 +40,29 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WithMockUser
 public class AllegatoTaskResourceIT {
 
-    private static final Integer DEFAULT_ID_ALLEGATO_TASK = 8;
-    private static final Integer UPDATED_ID_ALLEGATO_TASK = 7;
+    private static final Long DEFAULT_ID_TIPO_ALLEGATO_REF = 8L;
+    private static final Long UPDATED_ID_TIPO_ALLEGATO_REF = 7L;
 
-    private static final Integer DEFAULT_ID_TIPO_ALLEGATO_REF = 8;
-    private static final Integer UPDATED_ID_TIPO_ALLEGATO_REF = 7;
+    private static final Long DEFAULT_ID_TASK_REF = 8L;
+    private static final Long UPDATED_ID_TASK_REF = 7L;
 
-    private static final Integer DEFAULT_ID_TASK_REF = 8;
-    private static final Integer UPDATED_ID_TASK_REF = 7;
-
-    private static final Integer DEFAULT_FORMATO = 1;
-    private static final Integer UPDATED_FORMATO = 2;
+    private static final Long DEFAULT_FORMATO = 1L;
+    private static final Long UPDATED_FORMATO = 2L;
 
     private static final String DEFAULT_NOTE = "AAAAAAAAAA";
     private static final String UPDATED_NOTE = "BBBBBBBBBB";
 
-    private static final Integer DEFAULT_STATO = 1;
-    private static final Integer UPDATED_STATO = 2;
+    private static final Long DEFAULT_STATO = 1L;
+    private static final Long UPDATED_STATO = 2L;
 
-    private static final Integer DEFAULT_PUBBLICO = 1;
-    private static final Integer UPDATED_PUBBLICO = 2;
+    private static final Long DEFAULT_PUBBLICO = 1L;
+    private static final Long UPDATED_PUBBLICO = 2L;
 
     private static final String DEFAULT_VERSION = "AAAAAAAAAA";
     private static final String UPDATED_VERSION = "BBBBBBBBBB";
 
-    private static final Integer DEFAULT_ID_ALLEGATO_MASTER = 1;
-    private static final Integer UPDATED_ID_ALLEGATO_MASTER = 2;
+    private static final Long DEFAULT_ID_ALLEGATO_MASTER = 1L;
+    private static final Long UPDATED_ID_ALLEGATO_MASTER = 2L;
 
     @Autowired
     private AllegatoTaskRepository allegatoTaskRepository;
@@ -100,7 +97,6 @@ public class AllegatoTaskResourceIT {
      */
     public static AllegatoTask createEntity(EntityManager em) {
         AllegatoTask allegatoTask = new AllegatoTask()
-            .idAllegatoTask(DEFAULT_ID_ALLEGATO_TASK)
             .idTipoAllegatoRef(DEFAULT_ID_TIPO_ALLEGATO_REF)
             .idTaskRef(DEFAULT_ID_TASK_REF)
             .formato(DEFAULT_FORMATO)
@@ -119,7 +115,6 @@ public class AllegatoTaskResourceIT {
      */
     public static AllegatoTask createUpdatedEntity(EntityManager em) {
         AllegatoTask allegatoTask = new AllegatoTask()
-            .idAllegatoTask(UPDATED_ID_ALLEGATO_TASK)
             .idTipoAllegatoRef(UPDATED_ID_TIPO_ALLEGATO_REF)
             .idTaskRef(UPDATED_ID_TASK_REF)
             .formato(UPDATED_FORMATO)
@@ -151,7 +146,6 @@ public class AllegatoTaskResourceIT {
         List<AllegatoTask> allegatoTaskList = allegatoTaskRepository.findAll();
         assertThat(allegatoTaskList).hasSize(databaseSizeBeforeCreate + 1);
         AllegatoTask testAllegatoTask = allegatoTaskList.get(allegatoTaskList.size() - 1);
-        assertThat(testAllegatoTask.getIdAllegatoTask()).isEqualTo(DEFAULT_ID_ALLEGATO_TASK);
         assertThat(testAllegatoTask.getIdTipoAllegatoRef()).isEqualTo(DEFAULT_ID_TIPO_ALLEGATO_REF);
         assertThat(testAllegatoTask.getIdTaskRef()).isEqualTo(DEFAULT_ID_TASK_REF);
         assertThat(testAllegatoTask.getFormato()).isEqualTo(DEFAULT_FORMATO);
@@ -191,26 +185,6 @@ public class AllegatoTaskResourceIT {
 
     @Test
     @Transactional
-    public void checkIdAllegatoTaskIsRequired() throws Exception {
-        int databaseSizeBeforeTest = allegatoTaskRepository.findAll().size();
-        // set the field null
-        allegatoTask.setIdAllegatoTask(null);
-
-        // Create the AllegatoTask, which fails.
-        AllegatoTaskDTO allegatoTaskDTO = allegatoTaskMapper.toDto(allegatoTask);
-
-
-        restAllegatoTaskMockMvc.perform(post("/api/allegato-tasks")
-            .contentType(MediaType.APPLICATION_JSON)
-            .content(TestUtil.convertObjectToJsonBytes(allegatoTaskDTO)))
-            .andExpect(status().isBadRequest());
-
-        List<AllegatoTask> allegatoTaskList = allegatoTaskRepository.findAll();
-        assertThat(allegatoTaskList).hasSize(databaseSizeBeforeTest);
-    }
-
-    @Test
-    @Transactional
     public void checkIdAllegatoMasterIsRequired() throws Exception {
         int databaseSizeBeforeTest = allegatoTaskRepository.findAll().size();
         // set the field null
@@ -240,15 +214,14 @@ public class AllegatoTaskResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(allegatoTask.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idAllegatoTask").value(hasItem(DEFAULT_ID_ALLEGATO_TASK)))
-            .andExpect(jsonPath("$.[*].idTipoAllegatoRef").value(hasItem(DEFAULT_ID_TIPO_ALLEGATO_REF)))
-            .andExpect(jsonPath("$.[*].idTaskRef").value(hasItem(DEFAULT_ID_TASK_REF)))
-            .andExpect(jsonPath("$.[*].formato").value(hasItem(DEFAULT_FORMATO)))
+            .andExpect(jsonPath("$.[*].idTipoAllegatoRef").value(hasItem(DEFAULT_ID_TIPO_ALLEGATO_REF.intValue())))
+            .andExpect(jsonPath("$.[*].idTaskRef").value(hasItem(DEFAULT_ID_TASK_REF.intValue())))
+            .andExpect(jsonPath("$.[*].formato").value(hasItem(DEFAULT_FORMATO.intValue())))
             .andExpect(jsonPath("$.[*].note").value(hasItem(DEFAULT_NOTE)))
-            .andExpect(jsonPath("$.[*].stato").value(hasItem(DEFAULT_STATO)))
-            .andExpect(jsonPath("$.[*].pubblico").value(hasItem(DEFAULT_PUBBLICO)))
+            .andExpect(jsonPath("$.[*].stato").value(hasItem(DEFAULT_STATO.intValue())))
+            .andExpect(jsonPath("$.[*].pubblico").value(hasItem(DEFAULT_PUBBLICO.intValue())))
             .andExpect(jsonPath("$.[*].version").value(hasItem(DEFAULT_VERSION)))
-            .andExpect(jsonPath("$.[*].idAllegatoMaster").value(hasItem(DEFAULT_ID_ALLEGATO_MASTER)));
+            .andExpect(jsonPath("$.[*].idAllegatoMaster").value(hasItem(DEFAULT_ID_ALLEGATO_MASTER.intValue())));
     }
     
     @Test
@@ -262,15 +235,14 @@ public class AllegatoTaskResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(allegatoTask.getId().intValue()))
-            .andExpect(jsonPath("$.idAllegatoTask").value(DEFAULT_ID_ALLEGATO_TASK))
-            .andExpect(jsonPath("$.idTipoAllegatoRef").value(DEFAULT_ID_TIPO_ALLEGATO_REF))
-            .andExpect(jsonPath("$.idTaskRef").value(DEFAULT_ID_TASK_REF))
-            .andExpect(jsonPath("$.formato").value(DEFAULT_FORMATO))
+            .andExpect(jsonPath("$.idTipoAllegatoRef").value(DEFAULT_ID_TIPO_ALLEGATO_REF.intValue()))
+            .andExpect(jsonPath("$.idTaskRef").value(DEFAULT_ID_TASK_REF.intValue()))
+            .andExpect(jsonPath("$.formato").value(DEFAULT_FORMATO.intValue()))
             .andExpect(jsonPath("$.note").value(DEFAULT_NOTE))
-            .andExpect(jsonPath("$.stato").value(DEFAULT_STATO))
-            .andExpect(jsonPath("$.pubblico").value(DEFAULT_PUBBLICO))
+            .andExpect(jsonPath("$.stato").value(DEFAULT_STATO.intValue()))
+            .andExpect(jsonPath("$.pubblico").value(DEFAULT_PUBBLICO.intValue()))
             .andExpect(jsonPath("$.version").value(DEFAULT_VERSION))
-            .andExpect(jsonPath("$.idAllegatoMaster").value(DEFAULT_ID_ALLEGATO_MASTER));
+            .andExpect(jsonPath("$.idAllegatoMaster").value(DEFAULT_ID_ALLEGATO_MASTER.intValue()));
     }
     @Test
     @Transactional
@@ -293,7 +265,6 @@ public class AllegatoTaskResourceIT {
         // Disconnect from session so that the updates on updatedAllegatoTask are not directly saved in db
         em.detach(updatedAllegatoTask);
         updatedAllegatoTask
-            .idAllegatoTask(UPDATED_ID_ALLEGATO_TASK)
             .idTipoAllegatoRef(UPDATED_ID_TIPO_ALLEGATO_REF)
             .idTaskRef(UPDATED_ID_TASK_REF)
             .formato(UPDATED_FORMATO)
@@ -313,7 +284,6 @@ public class AllegatoTaskResourceIT {
         List<AllegatoTask> allegatoTaskList = allegatoTaskRepository.findAll();
         assertThat(allegatoTaskList).hasSize(databaseSizeBeforeUpdate);
         AllegatoTask testAllegatoTask = allegatoTaskList.get(allegatoTaskList.size() - 1);
-        assertThat(testAllegatoTask.getIdAllegatoTask()).isEqualTo(UPDATED_ID_ALLEGATO_TASK);
         assertThat(testAllegatoTask.getIdTipoAllegatoRef()).isEqualTo(UPDATED_ID_TIPO_ALLEGATO_REF);
         assertThat(testAllegatoTask.getIdTaskRef()).isEqualTo(UPDATED_ID_TASK_REF);
         assertThat(testAllegatoTask.getFormato()).isEqualTo(UPDATED_FORMATO);
@@ -384,14 +354,13 @@ public class AllegatoTaskResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(allegatoTask.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idAllegatoTask").value(hasItem(DEFAULT_ID_ALLEGATO_TASK)))
-            .andExpect(jsonPath("$.[*].idTipoAllegatoRef").value(hasItem(DEFAULT_ID_TIPO_ALLEGATO_REF)))
-            .andExpect(jsonPath("$.[*].idTaskRef").value(hasItem(DEFAULT_ID_TASK_REF)))
-            .andExpect(jsonPath("$.[*].formato").value(hasItem(DEFAULT_FORMATO)))
+            .andExpect(jsonPath("$.[*].idTipoAllegatoRef").value(hasItem(DEFAULT_ID_TIPO_ALLEGATO_REF.intValue())))
+            .andExpect(jsonPath("$.[*].idTaskRef").value(hasItem(DEFAULT_ID_TASK_REF.intValue())))
+            .andExpect(jsonPath("$.[*].formato").value(hasItem(DEFAULT_FORMATO.intValue())))
             .andExpect(jsonPath("$.[*].note").value(hasItem(DEFAULT_NOTE)))
-            .andExpect(jsonPath("$.[*].stato").value(hasItem(DEFAULT_STATO)))
-            .andExpect(jsonPath("$.[*].pubblico").value(hasItem(DEFAULT_PUBBLICO)))
+            .andExpect(jsonPath("$.[*].stato").value(hasItem(DEFAULT_STATO.intValue())))
+            .andExpect(jsonPath("$.[*].pubblico").value(hasItem(DEFAULT_PUBBLICO.intValue())))
             .andExpect(jsonPath("$.[*].version").value(hasItem(DEFAULT_VERSION)))
-            .andExpect(jsonPath("$.[*].idAllegatoMaster").value(hasItem(DEFAULT_ID_ALLEGATO_MASTER)));
+            .andExpect(jsonPath("$.[*].idAllegatoMaster").value(hasItem(DEFAULT_ID_ALLEGATO_MASTER.intValue())));
     }
 }

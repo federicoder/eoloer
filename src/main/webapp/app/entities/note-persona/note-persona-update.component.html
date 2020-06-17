@@ -28,22 +28,6 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="eoloprjApp.notePersona.idNotePersona" for="field_idNotePersona">Id Note Persona</label>
-                    <input type="number" class="form-control" name="idNotePersona" id="field_idNotePersona"
-                           formControlName="idNotePersona"/>
-                    <div *ngIf="editForm.get('idNotePersona')!.invalid && (editForm.get('idNotePersona')!.dirty || editForm.get('idNotePersona')!.touched)">
-                        <small class="form-text text-danger"
-                               *ngIf="editForm.get('idNotePersona')?.errors?.required" jhiTranslate="entity.validation.required">
-                        This field is required.
-                        </small>
-                        <small class="form-text text-danger"
-                            [hidden]="!editForm.get('idNotePersona')?.errors?.number" jhiTranslate="entity.validation.number">
-                            This field should be a number.
-                        </small>
-                    </div>
-                </div>
-
-                <div class="form-group">
                     <label class="form-control-label" jhiTranslate="eoloprjApp.notePersona.testo" for="field_testo">Testo</label>
                     <input type="text" class="form-control" name="testo" id="field_testo"
                            formControlName="testo"/>

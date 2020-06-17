@@ -9,7 +9,7 @@ public class InvitoAttivitaDTO implements Serializable {
     
     private Long id;
 
-    private Integer idTaskRef;
+    private Long idTaskRef;
 
 
     private Long idTaskRefId;
@@ -22,11 +22,11 @@ public class InvitoAttivitaDTO implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdTaskRef() {
+    public Long getIdTaskRef() {
         return idTaskRef;
     }
 
-    public void setIdTaskRef(Integer idTaskRef) {
+    public void setIdTaskRef(Long idTaskRef) {
         this.idTaskRef = idTaskRef;
     }
 

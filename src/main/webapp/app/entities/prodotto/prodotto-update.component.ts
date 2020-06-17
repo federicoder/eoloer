@@ -17,15 +17,14 @@ import { LineaOrdineService } from 'app/entities/linea-ordine/linea-ordine.servi
 })
 export class ProdottoUpdateComponent implements OnInit {
   isSaving = false;
-  idprodottos: ILineaOrdine[] = [];
+  ids: ILineaOrdine[] = [];
 
   editForm = this.fb.group({
     id: [],
-    idProdotto: [null, [Validators.required]],
     nuovaLicenza: [],
     rinnovoLicenza: [],
     storage: [],
-    idProdottoId: [],
+    idId: [],
   });
 
   constructor(
@@ -47,17 +46,17 @@ export class ProdottoUpdateComponent implements OnInit {
           })
         )
         .subscribe((resBody: ILineaOrdine[]) => {
-          if (!prodotto.idProdottoId) {
-            this.idprodottos = resBody;
+          if (!prodotto.idId) {
+            this.ids = resBody;
           } else {
             this.lineaOrdineService
-              .find(prodotto.idProdottoId)
+              .find(prodotto.idId)
               .pipe(
                 map((subRes: HttpResponse<ILineaOrdine>) => {
                   return subRes.body ? [subRes.body].concat(resBody) : resBody;
                 })
               )
-              .subscribe((concatRes: ILineaOrdine[]) => (this.idprodottos = concatRes));
+              .subscribe((concatRes: ILineaOrdine[]) => (this.ids = concatRes));
           }
         });
     });
@@ -66,11 +65,10 @@ export class ProdottoUpdateComponent implements OnInit {
   updateForm(prodotto: IProdotto): void {
     this.editForm.patchValue({
       id: prodotto.id,
-      idProdotto: prodotto.idProdotto,
       nuovaLicenza: prodotto.nuovaLicenza,
       rinnovoLicenza: prodotto.rinnovoLicenza,
       storage: prodotto.storage,
-      idProdottoId: prodotto.idProdottoId,
+      idId: prodotto.idId,
     });
   }
 
@@ -92,11 +90,10 @@ export class ProdottoUpdateComponent implements OnInit {
     return {
       ...new Prodotto(),
       id: this.editForm.get(['id'])!.value,
-      idProdotto: this.editForm.get(['idProdotto'])!.value,
       nuovaLicenza: this.editForm.get(['nuovaLicenza'])!.value,
       rinnovoLicenza: this.editForm.get(['rinnovoLicenza'])!.value,
       storage: this.editForm.get(['storage'])!.value,
-      idProdottoId: this.editForm.get(['idProdottoId'])!.value,
+      idId: this.editForm.get(['idId'])!.value,
     };
   }
 

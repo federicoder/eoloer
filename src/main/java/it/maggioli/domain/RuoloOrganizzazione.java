@@ -4,7 +4,6 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
-import javax.validation.constraints.*;
 
 import org.springframework.data.elasticsearch.annotations.FieldType;
 import java.io.Serializable;
@@ -25,20 +24,16 @@ public class RuoloOrganizzazione implements Serializable {
     @SequenceGenerator(name = "sequenceGenerator")
     private Long id;
 
-    @NotNull
-    @Column(name = "id_ruolo_organizzazione", nullable = false)
-    private Integer idRuoloOrganizzazione;
-
     @Column(name = "ruolo_in_org")
-    private Integer ruoloInOrg;
+    private Long ruoloInOrg;
 
     @OneToOne
     @JoinColumn(unique = true)
-    private Organizzazione idRuoloOrganizzazione;
+    private Organizzazione id;
 
     @OneToOne
     @JoinColumn(unique = true)
-    private PersonaFisica idRuoloOrganizzazione;
+    private PersonaFisica id;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -49,56 +44,43 @@ public class RuoloOrganizzazione implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdRuoloOrganizzazione() {
-        return idRuoloOrganizzazione;
-    }
-
-    public RuoloOrganizzazione idRuoloOrganizzazione(Integer idRuoloOrganizzazione) {
-        this.idRuoloOrganizzazione = idRuoloOrganizzazione;
-        return this;
-    }
-
-    public void setIdRuoloOrganizzazione(Integer idRuoloOrganizzazione) {
-        this.idRuoloOrganizzazione = idRuoloOrganizzazione;
-    }
-
-    public Integer getRuoloInOrg() {
+    public Long getRuoloInOrg() {
         return ruoloInOrg;
     }
 
-    public RuoloOrganizzazione ruoloInOrg(Integer ruoloInOrg) {
+    public RuoloOrganizzazione ruoloInOrg(Long ruoloInOrg) {
         this.ruoloInOrg = ruoloInOrg;
         return this;
     }
 
-    public void setRuoloInOrg(Integer ruoloInOrg) {
+    public void setRuoloInOrg(Long ruoloInOrg) {
         this.ruoloInOrg = ruoloInOrg;
     }
 
-    public Organizzazione getIdRuoloOrganizzazione() {
-        return idRuoloOrganizzazione;
+    public Organizzazione getId() {
+        return id;
     }
 
-    public RuoloOrganizzazione idRuoloOrganizzazione(Organizzazione organizzazione) {
-        this.idRuoloOrganizzazione = organizzazione;
+    public RuoloOrganizzazione id(Organizzazione organizzazione) {
+        this.id = organizzazione;
         return this;
     }
 
-    public void setIdRuoloOrganizzazione(Organizzazione organizzazione) {
-        this.idRuoloOrganizzazione = organizzazione;
+    public void setId(Organizzazione organizzazione) {
+        this.id = organizzazione;
     }
 
-    public PersonaFisica getIdRuoloOrganizzazione() {
-        return idRuoloOrganizzazione;
+    public PersonaFisica getId() {
+        return id;
     }
 
-    public RuoloOrganizzazione idRuoloOrganizzazione(PersonaFisica personaFisica) {
-        this.idRuoloOrganizzazione = personaFisica;
+    public RuoloOrganizzazione id(PersonaFisica personaFisica) {
+        this.id = personaFisica;
         return this;
     }
 
-    public void setIdRuoloOrganizzazione(PersonaFisica personaFisica) {
-        this.idRuoloOrganizzazione = personaFisica;
+    public void setId(PersonaFisica personaFisica) {
+        this.id = personaFisica;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 
@@ -123,7 +105,6 @@ public class RuoloOrganizzazione implements Serializable {
     public String toString() {
         return "RuoloOrganizzazione{" +
             "id=" + getId() +
-            ", idRuoloOrganizzazione=" + getIdRuoloOrganizzazione() +
             ", ruoloInOrg=" + getRuoloInOrg() +
             "}";
     }

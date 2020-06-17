@@ -29,7 +29,6 @@ export class UserPersonaUpdatePage {
   saveButton = element(by.id('save-entity'));
   cancelButton = element(by.id('cancel-save'));
 
-  idUserPersonaInput = element(by.id('field_idUserPersona'));
   idPersonaRefInput = element(by.id('field_idPersonaRef'));
   nomeUserInput = element(by.id('field_nomeUser'));
 
@@ -37,14 +36,6 @@ export class UserPersonaUpdatePage {
 
   async getPageTitle(): Promise<string> {
     return this.pageTitle.getAttribute('jhiTranslate');
-  }
-
-  async setIdUserPersonaInput(idUserPersona: string): Promise<void> {
-    await this.idUserPersonaInput.sendKeys(idUserPersona);
-  }
-
-  async getIdUserPersonaInput(): Promise<string> {
-    return await this.idUserPersonaInput.getAttribute('value');
   }
 
   async setIdPersonaRefInput(idPersonaRef: string): Promise<void> {

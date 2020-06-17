@@ -41,24 +41,22 @@
             <thead>
                 <tr>
                     <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
-                    <th scope="col" ><span jhiTranslate="eoloprjApp.prodotto.idProdotto">Id Prodotto</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.prodotto.nuovaLicenza">Nuova Licenza</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.prodotto.rinnovoLicenza">Rinnovo Licenza</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.prodotto.storage">Storage</span></th>
-                    <th scope="col" ><span jhiTranslate="eoloprjApp.prodotto.idProdotto">Id Prodotto</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.prodotto.id">Id</span></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let prodotto of prodottos ;trackBy: trackId">
                     <td><a [routerLink]="['/prodotto', prodotto.id, 'view']">{{ prodotto.id }}</a></td>
-                    <td>{{ prodotto.idProdotto }}</td>
                     <td>{{ prodotto.nuovaLicenza }}</td>
                     <td>{{ prodotto.rinnovoLicenza }}</td>
                     <td>{{ prodotto.storage }}</td>
                     <td>
-                        <div *ngIf="prodotto.idProdottoId">
-                            <a [routerLink]="['/linea-ordine', prodotto.idProdottoId , 'view']" >{{ prodotto.idProdottoId }}</a>
+                        <div *ngIf="prodotto.idId">
+                            <a [routerLink]="['/linea-ordine', prodotto.idId , 'view']" >{{ prodotto.idId }}</a>
                         </div>
                     </td>
                     <td class="text-right">

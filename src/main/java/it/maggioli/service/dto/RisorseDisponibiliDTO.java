@@ -11,13 +11,13 @@ public class RisorseDisponibiliDTO implements Serializable {
     private Long id;
 
     @NotNull
-    private Integer idStudioProfessionaleRef;
+    private Long idStudioProfessionaleRef;
 
     private String dataAttivazioneLicenza;
 
-    private Integer nrLicenza;
+    private Long nrLicenza;
 
-    private Integer storageTotale;
+    private Long storageTotale;
 
 
     private Long studioProfessionaleId;
@@ -30,11 +30,11 @@ public class RisorseDisponibiliDTO implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdStudioProfessionaleRef() {
+    public Long getIdStudioProfessionaleRef() {
         return idStudioProfessionaleRef;
     }
 
-    public void setIdStudioProfessionaleRef(Integer idStudioProfessionaleRef) {
+    public void setIdStudioProfessionaleRef(Long idStudioProfessionaleRef) {
         this.idStudioProfessionaleRef = idStudioProfessionaleRef;
     }
 
@@ -46,19 +46,19 @@ public class RisorseDisponibiliDTO implements Serializable {
         this.dataAttivazioneLicenza = dataAttivazioneLicenza;
     }
 
-    public Integer getNrLicenza() {
+    public Long getNrLicenza() {
         return nrLicenza;
     }
 
-    public void setNrLicenza(Integer nrLicenza) {
+    public void setNrLicenza(Long nrLicenza) {
         this.nrLicenza = nrLicenza;
     }
 
-    public Integer getStorageTotale() {
+    public Long getStorageTotale() {
         return storageTotale;
     }
 
-    public void setStorageTotale(Integer storageTotale) {
+    public void setStorageTotale(Long storageTotale) {
         this.storageTotale = storageTotale;
     }
 

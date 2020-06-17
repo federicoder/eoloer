@@ -20,7 +20,7 @@ describe('Service Tests', () => {
       service = injector.get(NotePersonaService);
       httpMock = injector.get(HttpTestingController);
 
-      elemDefault = new NotePersona(0, 0, 0, 'AAAAAAA');
+      elemDefault = new NotePersona(0, 0, 'AAAAAAA');
     });
 
     describe('Service methods', () => {
@@ -55,7 +55,6 @@ describe('Service Tests', () => {
         const returnedFromService = Object.assign(
           {
             idPersonaRef: 1,
-            idNotePersona: 1,
             testo: 'BBBBBB',
           },
           elemDefault
@@ -74,7 +73,6 @@ describe('Service Tests', () => {
         const returnedFromService = Object.assign(
           {
             idPersonaRef: 1,
-            idNotePersona: 1,
             testo: 'BBBBBB',
           },
           elemDefault

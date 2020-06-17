@@ -18,7 +18,6 @@
         "title": "Note Persona"
       },
       "idPersonaRef": "Id Persona Ref",
-      "idNotePersona": "Id Note Persona",
       "testo": "Testo",
       "persona": "Persona"
     }

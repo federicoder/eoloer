@@ -40,8 +40,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WithMockUser
 public class InvitoPraticaResourceIT {
 
-    private static final Integer DEFAULT_ID_PRATICA_REF = 1;
-    private static final Integer UPDATED_ID_PRATICA_REF = 2;
+    private static final Long DEFAULT_ID_PRATICA_REF = 1L;
+    private static final Long UPDATED_ID_PRATICA_REF = 2L;
 
     @Autowired
     private InvitoPraticaRepository invitoPraticaRepository;
@@ -152,7 +152,7 @@ public class InvitoPraticaResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(invitoPratica.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idPraticaRef").value(hasItem(DEFAULT_ID_PRATICA_REF)));
+            .andExpect(jsonPath("$.[*].idPraticaRef").value(hasItem(DEFAULT_ID_PRATICA_REF.intValue())));
     }
     
     @Test
@@ -166,7 +166,7 @@ public class InvitoPraticaResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(invitoPratica.getId().intValue()))
-            .andExpect(jsonPath("$.idPraticaRef").value(DEFAULT_ID_PRATICA_REF));
+            .andExpect(jsonPath("$.idPraticaRef").value(DEFAULT_ID_PRATICA_REF.intValue()));
     }
     @Test
     @Transactional
@@ -264,6 +264,6 @@ public class InvitoPraticaResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(invitoPratica.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idPraticaRef").value(hasItem(DEFAULT_ID_PRATICA_REF)));
+            .andExpect(jsonPath("$.[*].idPraticaRef").value(hasItem(DEFAULT_ID_PRATICA_REF.intValue())));
     }
 }

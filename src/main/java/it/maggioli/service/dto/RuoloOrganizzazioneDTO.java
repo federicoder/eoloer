@@ -1,6 +1,5 @@
 package it.maggioli.service.dto;
 
-import javax.validation.constraints.*;
 import java.io.Serializable;
 
 /**
@@ -10,15 +9,12 @@ public class RuoloOrganizzazioneDTO implements Serializable {
     
     private Long id;
 
-    @NotNull
-    private Integer idRuoloOrganizzazione;
-
-    private Integer ruoloInOrg;
+    private Long ruoloInOrg;
 
 
-    private Long idRuoloOrganizzazioneId;
+    private Long idId;
 
-    private Long idRuoloOrganizzazioneId;
+    private Long idId;
     
     public Long getId() {
         return id;
@@ -28,36 +24,28 @@ public class RuoloOrganizzazioneDTO implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdRuoloOrganizzazione() {
-        return idRuoloOrganizzazione;
-    }
-
-    public void setIdRuoloOrganizzazione(Integer idRuoloOrganizzazione) {
-        this.idRuoloOrganizzazione = idRuoloOrganizzazione;
-    }
-
-    public Integer getRuoloInOrg() {
+    public Long getRuoloInOrg() {
         return ruoloInOrg;
     }
 
-    public void setRuoloInOrg(Integer ruoloInOrg) {
+    public void setRuoloInOrg(Long ruoloInOrg) {
         this.ruoloInOrg = ruoloInOrg;
     }
 
-    public Long getIdRuoloOrganizzazioneId() {
-        return idRuoloOrganizzazioneId;
+    public Long getIdId() {
+        return idId;
     }
 
-    public void setIdRuoloOrganizzazioneId(Long organizzazioneId) {
-        this.idRuoloOrganizzazioneId = organizzazioneId;
+    public void setIdId(Long organizzazioneId) {
+        this.idId = organizzazioneId;
     }
 
-    public Long getIdRuoloOrganizzazioneId() {
-        return idRuoloOrganizzazioneId;
+    public Long getIdId() {
+        return idId;
     }
 
-    public void setIdRuoloOrganizzazioneId(Long personaFisicaId) {
-        this.idRuoloOrganizzazioneId = personaFisicaId;
+    public void setIdId(Long personaFisicaId) {
+        this.idId = personaFisicaId;
     }
 
     @Override
@@ -82,10 +70,9 @@ public class RuoloOrganizzazioneDTO implements Serializable {
     public String toString() {
         return "RuoloOrganizzazioneDTO{" +
             "id=" + getId() +
-            ", idRuoloOrganizzazione=" + getIdRuoloOrganizzazione() +
             ", ruoloInOrg=" + getRuoloInOrg() +
-            ", idRuoloOrganizzazioneId=" + getIdRuoloOrganizzazioneId() +
-            ", idRuoloOrganizzazioneId=" + getIdRuoloOrganizzazioneId() +
+            ", idId=" + getIdId() +
+            ", idId=" + getIdId() +
             "}";
     }
 }

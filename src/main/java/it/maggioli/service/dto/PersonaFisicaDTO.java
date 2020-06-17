@@ -11,12 +11,9 @@ public class PersonaFisicaDTO implements Serializable {
     private Long id;
 
     @NotNull
-    private Integer idPersonaFisica;
+    private Long idPersonaRef;
 
-    @NotNull
-    private Integer idPersonaRef;
-
-    private Integer idRuoloPersonaRef;
+    private Long idRuoloPersonaRef;
 
     private String titolo;
 
@@ -41,27 +38,19 @@ public class PersonaFisicaDTO implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdPersonaFisica() {
-        return idPersonaFisica;
-    }
-
-    public void setIdPersonaFisica(Integer idPersonaFisica) {
-        this.idPersonaFisica = idPersonaFisica;
-    }
-
-    public Integer getIdPersonaRef() {
+    public Long getIdPersonaRef() {
         return idPersonaRef;
     }
 
-    public void setIdPersonaRef(Integer idPersonaRef) {
+    public void setIdPersonaRef(Long idPersonaRef) {
         this.idPersonaRef = idPersonaRef;
     }
 
-    public Integer getIdRuoloPersonaRef() {
+    public Long getIdRuoloPersonaRef() {
         return idRuoloPersonaRef;
     }
 
-    public void setIdRuoloPersonaRef(Integer idRuoloPersonaRef) {
+    public void setIdRuoloPersonaRef(Long idRuoloPersonaRef) {
         this.idRuoloPersonaRef = idRuoloPersonaRef;
     }
 
@@ -143,7 +132,6 @@ public class PersonaFisicaDTO implements Serializable {
     public String toString() {
         return "PersonaFisicaDTO{" +
             "id=" + getId() +
-            ", idPersonaFisica=" + getIdPersonaFisica() +
             ", idPersonaRef=" + getIdPersonaRef() +
             ", idRuoloPersonaRef=" + getIdRuoloPersonaRef() +
             ", titolo='" + getTitolo() + "'" +

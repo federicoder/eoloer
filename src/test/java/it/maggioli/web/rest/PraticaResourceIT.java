@@ -40,11 +40,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WithMockUser
 public class PraticaResourceIT {
 
-    private static final Integer DEFAULT_ID_PRATICA = 8;
-    private static final Integer UPDATED_ID_PRATICA = 7;
-
-    private static final Integer DEFAULT_ID_STUDIO_PROFESSIONALE_REF = 8;
-    private static final Integer UPDATED_ID_STUDIO_PROFESSIONALE_REF = 7;
+    private static final Long DEFAULT_ID_STUDIO_PROFESSIONALE_REF = 1L;
+    private static final Long UPDATED_ID_STUDIO_PROFESSIONALE_REF = 2L;
 
     private static final String DEFAULT_NUMERO = "AAAAAAAAAA";
     private static final String UPDATED_NUMERO = "BBBBBBBBBB";
@@ -61,17 +58,17 @@ public class PraticaResourceIT {
     private static final String DEFAULT_DATA_SCADENZA = "AAAAAAAAAA";
     private static final String UPDATED_DATA_SCADENZA = "BBBBBBBBBB";
 
-    private static final Integer DEFAULT_STATO = 1;
-    private static final Integer UPDATED_STATO = 2;
+    private static final Long DEFAULT_STATO = 1L;
+    private static final Long UPDATED_STATO = 2L;
 
     private static final String DEFAULT_MOTIVO_CHIUSURA = "AAAAAAAAAA";
     private static final String UPDATED_MOTIVO_CHIUSURA = "BBBBBBBBBB";
 
-    private static final Integer DEFAULT_ID_TITOLARE = 8;
-    private static final Integer UPDATED_ID_TITOLARE = 7;
+    private static final Long DEFAULT_ID_TITOLARE = 8L;
+    private static final Long UPDATED_ID_TITOLARE = 7L;
 
-    private static final Integer DEFAULT_PRC_AVANZATO = 1;
-    private static final Integer UPDATED_PRC_AVANZATO = 2;
+    private static final Long DEFAULT_PRC_AVANZATO = 1L;
+    private static final Long UPDATED_PRC_AVANZATO = 2L;
 
     private static final String DEFAULT_VERSION = "AAAAAAAAAA";
     private static final String UPDATED_VERSION = "BBBBBBBBBB";
@@ -79,8 +76,8 @@ public class PraticaResourceIT {
     private static final String DEFAULT_VALUTA = "AAAAAAAAAA";
     private static final String UPDATED_VALUTA = "BBBBBBBBBB";
 
-    private static final Integer DEFAULT_ID_TEMPLATE_PRATICA_REF = 1;
-    private static final Integer UPDATED_ID_TEMPLATE_PRATICA_REF = 2;
+    private static final Long DEFAULT_ID_TEMPLATE_PRATICA_REF = 1L;
+    private static final Long UPDATED_ID_TEMPLATE_PRATICA_REF = 2L;
 
     @Autowired
     private PraticaRepository praticaRepository;
@@ -115,7 +112,6 @@ public class PraticaResourceIT {
      */
     public static Pratica createEntity(EntityManager em) {
         Pratica pratica = new Pratica()
-            .idPratica(DEFAULT_ID_PRATICA)
             .idStudioProfessionaleRef(DEFAULT_ID_STUDIO_PROFESSIONALE_REF)
             .numero(DEFAULT_NUMERO)
             .nome(DEFAULT_NOME)
@@ -139,7 +135,6 @@ public class PraticaResourceIT {
      */
     public static Pratica createUpdatedEntity(EntityManager em) {
         Pratica pratica = new Pratica()
-            .idPratica(UPDATED_ID_PRATICA)
             .idStudioProfessionaleRef(UPDATED_ID_STUDIO_PROFESSIONALE_REF)
             .numero(UPDATED_NUMERO)
             .nome(UPDATED_NOME)
@@ -176,7 +171,6 @@ public class PraticaResourceIT {
         List<Pratica> praticaList = praticaRepository.findAll();
         assertThat(praticaList).hasSize(databaseSizeBeforeCreate + 1);
         Pratica testPratica = praticaList.get(praticaList.size() - 1);
-        assertThat(testPratica.getIdPratica()).isEqualTo(DEFAULT_ID_PRATICA);
         assertThat(testPratica.getIdStudioProfessionaleRef()).isEqualTo(DEFAULT_ID_STUDIO_PROFESSIONALE_REF);
         assertThat(testPratica.getNumero()).isEqualTo(DEFAULT_NUMERO);
         assertThat(testPratica.getNome()).isEqualTo(DEFAULT_NOME);
@@ -221,6 +215,26 @@ public class PraticaResourceIT {
 
     @Test
     @Transactional
+    public void checkIdStudioProfessionaleRefIsRequired() throws Exception {
+        int databaseSizeBeforeTest = praticaRepository.findAll().size();
+        // set the field null
+        pratica.setIdStudioProfessionaleRef(null);
+
+        // Create the Pratica, which fails.
+        PraticaDTO praticaDTO = praticaMapper.toDto(pratica);
+
+
+        restPraticaMockMvc.perform(post("/api/praticas")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(praticaDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<Pratica> praticaList = praticaRepository.findAll();
+        assertThat(praticaList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllPraticas() throws Exception {
         // Initialize the database
         praticaRepository.saveAndFlush(pratica);
@@ -230,20 +244,19 @@ public class PraticaResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(pratica.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idPratica").value(hasItem(DEFAULT_ID_PRATICA)))
-            .andExpect(jsonPath("$.[*].idStudioProfessionaleRef").value(hasItem(DEFAULT_ID_STUDIO_PROFESSIONALE_REF)))
+            .andExpect(jsonPath("$.[*].idStudioProfessionaleRef").value(hasItem(DEFAULT_ID_STUDIO_PROFESSIONALE_REF.intValue())))
             .andExpect(jsonPath("$.[*].numero").value(hasItem(DEFAULT_NUMERO)))
             .andExpect(jsonPath("$.[*].nome").value(hasItem(DEFAULT_NOME)))
             .andExpect(jsonPath("$.[*].dataApertura").value(hasItem(DEFAULT_DATA_APERTURA)))
             .andExpect(jsonPath("$.[*].dataChiusura").value(hasItem(DEFAULT_DATA_CHIUSURA)))
             .andExpect(jsonPath("$.[*].dataScadenza").value(hasItem(DEFAULT_DATA_SCADENZA)))
-            .andExpect(jsonPath("$.[*].stato").value(hasItem(DEFAULT_STATO)))
+            .andExpect(jsonPath("$.[*].stato").value(hasItem(DEFAULT_STATO.intValue())))
             .andExpect(jsonPath("$.[*].motivoChiusura").value(hasItem(DEFAULT_MOTIVO_CHIUSURA)))
-            .andExpect(jsonPath("$.[*].idTitolare").value(hasItem(DEFAULT_ID_TITOLARE)))
-            .andExpect(jsonPath("$.[*].prcAvanzato").value(hasItem(DEFAULT_PRC_AVANZATO)))
+            .andExpect(jsonPath("$.[*].idTitolare").value(hasItem(DEFAULT_ID_TITOLARE.intValue())))
+            .andExpect(jsonPath("$.[*].prcAvanzato").value(hasItem(DEFAULT_PRC_AVANZATO.intValue())))
             .andExpect(jsonPath("$.[*].version").value(hasItem(DEFAULT_VERSION)))
             .andExpect(jsonPath("$.[*].valuta").value(hasItem(DEFAULT_VALUTA)))
-            .andExpect(jsonPath("$.[*].idTemplatePraticaRef").value(hasItem(DEFAULT_ID_TEMPLATE_PRATICA_REF)));
+            .andExpect(jsonPath("$.[*].idTemplatePraticaRef").value(hasItem(DEFAULT_ID_TEMPLATE_PRATICA_REF.intValue())));
     }
     
     @Test
@@ -257,20 +270,19 @@ public class PraticaResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(pratica.getId().intValue()))
-            .andExpect(jsonPath("$.idPratica").value(DEFAULT_ID_PRATICA))
-            .andExpect(jsonPath("$.idStudioProfessionaleRef").value(DEFAULT_ID_STUDIO_PROFESSIONALE_REF))
+            .andExpect(jsonPath("$.idStudioProfessionaleRef").value(DEFAULT_ID_STUDIO_PROFESSIONALE_REF.intValue()))
             .andExpect(jsonPath("$.numero").value(DEFAULT_NUMERO))
             .andExpect(jsonPath("$.nome").value(DEFAULT_NOME))
             .andExpect(jsonPath("$.dataApertura").value(DEFAULT_DATA_APERTURA))
             .andExpect(jsonPath("$.dataChiusura").value(DEFAULT_DATA_CHIUSURA))
             .andExpect(jsonPath("$.dataScadenza").value(DEFAULT_DATA_SCADENZA))
-            .andExpect(jsonPath("$.stato").value(DEFAULT_STATO))
+            .andExpect(jsonPath("$.stato").value(DEFAULT_STATO.intValue()))
             .andExpect(jsonPath("$.motivoChiusura").value(DEFAULT_MOTIVO_CHIUSURA))
-            .andExpect(jsonPath("$.idTitolare").value(DEFAULT_ID_TITOLARE))
-            .andExpect(jsonPath("$.prcAvanzato").value(DEFAULT_PRC_AVANZATO))
+            .andExpect(jsonPath("$.idTitolare").value(DEFAULT_ID_TITOLARE.intValue()))
+            .andExpect(jsonPath("$.prcAvanzato").value(DEFAULT_PRC_AVANZATO.intValue()))
             .andExpect(jsonPath("$.version").value(DEFAULT_VERSION))
             .andExpect(jsonPath("$.valuta").value(DEFAULT_VALUTA))
-            .andExpect(jsonPath("$.idTemplatePraticaRef").value(DEFAULT_ID_TEMPLATE_PRATICA_REF));
+            .andExpect(jsonPath("$.idTemplatePraticaRef").value(DEFAULT_ID_TEMPLATE_PRATICA_REF.intValue()));
     }
     @Test
     @Transactional
@@ -293,7 +305,6 @@ public class PraticaResourceIT {
         // Disconnect from session so that the updates on updatedPratica are not directly saved in db
         em.detach(updatedPratica);
         updatedPratica
-            .idPratica(UPDATED_ID_PRATICA)
             .idStudioProfessionaleRef(UPDATED_ID_STUDIO_PROFESSIONALE_REF)
             .numero(UPDATED_NUMERO)
             .nome(UPDATED_NOME)
@@ -318,7 +329,6 @@ public class PraticaResourceIT {
         List<Pratica> praticaList = praticaRepository.findAll();
         assertThat(praticaList).hasSize(databaseSizeBeforeUpdate);
         Pratica testPratica = praticaList.get(praticaList.size() - 1);
-        assertThat(testPratica.getIdPratica()).isEqualTo(UPDATED_ID_PRATICA);
         assertThat(testPratica.getIdStudioProfessionaleRef()).isEqualTo(UPDATED_ID_STUDIO_PROFESSIONALE_REF);
         assertThat(testPratica.getNumero()).isEqualTo(UPDATED_NUMERO);
         assertThat(testPratica.getNome()).isEqualTo(UPDATED_NOME);
@@ -394,19 +404,18 @@ public class PraticaResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(pratica.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idPratica").value(hasItem(DEFAULT_ID_PRATICA)))
-            .andExpect(jsonPath("$.[*].idStudioProfessionaleRef").value(hasItem(DEFAULT_ID_STUDIO_PROFESSIONALE_REF)))
+            .andExpect(jsonPath("$.[*].idStudioProfessionaleRef").value(hasItem(DEFAULT_ID_STUDIO_PROFESSIONALE_REF.intValue())))
             .andExpect(jsonPath("$.[*].numero").value(hasItem(DEFAULT_NUMERO)))
             .andExpect(jsonPath("$.[*].nome").value(hasItem(DEFAULT_NOME)))
             .andExpect(jsonPath("$.[*].dataApertura").value(hasItem(DEFAULT_DATA_APERTURA)))
             .andExpect(jsonPath("$.[*].dataChiusura").value(hasItem(DEFAULT_DATA_CHIUSURA)))
             .andExpect(jsonPath("$.[*].dataScadenza").value(hasItem(DEFAULT_DATA_SCADENZA)))
-            .andExpect(jsonPath("$.[*].stato").value(hasItem(DEFAULT_STATO)))
+            .andExpect(jsonPath("$.[*].stato").value(hasItem(DEFAULT_STATO.intValue())))
             .andExpect(jsonPath("$.[*].motivoChiusura").value(hasItem(DEFAULT_MOTIVO_CHIUSURA)))
-            .andExpect(jsonPath("$.[*].idTitolare").value(hasItem(DEFAULT_ID_TITOLARE)))
-            .andExpect(jsonPath("$.[*].prcAvanzato").value(hasItem(DEFAULT_PRC_AVANZATO)))
+            .andExpect(jsonPath("$.[*].idTitolare").value(hasItem(DEFAULT_ID_TITOLARE.intValue())))
+            .andExpect(jsonPath("$.[*].prcAvanzato").value(hasItem(DEFAULT_PRC_AVANZATO.intValue())))
             .andExpect(jsonPath("$.[*].version").value(hasItem(DEFAULT_VERSION)))
             .andExpect(jsonPath("$.[*].valuta").value(hasItem(DEFAULT_VALUTA)))
-            .andExpect(jsonPath("$.[*].idTemplatePraticaRef").value(hasItem(DEFAULT_ID_TEMPLATE_PRATICA_REF)));
+            .andExpect(jsonPath("$.[*].idTemplatePraticaRef").value(hasItem(DEFAULT_ID_TEMPLATE_PRATICA_REF.intValue())));
     }
 }

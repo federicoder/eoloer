@@ -41,7 +41,6 @@ describe('Task e2e test', () => {
     await taskComponentsPage.clickOnCreateButton();
 
     await promise.all([
-      taskUpdatePage.setIdTaskInput('5'),
       taskUpdatePage.setIdPraticaRefInput('5'),
       taskUpdatePage.setNomeInput('nome'),
       taskUpdatePage.setStatoInput('5'),
@@ -51,14 +50,13 @@ describe('Task e2e test', () => {
       taskUpdatePage.setIdCondivisionePraticaRefInput('5'),
       taskUpdatePage.setIdAssegnazioneTaskRefInput('5'),
       taskUpdatePage.setIdInvitoRefInput('5'),
-      taskUpdatePage.idTaskSelectLastOption(),
-      taskUpdatePage.idTaskSelectLastOption(),
-      taskUpdatePage.idTaskSelectLastOption(),
-      taskUpdatePage.idTaskSelectLastOption(),
+      taskUpdatePage.idSelectLastOption(),
+      taskUpdatePage.idSelectLastOption(),
+      taskUpdatePage.idSelectLastOption(),
+      taskUpdatePage.idSelectLastOption(),
       taskUpdatePage.praticaSelectLastOption(),
     ]);
 
-    expect(await taskUpdatePage.getIdTaskInput()).to.eq('5', 'Expected idTask value to be equals to 5');
     expect(await taskUpdatePage.getIdPraticaRefInput()).to.eq('5', 'Expected idPraticaRef value to be equals to 5');
     expect(await taskUpdatePage.getNomeInput()).to.eq('nome', 'Expected Nome value to be equals to nome');
     expect(await taskUpdatePage.getStatoInput()).to.eq('5', 'Expected stato value to be equals to 5');

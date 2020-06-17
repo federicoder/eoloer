@@ -15,10 +15,7 @@
             <column name="id" type="bigint">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="id_persona" type="integer">
-                <constraints nullable="false" />
-            </column>
-            <column name="id_studio_professionale_ref" type="integer">
+            <column name="id_studio_professionale_ref" type="bigint">
                 <constraints nullable="true" />
             </column>
             <column name="codice_fiscale" type="varchar(255)">
@@ -45,20 +42,20 @@
             <column name="professione" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="tipo" type="integer">
+            <column name="tipo" type="bigint">
                 <constraints nullable="true" />
             </column>
             <column name="discriminator" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="id_ruolo_persona_ref" type="integer">
+            <column name="id_ruolo_persona_ref" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="tipo_ruolo_utente" type="integer">
+            <column name="tipo_ruolo_utente" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="id_persona_id" type="bigint">
-                <constraints unique="true" nullable="true" uniqueConstraintName="ux_persona_id_persona_id" />
+            <column name="id_id" type="bigint">
+                <constraints unique="true" nullable="true" uniqueConstraintName="ux_persona_id_id" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
         </createTable>
@@ -83,7 +80,6 @@
                   separator=";"
                   tableName="persona">
             <column name="id" type="numeric"/>
-            <column name="id_persona" type="numeric"/>
             <column name="id_studio_professionale_ref" type="numeric"/>
             <column name="codice_fiscale" type="string"/>
             <column name="area_di_interesse" type="string"/>

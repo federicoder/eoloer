@@ -71,15 +71,15 @@ public class OrganizzazioneService {
 
 
     /**
-     *  Get all the organizzaziones where IdOrganizzazione is {@code null}.
+     *  Get all the organizzaziones where Id is {@code null}.
      *  @return the list of entities.
      */
     @Transactional(readOnly = true) 
-    public List<OrganizzazioneDTO> findAllWhereIdOrganizzazioneIsNull() {
-        log.debug("Request to get all organizzaziones where IdOrganizzazione is null");
+    public List<OrganizzazioneDTO> findAllWhereIdIsNull() {
+        log.debug("Request to get all organizzaziones where Id is null");
         return StreamSupport
             .stream(organizzazioneRepository.findAll().spliterator(), false)
-            .filter(organizzazione -> organizzazione.getIdOrganizzazione() == null)
+            .filter(organizzazione -> organizzazione.getId() == null)
             .map(organizzazioneMapper::toDto)
             .collect(Collectors.toCollection(LinkedList::new));
     }

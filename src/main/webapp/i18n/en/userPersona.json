@@ -17,12 +17,11 @@
       "detail": {
         "title": "User Persona"
       },
-      "idUserPersona": "Id User Persona",
       "idPersonaRef": "Id Persona Ref",
       "nomeUser": "Nome User",
-      "idUserPersona": "Id User Persona",
-      "idUserPersona": "Id User Persona",
-      "idUserPersona": "Id User Persona",
+      "id": "Id",
+      "id": "Id",
+      "id": "Id",
       "personaFisica": "Persona Fisica"
     }
   }

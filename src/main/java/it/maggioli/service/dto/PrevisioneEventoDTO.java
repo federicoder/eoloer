@@ -11,8 +11,8 @@ public class PrevisioneEventoDTO implements Serializable {
     private Long id;
 
     @NotNull
-    @Max(value = 8)
-    private Integer idTaskRef;
+    @Max(value = 8L)
+    private Long idTaskRef;
 
     private String dataInizio;
 
@@ -35,11 +35,11 @@ public class PrevisioneEventoDTO implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdTaskRef() {
+    public Long getIdTaskRef() {
         return idTaskRef;
     }
 
-    public void setIdTaskRef(Integer idTaskRef) {
+    public void setIdTaskRef(Long idTaskRef) {
         this.idTaskRef = idTaskRef;
     }
 

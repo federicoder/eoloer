@@ -2,13 +2,8 @@
   "name": "Organizzazione",
   "fields": [
     {
-      "fieldName": "idOrganizzazione",
-      "fieldType": "Integer",
-      "fieldValidateRules": ["required"]
-    },
-    {
       "fieldName": "idPersonaRef",
-      "fieldType": "Integer",
+      "fieldType": "Long",
       "fieldValidateRules": ["required"]
     },
     {
@@ -24,7 +19,7 @@
     {
       "relationshipType": "one-to-one",
       "otherEntityName": "persona",
-      "otherEntityRelationshipName": "idPersona",
+      "otherEntityRelationshipName": "id",
       "relationshipName": "idPersonaRef",
       "otherEntityField": "id",
       "ownerSide": true
@@ -32,8 +27,8 @@
     {
       "relationshipType": "one-to-one",
       "otherEntityName": "ruoloOrganizzazione",
-      "otherEntityRelationshipName": "idRuoloOrganizzazione",
-      "relationshipName": "idOrganizzazione",
+      "otherEntityRelationshipName": "id",
+      "relationshipName": "id",
       "ownerSide": false
     }
   ],

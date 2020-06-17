@@ -27,15 +27,11 @@ public class DatiContabili implements Serializable {
     private Long id;
 
     @NotNull
-    @Column(name = "id_dati_contabili", nullable = false)
-    private Integer idDatiContabili;
-
-    @NotNull
     @Column(name = "id_persona_ref", nullable = false)
-    private Integer idPersonaRef;
+    private Long idPersonaRef;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "idPersonas", allowSetters = true)
+    @JsonIgnoreProperties(value = "ids", allowSetters = true)
     private Persona persona;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
@@ -47,29 +43,16 @@ public class DatiContabili implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdDatiContabili() {
-        return idDatiContabili;
-    }
-
-    public DatiContabili idDatiContabili(Integer idDatiContabili) {
-        this.idDatiContabili = idDatiContabili;
-        return this;
-    }
-
-    public void setIdDatiContabili(Integer idDatiContabili) {
-        this.idDatiContabili = idDatiContabili;
-    }
-
-    public Integer getIdPersonaRef() {
+    public Long getIdPersonaRef() {
         return idPersonaRef;
     }
 
-    public DatiContabili idPersonaRef(Integer idPersonaRef) {
+    public DatiContabili idPersonaRef(Long idPersonaRef) {
         this.idPersonaRef = idPersonaRef;
         return this;
     }
 
-    public void setIdPersonaRef(Integer idPersonaRef) {
+    public void setIdPersonaRef(Long idPersonaRef) {
         this.idPersonaRef = idPersonaRef;
     }
 
@@ -108,7 +91,6 @@ public class DatiContabili implements Serializable {
     public String toString() {
         return "DatiContabili{" +
             "id=" + getId() +
-            ", idDatiContabili=" + getIdDatiContabili() +
             ", idPersonaRef=" + getIdPersonaRef() +
             "}";
     }

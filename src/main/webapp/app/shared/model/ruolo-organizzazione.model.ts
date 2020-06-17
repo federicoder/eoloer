@@ -1,17 +1,10 @@
 export interface IRuoloOrganizzazione {
   id?: number;
-  idRuoloOrganizzazione?: number;
   ruoloInOrg?: number;
-  idRuoloOrganizzazioneId?: number;
-  idRuoloOrganizzazioneId?: number;
+  idId?: number;
+  idId?: number;
 }
 
 export class RuoloOrganizzazione implements IRuoloOrganizzazione {
-  constructor(
-    public id?: number,
-    public idRuoloOrganizzazione?: number,
-    public ruoloInOrg?: number,
-    public idRuoloOrganizzazioneId?: number,
-    public idRuoloOrganizzazioneId?: number
-  ) {}
+  constructor(public id?: number, public ruoloInOrg?: number, public idId?: number, public idId?: number) {}
 }

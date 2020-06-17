@@ -12,22 +12,6 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="eoloprjApp.prodotto.idProdotto" for="field_idProdotto">Id Prodotto</label>
-                    <input type="number" class="form-control" name="idProdotto" id="field_idProdotto"
-                           formControlName="idProdotto"/>
-                    <div *ngIf="editForm.get('idProdotto')!.invalid && (editForm.get('idProdotto')!.dirty || editForm.get('idProdotto')!.touched)">
-                        <small class="form-text text-danger"
-                               *ngIf="editForm.get('idProdotto')?.errors?.required" jhiTranslate="entity.validation.required">
-                        This field is required.
-                        </small>
-                        <small class="form-text text-danger"
-                            [hidden]="!editForm.get('idProdotto')?.errors?.number" jhiTranslate="entity.validation.number">
-                            This field should be a number.
-                        </small>
-                    </div>
-                </div>
-
-                <div class="form-group">
                     <label class="form-control-label" jhiTranslate="eoloprjApp.prodotto.nuovaLicenza" for="field_nuovaLicenza">Nuova Licenza</label>
                     <input type="number" class="form-control" name="nuovaLicenza" id="field_nuovaLicenza"
                            formControlName="nuovaLicenza"/>
@@ -46,10 +30,10 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="eoloprjApp.prodotto.idProdotto" for="field_idProdotto">Id Prodotto</label>
-                    <select class="form-control" id="field_idProdotto" name="idProdotto" formControlName="idProdottoId">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.prodotto.id" for="field_id">Id</label>
+                    <select class="form-control" id="field_id" name="id" formControlName="idId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="lineaOrdineOption.id" *ngFor="let lineaOrdineOption of idprodottos; trackBy: trackById">{{ lineaOrdineOption.id }}</option>
+                        <option [ngValue]="lineaOrdineOption.id" *ngFor="let lineaOrdineOption of ids; trackBy: trackById">{{ lineaOrdineOption.id }}</option>
                     </select>
                 </div>
             </div>

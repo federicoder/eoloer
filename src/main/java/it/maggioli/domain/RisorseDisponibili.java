@@ -28,19 +28,19 @@ public class RisorseDisponibili implements Serializable {
 
     @NotNull
     @Column(name = "id_studio_professionale_ref", nullable = false)
-    private Integer idStudioProfessionaleRef;
+    private Long idStudioProfessionaleRef;
 
     @Column(name = "data_attivazione_licenza")
     private String dataAttivazioneLicenza;
 
     @Column(name = "nr_licenza")
-    private Integer nrLicenza;
+    private Long nrLicenza;
 
     @Column(name = "storage_totale")
-    private Integer storageTotale;
+    private Long storageTotale;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "idStudioProfessionales", allowSetters = true)
+    @JsonIgnoreProperties(value = "ids", allowSetters = true)
     private StudioProfessionale studioProfessionale;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
@@ -52,16 +52,16 @@ public class RisorseDisponibili implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdStudioProfessionaleRef() {
+    public Long getIdStudioProfessionaleRef() {
         return idStudioProfessionaleRef;
     }
 
-    public RisorseDisponibili idStudioProfessionaleRef(Integer idStudioProfessionaleRef) {
+    public RisorseDisponibili idStudioProfessionaleRef(Long idStudioProfessionaleRef) {
         this.idStudioProfessionaleRef = idStudioProfessionaleRef;
         return this;
     }
 
-    public void setIdStudioProfessionaleRef(Integer idStudioProfessionaleRef) {
+    public void setIdStudioProfessionaleRef(Long idStudioProfessionaleRef) {
         this.idStudioProfessionaleRef = idStudioProfessionaleRef;
     }
 
@@ -78,29 +78,29 @@ public class RisorseDisponibili implements Serializable {
         this.dataAttivazioneLicenza = dataAttivazioneLicenza;
     }
 
-    public Integer getNrLicenza() {
+    public Long getNrLicenza() {
         return nrLicenza;
     }
 
-    public RisorseDisponibili nrLicenza(Integer nrLicenza) {
+    public RisorseDisponibili nrLicenza(Long nrLicenza) {
         this.nrLicenza = nrLicenza;
         return this;
     }
 
-    public void setNrLicenza(Integer nrLicenza) {
+    public void setNrLicenza(Long nrLicenza) {
         this.nrLicenza = nrLicenza;
     }
 
-    public Integer getStorageTotale() {
+    public Long getStorageTotale() {
         return storageTotale;
     }
 
-    public RisorseDisponibili storageTotale(Integer storageTotale) {
+    public RisorseDisponibili storageTotale(Long storageTotale) {
         this.storageTotale = storageTotale;
         return this;
     }
 
-    public void setStorageTotale(Integer storageTotale) {
+    public void setStorageTotale(Long storageTotale) {
         this.storageTotale = storageTotale;
     }
 

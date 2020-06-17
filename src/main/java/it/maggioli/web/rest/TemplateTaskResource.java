@@ -12,7 +12,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -49,7 +48,7 @@ public class TemplateTaskResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/template-tasks")
-    public ResponseEntity<TemplateTaskDTO> createTemplateTask(@Valid @RequestBody TemplateTaskDTO templateTaskDTO) throws URISyntaxException {
+    public ResponseEntity<TemplateTaskDTO> createTemplateTask(@RequestBody TemplateTaskDTO templateTaskDTO) throws URISyntaxException {
         log.debug("REST request to save TemplateTask : {}", templateTaskDTO);
         if (templateTaskDTO.getId() != null) {
             throw new BadRequestAlertException("A new templateTask cannot already have an ID", ENTITY_NAME, "idexists");
@@ -70,7 +69,7 @@ public class TemplateTaskResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PutMapping("/template-tasks")
-    public ResponseEntity<TemplateTaskDTO> updateTemplateTask(@Valid @RequestBody TemplateTaskDTO templateTaskDTO) throws URISyntaxException {
+    public ResponseEntity<TemplateTaskDTO> updateTemplateTask(@RequestBody TemplateTaskDTO templateTaskDTO) throws URISyntaxException {
         log.debug("REST request to update TemplateTask : {}", templateTaskDTO);
         if (templateTaskDTO.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");

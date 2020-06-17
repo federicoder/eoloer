@@ -3,7 +3,7 @@
   "fields": [
     {
       "fieldName": "idStudioProfessionaleRef",
-      "fieldType": "Integer",
+      "fieldType": "Long",
       "fieldValidateRules": ["required"]
     },
     {
@@ -12,18 +12,18 @@
     },
     {
       "fieldName": "nrLicenza",
-      "fieldType": "Integer"
+      "fieldType": "Long"
     },
     {
       "fieldName": "storageTotale",
-      "fieldType": "Integer"
+      "fieldType": "Long"
     }
   ],
   "relationships": [
     {
       "relationshipType": "many-to-one",
       "otherEntityName": "studioProfessionale",
-      "otherEntityRelationshipName": "idStudioProfessionale",
+      "otherEntityRelationshipName": "id",
       "relationshipName": "studioProfessionale",
       "otherEntityField": "id"
     }

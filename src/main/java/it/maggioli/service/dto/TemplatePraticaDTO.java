@@ -1,6 +1,5 @@
 package it.maggioli.service.dto;
 
-import javax.validation.constraints.*;
 import java.io.Serializable;
 
 /**
@@ -10,13 +9,9 @@ public class TemplatePraticaDTO implements Serializable {
     
     private Long id;
 
-    @NotNull
-    @Max(value = 8)
-    private Integer idTemplatePratica;
+    private Long nomeTemplate;
 
-    private Integer nomeTemplate;
-
-    private Integer elencoTagAmbito;
+    private Long elencoTagAmbito;
 
     
     public Long getId() {
@@ -27,27 +22,19 @@ public class TemplatePraticaDTO implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdTemplatePratica() {
-        return idTemplatePratica;
-    }
-
-    public void setIdTemplatePratica(Integer idTemplatePratica) {
-        this.idTemplatePratica = idTemplatePratica;
-    }
-
-    public Integer getNomeTemplate() {
+    public Long getNomeTemplate() {
         return nomeTemplate;
     }
 
-    public void setNomeTemplate(Integer nomeTemplate) {
+    public void setNomeTemplate(Long nomeTemplate) {
         this.nomeTemplate = nomeTemplate;
     }
 
-    public Integer getElencoTagAmbito() {
+    public Long getElencoTagAmbito() {
         return elencoTagAmbito;
     }
 
-    public void setElencoTagAmbito(Integer elencoTagAmbito) {
+    public void setElencoTagAmbito(Long elencoTagAmbito) {
         this.elencoTagAmbito = elencoTagAmbito;
     }
 
@@ -73,7 +60,6 @@ public class TemplatePraticaDTO implements Serializable {
     public String toString() {
         return "TemplatePraticaDTO{" +
             "id=" + getId() +
-            ", idTemplatePratica=" + getIdTemplatePratica() +
             ", nomeTemplate=" + getNomeTemplate() +
             ", elencoTagAmbito=" + getElencoTagAmbito() +
             "}";

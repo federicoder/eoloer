@@ -41,7 +41,6 @@
             <thead>
                 <tr>
                     <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
-                    <th scope="col" ><span jhiTranslate="eoloprjApp.ordine.idOrdine">Id Ordine</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.ordine.idStudioProfessionaleRef">Id Studio Professionale Ref</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.ordine.statoOrdine">Stato Ordine</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.ordine.totImponibile">Tot Imponibile</span></th>
@@ -54,7 +53,6 @@
             <tbody>
                 <tr *ngFor="let ordine of ordines ;trackBy: trackId">
                     <td><a [routerLink]="['/ordine', ordine.id, 'view']">{{ ordine.id }}</a></td>
-                    <td>{{ ordine.idOrdine }}</td>
                     <td>{{ ordine.idStudioProfessionaleRef }}</td>
                     <td>{{ ordine.statoOrdine }}</td>
                     <td>{{ ordine.totImponibile }}</td>

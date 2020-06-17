@@ -1,6 +1,5 @@
 package it.maggioli.service.dto;
 
-import javax.validation.constraints.*;
 import java.io.Serializable;
 
 /**
@@ -9,9 +8,6 @@ import java.io.Serializable;
 public class TipoAllegatoDTO implements Serializable {
     
     private Long id;
-
-    @Max(value = 8)
-    private Integer idTipoAllegato;
 
     private String nome;
 
@@ -28,14 +24,6 @@ public class TipoAllegatoDTO implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Integer getIdTipoAllegato() {
-        return idTipoAllegato;
-    }
-
-    public void setIdTipoAllegato(Integer idTipoAllegato) {
-        this.idTipoAllegato = idTipoAllegato;
     }
 
     public String getNome() {
@@ -92,7 +80,6 @@ public class TipoAllegatoDTO implements Serializable {
     public String toString() {
         return "TipoAllegatoDTO{" +
             "id=" + getId() +
-            ", idTipoAllegato=" + getIdTipoAllegato() +
             ", nome='" + getNome() + "'" +
             ", formatiAmmessi='" + getFormatiAmmessi() + "'" +
             ", maxDimensioneAmmessa='" + getMaxDimensioneAmmessa() + "'" +

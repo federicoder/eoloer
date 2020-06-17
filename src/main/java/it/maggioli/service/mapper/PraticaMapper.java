@@ -15,14 +15,14 @@ public interface PraticaMapper extends EntityMapper<PraticaDTO, Pratica> {
     @Mapping(source = "idTemplatePraticaRef.id", target = "idTemplatePraticaRefId")
     PraticaDTO toDto(Pratica pratica);
 
-    @Mapping(target = "idPraticas", ignore = true)
-    @Mapping(target = "removeIdPratica", ignore = true)
-    @Mapping(target = "idPraticas", ignore = true)
-    @Mapping(target = "removeIdPratica", ignore = true)
-    @Mapping(target = "idPraticas", ignore = true)
-    @Mapping(target = "removeIdPratica", ignore = true)
-    @Mapping(target = "idPraticas", ignore = true)
-    @Mapping(target = "removeIdPratica", ignore = true)
+    @Mapping(target = "ids", ignore = true)
+    @Mapping(target = "removeId", ignore = true)
+    @Mapping(target = "ids", ignore = true)
+    @Mapping(target = "removeId", ignore = true)
+    @Mapping(target = "ids", ignore = true)
+    @Mapping(target = "removeId", ignore = true)
+    @Mapping(target = "ids", ignore = true)
+    @Mapping(target = "removeId", ignore = true)
     @Mapping(source = "idTemplatePraticaRefId", target = "idTemplatePraticaRef")
     Pratica toEntity(PraticaDTO praticaDTO);
 

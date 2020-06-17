@@ -44,7 +44,6 @@ describe('AllegatoTask e2e test', () => {
     await allegatoTaskComponentsPage.clickOnCreateButton();
 
     await promise.all([
-      allegatoTaskUpdatePage.setIdAllegatoTaskInput('5'),
       allegatoTaskUpdatePage.setIdTipoAllegatoRefInput('5'),
       allegatoTaskUpdatePage.setIdTaskRefInput('5'),
       allegatoTaskUpdatePage.setFormatoInput('5'),
@@ -58,7 +57,6 @@ describe('AllegatoTask e2e test', () => {
       allegatoTaskUpdatePage.taskSelectLastOption(),
     ]);
 
-    expect(await allegatoTaskUpdatePage.getIdAllegatoTaskInput()).to.eq('5', 'Expected idAllegatoTask value to be equals to 5');
     expect(await allegatoTaskUpdatePage.getIdTipoAllegatoRefInput()).to.eq('5', 'Expected idTipoAllegatoRef value to be equals to 5');
     expect(await allegatoTaskUpdatePage.getIdTaskRefInput()).to.eq('5', 'Expected idTaskRef value to be equals to 5');
     expect(await allegatoTaskUpdatePage.getFormatoInput()).to.eq('5', 'Expected formato value to be equals to 5');

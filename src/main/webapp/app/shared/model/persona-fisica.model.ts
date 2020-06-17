@@ -2,7 +2,6 @@ import { IUserPersona } from 'app/shared/model/user-persona.model';
 
 export interface IPersonaFisica {
   id?: number;
-  idPersonaFisica?: number;
   idPersonaRef?: number;
   idRuoloPersonaRef?: number;
   titolo?: string;
@@ -12,14 +11,13 @@ export interface IPersonaFisica {
   luogoDiNascita?: string;
   professione?: string;
   idPersonaRefId?: number;
-  idPersonaFisicas?: IUserPersona[];
+  ids?: IUserPersona[];
   idRuoloPersonaId?: number;
 }
 
 export class PersonaFisica implements IPersonaFisica {
   constructor(
     public id?: number,
-    public idPersonaFisica?: number,
     public idPersonaRef?: number,
     public idRuoloPersonaRef?: number,
     public titolo?: string,
@@ -29,7 +27,7 @@ export class PersonaFisica implements IPersonaFisica {
     public luogoDiNascita?: string,
     public professione?: string,
     public idPersonaRefId?: number,
-    public idPersonaFisicas?: IUserPersona[],
+    public ids?: IUserPersona[],
     public idRuoloPersonaId?: number
   ) {}
 }

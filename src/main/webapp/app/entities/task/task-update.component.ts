@@ -27,15 +27,14 @@ type SelectableEntity = IConsuntivoTask | IPrevisioneTask | IAssegnazioneTask | 
 })
 export class TaskUpdateComponent implements OnInit {
   isSaving = false;
-  idtasks: IConsuntivoTask[] = [];
-  idtasks: IPrevisioneTask[] = [];
-  idtasks: IAssegnazioneTask[] = [];
-  idtasks: IInvitoAttivita[] = [];
+  ids: IConsuntivoTask[] = [];
+  ids: IPrevisioneTask[] = [];
+  ids: IAssegnazioneTask[] = [];
+  ids: IInvitoAttivita[] = [];
   praticas: IPratica[] = [];
 
   editForm = this.fb.group({
     id: [],
-    idTask: [null, [Validators.required, Validators.max(8)]],
     idPraticaRef: [null, [Validators.max(8)]],
     nome: [],
     stato: [],
@@ -45,10 +44,10 @@ export class TaskUpdateComponent implements OnInit {
     idCondivisionePraticaRef: [],
     idAssegnazioneTaskRef: [null, [Validators.max(8)]],
     idInvitoRef: [null, [Validators.max(8)]],
-    idTaskId: [],
-    idTaskId: [],
-    idTaskId: [],
-    idTaskId: [],
+    idId: [],
+    idId: [],
+    idId: [],
+    idId: [],
     praticaId: [],
   });
 
@@ -75,17 +74,17 @@ export class TaskUpdateComponent implements OnInit {
           })
         )
         .subscribe((resBody: IConsuntivoTask[]) => {
-          if (!task.idTaskId) {
-            this.idtasks = resBody;
+          if (!task.idId) {
+            this.ids = resBody;
           } else {
             this.consuntivoTaskService
-              .find(task.idTaskId)
+              .find(task.idId)
               .pipe(
                 map((subRes: HttpResponse<IConsuntivoTask>) => {
                   return subRes.body ? [subRes.body].concat(resBody) : resBody;
                 })
               )
-              .subscribe((concatRes: IConsuntivoTask[]) => (this.idtasks = concatRes));
+              .subscribe((concatRes: IConsuntivoTask[]) => (this.ids = concatRes));
           }
         });
 
@@ -97,17 +96,17 @@ export class TaskUpdateComponent implements OnInit {
           })
         )
         .subscribe((resBody: IPrevisioneTask[]) => {
-          if (!task.idTaskId) {
-            this.idtasks = resBody;
+          if (!task.idId) {
+            this.ids = resBody;
           } else {
             this.previsioneTaskService
-              .find(task.idTaskId)
+              .find(task.idId)
               .pipe(
                 map((subRes: HttpResponse<IPrevisioneTask>) => {
                   return subRes.body ? [subRes.body].concat(resBody) : resBody;
                 })
               )
-              .subscribe((concatRes: IPrevisioneTask[]) => (this.idtasks = concatRes));
+              .subscribe((concatRes: IPrevisioneTask[]) => (this.ids = concatRes));
           }
         });
 
@@ -119,17 +118,17 @@ export class TaskUpdateComponent implements OnInit {
           })
         )
         .subscribe((resBody: IAssegnazioneTask[]) => {
-          if (!task.idTaskId) {
-            this.idtasks = resBody;
+          if (!task.idId) {
+            this.ids = resBody;
           } else {
             this.assegnazioneTaskService
-              .find(task.idTaskId)
+              .find(task.idId)
               .pipe(
                 map((subRes: HttpResponse<IAssegnazioneTask>) => {
                   return subRes.body ? [subRes.body].concat(resBody) : resBody;
                 })
               )
-              .subscribe((concatRes: IAssegnazioneTask[]) => (this.idtasks = concatRes));
+              .subscribe((concatRes: IAssegnazioneTask[]) => (this.ids = concatRes));
           }
         });
 
@@ -141,17 +140,17 @@ export class TaskUpdateComponent implements OnInit {
           })
         )
         .subscribe((resBody: IInvitoAttivita[]) => {
-          if (!task.idTaskId) {
-            this.idtasks = resBody;
+          if (!task.idId) {
+            this.ids = resBody;
           } else {
             this.invitoAttivitaService
-              .find(task.idTaskId)
+              .find(task.idId)
               .pipe(
                 map((subRes: HttpResponse<IInvitoAttivita>) => {
                   return subRes.body ? [subRes.body].concat(resBody) : resBody;
                 })
               )
-              .subscribe((concatRes: IInvitoAttivita[]) => (this.idtasks = concatRes));
+              .subscribe((concatRes: IInvitoAttivita[]) => (this.ids = concatRes));
           }
         });
 
@@ -162,7 +161,6 @@ export class TaskUpdateComponent implements OnInit {
   updateForm(task: ITask): void {
     this.editForm.patchValue({
       id: task.id,
-      idTask: task.idTask,
       idPraticaRef: task.idPraticaRef,
       nome: task.nome,
       stato: task.stato,
@@ -172,10 +170,10 @@ export class TaskUpdateComponent implements OnInit {
       idCondivisionePraticaRef: task.idCondivisionePraticaRef,
       idAssegnazioneTaskRef: task.idAssegnazioneTaskRef,
       idInvitoRef: task.idInvitoRef,
-      idTaskId: task.idTaskId,
-      idTaskId: task.idTaskId,
-      idTaskId: task.idTaskId,
-      idTaskId: task.idTaskId,
+      idId: task.idId,
+      idId: task.idId,
+      idId: task.idId,
+      idId: task.idId,
       praticaId: task.praticaId,
     });
   }
@@ -198,7 +196,6 @@ export class TaskUpdateComponent implements OnInit {
     return {
       ...new Task(),
       id: this.editForm.get(['id'])!.value,
-      idTask: this.editForm.get(['idTask'])!.value,
       idPraticaRef: this.editForm.get(['idPraticaRef'])!.value,
       nome: this.editForm.get(['nome'])!.value,
       stato: this.editForm.get(['stato'])!.value,
@@ -208,10 +205,10 @@ export class TaskUpdateComponent implements OnInit {
       idCondivisionePraticaRef: this.editForm.get(['idCondivisionePraticaRef'])!.value,
       idAssegnazioneTaskRef: this.editForm.get(['idAssegnazioneTaskRef'])!.value,
       idInvitoRef: this.editForm.get(['idInvitoRef'])!.value,
-      idTaskId: this.editForm.get(['idTaskId'])!.value,
-      idTaskId: this.editForm.get(['idTaskId'])!.value,
-      idTaskId: this.editForm.get(['idTaskId'])!.value,
-      idTaskId: this.editForm.get(['idTaskId'])!.value,
+      idId: this.editForm.get(['idId'])!.value,
+      idId: this.editForm.get(['idId'])!.value,
+      idId: this.editForm.get(['idId'])!.value,
+      idId: this.editForm.get(['idId'])!.value,
       praticaId: this.editForm.get(['praticaId'])!.value,
     };
   }

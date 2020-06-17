@@ -12,12 +12,12 @@ import org.mapstruct.*;
 @Mapper(componentModel = "spring", uses = {OrganizzazioneMapper.class, PersonaFisicaMapper.class})
 public interface RuoloOrganizzazioneMapper extends EntityMapper<RuoloOrganizzazioneDTO, RuoloOrganizzazione> {
 
-    @Mapping(source = "idRuoloOrganizzazione.id", target = "idRuoloOrganizzazioneId")
-    @Mapping(source = "idRuoloOrganizzazione.id", target = "idRuoloOrganizzazioneId")
+    @Mapping(source = "id.id", target = "idId")
+    @Mapping(source = "id.id", target = "idId")
     RuoloOrganizzazioneDTO toDto(RuoloOrganizzazione ruoloOrganizzazione);
 
-    @Mapping(source = "idRuoloOrganizzazioneId", target = "idRuoloOrganizzazione")
-    @Mapping(source = "idRuoloOrganizzazioneId", target = "idRuoloOrganizzazione")
+    @Mapping(source = "idId", target = "id")
+    @Mapping(source = "idId", target = "id")
     RuoloOrganizzazione toEntity(RuoloOrganizzazioneDTO ruoloOrganizzazioneDTO);
 
     default RuoloOrganizzazione fromId(Long id) {

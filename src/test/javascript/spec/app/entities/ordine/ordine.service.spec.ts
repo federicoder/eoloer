@@ -20,7 +20,7 @@ describe('Service Tests', () => {
       service = injector.get(OrdineService);
       httpMock = injector.get(HttpTestingController);
 
-      elemDefault = new Ordine(0, 0, 0, 0, 0, 0, 0);
+      elemDefault = new Ordine(0, 0, 0, 0, 0, 0);
     });
 
     describe('Service methods', () => {
@@ -54,7 +54,6 @@ describe('Service Tests', () => {
       it('should update a Ordine', () => {
         const returnedFromService = Object.assign(
           {
-            idOrdine: 1,
             idStudioProfessionaleRef: 1,
             statoOrdine: 1,
             totImponibile: 1,
@@ -76,7 +75,6 @@ describe('Service Tests', () => {
       it('should return a list of Ordine', () => {
         const returnedFromService = Object.assign(
           {
-            idOrdine: 1,
             idStudioProfessionaleRef: 1,
             statoOrdine: 1,
             totImponibile: 1,

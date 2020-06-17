@@ -15,22 +15,19 @@
             <column name="id" type="bigint">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="id_assegnazione_task" type="integer">
-                <constraints nullable="false" />
-            </column>
-            <column name="id_task_ref" type="integer">
+            <column name="id_task_ref" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="id_user_ammesso" type="integer">
+            <column name="id_user_ammesso" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="ruolo" type="integer">
+            <column name="ruolo" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="id_user_concedente" type="integer">
+            <column name="id_user_concedente" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="stato_assegnazione" type="integer">
+            <column name="stato_assegnazione" type="bigint">
                 <constraints nullable="true" />
             </column>
             <column name="ruolo_id" type="bigint">
@@ -62,7 +59,6 @@
                   separator=";"
                   tableName="assegnazione_task">
             <column name="id" type="numeric"/>
-            <column name="id_assegnazione_task" type="numeric"/>
             <column name="id_task_ref" type="numeric"/>
             <column name="id_user_ammesso" type="numeric"/>
             <column name="ruolo" type="numeric"/>

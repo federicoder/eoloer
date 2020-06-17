@@ -40,23 +40,20 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WithMockUser
 public class TemplateTaskResourceIT {
 
-    private static final Integer DEFAULT_ID_TEMPLATE_TASK = 8;
-    private static final Integer UPDATED_ID_TEMPLATE_TASK = 7;
+    private static final Long DEFAULT_ORDINE_ESECUZIONE = 1L;
+    private static final Long UPDATED_ORDINE_ESECUZIONE = 2L;
 
-    private static final Integer DEFAULT_ORDINE_ESECUZIONE = 1;
-    private static final Integer UPDATED_ORDINE_ESECUZIONE = 2;
+    private static final Long DEFAULT_NOME = 1L;
+    private static final Long UPDATED_NOME = 2L;
 
-    private static final Integer DEFAULT_NOME = 1;
-    private static final Integer UPDATED_NOME = 2;
+    private static final Long DEFAULT_NOTE = 1L;
+    private static final Long UPDATED_NOTE = 2L;
 
-    private static final Integer DEFAULT_NOTE = 1;
-    private static final Integer UPDATED_NOTE = 2;
+    private static final Long DEFAULT_PUB_PRIV = 1L;
+    private static final Long UPDATED_PUB_PRIV = 2L;
 
-    private static final Integer DEFAULT_PUB_PRIV = 1;
-    private static final Integer UPDATED_PUB_PRIV = 2;
-
-    private static final Integer DEFAULT_ID_TEMPLATE_PRATICA_REF = 1;
-    private static final Integer UPDATED_ID_TEMPLATE_PRATICA_REF = 2;
+    private static final Long DEFAULT_ID_TEMPLATE_PRATICA_REF = 1L;
+    private static final Long UPDATED_ID_TEMPLATE_PRATICA_REF = 2L;
 
     @Autowired
     private TemplateTaskRepository templateTaskRepository;
@@ -91,7 +88,6 @@ public class TemplateTaskResourceIT {
      */
     public static TemplateTask createEntity(EntityManager em) {
         TemplateTask templateTask = new TemplateTask()
-            .idTemplateTask(DEFAULT_ID_TEMPLATE_TASK)
             .ordineEsecuzione(DEFAULT_ORDINE_ESECUZIONE)
             .nome(DEFAULT_NOME)
             .note(DEFAULT_NOTE)
@@ -107,7 +103,6 @@ public class TemplateTaskResourceIT {
      */
     public static TemplateTask createUpdatedEntity(EntityManager em) {
         TemplateTask templateTask = new TemplateTask()
-            .idTemplateTask(UPDATED_ID_TEMPLATE_TASK)
             .ordineEsecuzione(UPDATED_ORDINE_ESECUZIONE)
             .nome(UPDATED_NOME)
             .note(UPDATED_NOTE)
@@ -136,7 +131,6 @@ public class TemplateTaskResourceIT {
         List<TemplateTask> templateTaskList = templateTaskRepository.findAll();
         assertThat(templateTaskList).hasSize(databaseSizeBeforeCreate + 1);
         TemplateTask testTemplateTask = templateTaskList.get(templateTaskList.size() - 1);
-        assertThat(testTemplateTask.getIdTemplateTask()).isEqualTo(DEFAULT_ID_TEMPLATE_TASK);
         assertThat(testTemplateTask.getOrdineEsecuzione()).isEqualTo(DEFAULT_ORDINE_ESECUZIONE);
         assertThat(testTemplateTask.getNome()).isEqualTo(DEFAULT_NOME);
         assertThat(testTemplateTask.getNote()).isEqualTo(DEFAULT_NOTE);
@@ -173,26 +167,6 @@ public class TemplateTaskResourceIT {
 
     @Test
     @Transactional
-    public void checkIdTemplateTaskIsRequired() throws Exception {
-        int databaseSizeBeforeTest = templateTaskRepository.findAll().size();
-        // set the field null
-        templateTask.setIdTemplateTask(null);
-
-        // Create the TemplateTask, which fails.
-        TemplateTaskDTO templateTaskDTO = templateTaskMapper.toDto(templateTask);
-
-
-        restTemplateTaskMockMvc.perform(post("/api/template-tasks")
-            .contentType(MediaType.APPLICATION_JSON)
-            .content(TestUtil.convertObjectToJsonBytes(templateTaskDTO)))
-            .andExpect(status().isBadRequest());
-
-        List<TemplateTask> templateTaskList = templateTaskRepository.findAll();
-        assertThat(templateTaskList).hasSize(databaseSizeBeforeTest);
-    }
-
-    @Test
-    @Transactional
     public void getAllTemplateTasks() throws Exception {
         // Initialize the database
         templateTaskRepository.saveAndFlush(templateTask);
@@ -202,12 +176,11 @@ public class TemplateTaskResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(templateTask.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idTemplateTask").value(hasItem(DEFAULT_ID_TEMPLATE_TASK)))
-            .andExpect(jsonPath("$.[*].ordineEsecuzione").value(hasItem(DEFAULT_ORDINE_ESECUZIONE)))
-            .andExpect(jsonPath("$.[*].nome").value(hasItem(DEFAULT_NOME)))
-            .andExpect(jsonPath("$.[*].note").value(hasItem(DEFAULT_NOTE)))
-            .andExpect(jsonPath("$.[*].pubPriv").value(hasItem(DEFAULT_PUB_PRIV)))
-            .andExpect(jsonPath("$.[*].idTemplatePraticaRef").value(hasItem(DEFAULT_ID_TEMPLATE_PRATICA_REF)));
+            .andExpect(jsonPath("$.[*].ordineEsecuzione").value(hasItem(DEFAULT_ORDINE_ESECUZIONE.intValue())))
+            .andExpect(jsonPath("$.[*].nome").value(hasItem(DEFAULT_NOME.intValue())))
+            .andExpect(jsonPath("$.[*].note").value(hasItem(DEFAULT_NOTE.intValue())))
+            .andExpect(jsonPath("$.[*].pubPriv").value(hasItem(DEFAULT_PUB_PRIV.intValue())))
+            .andExpect(jsonPath("$.[*].idTemplatePraticaRef").value(hasItem(DEFAULT_ID_TEMPLATE_PRATICA_REF.intValue())));
     }
     
     @Test
@@ -221,12 +194,11 @@ public class TemplateTaskResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(templateTask.getId().intValue()))
-            .andExpect(jsonPath("$.idTemplateTask").value(DEFAULT_ID_TEMPLATE_TASK))
-            .andExpect(jsonPath("$.ordineEsecuzione").value(DEFAULT_ORDINE_ESECUZIONE))
-            .andExpect(jsonPath("$.nome").value(DEFAULT_NOME))
-            .andExpect(jsonPath("$.note").value(DEFAULT_NOTE))
-            .andExpect(jsonPath("$.pubPriv").value(DEFAULT_PUB_PRIV))
-            .andExpect(jsonPath("$.idTemplatePraticaRef").value(DEFAULT_ID_TEMPLATE_PRATICA_REF));
+            .andExpect(jsonPath("$.ordineEsecuzione").value(DEFAULT_ORDINE_ESECUZIONE.intValue()))
+            .andExpect(jsonPath("$.nome").value(DEFAULT_NOME.intValue()))
+            .andExpect(jsonPath("$.note").value(DEFAULT_NOTE.intValue()))
+            .andExpect(jsonPath("$.pubPriv").value(DEFAULT_PUB_PRIV.intValue()))
+            .andExpect(jsonPath("$.idTemplatePraticaRef").value(DEFAULT_ID_TEMPLATE_PRATICA_REF.intValue()));
     }
     @Test
     @Transactional
@@ -249,7 +221,6 @@ public class TemplateTaskResourceIT {
         // Disconnect from session so that the updates on updatedTemplateTask are not directly saved in db
         em.detach(updatedTemplateTask);
         updatedTemplateTask
-            .idTemplateTask(UPDATED_ID_TEMPLATE_TASK)
             .ordineEsecuzione(UPDATED_ORDINE_ESECUZIONE)
             .nome(UPDATED_NOME)
             .note(UPDATED_NOTE)
@@ -266,7 +237,6 @@ public class TemplateTaskResourceIT {
         List<TemplateTask> templateTaskList = templateTaskRepository.findAll();
         assertThat(templateTaskList).hasSize(databaseSizeBeforeUpdate);
         TemplateTask testTemplateTask = templateTaskList.get(templateTaskList.size() - 1);
-        assertThat(testTemplateTask.getIdTemplateTask()).isEqualTo(UPDATED_ID_TEMPLATE_TASK);
         assertThat(testTemplateTask.getOrdineEsecuzione()).isEqualTo(UPDATED_ORDINE_ESECUZIONE);
         assertThat(testTemplateTask.getNome()).isEqualTo(UPDATED_NOME);
         assertThat(testTemplateTask.getNote()).isEqualTo(UPDATED_NOTE);
@@ -334,11 +304,10 @@ public class TemplateTaskResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(templateTask.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idTemplateTask").value(hasItem(DEFAULT_ID_TEMPLATE_TASK)))
-            .andExpect(jsonPath("$.[*].ordineEsecuzione").value(hasItem(DEFAULT_ORDINE_ESECUZIONE)))
-            .andExpect(jsonPath("$.[*].nome").value(hasItem(DEFAULT_NOME)))
-            .andExpect(jsonPath("$.[*].note").value(hasItem(DEFAULT_NOTE)))
-            .andExpect(jsonPath("$.[*].pubPriv").value(hasItem(DEFAULT_PUB_PRIV)))
-            .andExpect(jsonPath("$.[*].idTemplatePraticaRef").value(hasItem(DEFAULT_ID_TEMPLATE_PRATICA_REF)));
+            .andExpect(jsonPath("$.[*].ordineEsecuzione").value(hasItem(DEFAULT_ORDINE_ESECUZIONE.intValue())))
+            .andExpect(jsonPath("$.[*].nome").value(hasItem(DEFAULT_NOME.intValue())))
+            .andExpect(jsonPath("$.[*].note").value(hasItem(DEFAULT_NOTE.intValue())))
+            .andExpect(jsonPath("$.[*].pubPriv").value(hasItem(DEFAULT_PUB_PRIV.intValue())))
+            .andExpect(jsonPath("$.[*].idTemplatePraticaRef").value(hasItem(DEFAULT_ID_TEMPLATE_PRATICA_REF.intValue())));
     }
 }

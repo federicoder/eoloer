@@ -12,26 +12,6 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="eoloprjApp.invito.idInvito" for="field_idInvito">Id Invito</label>
-                    <input type="number" class="form-control" name="idInvito" id="field_idInvito"
-                           formControlName="idInvito"/>
-                    <div *ngIf="editForm.get('idInvito')!.invalid && (editForm.get('idInvito')!.dirty || editForm.get('idInvito')!.touched)">
-                        <small class="form-text text-danger"
-                               *ngIf="editForm.get('idInvito')?.errors?.required" jhiTranslate="entity.validation.required">
-                        This field is required.
-                        </small>
-                        <small class="form-text text-danger"
-                               *ngIf="editForm.get('idInvito')?.errors?.max" jhiTranslate="entity.validation.max" [translateValues]="{ max: 8 }">
-                            This field cannot be more than 8.
-                        </small>
-                        <small class="form-text text-danger"
-                            [hidden]="!editForm.get('idInvito')?.errors?.number" jhiTranslate="entity.validation.number">
-                            This field should be a number.
-                        </small>
-                    </div>
-                </div>
-
-                <div class="form-group">
                     <label class="form-control-label" jhiTranslate="eoloprjApp.invito.idStudioProfessionaleRef" for="field_idStudioProfessionaleRef">Id Studio Professionale Ref</label>
                     <input type="number" class="form-control" name="idStudioProfessionaleRef" id="field_idStudioProfessionaleRef"
                            formControlName="idStudioProfessionaleRef"/>

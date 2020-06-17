@@ -40,11 +40,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WithMockUser
 public class DatiContabiliResourceIT {
 
-    private static final Integer DEFAULT_ID_DATI_CONTABILI = 1;
-    private static final Integer UPDATED_ID_DATI_CONTABILI = 2;
-
-    private static final Integer DEFAULT_ID_PERSONA_REF = 1;
-    private static final Integer UPDATED_ID_PERSONA_REF = 2;
+    private static final Long DEFAULT_ID_PERSONA_REF = 1L;
+    private static final Long UPDATED_ID_PERSONA_REF = 2L;
 
     @Autowired
     private DatiContabiliRepository datiContabiliRepository;
@@ -79,7 +76,6 @@ public class DatiContabiliResourceIT {
      */
     public static DatiContabili createEntity(EntityManager em) {
         DatiContabili datiContabili = new DatiContabili()
-            .idDatiContabili(DEFAULT_ID_DATI_CONTABILI)
             .idPersonaRef(DEFAULT_ID_PERSONA_REF);
         return datiContabili;
     }
@@ -91,7 +87,6 @@ public class DatiContabiliResourceIT {
      */
     public static DatiContabili createUpdatedEntity(EntityManager em) {
         DatiContabili datiContabili = new DatiContabili()
-            .idDatiContabili(UPDATED_ID_DATI_CONTABILI)
             .idPersonaRef(UPDATED_ID_PERSONA_REF);
         return datiContabili;
     }
@@ -116,7 +111,6 @@ public class DatiContabiliResourceIT {
         List<DatiContabili> datiContabiliList = datiContabiliRepository.findAll();
         assertThat(datiContabiliList).hasSize(databaseSizeBeforeCreate + 1);
         DatiContabili testDatiContabili = datiContabiliList.get(datiContabiliList.size() - 1);
-        assertThat(testDatiContabili.getIdDatiContabili()).isEqualTo(DEFAULT_ID_DATI_CONTABILI);
         assertThat(testDatiContabili.getIdPersonaRef()).isEqualTo(DEFAULT_ID_PERSONA_REF);
 
         // Validate the DatiContabili in Elasticsearch
@@ -149,26 +143,6 @@ public class DatiContabiliResourceIT {
 
     @Test
     @Transactional
-    public void checkIdDatiContabiliIsRequired() throws Exception {
-        int databaseSizeBeforeTest = datiContabiliRepository.findAll().size();
-        // set the field null
-        datiContabili.setIdDatiContabili(null);
-
-        // Create the DatiContabili, which fails.
-        DatiContabiliDTO datiContabiliDTO = datiContabiliMapper.toDto(datiContabili);
-
-
-        restDatiContabiliMockMvc.perform(post("/api/dati-contabilis")
-            .contentType(MediaType.APPLICATION_JSON)
-            .content(TestUtil.convertObjectToJsonBytes(datiContabiliDTO)))
-            .andExpect(status().isBadRequest());
-
-        List<DatiContabili> datiContabiliList = datiContabiliRepository.findAll();
-        assertThat(datiContabiliList).hasSize(databaseSizeBeforeTest);
-    }
-
-    @Test
-    @Transactional
     public void checkIdPersonaRefIsRequired() throws Exception {
         int databaseSizeBeforeTest = datiContabiliRepository.findAll().size();
         // set the field null
@@ -198,8 +172,7 @@ public class DatiContabiliResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(datiContabili.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idDatiContabili").value(hasItem(DEFAULT_ID_DATI_CONTABILI)))
-            .andExpect(jsonPath("$.[*].idPersonaRef").value(hasItem(DEFAULT_ID_PERSONA_REF)));
+            .andExpect(jsonPath("$.[*].idPersonaRef").value(hasItem(DEFAULT_ID_PERSONA_REF.intValue())));
     }
     
     @Test
@@ -213,8 +186,7 @@ public class DatiContabiliResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(datiContabili.getId().intValue()))
-            .andExpect(jsonPath("$.idDatiContabili").value(DEFAULT_ID_DATI_CONTABILI))
-            .andExpect(jsonPath("$.idPersonaRef").value(DEFAULT_ID_PERSONA_REF));
+            .andExpect(jsonPath("$.idPersonaRef").value(DEFAULT_ID_PERSONA_REF.intValue()));
     }
     @Test
     @Transactional
@@ -237,7 +209,6 @@ public class DatiContabiliResourceIT {
         // Disconnect from session so that the updates on updatedDatiContabili are not directly saved in db
         em.detach(updatedDatiContabili);
         updatedDatiContabili
-            .idDatiContabili(UPDATED_ID_DATI_CONTABILI)
             .idPersonaRef(UPDATED_ID_PERSONA_REF);
         DatiContabiliDTO datiContabiliDTO = datiContabiliMapper.toDto(updatedDatiContabili);
 
@@ -250,7 +221,6 @@ public class DatiContabiliResourceIT {
         List<DatiContabili> datiContabiliList = datiContabiliRepository.findAll();
         assertThat(datiContabiliList).hasSize(databaseSizeBeforeUpdate);
         DatiContabili testDatiContabili = datiContabiliList.get(datiContabiliList.size() - 1);
-        assertThat(testDatiContabili.getIdDatiContabili()).isEqualTo(UPDATED_ID_DATI_CONTABILI);
         assertThat(testDatiContabili.getIdPersonaRef()).isEqualTo(UPDATED_ID_PERSONA_REF);
 
         // Validate the DatiContabili in Elasticsearch
@@ -314,7 +284,6 @@ public class DatiContabiliResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(datiContabili.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idDatiContabili").value(hasItem(DEFAULT_ID_DATI_CONTABILI)))
-            .andExpect(jsonPath("$.[*].idPersonaRef").value(hasItem(DEFAULT_ID_PERSONA_REF)));
+            .andExpect(jsonPath("$.[*].idPersonaRef").value(hasItem(DEFAULT_ID_PERSONA_REF.intValue())));
     }
 }

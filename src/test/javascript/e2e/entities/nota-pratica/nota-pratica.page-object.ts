@@ -29,7 +29,6 @@ export class NotaPraticaUpdatePage {
   saveButton = element(by.id('save-entity'));
   cancelButton = element(by.id('cancel-save'));
 
-  idNotaPraticaInput = element(by.id('field_idNotaPratica'));
   idPraticaRefInput = element(by.id('field_idPraticaRef'));
   dataInput = element(by.id('field_data'));
   notaInput = element(by.id('field_nota'));
@@ -39,14 +38,6 @@ export class NotaPraticaUpdatePage {
 
   async getPageTitle(): Promise<string> {
     return this.pageTitle.getAttribute('jhiTranslate');
-  }
-
-  async setIdNotaPraticaInput(idNotaPratica: string): Promise<void> {
-    await this.idNotaPraticaInput.sendKeys(idNotaPratica);
-  }
-
-  async getIdNotaPraticaInput(): Promise<string> {
-    return await this.idNotaPraticaInput.getAttribute('value');
   }
 
   async setIdPraticaRefInput(idPraticaRef: string): Promise<void> {

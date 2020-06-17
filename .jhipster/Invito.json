@@ -2,14 +2,8 @@
   "name": "Invito",
   "fields": [
     {
-      "fieldName": "idInvito",
-      "fieldType": "Integer",
-      "fieldValidateRules": ["max", "required"],
-      "fieldValidateRulesMax": "8"
-    },
-    {
       "fieldName": "idStudioProfessionaleRef",
-      "fieldType": "Integer",
+      "fieldType": "Long",
       "fieldValidateRules": ["max"],
       "fieldValidateRulesMax": "8"
     },
@@ -19,7 +13,7 @@
     },
     {
       "fieldName": "idUserInvitante",
-      "fieldType": "Integer"
+      "fieldType": "Long"
     },
     {
       "fieldName": "nomeUserInvitante",
@@ -35,11 +29,11 @@
     },
     {
       "fieldName": "idPraticaRef",
-      "fieldType": "Integer"
+      "fieldType": "Long"
     },
     {
       "fieldName": "idTaskRef",
-      "fieldType": "Integer"
+      "fieldType": "Long"
     },
     {
       "fieldName": "luogoFisico",
@@ -78,7 +72,7 @@
     {
       "relationshipType": "one-to-one",
       "otherEntityName": "studioProfessionale",
-      "otherEntityRelationshipName": "idStudioProfessionale",
+      "otherEntityRelationshipName": "id",
       "relationshipName": "idStudioProfessionaleRef",
       "otherEntityField": "id",
       "ownerSide": true
@@ -87,27 +81,27 @@
       "relationshipType": "one-to-many",
       "otherEntityName": "invitato",
       "otherEntityRelationshipName": "invito",
-      "relationshipName": "idInvito"
+      "relationshipName": "id"
     },
     {
       "relationshipType": "one-to-one",
       "otherEntityName": "invitoPratica",
       "otherEntityRelationshipName": "idPraticaRef",
-      "relationshipName": "idInvito",
+      "relationshipName": "id",
       "ownerSide": false
     },
     {
       "relationshipType": "one-to-one",
       "otherEntityName": "invitoAttivita",
       "otherEntityRelationshipName": "idTaskRef",
-      "relationshipName": "idInvito",
+      "relationshipName": "id",
       "ownerSide": false
     },
     {
       "relationshipType": "one-to-one",
       "otherEntityName": "invitoEvento",
       "otherEntityRelationshipName": "idTaskRef",
-      "relationshipName": "idInvito",
+      "relationshipName": "id",
       "ownerSide": false
     },
     {

@@ -8,10 +8,6 @@
             <jhi-alert-error></jhi-alert-error>
 
             <dl class="row-md jh-entity-details">
-                <dt><span jhiTranslate="eoloprjApp.task.idTask">Id Task</span></dt>
-                <dd>
-                    <span>{{ task.idTask }}</span>
-                </dd>
                 <dt><span jhiTranslate="eoloprjApp.task.idPraticaRef">Id Pratica Ref</span></dt>
                 <dd>
                     <span>{{ task.idPraticaRef }}</span>
@@ -48,28 +44,28 @@
                 <dd>
                     <span>{{ task.idInvitoRef }}</span>
                 </dd>
-                <dt><span jhiTranslate="eoloprjApp.task.idTask">Id Task</span></dt>
+                <dt><span jhiTranslate="eoloprjApp.task.id">Id</span></dt>
                 <dd>
-                    <div *ngIf="task.idTaskId">
-                        <a [routerLink]="['/consuntivo-task', task.idTaskId, 'view']">{{ task.idTaskId }}</a>
+                    <div *ngIf="task.idId">
+                        <a [routerLink]="['/consuntivo-task', task.idId, 'view']">{{ task.idId }}</a>
                     </div>
                 </dd>
-                <dt><span jhiTranslate="eoloprjApp.task.idTask">Id Task</span></dt>
+                <dt><span jhiTranslate="eoloprjApp.task.id">Id</span></dt>
                 <dd>
-                    <div *ngIf="task.idTaskId">
-                        <a [routerLink]="['/previsione-task', task.idTaskId, 'view']">{{ task.idTaskId }}</a>
+                    <div *ngIf="task.idId">
+                        <a [routerLink]="['/previsione-task', task.idId, 'view']">{{ task.idId }}</a>
                     </div>
                 </dd>
-                <dt><span jhiTranslate="eoloprjApp.task.idTask">Id Task</span></dt>
+                <dt><span jhiTranslate="eoloprjApp.task.id">Id</span></dt>
                 <dd>
-                    <div *ngIf="task.idTaskId">
-                        <a [routerLink]="['/assegnazione-task', task.idTaskId, 'view']">{{ task.idTaskId }}</a>
+                    <div *ngIf="task.idId">
+                        <a [routerLink]="['/assegnazione-task', task.idId, 'view']">{{ task.idId }}</a>
                     </div>
                 </dd>
-                <dt><span jhiTranslate="eoloprjApp.task.idTask">Id Task</span></dt>
+                <dt><span jhiTranslate="eoloprjApp.task.id">Id</span></dt>
                 <dd>
-                    <div *ngIf="task.idTaskId">
-                        <a [routerLink]="['/invito-attivita', task.idTaskId, 'view']">{{ task.idTaskId }}</a>
+                    <div *ngIf="task.idId">
+                        <a [routerLink]="['/invito-attivita', task.idId, 'view']">{{ task.idId }}</a>
                     </div>
                 </dd>
                 <dt><span jhiTranslate="eoloprjApp.task.pratica">Pratica</span></dt>

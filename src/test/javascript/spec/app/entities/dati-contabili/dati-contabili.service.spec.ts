@@ -20,7 +20,7 @@ describe('Service Tests', () => {
       service = injector.get(DatiContabiliService);
       httpMock = injector.get(HttpTestingController);
 
-      elemDefault = new DatiContabili(0, 0, 0);
+      elemDefault = new DatiContabili(0, 0);
     });
 
     describe('Service methods', () => {
@@ -54,7 +54,6 @@ describe('Service Tests', () => {
       it('should update a DatiContabili', () => {
         const returnedFromService = Object.assign(
           {
-            idDatiContabili: 1,
             idPersonaRef: 1,
           },
           elemDefault
@@ -72,7 +71,6 @@ describe('Service Tests', () => {
       it('should return a list of DatiContabili', () => {
         const returnedFromService = Object.assign(
           {
-            idDatiContabili: 1,
             idPersonaRef: 1,
           },
           elemDefault

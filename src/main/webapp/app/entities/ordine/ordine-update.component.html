@@ -12,22 +12,6 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="eoloprjApp.ordine.idOrdine" for="field_idOrdine">Id Ordine</label>
-                    <input type="number" class="form-control" name="idOrdine" id="field_idOrdine"
-                           formControlName="idOrdine"/>
-                    <div *ngIf="editForm.get('idOrdine')!.invalid && (editForm.get('idOrdine')!.dirty || editForm.get('idOrdine')!.touched)">
-                        <small class="form-text text-danger"
-                               *ngIf="editForm.get('idOrdine')?.errors?.required" jhiTranslate="entity.validation.required">
-                        This field is required.
-                        </small>
-                        <small class="form-text text-danger"
-                            [hidden]="!editForm.get('idOrdine')?.errors?.number" jhiTranslate="entity.validation.number">
-                            This field should be a number.
-                        </small>
-                    </div>
-                </div>
-
-                <div class="form-group">
                     <label class="form-control-label" jhiTranslate="eoloprjApp.ordine.idStudioProfessionaleRef" for="field_idStudioProfessionaleRef">Id Studio Professionale Ref</label>
                     <input type="number" class="form-control" name="idStudioProfessionaleRef" id="field_idStudioProfessionaleRef"
                            formControlName="idStudioProfessionaleRef"/>

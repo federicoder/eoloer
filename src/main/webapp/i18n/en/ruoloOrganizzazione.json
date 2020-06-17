@@ -17,10 +17,9 @@
       "detail": {
         "title": "Ruolo Organizzazione"
       },
-      "idRuoloOrganizzazione": "Id Ruolo Organizzazione",
       "ruoloInOrg": "Ruolo In Org",
-      "idRuoloOrganizzazione": "Id Ruolo Organizzazione",
-      "idRuoloOrganizzazione": "Id Ruolo Organizzazione"
+      "id": "Id",
+      "id": "Id"
     }
   }
 }

@@ -40,8 +40,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WithMockUser
 public class InvitoEventoResourceIT {
 
-    private static final Integer DEFAULT_ID_TASK_REF = 1;
-    private static final Integer UPDATED_ID_TASK_REF = 2;
+    private static final Long DEFAULT_ID_TASK_REF = 1L;
+    private static final Long UPDATED_ID_TASK_REF = 2L;
 
     private static final String DEFAULT_LUOGO_FISICO = "AAAAAAAAAA";
     private static final String UPDATED_LUOGO_FISICO = "BBBBBBBBBB";
@@ -194,7 +194,7 @@ public class InvitoEventoResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(invitoEvento.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idTaskRef").value(hasItem(DEFAULT_ID_TASK_REF)))
+            .andExpect(jsonPath("$.[*].idTaskRef").value(hasItem(DEFAULT_ID_TASK_REF.intValue())))
             .andExpect(jsonPath("$.[*].luogoFisico").value(hasItem(DEFAULT_LUOGO_FISICO)))
             .andExpect(jsonPath("$.[*].indicazioniLuogo").value(hasItem(DEFAULT_INDICAZIONI_LUOGO)))
             .andExpect(jsonPath("$.[*].dataInizio").value(hasItem(DEFAULT_DATA_INIZIO)))
@@ -215,7 +215,7 @@ public class InvitoEventoResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(invitoEvento.getId().intValue()))
-            .andExpect(jsonPath("$.idTaskRef").value(DEFAULT_ID_TASK_REF))
+            .andExpect(jsonPath("$.idTaskRef").value(DEFAULT_ID_TASK_REF.intValue()))
             .andExpect(jsonPath("$.luogoFisico").value(DEFAULT_LUOGO_FISICO))
             .andExpect(jsonPath("$.indicazioniLuogo").value(DEFAULT_INDICAZIONI_LUOGO))
             .andExpect(jsonPath("$.dataInizio").value(DEFAULT_DATA_INIZIO))
@@ -334,7 +334,7 @@ public class InvitoEventoResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(invitoEvento.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idTaskRef").value(hasItem(DEFAULT_ID_TASK_REF)))
+            .andExpect(jsonPath("$.[*].idTaskRef").value(hasItem(DEFAULT_ID_TASK_REF.intValue())))
             .andExpect(jsonPath("$.[*].luogoFisico").value(hasItem(DEFAULT_LUOGO_FISICO)))
             .andExpect(jsonPath("$.[*].indicazioniLuogo").value(hasItem(DEFAULT_INDICAZIONI_LUOGO)))
             .andExpect(jsonPath("$.[*].dataInizio").value(hasItem(DEFAULT_DATA_INIZIO)))

@@ -29,22 +29,13 @@ export class RuoloOrganizzazioneUpdatePage {
   saveButton = element(by.id('save-entity'));
   cancelButton = element(by.id('cancel-save'));
 
-  idRuoloOrganizzazioneInput = element(by.id('field_idRuoloOrganizzazione'));
   ruoloInOrgInput = element(by.id('field_ruoloInOrg'));
 
-  idRuoloOrganizzazioneSelect = element(by.id('field_idRuoloOrganizzazione'));
-  idRuoloOrganizzazioneSelect = element(by.id('field_idRuoloOrganizzazione'));
+  idSelect = element(by.id('field_id'));
+  idSelect = element(by.id('field_id'));
 
   async getPageTitle(): Promise<string> {
     return this.pageTitle.getAttribute('jhiTranslate');
-  }
-
-  async setIdRuoloOrganizzazioneInput(idRuoloOrganizzazione: string): Promise<void> {
-    await this.idRuoloOrganizzazioneInput.sendKeys(idRuoloOrganizzazione);
-  }
-
-  async getIdRuoloOrganizzazioneInput(): Promise<string> {
-    return await this.idRuoloOrganizzazioneInput.getAttribute('value');
   }
 
   async setRuoloInOrgInput(ruoloInOrg: string): Promise<void> {
@@ -55,36 +46,36 @@ export class RuoloOrganizzazioneUpdatePage {
     return await this.ruoloInOrgInput.getAttribute('value');
   }
 
-  async idRuoloOrganizzazioneSelectLastOption(): Promise<void> {
-    await this.idRuoloOrganizzazioneSelect.all(by.tagName('option')).last().click();
+  async idSelectLastOption(): Promise<void> {
+    await this.idSelect.all(by.tagName('option')).last().click();
   }
 
-  async idRuoloOrganizzazioneSelectOption(option: string): Promise<void> {
-    await this.idRuoloOrganizzazioneSelect.sendKeys(option);
+  async idSelectOption(option: string): Promise<void> {
+    await this.idSelect.sendKeys(option);
   }
 
-  getIdRuoloOrganizzazioneSelect(): ElementFinder {
-    return this.idRuoloOrganizzazioneSelect;
+  getIdSelect(): ElementFinder {
+    return this.idSelect;
   }
 
-  async getIdRuoloOrganizzazioneSelectedOption(): Promise<string> {
-    return await this.idRuoloOrganizzazioneSelect.element(by.css('option:checked')).getText();
+  async getIdSelectedOption(): Promise<string> {
+    return await this.idSelect.element(by.css('option:checked')).getText();
   }
 
-  async idRuoloOrganizzazioneSelectLastOption(): Promise<void> {
-    await this.idRuoloOrganizzazioneSelect.all(by.tagName('option')).last().click();
+  async idSelectLastOption(): Promise<void> {
+    await this.idSelect.all(by.tagName('option')).last().click();
   }
 
-  async idRuoloOrganizzazioneSelectOption(option: string): Promise<void> {
-    await this.idRuoloOrganizzazioneSelect.sendKeys(option);
+  async idSelectOption(option: string): Promise<void> {
+    await this.idSelect.sendKeys(option);
   }
 
-  getIdRuoloOrganizzazioneSelect(): ElementFinder {
-    return this.idRuoloOrganizzazioneSelect;
+  getIdSelect(): ElementFinder {
+    return this.idSelect;
   }
 
-  async getIdRuoloOrganizzazioneSelectedOption(): Promise<string> {
-    return await this.idRuoloOrganizzazioneSelect.element(by.css('option:checked')).getText();
+  async getIdSelectedOption(): Promise<string> {
+    return await this.idSelect.element(by.css('option:checked')).getText();
   }
 
   async save(): Promise<void> {

@@ -32,7 +32,6 @@ export class CondivisionePraticaUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    idCondivisionePratica: [null, [Validators.required, Validators.max(8)]],
     idUserAmmesso: [null, [Validators.max(8)]],
     ruolo: [],
     idUserConcedente: [],
@@ -81,7 +80,7 @@ export class CondivisionePraticaUpdateComponent implements OnInit {
         });
 
       this.personaService
-        .query({ filter: 'idpersona-is-null' })
+        .query({ filter: 'id-is-null' })
         .pipe(
           map((res: HttpResponse<IPersona[]>) => {
             return res.body || [];
@@ -111,7 +110,6 @@ export class CondivisionePraticaUpdateComponent implements OnInit {
   updateForm(condivisionePratica: ICondivisionePratica): void {
     this.editForm.patchValue({
       id: condivisionePratica.id,
-      idCondivisionePratica: condivisionePratica.idCondivisionePratica,
       idUserAmmesso: condivisionePratica.idUserAmmesso,
       ruolo: condivisionePratica.ruolo,
       idUserConcedente: condivisionePratica.idUserConcedente,
@@ -142,7 +140,6 @@ export class CondivisionePraticaUpdateComponent implements OnInit {
     return {
       ...new CondivisionePratica(),
       id: this.editForm.get(['id'])!.value,
-      idCondivisionePratica: this.editForm.get(['idCondivisionePratica'])!.value,
       idUserAmmesso: this.editForm.get(['idUserAmmesso'])!.value,
       ruolo: this.editForm.get(['ruolo'])!.value,
       idUserConcedente: this.editForm.get(['idUserConcedente'])!.value,

@@ -15,16 +15,16 @@
             <column name="id" type="bigint">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="id_ordine_ref" type="integer">
+            <column name="id_ordine_ref" type="bigint">
                 <constraints nullable="false" />
             </column>
-            <column name="id_prodotto_ref" type="integer">
+            <column name="id_prodotto_ref" type="bigint">
                 <constraints nullable="false" />
             </column>
-            <column name="quantita" type="integer">
+            <column name="quantita" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="importo" type="integer">
+            <column name="importo" type="bigint">
                 <constraints nullable="true" />
             </column>
             <column name="cod_iva" type="varchar(255)">

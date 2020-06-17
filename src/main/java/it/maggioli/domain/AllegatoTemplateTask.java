@@ -27,28 +27,28 @@ public class AllegatoTemplateTask implements Serializable {
     private Long id;
 
     @NotNull
-    @Max(value = 8)
+    @Max(value = 8L)
     @Column(name = "id_template_task_ref", nullable = false)
-    private Integer idTemplateTaskRef;
+    private Long idTemplateTaskRef;
 
     @Column(name = "id_tipo_allegato_ref")
-    private Integer idTipoAllegatoRef;
+    private Long idTipoAllegatoRef;
 
     @Column(name = "formato")
-    private Integer formato;
+    private Long formato;
 
     @Column(name = "id_file_ref")
-    private Integer idFileRef;
+    private Long idFileRef;
 
     @Column(name = "pub_priv")
-    private Integer pubPriv;
+    private Long pubPriv;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "idTemplateTasks", allowSetters = true)
+    @JsonIgnoreProperties(value = "ids", allowSetters = true)
     private TemplateTask templateTask;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "idTipoAllegatoes", allowSetters = true)
+    @JsonIgnoreProperties(value = "ids", allowSetters = true)
     private TipoAllegato tipoAllegato;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
@@ -60,68 +60,68 @@ public class AllegatoTemplateTask implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdTemplateTaskRef() {
+    public Long getIdTemplateTaskRef() {
         return idTemplateTaskRef;
     }
 
-    public AllegatoTemplateTask idTemplateTaskRef(Integer idTemplateTaskRef) {
+    public AllegatoTemplateTask idTemplateTaskRef(Long idTemplateTaskRef) {
         this.idTemplateTaskRef = idTemplateTaskRef;
         return this;
     }
 
-    public void setIdTemplateTaskRef(Integer idTemplateTaskRef) {
+    public void setIdTemplateTaskRef(Long idTemplateTaskRef) {
         this.idTemplateTaskRef = idTemplateTaskRef;
     }
 
-    public Integer getIdTipoAllegatoRef() {
+    public Long getIdTipoAllegatoRef() {
         return idTipoAllegatoRef;
     }
 
-    public AllegatoTemplateTask idTipoAllegatoRef(Integer idTipoAllegatoRef) {
+    public AllegatoTemplateTask idTipoAllegatoRef(Long idTipoAllegatoRef) {
         this.idTipoAllegatoRef = idTipoAllegatoRef;
         return this;
     }
 
-    public void setIdTipoAllegatoRef(Integer idTipoAllegatoRef) {
+    public void setIdTipoAllegatoRef(Long idTipoAllegatoRef) {
         this.idTipoAllegatoRef = idTipoAllegatoRef;
     }
 
-    public Integer getFormato() {
+    public Long getFormato() {
         return formato;
     }
 
-    public AllegatoTemplateTask formato(Integer formato) {
+    public AllegatoTemplateTask formato(Long formato) {
         this.formato = formato;
         return this;
     }
 
-    public void setFormato(Integer formato) {
+    public void setFormato(Long formato) {
         this.formato = formato;
     }
 
-    public Integer getIdFileRef() {
+    public Long getIdFileRef() {
         return idFileRef;
     }
 
-    public AllegatoTemplateTask idFileRef(Integer idFileRef) {
+    public AllegatoTemplateTask idFileRef(Long idFileRef) {
         this.idFileRef = idFileRef;
         return this;
     }
 
-    public void setIdFileRef(Integer idFileRef) {
+    public void setIdFileRef(Long idFileRef) {
         this.idFileRef = idFileRef;
     }
 
-    public Integer getPubPriv() {
+    public Long getPubPriv() {
         return pubPriv;
     }
 
-    public AllegatoTemplateTask pubPriv(Integer pubPriv) {
+    public AllegatoTemplateTask pubPriv(Long pubPriv) {
         this.pubPriv = pubPriv;
         return this;
     }
 
-    public void setPubPriv(Integer pubPriv) {
+    public void setPubPriv(Long pubPriv) {
         this.pubPriv = pubPriv;
     }
 

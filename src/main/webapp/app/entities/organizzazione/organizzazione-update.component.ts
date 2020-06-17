@@ -21,7 +21,6 @@ export class OrganizzazioneUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    idOrganizzazione: [null, [Validators.required]],
     idPersonaRef: [null, [Validators.required]],
     nome: [],
     tipo: [],
@@ -40,7 +39,7 @@ export class OrganizzazioneUpdateComponent implements OnInit {
       this.updateForm(organizzazione);
 
       this.personaService
-        .query({ filter: 'idpersona-is-null' })
+        .query({ filter: 'id-is-null' })
         .pipe(
           map((res: HttpResponse<IPersona[]>) => {
             return res.body || [];
@@ -66,7 +65,6 @@ export class OrganizzazioneUpdateComponent implements OnInit {
   updateForm(organizzazione: IOrganizzazione): void {
     this.editForm.patchValue({
       id: organizzazione.id,
-      idOrganizzazione: organizzazione.idOrganizzazione,
       idPersonaRef: organizzazione.idPersonaRef,
       nome: organizzazione.nome,
       tipo: organizzazione.tipo,
@@ -92,7 +90,6 @@ export class OrganizzazioneUpdateComponent implements OnInit {
     return {
       ...new Organizzazione(),
       id: this.editForm.get(['id'])!.value,
-      idOrganizzazione: this.editForm.get(['idOrganizzazione'])!.value,
       idPersonaRef: this.editForm.get(['idPersonaRef'])!.value,
       nome: this.editForm.get(['nome'])!.value,
       tipo: this.editForm.get(['tipo'])!.value,

@@ -3,7 +3,7 @@
   "fields": [
     {
       "fieldName": "idTaskRef",
-      "fieldType": "Integer",
+      "fieldType": "Long",
       "fieldValidateRules": ["max", "required"],
       "fieldValidateRulesMax": "8"
     },
@@ -17,7 +17,7 @@
     },
     {
       "fieldName": "timeLine",
-      "fieldType": "Integer"
+      "fieldType": "Long"
     },
     {
       "fieldName": "version",
@@ -28,7 +28,7 @@
     {
       "relationshipType": "one-to-one",
       "otherEntityName": "task",
-      "otherEntityRelationshipName": "idTask",
+      "otherEntityRelationshipName": "id",
       "relationshipName": "idTaskRef",
       "ownerSide": false
     }

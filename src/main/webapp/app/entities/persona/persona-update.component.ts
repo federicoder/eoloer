@@ -17,11 +17,10 @@ import { IndirizzoPersonaService } from 'app/entities/indirizzo-persona/indirizz
 })
 export class PersonaUpdateComponent implements OnInit {
   isSaving = false;
-  idpersonas: IIndirizzoPersona[] = [];
+  ids: IIndirizzoPersona[] = [];
 
   editForm = this.fb.group({
     id: [],
-    idPersona: [null, [Validators.required, Validators.max(8)]],
     idStudioProfessionaleRef: [null, [Validators.max(8)]],
     codiceFiscale: [],
     areaDiInteresse: [],
@@ -35,7 +34,7 @@ export class PersonaUpdateComponent implements OnInit {
     discriminator: [],
     idRuoloPersonaRef: [],
     tipoRuoloUtente: [],
-    idPersonaId: [],
+    idId: [],
   });
 
   constructor(
@@ -57,17 +56,17 @@ export class PersonaUpdateComponent implements OnInit {
           })
         )
         .subscribe((resBody: IIndirizzoPersona[]) => {
-          if (!persona.idPersonaId) {
-            this.idpersonas = resBody;
+          if (!persona.idId) {
+            this.ids = resBody;
           } else {
             this.indirizzoPersonaService
-              .find(persona.idPersonaId)
+              .find(persona.idId)
               .pipe(
                 map((subRes: HttpResponse<IIndirizzoPersona>) => {
                   return subRes.body ? [subRes.body].concat(resBody) : resBody;
                 })
               )
-              .subscribe((concatRes: IIndirizzoPersona[]) => (this.idpersonas = concatRes));
+              .subscribe((concatRes: IIndirizzoPersona[]) => (this.ids = concatRes));
           }
         });
     });
@@ -76,7 +75,6 @@ export class PersonaUpdateComponent implements OnInit {
   updateForm(persona: IPersona): void {
     this.editForm.patchValue({
       id: persona.id,
-      idPersona: persona.idPersona,
       idStudioProfessionaleRef: persona.idStudioProfessionaleRef,
       codiceFiscale: persona.codiceFiscale,
       areaDiInteresse: persona.areaDiInteresse,
@@ -90,7 +88,7 @@ export class PersonaUpdateComponent implements OnInit {
       discriminator: persona.discriminator,
       idRuoloPersonaRef: persona.idRuoloPersonaRef,
       tipoRuoloUtente: persona.tipoRuoloUtente,
-      idPersonaId: persona.idPersonaId,
+      idId: persona.idId,
     });
   }
 
@@ -112,7 +110,6 @@ export class PersonaUpdateComponent implements OnInit {
     return {
       ...new Persona(),
       id: this.editForm.get(['id'])!.value,
-      idPersona: this.editForm.get(['idPersona'])!.value,
       idStudioProfessionaleRef: this.editForm.get(['idStudioProfessionaleRef'])!.value,
       codiceFiscale: this.editForm.get(['codiceFiscale'])!.value,
       areaDiInteresse: this.editForm.get(['areaDiInteresse'])!.value,
@@ -126,7 +123,7 @@ export class PersonaUpdateComponent implements OnInit {
       discriminator: this.editForm.get(['discriminator'])!.value,
       idRuoloPersonaRef: this.editForm.get(['idRuoloPersonaRef'])!.value,
       tipoRuoloUtente: this.editForm.get(['tipoRuoloUtente'])!.value,
-      idPersonaId: this.editForm.get(['idPersonaId'])!.value,
+      idId: this.editForm.get(['idId'])!.value,
     };
   }
 

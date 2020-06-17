@@ -15,22 +15,19 @@
             <column name="id" type="bigint">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="id_ordine" type="integer">
+            <column name="id_studio_professionale_ref" type="bigint">
                 <constraints nullable="false" />
             </column>
-            <column name="id_studio_professionale_ref" type="integer">
-                <constraints nullable="false" />
-            </column>
-            <column name="stato_ordine" type="integer">
+            <column name="stato_ordine" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="tot_imponibile" type="integer">
+            <column name="tot_imponibile" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="tot_iva" type="integer">
+            <column name="tot_iva" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="tot_ordine" type="integer">
+            <column name="tot_ordine" type="bigint">
                 <constraints nullable="true" />
             </column>
             <column name="studio_professionale_id" type="bigint">
@@ -59,7 +56,6 @@
                   separator=";"
                   tableName="ordine">
             <column name="id" type="numeric"/>
-            <column name="id_ordine" type="numeric"/>
             <column name="id_studio_professionale_ref" type="numeric"/>
             <column name="stato_ordine" type="numeric"/>
             <column name="tot_imponibile" type="numeric"/>

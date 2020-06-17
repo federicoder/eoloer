@@ -25,7 +25,6 @@ export class InvitatoUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    idInvitato: [null, [Validators.required]],
     idInvitoRef: [null, [Validators.max(8)]],
     tokenInvito: [],
     canalePrimarioInvito: [],
@@ -62,7 +61,6 @@ export class InvitatoUpdateComponent implements OnInit {
   updateForm(invitato: IInvitato): void {
     this.editForm.patchValue({
       id: invitato.id,
-      idInvitato: invitato.idInvitato,
       idInvitoRef: invitato.idInvitoRef,
       tokenInvito: invitato.tokenInvito,
       canalePrimarioInvito: invitato.canalePrimarioInvito,
@@ -97,7 +95,6 @@ export class InvitatoUpdateComponent implements OnInit {
     return {
       ...new Invitato(),
       id: this.editForm.get(['id'])!.value,
-      idInvitato: this.editForm.get(['idInvitato'])!.value,
       idInvitoRef: this.editForm.get(['idInvitoRef'])!.value,
       tokenInvito: this.editForm.get(['tokenInvito'])!.value,
       canalePrimarioInvito: this.editForm.get(['canalePrimarioInvito'])!.value,

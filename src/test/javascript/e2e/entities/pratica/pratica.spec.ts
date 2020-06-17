@@ -41,7 +41,6 @@ describe('Pratica e2e test', () => {
     await praticaComponentsPage.clickOnCreateButton();
 
     await promise.all([
-      praticaUpdatePage.setIdPraticaInput('5'),
       praticaUpdatePage.setIdStudioProfessionaleRefInput('5'),
       praticaUpdatePage.setNumeroInput('numero'),
       praticaUpdatePage.setNomeInput('nome'),
@@ -58,7 +57,6 @@ describe('Pratica e2e test', () => {
       praticaUpdatePage.idTemplatePraticaRefSelectLastOption(),
     ]);
 
-    expect(await praticaUpdatePage.getIdPraticaInput()).to.eq('5', 'Expected idPratica value to be equals to 5');
     expect(await praticaUpdatePage.getIdStudioProfessionaleRefInput()).to.eq(
       '5',
       'Expected idStudioProfessionaleRef value to be equals to 5'

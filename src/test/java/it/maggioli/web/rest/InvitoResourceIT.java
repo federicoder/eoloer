@@ -40,17 +40,14 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WithMockUser
 public class InvitoResourceIT {
 
-    private static final Integer DEFAULT_ID_INVITO = 8;
-    private static final Integer UPDATED_ID_INVITO = 7;
-
-    private static final Integer DEFAULT_ID_STUDIO_PROFESSIONALE_REF = 8;
-    private static final Integer UPDATED_ID_STUDIO_PROFESSIONALE_REF = 7;
+    private static final Long DEFAULT_ID_STUDIO_PROFESSIONALE_REF = 8L;
+    private static final Long UPDATED_ID_STUDIO_PROFESSIONALE_REF = 7L;
 
     private static final String DEFAULT_DATA_INVITO = "AAAAAAAAAA";
     private static final String UPDATED_DATA_INVITO = "BBBBBBBBBB";
 
-    private static final Integer DEFAULT_ID_USER_INVITANTE = 1;
-    private static final Integer UPDATED_ID_USER_INVITANTE = 2;
+    private static final Long DEFAULT_ID_USER_INVITANTE = 1L;
+    private static final Long UPDATED_ID_USER_INVITANTE = 2L;
 
     private static final String DEFAULT_NOME_USER_INVITANTE = "AAAAAAAAAA";
     private static final String UPDATED_NOME_USER_INVITANTE = "BBBBBBBBBB";
@@ -61,11 +58,11 @@ public class InvitoResourceIT {
     private static final String DEFAULT_TESTO_INVITO = "AAAAAAAAAA";
     private static final String UPDATED_TESTO_INVITO = "BBBBBBBBBB";
 
-    private static final Integer DEFAULT_ID_PRATICA_REF = 1;
-    private static final Integer UPDATED_ID_PRATICA_REF = 2;
+    private static final Long DEFAULT_ID_PRATICA_REF = 1L;
+    private static final Long UPDATED_ID_PRATICA_REF = 2L;
 
-    private static final Integer DEFAULT_ID_TASK_REF = 1;
-    private static final Integer UPDATED_ID_TASK_REF = 2;
+    private static final Long DEFAULT_ID_TASK_REF = 1L;
+    private static final Long UPDATED_ID_TASK_REF = 2L;
 
     private static final String DEFAULT_LUOGO_FISICO = "AAAAAAAAAA";
     private static final String UPDATED_LUOGO_FISICO = "BBBBBBBBBB";
@@ -124,7 +121,6 @@ public class InvitoResourceIT {
      */
     public static Invito createEntity(EntityManager em) {
         Invito invito = new Invito()
-            .idInvito(DEFAULT_ID_INVITO)
             .idStudioProfessionaleRef(DEFAULT_ID_STUDIO_PROFESSIONALE_REF)
             .dataInvito(DEFAULT_DATA_INVITO)
             .idUserInvitante(DEFAULT_ID_USER_INVITANTE)
@@ -151,7 +147,6 @@ public class InvitoResourceIT {
      */
     public static Invito createUpdatedEntity(EntityManager em) {
         Invito invito = new Invito()
-            .idInvito(UPDATED_ID_INVITO)
             .idStudioProfessionaleRef(UPDATED_ID_STUDIO_PROFESSIONALE_REF)
             .dataInvito(UPDATED_DATA_INVITO)
             .idUserInvitante(UPDATED_ID_USER_INVITANTE)
@@ -191,7 +186,6 @@ public class InvitoResourceIT {
         List<Invito> invitoList = invitoRepository.findAll();
         assertThat(invitoList).hasSize(databaseSizeBeforeCreate + 1);
         Invito testInvito = invitoList.get(invitoList.size() - 1);
-        assertThat(testInvito.getIdInvito()).isEqualTo(DEFAULT_ID_INVITO);
         assertThat(testInvito.getIdStudioProfessionaleRef()).isEqualTo(DEFAULT_ID_STUDIO_PROFESSIONALE_REF);
         assertThat(testInvito.getDataInvito()).isEqualTo(DEFAULT_DATA_INVITO);
         assertThat(testInvito.getIdUserInvitante()).isEqualTo(DEFAULT_ID_USER_INVITANTE);
@@ -239,26 +233,6 @@ public class InvitoResourceIT {
 
     @Test
     @Transactional
-    public void checkIdInvitoIsRequired() throws Exception {
-        int databaseSizeBeforeTest = invitoRepository.findAll().size();
-        // set the field null
-        invito.setIdInvito(null);
-
-        // Create the Invito, which fails.
-        InvitoDTO invitoDTO = invitoMapper.toDto(invito);
-
-
-        restInvitoMockMvc.perform(post("/api/invitos")
-            .contentType(MediaType.APPLICATION_JSON)
-            .content(TestUtil.convertObjectToJsonBytes(invitoDTO)))
-            .andExpect(status().isBadRequest());
-
-        List<Invito> invitoList = invitoRepository.findAll();
-        assertThat(invitoList).hasSize(databaseSizeBeforeTest);
-    }
-
-    @Test
-    @Transactional
     public void getAllInvitos() throws Exception {
         // Initialize the database
         invitoRepository.saveAndFlush(invito);
@@ -268,15 +242,14 @@ public class InvitoResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(invito.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idInvito").value(hasItem(DEFAULT_ID_INVITO)))
-            .andExpect(jsonPath("$.[*].idStudioProfessionaleRef").value(hasItem(DEFAULT_ID_STUDIO_PROFESSIONALE_REF)))
+            .andExpect(jsonPath("$.[*].idStudioProfessionaleRef").value(hasItem(DEFAULT_ID_STUDIO_PROFESSIONALE_REF.intValue())))
             .andExpect(jsonPath("$.[*].dataInvito").value(hasItem(DEFAULT_DATA_INVITO)))
-            .andExpect(jsonPath("$.[*].idUserInvitante").value(hasItem(DEFAULT_ID_USER_INVITANTE)))
+            .andExpect(jsonPath("$.[*].idUserInvitante").value(hasItem(DEFAULT_ID_USER_INVITANTE.intValue())))
             .andExpect(jsonPath("$.[*].nomeUserInvitante").value(hasItem(DEFAULT_NOME_USER_INVITANTE)))
             .andExpect(jsonPath("$.[*].dataScadenzaInvito").value(hasItem(DEFAULT_DATA_SCADENZA_INVITO)))
             .andExpect(jsonPath("$.[*].testoInvito").value(hasItem(DEFAULT_TESTO_INVITO)))
-            .andExpect(jsonPath("$.[*].idPraticaRef").value(hasItem(DEFAULT_ID_PRATICA_REF)))
-            .andExpect(jsonPath("$.[*].idTaskRef").value(hasItem(DEFAULT_ID_TASK_REF)))
+            .andExpect(jsonPath("$.[*].idPraticaRef").value(hasItem(DEFAULT_ID_PRATICA_REF.intValue())))
+            .andExpect(jsonPath("$.[*].idTaskRef").value(hasItem(DEFAULT_ID_TASK_REF.intValue())))
             .andExpect(jsonPath("$.[*].luogoFisico").value(hasItem(DEFAULT_LUOGO_FISICO)))
             .andExpect(jsonPath("$.[*].indicazioniLuogo").value(hasItem(DEFAULT_INDICAZIONI_LUOGO)))
             .andExpect(jsonPath("$.[*].dataInizio").value(hasItem(DEFAULT_DATA_INIZIO)))
@@ -298,15 +271,14 @@ public class InvitoResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(invito.getId().intValue()))
-            .andExpect(jsonPath("$.idInvito").value(DEFAULT_ID_INVITO))
-            .andExpect(jsonPath("$.idStudioProfessionaleRef").value(DEFAULT_ID_STUDIO_PROFESSIONALE_REF))
+            .andExpect(jsonPath("$.idStudioProfessionaleRef").value(DEFAULT_ID_STUDIO_PROFESSIONALE_REF.intValue()))
             .andExpect(jsonPath("$.dataInvito").value(DEFAULT_DATA_INVITO))
-            .andExpect(jsonPath("$.idUserInvitante").value(DEFAULT_ID_USER_INVITANTE))
+            .andExpect(jsonPath("$.idUserInvitante").value(DEFAULT_ID_USER_INVITANTE.intValue()))
             .andExpect(jsonPath("$.nomeUserInvitante").value(DEFAULT_NOME_USER_INVITANTE))
             .andExpect(jsonPath("$.dataScadenzaInvito").value(DEFAULT_DATA_SCADENZA_INVITO))
             .andExpect(jsonPath("$.testoInvito").value(DEFAULT_TESTO_INVITO))
-            .andExpect(jsonPath("$.idPraticaRef").value(DEFAULT_ID_PRATICA_REF))
-            .andExpect(jsonPath("$.idTaskRef").value(DEFAULT_ID_TASK_REF))
+            .andExpect(jsonPath("$.idPraticaRef").value(DEFAULT_ID_PRATICA_REF.intValue()))
+            .andExpect(jsonPath("$.idTaskRef").value(DEFAULT_ID_TASK_REF.intValue()))
             .andExpect(jsonPath("$.luogoFisico").value(DEFAULT_LUOGO_FISICO))
             .andExpect(jsonPath("$.indicazioniLuogo").value(DEFAULT_INDICAZIONI_LUOGO))
             .andExpect(jsonPath("$.dataInizio").value(DEFAULT_DATA_INIZIO))
@@ -337,7 +309,6 @@ public class InvitoResourceIT {
         // Disconnect from session so that the updates on updatedInvito are not directly saved in db
         em.detach(updatedInvito);
         updatedInvito
-            .idInvito(UPDATED_ID_INVITO)
             .idStudioProfessionaleRef(UPDATED_ID_STUDIO_PROFESSIONALE_REF)
             .dataInvito(UPDATED_DATA_INVITO)
             .idUserInvitante(UPDATED_ID_USER_INVITANTE)
@@ -365,7 +336,6 @@ public class InvitoResourceIT {
         List<Invito> invitoList = invitoRepository.findAll();
         assertThat(invitoList).hasSize(databaseSizeBeforeUpdate);
         Invito testInvito = invitoList.get(invitoList.size() - 1);
-        assertThat(testInvito.getIdInvito()).isEqualTo(UPDATED_ID_INVITO);
         assertThat(testInvito.getIdStudioProfessionaleRef()).isEqualTo(UPDATED_ID_STUDIO_PROFESSIONALE_REF);
         assertThat(testInvito.getDataInvito()).isEqualTo(UPDATED_DATA_INVITO);
         assertThat(testInvito.getIdUserInvitante()).isEqualTo(UPDATED_ID_USER_INVITANTE);
@@ -444,15 +414,14 @@ public class InvitoResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(invito.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idInvito").value(hasItem(DEFAULT_ID_INVITO)))
-            .andExpect(jsonPath("$.[*].idStudioProfessionaleRef").value(hasItem(DEFAULT_ID_STUDIO_PROFESSIONALE_REF)))
+            .andExpect(jsonPath("$.[*].idStudioProfessionaleRef").value(hasItem(DEFAULT_ID_STUDIO_PROFESSIONALE_REF.intValue())))
             .andExpect(jsonPath("$.[*].dataInvito").value(hasItem(DEFAULT_DATA_INVITO)))
-            .andExpect(jsonPath("$.[*].idUserInvitante").value(hasItem(DEFAULT_ID_USER_INVITANTE)))
+            .andExpect(jsonPath("$.[*].idUserInvitante").value(hasItem(DEFAULT_ID_USER_INVITANTE.intValue())))
             .andExpect(jsonPath("$.[*].nomeUserInvitante").value(hasItem(DEFAULT_NOME_USER_INVITANTE)))
             .andExpect(jsonPath("$.[*].dataScadenzaInvito").value(hasItem(DEFAULT_DATA_SCADENZA_INVITO)))
             .andExpect(jsonPath("$.[*].testoInvito").value(hasItem(DEFAULT_TESTO_INVITO)))
-            .andExpect(jsonPath("$.[*].idPraticaRef").value(hasItem(DEFAULT_ID_PRATICA_REF)))
-            .andExpect(jsonPath("$.[*].idTaskRef").value(hasItem(DEFAULT_ID_TASK_REF)))
+            .andExpect(jsonPath("$.[*].idPraticaRef").value(hasItem(DEFAULT_ID_PRATICA_REF.intValue())))
+            .andExpect(jsonPath("$.[*].idTaskRef").value(hasItem(DEFAULT_ID_TASK_REF.intValue())))
             .andExpect(jsonPath("$.[*].luogoFisico").value(hasItem(DEFAULT_LUOGO_FISICO)))
             .andExpect(jsonPath("$.[*].indicazioniLuogo").value(hasItem(DEFAULT_INDICAZIONI_LUOGO)))
             .andExpect(jsonPath("$.[*].dataInizio").value(hasItem(DEFAULT_DATA_INIZIO)))

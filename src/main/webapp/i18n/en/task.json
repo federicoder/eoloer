@@ -17,7 +17,6 @@
       "detail": {
         "title": "Task"
       },
-      "idTask": "Id Task",
       "idPraticaRef": "Id Pratica Ref",
       "nome": "Nome",
       "stato": "Stato",
@@ -27,12 +26,12 @@
       "idCondivisionePraticaRef": "Id Condivisione Pratica Ref",
       "idAssegnazioneTaskRef": "Id Assegnazione Task Ref",
       "idInvitoRef": "Id Invito Ref",
-      "idTask": "Id Task",
-      "idTask": "Id Task",
-      "idTask": "Id Task",
-      "idTask": "Id Task",
-      "idTask": "Id Task",
-      "idTask": "Id Task",
+      "id": "Id",
+      "id": "Id",
+      "id": "Id",
+      "id": "Id",
+      "id": "Id",
+      "id": "Id",
       "pratica": "Pratica"
     }
   }

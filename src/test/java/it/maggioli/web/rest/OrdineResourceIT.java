@@ -40,23 +40,20 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WithMockUser
 public class OrdineResourceIT {
 
-    private static final Integer DEFAULT_ID_ORDINE = 1;
-    private static final Integer UPDATED_ID_ORDINE = 2;
+    private static final Long DEFAULT_ID_STUDIO_PROFESSIONALE_REF = 1L;
+    private static final Long UPDATED_ID_STUDIO_PROFESSIONALE_REF = 2L;
 
-    private static final Integer DEFAULT_ID_STUDIO_PROFESSIONALE_REF = 1;
-    private static final Integer UPDATED_ID_STUDIO_PROFESSIONALE_REF = 2;
+    private static final Long DEFAULT_STATO_ORDINE = 1L;
+    private static final Long UPDATED_STATO_ORDINE = 2L;
 
-    private static final Integer DEFAULT_STATO_ORDINE = 1;
-    private static final Integer UPDATED_STATO_ORDINE = 2;
+    private static final Long DEFAULT_TOT_IMPONIBILE = 1L;
+    private static final Long UPDATED_TOT_IMPONIBILE = 2L;
 
-    private static final Integer DEFAULT_TOT_IMPONIBILE = 1;
-    private static final Integer UPDATED_TOT_IMPONIBILE = 2;
+    private static final Long DEFAULT_TOT_IVA = 1L;
+    private static final Long UPDATED_TOT_IVA = 2L;
 
-    private static final Integer DEFAULT_TOT_IVA = 1;
-    private static final Integer UPDATED_TOT_IVA = 2;
-
-    private static final Integer DEFAULT_TOT_ORDINE = 1;
-    private static final Integer UPDATED_TOT_ORDINE = 2;
+    private static final Long DEFAULT_TOT_ORDINE = 1L;
+    private static final Long UPDATED_TOT_ORDINE = 2L;
 
     @Autowired
     private OrdineRepository ordineRepository;
@@ -91,7 +88,6 @@ public class OrdineResourceIT {
      */
     public static Ordine createEntity(EntityManager em) {
         Ordine ordine = new Ordine()
-            .idOrdine(DEFAULT_ID_ORDINE)
             .idStudioProfessionaleRef(DEFAULT_ID_STUDIO_PROFESSIONALE_REF)
             .statoOrdine(DEFAULT_STATO_ORDINE)
             .totImponibile(DEFAULT_TOT_IMPONIBILE)
@@ -107,7 +103,6 @@ public class OrdineResourceIT {
      */
     public static Ordine createUpdatedEntity(EntityManager em) {
         Ordine ordine = new Ordine()
-            .idOrdine(UPDATED_ID_ORDINE)
             .idStudioProfessionaleRef(UPDATED_ID_STUDIO_PROFESSIONALE_REF)
             .statoOrdine(UPDATED_STATO_ORDINE)
             .totImponibile(UPDATED_TOT_IMPONIBILE)
@@ -136,7 +131,6 @@ public class OrdineResourceIT {
         List<Ordine> ordineList = ordineRepository.findAll();
         assertThat(ordineList).hasSize(databaseSizeBeforeCreate + 1);
         Ordine testOrdine = ordineList.get(ordineList.size() - 1);
-        assertThat(testOrdine.getIdOrdine()).isEqualTo(DEFAULT_ID_ORDINE);
         assertThat(testOrdine.getIdStudioProfessionaleRef()).isEqualTo(DEFAULT_ID_STUDIO_PROFESSIONALE_REF);
         assertThat(testOrdine.getStatoOrdine()).isEqualTo(DEFAULT_STATO_ORDINE);
         assertThat(testOrdine.getTotImponibile()).isEqualTo(DEFAULT_TOT_IMPONIBILE);
@@ -173,26 +167,6 @@ public class OrdineResourceIT {
 
     @Test
     @Transactional
-    public void checkIdOrdineIsRequired() throws Exception {
-        int databaseSizeBeforeTest = ordineRepository.findAll().size();
-        // set the field null
-        ordine.setIdOrdine(null);
-
-        // Create the Ordine, which fails.
-        OrdineDTO ordineDTO = ordineMapper.toDto(ordine);
-
-
-        restOrdineMockMvc.perform(post("/api/ordines")
-            .contentType(MediaType.APPLICATION_JSON)
-            .content(TestUtil.convertObjectToJsonBytes(ordineDTO)))
-            .andExpect(status().isBadRequest());
-
-        List<Ordine> ordineList = ordineRepository.findAll();
-        assertThat(ordineList).hasSize(databaseSizeBeforeTest);
-    }
-
-    @Test
-    @Transactional
     public void checkIdStudioProfessionaleRefIsRequired() throws Exception {
         int databaseSizeBeforeTest = ordineRepository.findAll().size();
         // set the field null
@@ -222,12 +196,11 @@ public class OrdineResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(ordine.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idOrdine").value(hasItem(DEFAULT_ID_ORDINE)))
-            .andExpect(jsonPath("$.[*].idStudioProfessionaleRef").value(hasItem(DEFAULT_ID_STUDIO_PROFESSIONALE_REF)))
-            .andExpect(jsonPath("$.[*].statoOrdine").value(hasItem(DEFAULT_STATO_ORDINE)))
-            .andExpect(jsonPath("$.[*].totImponibile").value(hasItem(DEFAULT_TOT_IMPONIBILE)))
-            .andExpect(jsonPath("$.[*].totIva").value(hasItem(DEFAULT_TOT_IVA)))
-            .andExpect(jsonPath("$.[*].totOrdine").value(hasItem(DEFAULT_TOT_ORDINE)));
+            .andExpect(jsonPath("$.[*].idStudioProfessionaleRef").value(hasItem(DEFAULT_ID_STUDIO_PROFESSIONALE_REF.intValue())))
+            .andExpect(jsonPath("$.[*].statoOrdine").value(hasItem(DEFAULT_STATO_ORDINE.intValue())))
+            .andExpect(jsonPath("$.[*].totImponibile").value(hasItem(DEFAULT_TOT_IMPONIBILE.intValue())))
+            .andExpect(jsonPath("$.[*].totIva").value(hasItem(DEFAULT_TOT_IVA.intValue())))
+            .andExpect(jsonPath("$.[*].totOrdine").value(hasItem(DEFAULT_TOT_ORDINE.intValue())));
     }
     
     @Test
@@ -241,12 +214,11 @@ public class OrdineResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(ordine.getId().intValue()))
-            .andExpect(jsonPath("$.idOrdine").value(DEFAULT_ID_ORDINE))
-            .andExpect(jsonPath("$.idStudioProfessionaleRef").value(DEFAULT_ID_STUDIO_PROFESSIONALE_REF))
-            .andExpect(jsonPath("$.statoOrdine").value(DEFAULT_STATO_ORDINE))
-            .andExpect(jsonPath("$.totImponibile").value(DEFAULT_TOT_IMPONIBILE))
-            .andExpect(jsonPath("$.totIva").value(DEFAULT_TOT_IVA))
-            .andExpect(jsonPath("$.totOrdine").value(DEFAULT_TOT_ORDINE));
+            .andExpect(jsonPath("$.idStudioProfessionaleRef").value(DEFAULT_ID_STUDIO_PROFESSIONALE_REF.intValue()))
+            .andExpect(jsonPath("$.statoOrdine").value(DEFAULT_STATO_ORDINE.intValue()))
+            .andExpect(jsonPath("$.totImponibile").value(DEFAULT_TOT_IMPONIBILE.intValue()))
+            .andExpect(jsonPath("$.totIva").value(DEFAULT_TOT_IVA.intValue()))
+            .andExpect(jsonPath("$.totOrdine").value(DEFAULT_TOT_ORDINE.intValue()));
     }
     @Test
     @Transactional
@@ -269,7 +241,6 @@ public class OrdineResourceIT {
         // Disconnect from session so that the updates on updatedOrdine are not directly saved in db
         em.detach(updatedOrdine);
         updatedOrdine
-            .idOrdine(UPDATED_ID_ORDINE)
             .idStudioProfessionaleRef(UPDATED_ID_STUDIO_PROFESSIONALE_REF)
             .statoOrdine(UPDATED_STATO_ORDINE)
             .totImponibile(UPDATED_TOT_IMPONIBILE)
@@ -286,7 +257,6 @@ public class OrdineResourceIT {
         List<Ordine> ordineList = ordineRepository.findAll();
         assertThat(ordineList).hasSize(databaseSizeBeforeUpdate);
         Ordine testOrdine = ordineList.get(ordineList.size() - 1);
-        assertThat(testOrdine.getIdOrdine()).isEqualTo(UPDATED_ID_ORDINE);
         assertThat(testOrdine.getIdStudioProfessionaleRef()).isEqualTo(UPDATED_ID_STUDIO_PROFESSIONALE_REF);
         assertThat(testOrdine.getStatoOrdine()).isEqualTo(UPDATED_STATO_ORDINE);
         assertThat(testOrdine.getTotImponibile()).isEqualTo(UPDATED_TOT_IMPONIBILE);
@@ -354,11 +324,10 @@ public class OrdineResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(ordine.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idOrdine").value(hasItem(DEFAULT_ID_ORDINE)))
-            .andExpect(jsonPath("$.[*].idStudioProfessionaleRef").value(hasItem(DEFAULT_ID_STUDIO_PROFESSIONALE_REF)))
-            .andExpect(jsonPath("$.[*].statoOrdine").value(hasItem(DEFAULT_STATO_ORDINE)))
-            .andExpect(jsonPath("$.[*].totImponibile").value(hasItem(DEFAULT_TOT_IMPONIBILE)))
-            .andExpect(jsonPath("$.[*].totIva").value(hasItem(DEFAULT_TOT_IVA)))
-            .andExpect(jsonPath("$.[*].totOrdine").value(hasItem(DEFAULT_TOT_ORDINE)));
+            .andExpect(jsonPath("$.[*].idStudioProfessionaleRef").value(hasItem(DEFAULT_ID_STUDIO_PROFESSIONALE_REF.intValue())))
+            .andExpect(jsonPath("$.[*].statoOrdine").value(hasItem(DEFAULT_STATO_ORDINE.intValue())))
+            .andExpect(jsonPath("$.[*].totImponibile").value(hasItem(DEFAULT_TOT_IMPONIBILE.intValue())))
+            .andExpect(jsonPath("$.[*].totIva").value(hasItem(DEFAULT_TOT_IVA.intValue())))
+            .andExpect(jsonPath("$.[*].totOrdine").value(hasItem(DEFAULT_TOT_ORDINE.intValue())));
     }
 }

@@ -29,23 +29,14 @@ export class ProdottoUpdatePage {
   saveButton = element(by.id('save-entity'));
   cancelButton = element(by.id('cancel-save'));
 
-  idProdottoInput = element(by.id('field_idProdotto'));
   nuovaLicenzaInput = element(by.id('field_nuovaLicenza'));
   rinnovoLicenzaInput = element(by.id('field_rinnovoLicenza'));
   storageInput = element(by.id('field_storage'));
 
-  idProdottoSelect = element(by.id('field_idProdotto'));
+  idSelect = element(by.id('field_id'));
 
   async getPageTitle(): Promise<string> {
     return this.pageTitle.getAttribute('jhiTranslate');
-  }
-
-  async setIdProdottoInput(idProdotto: string): Promise<void> {
-    await this.idProdottoInput.sendKeys(idProdotto);
-  }
-
-  async getIdProdottoInput(): Promise<string> {
-    return await this.idProdottoInput.getAttribute('value');
   }
 
   async setNuovaLicenzaInput(nuovaLicenza: string): Promise<void> {
@@ -72,20 +63,20 @@ export class ProdottoUpdatePage {
     return await this.storageInput.getAttribute('value');
   }
 
-  async idProdottoSelectLastOption(): Promise<void> {
-    await this.idProdottoSelect.all(by.tagName('option')).last().click();
+  async idSelectLastOption(): Promise<void> {
+    await this.idSelect.all(by.tagName('option')).last().click();
   }
 
-  async idProdottoSelectOption(option: string): Promise<void> {
-    await this.idProdottoSelect.sendKeys(option);
+  async idSelectOption(option: string): Promise<void> {
+    await this.idSelect.sendKeys(option);
   }
 
-  getIdProdottoSelect(): ElementFinder {
-    return this.idProdottoSelect;
+  getIdSelect(): ElementFinder {
+    return this.idSelect;
   }
 
-  async getIdProdottoSelectedOption(): Promise<string> {
-    return await this.idProdottoSelect.element(by.css('option:checked')).getText();
+  async getIdSelectedOption(): Promise<string> {
+    return await this.idSelect.element(by.css('option:checked')).getText();
   }
 
   async save(): Promise<void> {

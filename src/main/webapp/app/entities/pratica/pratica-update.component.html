@@ -12,29 +12,13 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="eoloprjApp.pratica.idPratica" for="field_idPratica">Id Pratica</label>
-                    <input type="number" class="form-control" name="idPratica" id="field_idPratica"
-                           formControlName="idPratica"/>
-                    <div *ngIf="editForm.get('idPratica')!.invalid && (editForm.get('idPratica')!.dirty || editForm.get('idPratica')!.touched)">
-                        <small class="form-text text-danger"
-                               *ngIf="editForm.get('idPratica')?.errors?.max" jhiTranslate="entity.validation.max" [translateValues]="{ max: 8 }">
-                            This field cannot be more than 8.
-                        </small>
-                        <small class="form-text text-danger"
-                            [hidden]="!editForm.get('idPratica')?.errors?.number" jhiTranslate="entity.validation.number">
-                            This field should be a number.
-                        </small>
-                    </div>
-                </div>
-
-                <div class="form-group">
                     <label class="form-control-label" jhiTranslate="eoloprjApp.pratica.idStudioProfessionaleRef" for="field_idStudioProfessionaleRef">Id Studio Professionale Ref</label>
                     <input type="number" class="form-control" name="idStudioProfessionaleRef" id="field_idStudioProfessionaleRef"
                            formControlName="idStudioProfessionaleRef"/>
                     <div *ngIf="editForm.get('idStudioProfessionaleRef')!.invalid && (editForm.get('idStudioProfessionaleRef')!.dirty || editForm.get('idStudioProfessionaleRef')!.touched)">
                         <small class="form-text text-danger"
-                               *ngIf="editForm.get('idStudioProfessionaleRef')?.errors?.max" jhiTranslate="entity.validation.max" [translateValues]="{ max: 8 }">
-                            This field cannot be more than 8.
+                               *ngIf="editForm.get('idStudioProfessionaleRef')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
                         </small>
                         <small class="form-text text-danger"
                             [hidden]="!editForm.get('idStudioProfessionaleRef')?.errors?.number" jhiTranslate="entity.validation.number">

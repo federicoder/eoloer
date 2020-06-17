@@ -41,7 +41,6 @@
             <thead>
                 <tr>
                     <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
-                    <th scope="col" ><span jhiTranslate="eoloprjApp.tipoAllegato.idTipoAllegato">Id Tipo Allegato</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.tipoAllegato.nome">Nome</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.tipoAllegato.formatiAmmessi">Formati Ammessi</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.tipoAllegato.maxDimensioneAmmessa">Max Dimensione Ammessa</span></th>
@@ -52,7 +51,6 @@
             <tbody>
                 <tr *ngFor="let tipoAllegato of tipoAllegatoes ;trackBy: trackId">
                     <td><a [routerLink]="['/tipo-allegato', tipoAllegato.id, 'view']">{{ tipoAllegato.id }}</a></td>
-                    <td>{{ tipoAllegato.idTipoAllegato }}</td>
                     <td>{{ tipoAllegato.nome }}</td>
                     <td>{{ tipoAllegato.formatiAmmessi }}</td>
                     <td>{{ tipoAllegato.maxDimensioneAmmessa }}</td>

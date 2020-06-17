@@ -26,7 +26,6 @@ export class InvitoUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    idInvito: [null, [Validators.required, Validators.max(8)]],
     idStudioProfessionaleRef: [null, [Validators.max(8)]],
     dataInvito: [],
     idUserInvitante: [],
@@ -60,7 +59,7 @@ export class InvitoUpdateComponent implements OnInit {
       this.updateForm(invito);
 
       this.studioProfessionaleService
-        .query({ filter: 'idstudioprofessionale-is-null' })
+        .query({ filter: 'id-is-null' })
         .pipe(
           map((res: HttpResponse<IStudioProfessionale[]>) => {
             return res.body || [];
@@ -88,7 +87,6 @@ export class InvitoUpdateComponent implements OnInit {
   updateForm(invito: IInvito): void {
     this.editForm.patchValue({
       id: invito.id,
-      idInvito: invito.idInvito,
       idStudioProfessionaleRef: invito.idStudioProfessionaleRef,
       dataInvito: invito.dataInvito,
       idUserInvitante: invito.idUserInvitante,
@@ -128,7 +126,6 @@ export class InvitoUpdateComponent implements OnInit {
     return {
       ...new Invito(),
       id: this.editForm.get(['id'])!.value,
-      idInvito: this.editForm.get(['idInvito'])!.value,
       idStudioProfessionaleRef: this.editForm.get(['idStudioProfessionaleRef'])!.value,
       dataInvito: this.editForm.get(['dataInvito'])!.value,
       idUserInvitante: this.editForm.get(['idUserInvitante'])!.value,

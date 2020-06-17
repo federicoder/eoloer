@@ -44,7 +44,6 @@ describe('TemplateTask e2e test', () => {
     await templateTaskComponentsPage.clickOnCreateButton();
 
     await promise.all([
-      templateTaskUpdatePage.setIdTemplateTaskInput('5'),
       templateTaskUpdatePage.setOrdineEsecuzioneInput('5'),
       templateTaskUpdatePage.setNomeInput('5'),
       templateTaskUpdatePage.setNoteInput('5'),
@@ -54,7 +53,6 @@ describe('TemplateTask e2e test', () => {
       templateTaskUpdatePage.templateTaskSelectLastOption(),
     ]);
 
-    expect(await templateTaskUpdatePage.getIdTemplateTaskInput()).to.eq('5', 'Expected idTemplateTask value to be equals to 5');
     expect(await templateTaskUpdatePage.getOrdineEsecuzioneInput()).to.eq('5', 'Expected ordineEsecuzione value to be equals to 5');
     expect(await templateTaskUpdatePage.getNomeInput()).to.eq('5', 'Expected nome value to be equals to 5');
     expect(await templateTaskUpdatePage.getNoteInput()).to.eq('5', 'Expected note value to be equals to 5');

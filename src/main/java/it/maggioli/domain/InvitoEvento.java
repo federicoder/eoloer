@@ -26,7 +26,7 @@ public class InvitoEvento implements Serializable {
     private Long id;
 
     @Column(name = "id_task_ref")
-    private Integer idTaskRef;
+    private Long idTaskRef;
 
     @Column(name = "luogo_fisico")
     private String luogoFisico;
@@ -66,16 +66,16 @@ public class InvitoEvento implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdTaskRef() {
+    public Long getIdTaskRef() {
         return idTaskRef;
     }
 
-    public InvitoEvento idTaskRef(Integer idTaskRef) {
+    public InvitoEvento idTaskRef(Long idTaskRef) {
         this.idTaskRef = idTaskRef;
         return this;
     }
 
-    public void setIdTaskRef(Integer idTaskRef) {
+    public void setIdTaskRef(Long idTaskRef) {
         this.idTaskRef = idTaskRef;
     }
 

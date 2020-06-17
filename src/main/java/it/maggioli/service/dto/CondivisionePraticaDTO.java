@@ -10,20 +10,16 @@ public class CondivisionePraticaDTO implements Serializable {
     
     private Long id;
 
-    @NotNull
-    @Max(value = 8)
-    private Integer idCondivisionePratica;
+    @Max(value = 8L)
+    private Long idUserAmmesso;
 
-    @Max(value = 8)
-    private Integer idUserAmmesso;
+    private Long ruolo;
 
-    private Integer ruolo;
+    private Long idUserConcedente;
 
-    private Integer idUserConcedente;
+    private Long statoInvito;
 
-    private Integer statoInvito;
-
-    private Integer idPraticaRef;
+    private Long idPraticaRef;
 
 
     private Long ruoloId;
@@ -42,51 +38,43 @@ public class CondivisionePraticaDTO implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdCondivisionePratica() {
-        return idCondivisionePratica;
-    }
-
-    public void setIdCondivisionePratica(Integer idCondivisionePratica) {
-        this.idCondivisionePratica = idCondivisionePratica;
-    }
-
-    public Integer getIdUserAmmesso() {
+    public Long getIdUserAmmesso() {
         return idUserAmmesso;
     }
 
-    public void setIdUserAmmesso(Integer idUserAmmesso) {
+    public void setIdUserAmmesso(Long idUserAmmesso) {
         this.idUserAmmesso = idUserAmmesso;
     }
 
-    public Integer getRuolo() {
+    public Long getRuolo() {
         return ruolo;
     }
 
-    public void setRuolo(Integer ruolo) {
+    public void setRuolo(Long ruolo) {
         this.ruolo = ruolo;
     }
 
-    public Integer getIdUserConcedente() {
+    public Long getIdUserConcedente() {
         return idUserConcedente;
     }
 
-    public void setIdUserConcedente(Integer idUserConcedente) {
+    public void setIdUserConcedente(Long idUserConcedente) {
         this.idUserConcedente = idUserConcedente;
     }
 
-    public Integer getStatoInvito() {
+    public Long getStatoInvito() {
         return statoInvito;
     }
 
-    public void setStatoInvito(Integer statoInvito) {
+    public void setStatoInvito(Long statoInvito) {
         this.statoInvito = statoInvito;
     }
 
-    public Integer getIdPraticaRef() {
+    public Long getIdPraticaRef() {
         return idPraticaRef;
     }
 
-    public void setIdPraticaRef(Integer idPraticaRef) {
+    public void setIdPraticaRef(Long idPraticaRef) {
         this.idPraticaRef = idPraticaRef;
     }
 
@@ -144,7 +132,6 @@ public class CondivisionePraticaDTO implements Serializable {
     public String toString() {
         return "CondivisionePraticaDTO{" +
             "id=" + getId() +
-            ", idCondivisionePratica=" + getIdCondivisionePratica() +
             ", idUserAmmesso=" + getIdUserAmmesso() +
             ", ruolo=" + getRuolo() +
             ", idUserConcedente=" + getIdUserConcedente() +

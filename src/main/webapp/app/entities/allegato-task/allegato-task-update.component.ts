@@ -26,7 +26,6 @@ export class AllegatoTaskUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    idAllegatoTask: [null, [Validators.required, Validators.max(8)]],
     idTipoAllegatoRef: [null, [Validators.max(8)]],
     idTaskRef: [null, [Validators.max(8)]],
     formato: [],
@@ -63,7 +62,6 @@ export class AllegatoTaskUpdateComponent implements OnInit {
   updateForm(allegatoTask: IAllegatoTask): void {
     this.editForm.patchValue({
       id: allegatoTask.id,
-      idAllegatoTask: allegatoTask.idAllegatoTask,
       idTipoAllegatoRef: allegatoTask.idTipoAllegatoRef,
       idTaskRef: allegatoTask.idTaskRef,
       formato: allegatoTask.formato,
@@ -96,7 +94,6 @@ export class AllegatoTaskUpdateComponent implements OnInit {
     return {
       ...new AllegatoTask(),
       id: this.editForm.get(['id'])!.value,
-      idAllegatoTask: this.editForm.get(['idAllegatoTask'])!.value,
       idTipoAllegatoRef: this.editForm.get(['idTipoAllegatoRef'])!.value,
       idTaskRef: this.editForm.get(['idTaskRef'])!.value,
       formato: this.editForm.get(['formato'])!.value,

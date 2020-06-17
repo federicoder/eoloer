@@ -10,39 +10,35 @@ public class TaskDTO implements Serializable {
     
     private Long id;
 
-    @NotNull
-    @Max(value = 8)
-    private Integer idTask;
-
-    @Max(value = 8)
-    private Integer idPraticaRef;
+    @Max(value = 8L)
+    private Long idPraticaRef;
 
     private String nome;
 
-    private Integer stato;
+    private Long stato;
 
-    private Integer prioritario;
+    private Long prioritario;
 
-    private Integer pubblico;
+    private Long pubblico;
 
     private String version;
 
-    private Integer idCondivisionePraticaRef;
+    private Long idCondivisionePraticaRef;
 
-    @Max(value = 8)
-    private Integer idAssegnazioneTaskRef;
+    @Max(value = 8L)
+    private Long idAssegnazioneTaskRef;
 
-    @Max(value = 8)
-    private Integer idInvitoRef;
+    @Max(value = 8L)
+    private Long idInvitoRef;
 
 
-    private Long idTaskId;
+    private Long idId;
 
-    private Long idTaskId;
+    private Long idId;
 
-    private Long idTaskId;
+    private Long idId;
 
-    private Long idTaskId;
+    private Long idId;
 
     private Long praticaId;
     
@@ -54,19 +50,11 @@ public class TaskDTO implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdTask() {
-        return idTask;
-    }
-
-    public void setIdTask(Integer idTask) {
-        this.idTask = idTask;
-    }
-
-    public Integer getIdPraticaRef() {
+    public Long getIdPraticaRef() {
         return idPraticaRef;
     }
 
-    public void setIdPraticaRef(Integer idPraticaRef) {
+    public void setIdPraticaRef(Long idPraticaRef) {
         this.idPraticaRef = idPraticaRef;
     }
 
@@ -78,27 +66,27 @@ public class TaskDTO implements Serializable {
         this.nome = nome;
     }
 
-    public Integer getStato() {
+    public Long getStato() {
         return stato;
     }
 
-    public void setStato(Integer stato) {
+    public void setStato(Long stato) {
         this.stato = stato;
     }
 
-    public Integer getPrioritario() {
+    public Long getPrioritario() {
         return prioritario;
     }
 
-    public void setPrioritario(Integer prioritario) {
+    public void setPrioritario(Long prioritario) {
         this.prioritario = prioritario;
     }
 
-    public Integer getPubblico() {
+    public Long getPubblico() {
         return pubblico;
     }
 
-    public void setPubblico(Integer pubblico) {
+    public void setPubblico(Long pubblico) {
         this.pubblico = pubblico;
     }
 
@@ -110,60 +98,60 @@ public class TaskDTO implements Serializable {
         this.version = version;
     }
 
-    public Integer getIdCondivisionePraticaRef() {
+    public Long getIdCondivisionePraticaRef() {
         return idCondivisionePraticaRef;
     }
 
-    public void setIdCondivisionePraticaRef(Integer idCondivisionePraticaRef) {
+    public void setIdCondivisionePraticaRef(Long idCondivisionePraticaRef) {
         this.idCondivisionePraticaRef = idCondivisionePraticaRef;
     }
 
-    public Integer getIdAssegnazioneTaskRef() {
+    public Long getIdAssegnazioneTaskRef() {
         return idAssegnazioneTaskRef;
     }
 
-    public void setIdAssegnazioneTaskRef(Integer idAssegnazioneTaskRef) {
+    public void setIdAssegnazioneTaskRef(Long idAssegnazioneTaskRef) {
         this.idAssegnazioneTaskRef = idAssegnazioneTaskRef;
     }
 
-    public Integer getIdInvitoRef() {
+    public Long getIdInvitoRef() {
         return idInvitoRef;
     }
 
-    public void setIdInvitoRef(Integer idInvitoRef) {
+    public void setIdInvitoRef(Long idInvitoRef) {
         this.idInvitoRef = idInvitoRef;
     }
 
-    public Long getIdTaskId() {
-        return idTaskId;
+    public Long getIdId() {
+        return idId;
     }
 
-    public void setIdTaskId(Long consuntivoTaskId) {
-        this.idTaskId = consuntivoTaskId;
+    public void setIdId(Long consuntivoTaskId) {
+        this.idId = consuntivoTaskId;
     }
 
-    public Long getIdTaskId() {
-        return idTaskId;
+    public Long getIdId() {
+        return idId;
     }
 
-    public void setIdTaskId(Long previsioneTaskId) {
-        this.idTaskId = previsioneTaskId;
+    public void setIdId(Long previsioneTaskId) {
+        this.idId = previsioneTaskId;
     }
 
-    public Long getIdTaskId() {
-        return idTaskId;
+    public Long getIdId() {
+        return idId;
     }
 
-    public void setIdTaskId(Long assegnazioneTaskId) {
-        this.idTaskId = assegnazioneTaskId;
+    public void setIdId(Long assegnazioneTaskId) {
+        this.idId = assegnazioneTaskId;
     }
 
-    public Long getIdTaskId() {
-        return idTaskId;
+    public Long getIdId() {
+        return idId;
     }
 
-    public void setIdTaskId(Long invitoAttivitaId) {
-        this.idTaskId = invitoAttivitaId;
+    public void setIdId(Long invitoAttivitaId) {
+        this.idId = invitoAttivitaId;
     }
 
     public Long getPraticaId() {
@@ -196,7 +184,6 @@ public class TaskDTO implements Serializable {
     public String toString() {
         return "TaskDTO{" +
             "id=" + getId() +
-            ", idTask=" + getIdTask() +
             ", idPraticaRef=" + getIdPraticaRef() +
             ", nome='" + getNome() + "'" +
             ", stato=" + getStato() +
@@ -206,10 +193,10 @@ public class TaskDTO implements Serializable {
             ", idCondivisionePraticaRef=" + getIdCondivisionePraticaRef() +
             ", idAssegnazioneTaskRef=" + getIdAssegnazioneTaskRef() +
             ", idInvitoRef=" + getIdInvitoRef() +
-            ", idTaskId=" + getIdTaskId() +
-            ", idTaskId=" + getIdTaskId() +
-            ", idTaskId=" + getIdTaskId() +
-            ", idTaskId=" + getIdTaskId() +
+            ", idId=" + getIdId() +
+            ", idId=" + getIdId() +
+            ", idId=" + getIdId() +
+            ", idId=" + getIdId() +
             ", praticaId=" + getPraticaId() +
             "}";
     }

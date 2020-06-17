@@ -28,52 +28,47 @@ public class AllegatoTask implements Serializable {
     @SequenceGenerator(name = "sequenceGenerator")
     private Long id;
 
-    @NotNull
-    @Max(value = 8)
-    @Column(name = "id_allegato_task", nullable = false)
-    private Integer idAllegatoTask;
-
-    @Max(value = 8)
+    @Max(value = 8L)
     @Column(name = "id_tipo_allegato_ref")
-    private Integer idTipoAllegatoRef;
+    private Long idTipoAllegatoRef;
 
-    @Max(value = 8)
+    @Max(value = 8L)
     @Column(name = "id_task_ref")
-    private Integer idTaskRef;
+    private Long idTaskRef;
 
     @Column(name = "formato")
-    private Integer formato;
+    private Long formato;
 
     @Column(name = "note")
     private String note;
 
     @Column(name = "stato")
-    private Integer stato;
+    private Long stato;
 
     @Column(name = "pubblico")
-    private Integer pubblico;
+    private Long pubblico;
 
     @Column(name = "version")
     private String version;
 
     @NotNull
     @Column(name = "id_allegato_master", nullable = false)
-    private Integer idAllegatoMaster;
+    private Long idAllegatoMaster;
 
     @OneToMany(mappedBy = "allegatoTask")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<AllegatoTask> idAllegatoTasks = new HashSet<>();
+    private Set<AllegatoTask> ids = new HashSet<>();
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "idTipoAllegatoes", allowSetters = true)
+    @JsonIgnoreProperties(value = "ids", allowSetters = true)
     private TipoAllegato tipoAllegato;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "idAllegatoTasks", allowSetters = true)
+    @JsonIgnoreProperties(value = "ids", allowSetters = true)
     private AllegatoTask allegatoTask;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "idTasks", allowSetters = true)
+    @JsonIgnoreProperties(value = "ids", allowSetters = true)
     private Task task;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
@@ -85,55 +80,42 @@ public class AllegatoTask implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdAllegatoTask() {
-        return idAllegatoTask;
-    }
-
-    public AllegatoTask idAllegatoTask(Integer idAllegatoTask) {
-        this.idAllegatoTask = idAllegatoTask;
-        return this;
-    }
-
-    public void setIdAllegatoTask(Integer idAllegatoTask) {
-        this.idAllegatoTask = idAllegatoTask;
-    }
-
-    public Integer getIdTipoAllegatoRef() {
+    public Long getIdTipoAllegatoRef() {
         return idTipoAllegatoRef;
     }
 
-    public AllegatoTask idTipoAllegatoRef(Integer idTipoAllegatoRef) {
+    public AllegatoTask idTipoAllegatoRef(Long idTipoAllegatoRef) {
         this.idTipoAllegatoRef = idTipoAllegatoRef;
         return this;
     }
 
-    public void setIdTipoAllegatoRef(Integer idTipoAllegatoRef) {
+    public void setIdTipoAllegatoRef(Long idTipoAllegatoRef) {
         this.idTipoAllegatoRef = idTipoAllegatoRef;
     }
 
-    public Integer getIdTaskRef() {
+    public Long getIdTaskRef() {
         return idTaskRef;
     }
 
-    public AllegatoTask idTaskRef(Integer idTaskRef) {
+    public AllegatoTask idTaskRef(Long idTaskRef) {
         this.idTaskRef = idTaskRef;
         return this;
     }
 
-    public void setIdTaskRef(Integer idTaskRef) {
+    public void setIdTaskRef(Long idTaskRef) {
         this.idTaskRef = idTaskRef;
     }
 
-    public Integer getFormato() {
+    public Long getFormato() {
         return formato;
     }
 
-    public AllegatoTask formato(Integer formato) {
+    public AllegatoTask formato(Long formato) {
         this.formato = formato;
         return this;
     }
 
-    public void setFormato(Integer formato) {
+    public void setFormato(Long formato) {
         this.formato = formato;
     }
 
@@ -150,29 +132,29 @@ public class AllegatoTask implements Serializable {
         this.note = note;
     }
 
-    public Integer getStato() {
+    public Long getStato() {
         return stato;
     }
 
-    public AllegatoTask stato(Integer stato) {
+    public AllegatoTask stato(Long stato) {
         this.stato = stato;
         return this;
     }
 
-    public void setStato(Integer stato) {
+    public void setStato(Long stato) {
         this.stato = stato;
     }
 
-    public Integer getPubblico() {
+    public Long getPubblico() {
         return pubblico;
     }
 
-    public AllegatoTask pubblico(Integer pubblico) {
+    public AllegatoTask pubblico(Long pubblico) {
         this.pubblico = pubblico;
         return this;
     }
 
-    public void setPubblico(Integer pubblico) {
+    public void setPubblico(Long pubblico) {
         this.pubblico = pubblico;
     }
 
@@ -189,42 +171,42 @@ public class AllegatoTask implements Serializable {
         this.version = version;
     }
 
-    public Integer getIdAllegatoMaster() {
+    public Long getIdAllegatoMaster() {
         return idAllegatoMaster;
     }
 
-    public AllegatoTask idAllegatoMaster(Integer idAllegatoMaster) {
+    public AllegatoTask idAllegatoMaster(Long idAllegatoMaster) {
         this.idAllegatoMaster = idAllegatoMaster;
         return this;
     }
 
-    public void setIdAllegatoMaster(Integer idAllegatoMaster) {
+    public void setIdAllegatoMaster(Long idAllegatoMaster) {
         this.idAllegatoMaster = idAllegatoMaster;
     }
 
-    public Set<AllegatoTask> getIdAllegatoTasks() {
-        return idAllegatoTasks;
+    public Set<AllegatoTask> getIds() {
+        return ids;
     }
 
-    public AllegatoTask idAllegatoTasks(Set<AllegatoTask> allegatoTasks) {
-        this.idAllegatoTasks = allegatoTasks;
+    public AllegatoTask ids(Set<AllegatoTask> allegatoTasks) {
+        this.ids = allegatoTasks;
         return this;
     }
 
-    public AllegatoTask addIdAllegatoTask(AllegatoTask allegatoTask) {
-        this.idAllegatoTasks.add(allegatoTask);
+    public AllegatoTask addId(AllegatoTask allegatoTask) {
+        this.ids.add(allegatoTask);
         allegatoTask.setAllegatoTask(this);
         return this;
     }
 
-    public AllegatoTask removeIdAllegatoTask(AllegatoTask allegatoTask) {
-        this.idAllegatoTasks.remove(allegatoTask);
+    public AllegatoTask removeId(AllegatoTask allegatoTask) {
+        this.ids.remove(allegatoTask);
         allegatoTask.setAllegatoTask(null);
         return this;
     }
 
-    public void setIdAllegatoTasks(Set<AllegatoTask> allegatoTasks) {
-        this.idAllegatoTasks = allegatoTasks;
+    public void setIds(Set<AllegatoTask> allegatoTasks) {
+        this.ids = allegatoTasks;
     }
 
     public TipoAllegato getTipoAllegato() {
@@ -288,7 +270,6 @@ public class AllegatoTask implements Serializable {
     public String toString() {
         return "AllegatoTask{" +
             "id=" + getId() +
-            ", idAllegatoTask=" + getIdAllegatoTask() +
             ", idTipoAllegatoRef=" + getIdTipoAllegatoRef() +
             ", idTaskRef=" + getIdTaskRef() +
             ", formato=" + getFormato() +

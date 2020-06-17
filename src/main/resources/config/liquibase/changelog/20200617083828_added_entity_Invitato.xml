@@ -15,28 +15,25 @@
             <column name="id" type="bigint">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="id_invitato" type="integer">
-                <constraints nullable="false" />
-            </column>
-            <column name="id_invito_ref" type="integer">
+            <column name="id_invito_ref" type="bigint">
                 <constraints nullable="true" />
             </column>
             <column name="token_invito" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="canale_primario_invito" type="integer">
+            <column name="canale_primario_invito" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="canale_backup_invito" type="integer">
+            <column name="canale_backup_invito" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="stato_invito" type="integer">
+            <column name="stato_invito" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="id_user_invitato" type="integer">
+            <column name="id_user_invitato" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="id_persona_invitata" type="integer">
+            <column name="id_persona_invitata" type="bigint">
                 <constraints nullable="true" />
             </column>
             <column name="nome_user_invitato" type="varchar(255)">
@@ -45,10 +42,10 @@
             <column name="data_risposta_invito" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="ruolo_invitato" type="integer">
+            <column name="ruolo_invitato" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="ind_invitati" type="integer">
+            <column name="ind_invitati" type="bigint">
                 <constraints nullable="true" />
             </column>
             <column name="user_persona_id" type="bigint">
@@ -80,7 +77,6 @@
                   separator=";"
                   tableName="invitato">
             <column name="id" type="numeric"/>
-            <column name="id_invitato" type="numeric"/>
             <column name="id_invito_ref" type="numeric"/>
             <column name="token_invito" type="string"/>
             <column name="canale_primario_invito" type="numeric"/>

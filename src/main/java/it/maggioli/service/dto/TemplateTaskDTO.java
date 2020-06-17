@@ -1,6 +1,5 @@
 package it.maggioli.service.dto;
 
-import javax.validation.constraints.*;
 import java.io.Serializable;
 
 /**
@@ -10,19 +9,15 @@ public class TemplateTaskDTO implements Serializable {
     
     private Long id;
 
-    @NotNull
-    @Max(value = 8)
-    private Integer idTemplateTask;
+    private Long ordineEsecuzione;
 
-    private Integer ordineEsecuzione;
+    private Long nome;
 
-    private Integer nome;
+    private Long note;
 
-    private Integer note;
+    private Long pubPriv;
 
-    private Integer pubPriv;
-
-    private Integer idTemplatePraticaRef;
+    private Long idTemplatePraticaRef;
 
 
     private Long templatePraticaId;
@@ -37,51 +32,43 @@ public class TemplateTaskDTO implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdTemplateTask() {
-        return idTemplateTask;
-    }
-
-    public void setIdTemplateTask(Integer idTemplateTask) {
-        this.idTemplateTask = idTemplateTask;
-    }
-
-    public Integer getOrdineEsecuzione() {
+    public Long getOrdineEsecuzione() {
         return ordineEsecuzione;
     }
 
-    public void setOrdineEsecuzione(Integer ordineEsecuzione) {
+    public void setOrdineEsecuzione(Long ordineEsecuzione) {
         this.ordineEsecuzione = ordineEsecuzione;
     }
 
-    public Integer getNome() {
+    public Long getNome() {
         return nome;
     }
 
-    public void setNome(Integer nome) {
+    public void setNome(Long nome) {
         this.nome = nome;
     }
 
-    public Integer getNote() {
+    public Long getNote() {
         return note;
     }
 
-    public void setNote(Integer note) {
+    public void setNote(Long note) {
         this.note = note;
     }
 
-    public Integer getPubPriv() {
+    public Long getPubPriv() {
         return pubPriv;
     }
 
-    public void setPubPriv(Integer pubPriv) {
+    public void setPubPriv(Long pubPriv) {
         this.pubPriv = pubPriv;
     }
 
-    public Integer getIdTemplatePraticaRef() {
+    public Long getIdTemplatePraticaRef() {
         return idTemplatePraticaRef;
     }
 
-    public void setIdTemplatePraticaRef(Integer idTemplatePraticaRef) {
+    public void setIdTemplatePraticaRef(Long idTemplatePraticaRef) {
         this.idTemplatePraticaRef = idTemplatePraticaRef;
     }
 
@@ -123,7 +110,6 @@ public class TemplateTaskDTO implements Serializable {
     public String toString() {
         return "TemplateTaskDTO{" +
             "id=" + getId() +
-            ", idTemplateTask=" + getIdTemplateTask() +
             ", ordineEsecuzione=" + getOrdineEsecuzione() +
             ", nome=" + getNome() +
             ", note=" + getNote() +

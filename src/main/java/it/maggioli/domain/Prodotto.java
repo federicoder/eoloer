@@ -4,7 +4,6 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
-import javax.validation.constraints.*;
 
 import org.springframework.data.elasticsearch.annotations.FieldType;
 import java.io.Serializable;
@@ -25,22 +24,18 @@ public class Prodotto implements Serializable {
     @SequenceGenerator(name = "sequenceGenerator")
     private Long id;
 
-    @NotNull
-    @Column(name = "id_prodotto", nullable = false)
-    private Integer idProdotto;
-
     @Column(name = "nuova_licenza")
-    private Integer nuovaLicenza;
+    private Long nuovaLicenza;
 
     @Column(name = "rinnovo_licenza")
-    private Integer rinnovoLicenza;
+    private Long rinnovoLicenza;
 
     @Column(name = "storage")
-    private Integer storage;
+    private Long storage;
 
     @OneToOne
     @JoinColumn(unique = true)
-    private LineaOrdine idProdotto;
+    private LineaOrdine id;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -51,69 +46,56 @@ public class Prodotto implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdProdotto() {
-        return idProdotto;
-    }
-
-    public Prodotto idProdotto(Integer idProdotto) {
-        this.idProdotto = idProdotto;
-        return this;
-    }
-
-    public void setIdProdotto(Integer idProdotto) {
-        this.idProdotto = idProdotto;
-    }
-
-    public Integer getNuovaLicenza() {
+    public Long getNuovaLicenza() {
         return nuovaLicenza;
     }
 
-    public Prodotto nuovaLicenza(Integer nuovaLicenza) {
+    public Prodotto nuovaLicenza(Long nuovaLicenza) {
         this.nuovaLicenza = nuovaLicenza;
         return this;
     }
 
-    public void setNuovaLicenza(Integer nuovaLicenza) {
+    public void setNuovaLicenza(Long nuovaLicenza) {
         this.nuovaLicenza = nuovaLicenza;
     }
 
-    public Integer getRinnovoLicenza() {
+    public Long getRinnovoLicenza() {
         return rinnovoLicenza;
     }
 
-    public Prodotto rinnovoLicenza(Integer rinnovoLicenza) {
+    public Prodotto rinnovoLicenza(Long rinnovoLicenza) {
         this.rinnovoLicenza = rinnovoLicenza;
         return this;
     }
 
-    public void setRinnovoLicenza(Integer rinnovoLicenza) {
+    public void setRinnovoLicenza(Long rinnovoLicenza) {
         this.rinnovoLicenza = rinnovoLicenza;
     }
 
-    public Integer getStorage() {
+    public Long getStorage() {
         return storage;
     }
 
-    public Prodotto storage(Integer storage) {
+    public Prodotto storage(Long storage) {
         this.storage = storage;
         return this;
     }
 
-    public void setStorage(Integer storage) {
+    public void setStorage(Long storage) {
         this.storage = storage;
     }
 
-    public LineaOrdine getIdProdotto() {
-        return idProdotto;
+    public LineaOrdine getId() {
+        return id;
     }
 
-    public Prodotto idProdotto(LineaOrdine lineaOrdine) {
-        this.idProdotto = lineaOrdine;
+    public Prodotto id(LineaOrdine lineaOrdine) {
+        this.id = lineaOrdine;
         return this;
     }
 
-    public void setIdProdotto(LineaOrdine lineaOrdine) {
-        this.idProdotto = lineaOrdine;
+    public void setId(LineaOrdine lineaOrdine) {
+        this.id = lineaOrdine;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 
@@ -138,7 +120,6 @@ public class Prodotto implements Serializable {
     public String toString() {
         return "Prodotto{" +
             "id=" + getId() +
-            ", idProdotto=" + getIdProdotto() +
             ", nuovaLicenza=" + getNuovaLicenza() +
             ", rinnovoLicenza=" + getRinnovoLicenza() +
             ", storage=" + getStorage() +

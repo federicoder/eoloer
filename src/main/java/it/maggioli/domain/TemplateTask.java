@@ -5,7 +5,6 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
-import javax.validation.constraints.*;
 
 import org.springframework.data.elasticsearch.annotations.FieldType;
 import java.io.Serializable;
@@ -28,40 +27,35 @@ public class TemplateTask implements Serializable {
     @SequenceGenerator(name = "sequenceGenerator")
     private Long id;
 
-    @NotNull
-    @Max(value = 8)
-    @Column(name = "id_template_task", nullable = false)
-    private Integer idTemplateTask;
-
     @Column(name = "ordine_esecuzione")
-    private Integer ordineEsecuzione;
+    private Long ordineEsecuzione;
 
     @Column(name = "nome")
-    private Integer nome;
+    private Long nome;
 
     @Column(name = "note")
-    private Integer note;
+    private Long note;
 
     @Column(name = "pub_priv")
-    private Integer pubPriv;
+    private Long pubPriv;
 
     @Column(name = "id_template_pratica_ref")
-    private Integer idTemplatePraticaRef;
+    private Long idTemplatePraticaRef;
 
     @OneToMany(mappedBy = "templateTask")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<TemplateTask> idTemplateTasks = new HashSet<>();
+    private Set<TemplateTask> ids = new HashSet<>();
 
     @OneToMany(mappedBy = "templateTask")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<AllegatoTemplateTask> idTemplateTasks = new HashSet<>();
+    private Set<AllegatoTemplateTask> ids = new HashSet<>();
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "idTemplatePraticas", allowSetters = true)
+    @JsonIgnoreProperties(value = "ids", allowSetters = true)
     private TemplatePratica templatePratica;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "idTemplateTasks", allowSetters = true)
+    @JsonIgnoreProperties(value = "ids", allowSetters = true)
     private TemplateTask templateTask;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
@@ -73,132 +67,119 @@ public class TemplateTask implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdTemplateTask() {
-        return idTemplateTask;
-    }
-
-    public TemplateTask idTemplateTask(Integer idTemplateTask) {
-        this.idTemplateTask = idTemplateTask;
-        return this;
-    }
-
-    public void setIdTemplateTask(Integer idTemplateTask) {
-        this.idTemplateTask = idTemplateTask;
-    }
-
-    public Integer getOrdineEsecuzione() {
+    public Long getOrdineEsecuzione() {
         return ordineEsecuzione;
     }
 
-    public TemplateTask ordineEsecuzione(Integer ordineEsecuzione) {
+    public TemplateTask ordineEsecuzione(Long ordineEsecuzione) {
         this.ordineEsecuzione = ordineEsecuzione;
         return this;
     }
 
-    public void setOrdineEsecuzione(Integer ordineEsecuzione) {
+    public void setOrdineEsecuzione(Long ordineEsecuzione) {
         this.ordineEsecuzione = ordineEsecuzione;
     }
 
-    public Integer getNome() {
+    public Long getNome() {
         return nome;
     }
 
-    public TemplateTask nome(Integer nome) {
+    public TemplateTask nome(Long nome) {
         this.nome = nome;
         return this;
     }
 
-    public void setNome(Integer nome) {
+    public void setNome(Long nome) {
         this.nome = nome;
     }
 
-    public Integer getNote() {
+    public Long getNote() {
         return note;
     }
 
-    public TemplateTask note(Integer note) {
+    public TemplateTask note(Long note) {
         this.note = note;
         return this;
     }
 
-    public void setNote(Integer note) {
+    public void setNote(Long note) {
         this.note = note;
     }
 
-    public Integer getPubPriv() {
+    public Long getPubPriv() {
         return pubPriv;
     }
 
-    public TemplateTask pubPriv(Integer pubPriv) {
+    public TemplateTask pubPriv(Long pubPriv) {
         this.pubPriv = pubPriv;
         return this;
     }
 
-    public void setPubPriv(Integer pubPriv) {
+    public void setPubPriv(Long pubPriv) {
         this.pubPriv = pubPriv;
     }
 
-    public Integer getIdTemplatePraticaRef() {
+    public Long getIdTemplatePraticaRef() {
         return idTemplatePraticaRef;
     }
 
-    public TemplateTask idTemplatePraticaRef(Integer idTemplatePraticaRef) {
+    public TemplateTask idTemplatePraticaRef(Long idTemplatePraticaRef) {
         this.idTemplatePraticaRef = idTemplatePraticaRef;
         return this;
     }
 
-    public void setIdTemplatePraticaRef(Integer idTemplatePraticaRef) {
+    public void setIdTemplatePraticaRef(Long idTemplatePraticaRef) {
         this.idTemplatePraticaRef = idTemplatePraticaRef;
     }
 
-    public Set<TemplateTask> getIdTemplateTasks() {
-        return idTemplateTasks;
+    public Set<TemplateTask> getIds() {
+        return ids;
     }
 
-    public TemplateTask idTemplateTasks(Set<TemplateTask> templateTasks) {
-        this.idTemplateTasks = templateTasks;
+    public TemplateTask ids(Set<TemplateTask> templateTasks) {
+        this.ids = templateTasks;
         return this;
     }
 
-    public TemplateTask addIdTemplateTask(TemplateTask templateTask) {
-        this.idTemplateTasks.add(templateTask);
+    public TemplateTask addId(TemplateTask templateTask) {
+        this.ids.add(templateTask);
         templateTask.setTemplateTask(this);
         return this;
     }
 
-    public TemplateTask removeIdTemplateTask(TemplateTask templateTask) {
-        this.idTemplateTasks.remove(templateTask);
+    public TemplateTask removeId(TemplateTask templateTask) {
+        this.ids.remove(templateTask);
         templateTask.setTemplateTask(null);
         return this;
     }
 
-    public void setIdTemplateTasks(Set<TemplateTask> templateTasks) {
-        this.idTemplateTasks = templateTasks;
+    public void setIds(Set<TemplateTask> templateTasks) {
+        this.ids = templateTasks;
     }
 
-    public Set<AllegatoTemplateTask> getIdTemplateTasks() {
-        return idTemplateTasks;
+    public Set<AllegatoTemplateTask> getIds() {
+        return ids;
     }
 
-    public TemplateTask idTemplateTasks(Set<AllegatoTemplateTask> allegatoTemplateTasks) {
-        this.idTemplateTasks = allegatoTemplateTasks;
+    public TemplateTask ids(Set<AllegatoTemplateTask> allegatoTemplateTasks) {
+        this.ids = allegatoTemplateTasks;
         return this;
     }
 
-    public TemplateTask addIdTemplateTask(AllegatoTemplateTask allegatoTemplateTask) {
-        this.idTemplateTasks.add(allegatoTemplateTask);
+    public TemplateTask addId(AllegatoTemplateTask allegatoTemplateTask) {
+        this.ids.add(allegatoTemplateTask);
         allegatoTemplateTask.setTemplateTask(this);
         return this;
     }
 
-    public TemplateTask removeIdTemplateTask(AllegatoTemplateTask allegatoTemplateTask) {
-        this.idTemplateTasks.remove(allegatoTemplateTask);
+    public TemplateTask removeId(AllegatoTemplateTask allegatoTemplateTask) {
+        this.ids.remove(allegatoTemplateTask);
         allegatoTemplateTask.setTemplateTask(null);
         return this;
     }
 
-    public void setIdTemplateTasks(Set<AllegatoTemplateTask> allegatoTemplateTasks) {
-        this.idTemplateTasks = allegatoTemplateTasks;
+    public void setIds(Set<AllegatoTemplateTask> allegatoTemplateTasks) {
+        this.ids = allegatoTemplateTasks;
     }
 
     public TemplatePratica getTemplatePratica() {
@@ -249,7 +230,6 @@ public class TemplateTask implements Serializable {
     public String toString() {
         return "TemplateTask{" +
             "id=" + getId() +
-            ", idTemplateTask=" + getIdTemplateTask() +
             ", ordineEsecuzione=" + getOrdineEsecuzione() +
             ", nome=" + getNome() +
             ", note=" + getNote() +

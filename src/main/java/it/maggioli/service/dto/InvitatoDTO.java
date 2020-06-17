@@ -10,31 +10,28 @@ public class InvitatoDTO implements Serializable {
     
     private Long id;
 
-    @NotNull
-    private Integer idInvitato;
-
-    @Max(value = 8)
-    private Integer idInvitoRef;
+    @Max(value = 8L)
+    private Long idInvitoRef;
 
     private String tokenInvito;
 
-    private Integer canalePrimarioInvito;
+    private Long canalePrimarioInvito;
 
-    private Integer canaleBackupInvito;
+    private Long canaleBackupInvito;
 
-    private Integer statoInvito;
+    private Long statoInvito;
 
-    private Integer idUserInvitato;
+    private Long idUserInvitato;
 
-    private Integer idPersonaInvitata;
+    private Long idPersonaInvitata;
 
     private String nomeUserInvitato;
 
     private String dataRispostaInvito;
 
-    private Integer ruoloInvitato;
+    private Long ruoloInvitato;
 
-    private Integer indInvitati;
+    private Long indInvitati;
 
 
     private Long userPersonaId;
@@ -49,19 +46,11 @@ public class InvitatoDTO implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdInvitato() {
-        return idInvitato;
-    }
-
-    public void setIdInvitato(Integer idInvitato) {
-        this.idInvitato = idInvitato;
-    }
-
-    public Integer getIdInvitoRef() {
+    public Long getIdInvitoRef() {
         return idInvitoRef;
     }
 
-    public void setIdInvitoRef(Integer idInvitoRef) {
+    public void setIdInvitoRef(Long idInvitoRef) {
         this.idInvitoRef = idInvitoRef;
     }
 
@@ -73,43 +62,43 @@ public class InvitatoDTO implements Serializable {
         this.tokenInvito = tokenInvito;
     }
 
-    public Integer getCanalePrimarioInvito() {
+    public Long getCanalePrimarioInvito() {
         return canalePrimarioInvito;
     }
 
-    public void setCanalePrimarioInvito(Integer canalePrimarioInvito) {
+    public void setCanalePrimarioInvito(Long canalePrimarioInvito) {
         this.canalePrimarioInvito = canalePrimarioInvito;
     }
 
-    public Integer getCanaleBackupInvito() {
+    public Long getCanaleBackupInvito() {
         return canaleBackupInvito;
     }
 
-    public void setCanaleBackupInvito(Integer canaleBackupInvito) {
+    public void setCanaleBackupInvito(Long canaleBackupInvito) {
         this.canaleBackupInvito = canaleBackupInvito;
     }
 
-    public Integer getStatoInvito() {
+    public Long getStatoInvito() {
         return statoInvito;
     }
 
-    public void setStatoInvito(Integer statoInvito) {
+    public void setStatoInvito(Long statoInvito) {
         this.statoInvito = statoInvito;
     }
 
-    public Integer getIdUserInvitato() {
+    public Long getIdUserInvitato() {
         return idUserInvitato;
     }
 
-    public void setIdUserInvitato(Integer idUserInvitato) {
+    public void setIdUserInvitato(Long idUserInvitato) {
         this.idUserInvitato = idUserInvitato;
     }
 
-    public Integer getIdPersonaInvitata() {
+    public Long getIdPersonaInvitata() {
         return idPersonaInvitata;
     }
 
-    public void setIdPersonaInvitata(Integer idPersonaInvitata) {
+    public void setIdPersonaInvitata(Long idPersonaInvitata) {
         this.idPersonaInvitata = idPersonaInvitata;
     }
 
@@ -129,19 +118,19 @@ public class InvitatoDTO implements Serializable {
         this.dataRispostaInvito = dataRispostaInvito;
     }
 
-    public Integer getRuoloInvitato() {
+    public Long getRuoloInvitato() {
         return ruoloInvitato;
     }
 
-    public void setRuoloInvitato(Integer ruoloInvitato) {
+    public void setRuoloInvitato(Long ruoloInvitato) {
         this.ruoloInvitato = ruoloInvitato;
     }
 
-    public Integer getIndInvitati() {
+    public Long getIndInvitati() {
         return indInvitati;
     }
 
-    public void setIndInvitati(Integer indInvitati) {
+    public void setIndInvitati(Long indInvitati) {
         this.indInvitati = indInvitati;
     }
 
@@ -183,7 +172,6 @@ public class InvitatoDTO implements Serializable {
     public String toString() {
         return "InvitatoDTO{" +
             "id=" + getId() +
-            ", idInvitato=" + getIdInvitato() +
             ", idInvitoRef=" + getIdInvitoRef() +
             ", tokenInvito='" + getTokenInvito() + "'" +
             ", canalePrimarioInvito=" + getCanalePrimarioInvito() +

@@ -43,13 +43,8 @@ describe('TemplatePratica e2e test', () => {
 
     await templatePraticaComponentsPage.clickOnCreateButton();
 
-    await promise.all([
-      templatePraticaUpdatePage.setIdTemplatePraticaInput('5'),
-      templatePraticaUpdatePage.setNomeTemplateInput('5'),
-      templatePraticaUpdatePage.setElencoTagAmbitoInput('5'),
-    ]);
+    await promise.all([templatePraticaUpdatePage.setNomeTemplateInput('5'), templatePraticaUpdatePage.setElencoTagAmbitoInput('5')]);
 
-    expect(await templatePraticaUpdatePage.getIdTemplatePraticaInput()).to.eq('5', 'Expected idTemplatePratica value to be equals to 5');
     expect(await templatePraticaUpdatePage.getNomeTemplateInput()).to.eq('5', 'Expected nomeTemplate value to be equals to 5');
     expect(await templatePraticaUpdatePage.getElencoTagAmbitoInput()).to.eq('5', 'Expected elencoTagAmbito value to be equals to 5');
 

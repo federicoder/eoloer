@@ -27,9 +27,9 @@ public class ConsuntivoTask implements Serializable {
     private Long id;
 
     @NotNull
-    @Max(value = 8)
+    @Max(value = 8L)
     @Column(name = "id_task_ref", nullable = false)
-    private Integer idTaskRef;
+    private Long idTaskRef;
 
     @Column(name = "data_inizio")
     private String dataInizio;
@@ -38,12 +38,12 @@ public class ConsuntivoTask implements Serializable {
     private String dataFine;
 
     @Column(name = "time_line")
-    private Integer timeLine;
+    private Long timeLine;
 
     @Column(name = "version")
     private String version;
 
-    @OneToOne(mappedBy = "idTask")
+    @OneToOne(mappedBy = "id")
     @JsonIgnore
     private Task idTaskRef;
 
@@ -56,16 +56,16 @@ public class ConsuntivoTask implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdTaskRef() {
+    public Long getIdTaskRef() {
         return idTaskRef;
     }
 
-    public ConsuntivoTask idTaskRef(Integer idTaskRef) {
+    public ConsuntivoTask idTaskRef(Long idTaskRef) {
         this.idTaskRef = idTaskRef;
         return this;
     }
 
-    public void setIdTaskRef(Integer idTaskRef) {
+    public void setIdTaskRef(Long idTaskRef) {
         this.idTaskRef = idTaskRef;
     }
 
@@ -95,16 +95,16 @@ public class ConsuntivoTask implements Serializable {
         this.dataFine = dataFine;
     }
 
-    public Integer getTimeLine() {
+    public Long getTimeLine() {
         return timeLine;
     }
 
-    public ConsuntivoTask timeLine(Integer timeLine) {
+    public ConsuntivoTask timeLine(Long timeLine) {
         this.timeLine = timeLine;
         return this;
     }
 
-    public void setTimeLine(Integer timeLine) {
+    public void setTimeLine(Long timeLine) {
         this.timeLine = timeLine;
     }
 

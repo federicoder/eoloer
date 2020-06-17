@@ -15,7 +15,7 @@
             <column name="id" type="bigint">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="id_task_ref" type="integer">
+            <column name="id_task_ref" type="bigint">
                 <constraints nullable="false" />
             </column>
             <column name="data_inizio" type="varchar(255)">
@@ -24,7 +24,7 @@
             <column name="data_fine" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="time_line" type="integer">
+            <column name="time_line" type="bigint">
                 <constraints nullable="true" />
             </column>
             <column name="version" type="varchar(255)">
