@@ -1,0 +1,70 @@
+{
+  "name": "AssegnazioneTask",
+  "fields": [
+    {
+      "fieldName": "idAttivita",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["max"],
+      "fieldValidateRulesMax": "8"
+    },
+    {
+      "fieldName": "idUserAmmesso",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["max"],
+      "fieldValidateRulesMax": "8"
+    },
+    {
+      "fieldName": "ruolo",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "idUserConcedente",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "statoAssegnazione",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "rappresentanzaPratica",
+      "otherEntityRelationshipName": "idRuoloPersona",
+      "relationshipName": "ruolo",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "invito",
+      "otherEntityRelationshipName": "assegnazioneTask",
+      "relationshipName": "idUserConcedente"
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "task",
+      "otherEntityRelationshipName": "id",
+      "relationshipName": "idAttivita",
+      "ownerSide": false
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "userPersona",
+      "otherEntityRelationshipName": "id",
+      "relationshipName": "userPersona",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200617083628",
+  "entityTableName": "assegnazione_task",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["eoloprj"]
+}

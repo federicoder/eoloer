@@ -1,0 +1,30 @@
+{
+  "eoloprjApp": {
+    "indirizzoPersona": {
+      "home": {
+        "title": "IndirizzoPersonas",
+        "createLabel": "Genera un nuovo Indirizzo Persona",
+        "createOrEditLabel": "Genera o modifica un Indirizzo Persona",
+        "search": "Cerca Indirizzo Persona",
+        "notFound": "No Indirizzo Personas found"
+      },
+      "created": "&Egrave; stato generato un nuovo Indirizzo Persona con identificatore {{ param }}",
+      "updated": "&Egrave; stato aggiornato Indirizzo Persona identificato da {{ param }}",
+      "deleted": "&Egrave; stato eliminato Indirizzo Persona con identificatore {{ param }}",
+      "delete": {
+        "question": "Sei sicuro di volere eliminare Indirizzo Persona {{ id }}?"
+      },
+      "detail": {
+        "title": "Indirizzo Persona"
+      },
+      "idPersona": "Id Persona",
+      "indirizzo": "Indirizzo",
+      "comune": "Comune",
+      "cap": "Cap",
+      "provincia": "Provincia",
+      "regione": "Regione",
+      "nazione": "Nazione",
+      "idPersona": "Id Persona"
+    }
+  }
+}

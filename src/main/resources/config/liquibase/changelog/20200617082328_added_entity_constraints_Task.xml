@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity Task.
+    -->
+    <changeSet id="20200617082328-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="id_id"
+                                 baseTableName="task"
+                                 constraintName="fk_task_id_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="consuntivo_task"/>
+
+        <addForeignKeyConstraint baseColumnNames="id_id"
+                                 baseTableName="task"
+                                 constraintName="fk_task_id_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="previsione_task"/>
+
+        <addForeignKeyConstraint baseColumnNames="id_id"
+                                 baseTableName="task"
+                                 constraintName="fk_task_id_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="assegnazione_task"/>
+
+        <addForeignKeyConstraint baseColumnNames="id_id"
+                                 baseTableName="task"
+                                 constraintName="fk_task_id_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="invito_attivita"/>
+
+        <addForeignKeyConstraint baseColumnNames="pratica_id"
+                                 baseTableName="task"
+                                 constraintName="fk_task_pratica_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="pratica"/>
+
+    </changeSet>
+</databaseChangeLog>

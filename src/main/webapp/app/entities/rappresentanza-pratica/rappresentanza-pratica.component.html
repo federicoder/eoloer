@@ -1,0 +1,89 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="eoloprjApp.rappresentanzaPratica.home.title">Rappresentanza Praticas</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-rappresentanza-pratica" [routerLink]="['/rappresentanza-pratica/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="eoloprjApp.rappresentanzaPratica.home.createLabel">
+            Create a new Rappresentanza Pratica
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'eoloprjApp.rappresentanzaPratica.home.search' | translate }}">
+
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon icon="search"></fa-icon>
+                    </button>
+
+                    <button class="input-group-append btn btn-danger" (click)="search('')" *ngIf="currentSearch">
+                        <fa-icon icon="trash-alt"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="rappresentanzaPraticas?.length === 0">
+        <span jhiTranslate="eoloprjApp.rappresentanzaPratica.home.notFound">No rappresentanzaPraticas found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="rappresentanzaPraticas && rappresentanzaPraticas.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.rappresentanzaPratica.idRuoloPersona">Id Ruolo Persona</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.rappresentanzaPratica.idPersona">Id Persona</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.rappresentanzaPratica.ruoli">Ruoli</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.rappresentanzaPratica.persona">Persona</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let rappresentanzaPratica of rappresentanzaPraticas ;trackBy: trackId">
+                    <td><a [routerLink]="['/rappresentanza-pratica', rappresentanzaPratica.id, 'view']">{{ rappresentanzaPratica.id }}</a></td>
+                    <td>{{ rappresentanzaPratica.idRuoloPersona }}</td>
+                    <td>{{ rappresentanzaPratica.idPersona }}</td>
+                    <td jhiTranslate="{{ 'eoloprjApp.Ruoli.' + rappresentanzaPratica.ruoli }}">{{ rappresentanzaPratica.ruoli }}</td>
+                    <td>
+                        <div *ngIf="rappresentanzaPratica.personaId">
+                            <a [routerLink]="['/persona', rappresentanzaPratica.personaId , 'view']" >{{ rappresentanzaPratica.personaId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/rappresentanza-pratica', rappresentanzaPratica.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/rappresentanza-pratica', rappresentanzaPratica.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(rappresentanzaPratica)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

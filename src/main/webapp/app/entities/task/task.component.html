@@ -1,0 +1,125 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="eoloprjApp.task.home.title">Tasks</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-task" [routerLink]="['/task/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="eoloprjApp.task.home.createLabel">
+            Create a new Task
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'eoloprjApp.task.home.search' | translate }}">
+
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon icon="search"></fa-icon>
+                    </button>
+
+                    <button class="input-group-append btn btn-danger" (click)="search('')" *ngIf="currentSearch">
+                        <fa-icon icon="trash-alt"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="tasks?.length === 0">
+        <span jhiTranslate="eoloprjApp.task.home.notFound">No tasks found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="tasks && tasks.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.task.idPratica">Id Pratica</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.task.nome">Nome</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.task.stato">Stato</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.task.prioritario">Prioritario</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.task.pubblico">Pubblico</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.task.version">Version</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.task.condivisionePraticaId">Condivisione Pratica Id</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.task.assegnazioneTaskId">Assegnazione Task Id</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.task.invitoId">Invito Id</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.task.id">Id</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.task.id">Id</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.task.id">Id</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.task.id">Id</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.task.pratica">Pratica</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let task of tasks ;trackBy: trackId">
+                    <td><a [routerLink]="['/task', task.id, 'view']">{{ task.id }}</a></td>
+                    <td>{{ task.idPratica }}</td>
+                    <td>{{ task.nome }}</td>
+                    <td>{{ task.stato }}</td>
+                    <td>{{ task.prioritario }}</td>
+                    <td>{{ task.pubblico }}</td>
+                    <td>{{ task.version }}</td>
+                    <td>{{ task.condivisionePraticaId }}</td>
+                    <td>{{ task.assegnazioneTaskId }}</td>
+                    <td>{{ task.invitoId }}</td>
+                    <td>
+                        <div *ngIf="task.idId">
+                            <a [routerLink]="['/consuntivo-task', task.idId , 'view']" >{{ task.idId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="task.idId">
+                            <a [routerLink]="['/previsione-task', task.idId , 'view']" >{{ task.idId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="task.idId">
+                            <a [routerLink]="['/assegnazione-task', task.idId , 'view']" >{{ task.idId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="task.idId">
+                            <a [routerLink]="['/invito-attivita', task.idId , 'view']" >{{ task.idId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="task.praticaId">
+                            <a [routerLink]="['/pratica', task.praticaId , 'view']" >{{ task.praticaId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/task', task.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/task', task.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(task)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,70 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="invitoEvento">
+            <h2><span jhiTranslate="eoloprjApp.invitoEvento.detail.title">Invito Evento</span> {{ invitoEvento.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="eoloprjApp.invitoEvento.idAttivita">Id Attivita</span></dt>
+                <dd>
+                    <span>{{ invitoEvento.idAttivita }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.invitoEvento.luogoFisico">Luogo Fisico</span></dt>
+                <dd>
+                    <span>{{ invitoEvento.luogoFisico }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.invitoEvento.indicazioniLuogo">Indicazioni Luogo</span></dt>
+                <dd>
+                    <span>{{ invitoEvento.indicazioniLuogo }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.invitoEvento.dataInizio">Data Inizio</span></dt>
+                <dd>
+                    <span>{{ invitoEvento.dataInizio }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.invitoEvento.oraInizio">Ora Inizio</span></dt>
+                <dd>
+                    <span>{{ invitoEvento.oraInizio }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.invitoEvento.dataFine">Data Fine</span></dt>
+                <dd>
+                    <span>{{ invitoEvento.dataFine }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.invitoEvento.oraFine">Ora Fine</span></dt>
+                <dd>
+                    <span>{{ invitoEvento.oraFine }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.invitoEvento.urlStanzaVirtuale">Url Stanza Virtuale</span></dt>
+                <dd>
+                    <span>{{ invitoEvento.urlStanzaVirtuale }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.invitoEvento.idAttivita">Id Attivita</span></dt>
+                <dd>
+                    <div *ngIf="invitoEvento.idAttivitaId">
+                        <a [routerLink]="['/invito', invitoEvento.idAttivitaId, 'view']">{{ invitoEvento.idAttivitaId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.invitoEvento.previsioneEvento">Previsione Evento</span></dt>
+                <dd>
+                    <div *ngIf="invitoEvento.previsioneEventoId">
+                        <a [routerLink]="['/previsione-evento', invitoEvento.previsioneEventoId, 'view']">{{ invitoEvento.previsioneEventoId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/invito-evento', invitoEvento.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

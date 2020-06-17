@@ -1,0 +1,29 @@
+{
+  "eoloprjApp": {
+    "lineaOrdine": {
+      "home": {
+        "title": "Linea Ordines",
+        "createLabel": "Create a new Linea Ordine",
+        "createOrEditLabel": "Create or edit a Linea Ordine",
+        "search": "Search for Linea Ordine",
+        "notFound": "No Linea Ordines found"
+      },
+      "created": "A new Linea Ordine is created with identifier {{ param }}",
+      "updated": "A Linea Ordine is updated with identifier {{ param }}",
+      "deleted": "A Linea Ordine is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Linea Ordine {{ id }}?"
+      },
+      "detail": {
+        "title": "Linea Ordine"
+      },
+      "idOrdine": "Id Ordine",
+      "idProdotto": "Id Prodotto",
+      "quantita": "Quantita",
+      "importo": "Importo",
+      "codIva": "Cod Iva",
+      "idProdotto": "Id Prodotto",
+      "ordine": "Ordine"
+    }
+  }
+}

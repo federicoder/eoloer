@@ -1,0 +1,52 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="lineaOrdine">
+            <h2><span jhiTranslate="eoloprjApp.lineaOrdine.detail.title">Linea Ordine</span> {{ lineaOrdine.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="eoloprjApp.lineaOrdine.idOrdine">Id Ordine</span></dt>
+                <dd>
+                    <span>{{ lineaOrdine.idOrdine }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.lineaOrdine.idProdotto">Id Prodotto</span></dt>
+                <dd>
+                    <span>{{ lineaOrdine.idProdotto }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.lineaOrdine.quantita">Quantita</span></dt>
+                <dd>
+                    <span>{{ lineaOrdine.quantita }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.lineaOrdine.importo">Importo</span></dt>
+                <dd>
+                    <span>{{ lineaOrdine.importo }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.lineaOrdine.codIva">Cod Iva</span></dt>
+                <dd>
+                    <span>{{ lineaOrdine.codIva }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.lineaOrdine.ordine">Ordine</span></dt>
+                <dd>
+                    <div *ngIf="lineaOrdine.ordineId">
+                        <a [routerLink]="['/ordine', lineaOrdine.ordineId, 'view']">{{ lineaOrdine.ordineId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/linea-ordine', lineaOrdine.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

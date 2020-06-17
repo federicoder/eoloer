@@ -1,0 +1,38 @@
+{
+  "name": "TelefonoPersona",
+  "fields": [
+    {
+      "fieldName": "idPersona",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "etichetta",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "valore",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "persona",
+      "otherEntityRelationshipName": "id",
+      "relationshipName": "persona",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200617085328",
+  "entityTableName": "telefono_persona",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["eoloprj"]
+}

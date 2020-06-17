@@ -1,0 +1,88 @@
+{
+  "name": "AllegatoTask",
+  "fields": [
+    {
+      "fieldName": "idAllegatoTask",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["max", "required"],
+      "fieldValidateRulesMax": "8"
+    },
+    {
+      "fieldName": "idTipo",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["max"],
+      "fieldValidateRulesMax": "8"
+    },
+    {
+      "fieldName": "idTask",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["max"],
+      "fieldValidateRulesMax": "8"
+    },
+    {
+      "fieldName": "formato",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "note",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "stato",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "pubblico",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "version",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "idAllegatoMaster",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "allegatoTask",
+      "otherEntityRelationshipName": "allegatoTask",
+      "relationshipName": "idAllegatoTask"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "tipoAllegato",
+      "otherEntityRelationshipName": "idTipoAllegato",
+      "relationshipName": "tipoAllegato",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "allegatoTask",
+      "otherEntityRelationshipName": "idAllegatoTask",
+      "relationshipName": "allegatoTask",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "task",
+      "otherEntityRelationshipName": "id",
+      "relationshipName": "task",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200617082828",
+  "entityTableName": "allegato_task",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["eoloprj"]
+}

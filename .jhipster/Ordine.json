@@ -1,0 +1,52 @@
+{
+  "name": "Ordine",
+  "fields": [
+    {
+      "fieldName": "idStudioProfessionale",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "statoOrdine",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "totImponibile",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "totIva",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "totOrdine",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "lineaOrdine",
+      "otherEntityRelationshipName": "ordine",
+      "relationshipName": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "studioProfessionale",
+      "otherEntityRelationshipName": "id",
+      "relationshipName": "studioProfessionale",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200617085628",
+  "entityTableName": "ordine",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["eoloprj"]
+}

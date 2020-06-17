@@ -1,0 +1,60 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="previsioneTask">
+            <h2><span jhiTranslate="eoloprjApp.previsioneTask.detail.title">Previsione Task</span> {{ previsioneTask.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="eoloprjApp.previsioneTask.idTask">Id Task</span></dt>
+                <dd>
+                    <span>{{ previsioneTask.idTask }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.previsioneTask.qntOrdine">Qnt Ordine</span></dt>
+                <dd>
+                    <span>{{ previsioneTask.qntOrdine }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.previsioneTask.prcPrevisione">Prc Previsione</span></dt>
+                <dd>
+                    <span>{{ previsioneTask.prcPrevisione }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.previsioneTask.checkList">Check List</span></dt>
+                <dd>
+                    <span>{{ previsioneTask.checkList }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.previsioneTask.idTaskMilestone">Id Task Milestone</span></dt>
+                <dd>
+                    <span>{{ previsioneTask.idTaskMilestone }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.previsioneTask.tipoTask">Tipo Task</span></dt>
+                <dd>
+                    <span>{{ previsioneTask.tipoTask }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.previsioneTask.version">Version</span></dt>
+                <dd>
+                    <span>{{ previsioneTask.version }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.previsioneTask.previsioneTask">Previsione Task</span></dt>
+                <dd>
+                    <div *ngIf="previsioneTask.previsioneTaskId">
+                        <a [routerLink]="['/previsione-task', previsioneTask.previsioneTaskId, 'view']">{{ previsioneTask.previsioneTaskId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/previsione-task', previsioneTask.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+{
+  "eoloprjApp": {
+    "assegnazioneTask": {
+      "home": {
+        "title": "AssegnazioneTasks",
+        "createLabel": "Genera un nuovo Assegnazione Task",
+        "createOrEditLabel": "Genera o modifica un Assegnazione Task",
+        "search": "Cerca Assegnazione Task",
+        "notFound": "No Assegnazione Tasks found"
+      },
+      "created": "&Egrave; stato generato un nuovo Assegnazione Task con identificatore {{ param }}",
+      "updated": "&Egrave; stato aggiornato Assegnazione Task identificato da {{ param }}",
+      "deleted": "&Egrave; stato eliminato Assegnazione Task con identificatore {{ param }}",
+      "delete": {
+        "question": "Sei sicuro di volere eliminare Assegnazione Task {{ id }}?"
+      },
+      "detail": {
+        "title": "Assegnazione Task"
+      },
+      "idAttivita": "Id Attivita",
+      "idUserAmmesso": "Id User Ammesso",
+      "ruolo": "Ruolo",
+      "idUserConcedente": "Id User Concedente",
+      "statoAssegnazione": "Stato Assegnazione",
+      "ruolo": "Ruolo",
+      "idUserConcedente": "Id User Concedente",
+      "idAttivita": "Id Attivita",
+      "userPersona": "User Persona"
+    }
+  }
+}

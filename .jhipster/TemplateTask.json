@@ -1,0 +1,70 @@
+{
+  "name": "TemplateTask",
+  "fields": [
+    {
+      "fieldName": "idTemplateTask",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required", "max"],
+      "fieldValidateRulesMax": "8"
+    },
+    {
+      "fieldName": "ordineEsecuzione",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "nome",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "note",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "pubPriv",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "idTemplatePratica",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "templateTask",
+      "otherEntityRelationshipName": "templateTask",
+      "relationshipName": "idTemplate"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "allegatoTemplateTask",
+      "otherEntityRelationshipName": "templateTask",
+      "relationshipName": "idTemplateTask"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "templatePratica",
+      "otherEntityRelationshipName": "idTemplate",
+      "relationshipName": "templatePratica",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "templateTask",
+      "otherEntityRelationshipName": "idTemplate",
+      "relationshipName": "templateTask",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200617082528",
+  "entityTableName": "template_task",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["eoloprj"]
+}

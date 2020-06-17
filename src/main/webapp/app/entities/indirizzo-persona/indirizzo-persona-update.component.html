@@ -1,0 +1,78 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-indirizzo-persona-heading" jhiTranslate="eoloprjApp.indirizzoPersona.home.createOrEditLabel">Create or edit a Indirizzo Persona</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.indirizzoPersona.idPersona" for="field_idPersona">Id Persona</label>
+                    <input type="number" class="form-control" name="idPersona" id="field_idPersona"
+                           formControlName="idPersona"/>
+                    <div *ngIf="editForm.get('idPersona')!.invalid && (editForm.get('idPersona')!.dirty || editForm.get('idPersona')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('idPersona')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('idPersona')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.indirizzoPersona.indirizzo" for="field_indirizzo">Indirizzo</label>
+                    <input type="text" class="form-control" name="indirizzo" id="field_indirizzo"
+                           formControlName="indirizzo"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.indirizzoPersona.comune" for="field_comune">Comune</label>
+                    <input type="text" class="form-control" name="comune" id="field_comune"
+                           formControlName="comune"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.indirizzoPersona.cap" for="field_cap">Cap</label>
+                    <input type="number" class="form-control" name="cap" id="field_cap"
+                           formControlName="cap"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.indirizzoPersona.provincia" for="field_provincia">Provincia</label>
+                    <input type="text" class="form-control" name="provincia" id="field_provincia"
+                           formControlName="provincia"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.indirizzoPersona.regione" for="field_regione">Regione</label>
+                    <input type="text" class="form-control" name="regione" id="field_regione"
+                           formControlName="regione"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.indirizzoPersona.nazione" for="field_nazione">Nazione</label>
+                    <input type="text" class="form-control" name="nazione" id="field_nazione"
+                           formControlName="nazione"/>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

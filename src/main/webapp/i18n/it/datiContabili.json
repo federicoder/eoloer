@@ -1,0 +1,25 @@
+{
+  "eoloprjApp": {
+    "datiContabili": {
+      "home": {
+        "title": "DatiContabilis",
+        "createLabel": "Genera un nuovo Dati Contabili",
+        "createOrEditLabel": "Genera o modifica un Dati Contabili",
+        "search": "Cerca Dati Contabili",
+        "notFound": "No Dati Contabilis found"
+      },
+      "created": "&Egrave; stato generato un nuovo Dati Contabili con identificatore {{ param }}",
+      "updated": "&Egrave; stato aggiornato Dati Contabili identificato da {{ param }}",
+      "deleted": "&Egrave; stato eliminato Dati Contabili con identificatore {{ param }}",
+      "delete": {
+        "question": "Sei sicuro di volere eliminare Dati Contabili {{ id }}?"
+      },
+      "detail": {
+        "title": "Dati Contabili"
+      },
+      "idDatiContabili": "Id Dati Contabili",
+      "idPersona": "Id Persona",
+      "persona": "Persona"
+    }
+  }
+}

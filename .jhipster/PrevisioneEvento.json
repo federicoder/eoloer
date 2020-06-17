@@ -1,0 +1,58 @@
+{
+  "name": "PrevisioneEvento",
+  "fields": [
+    {
+      "fieldName": "idTask",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["max", "required"],
+      "fieldValidateRulesMax": "8"
+    },
+    {
+      "fieldName": "dataInizio",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dataFine",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "luogo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "indicazioniLuogo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "version",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "previsioneTask",
+      "otherEntityRelationshipName": "idTask",
+      "relationshipName": "idTask",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "invitoEvento",
+      "otherEntityRelationshipName": "previsioneEvento",
+      "relationshipName": "idTask"
+    }
+  ],
+  "changelogDate": "20200617083128",
+  "entityTableName": "previsione_evento",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["eoloprj"]
+}

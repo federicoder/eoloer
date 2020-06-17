@@ -1,0 +1,26 @@
+{
+  "eoloprjApp": {
+    "telefonoPersona": {
+      "home": {
+        "title": "TelefonoPersonas",
+        "createLabel": "Genera un nuovo Telefono Persona",
+        "createOrEditLabel": "Genera o modifica un Telefono Persona",
+        "search": "Cerca Telefono Persona",
+        "notFound": "No Telefono Personas found"
+      },
+      "created": "&Egrave; stato generato un nuovo Telefono Persona con identificatore {{ param }}",
+      "updated": "&Egrave; stato aggiornato Telefono Persona identificato da {{ param }}",
+      "deleted": "&Egrave; stato eliminato Telefono Persona con identificatore {{ param }}",
+      "delete": {
+        "question": "Sei sicuro di volere eliminare Telefono Persona {{ id }}?"
+      },
+      "detail": {
+        "title": "Telefono Persona"
+      },
+      "idPersona": "Id Persona",
+      "etichetta": "Etichetta",
+      "valore": "Valore",
+      "persona": "Persona"
+    }
+  }
+}

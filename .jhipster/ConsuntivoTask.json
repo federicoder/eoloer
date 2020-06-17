@@ -1,0 +1,47 @@
+{
+  "name": "ConsuntivoTask",
+  "fields": [
+    {
+      "fieldName": "idTask",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["max", "required"],
+      "fieldValidateRulesMax": "8"
+    },
+    {
+      "fieldName": "dataInizio",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dataFine",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "timeLine",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "version",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "task",
+      "otherEntityRelationshipName": "id",
+      "relationshipName": "idTask",
+      "ownerSide": false
+    }
+  ],
+  "changelogDate": "20200617083428",
+  "entityTableName": "consuntivo_task",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["eoloprj"]
+}

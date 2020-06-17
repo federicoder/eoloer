@@ -1,0 +1,38 @@
+{
+  "eoloprjApp": {
+    "task": {
+      "home": {
+        "title": "Tasks",
+        "createLabel": "Genera un nuovo Task",
+        "createOrEditLabel": "Genera o modifica un Task",
+        "search": "Cerca Task",
+        "notFound": "No Tasks found"
+      },
+      "created": "&Egrave; stato generato un nuovo Task con identificatore {{ param }}",
+      "updated": "&Egrave; stato aggiornato Task identificato da {{ param }}",
+      "deleted": "&Egrave; stato eliminato Task con identificatore {{ param }}",
+      "delete": {
+        "question": "Sei sicuro di volere eliminare Task {{ id }}?"
+      },
+      "detail": {
+        "title": "Task"
+      },
+      "idPratica": "Id Pratica",
+      "nome": "Nome",
+      "stato": "Stato",
+      "prioritario": "Prioritario",
+      "pubblico": "Pubblico",
+      "version": "Version",
+      "condivisionePraticaId": "Condivisione Pratica Id",
+      "assegnazioneTaskId": "Assegnazione Task Id",
+      "invitoId": "Invito Id",
+      "id": "Id",
+      "id": "Id",
+      "id": "Id",
+      "id": "Id",
+      "id": "Id",
+      "id": "Id",
+      "pratica": "Pratica"
+    }
+  }
+}

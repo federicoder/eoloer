@@ -1,0 +1,58 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="assegnazioneTask">
+            <h2><span jhiTranslate="eoloprjApp.assegnazioneTask.detail.title">Assegnazione Task</span> {{ assegnazioneTask.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="eoloprjApp.assegnazioneTask.idAttivita">Id Attivita</span></dt>
+                <dd>
+                    <span>{{ assegnazioneTask.idAttivita }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.assegnazioneTask.idUserAmmesso">Id User Ammesso</span></dt>
+                <dd>
+                    <span>{{ assegnazioneTask.idUserAmmesso }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.assegnazioneTask.ruolo">Ruolo</span></dt>
+                <dd>
+                    <span>{{ assegnazioneTask.ruolo }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.assegnazioneTask.idUserConcedente">Id User Concedente</span></dt>
+                <dd>
+                    <span>{{ assegnazioneTask.idUserConcedente }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.assegnazioneTask.statoAssegnazione">Stato Assegnazione</span></dt>
+                <dd>
+                    <span>{{ assegnazioneTask.statoAssegnazione }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.assegnazioneTask.ruolo">Ruolo</span></dt>
+                <dd>
+                    <div *ngIf="assegnazioneTask.ruoloId">
+                        <a [routerLink]="['/rappresentanza-pratica', assegnazioneTask.ruoloId, 'view']">{{ assegnazioneTask.ruoloId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.assegnazioneTask.userPersona">User Persona</span></dt>
+                <dd>
+                    <div *ngIf="assegnazioneTask.userPersonaId">
+                        <a [routerLink]="['/user-persona', assegnazioneTask.userPersonaId, 'view']">{{ assegnazioneTask.userPersonaId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/assegnazione-task', assegnazioneTask.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

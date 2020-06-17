@@ -1,0 +1,92 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-template-task-heading" jhiTranslate="eoloprjApp.templateTask.home.createOrEditLabel">Create or edit a Template Task</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.templateTask.idTemplateTask" for="field_idTemplateTask">Id Template Task</label>
+                    <input type="number" class="form-control" name="idTemplateTask" id="field_idTemplateTask"
+                           formControlName="idTemplateTask"/>
+                    <div *ngIf="editForm.get('idTemplateTask')!.invalid && (editForm.get('idTemplateTask')!.dirty || editForm.get('idTemplateTask')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('idTemplateTask')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('idTemplateTask')?.errors?.max" jhiTranslate="entity.validation.max" [translateValues]="{ max: 8 }">
+                            This field cannot be more than 8.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('idTemplateTask')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.templateTask.ordineEsecuzione" for="field_ordineEsecuzione">Ordine Esecuzione</label>
+                    <input type="number" class="form-control" name="ordineEsecuzione" id="field_ordineEsecuzione"
+                           formControlName="ordineEsecuzione"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.templateTask.nome" for="field_nome">Nome</label>
+                    <input type="number" class="form-control" name="nome" id="field_nome"
+                           formControlName="nome"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.templateTask.note" for="field_note">Note</label>
+                    <input type="number" class="form-control" name="note" id="field_note"
+                           formControlName="note"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.templateTask.pubPriv" for="field_pubPriv">Pub Priv</label>
+                    <input type="number" class="form-control" name="pubPriv" id="field_pubPriv"
+                           formControlName="pubPriv"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.templateTask.idTemplatePratica" for="field_idTemplatePratica">Id Template Pratica</label>
+                    <input type="number" class="form-control" name="idTemplatePratica" id="field_idTemplatePratica"
+                           formControlName="idTemplatePratica"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.templateTask.templatePratica" for="field_templatePratica">Template Pratica</label>
+                    <select class="form-control" id="field_templatePratica" name="templatePratica" formControlName="templatePraticaId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="templatePraticaOption.id" *ngFor="let templatePraticaOption of templatepraticas; trackBy: trackById">{{ templatePraticaOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.templateTask.templateTask" for="field_templateTask">Template Task</label>
+                    <select class="form-control" id="field_templateTask" name="templateTask" formControlName="templateTaskId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="templateTaskOption.id" *ngFor="let templateTaskOption of templatetasks; trackBy: trackById">{{ templateTaskOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

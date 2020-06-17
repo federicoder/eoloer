@@ -1,0 +1,35 @@
+{
+  "name": "DatiContabili",
+  "fields": [
+    {
+      "fieldName": "idDatiContabili",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "idPersona",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "persona",
+      "otherEntityRelationshipName": "id",
+      "relationshipName": "persona",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200617084928",
+  "entityTableName": "dati_contabili",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["eoloprj"]
+}

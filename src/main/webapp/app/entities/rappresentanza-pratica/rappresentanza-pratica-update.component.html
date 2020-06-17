@@ -1,0 +1,76 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-rappresentanza-pratica-heading" jhiTranslate="eoloprjApp.rappresentanzaPratica.home.createOrEditLabel">Create or edit a Rappresentanza Pratica</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.rappresentanzaPratica.idRuoloPersona" for="field_idRuoloPersona">Id Ruolo Persona</label>
+                    <input type="number" class="form-control" name="idRuoloPersona" id="field_idRuoloPersona"
+                           formControlName="idRuoloPersona"/>
+                    <div *ngIf="editForm.get('idRuoloPersona')!.invalid && (editForm.get('idRuoloPersona')!.dirty || editForm.get('idRuoloPersona')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('idRuoloPersona')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('idRuoloPersona')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.rappresentanzaPratica.idPersona" for="field_idPersona">Id Persona</label>
+                    <input type="number" class="form-control" name="idPersona" id="field_idPersona"
+                           formControlName="idPersona"/>
+                    <div *ngIf="editForm.get('idPersona')!.invalid && (editForm.get('idPersona')!.dirty || editForm.get('idPersona')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('idPersona')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('idPersona')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.rappresentanzaPratica.ruoli" for="field_ruoli">Ruoli</label>
+                    <select class="form-control" name="ruoli" formControlName="ruoli" id="field_ruoli">
+                        <option value="TDP">{{ 'eoloprjApp.Ruoli.TDP' | translate }}</option>
+                        <option value="COLLABORATOREINTERNO">{{ 'eoloprjApp.Ruoli.COLLABORATOREINTERNO' | translate }}</option>
+                        <option value="COLLABORATOREESTERNO">{{ 'eoloprjApp.Ruoli.COLLABORATOREESTERNO' | translate }}</option>
+                        <option value="CLIENTE">{{ 'eoloprjApp.Ruoli.CLIENTE' | translate }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.rappresentanzaPratica.persona" for="field_persona">Persona</label>
+                    <select class="form-control" id="field_persona" name="persona" formControlName="personaId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="personaOption.id" *ngFor="let personaOption of personas; trackBy: trackById">{{ personaOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

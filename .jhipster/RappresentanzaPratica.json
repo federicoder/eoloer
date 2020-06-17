@@ -1,0 +1,54 @@
+{
+  "name": "RappresentanzaPratica",
+  "fields": [
+    {
+      "fieldName": "idRuoloPersona",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "idPersona",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "ruoli",
+      "fieldType": "Ruoli",
+      "fieldValues": "TDP,COLLABORATOREINTERNO,COLLABORATOREESTERNO,CLIENTE"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "condivisionePratica",
+      "otherEntityRelationshipName": "ruolo",
+      "relationshipName": "idRuoloPersona",
+      "ownerSide": false
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "assegnazioneTask",
+      "otherEntityRelationshipName": "ruolo",
+      "relationshipName": "idRuoloPersona",
+      "ownerSide": false
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "persona",
+      "otherEntityRelationshipName": "id",
+      "relationshipName": "persona",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200617084328",
+  "entityTableName": "rappresentanza_pratica",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["eoloprj"]
+}

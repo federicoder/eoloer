@@ -1,0 +1,118 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-invitato-heading" jhiTranslate="eoloprjApp.invitato.home.createOrEditLabel">Create or edit a Invitato</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.invitato.idInvito" for="field_idInvito">Id Invito</label>
+                    <input type="number" class="form-control" name="idInvito" id="field_idInvito"
+                           formControlName="idInvito"/>
+                    <div *ngIf="editForm.get('idInvito')!.invalid && (editForm.get('idInvito')!.dirty || editForm.get('idInvito')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('idInvito')?.errors?.max" jhiTranslate="entity.validation.max" [translateValues]="{ max: 8 }">
+                            This field cannot be more than 8.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('idInvito')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.invitato.tokenInvito" for="field_tokenInvito">Token Invito</label>
+                    <input type="text" class="form-control" name="tokenInvito" id="field_tokenInvito"
+                           formControlName="tokenInvito"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.invitato.canalePrimarioInvito" for="field_canalePrimarioInvito">Canale Primario Invito</label>
+                    <input type="number" class="form-control" name="canalePrimarioInvito" id="field_canalePrimarioInvito"
+                           formControlName="canalePrimarioInvito"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.invitato.canaleBackupInvito" for="field_canaleBackupInvito">Canale Backup Invito</label>
+                    <input type="number" class="form-control" name="canaleBackupInvito" id="field_canaleBackupInvito"
+                           formControlName="canaleBackupInvito"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.invitato.statoInvito" for="field_statoInvito">Stato Invito</label>
+                    <input type="number" class="form-control" name="statoInvito" id="field_statoInvito"
+                           formControlName="statoInvito"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.invitato.idUserInvitato" for="field_idUserInvitato">Id User Invitato</label>
+                    <input type="number" class="form-control" name="idUserInvitato" id="field_idUserInvitato"
+                           formControlName="idUserInvitato"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.invitato.idPersonaInvitata" for="field_idPersonaInvitata">Id Persona Invitata</label>
+                    <input type="number" class="form-control" name="idPersonaInvitata" id="field_idPersonaInvitata"
+                           formControlName="idPersonaInvitata"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.invitato.nomeUserInvitato" for="field_nomeUserInvitato">Nome User Invitato</label>
+                    <input type="text" class="form-control" name="nomeUserInvitato" id="field_nomeUserInvitato"
+                           formControlName="nomeUserInvitato"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.invitato.dataRispostaInvito" for="field_dataRispostaInvito">Data Risposta Invito</label>
+                    <input type="text" class="form-control" name="dataRispostaInvito" id="field_dataRispostaInvito"
+                           formControlName="dataRispostaInvito"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.invitato.ruoloInvitato" for="field_ruoloInvitato">Ruolo Invitato</label>
+                    <input type="number" class="form-control" name="ruoloInvitato" id="field_ruoloInvitato"
+                           formControlName="ruoloInvitato"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.invitato.indInvitati" for="field_indInvitati">Ind Invitati</label>
+                    <input type="number" class="form-control" name="indInvitati" id="field_indInvitati"
+                           formControlName="indInvitati"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.invitato.userPersona" for="field_userPersona">User Persona</label>
+                    <select class="form-control" id="field_userPersona" name="userPersona" formControlName="userPersonaId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="userPersonaOption.id" *ngFor="let userPersonaOption of userpersonas; trackBy: trackById">{{ userPersonaOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.invitato.invito" for="field_invito">Invito</label>
+                    <select class="form-control" id="field_invito" name="invito" formControlName="invitoId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="invitoOption.id" *ngFor="let invitoOption of invitos; trackBy: trackById">{{ invitoOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

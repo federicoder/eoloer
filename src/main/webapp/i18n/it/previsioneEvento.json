@@ -1,0 +1,30 @@
+{
+  "eoloprjApp": {
+    "previsioneEvento": {
+      "home": {
+        "title": "PrevisioneEventos",
+        "createLabel": "Genera un nuovo Previsione Evento",
+        "createOrEditLabel": "Genera o modifica un Previsione Evento",
+        "search": "Cerca Previsione Evento",
+        "notFound": "No Previsione Eventos found"
+      },
+      "created": "&Egrave; stato generato un nuovo Previsione Evento con identificatore {{ param }}",
+      "updated": "&Egrave; stato aggiornato Previsione Evento identificato da {{ param }}",
+      "deleted": "&Egrave; stato eliminato Previsione Evento con identificatore {{ param }}",
+      "delete": {
+        "question": "Sei sicuro di volere eliminare Previsione Evento {{ id }}?"
+      },
+      "detail": {
+        "title": "Previsione Evento"
+      },
+      "idTask": "Id Task",
+      "dataInizio": "Data Inizio",
+      "dataFine": "Data Fine",
+      "luogo": "Luogo",
+      "indicazioniLuogo": "Indicazioni Luogo",
+      "version": "Version",
+      "idTask": "Id Task",
+      "idTask": "Id Task"
+    }
+  }
+}

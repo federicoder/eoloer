@@ -1,0 +1,25 @@
+{
+  "eoloprjApp": {
+    "datiContabili": {
+      "home": {
+        "title": "Dati Contabilis",
+        "createLabel": "Create a new Dati Contabili",
+        "createOrEditLabel": "Create or edit a Dati Contabili",
+        "search": "Search for Dati Contabili",
+        "notFound": "No Dati Contabilis found"
+      },
+      "created": "A new Dati Contabili is created with identifier {{ param }}",
+      "updated": "A Dati Contabili is updated with identifier {{ param }}",
+      "deleted": "A Dati Contabili is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Dati Contabili {{ id }}?"
+      },
+      "detail": {
+        "title": "Dati Contabili"
+      },
+      "idDatiContabili": "Id Dati Contabili",
+      "idPersona": "Id Persona",
+      "persona": "Persona"
+    }
+  }
+}

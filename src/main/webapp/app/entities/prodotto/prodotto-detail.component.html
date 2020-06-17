@@ -1,0 +1,44 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="prodotto">
+            <h2><span jhiTranslate="eoloprjApp.prodotto.detail.title">Prodotto</span> {{ prodotto.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="eoloprjApp.prodotto.nuovaLicenza">Nuova Licenza</span></dt>
+                <dd>
+                    <span>{{ prodotto.nuovaLicenza }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.prodotto.rinnovoLicenza">Rinnovo Licenza</span></dt>
+                <dd>
+                    <span>{{ prodotto.rinnovoLicenza }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.prodotto.storage">Storage</span></dt>
+                <dd>
+                    <span>{{ prodotto.storage }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.prodotto.id">Id</span></dt>
+                <dd>
+                    <div *ngIf="prodotto.idId">
+                        <a [routerLink]="['/linea-ordine', prodotto.idId, 'view']">{{ prodotto.idId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/prodotto', prodotto.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,42 @@
+{
+  "name": "RisorseDisponibili",
+  "fields": [
+    {
+      "fieldName": "idStudioProfessionale",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "dataAttivazioneLicenza",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nrLicenza",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "storageTotale",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "studioProfessionale",
+      "otherEntityRelationshipName": "id",
+      "relationshipName": "studioProfessionale",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200617085528",
+  "entityTableName": "risorse_disponibili",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["eoloprj"]
+}

@@ -1,0 +1,44 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="notePersona">
+            <h2><span jhiTranslate="eoloprjApp.notePersona.detail.title">Note Persona</span> {{ notePersona.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="eoloprjApp.notePersona.idPersona">Id Persona</span></dt>
+                <dd>
+                    <span>{{ notePersona.idPersona }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.notePersona.idNote">Id Note</span></dt>
+                <dd>
+                    <span>{{ notePersona.idNote }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.notePersona.testo">Testo</span></dt>
+                <dd>
+                    <span>{{ notePersona.testo }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.notePersona.persona">Persona</span></dt>
+                <dd>
+                    <div *ngIf="notePersona.personaId">
+                        <a [routerLink]="['/persona', notePersona.personaId, 'view']">{{ notePersona.personaId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/note-persona', notePersona.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

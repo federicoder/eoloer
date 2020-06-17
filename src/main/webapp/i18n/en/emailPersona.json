@@ -1,0 +1,26 @@
+{
+  "eoloprjApp": {
+    "emailPersona": {
+      "home": {
+        "title": "Email Personas",
+        "createLabel": "Create a new Email Persona",
+        "createOrEditLabel": "Create or edit a Email Persona",
+        "search": "Search for Email Persona",
+        "notFound": "No Email Personas found"
+      },
+      "created": "A new Email Persona is created with identifier {{ param }}",
+      "updated": "A Email Persona is updated with identifier {{ param }}",
+      "deleted": "A Email Persona is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Email Persona {{ id }}?"
+      },
+      "detail": {
+        "title": "Email Persona"
+      },
+      "idPersona": "Id Persona",
+      "etichetta": "Etichetta",
+      "numero": "Numero",
+      "persona": "Persona"
+    }
+  }
+}

@@ -1,0 +1,110 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-previsione-task-heading" jhiTranslate="eoloprjApp.previsioneTask.home.createOrEditLabel">Create or edit a Previsione Task</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.previsioneTask.idTask" for="field_idTask">Id Task</label>
+                    <input type="number" class="form-control" name="idTask" id="field_idTask"
+                           formControlName="idTask"/>
+                    <div *ngIf="editForm.get('idTask')!.invalid && (editForm.get('idTask')!.dirty || editForm.get('idTask')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('idTask')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('idTask')?.errors?.max" jhiTranslate="entity.validation.max" [translateValues]="{ max: 8 }">
+                            This field cannot be more than 8.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('idTask')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.previsioneTask.qntOrdine" for="field_qntOrdine">Qnt Ordine</label>
+                    <input type="number" class="form-control" name="qntOrdine" id="field_qntOrdine"
+                           formControlName="qntOrdine"/>
+                    <div *ngIf="editForm.get('qntOrdine')!.invalid && (editForm.get('qntOrdine')!.dirty || editForm.get('qntOrdine')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('qntOrdine')?.errors?.max" jhiTranslate="entity.validation.max" [translateValues]="{ max: 8 }">
+                            This field cannot be more than 8.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('qntOrdine')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.previsioneTask.prcPrevisione" for="field_prcPrevisione">Prc Previsione</label>
+                    <input type="number" class="form-control" name="prcPrevisione" id="field_prcPrevisione"
+                           formControlName="prcPrevisione"/>
+                    <div *ngIf="editForm.get('prcPrevisione')!.invalid && (editForm.get('prcPrevisione')!.dirty || editForm.get('prcPrevisione')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('prcPrevisione')?.errors?.max" jhiTranslate="entity.validation.max" [translateValues]="{ max: 1 }">
+                            This field cannot be more than 1.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('prcPrevisione')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.previsioneTask.checkList" for="field_checkList">Check List</label>
+                    <input type="number" class="form-control" name="checkList" id="field_checkList"
+                           formControlName="checkList"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.previsioneTask.idTaskMilestone" for="field_idTaskMilestone">Id Task Milestone</label>
+                    <input type="number" class="form-control" name="idTaskMilestone" id="field_idTaskMilestone"
+                           formControlName="idTaskMilestone"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.previsioneTask.tipoTask" for="field_tipoTask">Tipo Task</label>
+                    <input type="text" class="form-control" name="tipoTask" id="field_tipoTask"
+                           formControlName="tipoTask"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.previsioneTask.version" for="field_version">Version</label>
+                    <input type="text" class="form-control" name="version" id="field_version"
+                           formControlName="version"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.previsioneTask.previsioneTask" for="field_previsioneTask">Previsione Task</label>
+                    <select class="form-control" id="field_previsioneTask" name="previsioneTask" formControlName="previsioneTaskId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="previsioneTaskOption.id" *ngFor="let previsioneTaskOption of previsionetasks; trackBy: trackById">{{ previsioneTaskOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

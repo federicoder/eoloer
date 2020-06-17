@@ -1,0 +1,38 @@
+{
+  "name": "EmailPersona",
+  "fields": [
+    {
+      "fieldName": "idPersona",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "etichetta",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "numero",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "persona",
+      "otherEntityRelationshipName": "id",
+      "relationshipName": "persona",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200617085128",
+  "entityTableName": "email_persona",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["eoloprj"]
+}

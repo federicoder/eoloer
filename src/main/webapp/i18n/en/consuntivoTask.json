@@ -1,0 +1,28 @@
+{
+  "eoloprjApp": {
+    "consuntivoTask": {
+      "home": {
+        "title": "Consuntivo Tasks",
+        "createLabel": "Create a new Consuntivo Task",
+        "createOrEditLabel": "Create or edit a Consuntivo Task",
+        "search": "Search for Consuntivo Task",
+        "notFound": "No Consuntivo Tasks found"
+      },
+      "created": "A new Consuntivo Task is created with identifier {{ param }}",
+      "updated": "A Consuntivo Task is updated with identifier {{ param }}",
+      "deleted": "A Consuntivo Task is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Consuntivo Task {{ id }}?"
+      },
+      "detail": {
+        "title": "Consuntivo Task"
+      },
+      "idTask": "Id Task",
+      "dataInizio": "Data Inizio",
+      "dataFine": "Data Fine",
+      "timeLine": "Time Line",
+      "version": "Version",
+      "idTask": "Id Task"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "eoloprjApp": {
+    "notePersona": {
+      "home": {
+        "title": "NotePersonas",
+        "createLabel": "Genera un nuovo Note Persona",
+        "createOrEditLabel": "Genera o modifica un Note Persona",
+        "search": "Cerca Note Persona",
+        "notFound": "No Note Personas found"
+      },
+      "created": "&Egrave; stato generato un nuovo Note Persona con identificatore {{ param }}",
+      "updated": "&Egrave; stato aggiornato Note Persona identificato da {{ param }}",
+      "deleted": "&Egrave; stato eliminato Note Persona con identificatore {{ param }}",
+      "delete": {
+        "question": "Sei sicuro di volere eliminare Note Persona {{ id }}?"
+      },
+      "detail": {
+        "title": "Note Persona"
+      },
+      "idPersona": "Id Persona",
+      "idNote": "Id Note",
+      "testo": "Testo",
+      "persona": "Persona"
+    }
+  }
+}

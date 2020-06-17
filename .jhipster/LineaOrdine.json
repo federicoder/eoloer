@@ -1,0 +1,54 @@
+{
+  "name": "LineaOrdine",
+  "fields": [
+    {
+      "fieldName": "idOrdine",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "idProdotto",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "quantita",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "importo",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "codIva",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "prodotto",
+      "otherEntityRelationshipName": "id",
+      "relationshipName": "idProdotto",
+      "ownerSide": false
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "ordine",
+      "otherEntityRelationshipName": "id",
+      "relationshipName": "ordine",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200617085728",
+  "entityTableName": "linea_ordine",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["eoloprj"]
+}

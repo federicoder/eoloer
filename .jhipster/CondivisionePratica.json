@@ -1,0 +1,70 @@
+{
+  "name": "CondivisionePratica",
+  "fields": [
+    {
+      "fieldName": "idUserAmmesso",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["max"],
+      "fieldValidateRulesMax": "8"
+    },
+    {
+      "fieldName": "ruolo",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "idUserConcedente",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "statoInvito",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "idPratica",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "rappresentanzaPratica",
+      "otherEntityRelationshipName": "idRuoloPersona",
+      "relationshipName": "ruolo",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "persona",
+      "otherEntityRelationshipName": "idPersona",
+      "relationshipName": "idUserConcedente",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "pratica",
+      "otherEntityRelationshipName": "id",
+      "relationshipName": "pratica",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "userPersona",
+      "otherEntityRelationshipName": "id",
+      "relationshipName": "userPersona",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200617083528",
+  "entityTableName": "condivisione_pratica",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["eoloprj"]
+}

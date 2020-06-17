@@ -462,6 +462,7 @@ application{
         websocket spring-websocket,
         
     }
+    entities all
 }
 
 // Set service options to all except few

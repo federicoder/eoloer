@@ -1,0 +1,27 @@
+{
+  "eoloprjApp": {
+    "notaTask": {
+      "home": {
+        "title": "Nota Tasks",
+        "createLabel": "Create a new Nota Task",
+        "createOrEditLabel": "Create or edit a Nota Task",
+        "search": "Search for Nota Task",
+        "notFound": "No Nota Tasks found"
+      },
+      "created": "A new Nota Task is created with identifier {{ param }}",
+      "updated": "A Nota Task is updated with identifier {{ param }}",
+      "deleted": "A Nota Task is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Nota Task {{ id }}?"
+      },
+      "detail": {
+        "title": "Nota Task"
+      },
+      "idTask": "Id Task",
+      "data": "Data",
+      "nota": "Nota",
+      "version": "Version",
+      "task": "Task"
+    }
+  }
+}

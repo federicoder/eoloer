@@ -1,0 +1,30 @@
+{
+  "eoloprjApp": {
+    "indirizzoPersona": {
+      "home": {
+        "title": "Indirizzo Personas",
+        "createLabel": "Create a new Indirizzo Persona",
+        "createOrEditLabel": "Create or edit a Indirizzo Persona",
+        "search": "Search for Indirizzo Persona",
+        "notFound": "No Indirizzo Personas found"
+      },
+      "created": "A new Indirizzo Persona is created with identifier {{ param }}",
+      "updated": "A Indirizzo Persona is updated with identifier {{ param }}",
+      "deleted": "A Indirizzo Persona is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Indirizzo Persona {{ id }}?"
+      },
+      "detail": {
+        "title": "Indirizzo Persona"
+      },
+      "idPersona": "Id Persona",
+      "indirizzo": "Indirizzo",
+      "comune": "Comune",
+      "cap": "Cap",
+      "provincia": "Provincia",
+      "regione": "Regione",
+      "nazione": "Nazione",
+      "idPersona": "Id Persona"
+    }
+  }
+}

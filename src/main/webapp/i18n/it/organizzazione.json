@@ -1,0 +1,28 @@
+{
+  "eoloprjApp": {
+    "organizzazione": {
+      "home": {
+        "title": "Organizzaziones",
+        "createLabel": "Genera un nuovo Organizzazione",
+        "createOrEditLabel": "Genera o modifica un Organizzazione",
+        "search": "Cerca Organizzazione",
+        "notFound": "No Organizzaziones found"
+      },
+      "created": "&Egrave; stato generato un nuovo Organizzazione con identificatore {{ param }}",
+      "updated": "&Egrave; stato aggiornato Organizzazione identificato da {{ param }}",
+      "deleted": "&Egrave; stato eliminato Organizzazione con identificatore {{ param }}",
+      "delete": {
+        "question": "Sei sicuro di volere eliminare Organizzazione {{ id }}?"
+      },
+      "detail": {
+        "title": "Organizzazione"
+      },
+      "idOrganizzazione": "Id Organizzazione",
+      "idPersona": "Id Persona",
+      "nome": "Nome",
+      "tipo": "Tipo",
+      "idPersona": "Id Persona",
+      "idOrganizzazione": "Id Organizzazione"
+    }
+  }
+}

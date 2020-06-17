@@ -1,0 +1,38 @@
+{
+  "name": "TemplatePratica",
+  "fields": [
+    {
+      "fieldName": "idTemplate",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required", "max"],
+      "fieldValidateRulesMax": "8"
+    },
+    {
+      "fieldName": "nomeTemplate",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "elencoTagAmbito",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "templateTask",
+      "otherEntityRelationshipName": "templatePratica",
+      "relationshipName": "idTemplate"
+    }
+  ],
+  "changelogDate": "20200617082428",
+  "entityTableName": "template_pratica",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["eoloprj"]
+}

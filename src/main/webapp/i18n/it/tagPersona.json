@@ -1,0 +1,25 @@
+{
+  "eoloprjApp": {
+    "tagPersona": {
+      "home": {
+        "title": "TagPersonas",
+        "createLabel": "Genera un nuovo Tag Persona",
+        "createOrEditLabel": "Genera o modifica un Tag Persona",
+        "search": "Cerca Tag Persona",
+        "notFound": "No Tag Personas found"
+      },
+      "created": "&Egrave; stato generato un nuovo Tag Persona con identificatore {{ param }}",
+      "updated": "&Egrave; stato aggiornato Tag Persona identificato da {{ param }}",
+      "deleted": "&Egrave; stato eliminato Tag Persona con identificatore {{ param }}",
+      "delete": {
+        "question": "Sei sicuro di volere eliminare Tag Persona {{ id }}?"
+      },
+      "detail": {
+        "title": "Tag Persona"
+      },
+      "idPersona": "Id Persona",
+      "tag": "Tag",
+      "persona": "Persona"
+    }
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "name": "Organizzazione",
+  "fields": [
+    {
+      "fieldName": "idOrganizzazione",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "idPersona",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "nome",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tipo",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "persona",
+      "otherEntityRelationshipName": "id",
+      "relationshipName": "idPersona",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "ruoloOrganizzazione",
+      "otherEntityRelationshipName": "id",
+      "relationshipName": "idOrganizzazione",
+      "ownerSide": false
+    }
+  ],
+  "changelogDate": "20200617084628",
+  "entityTableName": "organizzazione",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["eoloprj"]
+}

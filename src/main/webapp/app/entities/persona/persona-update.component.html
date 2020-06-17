@@ -1,0 +1,122 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-persona-heading" jhiTranslate="eoloprjApp.persona.home.createOrEditLabel">Create or edit a Persona</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.persona.idStudio" for="field_idStudio">Id Studio</label>
+                    <input type="number" class="form-control" name="idStudio" id="field_idStudio"
+                           formControlName="idStudio"/>
+                    <div *ngIf="editForm.get('idStudio')!.invalid && (editForm.get('idStudio')!.dirty || editForm.get('idStudio')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('idStudio')?.errors?.max" jhiTranslate="entity.validation.max" [translateValues]="{ max: 8 }">
+                            This field cannot be more than 8.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('idStudio')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.persona.codiceFiscale" for="field_codiceFiscale">Codice Fiscale</label>
+                    <input type="text" class="form-control" name="codiceFiscale" id="field_codiceFiscale"
+                           formControlName="codiceFiscale"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.persona.areaDiInteresse" for="field_areaDiInteresse">Area Di Interesse</label>
+                    <input type="text" class="form-control" name="areaDiInteresse" id="field_areaDiInteresse"
+                           formControlName="areaDiInteresse"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.persona.titolo" for="field_titolo">Titolo</label>
+                    <input type="text" class="form-control" name="titolo" id="field_titolo"
+                           formControlName="titolo"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.persona.cognome" for="field_cognome">Cognome</label>
+                    <input type="text" class="form-control" name="cognome" id="field_cognome"
+                           formControlName="cognome"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.persona.nome" for="field_nome">Nome</label>
+                    <input type="text" class="form-control" name="nome" id="field_nome"
+                           formControlName="nome"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.persona.dataDiNascita" for="field_dataDiNascita">Data Di Nascita</label>
+                    <input type="text" class="form-control" name="dataDiNascita" id="field_dataDiNascita"
+                           formControlName="dataDiNascita"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.persona.luogoDiNascita" for="field_luogoDiNascita">Luogo Di Nascita</label>
+                    <input type="text" class="form-control" name="luogoDiNascita" id="field_luogoDiNascita"
+                           formControlName="luogoDiNascita"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.persona.professione" for="field_professione">Professione</label>
+                    <input type="text" class="form-control" name="professione" id="field_professione"
+                           formControlName="professione"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.persona.tipo" for="field_tipo">Tipo</label>
+                    <input type="number" class="form-control" name="tipo" id="field_tipo"
+                           formControlName="tipo"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.persona.discriminator" for="field_discriminator">Discriminator</label>
+                    <input type="text" class="form-control" name="discriminator" id="field_discriminator"
+                           formControlName="discriminator"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.persona.idRuoloPersona" for="field_idRuoloPersona">Id Ruolo Persona</label>
+                    <input type="number" class="form-control" name="idRuoloPersona" id="field_idRuoloPersona"
+                           formControlName="idRuoloPersona"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.persona.tipoRuoloUtente" for="field_tipoRuoloUtente">Tipo Ruolo Utente</label>
+                    <input type="number" class="form-control" name="tipoRuoloUtente" id="field_tipoRuoloUtente"
+                           formControlName="tipoRuoloUtente"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.persona.id" for="field_id">Id</label>
+                    <select class="form-control" id="field_id" name="id" formControlName="idId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="indirizzoPersonaOption.id" *ngFor="let indirizzoPersonaOption of ids; trackBy: trackById">{{ indirizzoPersonaOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

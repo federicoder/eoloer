@@ -1,0 +1,40 @@
+{
+  "eoloprjApp": {
+    "pratica": {
+      "home": {
+        "title": "Praticas",
+        "createLabel": "Genera un nuovo Pratica",
+        "createOrEditLabel": "Genera o modifica un Pratica",
+        "search": "Cerca Pratica",
+        "notFound": "No Praticas found"
+      },
+      "created": "&Egrave; stato generato un nuovo Pratica con identificatore {{ param }}",
+      "updated": "&Egrave; stato aggiornato Pratica identificato da {{ param }}",
+      "deleted": "&Egrave; stato eliminato Pratica con identificatore {{ param }}",
+      "delete": {
+        "question": "Sei sicuro di volere eliminare Pratica {{ id }}?"
+      },
+      "detail": {
+        "title": "Pratica"
+      },
+      "idStudio": "Id Studio",
+      "numero": "Numero",
+      "nome": "Nome",
+      "dataApertura": "Data Apertura",
+      "dataChiusura": "Data Chiusura",
+      "dataScadenza": "Data Scadenza",
+      "stato": "Stato",
+      "motivoChiusura": "Motivo Chiusura",
+      "idTitolare": "Id Titolare",
+      "prcAvanzato": "Prc Avanzato",
+      "version": "Version",
+      "valuta": "Valuta",
+      "idTemplatePratica": "Id Template Pratica",
+      "id": "Id",
+      "id": "Id",
+      "id": "Id",
+      "id": "Id",
+      "idTemplate": "Id Template"
+    }
+  }
+}

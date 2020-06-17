@@ -1,0 +1,34 @@
+{
+  "eoloprjApp": {
+    "previsioneTask": {
+      "home": {
+        "title": "Previsione Tasks",
+        "createLabel": "Create a new Previsione Task",
+        "createOrEditLabel": "Create or edit a Previsione Task",
+        "search": "Search for Previsione Task",
+        "notFound": "No Previsione Tasks found"
+      },
+      "created": "A new Previsione Task is created with identifier {{ param }}",
+      "updated": "A Previsione Task is updated with identifier {{ param }}",
+      "deleted": "A Previsione Task is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Previsione Task {{ id }}?"
+      },
+      "detail": {
+        "title": "Previsione Task"
+      },
+      "idTask": "Id Task",
+      "qntOrdine": "Qnt Ordine",
+      "prcPrevisione": "Prc Previsione",
+      "checkList": "Check List",
+      "idTaskMilestone": "Id Task Milestone",
+      "tipoTask": "Tipo Task",
+      "version": "Version",
+      "idTask": "Id Task",
+      "idTask": "Id Task",
+      "idTask": "Id Task",
+      "idTask": "Id Task",
+      "previsioneTask": "Previsione Task"
+    }
+  }
+}

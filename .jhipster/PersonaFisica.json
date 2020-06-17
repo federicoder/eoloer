@@ -1,0 +1,77 @@
+{
+  "name": "PersonaFisica",
+  "fields": [
+    {
+      "fieldName": "idPersonaFisica",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "idPersona",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "idRuoloPersona",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "titolo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "cognome",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nome",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dataDiNascita",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "luogoDiNascita",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "professione",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "persona",
+      "otherEntityRelationshipName": "id",
+      "relationshipName": "idPersona",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "userPersona",
+      "otherEntityRelationshipName": "personaFisica",
+      "relationshipName": "idPersonaFisica"
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "ruoloOrganizzazione",
+      "otherEntityRelationshipName": "id",
+      "relationshipName": "idRuoloPersona",
+      "ownerSide": false
+    }
+  ],
+  "changelogDate": "20200617084528",
+  "entityTableName": "persona_fisica",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["eoloprj"]
+}

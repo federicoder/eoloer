@@ -1,0 +1,70 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-consuntivo-task-heading" jhiTranslate="eoloprjApp.consuntivoTask.home.createOrEditLabel">Create or edit a Consuntivo Task</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.consuntivoTask.idTask" for="field_idTask">Id Task</label>
+                    <input type="number" class="form-control" name="idTask" id="field_idTask"
+                           formControlName="idTask"/>
+                    <div *ngIf="editForm.get('idTask')!.invalid && (editForm.get('idTask')!.dirty || editForm.get('idTask')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('idTask')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('idTask')?.errors?.max" jhiTranslate="entity.validation.max" [translateValues]="{ max: 8 }">
+                            This field cannot be more than 8.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('idTask')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.consuntivoTask.dataInizio" for="field_dataInizio">Data Inizio</label>
+                    <input type="text" class="form-control" name="dataInizio" id="field_dataInizio"
+                           formControlName="dataInizio"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.consuntivoTask.dataFine" for="field_dataFine">Data Fine</label>
+                    <input type="text" class="form-control" name="dataFine" id="field_dataFine"
+                           formControlName="dataFine"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.consuntivoTask.timeLine" for="field_timeLine">Time Line</label>
+                    <input type="number" class="form-control" name="timeLine" id="field_timeLine"
+                           formControlName="timeLine"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.consuntivoTask.version" for="field_version">Version</label>
+                    <input type="text" class="form-control" name="version" id="field_version"
+                           formControlName="version"/>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

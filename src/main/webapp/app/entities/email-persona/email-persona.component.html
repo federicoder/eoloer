@@ -1,0 +1,89 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="eoloprjApp.emailPersona.home.title">Email Personas</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-email-persona" [routerLink]="['/email-persona/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="eoloprjApp.emailPersona.home.createLabel">
+            Create a new Email Persona
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'eoloprjApp.emailPersona.home.search' | translate }}">
+
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon icon="search"></fa-icon>
+                    </button>
+
+                    <button class="input-group-append btn btn-danger" (click)="search('')" *ngIf="currentSearch">
+                        <fa-icon icon="trash-alt"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="emailPersonas?.length === 0">
+        <span jhiTranslate="eoloprjApp.emailPersona.home.notFound">No emailPersonas found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="emailPersonas && emailPersonas.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.emailPersona.idPersona">Id Persona</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.emailPersona.etichetta">Etichetta</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.emailPersona.numero">Numero</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.emailPersona.persona">Persona</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let emailPersona of emailPersonas ;trackBy: trackId">
+                    <td><a [routerLink]="['/email-persona', emailPersona.id, 'view']">{{ emailPersona.id }}</a></td>
+                    <td>{{ emailPersona.idPersona }}</td>
+                    <td>{{ emailPersona.etichetta }}</td>
+                    <td>{{ emailPersona.numero }}</td>
+                    <td>
+                        <div *ngIf="emailPersona.personaId">
+                            <a [routerLink]="['/persona', emailPersona.personaId , 'view']" >{{ emailPersona.personaId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/email-persona', emailPersona.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/email-persona', emailPersona.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(emailPersona)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

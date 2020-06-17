@@ -1,0 +1,25 @@
+{
+  "eoloprjApp": {
+    "ruoloOrganizzazione": {
+      "home": {
+        "title": "Ruolo Organizzaziones",
+        "createLabel": "Create a new Ruolo Organizzazione",
+        "createOrEditLabel": "Create or edit a Ruolo Organizzazione",
+        "search": "Search for Ruolo Organizzazione",
+        "notFound": "No Ruolo Organizzaziones found"
+      },
+      "created": "A new Ruolo Organizzazione is created with identifier {{ param }}",
+      "updated": "A Ruolo Organizzazione is updated with identifier {{ param }}",
+      "deleted": "A Ruolo Organizzazione is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Ruolo Organizzazione {{ id }}?"
+      },
+      "detail": {
+        "title": "Ruolo Organizzazione"
+      },
+      "ruoloInOrg": "Ruolo In Org",
+      "id": "Id",
+      "id": "Id"
+    }
+  }
+}

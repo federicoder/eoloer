@@ -1,0 +1,37 @@
+{
+  "name": "InvitoPratica",
+  "fields": [
+    {
+      "fieldName": "idPratica",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "invito",
+      "otherEntityRelationshipName": "id",
+      "relationshipName": "idPratica",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "pratica",
+      "otherEntityRelationshipName": "id",
+      "relationshipName": "pratica",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200617084028",
+  "entityTableName": "invito_pratica",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["eoloprj"]
+}

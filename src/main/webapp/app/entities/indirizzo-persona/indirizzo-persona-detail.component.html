@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="indirizzoPersona">
+            <h2><span jhiTranslate="eoloprjApp.indirizzoPersona.detail.title">Indirizzo Persona</span> {{ indirizzoPersona.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="eoloprjApp.indirizzoPersona.idPersona">Id Persona</span></dt>
+                <dd>
+                    <span>{{ indirizzoPersona.idPersona }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.indirizzoPersona.indirizzo">Indirizzo</span></dt>
+                <dd>
+                    <span>{{ indirizzoPersona.indirizzo }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.indirizzoPersona.comune">Comune</span></dt>
+                <dd>
+                    <span>{{ indirizzoPersona.comune }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.indirizzoPersona.cap">Cap</span></dt>
+                <dd>
+                    <span>{{ indirizzoPersona.cap }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.indirizzoPersona.provincia">Provincia</span></dt>
+                <dd>
+                    <span>{{ indirizzoPersona.provincia }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.indirizzoPersona.regione">Regione</span></dt>
+                <dd>
+                    <span>{{ indirizzoPersona.regione }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.indirizzoPersona.nazione">Nazione</span></dt>
+                <dd>
+                    <span>{{ indirizzoPersona.nazione }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/indirizzo-persona', indirizzoPersona.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

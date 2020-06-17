@@ -1,0 +1,32 @@
+{
+  "eoloprjApp": {
+    "invitoEvento": {
+      "home": {
+        "title": "InvitoEventos",
+        "createLabel": "Genera un nuovo Invito Evento",
+        "createOrEditLabel": "Genera o modifica un Invito Evento",
+        "search": "Cerca Invito Evento",
+        "notFound": "No Invito Eventos found"
+      },
+      "created": "&Egrave; stato generato un nuovo Invito Evento con identificatore {{ param }}",
+      "updated": "&Egrave; stato aggiornato Invito Evento identificato da {{ param }}",
+      "deleted": "&Egrave; stato eliminato Invito Evento con identificatore {{ param }}",
+      "delete": {
+        "question": "Sei sicuro di volere eliminare Invito Evento {{ id }}?"
+      },
+      "detail": {
+        "title": "Invito Evento"
+      },
+      "idAttivita": "Id Attivita",
+      "luogoFisico": "Luogo Fisico",
+      "indicazioniLuogo": "Indicazioni Luogo",
+      "dataInizio": "Data Inizio",
+      "oraInizio": "Ora Inizio",
+      "dataFine": "Data Fine",
+      "oraFine": "Ora Fine",
+      "urlStanzaVirtuale": "Url Stanza Virtuale",
+      "idAttivita": "Id Attivita",
+      "previsioneEvento": "Previsione Evento"
+    }
+  }
+}

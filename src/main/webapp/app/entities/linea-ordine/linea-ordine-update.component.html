@@ -1,0 +1,84 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-linea-ordine-heading" jhiTranslate="eoloprjApp.lineaOrdine.home.createOrEditLabel">Create or edit a Linea Ordine</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.lineaOrdine.idOrdine" for="field_idOrdine">Id Ordine</label>
+                    <input type="number" class="form-control" name="idOrdine" id="field_idOrdine"
+                           formControlName="idOrdine"/>
+                    <div *ngIf="editForm.get('idOrdine')!.invalid && (editForm.get('idOrdine')!.dirty || editForm.get('idOrdine')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('idOrdine')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('idOrdine')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.lineaOrdine.idProdotto" for="field_idProdotto">Id Prodotto</label>
+                    <input type="number" class="form-control" name="idProdotto" id="field_idProdotto"
+                           formControlName="idProdotto"/>
+                    <div *ngIf="editForm.get('idProdotto')!.invalid && (editForm.get('idProdotto')!.dirty || editForm.get('idProdotto')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('idProdotto')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('idProdotto')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.lineaOrdine.quantita" for="field_quantita">Quantita</label>
+                    <input type="number" class="form-control" name="quantita" id="field_quantita"
+                           formControlName="quantita"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.lineaOrdine.importo" for="field_importo">Importo</label>
+                    <input type="number" class="form-control" name="importo" id="field_importo"
+                           formControlName="importo"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.lineaOrdine.codIva" for="field_codIva">Cod Iva</label>
+                    <input type="text" class="form-control" name="codIva" id="field_codIva"
+                           formControlName="codIva"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.lineaOrdine.ordine" for="field_ordine">Ordine</label>
+                    <select class="form-control" id="field_ordine" name="ordine" formControlName="ordineId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="ordineOption.id" *ngFor="let ordineOption of ordines; trackBy: trackById">{{ ordineOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+{
+  "eoloprjApp": {
+    "notaPratica": {
+      "home": {
+        "title": "Nota Praticas",
+        "createLabel": "Create a new Nota Pratica",
+        "createOrEditLabel": "Create or edit a Nota Pratica",
+        "search": "Search for Nota Pratica",
+        "notFound": "No Nota Praticas found"
+      },
+      "created": "A new Nota Pratica is created with identifier {{ param }}",
+      "updated": "A Nota Pratica is updated with identifier {{ param }}",
+      "deleted": "A Nota Pratica is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Nota Pratica {{ id }}?"
+      },
+      "detail": {
+        "title": "Nota Pratica"
+      },
+      "idPratica": "Id Pratica",
+      "data": "Data",
+      "nota": "Nota",
+      "version": "Version",
+      "pratica": "Pratica"
+    }
+  }
+}

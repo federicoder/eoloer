@@ -1,0 +1,43 @@
+{
+  "name": "NotaPratica",
+  "fields": [
+    {
+      "fieldName": "idPratica",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["max"],
+      "fieldValidateRulesMax": "8"
+    },
+    {
+      "fieldName": "data",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nota",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "version",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "pratica",
+      "otherEntityRelationshipName": "id",
+      "relationshipName": "pratica",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200617083328",
+  "entityTableName": "nota_pratica",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["eoloprj"]
+}

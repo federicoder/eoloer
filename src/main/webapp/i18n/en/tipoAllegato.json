@@ -1,0 +1,29 @@
+{
+  "eoloprjApp": {
+    "tipoAllegato": {
+      "home": {
+        "title": "Tipo Allegatoes",
+        "createLabel": "Create a new Tipo Allegato",
+        "createOrEditLabel": "Create or edit a Tipo Allegato",
+        "search": "Search for Tipo Allegato",
+        "notFound": "No Tipo Allegatoes found"
+      },
+      "created": "A new Tipo Allegato is created with identifier {{ param }}",
+      "updated": "A Tipo Allegato is updated with identifier {{ param }}",
+      "deleted": "A Tipo Allegato is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Tipo Allegato {{ id }}?"
+      },
+      "detail": {
+        "title": "Tipo Allegato"
+      },
+      "idTipoAllegato": "Id Tipo Allegato",
+      "nome": "Nome",
+      "formatiAmmessi": "Formati Ammessi",
+      "maxDimensioneAmmessa": "Max Dimensione Ammessa",
+      "version": "Version",
+      "idTipoAllegato": "Id Tipo Allegato",
+      "idTipoAllegato": "Id Tipo Allegato"
+    }
+  }
+}

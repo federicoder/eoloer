@@ -1,0 +1,56 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="previsioneEvento">
+            <h2><span jhiTranslate="eoloprjApp.previsioneEvento.detail.title">Previsione Evento</span> {{ previsioneEvento.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="eoloprjApp.previsioneEvento.idTask">Id Task</span></dt>
+                <dd>
+                    <span>{{ previsioneEvento.idTask }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.previsioneEvento.dataInizio">Data Inizio</span></dt>
+                <dd>
+                    <span>{{ previsioneEvento.dataInizio }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.previsioneEvento.dataFine">Data Fine</span></dt>
+                <dd>
+                    <span>{{ previsioneEvento.dataFine }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.previsioneEvento.luogo">Luogo</span></dt>
+                <dd>
+                    <span>{{ previsioneEvento.luogo }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.previsioneEvento.indicazioniLuogo">Indicazioni Luogo</span></dt>
+                <dd>
+                    <span>{{ previsioneEvento.indicazioniLuogo }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.previsioneEvento.version">Version</span></dt>
+                <dd>
+                    <span>{{ previsioneEvento.version }}</span>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.previsioneEvento.idTask">Id Task</span></dt>
+                <dd>
+                    <div *ngIf="previsioneEvento.idTaskId">
+                        <a [routerLink]="['/previsione-task', previsioneEvento.idTaskId, 'view']">{{ previsioneEvento.idTaskId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/previsione-evento', previsioneEvento.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
