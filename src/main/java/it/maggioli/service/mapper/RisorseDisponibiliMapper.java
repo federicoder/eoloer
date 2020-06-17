@@ -12,10 +12,10 @@ import org.mapstruct.*;
 @Mapper(componentModel = "spring", uses = {StudioProfessionaleMapper.class})
 public interface RisorseDisponibiliMapper extends EntityMapper<RisorseDisponibiliDTO, RisorseDisponibili> {
 
-    @Mapping(source = "studioProfessionale.id", target = "studioProfessionaleId")
+    @Mapping(source = "idStudioProfessionaleRef.id", target = "idStudioProfessionaleRefId")
     RisorseDisponibiliDTO toDto(RisorseDisponibili risorseDisponibili);
 
-    @Mapping(source = "studioProfessionaleId", target = "studioProfessionale")
+    @Mapping(source = "idStudioProfessionaleRefId", target = "idStudioProfessionaleRef")
     RisorseDisponibili toEntity(RisorseDisponibiliDTO risorseDisponibiliDTO);
 
     default RisorseDisponibili fromId(Long id) {

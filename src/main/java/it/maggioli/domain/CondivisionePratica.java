@@ -51,12 +51,12 @@ public class CondivisionePratica implements Serializable {
     private Persona idUserConcedente;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "ids", allowSetters = true)
-    private Pratica pratica;
+    @JsonIgnoreProperties(value = "condivisionePraticas", allowSetters = true)
+    private UserPersona idUserAmmesso;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "ids", allowSetters = true)
-    private UserPersona userPersona;
+    @JsonIgnoreProperties(value = "condivisionePraticas", allowSetters = true)
+    private Pratica idPraticaRef;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -158,30 +158,30 @@ public class CondivisionePratica implements Serializable {
         this.idUserConcedente = persona;
     }
 
-    public Pratica getPratica() {
-        return pratica;
+    public UserPersona getIdUserAmmesso() {
+        return idUserAmmesso;
     }
 
-    public CondivisionePratica pratica(Pratica pratica) {
-        this.pratica = pratica;
+    public CondivisionePratica idUserAmmesso(UserPersona userPersona) {
+        this.idUserAmmesso = userPersona;
         return this;
     }
 
-    public void setPratica(Pratica pratica) {
-        this.pratica = pratica;
+    public void setIdUserAmmesso(UserPersona userPersona) {
+        this.idUserAmmesso = userPersona;
     }
 
-    public UserPersona getUserPersona() {
-        return userPersona;
+    public Pratica getIdPraticaRef() {
+        return idPraticaRef;
     }
 
-    public CondivisionePratica userPersona(UserPersona userPersona) {
-        this.userPersona = userPersona;
+    public CondivisionePratica idPraticaRef(Pratica pratica) {
+        this.idPraticaRef = pratica;
         return this;
     }
 
-    public void setUserPersona(UserPersona userPersona) {
-        this.userPersona = userPersona;
+    public void setIdPraticaRef(Pratica pratica) {
+        this.idPraticaRef = pratica;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

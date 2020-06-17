@@ -40,7 +40,7 @@ public class TaskDTO implements Serializable {
 
     private Long idId;
 
-    private Long praticaId;
+    private Long idPraticaRefId;
     
     public Long getId() {
         return id;
@@ -154,12 +154,12 @@ public class TaskDTO implements Serializable {
         this.idId = invitoAttivitaId;
     }
 
-    public Long getPraticaId() {
-        return praticaId;
+    public Long getIdPraticaRefId() {
+        return idPraticaRefId;
     }
 
-    public void setPraticaId(Long praticaId) {
-        this.praticaId = praticaId;
+    public void setIdPraticaRefId(Long praticaId) {
+        this.idPraticaRefId = praticaId;
     }
 
     @Override
@@ -197,7 +197,7 @@ public class TaskDTO implements Serializable {
             ", idId=" + getIdId() +
             ", idId=" + getIdId() +
             ", idId=" + getIdId() +
-            ", praticaId=" + getPraticaId() +
+            ", idPraticaRefId=" + getIdPraticaRefId() +
             "}";
     }
 }

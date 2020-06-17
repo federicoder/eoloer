@@ -1,5 +1,3 @@
-import { IAllegatoTemplateTask } from 'app/shared/model/allegato-template-task.model';
-
 export interface ITemplateTask {
   id?: number;
   ordineEsecuzione?: number;
@@ -8,8 +6,8 @@ export interface ITemplateTask {
   pubPriv?: number;
   idTemplatePraticaRef?: number;
   ids?: ITemplateTask[];
-  ids?: IAllegatoTemplateTask[];
-  templatePraticaId?: number;
+  idTemplatePraticaRefId?: number;
+  idId?: number;
   templateTaskId?: number;
 }
 
@@ -22,8 +20,8 @@ export class TemplateTask implements ITemplateTask {
     public pubPriv?: number,
     public idTemplatePraticaRef?: number,
     public ids?: ITemplateTask[],
-    public ids?: IAllegatoTemplateTask[],
-    public templatePraticaId?: number,
+    public idTemplatePraticaRefId?: number,
+    public idId?: number,
     public templateTaskId?: number
   ) {}
 }

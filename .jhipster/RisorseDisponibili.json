@@ -23,8 +23,8 @@
     {
       "relationshipType": "many-to-one",
       "otherEntityName": "studioProfessionale",
-      "otherEntityRelationshipName": "id",
-      "relationshipName": "studioProfessionale",
+      "otherEntityRelationshipName": "risorseDisponibili",
+      "relationshipName": "idStudioProfessionaleRef",
       "otherEntityField": "id"
     }
   ],

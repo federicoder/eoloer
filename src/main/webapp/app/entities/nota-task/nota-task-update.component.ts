@@ -25,7 +25,7 @@ export class NotaTaskUpdateComponent implements OnInit {
     data: [],
     nota: [],
     version: [],
-    taskId: [],
+    idTaskRefId: [],
   });
 
   constructor(
@@ -51,7 +51,7 @@ export class NotaTaskUpdateComponent implements OnInit {
       data: notaTask.data,
       nota: notaTask.nota,
       version: notaTask.version,
-      taskId: notaTask.taskId,
+      idTaskRefId: notaTask.idTaskRefId,
     });
   }
 
@@ -78,7 +78,7 @@ export class NotaTaskUpdateComponent implements OnInit {
       data: this.editForm.get(['data'])!.value,
       nota: this.editForm.get(['nota'])!.value,
       version: this.editForm.get(['version'])!.value,
-      taskId: this.editForm.get(['taskId'])!.value,
+      idTaskRefId: this.editForm.get(['idTaskRefId'])!.value,
     };
   }
 

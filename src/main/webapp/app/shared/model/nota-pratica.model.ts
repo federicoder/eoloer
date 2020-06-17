@@ -4,7 +4,7 @@ export interface INotaPratica {
   data?: string;
   nota?: string;
   version?: string;
-  praticaId?: number;
+  idPraticaRefId?: number;
 }
 
 export class NotaPratica implements INotaPratica {
@@ -14,6 +14,6 @@ export class NotaPratica implements INotaPratica {
     public data?: string,
     public nota?: string,
     public version?: string,
-    public praticaId?: number
+    public idPraticaRefId?: number
   ) {}
 }

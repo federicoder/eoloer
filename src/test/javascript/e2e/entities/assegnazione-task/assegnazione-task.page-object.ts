@@ -36,7 +36,7 @@ export class AssegnazioneTaskUpdatePage {
   statoAssegnazioneInput = element(by.id('field_statoAssegnazione'));
 
   ruoloSelect = element(by.id('field_ruolo'));
-  userPersonaSelect = element(by.id('field_userPersona'));
+  idUserAmmessoSelect = element(by.id('field_idUserAmmesso'));
 
   async getPageTitle(): Promise<string> {
     return this.pageTitle.getAttribute('jhiTranslate');
@@ -98,20 +98,20 @@ export class AssegnazioneTaskUpdatePage {
     return await this.ruoloSelect.element(by.css('option:checked')).getText();
   }
 
-  async userPersonaSelectLastOption(): Promise<void> {
-    await this.userPersonaSelect.all(by.tagName('option')).last().click();
+  async idUserAmmessoSelectLastOption(): Promise<void> {
+    await this.idUserAmmessoSelect.all(by.tagName('option')).last().click();
   }
 
-  async userPersonaSelectOption(option: string): Promise<void> {
-    await this.userPersonaSelect.sendKeys(option);
+  async idUserAmmessoSelectOption(option: string): Promise<void> {
+    await this.idUserAmmessoSelect.sendKeys(option);
   }
 
-  getUserPersonaSelect(): ElementFinder {
-    return this.userPersonaSelect;
+  getIdUserAmmessoSelect(): ElementFinder {
+    return this.idUserAmmessoSelect;
   }
 
-  async getUserPersonaSelectedOption(): Promise<string> {
-    return await this.userPersonaSelect.element(by.css('option:checked')).getText();
+  async getIdUserAmmessoSelectedOption(): Promise<string> {
+    return await this.idUserAmmessoSelect.element(by.css('option:checked')).getText();
   }
 
   async save(): Promise<void> {

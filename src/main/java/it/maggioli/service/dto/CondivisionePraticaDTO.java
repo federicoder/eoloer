@@ -26,9 +26,9 @@ public class CondivisionePraticaDTO implements Serializable {
 
     private Long idUserConcedenteId;
 
-    private Long praticaId;
+    private Long idUserAmmessoId;
 
-    private Long userPersonaId;
+    private Long idPraticaRefId;
     
     public Long getId() {
         return id;
@@ -94,20 +94,20 @@ public class CondivisionePraticaDTO implements Serializable {
         this.idUserConcedenteId = personaId;
     }
 
-    public Long getPraticaId() {
-        return praticaId;
+    public Long getIdUserAmmessoId() {
+        return idUserAmmessoId;
     }
 
-    public void setPraticaId(Long praticaId) {
-        this.praticaId = praticaId;
+    public void setIdUserAmmessoId(Long userPersonaId) {
+        this.idUserAmmessoId = userPersonaId;
     }
 
-    public Long getUserPersonaId() {
-        return userPersonaId;
+    public Long getIdPraticaRefId() {
+        return idPraticaRefId;
     }
 
-    public void setUserPersonaId(Long userPersonaId) {
-        this.userPersonaId = userPersonaId;
+    public void setIdPraticaRefId(Long praticaId) {
+        this.idPraticaRefId = praticaId;
     }
 
     @Override
@@ -139,8 +139,8 @@ public class CondivisionePraticaDTO implements Serializable {
             ", idPraticaRef=" + getIdPraticaRef() +
             ", ruoloId=" + getRuoloId() +
             ", idUserConcedenteId=" + getIdUserConcedenteId() +
-            ", praticaId=" + getPraticaId() +
-            ", userPersonaId=" + getUserPersonaId() +
+            ", idUserAmmessoId=" + getIdUserAmmessoId() +
+            ", idPraticaRefId=" + getIdPraticaRefId() +
             "}";
     }
 }

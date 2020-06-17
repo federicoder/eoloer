@@ -13,11 +13,6 @@ import org.mapstruct.*;
 public interface TipoAllegatoMapper extends EntityMapper<TipoAllegatoDTO, TipoAllegato> {
 
 
-    @Mapping(target = "ids", ignore = true)
-    @Mapping(target = "removeId", ignore = true)
-    @Mapping(target = "ids", ignore = true)
-    @Mapping(target = "removeId", ignore = true)
-    TipoAllegato toEntity(TipoAllegatoDTO tipoAllegatoDTO);
 
     default TipoAllegato fromId(Long id) {
         if (id == null) {

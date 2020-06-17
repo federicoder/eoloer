@@ -25,7 +25,7 @@ export class LineaOrdineUpdateComponent implements OnInit {
     quantita: [],
     importo: [],
     codIva: [],
-    ordineId: [],
+    idOrdineRefId: [],
   });
 
   constructor(
@@ -51,7 +51,7 @@ export class LineaOrdineUpdateComponent implements OnInit {
       quantita: lineaOrdine.quantita,
       importo: lineaOrdine.importo,
       codIva: lineaOrdine.codIva,
-      ordineId: lineaOrdine.ordineId,
+      idOrdineRefId: lineaOrdine.idOrdineRefId,
     });
   }
 
@@ -78,7 +78,7 @@ export class LineaOrdineUpdateComponent implements OnInit {
       quantita: this.editForm.get(['quantita'])!.value,
       importo: this.editForm.get(['importo'])!.value,
       codIva: this.editForm.get(['codIva'])!.value,
-      ordineId: this.editForm.get(['ordineId'])!.value,
+      idOrdineRefId: this.editForm.get(['idOrdineRefId'])!.value,
     };
   }
 

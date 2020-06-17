@@ -7,8 +7,6 @@ import javax.persistence.*;
 
 import org.springframework.data.elasticsearch.annotations.FieldType;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * A TemplatePratica.
@@ -31,10 +29,6 @@ public class TemplatePratica implements Serializable {
 
     @Column(name = "elenco_tag_ambito")
     private Long elencoTagAmbito;
-
-    @OneToMany(mappedBy = "templatePratica")
-    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<TemplateTask> ids = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -69,31 +63,6 @@ public class TemplatePratica implements Serializable {
 
     public void setElencoTagAmbito(Long elencoTagAmbito) {
         this.elencoTagAmbito = elencoTagAmbito;
-    }
-
-    public Set<TemplateTask> getIds() {
-        return ids;
-    }
-
-    public TemplatePratica ids(Set<TemplateTask> templateTasks) {
-        this.ids = templateTasks;
-        return this;
-    }
-
-    public TemplatePratica addId(TemplateTask templateTask) {
-        this.ids.add(templateTask);
-        templateTask.setTemplatePratica(this);
-        return this;
-    }
-
-    public TemplatePratica removeId(TemplateTask templateTask) {
-        this.ids.remove(templateTask);
-        templateTask.setTemplatePratica(null);
-        return this;
-    }
-
-    public void setIds(Set<TemplateTask> templateTasks) {
-        this.ids = templateTasks;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

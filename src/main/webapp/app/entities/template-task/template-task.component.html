@@ -46,7 +46,8 @@
                     <th scope="col" ><span jhiTranslate="eoloprjApp.templateTask.note">Note</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.templateTask.pubPriv">Pub Priv</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.templateTask.idTemplatePraticaRef">Id Template Pratica Ref</span></th>
-                    <th scope="col" ><span jhiTranslate="eoloprjApp.templateTask.templatePratica">Template Pratica</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.templateTask.idTemplatePraticaRef">Id Template Pratica Ref</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.templateTask.id">Id</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.templateTask.templateTask">Template Task</span></th>
                     <th scope="col"></th>
                 </tr>
@@ -60,8 +61,13 @@
                     <td>{{ templateTask.pubPriv }}</td>
                     <td>{{ templateTask.idTemplatePraticaRef }}</td>
                     <td>
-                        <div *ngIf="templateTask.templatePraticaId">
-                            <a [routerLink]="['/template-pratica', templateTask.templatePraticaId , 'view']" >{{ templateTask.templatePraticaId }}</a>
+                        <div *ngIf="templateTask.idTemplatePraticaRefId">
+                            <a [routerLink]="['/template-pratica', templateTask.idTemplatePraticaRefId , 'view']" >{{ templateTask.idTemplatePraticaRefId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="templateTask.idId">
+                            <a [routerLink]="['/template-task', templateTask.idId , 'view']" >{{ templateTask.idId }}</a>
                         </div>
                     </td>
                     <td>

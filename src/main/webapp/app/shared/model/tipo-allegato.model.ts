@@ -1,14 +1,9 @@
-import { IAllegatoTemplateTask } from 'app/shared/model/allegato-template-task.model';
-import { IAllegatoTask } from 'app/shared/model/allegato-task.model';
-
 export interface ITipoAllegato {
   id?: number;
   nome?: string;
   formatiAmmessi?: string;
   maxDimensioneAmmessa?: string;
   version?: string;
-  ids?: IAllegatoTemplateTask[];
-  ids?: IAllegatoTask[];
 }
 
 export class TipoAllegato implements ITipoAllegato {
@@ -17,8 +12,6 @@ export class TipoAllegato implements ITipoAllegato {
     public nome?: string,
     public formatiAmmessi?: string,
     public maxDimensioneAmmessa?: string,
-    public version?: string,
-    public ids?: IAllegatoTemplateTask[],
-    public ids?: IAllegatoTask[]
+    public version?: string
   ) {}
 }

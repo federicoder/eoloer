@@ -35,7 +35,7 @@ export class LineaOrdineUpdatePage {
   importoInput = element(by.id('field_importo'));
   codIvaInput = element(by.id('field_codIva'));
 
-  ordineSelect = element(by.id('field_ordine'));
+  idOrdineRefSelect = element(by.id('field_idOrdineRef'));
 
   async getPageTitle(): Promise<string> {
     return this.pageTitle.getAttribute('jhiTranslate');
@@ -81,20 +81,20 @@ export class LineaOrdineUpdatePage {
     return await this.codIvaInput.getAttribute('value');
   }
 
-  async ordineSelectLastOption(): Promise<void> {
-    await this.ordineSelect.all(by.tagName('option')).last().click();
+  async idOrdineRefSelectLastOption(): Promise<void> {
+    await this.idOrdineRefSelect.all(by.tagName('option')).last().click();
   }
 
-  async ordineSelectOption(option: string): Promise<void> {
-    await this.ordineSelect.sendKeys(option);
+  async idOrdineRefSelectOption(option: string): Promise<void> {
+    await this.idOrdineRefSelect.sendKeys(option);
   }
 
-  getOrdineSelect(): ElementFinder {
-    return this.ordineSelect;
+  getIdOrdineRefSelect(): ElementFinder {
+    return this.idOrdineRefSelect;
   }
 
-  async getOrdineSelectedOption(): Promise<string> {
-    return await this.ordineSelect.element(by.css('option:checked')).getText();
+  async getIdOrdineRefSelectedOption(): Promise<string> {
+    return await this.idOrdineRefSelect.element(by.css('option:checked')).getText();
   }
 
   async save(): Promise<void> {

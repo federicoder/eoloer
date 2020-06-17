@@ -47,7 +47,7 @@ describe('TelefonoPersona e2e test', () => {
       telefonoPersonaUpdatePage.setIdPersonaRefInput('5'),
       telefonoPersonaUpdatePage.setEtichettaInput('5'),
       telefonoPersonaUpdatePage.setValoreInput('5'),
-      telefonoPersonaUpdatePage.personaSelectLastOption(),
+      telefonoPersonaUpdatePage.idPersonaRefSelectLastOption(),
     ]);
 
     expect(await telefonoPersonaUpdatePage.getIdPersonaRefInput()).to.eq('5', 'Expected idPersonaRef value to be equals to 5');

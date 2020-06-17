@@ -70,8 +70,8 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="eoloprjApp.assegnazioneTask.userPersona" for="field_userPersona">User Persona</label>
-                    <select class="form-control" id="field_userPersona" name="userPersona" formControlName="userPersonaId">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.assegnazioneTask.idUserAmmesso" for="field_idUserAmmesso">Id User Ammesso</label>
+                    <select class="form-control" id="field_idUserAmmesso" name="idUserAmmesso" formControlName="idUserAmmessoId">
                         <option [ngValue]="null"></option>
                         <option [ngValue]="userPersonaOption.id" *ngFor="let userPersonaOption of userpersonas; trackBy: trackById">{{ userPersonaOption.id }}</option>
                     </select>

@@ -21,7 +21,7 @@ export class StudioProfessionaleUpdateComponent implements OnInit {
   editForm = this.fb.group({
     id: [],
     idUserAmministratore: [null, [Validators.required]],
-    personaId: [],
+    idUserAmministratoreId: [],
   });
 
   constructor(
@@ -43,7 +43,7 @@ export class StudioProfessionaleUpdateComponent implements OnInit {
     this.editForm.patchValue({
       id: studioProfessionale.id,
       idUserAmministratore: studioProfessionale.idUserAmministratore,
-      personaId: studioProfessionale.personaId,
+      idUserAmministratoreId: studioProfessionale.idUserAmministratoreId,
     });
   }
 
@@ -66,7 +66,7 @@ export class StudioProfessionaleUpdateComponent implements OnInit {
       ...new StudioProfessionale(),
       id: this.editForm.get(['id'])!.value,
       idUserAmministratore: this.editForm.get(['idUserAmministratore'])!.value,
-      personaId: this.editForm.get(['personaId'])!.value,
+      idUserAmministratoreId: this.editForm.get(['idUserAmministratoreId'])!.value,
     };
   }
 

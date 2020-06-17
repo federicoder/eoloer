@@ -22,7 +22,7 @@ export class NotePersonaUpdateComponent implements OnInit {
     id: [],
     idPersonaRef: [null, [Validators.required]],
     testo: [],
-    personaId: [],
+    idPersonaRefId: [],
   });
 
   constructor(
@@ -45,7 +45,7 @@ export class NotePersonaUpdateComponent implements OnInit {
       id: notePersona.id,
       idPersonaRef: notePersona.idPersonaRef,
       testo: notePersona.testo,
-      personaId: notePersona.personaId,
+      idPersonaRefId: notePersona.idPersonaRefId,
     });
   }
 
@@ -69,7 +69,7 @@ export class NotePersonaUpdateComponent implements OnInit {
       id: this.editForm.get(['id'])!.value,
       idPersonaRef: this.editForm.get(['idPersonaRef'])!.value,
       testo: this.editForm.get(['testo'])!.value,
-      personaId: this.editForm.get(['personaId'])!.value,
+      idPersonaRefId: this.editForm.get(['idPersonaRefId'])!.value,
     };
   }
 

@@ -28,14 +28,14 @@
     {
       "relationshipType": "many-to-one",
       "otherEntityName": "templateTask",
-      "otherEntityRelationshipName": "id",
-      "relationshipName": "templateTask",
+      "otherEntityRelationshipName": "allegatoTemplateTask",
+      "relationshipName": "idTemplateTaskRef",
       "otherEntityField": "id"
     },
     {
       "relationshipType": "many-to-one",
       "otherEntityName": "tipoAllegato",
-      "otherEntityRelationshipName": "id",
+      "otherEntityRelationshipName": "allegatoTemplateTask",
       "relationshipName": "tipoAllegato",
       "otherEntityField": "id"
     }

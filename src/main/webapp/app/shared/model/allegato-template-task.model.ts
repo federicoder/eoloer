@@ -5,7 +5,7 @@ export interface IAllegatoTemplateTask {
   formato?: number;
   idFileRef?: number;
   pubPriv?: number;
-  templateTaskId?: number;
+  idTemplateTaskRefId?: number;
   tipoAllegatoId?: number;
 }
 
@@ -17,7 +17,7 @@ export class AllegatoTemplateTask implements IAllegatoTemplateTask {
     public formato?: number,
     public idFileRef?: number,
     public pubPriv?: number,
-    public templateTaskId?: number,
+    public idTemplateTaskRefId?: number,
     public tipoAllegatoId?: number
   ) {}
 }

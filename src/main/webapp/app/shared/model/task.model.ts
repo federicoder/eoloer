@@ -1,6 +1,3 @@
-import { IAllegatoTask } from 'app/shared/model/allegato-task.model';
-import { INotaTask } from 'app/shared/model/nota-task.model';
-
 export interface ITask {
   id?: number;
   idPraticaRef?: number;
@@ -16,9 +13,7 @@ export interface ITask {
   idId?: number;
   idId?: number;
   idId?: number;
-  ids?: IAllegatoTask[];
-  ids?: INotaTask[];
-  praticaId?: number;
+  idPraticaRefId?: number;
 }
 
 export class Task implements ITask {
@@ -37,8 +32,6 @@ export class Task implements ITask {
     public idId?: number,
     public idId?: number,
     public idId?: number,
-    public ids?: IAllegatoTask[],
-    public ids?: INotaTask[],
-    public praticaId?: number
+    public idPraticaRefId?: number
   ) {}
 }

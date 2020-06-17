@@ -22,7 +22,7 @@
       "formato": "Formato",
       "idFileRef": "Id File Ref",
       "pubPriv": "Pub Priv",
-      "templateTask": "Template Task",
+      "idTemplateTaskRef": "Id Template Task Ref",
       "tipoAllegato": "Tipo Allegato"
     }
   }

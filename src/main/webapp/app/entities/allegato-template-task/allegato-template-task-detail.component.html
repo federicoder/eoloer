@@ -28,10 +28,10 @@
                 <dd>
                     <span>{{ allegatoTemplateTask.pubPriv }}</span>
                 </dd>
-                <dt><span jhiTranslate="eoloprjApp.allegatoTemplateTask.templateTask">Template Task</span></dt>
+                <dt><span jhiTranslate="eoloprjApp.allegatoTemplateTask.idTemplateTaskRef">Id Template Task Ref</span></dt>
                 <dd>
-                    <div *ngIf="allegatoTemplateTask.templateTaskId">
-                        <a [routerLink]="['/template-task', allegatoTemplateTask.templateTaskId, 'view']">{{ allegatoTemplateTask.templateTaskId }}</a>
+                    <div *ngIf="allegatoTemplateTask.idTemplateTaskRefId">
+                        <a [routerLink]="['/template-task', allegatoTemplateTask.idTemplateTaskRefId, 'view']">{{ allegatoTemplateTask.idTemplateTaskRefId }}</a>
                     </div>
                 </dd>
                 <dt><span jhiTranslate="eoloprjApp.allegatoTemplateTask.tipoAllegato">Tipo Allegato</span></dt>

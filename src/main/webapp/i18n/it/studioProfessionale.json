@@ -18,10 +18,8 @@
         "title": "Studio Professionale"
       },
       "idUserAmministratore": "Id User Amministratore",
-      "id": "Id",
-      "id": "Id",
-      "id": "Id",
-      "persona": "Persona"
+      "idUserAmministratore": "Id User Amministratore",
+      "id": "Id"
     }
   }
 }

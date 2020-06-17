@@ -46,7 +46,7 @@
                     <th scope="col" ><span jhiTranslate="eoloprjApp.lineaOrdine.quantita">Quantita</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.lineaOrdine.importo">Importo</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.lineaOrdine.codIva">Cod Iva</span></th>
-                    <th scope="col" ><span jhiTranslate="eoloprjApp.lineaOrdine.ordine">Ordine</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.lineaOrdine.idOrdineRef">Id Ordine Ref</span></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -59,8 +59,8 @@
                     <td>{{ lineaOrdine.importo }}</td>
                     <td>{{ lineaOrdine.codIva }}</td>
                     <td>
-                        <div *ngIf="lineaOrdine.ordineId">
-                            <a [routerLink]="['/ordine', lineaOrdine.ordineId , 'view']" >{{ lineaOrdine.ordineId }}</a>
+                        <div *ngIf="lineaOrdine.idOrdineRefId">
+                            <a [routerLink]="['/ordine', lineaOrdine.idOrdineRefId , 'view']" >{{ lineaOrdine.idOrdineRefId }}</a>
                         </div>
                     </td>
                     <td class="text-right">

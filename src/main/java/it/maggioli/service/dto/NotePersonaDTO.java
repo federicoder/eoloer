@@ -16,7 +16,7 @@ public class NotePersonaDTO implements Serializable {
     private String testo;
 
 
-    private Long personaId;
+    private Long idPersonaRefId;
     
     public Long getId() {
         return id;
@@ -42,12 +42,12 @@ public class NotePersonaDTO implements Serializable {
         this.testo = testo;
     }
 
-    public Long getPersonaId() {
-        return personaId;
+    public Long getIdPersonaRefId() {
+        return idPersonaRefId;
     }
 
-    public void setPersonaId(Long personaId) {
-        this.personaId = personaId;
+    public void setIdPersonaRefId(Long personaId) {
+        this.idPersonaRefId = personaId;
     }
 
     @Override
@@ -74,7 +74,7 @@ public class NotePersonaDTO implements Serializable {
             "id=" + getId() +
             ", idPersonaRef=" + getIdPersonaRef() +
             ", testo='" + getTesto() + "'" +
-            ", personaId=" + getPersonaId() +
+            ", idPersonaRefId=" + getIdPersonaRefId() +
             "}";
     }
 }

@@ -1,5 +1,3 @@
-import { IInvitato } from 'app/shared/model/invitato.model';
-
 export interface IInvito {
   id?: number;
   idStudioProfessionaleRef?: number;
@@ -19,7 +17,6 @@ export interface IInvito {
   urlStanzaVirtuale?: string;
   discriminator?: string;
   idStudioProfessionaleRefId?: number;
-  ids?: IInvitato[];
   idId?: number;
   idId?: number;
   idId?: number;
@@ -46,7 +43,6 @@ export class Invito implements IInvito {
     public urlStanzaVirtuale?: string,
     public discriminator?: string,
     public idStudioProfessionaleRefId?: number,
-    public ids?: IInvitato[],
     public idId?: number,
     public idId?: number,
     public idId?: number,

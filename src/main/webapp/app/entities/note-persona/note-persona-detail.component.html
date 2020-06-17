@@ -16,10 +16,10 @@
                 <dd>
                     <span>{{ notePersona.testo }}</span>
                 </dd>
-                <dt><span jhiTranslate="eoloprjApp.notePersona.persona">Persona</span></dt>
+                <dt><span jhiTranslate="eoloprjApp.notePersona.idPersonaRef">Id Persona Ref</span></dt>
                 <dd>
-                    <div *ngIf="notePersona.personaId">
-                        <a [routerLink]="['/persona', notePersona.personaId, 'view']">{{ notePersona.personaId }}</a>
+                    <div *ngIf="notePersona.idPersonaRefId">
+                        <a [routerLink]="['/persona', notePersona.idPersonaRefId, 'view']">{{ notePersona.idPersonaRefId }}</a>
                     </div>
                 </dd>
             </dl>

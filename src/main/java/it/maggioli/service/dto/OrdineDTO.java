@@ -22,7 +22,7 @@ public class OrdineDTO implements Serializable {
     private Long totOrdine;
 
 
-    private Long studioProfessionaleId;
+    private Long idStudioProfessionaleRefId;
     
     public Long getId() {
         return id;
@@ -72,12 +72,12 @@ public class OrdineDTO implements Serializable {
         this.totOrdine = totOrdine;
     }
 
-    public Long getStudioProfessionaleId() {
-        return studioProfessionaleId;
+    public Long getIdStudioProfessionaleRefId() {
+        return idStudioProfessionaleRefId;
     }
 
-    public void setStudioProfessionaleId(Long studioProfessionaleId) {
-        this.studioProfessionaleId = studioProfessionaleId;
+    public void setIdStudioProfessionaleRefId(Long studioProfessionaleId) {
+        this.idStudioProfessionaleRefId = studioProfessionaleId;
     }
 
     @Override
@@ -107,7 +107,7 @@ public class OrdineDTO implements Serializable {
             ", totImponibile=" + getTotImponibile() +
             ", totIva=" + getTotIva() +
             ", totOrdine=" + getTotOrdine() +
-            ", studioProfessionaleId=" + getStudioProfessionaleId() +
+            ", idStudioProfessionaleRefId=" + getIdStudioProfessionaleRefId() +
             "}";
     }
 }

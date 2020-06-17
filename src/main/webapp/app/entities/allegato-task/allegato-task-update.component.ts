@@ -12,7 +12,7 @@ import { TipoAllegatoService } from 'app/entities/tipo-allegato/tipo-allegato.se
 import { ITask } from 'app/shared/model/task.model';
 import { TaskService } from 'app/entities/task/task.service';
 
-type SelectableEntity = ITipoAllegato | IAllegatoTask | ITask;
+type SelectableEntity = ITipoAllegato | ITask | IAllegatoTask;
 
 @Component({
   selector: 'jhi-allegato-task-update',
@@ -21,8 +21,8 @@ type SelectableEntity = ITipoAllegato | IAllegatoTask | ITask;
 export class AllegatoTaskUpdateComponent implements OnInit {
   isSaving = false;
   tipoallegatoes: ITipoAllegato[] = [];
-  allegatotasks: IAllegatoTask[] = [];
   tasks: ITask[] = [];
+  allegatotasks: IAllegatoTask[] = [];
 
   editForm = this.fb.group({
     id: [],
@@ -34,9 +34,9 @@ export class AllegatoTaskUpdateComponent implements OnInit {
     pubblico: [],
     version: [],
     idAllegatoMaster: [null, [Validators.required]],
-    tipoAllegatoId: [],
+    idTipoAllegatoRefId: [],
+    idTaskRefId: [],
     allegatoTaskId: [],
-    taskId: [],
   });
 
   constructor(
@@ -53,9 +53,9 @@ export class AllegatoTaskUpdateComponent implements OnInit {
 
       this.tipoAllegatoService.query().subscribe((res: HttpResponse<ITipoAllegato[]>) => (this.tipoallegatoes = res.body || []));
 
-      this.allegatoTaskService.query().subscribe((res: HttpResponse<IAllegatoTask[]>) => (this.allegatotasks = res.body || []));
-
       this.taskService.query().subscribe((res: HttpResponse<ITask[]>) => (this.tasks = res.body || []));
+
+      this.allegatoTaskService.query().subscribe((res: HttpResponse<IAllegatoTask[]>) => (this.allegatotasks = res.body || []));
     });
   }
 
@@ -70,9 +70,9 @@ export class AllegatoTaskUpdateComponent implements OnInit {
       pubblico: allegatoTask.pubblico,
       version: allegatoTask.version,
       idAllegatoMaster: allegatoTask.idAllegatoMaster,
-      tipoAllegatoId: allegatoTask.tipoAllegatoId,
+      idTipoAllegatoRefId: allegatoTask.idTipoAllegatoRefId,
+      idTaskRefId: allegatoTask.idTaskRefId,
       allegatoTaskId: allegatoTask.allegatoTaskId,
-      taskId: allegatoTask.taskId,
     });
   }
 
@@ -102,9 +102,9 @@ export class AllegatoTaskUpdateComponent implements OnInit {
       pubblico: this.editForm.get(['pubblico'])!.value,
       version: this.editForm.get(['version'])!.value,
       idAllegatoMaster: this.editForm.get(['idAllegatoMaster'])!.value,
-      tipoAllegatoId: this.editForm.get(['tipoAllegatoId'])!.value,
+      idTipoAllegatoRefId: this.editForm.get(['idTipoAllegatoRefId'])!.value,
+      idTaskRefId: this.editForm.get(['idTaskRefId'])!.value,
       allegatoTaskId: this.editForm.get(['allegatoTaskId'])!.value,
-      taskId: this.editForm.get(['taskId'])!.value,
     };
   }
 

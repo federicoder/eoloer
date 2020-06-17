@@ -19,10 +19,7 @@
       },
       "idPersonaRef": "Id Persona Ref",
       "nomeUser": "Nome User",
-      "id": "Id",
-      "id": "Id",
-      "id": "Id",
-      "personaFisica": "Persona Fisica"
+      "idPersonaRef": "Id Persona Ref"
     }
   }
 }

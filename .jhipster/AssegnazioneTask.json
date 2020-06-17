@@ -42,18 +42,18 @@
       "relationshipName": "idUserConcedente"
     },
     {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "userPersona",
+      "otherEntityRelationshipName": "assegnazioneTask",
+      "relationshipName": "idUserAmmesso",
+      "otherEntityField": "id"
+    },
+    {
       "relationshipType": "one-to-one",
       "otherEntityName": "task",
       "otherEntityRelationshipName": "id",
       "relationshipName": "idTaskRef",
       "ownerSide": false
-    },
-    {
-      "relationshipType": "many-to-one",
-      "otherEntityName": "userPersona",
-      "otherEntityRelationshipName": "id",
-      "relationshipName": "userPersona",
-      "otherEntityField": "id"
     }
   ],
   "changelogDate": "20200617083628",

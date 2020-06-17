@@ -24,8 +24,8 @@
       "statoAssegnazione": "Stato Assegnazione",
       "ruolo": "Ruolo",
       "idUserConcedente": "Id User Concedente",
-      "idTaskRef": "Id Task Ref",
-      "userPersona": "User Persona"
+      "idUserAmmesso": "Id User Ammesso",
+      "idTaskRef": "Id Task Ref"
     }
   }
 }

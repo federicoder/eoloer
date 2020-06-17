@@ -12,12 +12,12 @@ import { IRappresentanzaPratica } from 'app/shared/model/rappresentanza-pratica.
 import { RappresentanzaPraticaService } from 'app/entities/rappresentanza-pratica/rappresentanza-pratica.service';
 import { IPersona } from 'app/shared/model/persona.model';
 import { PersonaService } from 'app/entities/persona/persona.service';
-import { IPratica } from 'app/shared/model/pratica.model';
-import { PraticaService } from 'app/entities/pratica/pratica.service';
 import { IUserPersona } from 'app/shared/model/user-persona.model';
 import { UserPersonaService } from 'app/entities/user-persona/user-persona.service';
+import { IPratica } from 'app/shared/model/pratica.model';
+import { PraticaService } from 'app/entities/pratica/pratica.service';
 
-type SelectableEntity = IRappresentanzaPratica | IPersona | IPratica | IUserPersona;
+type SelectableEntity = IRappresentanzaPratica | IPersona | IUserPersona | IPratica;
 
 @Component({
   selector: 'jhi-condivisione-pratica-update',
@@ -27,8 +27,8 @@ export class CondivisionePraticaUpdateComponent implements OnInit {
   isSaving = false;
   ruolos: IRappresentanzaPratica[] = [];
   iduserconcedentes: IPersona[] = [];
-  praticas: IPratica[] = [];
   userpersonas: IUserPersona[] = [];
+  praticas: IPratica[] = [];
 
   editForm = this.fb.group({
     id: [],
@@ -39,16 +39,16 @@ export class CondivisionePraticaUpdateComponent implements OnInit {
     idPraticaRef: [],
     ruoloId: [],
     idUserConcedenteId: [],
-    praticaId: [],
-    userPersonaId: [],
+    idUserAmmessoId: [],
+    idPraticaRefId: [],
   });
 
   constructor(
     protected condivisionePraticaService: CondivisionePraticaService,
     protected rappresentanzaPraticaService: RappresentanzaPraticaService,
     protected personaService: PersonaService,
-    protected praticaService: PraticaService,
     protected userPersonaService: UserPersonaService,
+    protected praticaService: PraticaService,
     protected activatedRoute: ActivatedRoute,
     private fb: FormBuilder
   ) {}
@@ -101,9 +101,9 @@ export class CondivisionePraticaUpdateComponent implements OnInit {
           }
         });
 
-      this.praticaService.query().subscribe((res: HttpResponse<IPratica[]>) => (this.praticas = res.body || []));
-
       this.userPersonaService.query().subscribe((res: HttpResponse<IUserPersona[]>) => (this.userpersonas = res.body || []));
+
+      this.praticaService.query().subscribe((res: HttpResponse<IPratica[]>) => (this.praticas = res.body || []));
     });
   }
 
@@ -117,8 +117,8 @@ export class CondivisionePraticaUpdateComponent implements OnInit {
       idPraticaRef: condivisionePratica.idPraticaRef,
       ruoloId: condivisionePratica.ruoloId,
       idUserConcedenteId: condivisionePratica.idUserConcedenteId,
-      praticaId: condivisionePratica.praticaId,
-      userPersonaId: condivisionePratica.userPersonaId,
+      idUserAmmessoId: condivisionePratica.idUserAmmessoId,
+      idPraticaRefId: condivisionePratica.idPraticaRefId,
     });
   }
 
@@ -147,8 +147,8 @@ export class CondivisionePraticaUpdateComponent implements OnInit {
       idPraticaRef: this.editForm.get(['idPraticaRef'])!.value,
       ruoloId: this.editForm.get(['ruoloId'])!.value,
       idUserConcedenteId: this.editForm.get(['idUserConcedenteId'])!.value,
-      praticaId: this.editForm.get(['praticaId'])!.value,
-      userPersonaId: this.editForm.get(['userPersonaId'])!.value,
+      idUserAmmessoId: this.editForm.get(['idUserAmmessoId'])!.value,
+      idPraticaRefId: this.editForm.get(['idPraticaRefId'])!.value,
     };
   }
 

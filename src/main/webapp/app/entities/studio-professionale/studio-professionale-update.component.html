@@ -28,8 +28,8 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="eoloprjApp.studioProfessionale.persona" for="field_persona">Persona</label>
-                    <select class="form-control" id="field_persona" name="persona" formControlName="personaId">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.studioProfessionale.idUserAmministratore" for="field_idUserAmministratore">Id User Amministratore</label>
+                    <select class="form-control" id="field_idUserAmministratore" name="idUserAmministratore" formControlName="idUserAmministratoreId">
                         <option [ngValue]="null"></option>
                         <option [ngValue]="personaOption.id" *ngFor="let personaOption of personas; trackBy: trackById">{{ personaOption.id }}</option>
                     </select>

@@ -61,12 +61,12 @@ public class Invitato implements Serializable {
     private Long indInvitati;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "ids", allowSetters = true)
-    private UserPersona userPersona;
+    @JsonIgnoreProperties(value = "invitatoes", allowSetters = true)
+    private UserPersona idUserInvitato;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "ids", allowSetters = true)
-    private Invito invito;
+    @JsonIgnoreProperties(value = "invitatoes", allowSetters = true)
+    private Invito idInvitoRef;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -220,30 +220,30 @@ public class Invitato implements Serializable {
         this.indInvitati = indInvitati;
     }
 
-    public UserPersona getUserPersona() {
-        return userPersona;
+    public UserPersona getIdUserInvitato() {
+        return idUserInvitato;
     }
 
-    public Invitato userPersona(UserPersona userPersona) {
-        this.userPersona = userPersona;
+    public Invitato idUserInvitato(UserPersona userPersona) {
+        this.idUserInvitato = userPersona;
         return this;
     }
 
-    public void setUserPersona(UserPersona userPersona) {
-        this.userPersona = userPersona;
+    public void setIdUserInvitato(UserPersona userPersona) {
+        this.idUserInvitato = userPersona;
     }
 
-    public Invito getInvito() {
-        return invito;
+    public Invito getIdInvitoRef() {
+        return idInvitoRef;
     }
 
-    public Invitato invito(Invito invito) {
-        this.invito = invito;
+    public Invitato idInvitoRef(Invito invito) {
+        this.idInvitoRef = invito;
         return this;
     }
 
-    public void setInvito(Invito invito) {
-        this.invito = invito;
+    public void setIdInvitoRef(Invito invito) {
+        this.idInvitoRef = invito;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

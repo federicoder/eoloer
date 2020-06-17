@@ -78,22 +78,10 @@
       "ownerSide": true
     },
     {
-      "relationshipType": "one-to-many",
-      "otherEntityName": "allegatoTask",
-      "otherEntityRelationshipName": "task",
-      "relationshipName": "id"
-    },
-    {
-      "relationshipType": "one-to-many",
-      "otherEntityName": "notaTask",
-      "otherEntityRelationshipName": "task",
-      "relationshipName": "id"
-    },
-    {
       "relationshipType": "many-to-one",
       "otherEntityName": "pratica",
-      "otherEntityRelationshipName": "id",
-      "relationshipName": "pratica",
+      "otherEntityRelationshipName": "task",
+      "relationshipName": "idPraticaRef",
       "otherEntityField": "id"
     }
   ],

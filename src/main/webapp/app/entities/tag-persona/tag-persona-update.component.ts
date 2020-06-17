@@ -22,7 +22,7 @@ export class TagPersonaUpdateComponent implements OnInit {
     id: [],
     idPersonaRef: [null, [Validators.required]],
     tag: [],
-    personaId: [],
+    idPersonaRefId: [],
   });
 
   constructor(
@@ -45,7 +45,7 @@ export class TagPersonaUpdateComponent implements OnInit {
       id: tagPersona.id,
       idPersonaRef: tagPersona.idPersonaRef,
       tag: tagPersona.tag,
-      personaId: tagPersona.personaId,
+      idPersonaRefId: tagPersona.idPersonaRefId,
     });
   }
 
@@ -69,7 +69,7 @@ export class TagPersonaUpdateComponent implements OnInit {
       id: this.editForm.get(['id'])!.value,
       idPersonaRef: this.editForm.get(['idPersonaRef'])!.value,
       tag: this.editForm.get(['tag'])!.value,
-      personaId: this.editForm.get(['personaId'])!.value,
+      idPersonaRefId: this.editForm.get(['idPersonaRefId'])!.value,
     };
   }
 

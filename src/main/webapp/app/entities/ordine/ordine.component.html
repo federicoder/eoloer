@@ -46,7 +46,7 @@
                     <th scope="col" ><span jhiTranslate="eoloprjApp.ordine.totImponibile">Tot Imponibile</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.ordine.totIva">Tot Iva</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.ordine.totOrdine">Tot Ordine</span></th>
-                    <th scope="col" ><span jhiTranslate="eoloprjApp.ordine.studioProfessionale">Studio Professionale</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.ordine.idStudioProfessionaleRef">Id Studio Professionale Ref</span></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -59,8 +59,8 @@
                     <td>{{ ordine.totIva }}</td>
                     <td>{{ ordine.totOrdine }}</td>
                     <td>
-                        <div *ngIf="ordine.studioProfessionaleId">
-                            <a [routerLink]="['/studio-professionale', ordine.studioProfessionaleId , 'view']" >{{ ordine.studioProfessionaleId }}</a>
+                        <div *ngIf="ordine.idStudioProfessionaleRefId">
+                            <a [routerLink]="['/studio-professionale', ordine.idStudioProfessionaleRefId , 'view']" >{{ ordine.idStudioProfessionaleRefId }}</a>
                         </div>
                     </td>
                     <td class="text-right">

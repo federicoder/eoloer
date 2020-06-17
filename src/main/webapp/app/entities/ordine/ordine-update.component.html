@@ -52,8 +52,8 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="eoloprjApp.ordine.studioProfessionale" for="field_studioProfessionale">Studio Professionale</label>
-                    <select class="form-control" id="field_studioProfessionale" name="studioProfessionale" formControlName="studioProfessionaleId">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.ordine.idStudioProfessionaleRef" for="field_idStudioProfessionaleRef">Id Studio Professionale Ref</label>
+                    <select class="form-control" id="field_idStudioProfessionaleRef" name="idStudioProfessionaleRef" formControlName="idStudioProfessionaleRefId">
                         <option [ngValue]="null"></option>
                         <option [ngValue]="studioProfessionaleOption.id" *ngFor="let studioProfessionaleOption of studioprofessionales; trackBy: trackById">{{ studioProfessionaleOption.id }}</option>
                     </select>

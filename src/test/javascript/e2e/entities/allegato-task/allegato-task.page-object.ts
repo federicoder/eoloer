@@ -38,9 +38,9 @@ export class AllegatoTaskUpdatePage {
   versionInput = element(by.id('field_version'));
   idAllegatoMasterInput = element(by.id('field_idAllegatoMaster'));
 
-  tipoAllegatoSelect = element(by.id('field_tipoAllegato'));
+  idTipoAllegatoRefSelect = element(by.id('field_idTipoAllegatoRef'));
+  idTaskRefSelect = element(by.id('field_idTaskRef'));
   allegatoTaskSelect = element(by.id('field_allegatoTask'));
-  taskSelect = element(by.id('field_task'));
 
   async getPageTitle(): Promise<string> {
     return this.pageTitle.getAttribute('jhiTranslate');
@@ -110,20 +110,36 @@ export class AllegatoTaskUpdatePage {
     return await this.idAllegatoMasterInput.getAttribute('value');
   }
 
-  async tipoAllegatoSelectLastOption(): Promise<void> {
-    await this.tipoAllegatoSelect.all(by.tagName('option')).last().click();
+  async idTipoAllegatoRefSelectLastOption(): Promise<void> {
+    await this.idTipoAllegatoRefSelect.all(by.tagName('option')).last().click();
   }
 
-  async tipoAllegatoSelectOption(option: string): Promise<void> {
-    await this.tipoAllegatoSelect.sendKeys(option);
+  async idTipoAllegatoRefSelectOption(option: string): Promise<void> {
+    await this.idTipoAllegatoRefSelect.sendKeys(option);
   }
 
-  getTipoAllegatoSelect(): ElementFinder {
-    return this.tipoAllegatoSelect;
+  getIdTipoAllegatoRefSelect(): ElementFinder {
+    return this.idTipoAllegatoRefSelect;
   }
 
-  async getTipoAllegatoSelectedOption(): Promise<string> {
-    return await this.tipoAllegatoSelect.element(by.css('option:checked')).getText();
+  async getIdTipoAllegatoRefSelectedOption(): Promise<string> {
+    return await this.idTipoAllegatoRefSelect.element(by.css('option:checked')).getText();
+  }
+
+  async idTaskRefSelectLastOption(): Promise<void> {
+    await this.idTaskRefSelect.all(by.tagName('option')).last().click();
+  }
+
+  async idTaskRefSelectOption(option: string): Promise<void> {
+    await this.idTaskRefSelect.sendKeys(option);
+  }
+
+  getIdTaskRefSelect(): ElementFinder {
+    return this.idTaskRefSelect;
+  }
+
+  async getIdTaskRefSelectedOption(): Promise<string> {
+    return await this.idTaskRefSelect.element(by.css('option:checked')).getText();
   }
 
   async allegatoTaskSelectLastOption(): Promise<void> {
@@ -140,22 +156,6 @@ export class AllegatoTaskUpdatePage {
 
   async getAllegatoTaskSelectedOption(): Promise<string> {
     return await this.allegatoTaskSelect.element(by.css('option:checked')).getText();
-  }
-
-  async taskSelectLastOption(): Promise<void> {
-    await this.taskSelect.all(by.tagName('option')).last().click();
-  }
-
-  async taskSelectOption(option: string): Promise<void> {
-    await this.taskSelect.sendKeys(option);
-  }
-
-  getTaskSelect(): ElementFinder {
-    return this.taskSelect;
-  }
-
-  async getTaskSelectedOption(): Promise<string> {
-    return await this.taskSelect.element(by.css('option:checked')).getText();
   }
 
   async save(): Promise<void> {

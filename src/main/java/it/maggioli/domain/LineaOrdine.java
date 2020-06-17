@@ -44,13 +44,13 @@ public class LineaOrdine implements Serializable {
     @Column(name = "cod_iva")
     private String codIva;
 
+    @ManyToOne
+    @JsonIgnoreProperties(value = "lineaOrdines", allowSetters = true)
+    private Ordine idOrdineRef;
+
     @OneToOne(mappedBy = "id")
     @JsonIgnore
     private Prodotto idProdottoRef;
-
-    @ManyToOne
-    @JsonIgnoreProperties(value = "ids", allowSetters = true)
-    private Ordine ordine;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -126,6 +126,19 @@ public class LineaOrdine implements Serializable {
         this.codIva = codIva;
     }
 
+    public Ordine getIdOrdineRef() {
+        return idOrdineRef;
+    }
+
+    public LineaOrdine idOrdineRef(Ordine ordine) {
+        this.idOrdineRef = ordine;
+        return this;
+    }
+
+    public void setIdOrdineRef(Ordine ordine) {
+        this.idOrdineRef = ordine;
+    }
+
     public Prodotto getIdProdottoRef() {
         return idProdottoRef;
     }
@@ -137,19 +150,6 @@ public class LineaOrdine implements Serializable {
 
     public void setIdProdottoRef(Prodotto prodotto) {
         this.idProdottoRef = prodotto;
-    }
-
-    public Ordine getOrdine() {
-        return ordine;
-    }
-
-    public LineaOrdine ordine(Ordine ordine) {
-        this.ordine = ordine;
-        return this;
-    }
-
-    public void setOrdine(Ordine ordine) {
-        this.ordine = ordine;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

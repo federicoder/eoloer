@@ -68,10 +68,10 @@
                         <a [routerLink]="['/invito-attivita', task.idId, 'view']">{{ task.idId }}</a>
                     </div>
                 </dd>
-                <dt><span jhiTranslate="eoloprjApp.task.pratica">Pratica</span></dt>
+                <dt><span jhiTranslate="eoloprjApp.task.idPraticaRef">Id Pratica Ref</span></dt>
                 <dd>
-                    <div *ngIf="task.praticaId">
-                        <a [routerLink]="['/pratica', task.praticaId, 'view']">{{ task.praticaId }}</a>
+                    <div *ngIf="task.idPraticaRefId">
+                        <a [routerLink]="['/pratica', task.idPraticaRefId, 'view']">{{ task.idPraticaRefId }}</a>
                     </div>
                 </dd>
             </dl>

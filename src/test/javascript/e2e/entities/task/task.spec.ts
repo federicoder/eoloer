@@ -54,7 +54,7 @@ describe('Task e2e test', () => {
       taskUpdatePage.idSelectLastOption(),
       taskUpdatePage.idSelectLastOption(),
       taskUpdatePage.idSelectLastOption(),
-      taskUpdatePage.praticaSelectLastOption(),
+      taskUpdatePage.idPraticaRefSelectLastOption(),
     ]);
 
     expect(await taskUpdatePage.getIdPraticaRefInput()).to.eq('5', 'Expected idPraticaRef value to be equals to 5');

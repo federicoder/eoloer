@@ -7,8 +7,6 @@ import javax.persistence.*;
 
 import org.springframework.data.elasticsearch.annotations.FieldType;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * A TipoAllegato.
@@ -37,14 +35,6 @@ public class TipoAllegato implements Serializable {
 
     @Column(name = "version")
     private String version;
-
-    @OneToMany(mappedBy = "tipoAllegato")
-    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<AllegatoTemplateTask> ids = new HashSet<>();
-
-    @OneToMany(mappedBy = "tipoAllegato")
-    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<AllegatoTask> ids = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -105,56 +95,6 @@ public class TipoAllegato implements Serializable {
 
     public void setVersion(String version) {
         this.version = version;
-    }
-
-    public Set<AllegatoTemplateTask> getIds() {
-        return ids;
-    }
-
-    public TipoAllegato ids(Set<AllegatoTemplateTask> allegatoTemplateTasks) {
-        this.ids = allegatoTemplateTasks;
-        return this;
-    }
-
-    public TipoAllegato addId(AllegatoTemplateTask allegatoTemplateTask) {
-        this.ids.add(allegatoTemplateTask);
-        allegatoTemplateTask.setTipoAllegato(this);
-        return this;
-    }
-
-    public TipoAllegato removeId(AllegatoTemplateTask allegatoTemplateTask) {
-        this.ids.remove(allegatoTemplateTask);
-        allegatoTemplateTask.setTipoAllegato(null);
-        return this;
-    }
-
-    public void setIds(Set<AllegatoTemplateTask> allegatoTemplateTasks) {
-        this.ids = allegatoTemplateTasks;
-    }
-
-    public Set<AllegatoTask> getIds() {
-        return ids;
-    }
-
-    public TipoAllegato ids(Set<AllegatoTask> allegatoTasks) {
-        this.ids = allegatoTasks;
-        return this;
-    }
-
-    public TipoAllegato addId(AllegatoTask allegatoTask) {
-        this.ids.add(allegatoTask);
-        allegatoTask.setTipoAllegato(this);
-        return this;
-    }
-
-    public TipoAllegato removeId(AllegatoTask allegatoTask) {
-        this.ids.remove(allegatoTask);
-        allegatoTask.setTipoAllegato(null);
-        return this;
-    }
-
-    public void setIds(Set<AllegatoTask> allegatoTasks) {
-        this.ids = allegatoTasks;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

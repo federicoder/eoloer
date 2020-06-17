@@ -46,7 +46,7 @@ describe('InvitoPratica e2e test', () => {
     await promise.all([
       invitoPraticaUpdatePage.setIdPraticaRefInput('5'),
       invitoPraticaUpdatePage.idPraticaRefSelectLastOption(),
-      invitoPraticaUpdatePage.praticaSelectLastOption(),
+      invitoPraticaUpdatePage.idPraticaSelectLastOption(),
     ]);
 
     expect(await invitoPraticaUpdatePage.getIdPraticaRefInput()).to.eq('5', 'Expected idPraticaRef value to be equals to 5');

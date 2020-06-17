@@ -39,13 +39,13 @@
             <column name="id_allegato_master" type="bigint">
                 <constraints nullable="false" />
             </column>
-            <column name="tipo_allegato_id" type="bigint">
+            <column name="id_tipo_allegato_ref_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="id_task_ref_id" type="bigint">
                 <constraints nullable="true" />
             </column>
             <column name="allegato_task_id" type="bigint">
-                <constraints nullable="true" />
-            </column>
-            <column name="task_id" type="bigint">
                 <constraints nullable="true" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->

@@ -25,7 +25,7 @@ public class AssegnazioneTaskDTO implements Serializable {
 
     private Long ruoloId;
 
-    private Long userPersonaId;
+    private Long idUserAmmessoId;
     
     public Long getId() {
         return id;
@@ -83,12 +83,12 @@ public class AssegnazioneTaskDTO implements Serializable {
         this.ruoloId = rappresentanzaPraticaId;
     }
 
-    public Long getUserPersonaId() {
-        return userPersonaId;
+    public Long getIdUserAmmessoId() {
+        return idUserAmmessoId;
     }
 
-    public void setUserPersonaId(Long userPersonaId) {
-        this.userPersonaId = userPersonaId;
+    public void setIdUserAmmessoId(Long userPersonaId) {
+        this.idUserAmmessoId = userPersonaId;
     }
 
     @Override
@@ -119,7 +119,7 @@ public class AssegnazioneTaskDTO implements Serializable {
             ", idUserConcedente=" + getIdUserConcedente() +
             ", statoAssegnazione=" + getStatoAssegnazione() +
             ", ruoloId=" + getRuoloId() +
-            ", userPersonaId=" + getUserPersonaId() +
+            ", idUserAmmessoId=" + getIdUserAmmessoId() +
             "}";
     }
 }

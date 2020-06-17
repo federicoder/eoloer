@@ -9,8 +9,8 @@ export interface IAssegnazioneTask {
   statoAssegnazione?: number;
   ruoloId?: number;
   idUserConcedentes?: IInvito[];
+  idUserAmmessoId?: number;
   idTaskRefId?: number;
-  userPersonaId?: number;
 }
 
 export class AssegnazioneTask implements IAssegnazioneTask {
@@ -23,7 +23,7 @@ export class AssegnazioneTask implements IAssegnazioneTask {
     public statoAssegnazione?: number,
     public ruoloId?: number,
     public idUserConcedentes?: IInvito[],
-    public idTaskRefId?: number,
-    public userPersonaId?: number
+    public idUserAmmessoId?: number,
+    public idTaskRefId?: number
   ) {}
 }

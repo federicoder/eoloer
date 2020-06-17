@@ -14,9 +14,9 @@
                                  referencedColumnNames="id"
                                  referencedTableName="rappresentanza_pratica"/>
 
-        <addForeignKeyConstraint baseColumnNames="user_persona_id"
+        <addForeignKeyConstraint baseColumnNames="id_user_ammesso_id"
                                  baseTableName="assegnazione_task"
-                                 constraintName="fk_assegnazione_task_user_persona_id"
+                                 constraintName="fk_assegnazione_task_id_user_ammesso_id"
                                  referencedColumnNames="id"
                                  referencedTableName="user_persona"/>
 

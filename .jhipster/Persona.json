@@ -66,48 +66,6 @@
       "ownerSide": true
     },
     {
-      "relationshipType": "one-to-many",
-      "otherEntityName": "datiContabili",
-      "otherEntityRelationshipName": "persona",
-      "relationshipName": "id"
-    },
-    {
-      "relationshipType": "one-to-many",
-      "otherEntityName": "emailPersona",
-      "otherEntityRelationshipName": "persona",
-      "relationshipName": "id"
-    },
-    {
-      "relationshipType": "one-to-many",
-      "otherEntityName": "tagPersona",
-      "otherEntityRelationshipName": "persona",
-      "relationshipName": "id"
-    },
-    {
-      "relationshipType": "one-to-many",
-      "otherEntityName": "telefonoPersona",
-      "otherEntityRelationshipName": "persona",
-      "relationshipName": "id"
-    },
-    {
-      "relationshipType": "one-to-many",
-      "otherEntityName": "notePersona",
-      "otherEntityRelationshipName": "persona",
-      "relationshipName": "id"
-    },
-    {
-      "relationshipType": "one-to-many",
-      "otherEntityName": "studioProfessionale",
-      "otherEntityRelationshipName": "persona",
-      "relationshipName": "id"
-    },
-    {
-      "relationshipType": "one-to-many",
-      "otherEntityName": "rappresentanzaPratica",
-      "otherEntityRelationshipName": "persona",
-      "relationshipName": "id"
-    },
-    {
       "relationshipType": "one-to-one",
       "otherEntityName": "personaFisica",
       "otherEntityRelationshipName": "idPersonaRef",

@@ -44,11 +44,11 @@ public class AllegatoTemplateTask implements Serializable {
     private Long pubPriv;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "ids", allowSetters = true)
-    private TemplateTask templateTask;
+    @JsonIgnoreProperties(value = "allegatoTemplateTasks", allowSetters = true)
+    private TemplateTask idTemplateTaskRef;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "ids", allowSetters = true)
+    @JsonIgnoreProperties(value = "allegatoTemplateTasks", allowSetters = true)
     private TipoAllegato tipoAllegato;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
@@ -125,17 +125,17 @@ public class AllegatoTemplateTask implements Serializable {
         this.pubPriv = pubPriv;
     }
 
-    public TemplateTask getTemplateTask() {
-        return templateTask;
+    public TemplateTask getIdTemplateTaskRef() {
+        return idTemplateTaskRef;
     }
 
-    public AllegatoTemplateTask templateTask(TemplateTask templateTask) {
-        this.templateTask = templateTask;
+    public AllegatoTemplateTask idTemplateTaskRef(TemplateTask templateTask) {
+        this.idTemplateTaskRef = templateTask;
         return this;
     }
 
-    public void setTemplateTask(TemplateTask templateTask) {
-        this.templateTask = templateTask;
+    public void setIdTemplateTaskRef(TemplateTask templateTask) {
+        this.idTemplateTaskRef = templateTask;
     }
 
     public TipoAllegato getTipoAllegato() {

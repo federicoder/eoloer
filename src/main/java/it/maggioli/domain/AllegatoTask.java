@@ -60,16 +60,16 @@ public class AllegatoTask implements Serializable {
     private Set<AllegatoTask> ids = new HashSet<>();
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "ids", allowSetters = true)
-    private TipoAllegato tipoAllegato;
+    @JsonIgnoreProperties(value = "allegatoTasks", allowSetters = true)
+    private TipoAllegato idTipoAllegatoRef;
+
+    @ManyToOne
+    @JsonIgnoreProperties(value = "allegatoTasks", allowSetters = true)
+    private Task idTaskRef;
 
     @ManyToOne
     @JsonIgnoreProperties(value = "ids", allowSetters = true)
     private AllegatoTask allegatoTask;
-
-    @ManyToOne
-    @JsonIgnoreProperties(value = "ids", allowSetters = true)
-    private Task task;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -209,17 +209,30 @@ public class AllegatoTask implements Serializable {
         this.ids = allegatoTasks;
     }
 
-    public TipoAllegato getTipoAllegato() {
-        return tipoAllegato;
+    public TipoAllegato getIdTipoAllegatoRef() {
+        return idTipoAllegatoRef;
     }
 
-    public AllegatoTask tipoAllegato(TipoAllegato tipoAllegato) {
-        this.tipoAllegato = tipoAllegato;
+    public AllegatoTask idTipoAllegatoRef(TipoAllegato tipoAllegato) {
+        this.idTipoAllegatoRef = tipoAllegato;
         return this;
     }
 
-    public void setTipoAllegato(TipoAllegato tipoAllegato) {
-        this.tipoAllegato = tipoAllegato;
+    public void setIdTipoAllegatoRef(TipoAllegato tipoAllegato) {
+        this.idTipoAllegatoRef = tipoAllegato;
+    }
+
+    public Task getIdTaskRef() {
+        return idTaskRef;
+    }
+
+    public AllegatoTask idTaskRef(Task task) {
+        this.idTaskRef = task;
+        return this;
+    }
+
+    public void setIdTaskRef(Task task) {
+        this.idTaskRef = task;
     }
 
     public AllegatoTask getAllegatoTask() {
@@ -233,19 +246,6 @@ public class AllegatoTask implements Serializable {
 
     public void setAllegatoTask(AllegatoTask allegatoTask) {
         this.allegatoTask = allegatoTask;
-    }
-
-    public Task getTask() {
-        return task;
-    }
-
-    public AllegatoTask task(Task task) {
-        this.task = task;
-        return this;
-    }
-
-    public void setTask(Task task) {
-        this.task = task;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

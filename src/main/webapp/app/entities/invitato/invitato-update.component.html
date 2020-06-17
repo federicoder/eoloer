@@ -88,16 +88,16 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="eoloprjApp.invitato.userPersona" for="field_userPersona">User Persona</label>
-                    <select class="form-control" id="field_userPersona" name="userPersona" formControlName="userPersonaId">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.invitato.idUserInvitato" for="field_idUserInvitato">Id User Invitato</label>
+                    <select class="form-control" id="field_idUserInvitato" name="idUserInvitato" formControlName="idUserInvitatoId">
                         <option [ngValue]="null"></option>
                         <option [ngValue]="userPersonaOption.id" *ngFor="let userPersonaOption of userpersonas; trackBy: trackById">{{ userPersonaOption.id }}</option>
                     </select>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="eoloprjApp.invitato.invito" for="field_invito">Invito</label>
-                    <select class="form-control" id="field_invito" name="invito" formControlName="invitoId">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.invitato.idInvitoRef" for="field_idInvitoRef">Id Invito Ref</label>
+                    <select class="form-control" id="field_idInvitoRef" name="idInvitoRef" formControlName="idInvitoRefId">
                         <option [ngValue]="null"></option>
                         <option [ngValue]="invitoOption.id" *ngFor="let invitoOption of invitos; trackBy: trackById">{{ invitoOption.id }}</option>
                     </select>

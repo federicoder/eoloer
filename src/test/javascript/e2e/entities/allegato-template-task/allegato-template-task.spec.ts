@@ -53,7 +53,7 @@ describe('AllegatoTemplateTask e2e test', () => {
       allegatoTemplateTaskUpdatePage.setFormatoInput('5'),
       allegatoTemplateTaskUpdatePage.setIdFileRefInput('5'),
       allegatoTemplateTaskUpdatePage.setPubPrivInput('5'),
-      allegatoTemplateTaskUpdatePage.templateTaskSelectLastOption(),
+      allegatoTemplateTaskUpdatePage.idTemplateTaskRefSelectLastOption(),
       allegatoTemplateTaskUpdatePage.tipoAllegatoSelectLastOption(),
     ]);
 

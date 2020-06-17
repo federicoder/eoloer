@@ -7,8 +7,8 @@ export interface ICondivisionePratica {
   idPraticaRef?: number;
   ruoloId?: number;
   idUserConcedenteId?: number;
-  praticaId?: number;
-  userPersonaId?: number;
+  idUserAmmessoId?: number;
+  idPraticaRefId?: number;
 }
 
 export class CondivisionePratica implements ICondivisionePratica {
@@ -21,7 +21,7 @@ export class CondivisionePratica implements ICondivisionePratica {
     public idPraticaRef?: number,
     public ruoloId?: number,
     public idUserConcedenteId?: number,
-    public praticaId?: number,
-    public userPersonaId?: number
+    public idUserAmmessoId?: number,
+    public idPraticaRefId?: number
   ) {}
 }

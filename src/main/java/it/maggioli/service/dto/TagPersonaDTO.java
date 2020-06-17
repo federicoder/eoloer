@@ -16,7 +16,7 @@ public class TagPersonaDTO implements Serializable {
     private Long tag;
 
 
-    private Long personaId;
+    private Long idPersonaRefId;
     
     public Long getId() {
         return id;
@@ -42,12 +42,12 @@ public class TagPersonaDTO implements Serializable {
         this.tag = tag;
     }
 
-    public Long getPersonaId() {
-        return personaId;
+    public Long getIdPersonaRefId() {
+        return idPersonaRefId;
     }
 
-    public void setPersonaId(Long personaId) {
-        this.personaId = personaId;
+    public void setIdPersonaRefId(Long personaId) {
+        this.idPersonaRefId = personaId;
     }
 
     @Override
@@ -74,7 +74,7 @@ public class TagPersonaDTO implements Serializable {
             "id=" + getId() +
             ", idPersonaRef=" + getIdPersonaRef() +
             ", tag=" + getTag() +
-            ", personaId=" + getPersonaId() +
+            ", idPersonaRefId=" + getIdPersonaRefId() +
             "}";
     }
 }

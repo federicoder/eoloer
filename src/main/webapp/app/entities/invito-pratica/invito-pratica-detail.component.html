@@ -18,10 +18,10 @@
                         <a [routerLink]="['/invito', invitoPratica.idPraticaRefId, 'view']">{{ invitoPratica.idPraticaRefId }}</a>
                     </div>
                 </dd>
-                <dt><span jhiTranslate="eoloprjApp.invitoPratica.pratica">Pratica</span></dt>
+                <dt><span jhiTranslate="eoloprjApp.invitoPratica.idPratica">Id Pratica</span></dt>
                 <dd>
-                    <div *ngIf="invitoPratica.praticaId">
-                        <a [routerLink]="['/pratica', invitoPratica.praticaId, 'view']">{{ invitoPratica.praticaId }}</a>
+                    <div *ngIf="invitoPratica.idPraticaId">
+                        <a [routerLink]="['/pratica', invitoPratica.idPraticaId, 'view']">{{ invitoPratica.idPraticaId }}</a>
                     </div>
                 </dd>
             </dl>

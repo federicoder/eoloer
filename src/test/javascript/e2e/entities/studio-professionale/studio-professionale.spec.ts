@@ -49,7 +49,7 @@ describe('StudioProfessionale e2e test', () => {
 
     await promise.all([
       studioProfessionaleUpdatePage.setIdUserAmministratoreInput('5'),
-      studioProfessionaleUpdatePage.personaSelectLastOption(),
+      studioProfessionaleUpdatePage.idUserAmministratoreSelectLastOption(),
     ]);
 
     expect(await studioProfessionaleUpdatePage.getIdUserAmministratoreInput()).to.eq(

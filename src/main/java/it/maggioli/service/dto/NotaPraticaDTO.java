@@ -20,7 +20,7 @@ public class NotaPraticaDTO implements Serializable {
     private String version;
 
 
-    private Long praticaId;
+    private Long idPraticaRefId;
     
     public Long getId() {
         return id;
@@ -62,12 +62,12 @@ public class NotaPraticaDTO implements Serializable {
         this.version = version;
     }
 
-    public Long getPraticaId() {
-        return praticaId;
+    public Long getIdPraticaRefId() {
+        return idPraticaRefId;
     }
 
-    public void setPraticaId(Long praticaId) {
-        this.praticaId = praticaId;
+    public void setIdPraticaRefId(Long praticaId) {
+        this.idPraticaRefId = praticaId;
     }
 
     @Override
@@ -96,7 +96,7 @@ public class NotaPraticaDTO implements Serializable {
             ", data='" + getData() + "'" +
             ", nota='" + getNota() + "'" +
             ", version='" + getVersion() + "'" +
-            ", praticaId=" + getPraticaId() +
+            ", idPraticaRefId=" + getIdPraticaRefId() +
             "}";
     }
 }

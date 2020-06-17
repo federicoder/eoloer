@@ -45,12 +45,6 @@
       "ownerSide": true
     },
     {
-      "relationshipType": "one-to-many",
-      "otherEntityName": "userPersona",
-      "otherEntityRelationshipName": "personaFisica",
-      "relationshipName": "id"
-    },
-    {
       "relationshipType": "one-to-one",
       "otherEntityName": "ruoloOrganizzazione",
       "otherEntityRelationshipName": "id",

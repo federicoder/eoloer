@@ -25,7 +25,7 @@ export class OrdineUpdateComponent implements OnInit {
     totImponibile: [],
     totIva: [],
     totOrdine: [],
-    studioProfessionaleId: [],
+    idStudioProfessionaleRefId: [],
   });
 
   constructor(
@@ -53,7 +53,7 @@ export class OrdineUpdateComponent implements OnInit {
       totImponibile: ordine.totImponibile,
       totIva: ordine.totIva,
       totOrdine: ordine.totOrdine,
-      studioProfessionaleId: ordine.studioProfessionaleId,
+      idStudioProfessionaleRefId: ordine.idStudioProfessionaleRefId,
     });
   }
 
@@ -80,7 +80,7 @@ export class OrdineUpdateComponent implements OnInit {
       totImponibile: this.editForm.get(['totImponibile'])!.value,
       totIva: this.editForm.get(['totIva'])!.value,
       totOrdine: this.editForm.get(['totOrdine'])!.value,
-      studioProfessionaleId: this.editForm.get(['studioProfessionaleId'])!.value,
+      idStudioProfessionaleRefId: this.editForm.get(['idStudioProfessionaleRefId'])!.value,
     };
   }
 

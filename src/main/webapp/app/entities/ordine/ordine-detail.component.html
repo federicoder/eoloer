@@ -28,10 +28,10 @@
                 <dd>
                     <span>{{ ordine.totOrdine }}</span>
                 </dd>
-                <dt><span jhiTranslate="eoloprjApp.ordine.studioProfessionale">Studio Professionale</span></dt>
+                <dt><span jhiTranslate="eoloprjApp.ordine.idStudioProfessionaleRef">Id Studio Professionale Ref</span></dt>
                 <dd>
-                    <div *ngIf="ordine.studioProfessionaleId">
-                        <a [routerLink]="['/studio-professionale', ordine.studioProfessionaleId, 'view']">{{ ordine.studioProfessionaleId }}</a>
+                    <div *ngIf="ordine.idStudioProfessionaleRefId">
+                        <a [routerLink]="['/studio-professionale', ordine.idStudioProfessionaleRefId, 'view']">{{ ordine.idStudioProfessionaleRefId }}</a>
                     </div>
                 </dd>
             </dl>

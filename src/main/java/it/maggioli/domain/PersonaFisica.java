@@ -9,8 +9,6 @@ import javax.validation.constraints.*;
 
 import org.springframework.data.elasticsearch.annotations.FieldType;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * A PersonaFisica.
@@ -56,10 +54,6 @@ public class PersonaFisica implements Serializable {
     @OneToOne
     @JoinColumn(unique = true)
     private Persona idPersonaRef;
-
-    @OneToMany(mappedBy = "personaFisica")
-    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<UserPersona> ids = new HashSet<>();
 
     @OneToOne(mappedBy = "id")
     @JsonIgnore
@@ -189,31 +183,6 @@ public class PersonaFisica implements Serializable {
 
     public void setIdPersonaRef(Persona persona) {
         this.idPersonaRef = persona;
-    }
-
-    public Set<UserPersona> getIds() {
-        return ids;
-    }
-
-    public PersonaFisica ids(Set<UserPersona> userPersonas) {
-        this.ids = userPersonas;
-        return this;
-    }
-
-    public PersonaFisica addId(UserPersona userPersona) {
-        this.ids.add(userPersona);
-        userPersona.setPersonaFisica(this);
-        return this;
-    }
-
-    public PersonaFisica removeId(UserPersona userPersona) {
-        this.ids.remove(userPersona);
-        userPersona.setPersonaFisica(null);
-        return this;
-    }
-
-    public void setIds(Set<UserPersona> userPersonas) {
-        this.ids = userPersonas;
     }
 
     public RuoloOrganizzazione getIdRuoloPersona() {

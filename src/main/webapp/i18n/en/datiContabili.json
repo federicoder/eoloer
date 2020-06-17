@@ -18,7 +18,7 @@
         "title": "Dati Contabili"
       },
       "idPersonaRef": "Id Persona Ref",
-      "persona": "Persona"
+      "idPersonaRef": "Id Persona Ref"
     }
   }
 }

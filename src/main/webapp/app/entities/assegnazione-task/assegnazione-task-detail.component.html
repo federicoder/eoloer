@@ -34,10 +34,10 @@
                         <a [routerLink]="['/rappresentanza-pratica', assegnazioneTask.ruoloId, 'view']">{{ assegnazioneTask.ruoloId }}</a>
                     </div>
                 </dd>
-                <dt><span jhiTranslate="eoloprjApp.assegnazioneTask.userPersona">User Persona</span></dt>
+                <dt><span jhiTranslate="eoloprjApp.assegnazioneTask.idUserAmmesso">Id User Ammesso</span></dt>
                 <dd>
-                    <div *ngIf="assegnazioneTask.userPersonaId">
-                        <a [routerLink]="['/user-persona', assegnazioneTask.userPersonaId, 'view']">{{ assegnazioneTask.userPersonaId }}</a>
+                    <div *ngIf="assegnazioneTask.idUserAmmessoId">
+                        <a [routerLink]="['/user-persona', assegnazioneTask.idUserAmmessoId, 'view']">{{ assegnazioneTask.idUserAmmessoId }}</a>
                     </div>
                 </dd>
             </dl>

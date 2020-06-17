@@ -10,8 +10,6 @@ import javax.validation.constraints.*;
 
 import org.springframework.data.elasticsearch.annotations.FieldType;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * A Invito.
@@ -81,10 +79,6 @@ public class Invito implements Serializable {
     @OneToOne
     @JoinColumn(unique = true)
     private StudioProfessionale idStudioProfessionaleRef;
-
-    @OneToMany(mappedBy = "invito")
-    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<Invitato> ids = new HashSet<>();
 
     @OneToOne(mappedBy = "idPraticaRef")
     @JsonIgnore
@@ -330,31 +324,6 @@ public class Invito implements Serializable {
 
     public void setIdStudioProfessionaleRef(StudioProfessionale studioProfessionale) {
         this.idStudioProfessionaleRef = studioProfessionale;
-    }
-
-    public Set<Invitato> getIds() {
-        return ids;
-    }
-
-    public Invito ids(Set<Invitato> invitatoes) {
-        this.ids = invitatoes;
-        return this;
-    }
-
-    public Invito addId(Invitato invitato) {
-        this.ids.add(invitato);
-        invitato.setInvito(this);
-        return this;
-    }
-
-    public Invito removeId(Invitato invitato) {
-        this.ids.remove(invitato);
-        invitato.setInvito(null);
-        return this;
-    }
-
-    public void setIds(Set<Invitato> invitatoes) {
-        this.ids = invitatoes;
     }
 
     public InvitoPratica getId() {

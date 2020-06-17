@@ -16,18 +16,14 @@ public interface TaskMapper extends EntityMapper<TaskDTO, Task> {
     @Mapping(source = "id.id", target = "idId")
     @Mapping(source = "id.id", target = "idId")
     @Mapping(source = "id.id", target = "idId")
-    @Mapping(source = "pratica.id", target = "praticaId")
+    @Mapping(source = "idPraticaRef.id", target = "idPraticaRefId")
     TaskDTO toDto(Task task);
 
     @Mapping(source = "idId", target = "id")
     @Mapping(source = "idId", target = "id")
     @Mapping(source = "idId", target = "id")
     @Mapping(source = "idId", target = "id")
-    @Mapping(target = "ids", ignore = true)
-    @Mapping(target = "removeId", ignore = true)
-    @Mapping(target = "ids", ignore = true)
-    @Mapping(target = "removeId", ignore = true)
-    @Mapping(source = "praticaId", target = "pratica")
+    @Mapping(source = "idPraticaRefId", target = "idPraticaRef")
     Task toEntity(TaskDTO taskDTO);
 
     default Task fromId(Long id) {

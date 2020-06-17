@@ -17,8 +17,6 @@ public interface InvitoMapper extends EntityMapper<InvitoDTO, Invito> {
     InvitoDTO toDto(Invito invito);
 
     @Mapping(source = "idStudioProfessionaleRefId", target = "idStudioProfessionaleRef")
-    @Mapping(target = "ids", ignore = true)
-    @Mapping(target = "removeId", ignore = true)
     @Mapping(target = "id", ignore = true)
     @Mapping(target = "id", ignore = true)
     @Mapping(target = "id", ignore = true)

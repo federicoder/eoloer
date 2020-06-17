@@ -1,5 +1,3 @@
-import { IUserPersona } from 'app/shared/model/user-persona.model';
-
 export interface IPersonaFisica {
   id?: number;
   idPersonaRef?: number;
@@ -11,7 +9,6 @@ export interface IPersonaFisica {
   luogoDiNascita?: string;
   professione?: string;
   idPersonaRefId?: number;
-  ids?: IUserPersona[];
   idRuoloPersonaId?: number;
 }
 
@@ -27,7 +24,6 @@ export class PersonaFisica implements IPersonaFisica {
     public luogoDiNascita?: string,
     public professione?: string,
     public idPersonaRefId?: number,
-    public ids?: IUserPersona[],
     public idRuoloPersonaId?: number
   ) {}
 }
