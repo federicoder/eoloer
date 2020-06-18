@@ -8,12 +8,14 @@ import { map } from 'rxjs/operators';
 
 import { IAssegnazioneTask, AssegnazioneTask } from 'app/shared/model/assegnazione-task.model';
 import { AssegnazioneTaskService } from './assegnazione-task.service';
+import { ITask } from 'app/shared/model/task.model';
+import { TaskService } from 'app/entities/task/task.service';
 import { IRappresentanzaPratica } from 'app/shared/model/rappresentanza-pratica.model';
 import { RappresentanzaPraticaService } from 'app/entities/rappresentanza-pratica/rappresentanza-pratica.service';
 import { IUserPersona } from 'app/shared/model/user-persona.model';
 import { UserPersonaService } from 'app/entities/user-persona/user-persona.service';
 
-type SelectableEntity = IRappresentanzaPratica | IUserPersona;
+type SelectableEntity = ITask | IRappresentanzaPratica | IUserPersona;
 
 @Component({
   selector: 'jhi-assegnazione-task-update',
@@ -21,7 +23,8 @@ type SelectableEntity = IRappresentanzaPratica | IUserPersona;
 })
 export class AssegnazioneTaskUpdateComponent implements OnInit {
   isSaving = false;
-  ruolos: IRappresentanzaPratica[] = [];
+  idtasks: ITask[] = [];
+  idruolopersonas: IRappresentanzaPratica[] = [];
   userpersonas: IUserPersona[] = [];
 
   editForm = this.fb.group({
@@ -31,12 +34,14 @@ export class AssegnazioneTaskUpdateComponent implements OnInit {
     ruolo: [],
     idUserConcedente: [],
     statoAssegnazione: [],
-    ruoloId: [],
-    idUserAmmessoId: [],
+    idTaskId: [],
+    idRuoloPersonaId: [],
+    idPersonaId: [],
   });
 
   constructor(
     protected assegnazioneTaskService: AssegnazioneTaskService,
+    protected taskService: TaskService,
     protected rappresentanzaPraticaService: RappresentanzaPraticaService,
     protected userPersonaService: UserPersonaService,
     protected activatedRoute: ActivatedRoute,
@@ -47,25 +52,47 @@ export class AssegnazioneTaskUpdateComponent implements OnInit {
     this.activatedRoute.data.subscribe(({ assegnazioneTask }) => {
       this.updateForm(assegnazioneTask);
 
+      this.taskService
+        .query({ filter: 'assegnazionetask-is-null' })
+        .pipe(
+          map((res: HttpResponse<ITask[]>) => {
+            return res.body || [];
+          })
+        )
+        .subscribe((resBody: ITask[]) => {
+          if (!assegnazioneTask.idTaskId) {
+            this.idtasks = resBody;
+          } else {
+            this.taskService
+              .find(assegnazioneTask.idTaskId)
+              .pipe(
+                map((subRes: HttpResponse<ITask>) => {
+                  return subRes.body ? [subRes.body].concat(resBody) : resBody;
+                })
+              )
+              .subscribe((concatRes: ITask[]) => (this.idtasks = concatRes));
+          }
+        });
+
       this.rappresentanzaPraticaService
-        .query({ filter: 'idruolopersona-is-null' })
+        .query({ filter: 'assegnazionetask-is-null' })
         .pipe(
           map((res: HttpResponse<IRappresentanzaPratica[]>) => {
             return res.body || [];
           })
         )
         .subscribe((resBody: IRappresentanzaPratica[]) => {
-          if (!assegnazioneTask.ruoloId) {
-            this.ruolos = resBody;
+          if (!assegnazioneTask.idRuoloPersonaId) {
+            this.idruolopersonas = resBody;
           } else {
             this.rappresentanzaPraticaService
-              .find(assegnazioneTask.ruoloId)
+              .find(assegnazioneTask.idRuoloPersonaId)
               .pipe(
                 map((subRes: HttpResponse<IRappresentanzaPratica>) => {
                   return subRes.body ? [subRes.body].concat(resBody) : resBody;
                 })
               )
-              .subscribe((concatRes: IRappresentanzaPratica[]) => (this.ruolos = concatRes));
+              .subscribe((concatRes: IRappresentanzaPratica[]) => (this.idruolopersonas = concatRes));
           }
         });
 
@@ -81,8 +108,9 @@ export class AssegnazioneTaskUpdateComponent implements OnInit {
       ruolo: assegnazioneTask.ruolo,
       idUserConcedente: assegnazioneTask.idUserConcedente,
       statoAssegnazione: assegnazioneTask.statoAssegnazione,
-      ruoloId: assegnazioneTask.ruoloId,
-      idUserAmmessoId: assegnazioneTask.idUserAmmessoId,
+      idTaskId: assegnazioneTask.idTaskId,
+      idRuoloPersonaId: assegnazioneTask.idRuoloPersonaId,
+      idPersonaId: assegnazioneTask.idPersonaId,
     });
   }
 
@@ -109,8 +137,9 @@ export class AssegnazioneTaskUpdateComponent implements OnInit {
       ruolo: this.editForm.get(['ruolo'])!.value,
       idUserConcedente: this.editForm.get(['idUserConcedente'])!.value,
       statoAssegnazione: this.editForm.get(['statoAssegnazione'])!.value,
-      ruoloId: this.editForm.get(['ruoloId'])!.value,
-      idUserAmmessoId: this.editForm.get(['idUserAmmessoId'])!.value,
+      idTaskId: this.editForm.get(['idTaskId'])!.value,
+      idRuoloPersonaId: this.editForm.get(['idRuoloPersonaId'])!.value,
+      idPersonaId: this.editForm.get(['idPersonaId'])!.value,
     };
   }
 

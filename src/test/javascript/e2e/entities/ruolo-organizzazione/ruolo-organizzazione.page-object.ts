@@ -31,8 +31,8 @@ export class RuoloOrganizzazioneUpdatePage {
 
   ruoloInOrgInput = element(by.id('field_ruoloInOrg'));
 
-  idSelect = element(by.id('field_id'));
-  idSelect = element(by.id('field_id'));
+  idOrganizzazioneSelect = element(by.id('field_idOrganizzazione'));
+  idPersonaFisicaSelect = element(by.id('field_idPersonaFisica'));
 
   async getPageTitle(): Promise<string> {
     return this.pageTitle.getAttribute('jhiTranslate');
@@ -46,36 +46,36 @@ export class RuoloOrganizzazioneUpdatePage {
     return await this.ruoloInOrgInput.getAttribute('value');
   }
 
-  async idSelectLastOption(): Promise<void> {
-    await this.idSelect.all(by.tagName('option')).last().click();
+  async idOrganizzazioneSelectLastOption(): Promise<void> {
+    await this.idOrganizzazioneSelect.all(by.tagName('option')).last().click();
   }
 
-  async idSelectOption(option: string): Promise<void> {
-    await this.idSelect.sendKeys(option);
+  async idOrganizzazioneSelectOption(option: string): Promise<void> {
+    await this.idOrganizzazioneSelect.sendKeys(option);
   }
 
-  getIdSelect(): ElementFinder {
-    return this.idSelect;
+  getIdOrganizzazioneSelect(): ElementFinder {
+    return this.idOrganizzazioneSelect;
   }
 
-  async getIdSelectedOption(): Promise<string> {
-    return await this.idSelect.element(by.css('option:checked')).getText();
+  async getIdOrganizzazioneSelectedOption(): Promise<string> {
+    return await this.idOrganizzazioneSelect.element(by.css('option:checked')).getText();
   }
 
-  async idSelectLastOption(): Promise<void> {
-    await this.idSelect.all(by.tagName('option')).last().click();
+  async idPersonaFisicaSelectLastOption(): Promise<void> {
+    await this.idPersonaFisicaSelect.all(by.tagName('option')).last().click();
   }
 
-  async idSelectOption(option: string): Promise<void> {
-    await this.idSelect.sendKeys(option);
+  async idPersonaFisicaSelectOption(option: string): Promise<void> {
+    await this.idPersonaFisicaSelect.sendKeys(option);
   }
 
-  getIdSelect(): ElementFinder {
-    return this.idSelect;
+  getIdPersonaFisicaSelect(): ElementFinder {
+    return this.idPersonaFisicaSelect;
   }
 
-  async getIdSelectedOption(): Promise<string> {
-    return await this.idSelect.element(by.css('option:checked')).getText();
+  async getIdPersonaFisicaSelectedOption(): Promise<string> {
+    return await this.idPersonaFisicaSelect.element(by.css('option:checked')).getText();
   }
 
   async save(): Promise<void> {

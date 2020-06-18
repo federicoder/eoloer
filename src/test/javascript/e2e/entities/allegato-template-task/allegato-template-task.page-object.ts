@@ -35,7 +35,7 @@ export class AllegatoTemplateTaskUpdatePage {
   idFileRefInput = element(by.id('field_idFileRef'));
   pubPrivInput = element(by.id('field_pubPriv'));
 
-  idTemplateTaskRefSelect = element(by.id('field_idTemplateTaskRef'));
+  idTemplateTaskSelect = element(by.id('field_idTemplateTask'));
   tipoAllegatoSelect = element(by.id('field_tipoAllegato'));
 
   async getPageTitle(): Promise<string> {
@@ -82,20 +82,20 @@ export class AllegatoTemplateTaskUpdatePage {
     return await this.pubPrivInput.getAttribute('value');
   }
 
-  async idTemplateTaskRefSelectLastOption(): Promise<void> {
-    await this.idTemplateTaskRefSelect.all(by.tagName('option')).last().click();
+  async idTemplateTaskSelectLastOption(): Promise<void> {
+    await this.idTemplateTaskSelect.all(by.tagName('option')).last().click();
   }
 
-  async idTemplateTaskRefSelectOption(option: string): Promise<void> {
-    await this.idTemplateTaskRefSelect.sendKeys(option);
+  async idTemplateTaskSelectOption(option: string): Promise<void> {
+    await this.idTemplateTaskSelect.sendKeys(option);
   }
 
-  getIdTemplateTaskRefSelect(): ElementFinder {
-    return this.idTemplateTaskRefSelect;
+  getIdTemplateTaskSelect(): ElementFinder {
+    return this.idTemplateTaskSelect;
   }
 
-  async getIdTemplateTaskRefSelectedOption(): Promise<string> {
-    return await this.idTemplateTaskRefSelect.element(by.css('option:checked')).getText();
+  async getIdTemplateTaskSelectedOption(): Promise<string> {
+    return await this.idTemplateTaskSelect.element(by.css('option:checked')).getText();
   }
 
   async tipoAllegatoSelectLastOption(): Promise<void> {

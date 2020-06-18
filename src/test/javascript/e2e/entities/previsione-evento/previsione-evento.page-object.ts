@@ -36,7 +36,7 @@ export class PrevisioneEventoUpdatePage {
   indicazioniLuogoInput = element(by.id('field_indicazioniLuogo'));
   versionInput = element(by.id('field_version'));
 
-  idTaskRefSelect = element(by.id('field_idTaskRef'));
+  idPrevisioneEventoSelect = element(by.id('field_idPrevisioneEvento'));
 
   async getPageTitle(): Promise<string> {
     return this.pageTitle.getAttribute('jhiTranslate');
@@ -90,20 +90,20 @@ export class PrevisioneEventoUpdatePage {
     return await this.versionInput.getAttribute('value');
   }
 
-  async idTaskRefSelectLastOption(): Promise<void> {
-    await this.idTaskRefSelect.all(by.tagName('option')).last().click();
+  async idPrevisioneEventoSelectLastOption(): Promise<void> {
+    await this.idPrevisioneEventoSelect.all(by.tagName('option')).last().click();
   }
 
-  async idTaskRefSelectOption(option: string): Promise<void> {
-    await this.idTaskRefSelect.sendKeys(option);
+  async idPrevisioneEventoSelectOption(option: string): Promise<void> {
+    await this.idPrevisioneEventoSelect.sendKeys(option);
   }
 
-  getIdTaskRefSelect(): ElementFinder {
-    return this.idTaskRefSelect;
+  getIdPrevisioneEventoSelect(): ElementFinder {
+    return this.idPrevisioneEventoSelect;
   }
 
-  async getIdTaskRefSelectedOption(): Promise<string> {
-    return await this.idTaskRefSelect.element(by.css('option:checked')).getText();
+  async getIdPrevisioneEventoSelectedOption(): Promise<string> {
+    return await this.idPrevisioneEventoSelect.element(by.css('option:checked')).getText();
   }
 
   async save(): Promise<void> {

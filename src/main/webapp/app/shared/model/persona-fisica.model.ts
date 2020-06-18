@@ -8,8 +8,7 @@ export interface IPersonaFisica {
   dataDiNascita?: string;
   luogoDiNascita?: string;
   professione?: string;
-  idPersonaRefId?: number;
-  idRuoloPersonaId?: number;
+  idPersonaId?: number;
 }
 
 export class PersonaFisica implements IPersonaFisica {
@@ -23,7 +22,6 @@ export class PersonaFisica implements IPersonaFisica {
     public dataDiNascita?: string,
     public luogoDiNascita?: string,
     public professione?: string,
-    public idPersonaRefId?: number,
-    public idRuoloPersonaId?: number
+    public idPersonaId?: number
   ) {}
 }

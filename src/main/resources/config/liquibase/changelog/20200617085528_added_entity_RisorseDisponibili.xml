@@ -27,7 +27,7 @@
             <column name="storage_totale" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="id_studio_professionale_ref_id" type="bigint">
+            <column name="id_studio_professionale_id" type="bigint">
                 <constraints nullable="true" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->

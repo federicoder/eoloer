@@ -9,17 +9,10 @@ import org.mapstruct.*;
 /**
  * Mapper for the entity {@link Persona} and its DTO {@link PersonaDTO}.
  */
-@Mapper(componentModel = "spring", uses = {IndirizzoPersonaMapper.class})
+@Mapper(componentModel = "spring", uses = {})
 public interface PersonaMapper extends EntityMapper<PersonaDTO, Persona> {
 
-    @Mapping(source = "id.id", target = "idId")
-    PersonaDTO toDto(Persona persona);
 
-    @Mapping(source = "idId", target = "id")
-    @Mapping(target = "id", ignore = true)
-    @Mapping(target = "id", ignore = true)
-    @Mapping(target = "id", ignore = true)
-    Persona toEntity(PersonaDTO personaDTO);
 
     default Persona fromId(Long id) {
         if (id == null) {

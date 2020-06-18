@@ -22,10 +22,10 @@
       "idUserConcedente": "Id User Concedente",
       "statoInvito": "Stato Invito",
       "idPraticaRef": "Id Pratica Ref",
-      "ruolo": "Ruolo",
-      "idUserConcedente": "Id User Concedente",
-      "idUserAmmesso": "Id User Ammesso",
-      "idPraticaRef": "Id Pratica Ref"
+      "idRuoloPersona": "Id Ruolo Persona",
+      "idPersona": "Id Persona",
+      "idUserPersona": "Id User Persona",
+      "idPratica": "Id Pratica"
     }
   }
 }

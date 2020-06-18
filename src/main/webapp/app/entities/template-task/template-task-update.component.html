@@ -42,16 +42,16 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="eoloprjApp.templateTask.idTemplatePraticaRef" for="field_idTemplatePraticaRef">Id Template Pratica Ref</label>
-                    <select class="form-control" id="field_idTemplatePraticaRef" name="idTemplatePraticaRef" formControlName="idTemplatePraticaRefId">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.templateTask.idTemplatePratica" for="field_idTemplatePratica">Id Template Pratica</label>
+                    <select class="form-control" id="field_idTemplatePratica" name="idTemplatePratica" formControlName="idTemplatePraticaId">
                         <option [ngValue]="null"></option>
                         <option [ngValue]="templatePraticaOption.id" *ngFor="let templatePraticaOption of templatepraticas; trackBy: trackById">{{ templatePraticaOption.id }}</option>
                     </select>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="eoloprjApp.templateTask.id" for="field_id">Id</label>
-                    <select class="form-control" id="field_id" name="id" formControlName="idId">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.templateTask.idTemplateTask" for="field_idTemplateTask">Id Template Task</label>
+                    <select class="form-control" id="field_idTemplateTask" name="idTemplateTask" formControlName="idTemplateTaskId">
                         <option [ngValue]="null"></option>
                         <option [ngValue]="templateTaskOption.id" *ngFor="let templateTaskOption of templatetasks; trackBy: trackById">{{ templateTaskOption.id }}</option>
                     </select>

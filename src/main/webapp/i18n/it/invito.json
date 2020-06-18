@@ -33,10 +33,7 @@
       "oraFine": "Ora Fine",
       "urlStanzaVirtuale": "Url Stanza Virtuale",
       "discriminator": "Discriminator",
-      "idStudioProfessionaleRef": "Id Studio Professionale Ref",
-      "id": "Id",
-      "id": "Id",
-      "id": "Id",
+      "idStudioProfessionale": "Id Studio Professionale",
       "assegnazioneTask": "Assegnazione Task"
     }
   }

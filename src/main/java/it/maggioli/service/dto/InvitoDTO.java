@@ -44,7 +44,7 @@ public class InvitoDTO implements Serializable {
     private String discriminator;
 
 
-    private Long idStudioProfessionaleRefId;
+    private Long idStudioProfessionaleId;
 
     private Long assegnazioneTaskId;
     
@@ -184,12 +184,12 @@ public class InvitoDTO implements Serializable {
         this.discriminator = discriminator;
     }
 
-    public Long getIdStudioProfessionaleRefId() {
-        return idStudioProfessionaleRefId;
+    public Long getIdStudioProfessionaleId() {
+        return idStudioProfessionaleId;
     }
 
-    public void setIdStudioProfessionaleRefId(Long studioProfessionaleId) {
-        this.idStudioProfessionaleRefId = studioProfessionaleId;
+    public void setIdStudioProfessionaleId(Long studioProfessionaleId) {
+        this.idStudioProfessionaleId = studioProfessionaleId;
     }
 
     public Long getAssegnazioneTaskId() {
@@ -238,7 +238,7 @@ public class InvitoDTO implements Serializable {
             ", oraFine='" + getOraFine() + "'" +
             ", urlStanzaVirtuale='" + getUrlStanzaVirtuale() + "'" +
             ", discriminator='" + getDiscriminator() + "'" +
-            ", idStudioProfessionaleRefId=" + getIdStudioProfessionaleRefId() +
+            ", idStudioProfessionaleId=" + getIdStudioProfessionaleId() +
             ", assegnazioneTaskId=" + getAssegnazioneTaskId() +
             "}";
     }

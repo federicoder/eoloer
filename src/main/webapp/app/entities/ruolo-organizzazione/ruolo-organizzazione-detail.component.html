@@ -12,16 +12,16 @@
                 <dd>
                     <span>{{ ruoloOrganizzazione.ruoloInOrg }}</span>
                 </dd>
-                <dt><span jhiTranslate="eoloprjApp.ruoloOrganizzazione.id">Id</span></dt>
+                <dt><span jhiTranslate="eoloprjApp.ruoloOrganizzazione.idOrganizzazione">Id Organizzazione</span></dt>
                 <dd>
-                    <div *ngIf="ruoloOrganizzazione.idId">
-                        <a [routerLink]="['/organizzazione', ruoloOrganizzazione.idId, 'view']">{{ ruoloOrganizzazione.idId }}</a>
+                    <div *ngIf="ruoloOrganizzazione.idOrganizzazioneId">
+                        <a [routerLink]="['/organizzazione', ruoloOrganizzazione.idOrganizzazioneId, 'view']">{{ ruoloOrganizzazione.idOrganizzazioneId }}</a>
                     </div>
                 </dd>
-                <dt><span jhiTranslate="eoloprjApp.ruoloOrganizzazione.id">Id</span></dt>
+                <dt><span jhiTranslate="eoloprjApp.ruoloOrganizzazione.idPersonaFisica">Id Persona Fisica</span></dt>
                 <dd>
-                    <div *ngIf="ruoloOrganizzazione.idId">
-                        <a [routerLink]="['/persona-fisica', ruoloOrganizzazione.idId, 'view']">{{ ruoloOrganizzazione.idId }}</a>
+                    <div *ngIf="ruoloOrganizzazione.idPersonaFisicaId">
+                        <a [routerLink]="['/persona-fisica', ruoloOrganizzazione.idPersonaFisicaId, 'view']">{{ ruoloOrganizzazione.idPersonaFisicaId }}</a>
                     </div>
                 </dd>
             </dl>

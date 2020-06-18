@@ -42,7 +42,7 @@
                 <tr>
                     <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.datiContabili.idPersonaRef">Id Persona Ref</span></th>
-                    <th scope="col" ><span jhiTranslate="eoloprjApp.datiContabili.idPersonaRef">Id Persona Ref</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.datiContabili.idPersona">Id Persona</span></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -51,8 +51,8 @@
                     <td><a [routerLink]="['/dati-contabili', datiContabili.id, 'view']">{{ datiContabili.id }}</a></td>
                     <td>{{ datiContabili.idPersonaRef }}</td>
                     <td>
-                        <div *ngIf="datiContabili.idPersonaRefId">
-                            <a [routerLink]="['/persona', datiContabili.idPersonaRefId , 'view']" >{{ datiContabili.idPersonaRefId }}</a>
+                        <div *ngIf="datiContabili.idPersonaId">
+                            <a [routerLink]="['/persona', datiContabili.idPersonaId , 'view']" >{{ datiContabili.idPersonaId }}</a>
                         </div>
                     </td>
                     <td class="text-right">

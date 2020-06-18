@@ -20,7 +20,7 @@
       "relationshipType": "many-to-one",
       "otherEntityName": "persona",
       "otherEntityRelationshipName": "telefonoPersona",
-      "relationshipName": "idPersonaRef",
+      "relationshipName": "idPersona",
       "otherEntityField": "id"
     }
   ],

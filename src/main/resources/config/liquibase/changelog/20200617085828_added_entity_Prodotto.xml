@@ -24,9 +24,6 @@
             <column name="storage" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="id_id" type="bigint">
-                <constraints unique="true" nullable="true" uniqueConstraintName="ux_prodotto_id_id" />
-            </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
         </createTable>
     </changeSet>

@@ -41,8 +41,8 @@ export class InvitatoUpdatePage {
   ruoloInvitatoInput = element(by.id('field_ruoloInvitato'));
   indInvitatiInput = element(by.id('field_indInvitati'));
 
-  idUserInvitatoSelect = element(by.id('field_idUserInvitato'));
-  idInvitoRefSelect = element(by.id('field_idInvitoRef'));
+  idUserPersonaSelect = element(by.id('field_idUserPersona'));
+  idInvitoSelect = element(by.id('field_idInvito'));
 
   async getPageTitle(): Promise<string> {
     return this.pageTitle.getAttribute('jhiTranslate');
@@ -136,36 +136,36 @@ export class InvitatoUpdatePage {
     return await this.indInvitatiInput.getAttribute('value');
   }
 
-  async idUserInvitatoSelectLastOption(): Promise<void> {
-    await this.idUserInvitatoSelect.all(by.tagName('option')).last().click();
+  async idUserPersonaSelectLastOption(): Promise<void> {
+    await this.idUserPersonaSelect.all(by.tagName('option')).last().click();
   }
 
-  async idUserInvitatoSelectOption(option: string): Promise<void> {
-    await this.idUserInvitatoSelect.sendKeys(option);
+  async idUserPersonaSelectOption(option: string): Promise<void> {
+    await this.idUserPersonaSelect.sendKeys(option);
   }
 
-  getIdUserInvitatoSelect(): ElementFinder {
-    return this.idUserInvitatoSelect;
+  getIdUserPersonaSelect(): ElementFinder {
+    return this.idUserPersonaSelect;
   }
 
-  async getIdUserInvitatoSelectedOption(): Promise<string> {
-    return await this.idUserInvitatoSelect.element(by.css('option:checked')).getText();
+  async getIdUserPersonaSelectedOption(): Promise<string> {
+    return await this.idUserPersonaSelect.element(by.css('option:checked')).getText();
   }
 
-  async idInvitoRefSelectLastOption(): Promise<void> {
-    await this.idInvitoRefSelect.all(by.tagName('option')).last().click();
+  async idInvitoSelectLastOption(): Promise<void> {
+    await this.idInvitoSelect.all(by.tagName('option')).last().click();
   }
 
-  async idInvitoRefSelectOption(option: string): Promise<void> {
-    await this.idInvitoRefSelect.sendKeys(option);
+  async idInvitoSelectOption(option: string): Promise<void> {
+    await this.idInvitoSelect.sendKeys(option);
   }
 
-  getIdInvitoRefSelect(): ElementFinder {
-    return this.idInvitoRefSelect;
+  getIdInvitoSelect(): ElementFinder {
+    return this.idInvitoSelect;
   }
 
-  async getIdInvitoRefSelectedOption(): Promise<string> {
-    return await this.idInvitoRefSelect.element(by.css('option:checked')).getText();
+  async getIdInvitoSelectedOption(): Promise<string> {
+    return await this.idInvitoSelect.element(by.css('option:checked')).getText();
   }
 
   async save(): Promise<void> {

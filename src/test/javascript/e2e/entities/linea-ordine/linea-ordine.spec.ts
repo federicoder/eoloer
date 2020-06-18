@@ -49,7 +49,8 @@ describe('LineaOrdine e2e test', () => {
       lineaOrdineUpdatePage.setQuantitaInput('5'),
       lineaOrdineUpdatePage.setImportoInput('5'),
       lineaOrdineUpdatePage.setCodIvaInput('codIva'),
-      lineaOrdineUpdatePage.idOrdineRefSelectLastOption(),
+      lineaOrdineUpdatePage.idProdottoSelectLastOption(),
+      lineaOrdineUpdatePage.idOrdineSelectLastOption(),
     ]);
 
     expect(await lineaOrdineUpdatePage.getIdOrdineRefInput()).to.eq('5', 'Expected idOrdineRef value to be equals to 5');

@@ -4,11 +4,16 @@ import { HttpResponse } from '@angular/common/http';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 import { ILineaOrdine, LineaOrdine } from 'app/shared/model/linea-ordine.model';
 import { LineaOrdineService } from './linea-ordine.service';
+import { IProdotto } from 'app/shared/model/prodotto.model';
+import { ProdottoService } from 'app/entities/prodotto/prodotto.service';
 import { IOrdine } from 'app/shared/model/ordine.model';
 import { OrdineService } from 'app/entities/ordine/ordine.service';
+
+type SelectableEntity = IProdotto | IOrdine;
 
 @Component({
   selector: 'jhi-linea-ordine-update',
@@ -16,6 +21,7 @@ import { OrdineService } from 'app/entities/ordine/ordine.service';
 })
 export class LineaOrdineUpdateComponent implements OnInit {
   isSaving = false;
+  idprodottos: IProdotto[] = [];
   ordines: IOrdine[] = [];
 
   editForm = this.fb.group({
@@ -25,11 +31,13 @@ export class LineaOrdineUpdateComponent implements OnInit {
     quantita: [],
     importo: [],
     codIva: [],
-    idOrdineRefId: [],
+    idProdottoId: [],
+    idOrdineId: [],
   });
 
   constructor(
     protected lineaOrdineService: LineaOrdineService,
+    protected prodottoService: ProdottoService,
     protected ordineService: OrdineService,
     protected activatedRoute: ActivatedRoute,
     private fb: FormBuilder
@@ -38,6 +46,28 @@ export class LineaOrdineUpdateComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(({ lineaOrdine }) => {
       this.updateForm(lineaOrdine);
+
+      this.prodottoService
+        .query({ filter: 'lineaordine-is-null' })
+        .pipe(
+          map((res: HttpResponse<IProdotto[]>) => {
+            return res.body || [];
+          })
+        )
+        .subscribe((resBody: IProdotto[]) => {
+          if (!lineaOrdine.idProdottoId) {
+            this.idprodottos = resBody;
+          } else {
+            this.prodottoService
+              .find(lineaOrdine.idProdottoId)
+              .pipe(
+                map((subRes: HttpResponse<IProdotto>) => {
+                  return subRes.body ? [subRes.body].concat(resBody) : resBody;
+                })
+              )
+              .subscribe((concatRes: IProdotto[]) => (this.idprodottos = concatRes));
+          }
+        });
 
       this.ordineService.query().subscribe((res: HttpResponse<IOrdine[]>) => (this.ordines = res.body || []));
     });
@@ -51,7 +81,8 @@ export class LineaOrdineUpdateComponent implements OnInit {
       quantita: lineaOrdine.quantita,
       importo: lineaOrdine.importo,
       codIva: lineaOrdine.codIva,
-      idOrdineRefId: lineaOrdine.idOrdineRefId,
+      idProdottoId: lineaOrdine.idProdottoId,
+      idOrdineId: lineaOrdine.idOrdineId,
     });
   }
 
@@ -78,7 +109,8 @@ export class LineaOrdineUpdateComponent implements OnInit {
       quantita: this.editForm.get(['quantita'])!.value,
       importo: this.editForm.get(['importo'])!.value,
       codIva: this.editForm.get(['codIva'])!.value,
-      idOrdineRefId: this.editForm.get(['idOrdineRefId'])!.value,
+      idProdottoId: this.editForm.get(['idProdottoId'])!.value,
+      idOrdineId: this.editForm.get(['idOrdineId'])!.value,
     };
   }
 
@@ -98,7 +130,7 @@ export class LineaOrdineUpdateComponent implements OnInit {
     this.isSaving = false;
   }
 
-  trackById(index: number, item: IOrdine): any {
+  trackById(index: number, item: SelectableEntity): any {
     return item.id;
   }
 }

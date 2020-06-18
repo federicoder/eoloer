@@ -20,7 +20,7 @@
       "relationshipType": "many-to-one",
       "otherEntityName": "persona",
       "otherEntityRelationshipName": "emailPersona",
-      "relationshipName": "idPersonaRef",
+      "relationshipName": "idPersona",
       "otherEntityField": "id"
     }
   ],

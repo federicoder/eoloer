@@ -21,7 +21,7 @@ type SelectableEntity = IInvito | IPrevisioneEvento;
 })
 export class InvitoEventoUpdateComponent implements OnInit {
   isSaving = false;
-  idtaskrefs: IInvito[] = [];
+  idtasks: IInvito[] = [];
   previsioneeventos: IPrevisioneEvento[] = [];
 
   editForm = this.fb.group({
@@ -34,7 +34,7 @@ export class InvitoEventoUpdateComponent implements OnInit {
     dataFine: [],
     oraFine: [],
     urlStanzaVirtuale: [],
-    idTaskRefId: [],
+    idTaskId: [],
     previsioneEventoId: [],
   });
 
@@ -51,24 +51,24 @@ export class InvitoEventoUpdateComponent implements OnInit {
       this.updateForm(invitoEvento);
 
       this.invitoService
-        .query({ filter: 'id-is-null' })
+        .query({ filter: 'invitoevento-is-null' })
         .pipe(
           map((res: HttpResponse<IInvito[]>) => {
             return res.body || [];
           })
         )
         .subscribe((resBody: IInvito[]) => {
-          if (!invitoEvento.idTaskRefId) {
-            this.idtaskrefs = resBody;
+          if (!invitoEvento.idTaskId) {
+            this.idtasks = resBody;
           } else {
             this.invitoService
-              .find(invitoEvento.idTaskRefId)
+              .find(invitoEvento.idTaskId)
               .pipe(
                 map((subRes: HttpResponse<IInvito>) => {
                   return subRes.body ? [subRes.body].concat(resBody) : resBody;
                 })
               )
-              .subscribe((concatRes: IInvito[]) => (this.idtaskrefs = concatRes));
+              .subscribe((concatRes: IInvito[]) => (this.idtasks = concatRes));
           }
         });
 
@@ -87,7 +87,7 @@ export class InvitoEventoUpdateComponent implements OnInit {
       dataFine: invitoEvento.dataFine,
       oraFine: invitoEvento.oraFine,
       urlStanzaVirtuale: invitoEvento.urlStanzaVirtuale,
-      idTaskRefId: invitoEvento.idTaskRefId,
+      idTaskId: invitoEvento.idTaskId,
       previsioneEventoId: invitoEvento.previsioneEventoId,
     });
   }
@@ -118,7 +118,7 @@ export class InvitoEventoUpdateComponent implements OnInit {
       dataFine: this.editForm.get(['dataFine'])!.value,
       oraFine: this.editForm.get(['oraFine'])!.value,
       urlStanzaVirtuale: this.editForm.get(['urlStanzaVirtuale'])!.value,
-      idTaskRefId: this.editForm.get(['idTaskRefId'])!.value,
+      idTaskId: this.editForm.get(['idTaskId'])!.value,
       previsioneEventoId: this.editForm.get(['previsioneEventoId'])!.value,
     };
   }

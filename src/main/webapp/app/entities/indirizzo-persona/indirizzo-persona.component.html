@@ -48,6 +48,7 @@
                     <th scope="col" ><span jhiTranslate="eoloprjApp.indirizzoPersona.provincia">Provincia</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.indirizzoPersona.regione">Regione</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.indirizzoPersona.nazione">Nazione</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.indirizzoPersona.idPersona">Id Persona</span></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -61,6 +62,11 @@
                     <td>{{ indirizzoPersona.provincia }}</td>
                     <td>{{ indirizzoPersona.regione }}</td>
                     <td>{{ indirizzoPersona.nazione }}</td>
+                    <td>
+                        <div *ngIf="indirizzoPersona.idPersonaId">
+                            <a [routerLink]="['/persona', indirizzoPersona.idPersonaId , 'view']" >{{ indirizzoPersona.idPersonaId }}</a>
+                        </div>
+                    </td>
                     <td class="text-right">
                         <div class="btn-group">
                             <button type="submit"

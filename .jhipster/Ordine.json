@@ -28,7 +28,7 @@
       "relationshipType": "many-to-one",
       "otherEntityName": "studioProfessionale",
       "otherEntityRelationshipName": "ordine",
-      "relationshipName": "idStudioProfessionaleRef",
+      "relationshipName": "idStudioProfessionale",
       "otherEntityField": "id"
     }
   ],

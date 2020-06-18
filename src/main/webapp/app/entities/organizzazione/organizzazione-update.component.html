@@ -40,10 +40,10 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="eoloprjApp.organizzazione.idPersonaRef" for="field_idPersonaRef">Id Persona Ref</label>
-                    <select class="form-control" id="field_idPersonaRef" name="idPersonaRef" formControlName="idPersonaRefId">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.organizzazione.idPersona" for="field_idPersona">Id Persona</label>
+                    <select class="form-control" id="field_idPersona" name="idPersona" formControlName="idPersonaId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="personaOption.id" *ngFor="let personaOption of idpersonarefs; trackBy: trackById">{{ personaOption.id }}</option>
+                        <option [ngValue]="personaOption.id" *ngFor="let personaOption of idpersonas; trackBy: trackById">{{ personaOption.id }}</option>
                     </select>
                 </div>
             </div>

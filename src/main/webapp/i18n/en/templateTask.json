@@ -22,9 +22,9 @@
       "note": "Note",
       "pubPriv": "Pub Priv",
       "idTemplatePraticaRef": "Id Template Pratica Ref",
-      "id": "Id",
-      "idTemplatePraticaRef": "Id Template Pratica Ref",
-      "id": "Id",
+      "idTemplateTask": "Id Template Task",
+      "idTemplatePratica": "Id Template Pratica",
+      "idTemplateTask": "Id Template Task",
       "templateTask": "Template Task"
     }
   }

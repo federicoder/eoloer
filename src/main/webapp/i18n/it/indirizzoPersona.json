@@ -24,7 +24,7 @@
       "provincia": "Provincia",
       "regione": "Regione",
       "nazione": "Nazione",
-      "idPersonaRef": "Id Persona Ref"
+      "idPersona": "Id Persona"
     }
   }
 }

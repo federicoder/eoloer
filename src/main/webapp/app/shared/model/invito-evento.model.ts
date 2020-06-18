@@ -8,7 +8,7 @@ export interface IInvitoEvento {
   dataFine?: string;
   oraFine?: string;
   urlStanzaVirtuale?: string;
-  idTaskRefId?: number;
+  idTaskId?: number;
   previsioneEventoId?: number;
 }
 
@@ -23,7 +23,7 @@ export class InvitoEvento implements IInvitoEvento {
     public dataFine?: string,
     public oraFine?: string,
     public urlStanzaVirtuale?: string,
-    public idTaskRefId?: number,
+    public idTaskId?: number,
     public previsioneEventoId?: number
   ) {}
 }

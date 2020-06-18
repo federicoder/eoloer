@@ -30,7 +30,7 @@
       "version": "Version",
       "valuta": "Valuta",
       "idTemplatePraticaRef": "Id Template Pratica Ref",
-      "idTemplatePraticaRef": "Id Template Pratica Ref"
+      "idTemplatePratica": "Id Template Pratica"
     }
   }
 }

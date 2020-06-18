@@ -18,8 +18,11 @@
             <column name="id_task_ref" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="id_task_ref_id" type="bigint">
-                <constraints unique="true" nullable="true" uniqueConstraintName="ux_invito_attivita_id_task_ref_id" />
+            <column name="id_task_id" type="bigint">
+                <constraints unique="true" nullable="true" uniqueConstraintName="ux_invito_attivita_id_task_id" />
+            </column>
+            <column name="id_task_id" type="bigint">
+                <constraints unique="true" nullable="true" uniqueConstraintName="ux_invito_attivita_id_task_id" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
         </createTable>

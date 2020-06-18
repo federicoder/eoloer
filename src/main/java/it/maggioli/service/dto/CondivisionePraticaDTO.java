@@ -22,13 +22,13 @@ public class CondivisionePraticaDTO implements Serializable {
     private Long idPraticaRef;
 
 
-    private Long ruoloId;
+    private Long idRuoloPersonaId;
 
-    private Long idUserConcedenteId;
+    private Long idPersonaId;
 
-    private Long idUserAmmessoId;
+    private Long idUserPersonaId;
 
-    private Long idPraticaRefId;
+    private Long idPraticaId;
     
     public Long getId() {
         return id;
@@ -78,36 +78,36 @@ public class CondivisionePraticaDTO implements Serializable {
         this.idPraticaRef = idPraticaRef;
     }
 
-    public Long getRuoloId() {
-        return ruoloId;
+    public Long getIdRuoloPersonaId() {
+        return idRuoloPersonaId;
     }
 
-    public void setRuoloId(Long rappresentanzaPraticaId) {
-        this.ruoloId = rappresentanzaPraticaId;
+    public void setIdRuoloPersonaId(Long rappresentanzaPraticaId) {
+        this.idRuoloPersonaId = rappresentanzaPraticaId;
     }
 
-    public Long getIdUserConcedenteId() {
-        return idUserConcedenteId;
+    public Long getIdPersonaId() {
+        return idPersonaId;
     }
 
-    public void setIdUserConcedenteId(Long personaId) {
-        this.idUserConcedenteId = personaId;
+    public void setIdPersonaId(Long personaId) {
+        this.idPersonaId = personaId;
     }
 
-    public Long getIdUserAmmessoId() {
-        return idUserAmmessoId;
+    public Long getIdUserPersonaId() {
+        return idUserPersonaId;
     }
 
-    public void setIdUserAmmessoId(Long userPersonaId) {
-        this.idUserAmmessoId = userPersonaId;
+    public void setIdUserPersonaId(Long userPersonaId) {
+        this.idUserPersonaId = userPersonaId;
     }
 
-    public Long getIdPraticaRefId() {
-        return idPraticaRefId;
+    public Long getIdPraticaId() {
+        return idPraticaId;
     }
 
-    public void setIdPraticaRefId(Long praticaId) {
-        this.idPraticaRefId = praticaId;
+    public void setIdPraticaId(Long praticaId) {
+        this.idPraticaId = praticaId;
     }
 
     @Override
@@ -137,10 +137,10 @@ public class CondivisionePraticaDTO implements Serializable {
             ", idUserConcedente=" + getIdUserConcedente() +
             ", statoInvito=" + getStatoInvito() +
             ", idPraticaRef=" + getIdPraticaRef() +
-            ", ruoloId=" + getRuoloId() +
-            ", idUserConcedenteId=" + getIdUserConcedenteId() +
-            ", idUserAmmessoId=" + getIdUserAmmessoId() +
-            ", idPraticaRefId=" + getIdPraticaRefId() +
+            ", idRuoloPersonaId=" + getIdRuoloPersonaId() +
+            ", idPersonaId=" + getIdPersonaId() +
+            ", idUserPersonaId=" + getIdUserPersonaId() +
+            ", idPraticaId=" + getIdPraticaId() +
             "}";
     }
 }

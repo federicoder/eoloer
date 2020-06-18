@@ -30,9 +30,9 @@ public class AllegatoTaskDTO implements Serializable {
     private Long idAllegatoMaster;
 
 
-    private Long idTipoAllegatoRefId;
+    private Long idTipoAllegatoId;
 
-    private Long idTaskRefId;
+    private Long idTaskId;
 
     private Long allegatoTaskId;
     
@@ -108,20 +108,20 @@ public class AllegatoTaskDTO implements Serializable {
         this.idAllegatoMaster = idAllegatoMaster;
     }
 
-    public Long getIdTipoAllegatoRefId() {
-        return idTipoAllegatoRefId;
+    public Long getIdTipoAllegatoId() {
+        return idTipoAllegatoId;
     }
 
-    public void setIdTipoAllegatoRefId(Long tipoAllegatoId) {
-        this.idTipoAllegatoRefId = tipoAllegatoId;
+    public void setIdTipoAllegatoId(Long tipoAllegatoId) {
+        this.idTipoAllegatoId = tipoAllegatoId;
     }
 
-    public Long getIdTaskRefId() {
-        return idTaskRefId;
+    public Long getIdTaskId() {
+        return idTaskId;
     }
 
-    public void setIdTaskRefId(Long taskId) {
-        this.idTaskRefId = taskId;
+    public void setIdTaskId(Long taskId) {
+        this.idTaskId = taskId;
     }
 
     public Long getAllegatoTaskId() {
@@ -162,8 +162,8 @@ public class AllegatoTaskDTO implements Serializable {
             ", pubblico=" + getPubblico() +
             ", version='" + getVersion() + "'" +
             ", idAllegatoMaster=" + getIdAllegatoMaster() +
-            ", idTipoAllegatoRefId=" + getIdTipoAllegatoRefId() +
-            ", idTaskRefId=" + getIdTaskRefId() +
+            ", idTipoAllegatoId=" + getIdTipoAllegatoId() +
+            ", idTaskId=" + getIdTaskId() +
             ", allegatoTaskId=" + getAllegatoTaskId() +
             "}";
     }

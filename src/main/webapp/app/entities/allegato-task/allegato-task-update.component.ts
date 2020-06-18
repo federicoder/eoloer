@@ -34,8 +34,8 @@ export class AllegatoTaskUpdateComponent implements OnInit {
     pubblico: [],
     version: [],
     idAllegatoMaster: [null, [Validators.required]],
-    idTipoAllegatoRefId: [],
-    idTaskRefId: [],
+    idTipoAllegatoId: [],
+    idTaskId: [],
     allegatoTaskId: [],
   });
 
@@ -70,8 +70,8 @@ export class AllegatoTaskUpdateComponent implements OnInit {
       pubblico: allegatoTask.pubblico,
       version: allegatoTask.version,
       idAllegatoMaster: allegatoTask.idAllegatoMaster,
-      idTipoAllegatoRefId: allegatoTask.idTipoAllegatoRefId,
-      idTaskRefId: allegatoTask.idTaskRefId,
+      idTipoAllegatoId: allegatoTask.idTipoAllegatoId,
+      idTaskId: allegatoTask.idTaskId,
       allegatoTaskId: allegatoTask.allegatoTaskId,
     });
   }
@@ -102,8 +102,8 @@ export class AllegatoTaskUpdateComponent implements OnInit {
       pubblico: this.editForm.get(['pubblico'])!.value,
       version: this.editForm.get(['version'])!.value,
       idAllegatoMaster: this.editForm.get(['idAllegatoMaster'])!.value,
-      idTipoAllegatoRefId: this.editForm.get(['idTipoAllegatoRefId'])!.value,
-      idTaskRefId: this.editForm.get(['idTaskRefId'])!.value,
+      idTipoAllegatoId: this.editForm.get(['idTipoAllegatoId'])!.value,
+      idTaskId: this.editForm.get(['idTaskId'])!.value,
       allegatoTaskId: this.editForm.get(['allegatoTaskId'])!.value,
     };
   }

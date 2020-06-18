@@ -24,7 +24,7 @@ public class NotaTaskDTO implements Serializable {
     private String version;
 
 
-    private Long idTaskRefId;
+    private Long idTaskId;
     
     public Long getId() {
         return id;
@@ -74,12 +74,12 @@ public class NotaTaskDTO implements Serializable {
         this.version = version;
     }
 
-    public Long getIdTaskRefId() {
-        return idTaskRefId;
+    public Long getIdTaskId() {
+        return idTaskId;
     }
 
-    public void setIdTaskRefId(Long taskId) {
-        this.idTaskRefId = taskId;
+    public void setIdTaskId(Long taskId) {
+        this.idTaskId = taskId;
     }
 
     @Override
@@ -109,7 +109,7 @@ public class NotaTaskDTO implements Serializable {
             ", data='" + getData() + "'" +
             ", nota='" + getNota() + "'" +
             ", version='" + getVersion() + "'" +
-            ", idTaskRefId=" + getIdTaskRefId() +
+            ", idTaskId=" + getIdTaskId() +
             "}";
     }
 }

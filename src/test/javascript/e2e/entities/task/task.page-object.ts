@@ -39,11 +39,9 @@ export class TaskUpdatePage {
   idAssegnazioneTaskRefInput = element(by.id('field_idAssegnazioneTaskRef'));
   idInvitoRefInput = element(by.id('field_idInvitoRef'));
 
-  idSelect = element(by.id('field_id'));
-  idSelect = element(by.id('field_id'));
-  idSelect = element(by.id('field_id'));
-  idSelect = element(by.id('field_id'));
-  idPraticaRefSelect = element(by.id('field_idPraticaRef'));
+  idTaskSelect = element(by.id('field_idTask'));
+  idTaskSelect = element(by.id('field_idTask'));
+  idPraticaSelect = element(by.id('field_idPratica'));
 
   async getPageTitle(): Promise<string> {
     return this.pageTitle.getAttribute('jhiTranslate');
@@ -121,84 +119,52 @@ export class TaskUpdatePage {
     return await this.idInvitoRefInput.getAttribute('value');
   }
 
-  async idSelectLastOption(): Promise<void> {
-    await this.idSelect.all(by.tagName('option')).last().click();
+  async idTaskSelectLastOption(): Promise<void> {
+    await this.idTaskSelect.all(by.tagName('option')).last().click();
   }
 
-  async idSelectOption(option: string): Promise<void> {
-    await this.idSelect.sendKeys(option);
+  async idTaskSelectOption(option: string): Promise<void> {
+    await this.idTaskSelect.sendKeys(option);
   }
 
-  getIdSelect(): ElementFinder {
-    return this.idSelect;
+  getIdTaskSelect(): ElementFinder {
+    return this.idTaskSelect;
   }
 
-  async getIdSelectedOption(): Promise<string> {
-    return await this.idSelect.element(by.css('option:checked')).getText();
+  async getIdTaskSelectedOption(): Promise<string> {
+    return await this.idTaskSelect.element(by.css('option:checked')).getText();
   }
 
-  async idSelectLastOption(): Promise<void> {
-    await this.idSelect.all(by.tagName('option')).last().click();
+  async idTaskSelectLastOption(): Promise<void> {
+    await this.idTaskSelect.all(by.tagName('option')).last().click();
   }
 
-  async idSelectOption(option: string): Promise<void> {
-    await this.idSelect.sendKeys(option);
+  async idTaskSelectOption(option: string): Promise<void> {
+    await this.idTaskSelect.sendKeys(option);
   }
 
-  getIdSelect(): ElementFinder {
-    return this.idSelect;
+  getIdTaskSelect(): ElementFinder {
+    return this.idTaskSelect;
   }
 
-  async getIdSelectedOption(): Promise<string> {
-    return await this.idSelect.element(by.css('option:checked')).getText();
+  async getIdTaskSelectedOption(): Promise<string> {
+    return await this.idTaskSelect.element(by.css('option:checked')).getText();
   }
 
-  async idSelectLastOption(): Promise<void> {
-    await this.idSelect.all(by.tagName('option')).last().click();
+  async idPraticaSelectLastOption(): Promise<void> {
+    await this.idPraticaSelect.all(by.tagName('option')).last().click();
   }
 
-  async idSelectOption(option: string): Promise<void> {
-    await this.idSelect.sendKeys(option);
+  async idPraticaSelectOption(option: string): Promise<void> {
+    await this.idPraticaSelect.sendKeys(option);
   }
 
-  getIdSelect(): ElementFinder {
-    return this.idSelect;
+  getIdPraticaSelect(): ElementFinder {
+    return this.idPraticaSelect;
   }
 
-  async getIdSelectedOption(): Promise<string> {
-    return await this.idSelect.element(by.css('option:checked')).getText();
-  }
-
-  async idSelectLastOption(): Promise<void> {
-    await this.idSelect.all(by.tagName('option')).last().click();
-  }
-
-  async idSelectOption(option: string): Promise<void> {
-    await this.idSelect.sendKeys(option);
-  }
-
-  getIdSelect(): ElementFinder {
-    return this.idSelect;
-  }
-
-  async getIdSelectedOption(): Promise<string> {
-    return await this.idSelect.element(by.css('option:checked')).getText();
-  }
-
-  async idPraticaRefSelectLastOption(): Promise<void> {
-    await this.idPraticaRefSelect.all(by.tagName('option')).last().click();
-  }
-
-  async idPraticaRefSelectOption(option: string): Promise<void> {
-    await this.idPraticaRefSelect.sendKeys(option);
-  }
-
-  getIdPraticaRefSelect(): ElementFinder {
-    return this.idPraticaRefSelect;
-  }
-
-  async getIdPraticaRefSelectedOption(): Promise<string> {
-    return await this.idPraticaRefSelect.element(by.css('option:checked')).getText();
+  async getIdPraticaSelectedOption(): Promise<string> {
+    return await this.idPraticaSelect.element(by.css('option:checked')).getText();
   }
 
   async save(): Promise<void> {

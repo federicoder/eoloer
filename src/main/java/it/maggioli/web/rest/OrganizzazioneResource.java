@@ -84,15 +84,10 @@ public class OrganizzazioneResource {
     /**
      * {@code GET  /organizzaziones} : get all the organizzaziones.
      *
-     * @param filter the filter of the request.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of organizzaziones in body.
      */
     @GetMapping("/organizzaziones")
-    public List<OrganizzazioneDTO> getAllOrganizzaziones(@RequestParam(required = false) String filter) {
-        if ("id-is-null".equals(filter)) {
-            log.debug("REST request to get all Organizzaziones where id is null");
-            return organizzazioneService.findAllWhereIdIsNull();
-        }
+    public List<OrganizzazioneDTO> getAllOrganizzaziones() {
         log.debug("REST request to get all Organizzaziones");
         return organizzazioneService.findAll();
     }

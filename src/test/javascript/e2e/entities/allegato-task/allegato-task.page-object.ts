@@ -38,8 +38,8 @@ export class AllegatoTaskUpdatePage {
   versionInput = element(by.id('field_version'));
   idAllegatoMasterInput = element(by.id('field_idAllegatoMaster'));
 
-  idTipoAllegatoRefSelect = element(by.id('field_idTipoAllegatoRef'));
-  idTaskRefSelect = element(by.id('field_idTaskRef'));
+  idTipoAllegatoSelect = element(by.id('field_idTipoAllegato'));
+  idTaskSelect = element(by.id('field_idTask'));
   allegatoTaskSelect = element(by.id('field_allegatoTask'));
 
   async getPageTitle(): Promise<string> {
@@ -110,36 +110,36 @@ export class AllegatoTaskUpdatePage {
     return await this.idAllegatoMasterInput.getAttribute('value');
   }
 
-  async idTipoAllegatoRefSelectLastOption(): Promise<void> {
-    await this.idTipoAllegatoRefSelect.all(by.tagName('option')).last().click();
+  async idTipoAllegatoSelectLastOption(): Promise<void> {
+    await this.idTipoAllegatoSelect.all(by.tagName('option')).last().click();
   }
 
-  async idTipoAllegatoRefSelectOption(option: string): Promise<void> {
-    await this.idTipoAllegatoRefSelect.sendKeys(option);
+  async idTipoAllegatoSelectOption(option: string): Promise<void> {
+    await this.idTipoAllegatoSelect.sendKeys(option);
   }
 
-  getIdTipoAllegatoRefSelect(): ElementFinder {
-    return this.idTipoAllegatoRefSelect;
+  getIdTipoAllegatoSelect(): ElementFinder {
+    return this.idTipoAllegatoSelect;
   }
 
-  async getIdTipoAllegatoRefSelectedOption(): Promise<string> {
-    return await this.idTipoAllegatoRefSelect.element(by.css('option:checked')).getText();
+  async getIdTipoAllegatoSelectedOption(): Promise<string> {
+    return await this.idTipoAllegatoSelect.element(by.css('option:checked')).getText();
   }
 
-  async idTaskRefSelectLastOption(): Promise<void> {
-    await this.idTaskRefSelect.all(by.tagName('option')).last().click();
+  async idTaskSelectLastOption(): Promise<void> {
+    await this.idTaskSelect.all(by.tagName('option')).last().click();
   }
 
-  async idTaskRefSelectOption(option: string): Promise<void> {
-    await this.idTaskRefSelect.sendKeys(option);
+  async idTaskSelectOption(option: string): Promise<void> {
+    await this.idTaskSelect.sendKeys(option);
   }
 
-  getIdTaskRefSelect(): ElementFinder {
-    return this.idTaskRefSelect;
+  getIdTaskSelect(): ElementFinder {
+    return this.idTaskSelect;
   }
 
-  async getIdTaskRefSelectedOption(): Promise<string> {
-    return await this.idTaskRefSelect.element(by.css('option:checked')).getText();
+  async getIdTaskSelectedOption(): Promise<string> {
+    return await this.idTaskSelect.element(by.css('option:checked')).getText();
   }
 
   async allegatoTaskSelectLastOption(): Promise<void> {

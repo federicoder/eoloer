@@ -25,9 +25,9 @@
       "pubblico": "Pubblico",
       "version": "Version",
       "idAllegatoMaster": "Id Allegato Master",
-      "id": "Id",
-      "idTipoAllegatoRef": "Id Tipo Allegato Ref",
-      "idTaskRef": "Id Task Ref",
+      "idAllegatoTask": "Id Allegato Task",
+      "idTipoAllegato": "Id Tipo Allegato",
+      "idTask": "Id Task",
       "allegatoTask": "Allegato Task"
     }
   }

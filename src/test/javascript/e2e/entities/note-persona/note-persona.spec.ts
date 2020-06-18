@@ -46,7 +46,7 @@ describe('NotePersona e2e test', () => {
     await promise.all([
       notePersonaUpdatePage.setIdPersonaRefInput('5'),
       notePersonaUpdatePage.setTestoInput('testo'),
-      notePersonaUpdatePage.idPersonaRefSelectLastOption(),
+      notePersonaUpdatePage.idPersonaSelectLastOption(),
     ]);
 
     expect(await notePersonaUpdatePage.getIdPersonaRefInput()).to.eq('5', 'Expected idPersonaRef value to be equals to 5');

@@ -12,10 +12,10 @@ import org.mapstruct.*;
 @Mapper(componentModel = "spring", uses = {PersonaMapper.class})
 public interface TelefonoPersonaMapper extends EntityMapper<TelefonoPersonaDTO, TelefonoPersona> {
 
-    @Mapping(source = "idPersonaRef.id", target = "idPersonaRefId")
+    @Mapping(source = "idPersona.id", target = "idPersonaId")
     TelefonoPersonaDTO toDto(TelefonoPersona telefonoPersona);
 
-    @Mapping(source = "idPersonaRefId", target = "idPersonaRef")
+    @Mapping(source = "idPersonaId", target = "idPersona")
     TelefonoPersona toEntity(TelefonoPersonaDTO telefonoPersonaDTO);
 
     default TelefonoPersona fromId(Long id) {

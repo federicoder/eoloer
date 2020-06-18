@@ -28,10 +28,10 @@
                 <dd>
                     <span>{{ previsioneAttivita.version }}</span>
                 </dd>
-                <dt><span jhiTranslate="eoloprjApp.previsioneAttivita.idTaskRef">Id Task Ref</span></dt>
+                <dt><span jhiTranslate="eoloprjApp.previsioneAttivita.idPrevisioneAttivita">Id Previsione Attivita</span></dt>
                 <dd>
-                    <div *ngIf="previsioneAttivita.idTaskRefId">
-                        <a [routerLink]="['/previsione-task', previsioneAttivita.idTaskRefId, 'view']">{{ previsioneAttivita.idTaskRefId }}</a>
+                    <div *ngIf="previsioneAttivita.idPrevisioneAttivitaId">
+                        <a [routerLink]="['/previsione-task', previsioneAttivita.idPrevisioneAttivitaId, 'view']">{{ previsioneAttivita.idPrevisioneAttivitaId }}</a>
                     </div>
                 </dd>
             </dl>

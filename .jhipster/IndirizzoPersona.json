@@ -35,9 +35,10 @@
     {
       "relationshipType": "one-to-one",
       "otherEntityName": "persona",
-      "otherEntityRelationshipName": "id",
-      "relationshipName": "idPersonaRef",
-      "ownerSide": false
+      "otherEntityRelationshipName": "indirizzoPersona",
+      "relationshipName": "idPersona",
+      "otherEntityField": "id",
+      "ownerSide": true
     }
   ],
   "changelogDate": "20200617085028",

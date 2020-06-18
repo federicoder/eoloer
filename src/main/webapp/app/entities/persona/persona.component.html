@@ -54,7 +54,6 @@
                     <th scope="col" ><span jhiTranslate="eoloprjApp.persona.discriminator">Discriminator</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.persona.idRuoloPersonaRef">Id Ruolo Persona Ref</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.persona.tipoRuoloUtente">Tipo Ruolo Utente</span></th>
-                    <th scope="col" ><span jhiTranslate="eoloprjApp.persona.id">Id</span></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -74,11 +73,6 @@
                     <td>{{ persona.discriminator }}</td>
                     <td>{{ persona.idRuoloPersonaRef }}</td>
                     <td>{{ persona.tipoRuoloUtente }}</td>
-                    <td>
-                        <div *ngIf="persona.idId">
-                            <a [routerLink]="['/indirizzo-persona', persona.idId , 'view']" >{{ persona.idId }}</a>
-                        </div>
-                    </td>
                     <td class="text-right">
                         <div class="btn-group">
                             <button type="submit"

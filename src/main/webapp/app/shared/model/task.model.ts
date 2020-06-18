@@ -9,11 +9,9 @@ export interface ITask {
   idCondivisionePraticaRef?: number;
   idAssegnazioneTaskRef?: number;
   idInvitoRef?: number;
-  idId?: number;
-  idId?: number;
-  idId?: number;
-  idId?: number;
-  idPraticaRefId?: number;
+  idTaskId?: number;
+  idTaskId?: number;
+  idPraticaId?: number;
 }
 
 export class Task implements ITask {
@@ -28,10 +26,8 @@ export class Task implements ITask {
     public idCondivisionePraticaRef?: number,
     public idAssegnazioneTaskRef?: number,
     public idInvitoRef?: number,
-    public idId?: number,
-    public idId?: number,
-    public idId?: number,
-    public idId?: number,
-    public idPraticaRefId?: number
+    public idTaskId?: number,
+    public idTaskId?: number,
+    public idPraticaId?: number
   ) {}
 }

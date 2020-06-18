@@ -33,7 +33,7 @@ public class UserPersona implements Serializable {
 
     @ManyToOne
     @JsonIgnoreProperties(value = "userPersonas", allowSetters = true)
-    private PersonaFisica idPersonaRef;
+    private PersonaFisica idPersonaFisica;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -70,17 +70,17 @@ public class UserPersona implements Serializable {
         this.nomeUser = nomeUser;
     }
 
-    public PersonaFisica getIdPersonaRef() {
-        return idPersonaRef;
+    public PersonaFisica getIdPersonaFisica() {
+        return idPersonaFisica;
     }
 
-    public UserPersona idPersonaRef(PersonaFisica personaFisica) {
-        this.idPersonaRef = personaFisica;
+    public UserPersona idPersonaFisica(PersonaFisica personaFisica) {
+        this.idPersonaFisica = personaFisica;
         return this;
     }
 
-    public void setIdPersonaRef(PersonaFisica personaFisica) {
-        this.idPersonaRef = personaFisica;
+    public void setIdPersonaFisica(PersonaFisica personaFisica) {
+        this.idPersonaFisica = personaFisica;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

@@ -37,6 +37,8 @@ export class IndirizzoPersonaUpdatePage {
   regioneInput = element(by.id('field_regione'));
   nazioneInput = element(by.id('field_nazione'));
 
+  idPersonaSelect = element(by.id('field_idPersona'));
+
   async getPageTitle(): Promise<string> {
     return this.pageTitle.getAttribute('jhiTranslate');
   }
@@ -95,6 +97,22 @@ export class IndirizzoPersonaUpdatePage {
 
   async getNazioneInput(): Promise<string> {
     return await this.nazioneInput.getAttribute('value');
+  }
+
+  async idPersonaSelectLastOption(): Promise<void> {
+    await this.idPersonaSelect.all(by.tagName('option')).last().click();
+  }
+
+  async idPersonaSelectOption(option: string): Promise<void> {
+    await this.idPersonaSelect.sendKeys(option);
+  }
+
+  getIdPersonaSelect(): ElementFinder {
+    return this.idPersonaSelect;
+  }
+
+  async getIdPersonaSelectedOption(): Promise<string> {
+    return await this.idPersonaSelect.element(by.css('option:checked')).getText();
   }
 
   async save(): Promise<void> {

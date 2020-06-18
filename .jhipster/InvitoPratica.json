@@ -10,8 +10,8 @@
     {
       "relationshipType": "one-to-one",
       "otherEntityName": "invito",
-      "otherEntityRelationshipName": "id",
-      "relationshipName": "idPraticaRef",
+      "otherEntityRelationshipName": "invitoPratica",
+      "relationshipName": "idPratica",
       "otherEntityField": "id",
       "ownerSide": true
     },

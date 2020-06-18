@@ -24,10 +24,10 @@
                 <dd>
                     <span>{{ notaPratica.version }}</span>
                 </dd>
-                <dt><span jhiTranslate="eoloprjApp.notaPratica.idPraticaRef">Id Pratica Ref</span></dt>
+                <dt><span jhiTranslate="eoloprjApp.notaPratica.idPratica">Id Pratica</span></dt>
                 <dd>
-                    <div *ngIf="notaPratica.idPraticaRefId">
-                        <a [routerLink]="['/pratica', notaPratica.idPraticaRefId, 'view']">{{ notaPratica.idPraticaRefId }}</a>
+                    <div *ngIf="notaPratica.idPraticaId">
+                        <a [routerLink]="['/pratica', notaPratica.idPraticaId, 'view']">{{ notaPratica.idPraticaId }}</a>
                     </div>
                 </dd>
             </dl>

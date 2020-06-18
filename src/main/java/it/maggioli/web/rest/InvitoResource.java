@@ -84,23 +84,10 @@ public class InvitoResource {
     /**
      * {@code GET  /invitos} : get all the invitos.
      *
-     * @param filter the filter of the request.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of invitos in body.
      */
     @GetMapping("/invitos")
-    public List<InvitoDTO> getAllInvitos(@RequestParam(required = false) String filter) {
-        if ("id-is-null".equals(filter)) {
-            log.debug("REST request to get all Invitos where id is null");
-            return invitoService.findAllWhereIdIsNull();
-        }
-        if ("id-is-null".equals(filter)) {
-            log.debug("REST request to get all Invitos where id is null");
-            return invitoService.findAllWhereIdIsNull();
-        }
-        if ("id-is-null".equals(filter)) {
-            log.debug("REST request to get all Invitos where id is null");
-            return invitoService.findAllWhereIdIsNull();
-        }
+    public List<InvitoDTO> getAllInvitos() {
         log.debug("REST request to get all Invitos");
         return invitoService.findAll();
     }

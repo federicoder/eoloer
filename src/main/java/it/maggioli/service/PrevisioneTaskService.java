@@ -69,51 +69,6 @@ public class PrevisioneTaskService {
     }
 
 
-
-    /**
-     *  Get all the previsioneTasks where IdTaskRef is {@code null}.
-     *  @return the list of entities.
-     */
-    @Transactional(readOnly = true) 
-    public List<PrevisioneTaskDTO> findAllWhereIdTaskRefIsNull() {
-        log.debug("Request to get all previsioneTasks where IdTaskRef is null");
-        return StreamSupport
-            .stream(previsioneTaskRepository.findAll().spliterator(), false)
-            .filter(previsioneTask -> previsioneTask.getIdTaskRef() == null)
-            .map(previsioneTaskMapper::toDto)
-            .collect(Collectors.toCollection(LinkedList::new));
-    }
-
-
-    /**
-     *  Get all the previsioneTasks where IdTaskRef is {@code null}.
-     *  @return the list of entities.
-     */
-    @Transactional(readOnly = true) 
-    public List<PrevisioneTaskDTO> findAllWhereIdTaskRefIsNull() {
-        log.debug("Request to get all previsioneTasks where IdTaskRef is null");
-        return StreamSupport
-            .stream(previsioneTaskRepository.findAll().spliterator(), false)
-            .filter(previsioneTask -> previsioneTask.getIdTaskRef() == null)
-            .map(previsioneTaskMapper::toDto)
-            .collect(Collectors.toCollection(LinkedList::new));
-    }
-
-
-    /**
-     *  Get all the previsioneTasks where IdTaskRef is {@code null}.
-     *  @return the list of entities.
-     */
-    @Transactional(readOnly = true) 
-    public List<PrevisioneTaskDTO> findAllWhereIdTaskRefIsNull() {
-        log.debug("Request to get all previsioneTasks where IdTaskRef is null");
-        return StreamSupport
-            .stream(previsioneTaskRepository.findAll().spliterator(), false)
-            .filter(previsioneTask -> previsioneTask.getIdTaskRef() == null)
-            .map(previsioneTaskMapper::toDto)
-            .collect(Collectors.toCollection(LinkedList::new));
-    }
-
     /**
      * Get one previsioneTask by id.
      *

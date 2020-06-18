@@ -46,7 +46,7 @@ public class NotaTask implements Serializable {
 
     @ManyToOne
     @JsonIgnoreProperties(value = "notaTasks", allowSetters = true)
-    private Task idTaskRef;
+    private Task idTask;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -122,17 +122,17 @@ public class NotaTask implements Serializable {
         this.version = version;
     }
 
-    public Task getIdTaskRef() {
-        return idTaskRef;
+    public Task getIdTask() {
+        return idTask;
     }
 
-    public NotaTask idTaskRef(Task task) {
-        this.idTaskRef = task;
+    public NotaTask idTask(Task task) {
+        this.idTask = task;
         return this;
     }
 
-    public void setIdTaskRef(Task task) {
-        this.idTaskRef = task;
+    public void setIdTask(Task task) {
+        this.idTask = task;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

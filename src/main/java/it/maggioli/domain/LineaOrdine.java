@@ -1,6 +1,5 @@
 package it.maggioli.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
@@ -44,13 +43,13 @@ public class LineaOrdine implements Serializable {
     @Column(name = "cod_iva")
     private String codIva;
 
+    @OneToOne
+    @JoinColumn(unique = true)
+    private Prodotto idProdotto;
+
     @ManyToOne
     @JsonIgnoreProperties(value = "lineaOrdines", allowSetters = true)
-    private Ordine idOrdineRef;
-
-    @OneToOne(mappedBy = "id")
-    @JsonIgnore
-    private Prodotto idProdottoRef;
+    private Ordine idOrdine;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -126,30 +125,30 @@ public class LineaOrdine implements Serializable {
         this.codIva = codIva;
     }
 
-    public Ordine getIdOrdineRef() {
-        return idOrdineRef;
+    public Prodotto getIdProdotto() {
+        return idProdotto;
     }
 
-    public LineaOrdine idOrdineRef(Ordine ordine) {
-        this.idOrdineRef = ordine;
+    public LineaOrdine idProdotto(Prodotto prodotto) {
+        this.idProdotto = prodotto;
         return this;
     }
 
-    public void setIdOrdineRef(Ordine ordine) {
-        this.idOrdineRef = ordine;
+    public void setIdProdotto(Prodotto prodotto) {
+        this.idProdotto = prodotto;
     }
 
-    public Prodotto getIdProdottoRef() {
-        return idProdottoRef;
+    public Ordine getIdOrdine() {
+        return idOrdine;
     }
 
-    public LineaOrdine idProdottoRef(Prodotto prodotto) {
-        this.idProdottoRef = prodotto;
+    public LineaOrdine idOrdine(Ordine ordine) {
+        this.idOrdine = ordine;
         return this;
     }
 
-    public void setIdProdottoRef(Prodotto prodotto) {
-        this.idProdottoRef = prodotto;
+    public void setIdOrdine(Ordine ordine) {
+        this.idOrdine = ordine;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

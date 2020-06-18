@@ -9,11 +9,13 @@ import org.mapstruct.*;
 /**
  * Mapper for the entity {@link IndirizzoPersona} and its DTO {@link IndirizzoPersonaDTO}.
  */
-@Mapper(componentModel = "spring", uses = {})
+@Mapper(componentModel = "spring", uses = {PersonaMapper.class})
 public interface IndirizzoPersonaMapper extends EntityMapper<IndirizzoPersonaDTO, IndirizzoPersona> {
 
+    @Mapping(source = "idPersona.id", target = "idPersonaId")
+    IndirizzoPersonaDTO toDto(IndirizzoPersona indirizzoPersona);
 
-    @Mapping(target = "idPersonaRef", ignore = true)
+    @Mapping(source = "idPersonaId", target = "idPersona")
     IndirizzoPersona toEntity(IndirizzoPersonaDTO indirizzoPersonaDTO);
 
     default IndirizzoPersona fromId(Long id) {

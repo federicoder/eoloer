@@ -26,7 +26,7 @@ public class InvitoEventoDTO implements Serializable {
     private String urlStanzaVirtuale;
 
 
-    private Long idTaskRefId;
+    private Long idTaskId;
 
     private Long previsioneEventoId;
     
@@ -102,12 +102,12 @@ public class InvitoEventoDTO implements Serializable {
         this.urlStanzaVirtuale = urlStanzaVirtuale;
     }
 
-    public Long getIdTaskRefId() {
-        return idTaskRefId;
+    public Long getIdTaskId() {
+        return idTaskId;
     }
 
-    public void setIdTaskRefId(Long invitoId) {
-        this.idTaskRefId = invitoId;
+    public void setIdTaskId(Long invitoId) {
+        this.idTaskId = invitoId;
     }
 
     public Long getPrevisioneEventoId() {
@@ -148,7 +148,7 @@ public class InvitoEventoDTO implements Serializable {
             ", dataFine='" + getDataFine() + "'" +
             ", oraFine='" + getOraFine() + "'" +
             ", urlStanzaVirtuale='" + getUrlStanzaVirtuale() + "'" +
-            ", idTaskRefId=" + getIdTaskRefId() +
+            ", idTaskId=" + getIdTaskId() +
             ", previsioneEventoId=" + getPrevisioneEventoId() +
             "}";
     }

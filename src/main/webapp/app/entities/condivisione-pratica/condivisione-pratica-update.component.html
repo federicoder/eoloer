@@ -52,32 +52,32 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="eoloprjApp.condivisionePratica.ruolo" for="field_ruolo">Ruolo</label>
-                    <select class="form-control" id="field_ruolo" name="ruolo" formControlName="ruoloId">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.condivisionePratica.idRuoloPersona" for="field_idRuoloPersona">Id Ruolo Persona</label>
+                    <select class="form-control" id="field_idRuoloPersona" name="idRuoloPersona" formControlName="idRuoloPersonaId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="rappresentanzaPraticaOption.id" *ngFor="let rappresentanzaPraticaOption of ruolos; trackBy: trackById">{{ rappresentanzaPraticaOption.id }}</option>
+                        <option [ngValue]="rappresentanzaPraticaOption.id" *ngFor="let rappresentanzaPraticaOption of idruolopersonas; trackBy: trackById">{{ rappresentanzaPraticaOption.id }}</option>
                     </select>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="eoloprjApp.condivisionePratica.idUserConcedente" for="field_idUserConcedente">Id User Concedente</label>
-                    <select class="form-control" id="field_idUserConcedente" name="idUserConcedente" formControlName="idUserConcedenteId">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.condivisionePratica.idPersona" for="field_idPersona">Id Persona</label>
+                    <select class="form-control" id="field_idPersona" name="idPersona" formControlName="idPersonaId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="personaOption.id" *ngFor="let personaOption of iduserconcedentes; trackBy: trackById">{{ personaOption.id }}</option>
+                        <option [ngValue]="personaOption.id" *ngFor="let personaOption of idpersonas; trackBy: trackById">{{ personaOption.id }}</option>
                     </select>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="eoloprjApp.condivisionePratica.idUserAmmesso" for="field_idUserAmmesso">Id User Ammesso</label>
-                    <select class="form-control" id="field_idUserAmmesso" name="idUserAmmesso" formControlName="idUserAmmessoId">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.condivisionePratica.idUserPersona" for="field_idUserPersona">Id User Persona</label>
+                    <select class="form-control" id="field_idUserPersona" name="idUserPersona" formControlName="idUserPersonaId">
                         <option [ngValue]="null"></option>
                         <option [ngValue]="userPersonaOption.id" *ngFor="let userPersonaOption of userpersonas; trackBy: trackById">{{ userPersonaOption.id }}</option>
                     </select>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="eoloprjApp.condivisionePratica.idPraticaRef" for="field_idPraticaRef">Id Pratica Ref</label>
-                    <select class="form-control" id="field_idPraticaRef" name="idPraticaRef" formControlName="idPraticaRefId">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.condivisionePratica.idPratica" for="field_idPratica">Id Pratica</label>
+                    <select class="form-control" id="field_idPratica" name="idPratica" formControlName="idPraticaId">
                         <option [ngValue]="null"></option>
                         <option [ngValue]="praticaOption.id" *ngFor="let praticaOption of praticas; trackBy: trackById">{{ praticaOption.id }}</option>
                     </select>

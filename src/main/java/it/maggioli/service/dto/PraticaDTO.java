@@ -39,7 +39,7 @@ public class PraticaDTO implements Serializable {
     private Long idTemplatePraticaRef;
 
 
-    private Long idTemplatePraticaRefId;
+    private Long idTemplatePraticaId;
     
     public Long getId() {
         return id;
@@ -153,12 +153,12 @@ public class PraticaDTO implements Serializable {
         this.idTemplatePraticaRef = idTemplatePraticaRef;
     }
 
-    public Long getIdTemplatePraticaRefId() {
-        return idTemplatePraticaRefId;
+    public Long getIdTemplatePraticaId() {
+        return idTemplatePraticaId;
     }
 
-    public void setIdTemplatePraticaRefId(Long templatePraticaId) {
-        this.idTemplatePraticaRefId = templatePraticaId;
+    public void setIdTemplatePraticaId(Long templatePraticaId) {
+        this.idTemplatePraticaId = templatePraticaId;
     }
 
     @Override
@@ -196,7 +196,7 @@ public class PraticaDTO implements Serializable {
             ", version='" + getVersion() + "'" +
             ", valuta='" + getValuta() + "'" +
             ", idTemplatePraticaRef=" + getIdTemplatePraticaRef() +
-            ", idTemplatePraticaRefId=" + getIdTemplatePraticaRefId() +
+            ", idTemplatePraticaId=" + getIdTemplatePraticaId() +
             "}";
     }
 }

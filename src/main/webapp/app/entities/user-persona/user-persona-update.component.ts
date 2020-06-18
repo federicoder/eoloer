@@ -22,7 +22,7 @@ export class UserPersonaUpdateComponent implements OnInit {
     id: [],
     idPersonaRef: [],
     nomeUser: [],
-    idPersonaRefId: [],
+    idPersonaFisicaId: [],
   });
 
   constructor(
@@ -45,7 +45,7 @@ export class UserPersonaUpdateComponent implements OnInit {
       id: userPersona.id,
       idPersonaRef: userPersona.idPersonaRef,
       nomeUser: userPersona.nomeUser,
-      idPersonaRefId: userPersona.idPersonaRefId,
+      idPersonaFisicaId: userPersona.idPersonaFisicaId,
     });
   }
 
@@ -69,7 +69,7 @@ export class UserPersonaUpdateComponent implements OnInit {
       id: this.editForm.get(['id'])!.value,
       idPersonaRef: this.editForm.get(['idPersonaRef'])!.value,
       nomeUser: this.editForm.get(['nomeUser'])!.value,
-      idPersonaRefId: this.editForm.get(['idPersonaRefId'])!.value,
+      idPersonaFisicaId: this.editForm.get(['idPersonaFisicaId'])!.value,
     };
   }
 

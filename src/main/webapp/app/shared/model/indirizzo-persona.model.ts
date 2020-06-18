@@ -7,7 +7,7 @@ export interface IIndirizzoPersona {
   provincia?: string;
   regione?: string;
   nazione?: string;
-  idPersonaRefId?: number;
+  idPersonaId?: number;
 }
 
 export class IndirizzoPersona implements IIndirizzoPersona {
@@ -20,6 +20,6 @@ export class IndirizzoPersona implements IIndirizzoPersona {
     public provincia?: string,
     public regione?: string,
     public nazione?: string,
-    public idPersonaRefId?: number
+    public idPersonaId?: number
   ) {}
 }

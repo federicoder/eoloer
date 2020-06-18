@@ -45,7 +45,7 @@ public class AllegatoTemplateTask implements Serializable {
 
     @ManyToOne
     @JsonIgnoreProperties(value = "allegatoTemplateTasks", allowSetters = true)
-    private TemplateTask idTemplateTaskRef;
+    private TemplateTask idTemplateTask;
 
     @ManyToOne
     @JsonIgnoreProperties(value = "allegatoTemplateTasks", allowSetters = true)
@@ -125,17 +125,17 @@ public class AllegatoTemplateTask implements Serializable {
         this.pubPriv = pubPriv;
     }
 
-    public TemplateTask getIdTemplateTaskRef() {
-        return idTemplateTaskRef;
+    public TemplateTask getIdTemplateTask() {
+        return idTemplateTask;
     }
 
-    public AllegatoTemplateTask idTemplateTaskRef(TemplateTask templateTask) {
-        this.idTemplateTaskRef = templateTask;
+    public AllegatoTemplateTask idTemplateTask(TemplateTask templateTask) {
+        this.idTemplateTask = templateTask;
         return this;
     }
 
-    public void setIdTemplateTaskRef(TemplateTask templateTask) {
-        this.idTemplateTaskRef = templateTask;
+    public void setIdTemplateTask(TemplateTask templateTask) {
+        this.idTemplateTask = templateTask;
     }
 
     public TipoAllegato getTipoAllegato() {

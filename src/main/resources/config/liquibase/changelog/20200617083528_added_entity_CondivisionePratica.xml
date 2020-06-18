@@ -30,16 +30,16 @@
             <column name="id_pratica_ref" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="ruolo_id" type="bigint">
-                <constraints unique="true" nullable="true" uniqueConstraintName="ux_condivisione_pratica_ruolo_id" />
+            <column name="id_ruolo_persona_id" type="bigint">
+                <constraints unique="true" nullable="true" uniqueConstraintName="ux_condivisione_pratica_id_ruolo_persona_id" />
             </column>
-            <column name="id_user_concedente_id" type="bigint">
-                <constraints unique="true" nullable="true" uniqueConstraintName="ux_condivisione_pratica_id_user_concedente_id" />
+            <column name="id_persona_id" type="bigint">
+                <constraints unique="true" nullable="true" uniqueConstraintName="ux_condivisione_pratica_id_persona_id" />
             </column>
-            <column name="id_user_ammesso_id" type="bigint">
+            <column name="id_user_persona_id" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="id_pratica_ref_id" type="bigint">
+            <column name="id_pratica_id" type="bigint">
                 <constraints nullable="true" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->

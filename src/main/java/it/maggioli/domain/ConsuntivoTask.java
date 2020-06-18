@@ -1,6 +1,5 @@
 package it.maggioli.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -42,10 +41,6 @@ public class ConsuntivoTask implements Serializable {
 
     @Column(name = "version")
     private String version;
-
-    @OneToOne(mappedBy = "id")
-    @JsonIgnore
-    private Task idTaskRef;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -119,19 +114,6 @@ public class ConsuntivoTask implements Serializable {
 
     public void setVersion(String version) {
         this.version = version;
-    }
-
-    public Task getIdTaskRef() {
-        return idTaskRef;
-    }
-
-    public ConsuntivoTask idTaskRef(Task task) {
-        this.idTaskRef = task;
-        return this;
-    }
-
-    public void setIdTaskRef(Task task) {
-        this.idTaskRef = task;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

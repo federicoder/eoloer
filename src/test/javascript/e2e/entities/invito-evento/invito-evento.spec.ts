@@ -52,7 +52,7 @@ describe('InvitoEvento e2e test', () => {
       invitoEventoUpdatePage.setDataFineInput('dataFine'),
       invitoEventoUpdatePage.setOraFineInput('oraFine'),
       invitoEventoUpdatePage.setUrlStanzaVirtualeInput('urlStanzaVirtuale'),
-      invitoEventoUpdatePage.idTaskRefSelectLastOption(),
+      invitoEventoUpdatePage.idTaskSelectLastOption(),
       invitoEventoUpdatePage.previsioneEventoSelectLastOption(),
     ]);
 

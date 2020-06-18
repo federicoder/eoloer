@@ -3,7 +3,7 @@ export interface IEmailPersona {
   idPersonaRef?: number;
   etichetta?: number;
   numero?: number;
-  idPersonaRefId?: number;
+  idPersonaId?: number;
 }
 
 export class EmailPersona implements IEmailPersona {
@@ -12,6 +12,6 @@ export class EmailPersona implements IEmailPersona {
     public idPersonaRef?: number,
     public etichetta?: number,
     public numero?: number,
-    public idPersonaRefId?: number
+    public idPersonaId?: number
   ) {}
 }

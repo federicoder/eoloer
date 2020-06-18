@@ -24,8 +24,8 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="eoloprjApp.userPersona.idPersonaRef" for="field_idPersonaRef">Id Persona Ref</label>
-                    <select class="form-control" id="field_idPersonaRef" name="idPersonaRef" formControlName="idPersonaRefId">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.userPersona.idPersonaFisica" for="field_idPersonaFisica">Id Persona Fisica</label>
+                    <select class="form-control" id="field_idPersonaFisica" name="idPersonaFisica" formControlName="idPersonaFisicaId">
                         <option [ngValue]="null"></option>
                         <option [ngValue]="personaFisicaOption.id" *ngFor="let personaFisicaOption of personafisicas; trackBy: trackById">{{ personaFisicaOption.id }}</option>
                     </select>

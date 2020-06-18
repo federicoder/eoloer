@@ -18,18 +18,18 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="eoloprjApp.ruoloOrganizzazione.id" for="field_id">Id</label>
-                    <select class="form-control" id="field_id" name="id" formControlName="idId">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.ruoloOrganizzazione.idOrganizzazione" for="field_idOrganizzazione">Id Organizzazione</label>
+                    <select class="form-control" id="field_idOrganizzazione" name="idOrganizzazione" formControlName="idOrganizzazioneId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="organizzazioneOption.id" *ngFor="let organizzazioneOption of ids; trackBy: trackById">{{ organizzazioneOption.id }}</option>
+                        <option [ngValue]="organizzazioneOption.id" *ngFor="let organizzazioneOption of idorganizzaziones; trackBy: trackById">{{ organizzazioneOption.id }}</option>
                     </select>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="eoloprjApp.ruoloOrganizzazione.id" for="field_id">Id</label>
-                    <select class="form-control" id="field_id" name="id" formControlName="idId">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.ruoloOrganizzazione.idPersonaFisica" for="field_idPersonaFisica">Id Persona Fisica</label>
+                    <select class="form-control" id="field_idPersonaFisica" name="idPersonaFisica" formControlName="idPersonaFisicaId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="personaFisicaOption.id" *ngFor="let personaFisicaOption of ids; trackBy: trackById">{{ personaFisicaOption.id }}</option>
+                        <option [ngValue]="personaFisicaOption.id" *ngFor="let personaFisicaOption of idpersonafisicas; trackBy: trackById">{{ personaFisicaOption.id }}</option>
                     </select>
                 </div>
             </div>

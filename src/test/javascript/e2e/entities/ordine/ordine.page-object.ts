@@ -35,7 +35,7 @@ export class OrdineUpdatePage {
   totIvaInput = element(by.id('field_totIva'));
   totOrdineInput = element(by.id('field_totOrdine'));
 
-  idStudioProfessionaleRefSelect = element(by.id('field_idStudioProfessionaleRef'));
+  idStudioProfessionaleSelect = element(by.id('field_idStudioProfessionale'));
 
   async getPageTitle(): Promise<string> {
     return this.pageTitle.getAttribute('jhiTranslate');
@@ -81,20 +81,20 @@ export class OrdineUpdatePage {
     return await this.totOrdineInput.getAttribute('value');
   }
 
-  async idStudioProfessionaleRefSelectLastOption(): Promise<void> {
-    await this.idStudioProfessionaleRefSelect.all(by.tagName('option')).last().click();
+  async idStudioProfessionaleSelectLastOption(): Promise<void> {
+    await this.idStudioProfessionaleSelect.all(by.tagName('option')).last().click();
   }
 
-  async idStudioProfessionaleRefSelectOption(option: string): Promise<void> {
-    await this.idStudioProfessionaleRefSelect.sendKeys(option);
+  async idStudioProfessionaleSelectOption(option: string): Promise<void> {
+    await this.idStudioProfessionaleSelect.sendKeys(option);
   }
 
-  getIdStudioProfessionaleRefSelect(): ElementFinder {
-    return this.idStudioProfessionaleRefSelect;
+  getIdStudioProfessionaleSelect(): ElementFinder {
+    return this.idStudioProfessionaleSelect;
   }
 
-  async getIdStudioProfessionaleRefSelectedOption(): Promise<string> {
-    return await this.idStudioProfessionaleRefSelect.element(by.css('option:checked')).getText();
+  async getIdStudioProfessionaleSelectedOption(): Promise<string> {
+    return await this.idStudioProfessionaleSelect.element(by.css('option:checked')).getText();
   }
 
   async save(): Promise<void> {

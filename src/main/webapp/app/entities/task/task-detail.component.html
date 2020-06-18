@@ -44,34 +44,22 @@
                 <dd>
                     <span>{{ task.idInvitoRef }}</span>
                 </dd>
-                <dt><span jhiTranslate="eoloprjApp.task.id">Id</span></dt>
+                <dt><span jhiTranslate="eoloprjApp.task.idTask">Id Task</span></dt>
                 <dd>
-                    <div *ngIf="task.idId">
-                        <a [routerLink]="['/consuntivo-task', task.idId, 'view']">{{ task.idId }}</a>
+                    <div *ngIf="task.idTaskId">
+                        <a [routerLink]="['/consuntivo-task', task.idTaskId, 'view']">{{ task.idTaskId }}</a>
                     </div>
                 </dd>
-                <dt><span jhiTranslate="eoloprjApp.task.id">Id</span></dt>
+                <dt><span jhiTranslate="eoloprjApp.task.idTask">Id Task</span></dt>
                 <dd>
-                    <div *ngIf="task.idId">
-                        <a [routerLink]="['/previsione-task', task.idId, 'view']">{{ task.idId }}</a>
+                    <div *ngIf="task.idTaskId">
+                        <a [routerLink]="['/previsione-task', task.idTaskId, 'view']">{{ task.idTaskId }}</a>
                     </div>
                 </dd>
-                <dt><span jhiTranslate="eoloprjApp.task.id">Id</span></dt>
+                <dt><span jhiTranslate="eoloprjApp.task.idPratica">Id Pratica</span></dt>
                 <dd>
-                    <div *ngIf="task.idId">
-                        <a [routerLink]="['/assegnazione-task', task.idId, 'view']">{{ task.idId }}</a>
-                    </div>
-                </dd>
-                <dt><span jhiTranslate="eoloprjApp.task.id">Id</span></dt>
-                <dd>
-                    <div *ngIf="task.idId">
-                        <a [routerLink]="['/invito-attivita', task.idId, 'view']">{{ task.idId }}</a>
-                    </div>
-                </dd>
-                <dt><span jhiTranslate="eoloprjApp.task.idPraticaRef">Id Pratica Ref</span></dt>
-                <dd>
-                    <div *ngIf="task.idPraticaRefId">
-                        <a [routerLink]="['/pratica', task.idPraticaRefId, 'view']">{{ task.idPraticaRefId }}</a>
+                    <div *ngIf="task.idPraticaId">
+                        <a [routerLink]="['/pratica', task.idPraticaId, 'view']">{{ task.idPraticaId }}</a>
                     </div>
                 </dd>
             </dl>

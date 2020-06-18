@@ -22,7 +22,7 @@
       "oraPianificata": "Ora Pianificata",
       "dataScadenza": "Data Scadenza",
       "version": "Version",
-      "idTaskRef": "Id Task Ref"
+      "idPrevisioneAttivita": "Id Previsione Attivita"
     }
   }
 }

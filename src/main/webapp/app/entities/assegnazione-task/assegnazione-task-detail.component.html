@@ -28,16 +28,22 @@
                 <dd>
                     <span>{{ assegnazioneTask.statoAssegnazione }}</span>
                 </dd>
-                <dt><span jhiTranslate="eoloprjApp.assegnazioneTask.ruolo">Ruolo</span></dt>
+                <dt><span jhiTranslate="eoloprjApp.assegnazioneTask.idTask">Id Task</span></dt>
                 <dd>
-                    <div *ngIf="assegnazioneTask.ruoloId">
-                        <a [routerLink]="['/rappresentanza-pratica', assegnazioneTask.ruoloId, 'view']">{{ assegnazioneTask.ruoloId }}</a>
+                    <div *ngIf="assegnazioneTask.idTaskId">
+                        <a [routerLink]="['/task', assegnazioneTask.idTaskId, 'view']">{{ assegnazioneTask.idTaskId }}</a>
                     </div>
                 </dd>
-                <dt><span jhiTranslate="eoloprjApp.assegnazioneTask.idUserAmmesso">Id User Ammesso</span></dt>
+                <dt><span jhiTranslate="eoloprjApp.assegnazioneTask.idRuoloPersona">Id Ruolo Persona</span></dt>
                 <dd>
-                    <div *ngIf="assegnazioneTask.idUserAmmessoId">
-                        <a [routerLink]="['/user-persona', assegnazioneTask.idUserAmmessoId, 'view']">{{ assegnazioneTask.idUserAmmessoId }}</a>
+                    <div *ngIf="assegnazioneTask.idRuoloPersonaId">
+                        <a [routerLink]="['/rappresentanza-pratica', assegnazioneTask.idRuoloPersonaId, 'view']">{{ assegnazioneTask.idRuoloPersonaId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.assegnazioneTask.idPersona">Id Persona</span></dt>
+                <dd>
+                    <div *ngIf="assegnazioneTask.idPersonaId">
+                        <a [routerLink]="['/user-persona', assegnazioneTask.idPersonaId, 'view']">{{ assegnazioneTask.idPersonaId }}</a>
                     </div>
                 </dd>
             </dl>

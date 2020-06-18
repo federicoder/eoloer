@@ -12,10 +12,10 @@ import org.mapstruct.*;
 @Mapper(componentModel = "spring", uses = {StudioProfessionaleMapper.class})
 public interface OrdineMapper extends EntityMapper<OrdineDTO, Ordine> {
 
-    @Mapping(source = "idStudioProfessionaleRef.id", target = "idStudioProfessionaleRefId")
+    @Mapping(source = "idStudioProfessionale.id", target = "idStudioProfessionaleId")
     OrdineDTO toDto(Ordine ordine);
 
-    @Mapping(source = "idStudioProfessionaleRefId", target = "idStudioProfessionaleRef")
+    @Mapping(source = "idStudioProfessionaleId", target = "idStudioProfessionale")
     Ordine toEntity(OrdineDTO ordineDTO);
 
     default Ordine fromId(Long id) {

@@ -84,15 +84,10 @@ public class AssegnazioneTaskResource {
     /**
      * {@code GET  /assegnazione-tasks} : get all the assegnazioneTasks.
      *
-     * @param filter the filter of the request.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of assegnazioneTasks in body.
      */
     @GetMapping("/assegnazione-tasks")
-    public List<AssegnazioneTaskDTO> getAllAssegnazioneTasks(@RequestParam(required = false) String filter) {
-        if ("idtaskref-is-null".equals(filter)) {
-            log.debug("REST request to get all AssegnazioneTasks where idTaskRef is null");
-            return assegnazioneTaskService.findAllWhereIdTaskRefIsNull();
-        }
+    public List<AssegnazioneTaskDTO> getAllAssegnazioneTasks() {
         log.debug("REST request to get all AssegnazioneTasks");
         return assegnazioneTaskService.findAll();
     }

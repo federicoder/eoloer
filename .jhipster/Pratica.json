@@ -62,7 +62,7 @@
       "relationshipType": "many-to-one",
       "otherEntityName": "templatePratica",
       "otherEntityRelationshipName": "pratica",
-      "relationshipName": "idTemplatePraticaRef",
+      "relationshipName": "idTemplatePratica",
       "otherEntityField": "id"
     }
   ],

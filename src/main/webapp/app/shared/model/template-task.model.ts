@@ -5,9 +5,9 @@ export interface ITemplateTask {
   note?: number;
   pubPriv?: number;
   idTemplatePraticaRef?: number;
-  ids?: ITemplateTask[];
-  idTemplatePraticaRefId?: number;
-  idId?: number;
+  idTemplateTasks?: ITemplateTask[];
+  idTemplatePraticaId?: number;
+  idTemplateTaskId?: number;
   templateTaskId?: number;
 }
 
@@ -19,9 +19,9 @@ export class TemplateTask implements ITemplateTask {
     public note?: number,
     public pubPriv?: number,
     public idTemplatePraticaRef?: number,
-    public ids?: ITemplateTask[],
-    public idTemplatePraticaRefId?: number,
-    public idId?: number,
+    public idTemplateTasks?: ITemplateTask[],
+    public idTemplatePraticaId?: number,
+    public idTemplateTaskId?: number,
     public templateTaskId?: number
   ) {}
 }

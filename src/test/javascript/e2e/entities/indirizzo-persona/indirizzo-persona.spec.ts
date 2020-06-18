@@ -51,6 +51,7 @@ describe('IndirizzoPersona e2e test', () => {
       indirizzoPersonaUpdatePage.setProvinciaInput('provincia'),
       indirizzoPersonaUpdatePage.setRegioneInput('regione'),
       indirizzoPersonaUpdatePage.setNazioneInput('nazione'),
+      indirizzoPersonaUpdatePage.idPersonaSelectLastOption(),
     ]);
 
     expect(await indirizzoPersonaUpdatePage.getIdPersonaRefInput()).to.eq('5', 'Expected idPersonaRef value to be equals to 5');

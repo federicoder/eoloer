@@ -2,9 +2,9 @@ export interface IUserPersona {
   id?: number;
   idPersonaRef?: number;
   nomeUser?: number;
-  idPersonaRefId?: number;
+  idPersonaFisicaId?: number;
 }
 
 export class UserPersona implements IUserPersona {
-  constructor(public id?: number, public idPersonaRef?: number, public nomeUser?: number, public idPersonaRefId?: number) {}
+  constructor(public id?: number, public idPersonaRef?: number, public nomeUser?: number, public idPersonaFisicaId?: number) {}
 }

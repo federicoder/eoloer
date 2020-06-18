@@ -4,7 +4,7 @@ export interface IRisorseDisponibili {
   dataAttivazioneLicenza?: string;
   nrLicenza?: number;
   storageTotale?: number;
-  idStudioProfessionaleRefId?: number;
+  idStudioProfessionaleId?: number;
 }
 
 export class RisorseDisponibili implements IRisorseDisponibili {
@@ -14,6 +14,6 @@ export class RisorseDisponibili implements IRisorseDisponibili {
     public dataAttivazioneLicenza?: string,
     public nrLicenza?: number,
     public storageTotale?: number,
-    public idStudioProfessionaleRefId?: number
+    public idStudioProfessionaleId?: number
   ) {}
 }

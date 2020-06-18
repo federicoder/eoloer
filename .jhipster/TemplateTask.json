@@ -27,26 +27,26 @@
       "relationshipType": "one-to-many",
       "otherEntityName": "templateTask",
       "otherEntityRelationshipName": "templateTask",
-      "relationshipName": "id"
+      "relationshipName": "idTemplateTask"
     },
     {
       "relationshipType": "many-to-one",
       "otherEntityName": "templatePratica",
       "otherEntityRelationshipName": "templateTask",
-      "relationshipName": "idTemplatePraticaRef",
+      "relationshipName": "idTemplatePratica",
       "otherEntityField": "id"
     },
     {
       "relationshipType": "many-to-one",
       "otherEntityName": "templateTask",
       "otherEntityRelationshipName": "templateTask",
-      "relationshipName": "id",
+      "relationshipName": "idTemplateTask",
       "otherEntityField": "id"
     },
     {
       "relationshipType": "many-to-one",
       "otherEntityName": "templateTask",
-      "otherEntityRelationshipName": "id",
+      "otherEntityRelationshipName": "idTemplateTask",
       "relationshipName": "templateTask",
       "otherEntityField": "id"
     }

@@ -48,32 +48,16 @@
     {
       "relationshipType": "one-to-one",
       "otherEntityName": "consuntivoTask",
-      "otherEntityRelationshipName": "idTaskRef",
-      "relationshipName": "id",
+      "otherEntityRelationshipName": "task",
+      "relationshipName": "idTask",
       "otherEntityField": "id",
       "ownerSide": true
     },
     {
       "relationshipType": "one-to-one",
       "otherEntityName": "previsioneTask",
-      "otherEntityRelationshipName": "idTaskRef",
-      "relationshipName": "id",
-      "otherEntityField": "id",
-      "ownerSide": true
-    },
-    {
-      "relationshipType": "one-to-one",
-      "otherEntityName": "assegnazioneTask",
-      "otherEntityRelationshipName": "idTaskRef",
-      "relationshipName": "id",
-      "otherEntityField": "id",
-      "ownerSide": true
-    },
-    {
-      "relationshipType": "one-to-one",
-      "otherEntityName": "invitoAttivita",
-      "otherEntityRelationshipName": "idTaskRef",
-      "relationshipName": "id",
+      "otherEntityRelationshipName": "task",
+      "relationshipName": "idTask",
       "otherEntityField": "id",
       "ownerSide": true
     },
@@ -81,7 +65,7 @@
       "relationshipType": "many-to-one",
       "otherEntityName": "pratica",
       "otherEntityRelationshipName": "task",
-      "relationshipName": "idPraticaRef",
+      "relationshipName": "idPratica",
       "otherEntityField": "id"
     }
   ],

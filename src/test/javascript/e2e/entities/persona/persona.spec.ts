@@ -54,7 +54,6 @@ describe('Persona e2e test', () => {
       personaUpdatePage.setDiscriminatorInput('discriminator'),
       personaUpdatePage.setIdRuoloPersonaRefInput('5'),
       personaUpdatePage.setTipoRuoloUtenteInput('5'),
-      personaUpdatePage.idSelectLastOption(),
     ]);
 
     expect(await personaUpdatePage.getIdStudioProfessionaleRefInput()).to.eq(

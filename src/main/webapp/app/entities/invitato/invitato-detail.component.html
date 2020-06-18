@@ -52,16 +52,16 @@
                 <dd>
                     <span>{{ invitato.indInvitati }}</span>
                 </dd>
-                <dt><span jhiTranslate="eoloprjApp.invitato.idUserInvitato">Id User Invitato</span></dt>
+                <dt><span jhiTranslate="eoloprjApp.invitato.idUserPersona">Id User Persona</span></dt>
                 <dd>
-                    <div *ngIf="invitato.idUserInvitatoId">
-                        <a [routerLink]="['/user-persona', invitato.idUserInvitatoId, 'view']">{{ invitato.idUserInvitatoId }}</a>
+                    <div *ngIf="invitato.idUserPersonaId">
+                        <a [routerLink]="['/user-persona', invitato.idUserPersonaId, 'view']">{{ invitato.idUserPersonaId }}</a>
                     </div>
                 </dd>
-                <dt><span jhiTranslate="eoloprjApp.invitato.idInvitoRef">Id Invito Ref</span></dt>
+                <dt><span jhiTranslate="eoloprjApp.invitato.idInvito">Id Invito</span></dt>
                 <dd>
-                    <div *ngIf="invitato.idInvitoRefId">
-                        <a [routerLink]="['/invito', invitato.idInvitoRefId, 'view']">{{ invitato.idInvitoRefId }}</a>
+                    <div *ngIf="invitato.idInvitoId">
+                        <a [routerLink]="['/invito', invitato.idInvitoId, 'view']">{{ invitato.idInvitoId }}</a>
                     </div>
                 </dd>
             </dl>

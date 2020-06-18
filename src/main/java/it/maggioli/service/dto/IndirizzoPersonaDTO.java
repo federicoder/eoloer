@@ -25,6 +25,8 @@ public class IndirizzoPersonaDTO implements Serializable {
 
     private String nazione;
 
+
+    private Long idPersonaId;
     
     public Long getId() {
         return id;
@@ -90,6 +92,14 @@ public class IndirizzoPersonaDTO implements Serializable {
         this.nazione = nazione;
     }
 
+    public Long getIdPersonaId() {
+        return idPersonaId;
+    }
+
+    public void setIdPersonaId(Long personaId) {
+        this.idPersonaId = personaId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -119,6 +129,7 @@ public class IndirizzoPersonaDTO implements Serializable {
             ", provincia='" + getProvincia() + "'" +
             ", regione='" + getRegione() + "'" +
             ", nazione='" + getNazione() + "'" +
+            ", idPersonaId=" + getIdPersonaId() +
             "}";
     }
 }

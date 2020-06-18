@@ -44,7 +44,7 @@
                     <th scope="col" ><span jhiTranslate="eoloprjApp.telefonoPersona.idPersonaRef">Id Persona Ref</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.telefonoPersona.etichetta">Etichetta</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.telefonoPersona.valore">Valore</span></th>
-                    <th scope="col" ><span jhiTranslate="eoloprjApp.telefonoPersona.idPersonaRef">Id Persona Ref</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.telefonoPersona.idPersona">Id Persona</span></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -55,8 +55,8 @@
                     <td>{{ telefonoPersona.etichetta }}</td>
                     <td>{{ telefonoPersona.valore }}</td>
                     <td>
-                        <div *ngIf="telefonoPersona.idPersonaRefId">
-                            <a [routerLink]="['/persona', telefonoPersona.idPersonaRefId , 'view']" >{{ telefonoPersona.idPersonaRefId }}</a>
+                        <div *ngIf="telefonoPersona.idPersonaId">
+                            <a [routerLink]="['/persona', telefonoPersona.idPersonaId , 'view']" >{{ telefonoPersona.idPersonaId }}</a>
                         </div>
                     </td>
                     <td class="text-right">

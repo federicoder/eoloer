@@ -12,16 +12,16 @@ import org.mapstruct.*;
 @Mapper(componentModel = "spring", uses = {RappresentanzaPraticaMapper.class, PersonaMapper.class, UserPersonaMapper.class, PraticaMapper.class})
 public interface CondivisionePraticaMapper extends EntityMapper<CondivisionePraticaDTO, CondivisionePratica> {
 
-    @Mapping(source = "ruolo.id", target = "ruoloId")
-    @Mapping(source = "idUserConcedente.id", target = "idUserConcedenteId")
-    @Mapping(source = "idUserAmmesso.id", target = "idUserAmmessoId")
-    @Mapping(source = "idPraticaRef.id", target = "idPraticaRefId")
+    @Mapping(source = "idRuoloPersona.id", target = "idRuoloPersonaId")
+    @Mapping(source = "idPersona.id", target = "idPersonaId")
+    @Mapping(source = "idUserPersona.id", target = "idUserPersonaId")
+    @Mapping(source = "idPratica.id", target = "idPraticaId")
     CondivisionePraticaDTO toDto(CondivisionePratica condivisionePratica);
 
-    @Mapping(source = "ruoloId", target = "ruolo")
-    @Mapping(source = "idUserConcedenteId", target = "idUserConcedente")
-    @Mapping(source = "idUserAmmessoId", target = "idUserAmmesso")
-    @Mapping(source = "idPraticaRefId", target = "idPraticaRef")
+    @Mapping(source = "idRuoloPersonaId", target = "idRuoloPersona")
+    @Mapping(source = "idPersonaId", target = "idPersona")
+    @Mapping(source = "idUserPersonaId", target = "idUserPersona")
+    @Mapping(source = "idPraticaId", target = "idPratica")
     CondivisionePratica toEntity(CondivisionePraticaDTO condivisionePraticaDTO);
 
     default CondivisionePratica fromId(Long id) {

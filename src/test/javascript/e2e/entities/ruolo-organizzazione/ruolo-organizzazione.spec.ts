@@ -49,8 +49,8 @@ describe('RuoloOrganizzazione e2e test', () => {
 
     await promise.all([
       ruoloOrganizzazioneUpdatePage.setRuoloInOrgInput('5'),
-      ruoloOrganizzazioneUpdatePage.idSelectLastOption(),
-      ruoloOrganizzazioneUpdatePage.idSelectLastOption(),
+      ruoloOrganizzazioneUpdatePage.idOrganizzazioneSelectLastOption(),
+      ruoloOrganizzazioneUpdatePage.idPersonaFisicaSelectLastOption(),
     ]);
 
     expect(await ruoloOrganizzazioneUpdatePage.getRuoloInOrgInput()).to.eq('5', 'Expected ruoloInOrg value to be equals to 5');

@@ -49,7 +49,7 @@
                     <th scope="col" ><span jhiTranslate="eoloprjApp.invitoEvento.dataFine">Data Fine</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.invitoEvento.oraFine">Ora Fine</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.invitoEvento.urlStanzaVirtuale">Url Stanza Virtuale</span></th>
-                    <th scope="col" ><span jhiTranslate="eoloprjApp.invitoEvento.idTaskRef">Id Task Ref</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.invitoEvento.idTask">Id Task</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.invitoEvento.previsioneEvento">Previsione Evento</span></th>
                     <th scope="col"></th>
                 </tr>
@@ -66,8 +66,8 @@
                     <td>{{ invitoEvento.oraFine }}</td>
                     <td>{{ invitoEvento.urlStanzaVirtuale }}</td>
                     <td>
-                        <div *ngIf="invitoEvento.idTaskRefId">
-                            <a [routerLink]="['/invito', invitoEvento.idTaskRefId , 'view']" >{{ invitoEvento.idTaskRefId }}</a>
+                        <div *ngIf="invitoEvento.idTaskId">
+                            <a [routerLink]="['/invito', invitoEvento.idTaskId , 'view']" >{{ invitoEvento.idTaskId }}</a>
                         </div>
                     </td>
                     <td>

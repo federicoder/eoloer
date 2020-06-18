@@ -4,9 +4,12 @@ import { HttpResponse } from '@angular/common/http';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 import { IIndirizzoPersona, IndirizzoPersona } from 'app/shared/model/indirizzo-persona.model';
 import { IndirizzoPersonaService } from './indirizzo-persona.service';
+import { IPersona } from 'app/shared/model/persona.model';
+import { PersonaService } from 'app/entities/persona/persona.service';
 
 @Component({
   selector: 'jhi-indirizzo-persona-update',
@@ -14,6 +17,7 @@ import { IndirizzoPersonaService } from './indirizzo-persona.service';
 })
 export class IndirizzoPersonaUpdateComponent implements OnInit {
   isSaving = false;
+  idpersonas: IPersona[] = [];
 
   editForm = this.fb.group({
     id: [],
@@ -24,10 +28,12 @@ export class IndirizzoPersonaUpdateComponent implements OnInit {
     provincia: [],
     regione: [],
     nazione: [],
+    idPersonaId: [],
   });
 
   constructor(
     protected indirizzoPersonaService: IndirizzoPersonaService,
+    protected personaService: PersonaService,
     protected activatedRoute: ActivatedRoute,
     private fb: FormBuilder
   ) {}
@@ -35,6 +41,28 @@ export class IndirizzoPersonaUpdateComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(({ indirizzoPersona }) => {
       this.updateForm(indirizzoPersona);
+
+      this.personaService
+        .query({ filter: 'indirizzopersona-is-null' })
+        .pipe(
+          map((res: HttpResponse<IPersona[]>) => {
+            return res.body || [];
+          })
+        )
+        .subscribe((resBody: IPersona[]) => {
+          if (!indirizzoPersona.idPersonaId) {
+            this.idpersonas = resBody;
+          } else {
+            this.personaService
+              .find(indirizzoPersona.idPersonaId)
+              .pipe(
+                map((subRes: HttpResponse<IPersona>) => {
+                  return subRes.body ? [subRes.body].concat(resBody) : resBody;
+                })
+              )
+              .subscribe((concatRes: IPersona[]) => (this.idpersonas = concatRes));
+          }
+        });
     });
   }
 
@@ -48,6 +76,7 @@ export class IndirizzoPersonaUpdateComponent implements OnInit {
       provincia: indirizzoPersona.provincia,
       regione: indirizzoPersona.regione,
       nazione: indirizzoPersona.nazione,
+      idPersonaId: indirizzoPersona.idPersonaId,
     });
   }
 
@@ -76,6 +105,7 @@ export class IndirizzoPersonaUpdateComponent implements OnInit {
       provincia: this.editForm.get(['provincia'])!.value,
       regione: this.editForm.get(['regione'])!.value,
       nazione: this.editForm.get(['nazione'])!.value,
+      idPersonaId: this.editForm.get(['idPersonaId'])!.value,
     };
   }
 
@@ -93,5 +123,9 @@ export class IndirizzoPersonaUpdateComponent implements OnInit {
 
   protected onSaveError(): void {
     this.isSaving = false;
+  }
+
+  trackById(index: number, item: IPersona): any {
+    return item.id;
   }
 }

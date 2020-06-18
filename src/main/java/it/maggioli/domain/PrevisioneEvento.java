@@ -49,11 +49,11 @@ public class PrevisioneEvento implements Serializable {
 
     @OneToOne
     @JoinColumn(unique = true)
-    private PrevisioneTask idTaskRef;
+    private PrevisioneTask idPrevisioneEvento;
 
     @OneToMany(mappedBy = "previsioneEvento")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<InvitoEvento> idTaskRefs = new HashSet<>();
+    private Set<InvitoEvento> idInvitoEventos = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -142,42 +142,42 @@ public class PrevisioneEvento implements Serializable {
         this.version = version;
     }
 
-    public PrevisioneTask getIdTaskRef() {
-        return idTaskRef;
+    public PrevisioneTask getIdPrevisioneEvento() {
+        return idPrevisioneEvento;
     }
 
-    public PrevisioneEvento idTaskRef(PrevisioneTask previsioneTask) {
-        this.idTaskRef = previsioneTask;
+    public PrevisioneEvento idPrevisioneEvento(PrevisioneTask previsioneTask) {
+        this.idPrevisioneEvento = previsioneTask;
         return this;
     }
 
-    public void setIdTaskRef(PrevisioneTask previsioneTask) {
-        this.idTaskRef = previsioneTask;
+    public void setIdPrevisioneEvento(PrevisioneTask previsioneTask) {
+        this.idPrevisioneEvento = previsioneTask;
     }
 
-    public Set<InvitoEvento> getIdTaskRefs() {
-        return idTaskRefs;
+    public Set<InvitoEvento> getIdInvitoEventos() {
+        return idInvitoEventos;
     }
 
-    public PrevisioneEvento idTaskRefs(Set<InvitoEvento> invitoEventos) {
-        this.idTaskRefs = invitoEventos;
+    public PrevisioneEvento idInvitoEventos(Set<InvitoEvento> invitoEventos) {
+        this.idInvitoEventos = invitoEventos;
         return this;
     }
 
-    public PrevisioneEvento addIdTaskRef(InvitoEvento invitoEvento) {
-        this.idTaskRefs.add(invitoEvento);
+    public PrevisioneEvento addIdInvitoEvento(InvitoEvento invitoEvento) {
+        this.idInvitoEventos.add(invitoEvento);
         invitoEvento.setPrevisioneEvento(this);
         return this;
     }
 
-    public PrevisioneEvento removeIdTaskRef(InvitoEvento invitoEvento) {
-        this.idTaskRefs.remove(invitoEvento);
+    public PrevisioneEvento removeIdInvitoEvento(InvitoEvento invitoEvento) {
+        this.idInvitoEventos.remove(invitoEvento);
         invitoEvento.setPrevisioneEvento(null);
         return this;
     }
 
-    public void setIdTaskRefs(Set<InvitoEvento> invitoEventos) {
-        this.idTaskRefs = invitoEventos;
+    public void setIdInvitoEventos(Set<InvitoEvento> invitoEventos) {
+        this.idInvitoEventos = invitoEventos;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

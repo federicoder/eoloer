@@ -47,7 +47,7 @@ describe('Organizzazione e2e test', () => {
       organizzazioneUpdatePage.setIdPersonaRefInput('5'),
       organizzazioneUpdatePage.setNomeInput('nome'),
       organizzazioneUpdatePage.setTipoInput('tipo'),
-      organizzazioneUpdatePage.idPersonaRefSelectLastOption(),
+      organizzazioneUpdatePage.idPersonaSelectLastOption(),
     ]);
 
     expect(await organizzazioneUpdatePage.getIdPersonaRefInput()).to.eq('5', 'Expected idPersonaRef value to be equals to 5');

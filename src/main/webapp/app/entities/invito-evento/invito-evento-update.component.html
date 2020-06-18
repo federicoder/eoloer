@@ -60,10 +60,10 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="eoloprjApp.invitoEvento.idTaskRef" for="field_idTaskRef">Id Task Ref</label>
-                    <select class="form-control" id="field_idTaskRef" name="idTaskRef" formControlName="idTaskRefId">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.invitoEvento.idTask" for="field_idTask">Id Task</label>
+                    <select class="form-control" id="field_idTask" name="idTask" formControlName="idTaskId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="invitoOption.id" *ngFor="let invitoOption of idtaskrefs; trackBy: trackById">{{ invitoOption.id }}</option>
+                        <option [ngValue]="invitoOption.id" *ngFor="let invitoOption of idtasks; trackBy: trackById">{{ invitoOption.id }}</option>
                     </select>
                 </div>
 

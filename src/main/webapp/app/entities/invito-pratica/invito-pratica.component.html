@@ -42,7 +42,7 @@
                 <tr>
                     <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.invitoPratica.idPraticaRef">Id Pratica Ref</span></th>
-                    <th scope="col" ><span jhiTranslate="eoloprjApp.invitoPratica.idPraticaRef">Id Pratica Ref</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.invitoPratica.idPratica">Id Pratica</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.invitoPratica.idPratica">Id Pratica</span></th>
                     <th scope="col"></th>
                 </tr>
@@ -52,8 +52,8 @@
                     <td><a [routerLink]="['/invito-pratica', invitoPratica.id, 'view']">{{ invitoPratica.id }}</a></td>
                     <td>{{ invitoPratica.idPraticaRef }}</td>
                     <td>
-                        <div *ngIf="invitoPratica.idPraticaRefId">
-                            <a [routerLink]="['/invito', invitoPratica.idPraticaRefId , 'view']" >{{ invitoPratica.idPraticaRefId }}</a>
+                        <div *ngIf="invitoPratica.idPraticaId">
+                            <a [routerLink]="['/invito', invitoPratica.idPraticaId , 'view']" >{{ invitoPratica.idPraticaId }}</a>
                         </div>
                     </td>
                     <td>

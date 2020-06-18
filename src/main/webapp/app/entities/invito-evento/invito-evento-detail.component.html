@@ -40,10 +40,10 @@
                 <dd>
                     <span>{{ invitoEvento.urlStanzaVirtuale }}</span>
                 </dd>
-                <dt><span jhiTranslate="eoloprjApp.invitoEvento.idTaskRef">Id Task Ref</span></dt>
+                <dt><span jhiTranslate="eoloprjApp.invitoEvento.idTask">Id Task</span></dt>
                 <dd>
-                    <div *ngIf="invitoEvento.idTaskRefId">
-                        <a [routerLink]="['/invito', invitoEvento.idTaskRefId, 'view']">{{ invitoEvento.idTaskRefId }}</a>
+                    <div *ngIf="invitoEvento.idTaskId">
+                        <a [routerLink]="['/invito', invitoEvento.idTaskId, 'view']">{{ invitoEvento.idTaskId }}</a>
                     </div>
                 </dd>
                 <dt><span jhiTranslate="eoloprjApp.invitoEvento.previsioneEvento">Previsione Evento</span></dt>

@@ -44,26 +44,26 @@
       "relationshipType": "one-to-many",
       "otherEntityName": "allegatoTask",
       "otherEntityRelationshipName": "allegatoTask",
-      "relationshipName": "id"
+      "relationshipName": "idAllegatoTask"
     },
     {
       "relationshipType": "many-to-one",
       "otherEntityName": "tipoAllegato",
       "otherEntityRelationshipName": "allegatoTask",
-      "relationshipName": "idTipoAllegatoRef",
+      "relationshipName": "idTipoAllegato",
       "otherEntityField": "id"
     },
     {
       "relationshipType": "many-to-one",
       "otherEntityName": "task",
       "otherEntityRelationshipName": "allegatoTask",
-      "relationshipName": "idTaskRef",
+      "relationshipName": "idTask",
       "otherEntityField": "id"
     },
     {
       "relationshipType": "many-to-one",
       "otherEntityName": "allegatoTask",
-      "otherEntityRelationshipName": "id",
+      "otherEntityRelationshipName": "idAllegatoTask",
       "relationshipName": "allegatoTask",
       "otherEntityField": "id"
     }

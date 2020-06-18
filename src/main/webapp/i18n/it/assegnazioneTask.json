@@ -22,10 +22,10 @@
       "ruolo": "Ruolo",
       "idUserConcedente": "Id User Concedente",
       "statoAssegnazione": "Stato Assegnazione",
-      "ruolo": "Ruolo",
-      "idUserConcedente": "Id User Concedente",
-      "idUserAmmesso": "Id User Ammesso",
-      "idTaskRef": "Id Task Ref"
+      "idTask": "Id Task",
+      "idRuoloPersona": "Id Ruolo Persona",
+      "idInvito": "Id Invito",
+      "idPersona": "Id Persona"
     }
   }
 }

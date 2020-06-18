@@ -12,9 +12,9 @@ public class RuoloOrganizzazioneDTO implements Serializable {
     private Long ruoloInOrg;
 
 
-    private Long idId;
+    private Long idOrganizzazioneId;
 
-    private Long idId;
+    private Long idPersonaFisicaId;
     
     public Long getId() {
         return id;
@@ -32,20 +32,20 @@ public class RuoloOrganizzazioneDTO implements Serializable {
         this.ruoloInOrg = ruoloInOrg;
     }
 
-    public Long getIdId() {
-        return idId;
+    public Long getIdOrganizzazioneId() {
+        return idOrganizzazioneId;
     }
 
-    public void setIdId(Long organizzazioneId) {
-        this.idId = organizzazioneId;
+    public void setIdOrganizzazioneId(Long organizzazioneId) {
+        this.idOrganizzazioneId = organizzazioneId;
     }
 
-    public Long getIdId() {
-        return idId;
+    public Long getIdPersonaFisicaId() {
+        return idPersonaFisicaId;
     }
 
-    public void setIdId(Long personaFisicaId) {
-        this.idId = personaFisicaId;
+    public void setIdPersonaFisicaId(Long personaFisicaId) {
+        this.idPersonaFisicaId = personaFisicaId;
     }
 
     @Override
@@ -71,8 +71,8 @@ public class RuoloOrganizzazioneDTO implements Serializable {
         return "RuoloOrganizzazioneDTO{" +
             "id=" + getId() +
             ", ruoloInOrg=" + getRuoloInOrg() +
-            ", idId=" + getIdId() +
-            ", idId=" + getIdId() +
+            ", idOrganizzazioneId=" + getIdOrganizzazioneId() +
+            ", idPersonaFisicaId=" + getIdPersonaFisicaId() +
             "}";
     }
 }

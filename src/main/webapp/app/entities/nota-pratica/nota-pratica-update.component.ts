@@ -24,7 +24,7 @@ export class NotaPraticaUpdateComponent implements OnInit {
     data: [],
     nota: [],
     version: [],
-    idPraticaRefId: [],
+    idPraticaId: [],
   });
 
   constructor(
@@ -49,7 +49,7 @@ export class NotaPraticaUpdateComponent implements OnInit {
       data: notaPratica.data,
       nota: notaPratica.nota,
       version: notaPratica.version,
-      idPraticaRefId: notaPratica.idPraticaRefId,
+      idPraticaId: notaPratica.idPraticaId,
     });
   }
 
@@ -75,7 +75,7 @@ export class NotaPraticaUpdateComponent implements OnInit {
       data: this.editForm.get(['data'])!.value,
       nota: this.editForm.get(['nota'])!.value,
       version: this.editForm.get(['version'])!.value,
-      idPraticaRefId: this.editForm.get(['idPraticaRefId'])!.value,
+      idPraticaId: this.editForm.get(['idPraticaId'])!.value,
     };
   }
 

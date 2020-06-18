@@ -5,9 +5,7 @@ export interface IRappresentanzaPratica {
   idRuoloPersona?: number;
   idPersonaRef?: number;
   ruoli?: Ruoli;
-  idPersonaRefId?: number;
-  idRuoloPersonaId?: number;
-  idRuoloPersonaId?: number;
+  idPersonaId?: number;
 }
 
 export class RappresentanzaPratica implements IRappresentanzaPratica {
@@ -16,8 +14,6 @@ export class RappresentanzaPratica implements IRappresentanzaPratica {
     public idRuoloPersona?: number,
     public idPersonaRef?: number,
     public ruoli?: Ruoli,
-    public idPersonaRefId?: number,
-    public idRuoloPersonaId?: number,
-    public idRuoloPersonaId?: number
+    public idPersonaId?: number
   ) {}
 }

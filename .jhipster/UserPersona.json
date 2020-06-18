@@ -15,7 +15,7 @@
       "relationshipType": "many-to-one",
       "otherEntityName": "personaFisica",
       "otherEntityRelationshipName": "userPersona",
-      "relationshipName": "idPersonaRef",
+      "relationshipName": "idPersonaFisica",
       "otherEntityField": "id"
     }
   ],

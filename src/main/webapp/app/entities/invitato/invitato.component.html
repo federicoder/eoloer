@@ -52,8 +52,8 @@
                     <th scope="col" ><span jhiTranslate="eoloprjApp.invitato.dataRispostaInvito">Data Risposta Invito</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.invitato.ruoloInvitato">Ruolo Invitato</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.invitato.indInvitati">Ind Invitati</span></th>
-                    <th scope="col" ><span jhiTranslate="eoloprjApp.invitato.idUserInvitato">Id User Invitato</span></th>
-                    <th scope="col" ><span jhiTranslate="eoloprjApp.invitato.idInvitoRef">Id Invito Ref</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.invitato.idUserPersona">Id User Persona</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.invitato.idInvito">Id Invito</span></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -72,13 +72,13 @@
                     <td>{{ invitato.ruoloInvitato }}</td>
                     <td>{{ invitato.indInvitati }}</td>
                     <td>
-                        <div *ngIf="invitato.idUserInvitatoId">
-                            <a [routerLink]="['/user-persona', invitato.idUserInvitatoId , 'view']" >{{ invitato.idUserInvitatoId }}</a>
+                        <div *ngIf="invitato.idUserPersonaId">
+                            <a [routerLink]="['/user-persona', invitato.idUserPersonaId , 'view']" >{{ invitato.idUserPersonaId }}</a>
                         </div>
                     </td>
                     <td>
-                        <div *ngIf="invitato.idInvitoRefId">
-                            <a [routerLink]="['/invito', invitato.idInvitoRefId , 'view']" >{{ invitato.idInvitoRefId }}</a>
+                        <div *ngIf="invitato.idInvitoId">
+                            <a [routerLink]="['/invito', invitato.idInvitoId , 'view']" >{{ invitato.idInvitoId }}</a>
                         </div>
                     </td>
                     <td class="text-right">

@@ -45,7 +45,7 @@ describe('InvitoPratica e2e test', () => {
 
     await promise.all([
       invitoPraticaUpdatePage.setIdPraticaRefInput('5'),
-      invitoPraticaUpdatePage.idPraticaRefSelectLastOption(),
+      invitoPraticaUpdatePage.idPraticaSelectLastOption(),
       invitoPraticaUpdatePage.idPraticaSelectLastOption(),
     ]);
 

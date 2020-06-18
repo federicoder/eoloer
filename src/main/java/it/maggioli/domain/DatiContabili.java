@@ -32,7 +32,7 @@ public class DatiContabili implements Serializable {
 
     @ManyToOne
     @JsonIgnoreProperties(value = "datiContabilis", allowSetters = true)
-    private Persona idPersonaRef;
+    private Persona idPersona;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -56,17 +56,17 @@ public class DatiContabili implements Serializable {
         this.idPersonaRef = idPersonaRef;
     }
 
-    public Persona getIdPersonaRef() {
-        return idPersonaRef;
+    public Persona getIdPersona() {
+        return idPersona;
     }
 
-    public DatiContabili idPersonaRef(Persona persona) {
-        this.idPersonaRef = persona;
+    public DatiContabili idPersona(Persona persona) {
+        this.idPersona = persona;
         return this;
     }
 
-    public void setIdPersonaRef(Persona persona) {
-        this.idPersonaRef = persona;
+    public void setIdPersona(Persona persona) {
+        this.idPersona = persona;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

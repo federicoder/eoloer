@@ -48,7 +48,7 @@ describe('NotaPratica e2e test', () => {
       notaPraticaUpdatePage.setDataInput('data'),
       notaPraticaUpdatePage.setNotaInput('nota'),
       notaPraticaUpdatePage.setVersionInput('version'),
-      notaPraticaUpdatePage.idPraticaRefSelectLastOption(),
+      notaPraticaUpdatePage.idPraticaSelectLastOption(),
     ]);
 
     expect(await notaPraticaUpdatePage.getIdPraticaRefInput()).to.eq('5', 'Expected idPraticaRef value to be equals to 5');

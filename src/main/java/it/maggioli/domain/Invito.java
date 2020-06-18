@@ -1,6 +1,5 @@
 package it.maggioli.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
@@ -78,22 +77,10 @@ public class Invito implements Serializable {
 
     @OneToOne
     @JoinColumn(unique = true)
-    private StudioProfessionale idStudioProfessionaleRef;
-
-    @OneToOne(mappedBy = "idPraticaRef")
-    @JsonIgnore
-    private InvitoPratica id;
-
-    @OneToOne(mappedBy = "idTaskRef")
-    @JsonIgnore
-    private InvitoAttivita id;
-
-    @OneToOne(mappedBy = "idTaskRef")
-    @JsonIgnore
-    private InvitoEvento id;
+    private StudioProfessionale idStudioProfessionale;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "idUserConcedentes", allowSetters = true)
+    @JsonIgnoreProperties(value = "idInvitos", allowSetters = true)
     private AssegnazioneTask assegnazioneTask;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
@@ -313,56 +300,17 @@ public class Invito implements Serializable {
         this.discriminator = discriminator;
     }
 
-    public StudioProfessionale getIdStudioProfessionaleRef() {
-        return idStudioProfessionaleRef;
+    public StudioProfessionale getIdStudioProfessionale() {
+        return idStudioProfessionale;
     }
 
-    public Invito idStudioProfessionaleRef(StudioProfessionale studioProfessionale) {
-        this.idStudioProfessionaleRef = studioProfessionale;
+    public Invito idStudioProfessionale(StudioProfessionale studioProfessionale) {
+        this.idStudioProfessionale = studioProfessionale;
         return this;
     }
 
-    public void setIdStudioProfessionaleRef(StudioProfessionale studioProfessionale) {
-        this.idStudioProfessionaleRef = studioProfessionale;
-    }
-
-    public InvitoPratica getId() {
-        return id;
-    }
-
-    public Invito id(InvitoPratica invitoPratica) {
-        this.id = invitoPratica;
-        return this;
-    }
-
-    public void setId(InvitoPratica invitoPratica) {
-        this.id = invitoPratica;
-    }
-
-    public InvitoAttivita getId() {
-        return id;
-    }
-
-    public Invito id(InvitoAttivita invitoAttivita) {
-        this.id = invitoAttivita;
-        return this;
-    }
-
-    public void setId(InvitoAttivita invitoAttivita) {
-        this.id = invitoAttivita;
-    }
-
-    public InvitoEvento getId() {
-        return id;
-    }
-
-    public Invito id(InvitoEvento invitoEvento) {
-        this.id = invitoEvento;
-        return this;
-    }
-
-    public void setId(InvitoEvento invitoEvento) {
-        this.id = invitoEvento;
+    public void setIdStudioProfessionale(StudioProfessionale studioProfessionale) {
+        this.idStudioProfessionale = studioProfessionale;
     }
 
     public AssegnazioneTask getAssegnazioneTask() {

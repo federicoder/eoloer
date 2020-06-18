@@ -9,14 +9,15 @@ import org.mapstruct.*;
 /**
  * Mapper for the entity {@link InvitoAttivita} and its DTO {@link InvitoAttivitaDTO}.
  */
-@Mapper(componentModel = "spring", uses = {InvitoMapper.class})
+@Mapper(componentModel = "spring", uses = {TaskMapper.class, InvitoMapper.class})
 public interface InvitoAttivitaMapper extends EntityMapper<InvitoAttivitaDTO, InvitoAttivita> {
 
-    @Mapping(source = "idTaskRef.id", target = "idTaskRefId")
+    @Mapping(source = "idTask.id", target = "idTaskId")
+    @Mapping(source = "idTask.id", target = "idTaskId")
     InvitoAttivitaDTO toDto(InvitoAttivita invitoAttivita);
 
-    @Mapping(source = "idTaskRefId", target = "idTaskRef")
-    @Mapping(target = "idTaskRef", ignore = true)
+    @Mapping(source = "idTaskId", target = "idTask")
+    @Mapping(source = "idTaskId", target = "idTask")
     InvitoAttivita toEntity(InvitoAttivitaDTO invitoAttivitaDTO);
 
     default InvitoAttivita fromId(Long id) {

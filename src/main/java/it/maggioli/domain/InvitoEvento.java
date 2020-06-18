@@ -51,10 +51,10 @@ public class InvitoEvento implements Serializable {
 
     @OneToOne
     @JoinColumn(unique = true)
-    private Invito idTaskRef;
+    private Invito idTask;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "idTaskRefs", allowSetters = true)
+    @JsonIgnoreProperties(value = "idInvitoEventos", allowSetters = true)
     private PrevisioneEvento previsioneEvento;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
@@ -170,17 +170,17 @@ public class InvitoEvento implements Serializable {
         this.urlStanzaVirtuale = urlStanzaVirtuale;
     }
 
-    public Invito getIdTaskRef() {
-        return idTaskRef;
+    public Invito getIdTask() {
+        return idTask;
     }
 
-    public InvitoEvento idTaskRef(Invito invito) {
-        this.idTaskRef = invito;
+    public InvitoEvento idTask(Invito invito) {
+        this.idTask = invito;
         return this;
     }
 
-    public void setIdTaskRef(Invito invito) {
-        this.idTaskRef = invito;
+    public void setIdTask(Invito invito) {
+        this.idTask = invito;
     }
 
     public PrevisioneEvento getPrevisioneEvento() {

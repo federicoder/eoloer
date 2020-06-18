@@ -1,6 +1,5 @@
 package it.maggioli.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
@@ -43,15 +42,7 @@ public class RappresentanzaPratica implements Serializable {
 
     @ManyToOne
     @JsonIgnoreProperties(value = "rappresentanzaPraticas", allowSetters = true)
-    private Persona idPersonaRef;
-
-    @OneToOne(mappedBy = "ruolo")
-    @JsonIgnore
-    private CondivisionePratica idRuoloPersona;
-
-    @OneToOne(mappedBy = "ruolo")
-    @JsonIgnore
-    private AssegnazioneTask idRuoloPersona;
+    private Persona idPersona;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -101,43 +92,17 @@ public class RappresentanzaPratica implements Serializable {
         this.ruoli = ruoli;
     }
 
-    public Persona getIdPersonaRef() {
-        return idPersonaRef;
+    public Persona getIdPersona() {
+        return idPersona;
     }
 
-    public RappresentanzaPratica idPersonaRef(Persona persona) {
-        this.idPersonaRef = persona;
+    public RappresentanzaPratica idPersona(Persona persona) {
+        this.idPersona = persona;
         return this;
     }
 
-    public void setIdPersonaRef(Persona persona) {
-        this.idPersonaRef = persona;
-    }
-
-    public CondivisionePratica getIdRuoloPersona() {
-        return idRuoloPersona;
-    }
-
-    public RappresentanzaPratica idRuoloPersona(CondivisionePratica condivisionePratica) {
-        this.idRuoloPersona = condivisionePratica;
-        return this;
-    }
-
-    public void setIdRuoloPersona(CondivisionePratica condivisionePratica) {
-        this.idRuoloPersona = condivisionePratica;
-    }
-
-    public AssegnazioneTask getIdRuoloPersona() {
-        return idRuoloPersona;
-    }
-
-    public RappresentanzaPratica idRuoloPersona(AssegnazioneTask assegnazioneTask) {
-        this.idRuoloPersona = assegnazioneTask;
-        return this;
-    }
-
-    public void setIdRuoloPersona(AssegnazioneTask assegnazioneTask) {
-        this.idRuoloPersona = assegnazioneTask;
+    public void setIdPersona(Persona persona) {
+        this.idPersona = persona;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

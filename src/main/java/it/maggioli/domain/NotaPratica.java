@@ -41,7 +41,7 @@ public class NotaPratica implements Serializable {
 
     @ManyToOne
     @JsonIgnoreProperties(value = "notaPraticas", allowSetters = true)
-    private Pratica idPraticaRef;
+    private Pratica idPratica;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -104,17 +104,17 @@ public class NotaPratica implements Serializable {
         this.version = version;
     }
 
-    public Pratica getIdPraticaRef() {
-        return idPraticaRef;
+    public Pratica getIdPratica() {
+        return idPratica;
     }
 
-    public NotaPratica idPraticaRef(Pratica pratica) {
-        this.idPraticaRef = pratica;
+    public NotaPratica idPratica(Pratica pratica) {
+        this.idPratica = pratica;
         return this;
     }
 
-    public void setIdPraticaRef(Pratica pratica) {
-        this.idPraticaRef = pratica;
+    public void setIdPratica(Pratica pratica) {
+        this.idPratica = pratica;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

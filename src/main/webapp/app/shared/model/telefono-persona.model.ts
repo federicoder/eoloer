@@ -3,7 +3,7 @@ export interface ITelefonoPersona {
   idPersonaRef?: number;
   etichetta?: number;
   valore?: number;
-  idPersonaRefId?: number;
+  idPersonaId?: number;
 }
 
 export class TelefonoPersona implements ITelefonoPersona {
@@ -12,6 +12,6 @@ export class TelefonoPersona implements ITelefonoPersona {
     public idPersonaRef?: number,
     public etichetta?: number,
     public valore?: number,
-    public idPersonaRefId?: number
+    public idPersonaId?: number
   ) {}
 }

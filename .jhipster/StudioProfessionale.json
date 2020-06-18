@@ -12,15 +12,8 @@
       "relationshipType": "many-to-one",
       "otherEntityName": "persona",
       "otherEntityRelationshipName": "studioProfessionale",
-      "relationshipName": "idUserAmministratore",
+      "relationshipName": "idPersona",
       "otherEntityField": "id"
-    },
-    {
-      "relationshipType": "one-to-one",
-      "otherEntityName": "invito",
-      "otherEntityRelationshipName": "idStudioProfessionaleRef",
-      "relationshipName": "id",
-      "ownerSide": false
     }
   ],
   "changelogDate": "20200617085428",

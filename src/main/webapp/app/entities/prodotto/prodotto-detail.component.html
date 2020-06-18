@@ -20,12 +20,6 @@
                 <dd>
                     <span>{{ prodotto.storage }}</span>
                 </dd>
-                <dt><span jhiTranslate="eoloprjApp.prodotto.id">Id</span></dt>
-                <dd>
-                    <div *ngIf="prodotto.idId">
-                        <a [routerLink]="['/linea-ordine', prodotto.idId, 'view']">{{ prodotto.idId }}</a>
-                    </div>
-                </dd>
             </dl>
 
             <button type="submit"

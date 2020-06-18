@@ -18,7 +18,7 @@ public class OrganizzazioneDTO implements Serializable {
     private String tipo;
 
 
-    private Long idPersonaRefId;
+    private Long idPersonaId;
     
     public Long getId() {
         return id;
@@ -52,12 +52,12 @@ public class OrganizzazioneDTO implements Serializable {
         this.tipo = tipo;
     }
 
-    public Long getIdPersonaRefId() {
-        return idPersonaRefId;
+    public Long getIdPersonaId() {
+        return idPersonaId;
     }
 
-    public void setIdPersonaRefId(Long personaId) {
-        this.idPersonaRefId = personaId;
+    public void setIdPersonaId(Long personaId) {
+        this.idPersonaId = personaId;
     }
 
     @Override
@@ -85,7 +85,7 @@ public class OrganizzazioneDTO implements Serializable {
             ", idPersonaRef=" + getIdPersonaRef() +
             ", nome='" + getNome() + "'" +
             ", tipo='" + getTipo() + "'" +
-            ", idPersonaRefId=" + getIdPersonaRefId() +
+            ", idPersonaId=" + getIdPersonaId() +
             "}";
     }
 }

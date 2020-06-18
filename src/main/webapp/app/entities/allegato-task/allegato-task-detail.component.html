@@ -40,16 +40,16 @@
                 <dd>
                     <span>{{ allegatoTask.idAllegatoMaster }}</span>
                 </dd>
-                <dt><span jhiTranslate="eoloprjApp.allegatoTask.idTipoAllegatoRef">Id Tipo Allegato Ref</span></dt>
+                <dt><span jhiTranslate="eoloprjApp.allegatoTask.idTipoAllegato">Id Tipo Allegato</span></dt>
                 <dd>
-                    <div *ngIf="allegatoTask.idTipoAllegatoRefId">
-                        <a [routerLink]="['/tipo-allegato', allegatoTask.idTipoAllegatoRefId, 'view']">{{ allegatoTask.idTipoAllegatoRefId }}</a>
+                    <div *ngIf="allegatoTask.idTipoAllegatoId">
+                        <a [routerLink]="['/tipo-allegato', allegatoTask.idTipoAllegatoId, 'view']">{{ allegatoTask.idTipoAllegatoId }}</a>
                     </div>
                 </dd>
-                <dt><span jhiTranslate="eoloprjApp.allegatoTask.idTaskRef">Id Task Ref</span></dt>
+                <dt><span jhiTranslate="eoloprjApp.allegatoTask.idTask">Id Task</span></dt>
                 <dd>
-                    <div *ngIf="allegatoTask.idTaskRefId">
-                        <a [routerLink]="['/task', allegatoTask.idTaskRefId, 'view']">{{ allegatoTask.idTaskRefId }}</a>
+                    <div *ngIf="allegatoTask.idTaskId">
+                        <a [routerLink]="['/task', allegatoTask.idTaskId, 'view']">{{ allegatoTask.idTaskId }}</a>
                     </div>
                 </dd>
                 <dt><span jhiTranslate="eoloprjApp.allegatoTask.allegatoTask">Allegato Task</span></dt>

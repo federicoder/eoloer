@@ -1,6 +1,5 @@
 package it.maggioli.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -48,9 +47,9 @@ public class IndirizzoPersona implements Serializable {
     @Column(name = "nazione")
     private String nazione;
 
-    @OneToOne(mappedBy = "id")
-    @JsonIgnore
-    private Persona idPersonaRef;
+    @OneToOne
+    @JoinColumn(unique = true)
+    private Persona idPersona;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -152,17 +151,17 @@ public class IndirizzoPersona implements Serializable {
         this.nazione = nazione;
     }
 
-    public Persona getIdPersonaRef() {
-        return idPersonaRef;
+    public Persona getIdPersona() {
+        return idPersona;
     }
 
-    public IndirizzoPersona idPersonaRef(Persona persona) {
-        this.idPersonaRef = persona;
+    public IndirizzoPersona idPersona(Persona persona) {
+        this.idPersona = persona;
         return this;
     }
 
-    public void setIdPersonaRef(Persona persona) {
-        this.idPersonaRef = persona;
+    public void setIdPersona(Persona persona) {
+        this.idPersona = persona;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

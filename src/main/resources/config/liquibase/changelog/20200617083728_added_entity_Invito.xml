@@ -63,8 +63,8 @@
             <column name="discriminator" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="id_studio_professionale_ref_id" type="bigint">
-                <constraints unique="true" nullable="true" uniqueConstraintName="ux_invito_id_studio_professionale_ref_id" />
+            <column name="id_studio_professionale_id" type="bigint">
+                <constraints unique="true" nullable="true" uniqueConstraintName="ux_invito_id_studio_professionale_id" />
             </column>
             <column name="assegnazione_task_id" type="bigint">
                 <constraints nullable="true" />

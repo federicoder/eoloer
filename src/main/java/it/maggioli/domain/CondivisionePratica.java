@@ -44,19 +44,19 @@ public class CondivisionePratica implements Serializable {
 
     @OneToOne
     @JoinColumn(unique = true)
-    private RappresentanzaPratica ruolo;
+    private RappresentanzaPratica idRuoloPersona;
 
     @OneToOne
     @JoinColumn(unique = true)
-    private Persona idUserConcedente;
+    private Persona idPersona;
 
     @ManyToOne
     @JsonIgnoreProperties(value = "condivisionePraticas", allowSetters = true)
-    private UserPersona idUserAmmesso;
+    private UserPersona idUserPersona;
 
     @ManyToOne
     @JsonIgnoreProperties(value = "condivisionePraticas", allowSetters = true)
-    private Pratica idPraticaRef;
+    private Pratica idPratica;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -132,56 +132,56 @@ public class CondivisionePratica implements Serializable {
         this.idPraticaRef = idPraticaRef;
     }
 
-    public RappresentanzaPratica getRuolo() {
-        return ruolo;
+    public RappresentanzaPratica getIdRuoloPersona() {
+        return idRuoloPersona;
     }
 
-    public CondivisionePratica ruolo(RappresentanzaPratica rappresentanzaPratica) {
-        this.ruolo = rappresentanzaPratica;
+    public CondivisionePratica idRuoloPersona(RappresentanzaPratica rappresentanzaPratica) {
+        this.idRuoloPersona = rappresentanzaPratica;
         return this;
     }
 
-    public void setRuolo(RappresentanzaPratica rappresentanzaPratica) {
-        this.ruolo = rappresentanzaPratica;
+    public void setIdRuoloPersona(RappresentanzaPratica rappresentanzaPratica) {
+        this.idRuoloPersona = rappresentanzaPratica;
     }
 
-    public Persona getIdUserConcedente() {
-        return idUserConcedente;
+    public Persona getIdPersona() {
+        return idPersona;
     }
 
-    public CondivisionePratica idUserConcedente(Persona persona) {
-        this.idUserConcedente = persona;
+    public CondivisionePratica idPersona(Persona persona) {
+        this.idPersona = persona;
         return this;
     }
 
-    public void setIdUserConcedente(Persona persona) {
-        this.idUserConcedente = persona;
+    public void setIdPersona(Persona persona) {
+        this.idPersona = persona;
     }
 
-    public UserPersona getIdUserAmmesso() {
-        return idUserAmmesso;
+    public UserPersona getIdUserPersona() {
+        return idUserPersona;
     }
 
-    public CondivisionePratica idUserAmmesso(UserPersona userPersona) {
-        this.idUserAmmesso = userPersona;
+    public CondivisionePratica idUserPersona(UserPersona userPersona) {
+        this.idUserPersona = userPersona;
         return this;
     }
 
-    public void setIdUserAmmesso(UserPersona userPersona) {
-        this.idUserAmmesso = userPersona;
+    public void setIdUserPersona(UserPersona userPersona) {
+        this.idUserPersona = userPersona;
     }
 
-    public Pratica getIdPraticaRef() {
-        return idPraticaRef;
+    public Pratica getIdPratica() {
+        return idPratica;
     }
 
-    public CondivisionePratica idPraticaRef(Pratica pratica) {
-        this.idPraticaRef = pratica;
+    public CondivisionePratica idPratica(Pratica pratica) {
+        this.idPratica = pratica;
         return this;
     }
 
-    public void setIdPraticaRef(Pratica pratica) {
-        this.idPraticaRef = pratica;
+    public void setIdPratica(Pratica pratica) {
+        this.idPratica = pratica;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

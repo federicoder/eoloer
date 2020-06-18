@@ -26,11 +26,9 @@
       "idCondivisionePraticaRef": "Id Condivisione Pratica Ref",
       "idAssegnazioneTaskRef": "Id Assegnazione Task Ref",
       "idInvitoRef": "Id Invito Ref",
-      "id": "Id",
-      "id": "Id",
-      "id": "Id",
-      "id": "Id",
-      "idPraticaRef": "Id Pratica Ref"
+      "idTask": "Id Task",
+      "idTask": "Id Task",
+      "idPratica": "Id Pratica"
     }
   }
 }

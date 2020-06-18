@@ -28,8 +28,8 @@
       "dataRispostaInvito": "Data Risposta Invito",
       "ruoloInvitato": "Ruolo Invitato",
       "indInvitati": "Ind Invitati",
-      "idUserInvitato": "Id User Invitato",
-      "idInvitoRef": "Id Invito Ref"
+      "idUserPersona": "Id User Persona",
+      "idInvito": "Id Invito"
     }
   }
 }

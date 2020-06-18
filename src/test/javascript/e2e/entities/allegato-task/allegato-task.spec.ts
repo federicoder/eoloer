@@ -52,8 +52,8 @@ describe('AllegatoTask e2e test', () => {
       allegatoTaskUpdatePage.setPubblicoInput('5'),
       allegatoTaskUpdatePage.setVersionInput('version'),
       allegatoTaskUpdatePage.setIdAllegatoMasterInput('5'),
-      allegatoTaskUpdatePage.idTipoAllegatoRefSelectLastOption(),
-      allegatoTaskUpdatePage.idTaskRefSelectLastOption(),
+      allegatoTaskUpdatePage.idTipoAllegatoSelectLastOption(),
+      allegatoTaskUpdatePage.idTaskSelectLastOption(),
       allegatoTaskUpdatePage.allegatoTaskSelectLastOption(),
     ]);
 

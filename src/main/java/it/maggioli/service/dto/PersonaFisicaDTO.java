@@ -28,7 +28,7 @@ public class PersonaFisicaDTO implements Serializable {
     private String professione;
 
 
-    private Long idPersonaRefId;
+    private Long idPersonaId;
     
     public Long getId() {
         return id;
@@ -102,12 +102,12 @@ public class PersonaFisicaDTO implements Serializable {
         this.professione = professione;
     }
 
-    public Long getIdPersonaRefId() {
-        return idPersonaRefId;
+    public Long getIdPersonaId() {
+        return idPersonaId;
     }
 
-    public void setIdPersonaRefId(Long personaId) {
-        this.idPersonaRefId = personaId;
+    public void setIdPersonaId(Long personaId) {
+        this.idPersonaId = personaId;
     }
 
     @Override
@@ -140,7 +140,7 @@ public class PersonaFisicaDTO implements Serializable {
             ", dataDiNascita='" + getDataDiNascita() + "'" +
             ", luogoDiNascita='" + getLuogoDiNascita() + "'" +
             ", professione='" + getProfessione() + "'" +
-            ", idPersonaRefId=" + getIdPersonaRefId() +
+            ", idPersonaId=" + getIdPersonaId() +
             "}";
     }
 }

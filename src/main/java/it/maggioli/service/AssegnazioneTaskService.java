@@ -69,21 +69,6 @@ public class AssegnazioneTaskService {
     }
 
 
-
-    /**
-     *  Get all the assegnazioneTasks where IdTaskRef is {@code null}.
-     *  @return the list of entities.
-     */
-    @Transactional(readOnly = true) 
-    public List<AssegnazioneTaskDTO> findAllWhereIdTaskRefIsNull() {
-        log.debug("Request to get all assegnazioneTasks where IdTaskRef is null");
-        return StreamSupport
-            .stream(assegnazioneTaskRepository.findAll().spliterator(), false)
-            .filter(assegnazioneTask -> assegnazioneTask.getIdTaskRef() == null)
-            .map(assegnazioneTaskMapper::toDto)
-            .collect(Collectors.toCollection(LinkedList::new));
-    }
-
     /**
      * Get one assegnazioneTask by id.
      *

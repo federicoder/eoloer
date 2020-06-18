@@ -12,15 +12,15 @@ import org.mapstruct.*;
 @Mapper(componentModel = "spring", uses = {TemplatePraticaMapper.class})
 public interface TemplateTaskMapper extends EntityMapper<TemplateTaskDTO, TemplateTask> {
 
-    @Mapping(source = "idTemplatePraticaRef.id", target = "idTemplatePraticaRefId")
-    @Mapping(source = "id.id", target = "idId")
+    @Mapping(source = "idTemplatePratica.id", target = "idTemplatePraticaId")
+    @Mapping(source = "idTemplateTask.id", target = "idTemplateTaskId")
     @Mapping(source = "templateTask.id", target = "templateTaskId")
     TemplateTaskDTO toDto(TemplateTask templateTask);
 
-    @Mapping(target = "ids", ignore = true)
-    @Mapping(target = "removeId", ignore = true)
-    @Mapping(source = "idTemplatePraticaRefId", target = "idTemplatePraticaRef")
-    @Mapping(source = "idId", target = "id")
+    @Mapping(target = "idTemplateTasks", ignore = true)
+    @Mapping(target = "removeIdTemplateTask", ignore = true)
+    @Mapping(source = "idTemplatePraticaId", target = "idTemplatePratica")
+    @Mapping(source = "idTemplateTaskId", target = "idTemplateTask")
     @Mapping(source = "templateTaskId", target = "templateTask")
     TemplateTask toEntity(TemplateTaskDTO templateTaskDTO);
 

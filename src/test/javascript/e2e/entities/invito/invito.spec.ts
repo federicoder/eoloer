@@ -57,7 +57,7 @@ describe('Invito e2e test', () => {
       invitoUpdatePage.setOraFineInput('oraFine'),
       invitoUpdatePage.setUrlStanzaVirtualeInput('urlStanzaVirtuale'),
       invitoUpdatePage.setDiscriminatorInput('discriminator'),
-      invitoUpdatePage.idStudioProfessionaleRefSelectLastOption(),
+      invitoUpdatePage.idStudioProfessionaleSelectLastOption(),
       invitoUpdatePage.assegnazioneTaskSelectLastOption(),
     ]);
 

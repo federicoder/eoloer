@@ -57,18 +57,18 @@ public class AllegatoTask implements Serializable {
 
     @OneToMany(mappedBy = "allegatoTask")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<AllegatoTask> ids = new HashSet<>();
+    private Set<AllegatoTask> idAllegatoTasks = new HashSet<>();
 
     @ManyToOne
     @JsonIgnoreProperties(value = "allegatoTasks", allowSetters = true)
-    private TipoAllegato idTipoAllegatoRef;
+    private TipoAllegato idTipoAllegato;
 
     @ManyToOne
     @JsonIgnoreProperties(value = "allegatoTasks", allowSetters = true)
-    private Task idTaskRef;
+    private Task idTask;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "ids", allowSetters = true)
+    @JsonIgnoreProperties(value = "idAllegatoTasks", allowSetters = true)
     private AllegatoTask allegatoTask;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
@@ -184,55 +184,55 @@ public class AllegatoTask implements Serializable {
         this.idAllegatoMaster = idAllegatoMaster;
     }
 
-    public Set<AllegatoTask> getIds() {
-        return ids;
+    public Set<AllegatoTask> getIdAllegatoTasks() {
+        return idAllegatoTasks;
     }
 
-    public AllegatoTask ids(Set<AllegatoTask> allegatoTasks) {
-        this.ids = allegatoTasks;
+    public AllegatoTask idAllegatoTasks(Set<AllegatoTask> allegatoTasks) {
+        this.idAllegatoTasks = allegatoTasks;
         return this;
     }
 
-    public AllegatoTask addId(AllegatoTask allegatoTask) {
-        this.ids.add(allegatoTask);
+    public AllegatoTask addIdAllegatoTask(AllegatoTask allegatoTask) {
+        this.idAllegatoTasks.add(allegatoTask);
         allegatoTask.setAllegatoTask(this);
         return this;
     }
 
-    public AllegatoTask removeId(AllegatoTask allegatoTask) {
-        this.ids.remove(allegatoTask);
+    public AllegatoTask removeIdAllegatoTask(AllegatoTask allegatoTask) {
+        this.idAllegatoTasks.remove(allegatoTask);
         allegatoTask.setAllegatoTask(null);
         return this;
     }
 
-    public void setIds(Set<AllegatoTask> allegatoTasks) {
-        this.ids = allegatoTasks;
+    public void setIdAllegatoTasks(Set<AllegatoTask> allegatoTasks) {
+        this.idAllegatoTasks = allegatoTasks;
     }
 
-    public TipoAllegato getIdTipoAllegatoRef() {
-        return idTipoAllegatoRef;
+    public TipoAllegato getIdTipoAllegato() {
+        return idTipoAllegato;
     }
 
-    public AllegatoTask idTipoAllegatoRef(TipoAllegato tipoAllegato) {
-        this.idTipoAllegatoRef = tipoAllegato;
+    public AllegatoTask idTipoAllegato(TipoAllegato tipoAllegato) {
+        this.idTipoAllegato = tipoAllegato;
         return this;
     }
 
-    public void setIdTipoAllegatoRef(TipoAllegato tipoAllegato) {
-        this.idTipoAllegatoRef = tipoAllegato;
+    public void setIdTipoAllegato(TipoAllegato tipoAllegato) {
+        this.idTipoAllegato = tipoAllegato;
     }
 
-    public Task getIdTaskRef() {
-        return idTaskRef;
+    public Task getIdTask() {
+        return idTask;
     }
 
-    public AllegatoTask idTaskRef(Task task) {
-        this.idTaskRef = task;
+    public AllegatoTask idTask(Task task) {
+        this.idTask = task;
         return this;
     }
 
-    public void setIdTaskRef(Task task) {
-        this.idTaskRef = task;
+    public void setIdTask(Task task) {
+        this.idTask = task;
     }
 
     public AllegatoTask getAllegatoTask() {

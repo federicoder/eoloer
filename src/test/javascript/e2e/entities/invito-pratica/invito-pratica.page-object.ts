@@ -31,7 +31,7 @@ export class InvitoPraticaUpdatePage {
 
   idPraticaRefInput = element(by.id('field_idPraticaRef'));
 
-  idPraticaRefSelect = element(by.id('field_idPraticaRef'));
+  idPraticaSelect = element(by.id('field_idPratica'));
   idPraticaSelect = element(by.id('field_idPratica'));
 
   async getPageTitle(): Promise<string> {
@@ -46,20 +46,20 @@ export class InvitoPraticaUpdatePage {
     return await this.idPraticaRefInput.getAttribute('value');
   }
 
-  async idPraticaRefSelectLastOption(): Promise<void> {
-    await this.idPraticaRefSelect.all(by.tagName('option')).last().click();
+  async idPraticaSelectLastOption(): Promise<void> {
+    await this.idPraticaSelect.all(by.tagName('option')).last().click();
   }
 
-  async idPraticaRefSelectOption(option: string): Promise<void> {
-    await this.idPraticaRefSelect.sendKeys(option);
+  async idPraticaSelectOption(option: string): Promise<void> {
+    await this.idPraticaSelect.sendKeys(option);
   }
 
-  getIdPraticaRefSelect(): ElementFinder {
-    return this.idPraticaRefSelect;
+  getIdPraticaSelect(): ElementFinder {
+    return this.idPraticaSelect;
   }
 
-  async getIdPraticaRefSelectedOption(): Promise<string> {
-    return await this.idPraticaRefSelect.element(by.css('option:checked')).getText();
+  async getIdPraticaSelectedOption(): Promise<string> {
+    return await this.idPraticaSelect.element(by.css('option:checked')).getText();
   }
 
   async idPraticaSelectLastOption(): Promise<void> {

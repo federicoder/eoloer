@@ -60,12 +60,6 @@
                 <dd>
                     <span>{{ persona.tipoRuoloUtente }}</span>
                 </dd>
-                <dt><span jhiTranslate="eoloprjApp.persona.id">Id</span></dt>
-                <dd>
-                    <div *ngIf="persona.idId">
-                        <a [routerLink]="['/indirizzo-persona', persona.idId, 'view']">{{ persona.idId }}</a>
-                    </div>
-                </dd>
             </dl>
 
             <button type="submit"

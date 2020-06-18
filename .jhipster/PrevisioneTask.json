@@ -41,33 +41,12 @@
       "relationshipType": "one-to-many",
       "otherEntityName": "previsioneTask",
       "otherEntityRelationshipName": "previsioneTask",
-      "relationshipName": "idTaskRef"
-    },
-    {
-      "relationshipType": "one-to-one",
-      "otherEntityName": "previsioneAttivita",
-      "otherEntityRelationshipName": "idTaskRef",
-      "relationshipName": "idTaskRef",
-      "ownerSide": false
-    },
-    {
-      "relationshipType": "one-to-one",
-      "otherEntityName": "previsioneEvento",
-      "otherEntityRelationshipName": "idTaskRef",
-      "relationshipName": "idTaskRef",
-      "ownerSide": false
-    },
-    {
-      "relationshipType": "one-to-one",
-      "otherEntityName": "task",
-      "otherEntityRelationshipName": "id",
-      "relationshipName": "idTaskRef",
-      "ownerSide": false
+      "relationshipName": "idPrevisioneTask"
     },
     {
       "relationshipType": "many-to-one",
       "otherEntityName": "previsioneTask",
-      "otherEntityRelationshipName": "idTaskRef",
+      "otherEntityRelationshipName": "idPrevisioneTask",
       "relationshipName": "previsioneTask",
       "otherEntityField": "id"
     }

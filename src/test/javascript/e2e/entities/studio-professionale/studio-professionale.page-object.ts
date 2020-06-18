@@ -31,7 +31,7 @@ export class StudioProfessionaleUpdatePage {
 
   idUserAmministratoreInput = element(by.id('field_idUserAmministratore'));
 
-  idUserAmministratoreSelect = element(by.id('field_idUserAmministratore'));
+  idPersonaSelect = element(by.id('field_idPersona'));
 
   async getPageTitle(): Promise<string> {
     return this.pageTitle.getAttribute('jhiTranslate');
@@ -45,20 +45,20 @@ export class StudioProfessionaleUpdatePage {
     return await this.idUserAmministratoreInput.getAttribute('value');
   }
 
-  async idUserAmministratoreSelectLastOption(): Promise<void> {
-    await this.idUserAmministratoreSelect.all(by.tagName('option')).last().click();
+  async idPersonaSelectLastOption(): Promise<void> {
+    await this.idPersonaSelect.all(by.tagName('option')).last().click();
   }
 
-  async idUserAmministratoreSelectOption(option: string): Promise<void> {
-    await this.idUserAmministratoreSelect.sendKeys(option);
+  async idPersonaSelectOption(option: string): Promise<void> {
+    await this.idPersonaSelect.sendKeys(option);
   }
 
-  getIdUserAmministratoreSelect(): ElementFinder {
-    return this.idUserAmministratoreSelect;
+  getIdPersonaSelect(): ElementFinder {
+    return this.idPersonaSelect;
   }
 
-  async getIdUserAmministratoreSelectedOption(): Promise<string> {
-    return await this.idUserAmministratoreSelect.element(by.css('option:checked')).getText();
+  async getIdPersonaSelectedOption(): Promise<string> {
+    return await this.idPersonaSelect.element(by.css('option:checked')).getText();
   }
 
   async save(): Promise<void> {

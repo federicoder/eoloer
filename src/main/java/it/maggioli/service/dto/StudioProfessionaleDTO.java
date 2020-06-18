@@ -14,7 +14,7 @@ public class StudioProfessionaleDTO implements Serializable {
     private Long idUserAmministratore;
 
 
-    private Long idUserAmministratoreId;
+    private Long idPersonaId;
     
     public Long getId() {
         return id;
@@ -32,12 +32,12 @@ public class StudioProfessionaleDTO implements Serializable {
         this.idUserAmministratore = idUserAmministratore;
     }
 
-    public Long getIdUserAmministratoreId() {
-        return idUserAmministratoreId;
+    public Long getIdPersonaId() {
+        return idPersonaId;
     }
 
-    public void setIdUserAmministratoreId(Long personaId) {
-        this.idUserAmministratoreId = personaId;
+    public void setIdPersonaId(Long personaId) {
+        this.idPersonaId = personaId;
     }
 
     @Override
@@ -63,7 +63,7 @@ public class StudioProfessionaleDTO implements Serializable {
         return "StudioProfessionaleDTO{" +
             "id=" + getId() +
             ", idUserAmministratore=" + getIdUserAmministratore() +
-            ", idUserAmministratoreId=" + getIdUserAmministratoreId() +
+            ", idPersonaId=" + getIdPersonaId() +
             "}";
     }
 }

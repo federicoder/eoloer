@@ -32,15 +32,11 @@ public class TaskDTO implements Serializable {
     private Long idInvitoRef;
 
 
-    private Long idId;
+    private Long idTaskId;
 
-    private Long idId;
+    private Long idTaskId;
 
-    private Long idId;
-
-    private Long idId;
-
-    private Long idPraticaRefId;
+    private Long idPraticaId;
     
     public Long getId() {
         return id;
@@ -122,44 +118,28 @@ public class TaskDTO implements Serializable {
         this.idInvitoRef = idInvitoRef;
     }
 
-    public Long getIdId() {
-        return idId;
+    public Long getIdTaskId() {
+        return idTaskId;
     }
 
-    public void setIdId(Long consuntivoTaskId) {
-        this.idId = consuntivoTaskId;
+    public void setIdTaskId(Long consuntivoTaskId) {
+        this.idTaskId = consuntivoTaskId;
     }
 
-    public Long getIdId() {
-        return idId;
+    public Long getIdTaskId() {
+        return idTaskId;
     }
 
-    public void setIdId(Long previsioneTaskId) {
-        this.idId = previsioneTaskId;
+    public void setIdTaskId(Long previsioneTaskId) {
+        this.idTaskId = previsioneTaskId;
     }
 
-    public Long getIdId() {
-        return idId;
+    public Long getIdPraticaId() {
+        return idPraticaId;
     }
 
-    public void setIdId(Long assegnazioneTaskId) {
-        this.idId = assegnazioneTaskId;
-    }
-
-    public Long getIdId() {
-        return idId;
-    }
-
-    public void setIdId(Long invitoAttivitaId) {
-        this.idId = invitoAttivitaId;
-    }
-
-    public Long getIdPraticaRefId() {
-        return idPraticaRefId;
-    }
-
-    public void setIdPraticaRefId(Long praticaId) {
-        this.idPraticaRefId = praticaId;
+    public void setIdPraticaId(Long praticaId) {
+        this.idPraticaId = praticaId;
     }
 
     @Override
@@ -193,11 +173,9 @@ public class TaskDTO implements Serializable {
             ", idCondivisionePraticaRef=" + getIdCondivisionePraticaRef() +
             ", idAssegnazioneTaskRef=" + getIdAssegnazioneTaskRef() +
             ", idInvitoRef=" + getIdInvitoRef() +
-            ", idId=" + getIdId() +
-            ", idId=" + getIdId() +
-            ", idId=" + getIdId() +
-            ", idId=" + getIdId() +
-            ", idPraticaRefId=" + getIdPraticaRefId() +
+            ", idTaskId=" + getIdTaskId() +
+            ", idTaskId=" + getIdTaskId() +
+            ", idPraticaId=" + getIdPraticaId() +
             "}";
     }
 }

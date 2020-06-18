@@ -35,7 +35,7 @@ export class NotaTaskUpdatePage {
   notaInput = element(by.id('field_nota'));
   versionInput = element(by.id('field_version'));
 
-  idTaskRefSelect = element(by.id('field_idTaskRef'));
+  idTaskSelect = element(by.id('field_idTask'));
 
   async getPageTitle(): Promise<string> {
     return this.pageTitle.getAttribute('jhiTranslate');
@@ -81,20 +81,20 @@ export class NotaTaskUpdatePage {
     return await this.versionInput.getAttribute('value');
   }
 
-  async idTaskRefSelectLastOption(): Promise<void> {
-    await this.idTaskRefSelect.all(by.tagName('option')).last().click();
+  async idTaskSelectLastOption(): Promise<void> {
+    await this.idTaskSelect.all(by.tagName('option')).last().click();
   }
 
-  async idTaskRefSelectOption(option: string): Promise<void> {
-    await this.idTaskRefSelect.sendKeys(option);
+  async idTaskSelectOption(option: string): Promise<void> {
+    await this.idTaskSelect.sendKeys(option);
   }
 
-  getIdTaskRefSelect(): ElementFinder {
-    return this.idTaskRefSelect;
+  getIdTaskSelect(): ElementFinder {
+    return this.idTaskSelect;
   }
 
-  async getIdTaskRefSelectedOption(): Promise<string> {
-    return await this.idTaskRefSelect.element(by.css('option:checked')).getText();
+  async getIdTaskSelectedOption(): Promise<string> {
+    return await this.idTaskSelect.element(by.css('option:checked')).getText();
   }
 
   async save(): Promise<void> {

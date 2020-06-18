@@ -30,7 +30,7 @@ public class InvitoPratica implements Serializable {
 
     @OneToOne
     @JoinColumn(unique = true)
-    private Invito idPraticaRef;
+    private Invito idPratica;
 
     @ManyToOne
     @JsonIgnoreProperties(value = "invitoPraticas", allowSetters = true)
@@ -58,17 +58,17 @@ public class InvitoPratica implements Serializable {
         this.idPraticaRef = idPraticaRef;
     }
 
-    public Invito getIdPraticaRef() {
-        return idPraticaRef;
+    public Invito getIdPratica() {
+        return idPratica;
     }
 
-    public InvitoPratica idPraticaRef(Invito invito) {
-        this.idPraticaRef = invito;
+    public InvitoPratica idPratica(Invito invito) {
+        this.idPratica = invito;
         return this;
     }
 
-    public void setIdPraticaRef(Invito invito) {
-        this.idPraticaRef = invito;
+    public void setIdPratica(Invito invito) {
+        this.idPratica = invito;
     }
 
     public Pratica getIdPratica() {

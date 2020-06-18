@@ -29,11 +29,11 @@ public class RuoloOrganizzazione implements Serializable {
 
     @OneToOne
     @JoinColumn(unique = true)
-    private Organizzazione id;
+    private Organizzazione idOrganizzazione;
 
     @OneToOne
     @JoinColumn(unique = true)
-    private PersonaFisica id;
+    private PersonaFisica idPersonaFisica;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -57,30 +57,30 @@ public class RuoloOrganizzazione implements Serializable {
         this.ruoloInOrg = ruoloInOrg;
     }
 
-    public Organizzazione getId() {
-        return id;
+    public Organizzazione getIdOrganizzazione() {
+        return idOrganizzazione;
     }
 
-    public RuoloOrganizzazione id(Organizzazione organizzazione) {
-        this.id = organizzazione;
+    public RuoloOrganizzazione idOrganizzazione(Organizzazione organizzazione) {
+        this.idOrganizzazione = organizzazione;
         return this;
     }
 
-    public void setId(Organizzazione organizzazione) {
-        this.id = organizzazione;
+    public void setIdOrganizzazione(Organizzazione organizzazione) {
+        this.idOrganizzazione = organizzazione;
     }
 
-    public PersonaFisica getId() {
-        return id;
+    public PersonaFisica getIdPersonaFisica() {
+        return idPersonaFisica;
     }
 
-    public RuoloOrganizzazione id(PersonaFisica personaFisica) {
-        this.id = personaFisica;
+    public RuoloOrganizzazione idPersonaFisica(PersonaFisica personaFisica) {
+        this.idPersonaFisica = personaFisica;
         return this;
     }
 
-    public void setId(PersonaFisica personaFisica) {
-        this.id = personaFisica;
+    public void setIdPersonaFisica(PersonaFisica personaFisica) {
+        this.idPersonaFisica = personaFisica;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

@@ -58,23 +58,15 @@ public class Task implements Serializable {
 
     @OneToOne
     @JoinColumn(unique = true)
-    private ConsuntivoTask id;
+    private ConsuntivoTask idTask;
 
     @OneToOne
     @JoinColumn(unique = true)
-    private PrevisioneTask id;
-
-    @OneToOne
-    @JoinColumn(unique = true)
-    private AssegnazioneTask id;
-
-    @OneToOne
-    @JoinColumn(unique = true)
-    private InvitoAttivita id;
+    private PrevisioneTask idTask;
 
     @ManyToOne
     @JsonIgnoreProperties(value = "tasks", allowSetters = true)
-    private Pratica idPraticaRef;
+    private Pratica idPratica;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -202,69 +194,43 @@ public class Task implements Serializable {
         this.idInvitoRef = idInvitoRef;
     }
 
-    public ConsuntivoTask getId() {
-        return id;
+    public ConsuntivoTask getIdTask() {
+        return idTask;
     }
 
-    public Task id(ConsuntivoTask consuntivoTask) {
-        this.id = consuntivoTask;
+    public Task idTask(ConsuntivoTask consuntivoTask) {
+        this.idTask = consuntivoTask;
         return this;
     }
 
-    public void setId(ConsuntivoTask consuntivoTask) {
-        this.id = consuntivoTask;
+    public void setIdTask(ConsuntivoTask consuntivoTask) {
+        this.idTask = consuntivoTask;
     }
 
-    public PrevisioneTask getId() {
-        return id;
+    public PrevisioneTask getIdTask() {
+        return idTask;
     }
 
-    public Task id(PrevisioneTask previsioneTask) {
-        this.id = previsioneTask;
+    public Task idTask(PrevisioneTask previsioneTask) {
+        this.idTask = previsioneTask;
         return this;
     }
 
-    public void setId(PrevisioneTask previsioneTask) {
-        this.id = previsioneTask;
+    public void setIdTask(PrevisioneTask previsioneTask) {
+        this.idTask = previsioneTask;
     }
 
-    public AssegnazioneTask getId() {
-        return id;
+    public Pratica getIdPratica() {
+        return idPratica;
     }
 
-    public Task id(AssegnazioneTask assegnazioneTask) {
-        this.id = assegnazioneTask;
+    public Task idPratica(Pratica pratica) {
+        this.idPratica = pratica;
         return this;
     }
 
-    public void setId(AssegnazioneTask assegnazioneTask) {
-        this.id = assegnazioneTask;
-    }
-
-    public InvitoAttivita getId() {
-        return id;
-    }
-
-    public Task id(InvitoAttivita invitoAttivita) {
-        this.id = invitoAttivita;
-        return this;
-    }
-
-    public void setId(InvitoAttivita invitoAttivita) {
-        this.id = invitoAttivita;
-    }
-
-    public Pratica getIdPraticaRef() {
-        return idPraticaRef;
-    }
-
-    public Task idPraticaRef(Pratica pratica) {
-        this.idPraticaRef = pratica;
-        return this;
-    }
-
-    public void setIdPraticaRef(Pratica pratica) {
-        this.idPraticaRef = pratica;
+    public void setIdPratica(Pratica pratica) {
+        this.idPratica = pratica;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

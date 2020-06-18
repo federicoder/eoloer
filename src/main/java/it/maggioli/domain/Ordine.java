@@ -44,7 +44,7 @@ public class Ordine implements Serializable {
 
     @ManyToOne
     @JsonIgnoreProperties(value = "ordines", allowSetters = true)
-    private StudioProfessionale idStudioProfessionaleRef;
+    private StudioProfessionale idStudioProfessionale;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -120,17 +120,17 @@ public class Ordine implements Serializable {
         this.totOrdine = totOrdine;
     }
 
-    public StudioProfessionale getIdStudioProfessionaleRef() {
-        return idStudioProfessionaleRef;
+    public StudioProfessionale getIdStudioProfessionale() {
+        return idStudioProfessionale;
     }
 
-    public Ordine idStudioProfessionaleRef(StudioProfessionale studioProfessionale) {
-        this.idStudioProfessionaleRef = studioProfessionale;
+    public Ordine idStudioProfessionale(StudioProfessionale studioProfessionale) {
+        this.idStudioProfessionale = studioProfessionale;
         return this;
     }
 
-    public void setIdStudioProfessionaleRef(StudioProfessionale studioProfessionale) {
-        this.idStudioProfessionaleRef = studioProfessionale;
+    public void setIdStudioProfessionale(StudioProfessionale studioProfessionale) {
+        this.idStudioProfessionale = studioProfessionale;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

@@ -22,22 +22,8 @@
       "relationshipType": "many-to-one",
       "otherEntityName": "persona",
       "otherEntityRelationshipName": "rappresentanzaPratica",
-      "relationshipName": "idPersonaRef",
+      "relationshipName": "idPersona",
       "otherEntityField": "id"
-    },
-    {
-      "relationshipType": "one-to-one",
-      "otherEntityName": "condivisionePratica",
-      "otherEntityRelationshipName": "ruolo",
-      "relationshipName": "idRuoloPersona",
-      "ownerSide": false
-    },
-    {
-      "relationshipType": "one-to-one",
-      "otherEntityName": "assegnazioneTask",
-      "otherEntityRelationshipName": "ruolo",
-      "relationshipName": "idRuoloPersona",
-      "ownerSide": false
     }
   ],
   "changelogDate": "20200617084328",

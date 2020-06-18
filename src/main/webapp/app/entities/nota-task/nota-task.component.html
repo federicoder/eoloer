@@ -46,7 +46,7 @@
                     <th scope="col" ><span jhiTranslate="eoloprjApp.notaTask.data">Data</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.notaTask.nota">Nota</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.notaTask.version">Version</span></th>
-                    <th scope="col" ><span jhiTranslate="eoloprjApp.notaTask.idTaskRef">Id Task Ref</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.notaTask.idTask">Id Task</span></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -59,8 +59,8 @@
                     <td>{{ notaTask.nota }}</td>
                     <td>{{ notaTask.version }}</td>
                     <td>
-                        <div *ngIf="notaTask.idTaskRefId">
-                            <a [routerLink]="['/task', notaTask.idTaskRefId , 'view']" >{{ notaTask.idTaskRefId }}</a>
+                        <div *ngIf="notaTask.idTaskId">
+                            <a [routerLink]="['/task', notaTask.idTaskId , 'view']" >{{ notaTask.idTaskId }}</a>
                         </div>
                     </td>
                     <td class="text-right">

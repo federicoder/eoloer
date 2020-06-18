@@ -69,7 +69,7 @@ public class Pratica implements Serializable {
 
     @ManyToOne
     @JsonIgnoreProperties(value = "praticas", allowSetters = true)
-    private TemplatePratica idTemplatePraticaRef;
+    private TemplatePratica idTemplatePratica;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -249,17 +249,17 @@ public class Pratica implements Serializable {
         this.idTemplatePraticaRef = idTemplatePraticaRef;
     }
 
-    public TemplatePratica getIdTemplatePraticaRef() {
-        return idTemplatePraticaRef;
+    public TemplatePratica getIdTemplatePratica() {
+        return idTemplatePratica;
     }
 
-    public Pratica idTemplatePraticaRef(TemplatePratica templatePratica) {
-        this.idTemplatePraticaRef = templatePratica;
+    public Pratica idTemplatePratica(TemplatePratica templatePratica) {
+        this.idTemplatePratica = templatePratica;
         return this;
     }
 
-    public void setIdTemplatePraticaRef(TemplatePratica templatePratica) {
-        this.idTemplatePraticaRef = templatePratica;
+    public void setIdTemplatePratica(TemplatePratica templatePratica) {
+        this.idTemplatePratica = templatePratica;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

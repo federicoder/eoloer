@@ -21,13 +21,13 @@ type SelectableEntity = IInvito | IPratica;
 })
 export class InvitoPraticaUpdateComponent implements OnInit {
   isSaving = false;
-  idpraticarefs: IInvito[] = [];
+  idpraticas: IInvito[] = [];
   praticas: IPratica[] = [];
 
   editForm = this.fb.group({
     id: [],
     idPraticaRef: [],
-    idPraticaRefId: [],
+    idPraticaId: [],
     idPraticaId: [],
   });
 
@@ -44,24 +44,24 @@ export class InvitoPraticaUpdateComponent implements OnInit {
       this.updateForm(invitoPratica);
 
       this.invitoService
-        .query({ filter: 'id-is-null' })
+        .query({ filter: 'invitopratica-is-null' })
         .pipe(
           map((res: HttpResponse<IInvito[]>) => {
             return res.body || [];
           })
         )
         .subscribe((resBody: IInvito[]) => {
-          if (!invitoPratica.idPraticaRefId) {
-            this.idpraticarefs = resBody;
+          if (!invitoPratica.idPraticaId) {
+            this.idpraticas = resBody;
           } else {
             this.invitoService
-              .find(invitoPratica.idPraticaRefId)
+              .find(invitoPratica.idPraticaId)
               .pipe(
                 map((subRes: HttpResponse<IInvito>) => {
                   return subRes.body ? [subRes.body].concat(resBody) : resBody;
                 })
               )
-              .subscribe((concatRes: IInvito[]) => (this.idpraticarefs = concatRes));
+              .subscribe((concatRes: IInvito[]) => (this.idpraticas = concatRes));
           }
         });
 
@@ -73,7 +73,7 @@ export class InvitoPraticaUpdateComponent implements OnInit {
     this.editForm.patchValue({
       id: invitoPratica.id,
       idPraticaRef: invitoPratica.idPraticaRef,
-      idPraticaRefId: invitoPratica.idPraticaRefId,
+      idPraticaId: invitoPratica.idPraticaId,
       idPraticaId: invitoPratica.idPraticaId,
     });
   }
@@ -97,7 +97,7 @@ export class InvitoPraticaUpdateComponent implements OnInit {
       ...new InvitoPratica(),
       id: this.editForm.get(['id'])!.value,
       idPraticaRef: this.editForm.get(['idPraticaRef'])!.value,
-      idPraticaRefId: this.editForm.get(['idPraticaRefId'])!.value,
+      idPraticaId: this.editForm.get(['idPraticaId'])!.value,
       idPraticaId: this.editForm.get(['idPraticaId'])!.value,
     };
   }

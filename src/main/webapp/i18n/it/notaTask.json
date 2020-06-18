@@ -22,7 +22,7 @@
       "data": "Data",
       "nota": "Nota",
       "version": "Version",
-      "idTaskRef": "Id Task Ref"
+      "idTask": "Id Task"
     }
   }
 }

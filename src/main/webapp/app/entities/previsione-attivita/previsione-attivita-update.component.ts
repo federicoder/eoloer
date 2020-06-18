@@ -17,7 +17,7 @@ import { PrevisioneTaskService } from 'app/entities/previsione-task/previsione-t
 })
 export class PrevisioneAttivitaUpdateComponent implements OnInit {
   isSaving = false;
-  idtaskrefs: IPrevisioneTask[] = [];
+  idprevisioneattivitas: IPrevisioneTask[] = [];
 
   editForm = this.fb.group({
     id: [],
@@ -26,7 +26,7 @@ export class PrevisioneAttivitaUpdateComponent implements OnInit {
     oraPianificata: [],
     dataScadenza: [],
     version: [],
-    idTaskRefId: [],
+    idPrevisioneAttivitaId: [],
   });
 
   constructor(
@@ -41,24 +41,24 @@ export class PrevisioneAttivitaUpdateComponent implements OnInit {
       this.updateForm(previsioneAttivita);
 
       this.previsioneTaskService
-        .query({ filter: 'idtaskref-is-null' })
+        .query({ filter: 'previsioneattivita-is-null' })
         .pipe(
           map((res: HttpResponse<IPrevisioneTask[]>) => {
             return res.body || [];
           })
         )
         .subscribe((resBody: IPrevisioneTask[]) => {
-          if (!previsioneAttivita.idTaskRefId) {
-            this.idtaskrefs = resBody;
+          if (!previsioneAttivita.idPrevisioneAttivitaId) {
+            this.idprevisioneattivitas = resBody;
           } else {
             this.previsioneTaskService
-              .find(previsioneAttivita.idTaskRefId)
+              .find(previsioneAttivita.idPrevisioneAttivitaId)
               .pipe(
                 map((subRes: HttpResponse<IPrevisioneTask>) => {
                   return subRes.body ? [subRes.body].concat(resBody) : resBody;
                 })
               )
-              .subscribe((concatRes: IPrevisioneTask[]) => (this.idtaskrefs = concatRes));
+              .subscribe((concatRes: IPrevisioneTask[]) => (this.idprevisioneattivitas = concatRes));
           }
         });
     });
@@ -72,7 +72,7 @@ export class PrevisioneAttivitaUpdateComponent implements OnInit {
       oraPianificata: previsioneAttivita.oraPianificata,
       dataScadenza: previsioneAttivita.dataScadenza,
       version: previsioneAttivita.version,
-      idTaskRefId: previsioneAttivita.idTaskRefId,
+      idPrevisioneAttivitaId: previsioneAttivita.idPrevisioneAttivitaId,
     });
   }
 
@@ -99,7 +99,7 @@ export class PrevisioneAttivitaUpdateComponent implements OnInit {
       oraPianificata: this.editForm.get(['oraPianificata'])!.value,
       dataScadenza: this.editForm.get(['dataScadenza'])!.value,
       version: this.editForm.get(['version'])!.value,
-      idTaskRefId: this.editForm.get(['idTaskRefId'])!.value,
+      idPrevisioneAttivitaId: this.editForm.get(['idPrevisioneAttivitaId'])!.value,
     };
   }
 

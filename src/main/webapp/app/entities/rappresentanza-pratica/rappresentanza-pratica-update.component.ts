@@ -23,7 +23,7 @@ export class RappresentanzaPraticaUpdateComponent implements OnInit {
     idRuoloPersona: [null, [Validators.required]],
     idPersonaRef: [null, [Validators.required]],
     ruoli: [],
-    idPersonaRefId: [],
+    idPersonaId: [],
   });
 
   constructor(
@@ -47,7 +47,7 @@ export class RappresentanzaPraticaUpdateComponent implements OnInit {
       idRuoloPersona: rappresentanzaPratica.idRuoloPersona,
       idPersonaRef: rappresentanzaPratica.idPersonaRef,
       ruoli: rappresentanzaPratica.ruoli,
-      idPersonaRefId: rappresentanzaPratica.idPersonaRefId,
+      idPersonaId: rappresentanzaPratica.idPersonaId,
     });
   }
 
@@ -72,7 +72,7 @@ export class RappresentanzaPraticaUpdateComponent implements OnInit {
       idRuoloPersona: this.editForm.get(['idRuoloPersona'])!.value,
       idPersonaRef: this.editForm.get(['idPersonaRef'])!.value,
       ruoli: this.editForm.get(['ruoli'])!.value,
-      idPersonaRefId: this.editForm.get(['idPersonaRefId'])!.value,
+      idPersonaId: this.editForm.get(['idPersonaId'])!.value,
     };
   }
 

@@ -69,51 +69,6 @@ public class PersonaService {
     }
 
 
-
-    /**
-     *  Get all the personas where Id is {@code null}.
-     *  @return the list of entities.
-     */
-    @Transactional(readOnly = true) 
-    public List<PersonaDTO> findAllWhereIdIsNull() {
-        log.debug("Request to get all personas where Id is null");
-        return StreamSupport
-            .stream(personaRepository.findAll().spliterator(), false)
-            .filter(persona -> persona.getId() == null)
-            .map(personaMapper::toDto)
-            .collect(Collectors.toCollection(LinkedList::new));
-    }
-
-
-    /**
-     *  Get all the personas where Id is {@code null}.
-     *  @return the list of entities.
-     */
-    @Transactional(readOnly = true) 
-    public List<PersonaDTO> findAllWhereIdIsNull() {
-        log.debug("Request to get all personas where Id is null");
-        return StreamSupport
-            .stream(personaRepository.findAll().spliterator(), false)
-            .filter(persona -> persona.getId() == null)
-            .map(personaMapper::toDto)
-            .collect(Collectors.toCollection(LinkedList::new));
-    }
-
-
-    /**
-     *  Get all the personas where Id is {@code null}.
-     *  @return the list of entities.
-     */
-    @Transactional(readOnly = true) 
-    public List<PersonaDTO> findAllWhereIdIsNull() {
-        log.debug("Request to get all personas where Id is null");
-        return StreamSupport
-            .stream(personaRepository.findAll().spliterator(), false)
-            .filter(persona -> persona.getId() == null)
-            .map(personaMapper::toDto)
-            .collect(Collectors.toCollection(LinkedList::new));
-    }
-
     /**
      * Get one persona by id.
      *
