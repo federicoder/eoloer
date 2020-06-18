@@ -1,9 +1,9 @@
 version: '2'
 services:
-  eoloprj-elasticsearch:
+  eolo-elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:6.8.8
     # volumes:
-    #     - ~/volumes/jhipster/eoloprj/elasticsearch/:/usr/share/elasticsearch/data/
+    #     - ~/volumes/jhipster/eolo/elasticsearch/:/usr/share/elasticsearch/data/
     ports:
       - 9200:9200
       - 9300:9300
