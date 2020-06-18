@@ -84,15 +84,10 @@ public class StudioProfessionaleResource {
     /**
      * {@code GET  /studio-professionales} : get all the studioProfessionales.
      *
-     * @param filter the filter of the request.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of studioProfessionales in body.
      */
     @GetMapping("/studio-professionales")
-    public List<StudioProfessionaleDTO> getAllStudioProfessionales(@RequestParam(required = false) String filter) {
-        if ("id-is-null".equals(filter)) {
-            log.debug("REST request to get all StudioProfessionales where id is null");
-            return studioProfessionaleService.findAllWhereIdIsNull();
-        }
+    public List<StudioProfessionaleDTO> getAllStudioProfessionales() {
         log.debug("REST request to get all StudioProfessionales");
         return studioProfessionaleService.findAll();
     }

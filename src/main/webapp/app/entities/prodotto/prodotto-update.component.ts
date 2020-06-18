@@ -4,12 +4,9 @@ import { HttpResponse } from '@angular/common/http';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 
 import { IProdotto, Prodotto } from 'app/shared/model/prodotto.model';
 import { ProdottoService } from './prodotto.service';
-import { ILineaOrdine } from 'app/shared/model/linea-ordine.model';
-import { LineaOrdineService } from 'app/entities/linea-ordine/linea-ordine.service';
 
 @Component({
   selector: 'jhi-prodotto-update',
@@ -17,48 +14,19 @@ import { LineaOrdineService } from 'app/entities/linea-ordine/linea-ordine.servi
 })
 export class ProdottoUpdateComponent implements OnInit {
   isSaving = false;
-  ids: ILineaOrdine[] = [];
 
   editForm = this.fb.group({
     id: [],
     nuovaLicenza: [],
     rinnovoLicenza: [],
     storage: [],
-    idId: [],
   });
 
-  constructor(
-    protected prodottoService: ProdottoService,
-    protected lineaOrdineService: LineaOrdineService,
-    protected activatedRoute: ActivatedRoute,
-    private fb: FormBuilder
-  ) {}
+  constructor(protected prodottoService: ProdottoService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder) {}
 
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(({ prodotto }) => {
       this.updateForm(prodotto);
-
-      this.lineaOrdineService
-        .query({ filter: 'idprodottoref-is-null' })
-        .pipe(
-          map((res: HttpResponse<ILineaOrdine[]>) => {
-            return res.body || [];
-          })
-        )
-        .subscribe((resBody: ILineaOrdine[]) => {
-          if (!prodotto.idId) {
-            this.ids = resBody;
-          } else {
-            this.lineaOrdineService
-              .find(prodotto.idId)
-              .pipe(
-                map((subRes: HttpResponse<ILineaOrdine>) => {
-                  return subRes.body ? [subRes.body].concat(resBody) : resBody;
-                })
-              )
-              .subscribe((concatRes: ILineaOrdine[]) => (this.ids = concatRes));
-          }
-        });
     });
   }
 
@@ -68,7 +36,6 @@ export class ProdottoUpdateComponent implements OnInit {
       nuovaLicenza: prodotto.nuovaLicenza,
       rinnovoLicenza: prodotto.rinnovoLicenza,
       storage: prodotto.storage,
-      idId: prodotto.idId,
     });
   }
 
@@ -93,7 +60,6 @@ export class ProdottoUpdateComponent implements OnInit {
       nuovaLicenza: this.editForm.get(['nuovaLicenza'])!.value,
       rinnovoLicenza: this.editForm.get(['rinnovoLicenza'])!.value,
       storage: this.editForm.get(['storage'])!.value,
-      idId: this.editForm.get(['idId'])!.value,
     };
   }
 
@@ -111,9 +77,5 @@ export class ProdottoUpdateComponent implements OnInit {
 
   protected onSaveError(): void {
     this.isSaving = false;
-  }
-
-  trackById(index: number, item: ILineaOrdine): any {
-    return item.id;
   }
 }

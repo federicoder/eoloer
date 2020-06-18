@@ -50,7 +50,7 @@ describe('PrevisioneEvento e2e test', () => {
       previsioneEventoUpdatePage.setLuogoInput('luogo'),
       previsioneEventoUpdatePage.setIndicazioniLuogoInput('indicazioniLuogo'),
       previsioneEventoUpdatePage.setVersionInput('version'),
-      previsioneEventoUpdatePage.idTaskRefSelectLastOption(),
+      previsioneEventoUpdatePage.idPrevisioneEventoSelectLastOption(),
     ]);
 
     expect(await previsioneEventoUpdatePage.getIdTaskRefInput()).to.eq('5', 'Expected idTaskRef value to be equals to 5');

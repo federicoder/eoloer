@@ -18,10 +18,10 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="eoloprjApp.invitoPratica.idPraticaRef" for="field_idPraticaRef">Id Pratica Ref</label>
-                    <select class="form-control" id="field_idPraticaRef" name="idPraticaRef" formControlName="idPraticaRefId">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.invitoPratica.idPratica" for="field_idPratica">Id Pratica</label>
+                    <select class="form-control" id="field_idPratica" name="idPratica" formControlName="idPraticaId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="invitoOption.id" *ngFor="let invitoOption of idpraticarefs; trackBy: trackById">{{ invitoOption.id }}</option>
+                        <option [ngValue]="invitoOption.id" *ngFor="let invitoOption of idpraticas; trackBy: trackById">{{ invitoOption.id }}</option>
                     </select>
                 </div>
 

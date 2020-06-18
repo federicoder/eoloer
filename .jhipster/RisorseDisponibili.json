@@ -24,7 +24,7 @@
       "relationshipType": "many-to-one",
       "otherEntityName": "studioProfessionale",
       "otherEntityRelationshipName": "risorseDisponibili",
-      "relationshipName": "idStudioProfessionaleRef",
+      "relationshipName": "idStudioProfessionale",
       "otherEntityField": "id"
     }
   ],

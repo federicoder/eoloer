@@ -21,14 +21,14 @@ type SelectableEntity = IOrganizzazione | IPersonaFisica;
 })
 export class RuoloOrganizzazioneUpdateComponent implements OnInit {
   isSaving = false;
-  ids: IOrganizzazione[] = [];
-  ids: IPersonaFisica[] = [];
+  idorganizzaziones: IOrganizzazione[] = [];
+  idpersonafisicas: IPersonaFisica[] = [];
 
   editForm = this.fb.group({
     id: [],
     ruoloInOrg: [],
-    idId: [],
-    idId: [],
+    idOrganizzazioneId: [],
+    idPersonaFisicaId: [],
   });
 
   constructor(
@@ -44,46 +44,46 @@ export class RuoloOrganizzazioneUpdateComponent implements OnInit {
       this.updateForm(ruoloOrganizzazione);
 
       this.organizzazioneService
-        .query({ filter: 'id-is-null' })
+        .query({ filter: 'ruoloorganizzazione-is-null' })
         .pipe(
           map((res: HttpResponse<IOrganizzazione[]>) => {
             return res.body || [];
           })
         )
         .subscribe((resBody: IOrganizzazione[]) => {
-          if (!ruoloOrganizzazione.idId) {
-            this.ids = resBody;
+          if (!ruoloOrganizzazione.idOrganizzazioneId) {
+            this.idorganizzaziones = resBody;
           } else {
             this.organizzazioneService
-              .find(ruoloOrganizzazione.idId)
+              .find(ruoloOrganizzazione.idOrganizzazioneId)
               .pipe(
                 map((subRes: HttpResponse<IOrganizzazione>) => {
                   return subRes.body ? [subRes.body].concat(resBody) : resBody;
                 })
               )
-              .subscribe((concatRes: IOrganizzazione[]) => (this.ids = concatRes));
+              .subscribe((concatRes: IOrganizzazione[]) => (this.idorganizzaziones = concatRes));
           }
         });
 
       this.personaFisicaService
-        .query({ filter: 'idruolopersona-is-null' })
+        .query({ filter: 'ruoloorganizzazione-is-null' })
         .pipe(
           map((res: HttpResponse<IPersonaFisica[]>) => {
             return res.body || [];
           })
         )
         .subscribe((resBody: IPersonaFisica[]) => {
-          if (!ruoloOrganizzazione.idId) {
-            this.ids = resBody;
+          if (!ruoloOrganizzazione.idPersonaFisicaId) {
+            this.idpersonafisicas = resBody;
           } else {
             this.personaFisicaService
-              .find(ruoloOrganizzazione.idId)
+              .find(ruoloOrganizzazione.idPersonaFisicaId)
               .pipe(
                 map((subRes: HttpResponse<IPersonaFisica>) => {
                   return subRes.body ? [subRes.body].concat(resBody) : resBody;
                 })
               )
-              .subscribe((concatRes: IPersonaFisica[]) => (this.ids = concatRes));
+              .subscribe((concatRes: IPersonaFisica[]) => (this.idpersonafisicas = concatRes));
           }
         });
     });
@@ -93,8 +93,8 @@ export class RuoloOrganizzazioneUpdateComponent implements OnInit {
     this.editForm.patchValue({
       id: ruoloOrganizzazione.id,
       ruoloInOrg: ruoloOrganizzazione.ruoloInOrg,
-      idId: ruoloOrganizzazione.idId,
-      idId: ruoloOrganizzazione.idId,
+      idOrganizzazioneId: ruoloOrganizzazione.idOrganizzazioneId,
+      idPersonaFisicaId: ruoloOrganizzazione.idPersonaFisicaId,
     });
   }
 
@@ -117,8 +117,8 @@ export class RuoloOrganizzazioneUpdateComponent implements OnInit {
       ...new RuoloOrganizzazione(),
       id: this.editForm.get(['id'])!.value,
       ruoloInOrg: this.editForm.get(['ruoloInOrg'])!.value,
-      idId: this.editForm.get(['idId'])!.value,
-      idId: this.editForm.get(['idId'])!.value,
+      idOrganizzazioneId: this.editForm.get(['idOrganizzazioneId'])!.value,
+      idPersonaFisicaId: this.editForm.get(['idPersonaFisicaId'])!.value,
     };
   }
 

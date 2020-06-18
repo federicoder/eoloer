@@ -5,7 +5,7 @@ export interface IOrdine {
   totImponibile?: number;
   totIva?: number;
   totOrdine?: number;
-  idStudioProfessionaleRefId?: number;
+  idStudioProfessionaleId?: number;
 }
 
 export class Ordine implements IOrdine {
@@ -16,6 +16,6 @@ export class Ordine implements IOrdine {
     public totImponibile?: number,
     public totIva?: number,
     public totOrdine?: number,
-    public idStudioProfessionaleRefId?: number
+    public idStudioProfessionaleId?: number
   ) {}
 }

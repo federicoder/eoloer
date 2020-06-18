@@ -8,15 +8,21 @@
     -->
     <changeSet id="20200617083628-2" author="jhipster">
         
-        <addForeignKeyConstraint baseColumnNames="ruolo_id"
+        <addForeignKeyConstraint baseColumnNames="id_task_id"
                                  baseTableName="assegnazione_task"
-                                 constraintName="fk_assegnazione_task_ruolo_id"
+                                 constraintName="fk_assegnazione_task_id_task_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="task"/>
+
+        <addForeignKeyConstraint baseColumnNames="id_ruolo_persona_id"
+                                 baseTableName="assegnazione_task"
+                                 constraintName="fk_assegnazione_task_id_ruolo_persona_id"
                                  referencedColumnNames="id"
                                  referencedTableName="rappresentanza_pratica"/>
 
-        <addForeignKeyConstraint baseColumnNames="id_user_ammesso_id"
+        <addForeignKeyConstraint baseColumnNames="id_persona_id"
                                  baseTableName="assegnazione_task"
-                                 constraintName="fk_assegnazione_task_id_user_ammesso_id"
+                                 constraintName="fk_assegnazione_task_id_persona_id"
                                  referencedColumnNames="id"
                                  referencedTableName="user_persona"/>
 

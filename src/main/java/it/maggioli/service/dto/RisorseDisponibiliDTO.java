@@ -20,7 +20,7 @@ public class RisorseDisponibiliDTO implements Serializable {
     private Long storageTotale;
 
 
-    private Long idStudioProfessionaleRefId;
+    private Long idStudioProfessionaleId;
     
     public Long getId() {
         return id;
@@ -62,12 +62,12 @@ public class RisorseDisponibiliDTO implements Serializable {
         this.storageTotale = storageTotale;
     }
 
-    public Long getIdStudioProfessionaleRefId() {
-        return idStudioProfessionaleRefId;
+    public Long getIdStudioProfessionaleId() {
+        return idStudioProfessionaleId;
     }
 
-    public void setIdStudioProfessionaleRefId(Long studioProfessionaleId) {
-        this.idStudioProfessionaleRefId = studioProfessionaleId;
+    public void setIdStudioProfessionaleId(Long studioProfessionaleId) {
+        this.idStudioProfessionaleId = studioProfessionaleId;
     }
 
     @Override
@@ -96,7 +96,7 @@ public class RisorseDisponibiliDTO implements Serializable {
             ", dataAttivazioneLicenza='" + getDataAttivazioneLicenza() + "'" +
             ", nrLicenza=" + getNrLicenza() +
             ", storageTotale=" + getStorageTotale() +
-            ", idStudioProfessionaleRefId=" + getIdStudioProfessionaleRefId() +
+            ", idStudioProfessionaleId=" + getIdStudioProfessionaleId() +
             "}";
     }
 }

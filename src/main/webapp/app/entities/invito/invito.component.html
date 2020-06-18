@@ -57,7 +57,7 @@
                     <th scope="col" ><span jhiTranslate="eoloprjApp.invito.oraFine">Ora Fine</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.invito.urlStanzaVirtuale">Url Stanza Virtuale</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.invito.discriminator">Discriminator</span></th>
-                    <th scope="col" ><span jhiTranslate="eoloprjApp.invito.idStudioProfessionaleRef">Id Studio Professionale Ref</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.invito.idStudioProfessionale">Id Studio Professionale</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.invito.assegnazioneTask">Assegnazione Task</span></th>
                     <th scope="col"></th>
                 </tr>
@@ -82,8 +82,8 @@
                     <td>{{ invito.urlStanzaVirtuale }}</td>
                     <td>{{ invito.discriminator }}</td>
                     <td>
-                        <div *ngIf="invito.idStudioProfessionaleRefId">
-                            <a [routerLink]="['/studio-professionale', invito.idStudioProfessionaleRefId , 'view']" >{{ invito.idStudioProfessionaleRefId }}</a>
+                        <div *ngIf="invito.idStudioProfessionaleId">
+                            <a [routerLink]="['/studio-professionale', invito.idStudioProfessionaleId , 'view']" >{{ invito.idStudioProfessionaleId }}</a>
                         </div>
                     </td>
                     <td>

@@ -25,8 +25,8 @@ type SelectableEntity = IRappresentanzaPratica | IPersona | IUserPersona | IPrat
 })
 export class CondivisionePraticaUpdateComponent implements OnInit {
   isSaving = false;
-  ruolos: IRappresentanzaPratica[] = [];
-  iduserconcedentes: IPersona[] = [];
+  idruolopersonas: IRappresentanzaPratica[] = [];
+  idpersonas: IPersona[] = [];
   userpersonas: IUserPersona[] = [];
   praticas: IPratica[] = [];
 
@@ -37,10 +37,10 @@ export class CondivisionePraticaUpdateComponent implements OnInit {
     idUserConcedente: [],
     statoInvito: [],
     idPraticaRef: [],
-    ruoloId: [],
-    idUserConcedenteId: [],
-    idUserAmmessoId: [],
-    idPraticaRefId: [],
+    idRuoloPersonaId: [],
+    idPersonaId: [],
+    idUserPersonaId: [],
+    idPraticaId: [],
   });
 
   constructor(
@@ -58,46 +58,46 @@ export class CondivisionePraticaUpdateComponent implements OnInit {
       this.updateForm(condivisionePratica);
 
       this.rappresentanzaPraticaService
-        .query({ filter: 'idruolopersona-is-null' })
+        .query({ filter: 'condivisionepratica-is-null' })
         .pipe(
           map((res: HttpResponse<IRappresentanzaPratica[]>) => {
             return res.body || [];
           })
         )
         .subscribe((resBody: IRappresentanzaPratica[]) => {
-          if (!condivisionePratica.ruoloId) {
-            this.ruolos = resBody;
+          if (!condivisionePratica.idRuoloPersonaId) {
+            this.idruolopersonas = resBody;
           } else {
             this.rappresentanzaPraticaService
-              .find(condivisionePratica.ruoloId)
+              .find(condivisionePratica.idRuoloPersonaId)
               .pipe(
                 map((subRes: HttpResponse<IRappresentanzaPratica>) => {
                   return subRes.body ? [subRes.body].concat(resBody) : resBody;
                 })
               )
-              .subscribe((concatRes: IRappresentanzaPratica[]) => (this.ruolos = concatRes));
+              .subscribe((concatRes: IRappresentanzaPratica[]) => (this.idruolopersonas = concatRes));
           }
         });
 
       this.personaService
-        .query({ filter: 'id-is-null' })
+        .query({ filter: 'condivisionepratica-is-null' })
         .pipe(
           map((res: HttpResponse<IPersona[]>) => {
             return res.body || [];
           })
         )
         .subscribe((resBody: IPersona[]) => {
-          if (!condivisionePratica.idUserConcedenteId) {
-            this.iduserconcedentes = resBody;
+          if (!condivisionePratica.idPersonaId) {
+            this.idpersonas = resBody;
           } else {
             this.personaService
-              .find(condivisionePratica.idUserConcedenteId)
+              .find(condivisionePratica.idPersonaId)
               .pipe(
                 map((subRes: HttpResponse<IPersona>) => {
                   return subRes.body ? [subRes.body].concat(resBody) : resBody;
                 })
               )
-              .subscribe((concatRes: IPersona[]) => (this.iduserconcedentes = concatRes));
+              .subscribe((concatRes: IPersona[]) => (this.idpersonas = concatRes));
           }
         });
 
@@ -115,10 +115,10 @@ export class CondivisionePraticaUpdateComponent implements OnInit {
       idUserConcedente: condivisionePratica.idUserConcedente,
       statoInvito: condivisionePratica.statoInvito,
       idPraticaRef: condivisionePratica.idPraticaRef,
-      ruoloId: condivisionePratica.ruoloId,
-      idUserConcedenteId: condivisionePratica.idUserConcedenteId,
-      idUserAmmessoId: condivisionePratica.idUserAmmessoId,
-      idPraticaRefId: condivisionePratica.idPraticaRefId,
+      idRuoloPersonaId: condivisionePratica.idRuoloPersonaId,
+      idPersonaId: condivisionePratica.idPersonaId,
+      idUserPersonaId: condivisionePratica.idUserPersonaId,
+      idPraticaId: condivisionePratica.idPraticaId,
     });
   }
 
@@ -145,10 +145,10 @@ export class CondivisionePraticaUpdateComponent implements OnInit {
       idUserConcedente: this.editForm.get(['idUserConcedente'])!.value,
       statoInvito: this.editForm.get(['statoInvito'])!.value,
       idPraticaRef: this.editForm.get(['idPraticaRef'])!.value,
-      ruoloId: this.editForm.get(['ruoloId'])!.value,
-      idUserConcedenteId: this.editForm.get(['idUserConcedenteId'])!.value,
-      idUserAmmessoId: this.editForm.get(['idUserAmmessoId'])!.value,
-      idPraticaRefId: this.editForm.get(['idPraticaRefId'])!.value,
+      idRuoloPersonaId: this.editForm.get(['idRuoloPersonaId'])!.value,
+      idPersonaId: this.editForm.get(['idPersonaId'])!.value,
+      idUserPersonaId: this.editForm.get(['idUserPersonaId'])!.value,
+      idPraticaId: this.editForm.get(['idPraticaId'])!.value,
     };
   }
 

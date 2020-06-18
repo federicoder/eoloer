@@ -1,6 +1,5 @@
 package it.maggioli.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
@@ -56,22 +55,10 @@ public class PrevisioneTask implements Serializable {
 
     @OneToMany(mappedBy = "previsioneTask")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<PrevisioneTask> idTaskRefs = new HashSet<>();
-
-    @OneToOne(mappedBy = "idTaskRef")
-    @JsonIgnore
-    private PrevisioneAttivita idTaskRef;
-
-    @OneToOne(mappedBy = "idTaskRef")
-    @JsonIgnore
-    private PrevisioneEvento idTaskRef;
-
-    @OneToOne(mappedBy = "id")
-    @JsonIgnore
-    private Task idTaskRef;
+    private Set<PrevisioneTask> idPrevisioneTasks = new HashSet<>();
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "idTaskRefs", allowSetters = true)
+    @JsonIgnoreProperties(value = "idPrevisioneTasks", allowSetters = true)
     private PrevisioneTask previsioneTask;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
@@ -174,68 +161,29 @@ public class PrevisioneTask implements Serializable {
         this.version = version;
     }
 
-    public Set<PrevisioneTask> getIdTaskRefs() {
-        return idTaskRefs;
+    public Set<PrevisioneTask> getIdPrevisioneTasks() {
+        return idPrevisioneTasks;
     }
 
-    public PrevisioneTask idTaskRefs(Set<PrevisioneTask> previsioneTasks) {
-        this.idTaskRefs = previsioneTasks;
+    public PrevisioneTask idPrevisioneTasks(Set<PrevisioneTask> previsioneTasks) {
+        this.idPrevisioneTasks = previsioneTasks;
         return this;
     }
 
-    public PrevisioneTask addIdTaskRef(PrevisioneTask previsioneTask) {
-        this.idTaskRefs.add(previsioneTask);
+    public PrevisioneTask addIdPrevisioneTask(PrevisioneTask previsioneTask) {
+        this.idPrevisioneTasks.add(previsioneTask);
         previsioneTask.setPrevisioneTask(this);
         return this;
     }
 
-    public PrevisioneTask removeIdTaskRef(PrevisioneTask previsioneTask) {
-        this.idTaskRefs.remove(previsioneTask);
+    public PrevisioneTask removeIdPrevisioneTask(PrevisioneTask previsioneTask) {
+        this.idPrevisioneTasks.remove(previsioneTask);
         previsioneTask.setPrevisioneTask(null);
         return this;
     }
 
-    public void setIdTaskRefs(Set<PrevisioneTask> previsioneTasks) {
-        this.idTaskRefs = previsioneTasks;
-    }
-
-    public PrevisioneAttivita getIdTaskRef() {
-        return idTaskRef;
-    }
-
-    public PrevisioneTask idTaskRef(PrevisioneAttivita previsioneAttivita) {
-        this.idTaskRef = previsioneAttivita;
-        return this;
-    }
-
-    public void setIdTaskRef(PrevisioneAttivita previsioneAttivita) {
-        this.idTaskRef = previsioneAttivita;
-    }
-
-    public PrevisioneEvento getIdTaskRef() {
-        return idTaskRef;
-    }
-
-    public PrevisioneTask idTaskRef(PrevisioneEvento previsioneEvento) {
-        this.idTaskRef = previsioneEvento;
-        return this;
-    }
-
-    public void setIdTaskRef(PrevisioneEvento previsioneEvento) {
-        this.idTaskRef = previsioneEvento;
-    }
-
-    public Task getIdTaskRef() {
-        return idTaskRef;
-    }
-
-    public PrevisioneTask idTaskRef(Task task) {
-        this.idTaskRef = task;
-        return this;
-    }
-
-    public void setIdTaskRef(Task task) {
-        this.idTaskRef = task;
+    public void setIdPrevisioneTasks(Set<PrevisioneTask> previsioneTasks) {
+        this.idPrevisioneTasks = previsioneTasks;
     }
 
     public PrevisioneTask getPrevisioneTask() {

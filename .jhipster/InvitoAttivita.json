@@ -9,18 +9,19 @@
   "relationships": [
     {
       "relationshipType": "one-to-one",
-      "otherEntityName": "invito",
-      "otherEntityRelationshipName": "id",
-      "relationshipName": "idTaskRef",
+      "otherEntityName": "task",
+      "otherEntityRelationshipName": "invitoAttivita",
+      "relationshipName": "idTask",
       "otherEntityField": "id",
       "ownerSide": true
     },
     {
       "relationshipType": "one-to-one",
-      "otherEntityName": "task",
-      "otherEntityRelationshipName": "id",
-      "relationshipName": "idTaskRef",
-      "ownerSide": false
+      "otherEntityName": "invito",
+      "otherEntityRelationshipName": "invitoAttivita",
+      "relationshipName": "idTask",
+      "otherEntityField": "id",
+      "ownerSide": true
     }
   ],
   "changelogDate": "20200617084128",

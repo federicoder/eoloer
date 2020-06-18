@@ -12,7 +12,7 @@
       "relationshipType": "many-to-one",
       "otherEntityName": "persona",
       "otherEntityRelationshipName": "datiContabili",
-      "relationshipName": "idPersonaRef",
+      "relationshipName": "idPersona",
       "otherEntityField": "id"
     }
   ],

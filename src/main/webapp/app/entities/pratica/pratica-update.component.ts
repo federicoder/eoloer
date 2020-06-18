@@ -33,7 +33,7 @@ export class PraticaUpdateComponent implements OnInit {
     version: [],
     valuta: [],
     idTemplatePraticaRef: [],
-    idTemplatePraticaRefId: [],
+    idTemplatePraticaId: [],
   });
 
   constructor(
@@ -67,7 +67,7 @@ export class PraticaUpdateComponent implements OnInit {
       version: pratica.version,
       valuta: pratica.valuta,
       idTemplatePraticaRef: pratica.idTemplatePraticaRef,
-      idTemplatePraticaRefId: pratica.idTemplatePraticaRefId,
+      idTemplatePraticaId: pratica.idTemplatePraticaId,
     });
   }
 
@@ -102,7 +102,7 @@ export class PraticaUpdateComponent implements OnInit {
       version: this.editForm.get(['version'])!.value,
       valuta: this.editForm.get(['valuta'])!.value,
       idTemplatePraticaRef: this.editForm.get(['idTemplatePraticaRef'])!.value,
-      idTemplatePraticaRefId: this.editForm.get(['idTemplatePraticaRefId'])!.value,
+      idTemplatePraticaId: this.editForm.get(['idTemplatePraticaId'])!.value,
     };
   }
 

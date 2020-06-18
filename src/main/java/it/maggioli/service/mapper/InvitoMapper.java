@@ -12,14 +12,11 @@ import org.mapstruct.*;
 @Mapper(componentModel = "spring", uses = {StudioProfessionaleMapper.class, AssegnazioneTaskMapper.class})
 public interface InvitoMapper extends EntityMapper<InvitoDTO, Invito> {
 
-    @Mapping(source = "idStudioProfessionaleRef.id", target = "idStudioProfessionaleRefId")
+    @Mapping(source = "idStudioProfessionale.id", target = "idStudioProfessionaleId")
     @Mapping(source = "assegnazioneTask.id", target = "assegnazioneTaskId")
     InvitoDTO toDto(Invito invito);
 
-    @Mapping(source = "idStudioProfessionaleRefId", target = "idStudioProfessionaleRef")
-    @Mapping(target = "id", ignore = true)
-    @Mapping(target = "id", ignore = true)
-    @Mapping(target = "id", ignore = true)
+    @Mapping(source = "idStudioProfessionaleId", target = "idStudioProfessionale")
     @Mapping(source = "assegnazioneTaskId", target = "assegnazioneTask")
     Invito toEntity(InvitoDTO invitoDTO);
 

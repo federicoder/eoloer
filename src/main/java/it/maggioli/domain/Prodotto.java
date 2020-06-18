@@ -33,10 +33,6 @@ public class Prodotto implements Serializable {
     @Column(name = "storage")
     private Long storage;
 
-    @OneToOne
-    @JoinColumn(unique = true)
-    private LineaOrdine id;
-
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
         return id;
@@ -83,19 +79,6 @@ public class Prodotto implements Serializable {
 
     public void setStorage(Long storage) {
         this.storage = storage;
-    }
-
-    public LineaOrdine getId() {
-        return id;
-    }
-
-    public Prodotto id(LineaOrdine lineaOrdine) {
-        this.id = lineaOrdine;
-        return this;
-    }
-
-    public void setId(LineaOrdine lineaOrdine) {
-        this.id = lineaOrdine;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

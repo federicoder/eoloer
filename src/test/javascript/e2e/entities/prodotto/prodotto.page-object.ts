@@ -33,8 +33,6 @@ export class ProdottoUpdatePage {
   rinnovoLicenzaInput = element(by.id('field_rinnovoLicenza'));
   storageInput = element(by.id('field_storage'));
 
-  idSelect = element(by.id('field_id'));
-
   async getPageTitle(): Promise<string> {
     return this.pageTitle.getAttribute('jhiTranslate');
   }
@@ -61,22 +59,6 @@ export class ProdottoUpdatePage {
 
   async getStorageInput(): Promise<string> {
     return await this.storageInput.getAttribute('value');
-  }
-
-  async idSelectLastOption(): Promise<void> {
-    await this.idSelect.all(by.tagName('option')).last().click();
-  }
-
-  async idSelectOption(option: string): Promise<void> {
-    await this.idSelect.sendKeys(option);
-  }
-
-  getIdSelect(): ElementFinder {
-    return this.idSelect;
-  }
-
-  async getIdSelectedOption(): Promise<string> {
-    return await this.idSelect.element(by.css('option:checked')).getText();
   }
 
   async save(): Promise<void> {

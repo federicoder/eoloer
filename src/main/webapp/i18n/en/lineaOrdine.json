@@ -22,8 +22,8 @@
       "quantita": "Quantita",
       "importo": "Importo",
       "codIva": "Cod Iva",
-      "idOrdineRef": "Id Ordine Ref",
-      "idProdottoRef": "Id Prodotto Ref"
+      "idProdotto": "Id Prodotto",
+      "idOrdine": "Id Ordine"
     }
   }
 }

@@ -31,7 +31,7 @@
       "relationshipType": "many-to-one",
       "otherEntityName": "task",
       "otherEntityRelationshipName": "notaTask",
-      "relationshipName": "idTaskRef",
+      "relationshipName": "idTask",
       "otherEntityField": "id"
     }
   ],

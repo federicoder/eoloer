@@ -8,8 +8,8 @@ export interface IPrevisioneEvento {
   luogo?: string;
   indicazioniLuogo?: string;
   version?: string;
-  idTaskRefId?: number;
-  idTaskRefs?: IInvitoEvento[];
+  idPrevisioneEventoId?: number;
+  idInvitoEventos?: IInvitoEvento[];
 }
 
 export class PrevisioneEvento implements IPrevisioneEvento {
@@ -21,7 +21,7 @@ export class PrevisioneEvento implements IPrevisioneEvento {
     public luogo?: string,
     public indicazioniLuogo?: string,
     public version?: string,
-    public idTaskRefId?: number,
-    public idTaskRefs?: IInvitoEvento[]
+    public idPrevisioneEventoId?: number,
+    public idInvitoEventos?: IInvitoEvento[]
   ) {}
 }

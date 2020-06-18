@@ -46,10 +46,10 @@
                     <th scope="col" ><span jhiTranslate="eoloprjApp.condivisionePratica.idUserConcedente">Id User Concedente</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.condivisionePratica.statoInvito">Stato Invito</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.condivisionePratica.idPraticaRef">Id Pratica Ref</span></th>
-                    <th scope="col" ><span jhiTranslate="eoloprjApp.condivisionePratica.ruolo">Ruolo</span></th>
-                    <th scope="col" ><span jhiTranslate="eoloprjApp.condivisionePratica.idUserConcedente">Id User Concedente</span></th>
-                    <th scope="col" ><span jhiTranslate="eoloprjApp.condivisionePratica.idUserAmmesso">Id User Ammesso</span></th>
-                    <th scope="col" ><span jhiTranslate="eoloprjApp.condivisionePratica.idPraticaRef">Id Pratica Ref</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.condivisionePratica.idRuoloPersona">Id Ruolo Persona</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.condivisionePratica.idPersona">Id Persona</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.condivisionePratica.idUserPersona">Id User Persona</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.condivisionePratica.idPratica">Id Pratica</span></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -62,23 +62,23 @@
                     <td>{{ condivisionePratica.statoInvito }}</td>
                     <td>{{ condivisionePratica.idPraticaRef }}</td>
                     <td>
-                        <div *ngIf="condivisionePratica.ruoloId">
-                            <a [routerLink]="['/rappresentanza-pratica', condivisionePratica.ruoloId , 'view']" >{{ condivisionePratica.ruoloId }}</a>
+                        <div *ngIf="condivisionePratica.idRuoloPersonaId">
+                            <a [routerLink]="['/rappresentanza-pratica', condivisionePratica.idRuoloPersonaId , 'view']" >{{ condivisionePratica.idRuoloPersonaId }}</a>
                         </div>
                     </td>
                     <td>
-                        <div *ngIf="condivisionePratica.idUserConcedenteId">
-                            <a [routerLink]="['/persona', condivisionePratica.idUserConcedenteId , 'view']" >{{ condivisionePratica.idUserConcedenteId }}</a>
+                        <div *ngIf="condivisionePratica.idPersonaId">
+                            <a [routerLink]="['/persona', condivisionePratica.idPersonaId , 'view']" >{{ condivisionePratica.idPersonaId }}</a>
                         </div>
                     </td>
                     <td>
-                        <div *ngIf="condivisionePratica.idUserAmmessoId">
-                            <a [routerLink]="['/user-persona', condivisionePratica.idUserAmmessoId , 'view']" >{{ condivisionePratica.idUserAmmessoId }}</a>
+                        <div *ngIf="condivisionePratica.idUserPersonaId">
+                            <a [routerLink]="['/user-persona', condivisionePratica.idUserPersonaId , 'view']" >{{ condivisionePratica.idUserPersonaId }}</a>
                         </div>
                     </td>
                     <td>
-                        <div *ngIf="condivisionePratica.idPraticaRefId">
-                            <a [routerLink]="['/pratica', condivisionePratica.idPraticaRefId , 'view']" >{{ condivisionePratica.idPraticaRefId }}</a>
+                        <div *ngIf="condivisionePratica.idPraticaId">
+                            <a [routerLink]="['/pratica', condivisionePratica.idPraticaId , 'view']" >{{ condivisionePratica.idPraticaId }}</a>
                         </div>
                     </td>
                     <td class="text-right">

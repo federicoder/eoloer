@@ -110,8 +110,8 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="eoloprjApp.pratica.idTemplatePraticaRef" for="field_idTemplatePraticaRef">Id Template Pratica Ref</label>
-                    <select class="form-control" id="field_idTemplatePraticaRef" name="idTemplatePraticaRef" formControlName="idTemplatePraticaRefId">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.pratica.idTemplatePratica" for="field_idTemplatePratica">Id Template Pratica</label>
+                    <select class="form-control" id="field_idTemplatePratica" name="idTemplatePratica" formControlName="idTemplatePraticaId">
                         <option [ngValue]="null"></option>
                         <option [ngValue]="templatePraticaOption.id" *ngFor="let templatePraticaOption of templatepraticas; trackBy: trackById">{{ templatePraticaOption.id }}</option>
                     </select>

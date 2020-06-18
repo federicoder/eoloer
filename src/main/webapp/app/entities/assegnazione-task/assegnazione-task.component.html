@@ -46,8 +46,9 @@
                     <th scope="col" ><span jhiTranslate="eoloprjApp.assegnazioneTask.ruolo">Ruolo</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.assegnazioneTask.idUserConcedente">Id User Concedente</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.assegnazioneTask.statoAssegnazione">Stato Assegnazione</span></th>
-                    <th scope="col" ><span jhiTranslate="eoloprjApp.assegnazioneTask.ruolo">Ruolo</span></th>
-                    <th scope="col" ><span jhiTranslate="eoloprjApp.assegnazioneTask.idUserAmmesso">Id User Ammesso</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.assegnazioneTask.idTask">Id Task</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.assegnazioneTask.idRuoloPersona">Id Ruolo Persona</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.assegnazioneTask.idPersona">Id Persona</span></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -60,13 +61,18 @@
                     <td>{{ assegnazioneTask.idUserConcedente }}</td>
                     <td>{{ assegnazioneTask.statoAssegnazione }}</td>
                     <td>
-                        <div *ngIf="assegnazioneTask.ruoloId">
-                            <a [routerLink]="['/rappresentanza-pratica', assegnazioneTask.ruoloId , 'view']" >{{ assegnazioneTask.ruoloId }}</a>
+                        <div *ngIf="assegnazioneTask.idTaskId">
+                            <a [routerLink]="['/task', assegnazioneTask.idTaskId , 'view']" >{{ assegnazioneTask.idTaskId }}</a>
                         </div>
                     </td>
                     <td>
-                        <div *ngIf="assegnazioneTask.idUserAmmessoId">
-                            <a [routerLink]="['/user-persona', assegnazioneTask.idUserAmmessoId , 'view']" >{{ assegnazioneTask.idUserAmmessoId }}</a>
+                        <div *ngIf="assegnazioneTask.idRuoloPersonaId">
+                            <a [routerLink]="['/rappresentanza-pratica', assegnazioneTask.idRuoloPersonaId , 'view']" >{{ assegnazioneTask.idRuoloPersonaId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="assegnazioneTask.idPersonaId">
+                            <a [routerLink]="['/user-persona', assegnazioneTask.idPersonaId , 'view']" >{{ assegnazioneTask.idPersonaId }}</a>
                         </div>
                     </td>
                     <td class="text-right">

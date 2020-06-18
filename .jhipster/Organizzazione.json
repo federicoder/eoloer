@@ -19,17 +19,10 @@
     {
       "relationshipType": "one-to-one",
       "otherEntityName": "persona",
-      "otherEntityRelationshipName": "id",
-      "relationshipName": "idPersonaRef",
+      "otherEntityRelationshipName": "organizzazione",
+      "relationshipName": "idPersona",
       "otherEntityField": "id",
       "ownerSide": true
-    },
-    {
-      "relationshipType": "one-to-one",
-      "otherEntityName": "ruoloOrganizzazione",
-      "otherEntityRelationshipName": "id",
-      "relationshipName": "id",
-      "ownerSide": false
     }
   ],
   "changelogDate": "20200617084628",

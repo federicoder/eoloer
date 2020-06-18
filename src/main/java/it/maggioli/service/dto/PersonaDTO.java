@@ -37,8 +37,6 @@ public class PersonaDTO implements Serializable {
 
     private Long tipoRuoloUtente;
 
-
-    private Long idId;
     
     public Long getId() {
         return id;
@@ -152,14 +150,6 @@ public class PersonaDTO implements Serializable {
         this.tipoRuoloUtente = tipoRuoloUtente;
     }
 
-    public Long getIdId() {
-        return idId;
-    }
-
-    public void setIdId(Long indirizzoPersonaId) {
-        this.idId = indirizzoPersonaId;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -195,7 +185,6 @@ public class PersonaDTO implements Serializable {
             ", discriminator='" + getDiscriminator() + "'" +
             ", idRuoloPersonaRef=" + getIdRuoloPersonaRef() +
             ", tipoRuoloUtente=" + getTipoRuoloUtente() +
-            ", idId=" + getIdId() +
             "}";
     }
 }

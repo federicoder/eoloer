@@ -12,10 +12,16 @@
                 <dd>
                     <span>{{ invitoAttivita.idTaskRef }}</span>
                 </dd>
-                <dt><span jhiTranslate="eoloprjApp.invitoAttivita.idTaskRef">Id Task Ref</span></dt>
+                <dt><span jhiTranslate="eoloprjApp.invitoAttivita.idTask">Id Task</span></dt>
                 <dd>
-                    <div *ngIf="invitoAttivita.idTaskRefId">
-                        <a [routerLink]="['/invito', invitoAttivita.idTaskRefId, 'view']">{{ invitoAttivita.idTaskRefId }}</a>
+                    <div *ngIf="invitoAttivita.idTaskId">
+                        <a [routerLink]="['/task', invitoAttivita.idTaskId, 'view']">{{ invitoAttivita.idTaskId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="eoloprjApp.invitoAttivita.idTask">Id Task</span></dt>
+                <dd>
+                    <div *ngIf="invitoAttivita.idTaskId">
+                        <a [routerLink]="['/invito', invitoAttivita.idTaskId, 'view']">{{ invitoAttivita.idTaskId }}</a>
                     </div>
                 </dd>
             </dl>

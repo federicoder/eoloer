@@ -4,12 +4,9 @@ import { HttpResponse } from '@angular/common/http';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 
 import { IPersona, Persona } from 'app/shared/model/persona.model';
 import { PersonaService } from './persona.service';
-import { IIndirizzoPersona } from 'app/shared/model/indirizzo-persona.model';
-import { IndirizzoPersonaService } from 'app/entities/indirizzo-persona/indirizzo-persona.service';
 
 @Component({
   selector: 'jhi-persona-update',
@@ -17,7 +14,6 @@ import { IndirizzoPersonaService } from 'app/entities/indirizzo-persona/indirizz
 })
 export class PersonaUpdateComponent implements OnInit {
   isSaving = false;
-  ids: IIndirizzoPersona[] = [];
 
   editForm = this.fb.group({
     id: [],
@@ -34,41 +30,13 @@ export class PersonaUpdateComponent implements OnInit {
     discriminator: [],
     idRuoloPersonaRef: [],
     tipoRuoloUtente: [],
-    idId: [],
   });
 
-  constructor(
-    protected personaService: PersonaService,
-    protected indirizzoPersonaService: IndirizzoPersonaService,
-    protected activatedRoute: ActivatedRoute,
-    private fb: FormBuilder
-  ) {}
+  constructor(protected personaService: PersonaService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder) {}
 
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(({ persona }) => {
       this.updateForm(persona);
-
-      this.indirizzoPersonaService
-        .query({ filter: 'idpersonaref-is-null' })
-        .pipe(
-          map((res: HttpResponse<IIndirizzoPersona[]>) => {
-            return res.body || [];
-          })
-        )
-        .subscribe((resBody: IIndirizzoPersona[]) => {
-          if (!persona.idId) {
-            this.ids = resBody;
-          } else {
-            this.indirizzoPersonaService
-              .find(persona.idId)
-              .pipe(
-                map((subRes: HttpResponse<IIndirizzoPersona>) => {
-                  return subRes.body ? [subRes.body].concat(resBody) : resBody;
-                })
-              )
-              .subscribe((concatRes: IIndirizzoPersona[]) => (this.ids = concatRes));
-          }
-        });
     });
   }
 
@@ -88,7 +56,6 @@ export class PersonaUpdateComponent implements OnInit {
       discriminator: persona.discriminator,
       idRuoloPersonaRef: persona.idRuoloPersonaRef,
       tipoRuoloUtente: persona.tipoRuoloUtente,
-      idId: persona.idId,
     });
   }
 
@@ -123,7 +90,6 @@ export class PersonaUpdateComponent implements OnInit {
       discriminator: this.editForm.get(['discriminator'])!.value,
       idRuoloPersonaRef: this.editForm.get(['idRuoloPersonaRef'])!.value,
       tipoRuoloUtente: this.editForm.get(['tipoRuoloUtente'])!.value,
-      idId: this.editForm.get(['idId'])!.value,
     };
   }
 
@@ -141,9 +107,5 @@ export class PersonaUpdateComponent implements OnInit {
 
   protected onSaveError(): void {
     this.isSaving = false;
-  }
-
-  trackById(index: number, item: IIndirizzoPersona): any {
-    return item.id;
   }
 }

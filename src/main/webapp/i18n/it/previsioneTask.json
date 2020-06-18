@@ -24,10 +24,7 @@
       "idTaskMilestone": "Id Task Milestone",
       "tipoTask": "Tipo Task",
       "version": "Version",
-      "idTaskRef": "Id Task Ref",
-      "idTaskRef": "Id Task Ref",
-      "idTaskRef": "Id Task Ref",
-      "idTaskRef": "Id Task Ref",
+      "idPrevisioneTask": "Id Previsione Task",
       "previsioneTask": "Previsione Task"
     }
   }

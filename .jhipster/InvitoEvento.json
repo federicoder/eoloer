@@ -38,15 +38,15 @@
     {
       "relationshipType": "one-to-one",
       "otherEntityName": "invito",
-      "otherEntityRelationshipName": "id",
-      "relationshipName": "idTaskRef",
+      "otherEntityRelationshipName": "invitoEvento",
+      "relationshipName": "idTask",
       "otherEntityField": "id",
       "ownerSide": true
     },
     {
       "relationshipType": "many-to-one",
       "otherEntityName": "previsioneEvento",
-      "otherEntityRelationshipName": "idTaskRef",
+      "otherEntityRelationshipName": "idInvitoEvento",
       "relationshipName": "previsioneEvento",
       "otherEntityField": "id"
     }

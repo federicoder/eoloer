@@ -29,11 +29,7 @@
       "tipo": "Tipo",
       "discriminator": "Discriminator",
       "idRuoloPersonaRef": "Id Ruolo Persona Ref",
-      "tipoRuoloUtente": "Tipo Ruolo Utente",
-      "id": "Id",
-      "id": "Id",
-      "id": "Id",
-      "id": "Id"
+      "tipoRuoloUtente": "Tipo Ruolo Utente"
     }
   }
 }

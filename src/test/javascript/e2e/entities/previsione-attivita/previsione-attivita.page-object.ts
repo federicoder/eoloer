@@ -35,7 +35,7 @@ export class PrevisioneAttivitaUpdatePage {
   dataScadenzaInput = element(by.id('field_dataScadenza'));
   versionInput = element(by.id('field_version'));
 
-  idTaskRefSelect = element(by.id('field_idTaskRef'));
+  idPrevisioneAttivitaSelect = element(by.id('field_idPrevisioneAttivita'));
 
   async getPageTitle(): Promise<string> {
     return this.pageTitle.getAttribute('jhiTranslate');
@@ -81,20 +81,20 @@ export class PrevisioneAttivitaUpdatePage {
     return await this.versionInput.getAttribute('value');
   }
 
-  async idTaskRefSelectLastOption(): Promise<void> {
-    await this.idTaskRefSelect.all(by.tagName('option')).last().click();
+  async idPrevisioneAttivitaSelectLastOption(): Promise<void> {
+    await this.idPrevisioneAttivitaSelect.all(by.tagName('option')).last().click();
   }
 
-  async idTaskRefSelectOption(option: string): Promise<void> {
-    await this.idTaskRefSelect.sendKeys(option);
+  async idPrevisioneAttivitaSelectOption(option: string): Promise<void> {
+    await this.idPrevisioneAttivitaSelect.sendKeys(option);
   }
 
-  getIdTaskRefSelect(): ElementFinder {
-    return this.idTaskRefSelect;
+  getIdPrevisioneAttivitaSelect(): ElementFinder {
+    return this.idPrevisioneAttivitaSelect;
   }
 
-  async getIdTaskRefSelectedOption(): Promise<string> {
-    return await this.idTaskRefSelect.element(by.css('option:checked')).getText();
+  async getIdPrevisioneAttivitaSelectedOption(): Promise<string> {
+    return await this.idPrevisioneAttivitaSelect.element(by.css('option:checked')).getText();
   }
 
   async save(): Promise<void> {

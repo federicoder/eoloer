@@ -39,8 +39,8 @@
             <column name="url_stanza_virtuale" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="id_task_ref_id" type="bigint">
-                <constraints unique="true" nullable="true" uniqueConstraintName="ux_invito_evento_id_task_ref_id" />
+            <column name="id_task_id" type="bigint">
+                <constraints unique="true" nullable="true" uniqueConstraintName="ux_invito_evento_id_task_id" />
             </column>
             <column name="previsione_evento_id" type="bigint">
                 <constraints nullable="true" />

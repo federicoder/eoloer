@@ -5,7 +5,6 @@ export interface IConsuntivoTask {
   dataFine?: string;
   timeLine?: number;
   version?: string;
-  idTaskRefId?: number;
 }
 
 export class ConsuntivoTask implements IConsuntivoTask {
@@ -15,7 +14,6 @@ export class ConsuntivoTask implements IConsuntivoTask {
     public dataInizio?: string,
     public dataFine?: string,
     public timeLine?: number,
-    public version?: string,
-    public idTaskRefId?: number
+    public version?: string
   ) {}
 }

@@ -35,7 +35,8 @@ export class LineaOrdineUpdatePage {
   importoInput = element(by.id('field_importo'));
   codIvaInput = element(by.id('field_codIva'));
 
-  idOrdineRefSelect = element(by.id('field_idOrdineRef'));
+  idProdottoSelect = element(by.id('field_idProdotto'));
+  idOrdineSelect = element(by.id('field_idOrdine'));
 
   async getPageTitle(): Promise<string> {
     return this.pageTitle.getAttribute('jhiTranslate');
@@ -81,20 +82,36 @@ export class LineaOrdineUpdatePage {
     return await this.codIvaInput.getAttribute('value');
   }
 
-  async idOrdineRefSelectLastOption(): Promise<void> {
-    await this.idOrdineRefSelect.all(by.tagName('option')).last().click();
+  async idProdottoSelectLastOption(): Promise<void> {
+    await this.idProdottoSelect.all(by.tagName('option')).last().click();
   }
 
-  async idOrdineRefSelectOption(option: string): Promise<void> {
-    await this.idOrdineRefSelect.sendKeys(option);
+  async idProdottoSelectOption(option: string): Promise<void> {
+    await this.idProdottoSelect.sendKeys(option);
   }
 
-  getIdOrdineRefSelect(): ElementFinder {
-    return this.idOrdineRefSelect;
+  getIdProdottoSelect(): ElementFinder {
+    return this.idProdottoSelect;
   }
 
-  async getIdOrdineRefSelectedOption(): Promise<string> {
-    return await this.idOrdineRefSelect.element(by.css('option:checked')).getText();
+  async getIdProdottoSelectedOption(): Promise<string> {
+    return await this.idProdottoSelect.element(by.css('option:checked')).getText();
+  }
+
+  async idOrdineSelectLastOption(): Promise<void> {
+    await this.idOrdineSelect.all(by.tagName('option')).last().click();
+  }
+
+  async idOrdineSelectOption(option: string): Promise<void> {
+    await this.idOrdineSelect.sendKeys(option);
+  }
+
+  getIdOrdineSelect(): ElementFinder {
+    return this.idOrdineSelect;
+  }
+
+  async getIdOrdineSelectedOption(): Promise<string> {
+    return await this.idOrdineSelect.element(by.css('option:checked')).getText();
   }
 
   async save(): Promise<void> {

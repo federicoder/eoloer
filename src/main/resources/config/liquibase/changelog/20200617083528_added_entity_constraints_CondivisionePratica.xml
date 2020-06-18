@@ -8,27 +8,27 @@
     -->
     <changeSet id="20200617083528-2" author="jhipster">
         
-        <addForeignKeyConstraint baseColumnNames="ruolo_id"
+        <addForeignKeyConstraint baseColumnNames="id_ruolo_persona_id"
                                  baseTableName="condivisione_pratica"
-                                 constraintName="fk_condivisione_pratica_ruolo_id"
+                                 constraintName="fk_condivisione_pratica_id_ruolo_persona_id"
                                  referencedColumnNames="id"
                                  referencedTableName="rappresentanza_pratica"/>
 
-        <addForeignKeyConstraint baseColumnNames="id_user_concedente_id"
+        <addForeignKeyConstraint baseColumnNames="id_persona_id"
                                  baseTableName="condivisione_pratica"
-                                 constraintName="fk_condivisione_pratica_id_user_concedente_id"
+                                 constraintName="fk_condivisione_pratica_id_persona_id"
                                  referencedColumnNames="id"
                                  referencedTableName="persona"/>
 
-        <addForeignKeyConstraint baseColumnNames="id_user_ammesso_id"
+        <addForeignKeyConstraint baseColumnNames="id_user_persona_id"
                                  baseTableName="condivisione_pratica"
-                                 constraintName="fk_condivisione_pratica_id_user_ammesso_id"
+                                 constraintName="fk_condivisione_pratica_id_user_persona_id"
                                  referencedColumnNames="id"
                                  referencedTableName="user_persona"/>
 
-        <addForeignKeyConstraint baseColumnNames="id_pratica_ref_id"
+        <addForeignKeyConstraint baseColumnNames="id_pratica_id"
                                  baseTableName="condivisione_pratica"
-                                 constraintName="fk_condivisione_pratica_id_pratica_ref_id"
+                                 constraintName="fk_condivisione_pratica_id_pratica_id"
                                  referencedColumnNames="id"
                                  referencedTableName="pratica"/>
 

@@ -53,14 +53,14 @@
       "relationshipType": "many-to-one",
       "otherEntityName": "userPersona",
       "otherEntityRelationshipName": "invitato",
-      "relationshipName": "idUserInvitato",
+      "relationshipName": "idUserPersona",
       "otherEntityField": "id"
     },
     {
       "relationshipType": "many-to-one",
       "otherEntityName": "invito",
       "otherEntityRelationshipName": "invitato",
-      "relationshipName": "idInvitoRef",
+      "relationshipName": "idInvito",
       "otherEntityField": "id"
     }
   ],

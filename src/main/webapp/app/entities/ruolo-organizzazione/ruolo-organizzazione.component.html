@@ -42,8 +42,8 @@
                 <tr>
                     <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.ruoloOrganizzazione.ruoloInOrg">Ruolo In Org</span></th>
-                    <th scope="col" ><span jhiTranslate="eoloprjApp.ruoloOrganizzazione.id">Id</span></th>
-                    <th scope="col" ><span jhiTranslate="eoloprjApp.ruoloOrganizzazione.id">Id</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.ruoloOrganizzazione.idOrganizzazione">Id Organizzazione</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.ruoloOrganizzazione.idPersonaFisica">Id Persona Fisica</span></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -52,13 +52,13 @@
                     <td><a [routerLink]="['/ruolo-organizzazione', ruoloOrganizzazione.id, 'view']">{{ ruoloOrganizzazione.id }}</a></td>
                     <td>{{ ruoloOrganizzazione.ruoloInOrg }}</td>
                     <td>
-                        <div *ngIf="ruoloOrganizzazione.idId">
-                            <a [routerLink]="['/organizzazione', ruoloOrganizzazione.idId , 'view']" >{{ ruoloOrganizzazione.idId }}</a>
+                        <div *ngIf="ruoloOrganizzazione.idOrganizzazioneId">
+                            <a [routerLink]="['/organizzazione', ruoloOrganizzazione.idOrganizzazioneId , 'view']" >{{ ruoloOrganizzazione.idOrganizzazioneId }}</a>
                         </div>
                     </td>
                     <td>
-                        <div *ngIf="ruoloOrganizzazione.idId">
-                            <a [routerLink]="['/persona-fisica', ruoloOrganizzazione.idId , 'view']" >{{ ruoloOrganizzazione.idId }}</a>
+                        <div *ngIf="ruoloOrganizzazione.idPersonaFisicaId">
+                            <a [routerLink]="['/persona-fisica', ruoloOrganizzazione.idPersonaFisicaId , 'view']" >{{ ruoloOrganizzazione.idPersonaFisicaId }}</a>
                         </div>
                     </td>
                     <td class="text-right">

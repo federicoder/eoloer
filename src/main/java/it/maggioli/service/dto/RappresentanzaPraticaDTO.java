@@ -20,7 +20,7 @@ public class RappresentanzaPraticaDTO implements Serializable {
     private Ruoli ruoli;
 
 
-    private Long idPersonaRefId;
+    private Long idPersonaId;
     
     public Long getId() {
         return id;
@@ -54,12 +54,12 @@ public class RappresentanzaPraticaDTO implements Serializable {
         this.ruoli = ruoli;
     }
 
-    public Long getIdPersonaRefId() {
-        return idPersonaRefId;
+    public Long getIdPersonaId() {
+        return idPersonaId;
     }
 
-    public void setIdPersonaRefId(Long personaId) {
-        this.idPersonaRefId = personaId;
+    public void setIdPersonaId(Long personaId) {
+        this.idPersonaId = personaId;
     }
 
     @Override
@@ -87,7 +87,7 @@ public class RappresentanzaPraticaDTO implements Serializable {
             ", idRuoloPersona=" + getIdRuoloPersona() +
             ", idPersonaRef=" + getIdPersonaRef() +
             ", ruoli='" + getRuoli() + "'" +
-            ", idPersonaRefId=" + getIdPersonaRefId() +
+            ", idPersonaId=" + getIdPersonaId() +
             "}";
     }
 }

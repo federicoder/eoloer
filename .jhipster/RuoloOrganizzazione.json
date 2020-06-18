@@ -10,16 +10,16 @@
     {
       "relationshipType": "one-to-one",
       "otherEntityName": "organizzazione",
-      "otherEntityRelationshipName": "id",
-      "relationshipName": "id",
+      "otherEntityRelationshipName": "ruoloOrganizzazione",
+      "relationshipName": "idOrganizzazione",
       "otherEntityField": "id",
       "ownerSide": true
     },
     {
       "relationshipType": "one-to-one",
       "otherEntityName": "personaFisica",
-      "otherEntityRelationshipName": "idRuoloPersona",
-      "relationshipName": "id",
+      "otherEntityRelationshipName": "ruoloOrganizzazione",
+      "relationshipName": "idPersonaFisica",
       "otherEntityField": "id",
       "ownerSide": true
     }

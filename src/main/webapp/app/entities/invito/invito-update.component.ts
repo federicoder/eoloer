@@ -21,7 +21,7 @@ type SelectableEntity = IStudioProfessionale | IAssegnazioneTask;
 })
 export class InvitoUpdateComponent implements OnInit {
   isSaving = false;
-  idstudioprofessionalerefs: IStudioProfessionale[] = [];
+  idstudioprofessionales: IStudioProfessionale[] = [];
   assegnazionetasks: IAssegnazioneTask[] = [];
 
   editForm = this.fb.group({
@@ -42,7 +42,7 @@ export class InvitoUpdateComponent implements OnInit {
     oraFine: [],
     urlStanzaVirtuale: [],
     discriminator: [],
-    idStudioProfessionaleRefId: [],
+    idStudioProfessionaleId: [],
     assegnazioneTaskId: [],
   });
 
@@ -59,24 +59,24 @@ export class InvitoUpdateComponent implements OnInit {
       this.updateForm(invito);
 
       this.studioProfessionaleService
-        .query({ filter: 'id-is-null' })
+        .query({ filter: 'invito-is-null' })
         .pipe(
           map((res: HttpResponse<IStudioProfessionale[]>) => {
             return res.body || [];
           })
         )
         .subscribe((resBody: IStudioProfessionale[]) => {
-          if (!invito.idStudioProfessionaleRefId) {
-            this.idstudioprofessionalerefs = resBody;
+          if (!invito.idStudioProfessionaleId) {
+            this.idstudioprofessionales = resBody;
           } else {
             this.studioProfessionaleService
-              .find(invito.idStudioProfessionaleRefId)
+              .find(invito.idStudioProfessionaleId)
               .pipe(
                 map((subRes: HttpResponse<IStudioProfessionale>) => {
                   return subRes.body ? [subRes.body].concat(resBody) : resBody;
                 })
               )
-              .subscribe((concatRes: IStudioProfessionale[]) => (this.idstudioprofessionalerefs = concatRes));
+              .subscribe((concatRes: IStudioProfessionale[]) => (this.idstudioprofessionales = concatRes));
           }
         });
 
@@ -103,7 +103,7 @@ export class InvitoUpdateComponent implements OnInit {
       oraFine: invito.oraFine,
       urlStanzaVirtuale: invito.urlStanzaVirtuale,
       discriminator: invito.discriminator,
-      idStudioProfessionaleRefId: invito.idStudioProfessionaleRefId,
+      idStudioProfessionaleId: invito.idStudioProfessionaleId,
       assegnazioneTaskId: invito.assegnazioneTaskId,
     });
   }
@@ -142,7 +142,7 @@ export class InvitoUpdateComponent implements OnInit {
       oraFine: this.editForm.get(['oraFine'])!.value,
       urlStanzaVirtuale: this.editForm.get(['urlStanzaVirtuale'])!.value,
       discriminator: this.editForm.get(['discriminator'])!.value,
-      idStudioProfessionaleRefId: this.editForm.get(['idStudioProfessionaleRefId'])!.value,
+      idStudioProfessionaleId: this.editForm.get(['idStudioProfessionaleId'])!.value,
       assegnazioneTaskId: this.editForm.get(['assegnazioneTaskId'])!.value,
     };
   }

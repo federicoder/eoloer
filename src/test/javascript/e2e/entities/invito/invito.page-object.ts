@@ -46,7 +46,7 @@ export class InvitoUpdatePage {
   urlStanzaVirtualeInput = element(by.id('field_urlStanzaVirtuale'));
   discriminatorInput = element(by.id('field_discriminator'));
 
-  idStudioProfessionaleRefSelect = element(by.id('field_idStudioProfessionaleRef'));
+  idStudioProfessionaleSelect = element(by.id('field_idStudioProfessionale'));
   assegnazioneTaskSelect = element(by.id('field_assegnazioneTask'));
 
   async getPageTitle(): Promise<string> {
@@ -181,20 +181,20 @@ export class InvitoUpdatePage {
     return await this.discriminatorInput.getAttribute('value');
   }
 
-  async idStudioProfessionaleRefSelectLastOption(): Promise<void> {
-    await this.idStudioProfessionaleRefSelect.all(by.tagName('option')).last().click();
+  async idStudioProfessionaleSelectLastOption(): Promise<void> {
+    await this.idStudioProfessionaleSelect.all(by.tagName('option')).last().click();
   }
 
-  async idStudioProfessionaleRefSelectOption(option: string): Promise<void> {
-    await this.idStudioProfessionaleRefSelect.sendKeys(option);
+  async idStudioProfessionaleSelectOption(option: string): Promise<void> {
+    await this.idStudioProfessionaleSelect.sendKeys(option);
   }
 
-  getIdStudioProfessionaleRefSelect(): ElementFinder {
-    return this.idStudioProfessionaleRefSelect;
+  getIdStudioProfessionaleSelect(): ElementFinder {
+    return this.idStudioProfessionaleSelect;
   }
 
-  async getIdStudioProfessionaleRefSelectedOption(): Promise<string> {
-    return await this.idStudioProfessionaleRefSelect.element(by.css('option:checked')).getText();
+  async getIdStudioProfessionaleSelectedOption(): Promise<string> {
+    return await this.idStudioProfessionaleSelect.element(by.css('option:checked')).getText();
   }
 
   async assegnazioneTaskSelectLastOption(): Promise<void> {

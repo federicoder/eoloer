@@ -1,6 +1,5 @@
 package it.maggioli.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -65,22 +64,6 @@ public class Persona implements Serializable {
 
     @Column(name = "tipo_ruolo_utente")
     private Long tipoRuoloUtente;
-
-    @OneToOne
-    @JoinColumn(unique = true)
-    private IndirizzoPersona id;
-
-    @OneToOne(mappedBy = "idPersonaRef")
-    @JsonIgnore
-    private PersonaFisica id;
-
-    @OneToOne(mappedBy = "idPersonaRef")
-    @JsonIgnore
-    private Organizzazione id;
-
-    @OneToOne(mappedBy = "idUserConcedente")
-    @JsonIgnore
-    private CondivisionePratica id;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -258,58 +241,6 @@ public class Persona implements Serializable {
 
     public void setTipoRuoloUtente(Long tipoRuoloUtente) {
         this.tipoRuoloUtente = tipoRuoloUtente;
-    }
-
-    public IndirizzoPersona getId() {
-        return id;
-    }
-
-    public Persona id(IndirizzoPersona indirizzoPersona) {
-        this.id = indirizzoPersona;
-        return this;
-    }
-
-    public void setId(IndirizzoPersona indirizzoPersona) {
-        this.id = indirizzoPersona;
-    }
-
-    public PersonaFisica getId() {
-        return id;
-    }
-
-    public Persona id(PersonaFisica personaFisica) {
-        this.id = personaFisica;
-        return this;
-    }
-
-    public void setId(PersonaFisica personaFisica) {
-        this.id = personaFisica;
-    }
-
-    public Organizzazione getId() {
-        return id;
-    }
-
-    public Persona id(Organizzazione organizzazione) {
-        this.id = organizzazione;
-        return this;
-    }
-
-    public void setId(Organizzazione organizzazione) {
-        this.id = organizzazione;
-    }
-
-    public CondivisionePratica getId() {
-        return id;
-    }
-
-    public Persona id(CondivisionePratica condivisionePratica) {
-        this.id = condivisionePratica;
-        return this;
-    }
-
-    public void setId(CondivisionePratica condivisionePratica) {
-        this.id = condivisionePratica;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

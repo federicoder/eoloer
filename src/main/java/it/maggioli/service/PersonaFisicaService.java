@@ -69,21 +69,6 @@ public class PersonaFisicaService {
     }
 
 
-
-    /**
-     *  Get all the personaFisicas where IdRuoloPersona is {@code null}.
-     *  @return the list of entities.
-     */
-    @Transactional(readOnly = true) 
-    public List<PersonaFisicaDTO> findAllWhereIdRuoloPersonaIsNull() {
-        log.debug("Request to get all personaFisicas where IdRuoloPersona is null");
-        return StreamSupport
-            .stream(personaFisicaRepository.findAll().spliterator(), false)
-            .filter(personaFisica -> personaFisica.getIdRuoloPersona() == null)
-            .map(personaFisicaMapper::toDto)
-            .collect(Collectors.toCollection(LinkedList::new));
-    }
-
     /**
      * Get one personaFisica by id.
      *

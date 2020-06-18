@@ -5,10 +5,10 @@ export interface ICondivisionePratica {
   idUserConcedente?: number;
   statoInvito?: number;
   idPraticaRef?: number;
-  ruoloId?: number;
-  idUserConcedenteId?: number;
-  idUserAmmessoId?: number;
-  idPraticaRefId?: number;
+  idRuoloPersonaId?: number;
+  idPersonaId?: number;
+  idUserPersonaId?: number;
+  idPraticaId?: number;
 }
 
 export class CondivisionePratica implements ICondivisionePratica {
@@ -19,9 +19,9 @@ export class CondivisionePratica implements ICondivisionePratica {
     public idUserConcedente?: number,
     public statoInvito?: number,
     public idPraticaRef?: number,
-    public ruoloId?: number,
-    public idUserConcedenteId?: number,
-    public idUserAmmessoId?: number,
-    public idPraticaRefId?: number
+    public idRuoloPersonaId?: number,
+    public idPersonaId?: number,
+    public idUserPersonaId?: number,
+    public idPraticaId?: number
   ) {}
 }

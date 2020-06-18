@@ -1,6 +1,5 @@
 package it.maggioli.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
@@ -33,11 +32,7 @@ public class StudioProfessionale implements Serializable {
 
     @ManyToOne
     @JsonIgnoreProperties(value = "studioProfessionales", allowSetters = true)
-    private Persona idUserAmministratore;
-
-    @OneToOne(mappedBy = "idStudioProfessionaleRef")
-    @JsonIgnore
-    private Invito id;
+    private Persona idPersona;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -61,30 +56,17 @@ public class StudioProfessionale implements Serializable {
         this.idUserAmministratore = idUserAmministratore;
     }
 
-    public Persona getIdUserAmministratore() {
-        return idUserAmministratore;
+    public Persona getIdPersona() {
+        return idPersona;
     }
 
-    public StudioProfessionale idUserAmministratore(Persona persona) {
-        this.idUserAmministratore = persona;
+    public StudioProfessionale idPersona(Persona persona) {
+        this.idPersona = persona;
         return this;
     }
 
-    public void setIdUserAmministratore(Persona persona) {
-        this.idUserAmministratore = persona;
-    }
-
-    public Invito getId() {
-        return id;
-    }
-
-    public StudioProfessionale id(Invito invito) {
-        this.id = invito;
-        return this;
-    }
-
-    public void setId(Invito invito) {
-        this.id = invito;
+    public void setIdPersona(Persona persona) {
+        this.idPersona = persona;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

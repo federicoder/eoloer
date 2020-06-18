@@ -53,7 +53,7 @@ describe('PrevisioneAttivita e2e test', () => {
       previsioneAttivitaUpdatePage.setOraPianificataInput('oraPianificata'),
       previsioneAttivitaUpdatePage.setDataScadenzaInput('dataScadenza'),
       previsioneAttivitaUpdatePage.setVersionInput('version'),
-      previsioneAttivitaUpdatePage.idTaskRefSelectLastOption(),
+      previsioneAttivitaUpdatePage.idPrevisioneAttivitaSelectLastOption(),
     ]);
 
     expect(await previsioneAttivitaUpdatePage.getIdTaskRefInput()).to.eq('5', 'Expected idTaskRef value to be equals to 5');

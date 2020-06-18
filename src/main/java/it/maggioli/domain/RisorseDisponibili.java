@@ -41,7 +41,7 @@ public class RisorseDisponibili implements Serializable {
 
     @ManyToOne
     @JsonIgnoreProperties(value = "risorseDisponibilis", allowSetters = true)
-    private StudioProfessionale idStudioProfessionaleRef;
+    private StudioProfessionale idStudioProfessionale;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -104,17 +104,17 @@ public class RisorseDisponibili implements Serializable {
         this.storageTotale = storageTotale;
     }
 
-    public StudioProfessionale getIdStudioProfessionaleRef() {
-        return idStudioProfessionaleRef;
+    public StudioProfessionale getIdStudioProfessionale() {
+        return idStudioProfessionale;
     }
 
-    public RisorseDisponibili idStudioProfessionaleRef(StudioProfessionale studioProfessionale) {
-        this.idStudioProfessionaleRef = studioProfessionale;
+    public RisorseDisponibili idStudioProfessionale(StudioProfessionale studioProfessionale) {
+        this.idStudioProfessionale = studioProfessionale;
         return this;
     }
 
-    public void setIdStudioProfessionaleRef(StudioProfessionale studioProfessionale) {
-        this.idStudioProfessionaleRef = studioProfessionale;
+    public void setIdStudioProfessionale(StudioProfessionale studioProfessionale) {
+        this.idStudioProfessionale = studioProfessionale;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

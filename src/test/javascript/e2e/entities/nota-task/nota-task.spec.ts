@@ -46,7 +46,7 @@ describe('NotaTask e2e test', () => {
       notaTaskUpdatePage.setDataInput('data'),
       notaTaskUpdatePage.setNotaInput('nota'),
       notaTaskUpdatePage.setVersionInput('version'),
-      notaTaskUpdatePage.idTaskRefSelectLastOption(),
+      notaTaskUpdatePage.idTaskSelectLastOption(),
     ]);
 
     expect(await notaTaskUpdatePage.getIdNotaTaskInput()).to.eq('5', 'Expected idNotaTask value to be equals to 5');

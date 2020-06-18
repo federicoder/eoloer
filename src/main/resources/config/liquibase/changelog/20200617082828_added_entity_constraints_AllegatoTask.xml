@@ -8,15 +8,15 @@
     -->
     <changeSet id="20200617082828-2" author="jhipster">
         
-        <addForeignKeyConstraint baseColumnNames="id_tipo_allegato_ref_id"
+        <addForeignKeyConstraint baseColumnNames="id_tipo_allegato_id"
                                  baseTableName="allegato_task"
-                                 constraintName="fk_allegato_task_id_tipo_allegato_ref_id"
+                                 constraintName="fk_allegato_task_id_tipo_allegato_id"
                                  referencedColumnNames="id"
                                  referencedTableName="tipo_allegato"/>
 
-        <addForeignKeyConstraint baseColumnNames="id_task_ref_id"
+        <addForeignKeyConstraint baseColumnNames="id_task_id"
                                  baseTableName="allegato_task"
-                                 constraintName="fk_allegato_task_id_task_ref_id"
+                                 constraintName="fk_allegato_task_id_task_id"
                                  referencedColumnNames="id"
                                  referencedTableName="task"/>
 

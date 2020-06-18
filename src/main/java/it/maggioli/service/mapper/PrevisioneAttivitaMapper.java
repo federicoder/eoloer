@@ -12,10 +12,10 @@ import org.mapstruct.*;
 @Mapper(componentModel = "spring", uses = {PrevisioneTaskMapper.class})
 public interface PrevisioneAttivitaMapper extends EntityMapper<PrevisioneAttivitaDTO, PrevisioneAttivita> {
 
-    @Mapping(source = "idTaskRef.id", target = "idTaskRefId")
+    @Mapping(source = "idPrevisioneAttivita.id", target = "idPrevisioneAttivitaId")
     PrevisioneAttivitaDTO toDto(PrevisioneAttivita previsioneAttivita);
 
-    @Mapping(source = "idTaskRefId", target = "idTaskRef")
+    @Mapping(source = "idPrevisioneAttivitaId", target = "idPrevisioneAttivita")
     PrevisioneAttivita toEntity(PrevisioneAttivitaDTO previsioneAttivitaDTO);
 
     default PrevisioneAttivita fromId(Long id) {

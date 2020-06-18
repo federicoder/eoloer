@@ -30,10 +30,10 @@
             <column name="id_template_pratica_ref" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="id_template_pratica_ref_id" type="bigint">
+            <column name="id_template_pratica_id" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="id_id" type="bigint">
+            <column name="id_template_task_id" type="bigint">
                 <constraints nullable="true" />
             </column>
             <column name="template_task_id" type="bigint">

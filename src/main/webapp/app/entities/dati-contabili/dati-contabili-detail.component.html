@@ -12,10 +12,10 @@
                 <dd>
                     <span>{{ datiContabili.idPersonaRef }}</span>
                 </dd>
-                <dt><span jhiTranslate="eoloprjApp.datiContabili.idPersonaRef">Id Persona Ref</span></dt>
+                <dt><span jhiTranslate="eoloprjApp.datiContabili.idPersona">Id Persona</span></dt>
                 <dd>
-                    <div *ngIf="datiContabili.idPersonaRefId">
-                        <a [routerLink]="['/persona', datiContabili.idPersonaRefId, 'view']">{{ datiContabili.idPersonaRefId }}</a>
+                    <div *ngIf="datiContabili.idPersonaId">
+                        <a [routerLink]="['/persona', datiContabili.idPersonaId, 'view']">{{ datiContabili.idPersonaId }}</a>
                     </div>
                 </dd>
             </dl>

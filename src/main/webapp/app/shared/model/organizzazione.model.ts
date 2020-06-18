@@ -3,17 +3,9 @@ export interface IOrganizzazione {
   idPersonaRef?: number;
   nome?: string;
   tipo?: string;
-  idPersonaRefId?: number;
-  idId?: number;
+  idPersonaId?: number;
 }
 
 export class Organizzazione implements IOrganizzazione {
-  constructor(
-    public id?: number,
-    public idPersonaRef?: number,
-    public nome?: string,
-    public tipo?: string,
-    public idPersonaRefId?: number,
-    public idId?: number
-  ) {}
+  constructor(public id?: number, public idPersonaRef?: number, public nome?: string, public tipo?: string, public idPersonaId?: number) {}
 }

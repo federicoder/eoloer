@@ -13,10 +13,6 @@ export interface IPersona {
   discriminator?: string;
   idRuoloPersonaRef?: number;
   tipoRuoloUtente?: number;
-  idId?: number;
-  idId?: number;
-  idId?: number;
-  idId?: number;
 }
 
 export class Persona implements IPersona {
@@ -34,10 +30,6 @@ export class Persona implements IPersona {
     public tipo?: number,
     public discriminator?: string,
     public idRuoloPersonaRef?: number,
-    public tipoRuoloUtente?: number,
-    public idId?: number,
-    public idId?: number,
-    public idId?: number,
-    public idId?: number
+    public tipoRuoloUtente?: number
   ) {}
 }

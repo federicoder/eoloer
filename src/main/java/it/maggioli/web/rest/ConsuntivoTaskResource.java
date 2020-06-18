@@ -84,15 +84,10 @@ public class ConsuntivoTaskResource {
     /**
      * {@code GET  /consuntivo-tasks} : get all the consuntivoTasks.
      *
-     * @param filter the filter of the request.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of consuntivoTasks in body.
      */
     @GetMapping("/consuntivo-tasks")
-    public List<ConsuntivoTaskDTO> getAllConsuntivoTasks(@RequestParam(required = false) String filter) {
-        if ("idtaskref-is-null".equals(filter)) {
-            log.debug("REST request to get all ConsuntivoTasks where idTaskRef is null");
-            return consuntivoTaskService.findAllWhereIdTaskRefIsNull();
-        }
+    public List<ConsuntivoTaskDTO> getAllConsuntivoTasks() {
         log.debug("REST request to get all ConsuntivoTasks");
         return consuntivoTaskService.findAll();
     }

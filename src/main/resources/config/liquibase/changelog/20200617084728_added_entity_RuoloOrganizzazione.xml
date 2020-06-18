@@ -18,11 +18,11 @@
             <column name="ruolo_in_org" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="id_id" type="bigint">
-                <constraints unique="true" nullable="true" uniqueConstraintName="ux_ruolo_organizzazione_id_id" />
+            <column name="id_organizzazione_id" type="bigint">
+                <constraints unique="true" nullable="true" uniqueConstraintName="ux_ruolo_organizzazione_id_organizzazione_id" />
             </column>
-            <column name="id_id" type="bigint">
-                <constraints unique="true" nullable="true" uniqueConstraintName="ux_ruolo_organizzazione_id_id" />
+            <column name="id_persona_fisica_id" type="bigint">
+                <constraints unique="true" nullable="true" uniqueConstraintName="ux_ruolo_organizzazione_id_persona_fisica_id" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
         </createTable>

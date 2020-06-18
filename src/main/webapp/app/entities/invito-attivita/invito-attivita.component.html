@@ -42,7 +42,8 @@
                 <tr>
                     <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.invitoAttivita.idTaskRef">Id Task Ref</span></th>
-                    <th scope="col" ><span jhiTranslate="eoloprjApp.invitoAttivita.idTaskRef">Id Task Ref</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.invitoAttivita.idTask">Id Task</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.invitoAttivita.idTask">Id Task</span></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -51,8 +52,13 @@
                     <td><a [routerLink]="['/invito-attivita', invitoAttivita.id, 'view']">{{ invitoAttivita.id }}</a></td>
                     <td>{{ invitoAttivita.idTaskRef }}</td>
                     <td>
-                        <div *ngIf="invitoAttivita.idTaskRefId">
-                            <a [routerLink]="['/invito', invitoAttivita.idTaskRefId , 'view']" >{{ invitoAttivita.idTaskRefId }}</a>
+                        <div *ngIf="invitoAttivita.idTaskId">
+                            <a [routerLink]="['/task', invitoAttivita.idTaskId , 'view']" >{{ invitoAttivita.idTaskId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="invitoAttivita.idTaskId">
+                            <a [routerLink]="['/invito', invitoAttivita.idTaskId , 'view']" >{{ invitoAttivita.idTaskId }}</a>
                         </div>
                     </td>
                     <td class="text-right">

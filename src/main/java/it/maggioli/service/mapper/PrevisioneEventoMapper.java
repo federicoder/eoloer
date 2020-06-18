@@ -12,12 +12,12 @@ import org.mapstruct.*;
 @Mapper(componentModel = "spring", uses = {PrevisioneTaskMapper.class})
 public interface PrevisioneEventoMapper extends EntityMapper<PrevisioneEventoDTO, PrevisioneEvento> {
 
-    @Mapping(source = "idTaskRef.id", target = "idTaskRefId")
+    @Mapping(source = "idPrevisioneEvento.id", target = "idPrevisioneEventoId")
     PrevisioneEventoDTO toDto(PrevisioneEvento previsioneEvento);
 
-    @Mapping(source = "idTaskRefId", target = "idTaskRef")
-    @Mapping(target = "idTaskRefs", ignore = true)
-    @Mapping(target = "removeIdTaskRef", ignore = true)
+    @Mapping(source = "idPrevisioneEventoId", target = "idPrevisioneEvento")
+    @Mapping(target = "idInvitoEventos", ignore = true)
+    @Mapping(target = "removeIdInvitoEvento", ignore = true)
     PrevisioneEvento toEntity(PrevisioneEventoDTO previsioneEventoDTO);
 
     default PrevisioneEvento fromId(Long id) {

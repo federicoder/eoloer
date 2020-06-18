@@ -44,7 +44,7 @@ public class PrevisioneAttivita implements Serializable {
 
     @OneToOne
     @JoinColumn(unique = true)
-    private PrevisioneTask idTaskRef;
+    private PrevisioneTask idPrevisioneAttivita;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -120,17 +120,17 @@ public class PrevisioneAttivita implements Serializable {
         this.version = version;
     }
 
-    public PrevisioneTask getIdTaskRef() {
-        return idTaskRef;
+    public PrevisioneTask getIdPrevisioneAttivita() {
+        return idPrevisioneAttivita;
     }
 
-    public PrevisioneAttivita idTaskRef(PrevisioneTask previsioneTask) {
-        this.idTaskRef = previsioneTask;
+    public PrevisioneAttivita idPrevisioneAttivita(PrevisioneTask previsioneTask) {
+        this.idPrevisioneAttivita = previsioneTask;
         return this;
     }
 
-    public void setIdTaskRef(PrevisioneTask previsioneTask) {
-        this.idTaskRef = previsioneTask;
+    public void setIdPrevisioneAttivita(PrevisioneTask previsioneTask) {
+        this.idPrevisioneAttivita = previsioneTask;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

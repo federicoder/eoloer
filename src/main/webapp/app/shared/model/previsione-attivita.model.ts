@@ -5,7 +5,7 @@ export interface IPrevisioneAttivita {
   oraPianificata?: string;
   dataScadenza?: string;
   version?: string;
-  idTaskRefId?: number;
+  idPrevisioneAttivitaId?: number;
 }
 
 export class PrevisioneAttivita implements IPrevisioneAttivita {
@@ -16,6 +16,6 @@ export class PrevisioneAttivita implements IPrevisioneAttivita {
     public oraPianificata?: string,
     public dataScadenza?: string,
     public version?: string,
-    public idTaskRefId?: number
+    public idPrevisioneAttivitaId?: number
   ) {}
 }

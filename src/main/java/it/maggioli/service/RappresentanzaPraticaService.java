@@ -69,36 +69,6 @@ public class RappresentanzaPraticaService {
     }
 
 
-
-    /**
-     *  Get all the rappresentanzaPraticas where IdRuoloPersona is {@code null}.
-     *  @return the list of entities.
-     */
-    @Transactional(readOnly = true) 
-    public List<RappresentanzaPraticaDTO> findAllWhereIdRuoloPersonaIsNull() {
-        log.debug("Request to get all rappresentanzaPraticas where IdRuoloPersona is null");
-        return StreamSupport
-            .stream(rappresentanzaPraticaRepository.findAll().spliterator(), false)
-            .filter(rappresentanzaPratica -> rappresentanzaPratica.getIdRuoloPersona() == null)
-            .map(rappresentanzaPraticaMapper::toDto)
-            .collect(Collectors.toCollection(LinkedList::new));
-    }
-
-
-    /**
-     *  Get all the rappresentanzaPraticas where IdRuoloPersona is {@code null}.
-     *  @return the list of entities.
-     */
-    @Transactional(readOnly = true) 
-    public List<RappresentanzaPraticaDTO> findAllWhereIdRuoloPersonaIsNull() {
-        log.debug("Request to get all rappresentanzaPraticas where IdRuoloPersona is null");
-        return StreamSupport
-            .stream(rappresentanzaPraticaRepository.findAll().spliterator(), false)
-            .filter(rappresentanzaPratica -> rappresentanzaPratica.getIdRuoloPersona() == null)
-            .map(rappresentanzaPraticaMapper::toDto)
-            .collect(Collectors.toCollection(LinkedList::new));
-    }
-
     /**
      * Get one rappresentanzaPratica by id.
      *

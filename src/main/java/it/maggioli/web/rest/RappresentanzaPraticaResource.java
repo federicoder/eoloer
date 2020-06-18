@@ -84,19 +84,10 @@ public class RappresentanzaPraticaResource {
     /**
      * {@code GET  /rappresentanza-praticas} : get all the rappresentanzaPraticas.
      *
-     * @param filter the filter of the request.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of rappresentanzaPraticas in body.
      */
     @GetMapping("/rappresentanza-praticas")
-    public List<RappresentanzaPraticaDTO> getAllRappresentanzaPraticas(@RequestParam(required = false) String filter) {
-        if ("idruolopersona-is-null".equals(filter)) {
-            log.debug("REST request to get all RappresentanzaPraticas where idRuoloPersona is null");
-            return rappresentanzaPraticaService.findAllWhereIdRuoloPersonaIsNull();
-        }
-        if ("idruolopersona-is-null".equals(filter)) {
-            log.debug("REST request to get all RappresentanzaPraticas where idRuoloPersona is null");
-            return rappresentanzaPraticaService.findAllWhereIdRuoloPersonaIsNull();
-        }
+    public List<RappresentanzaPraticaDTO> getAllRappresentanzaPraticas() {
         log.debug("REST request to get all RappresentanzaPraticas");
         return rappresentanzaPraticaService.findAll();
     }

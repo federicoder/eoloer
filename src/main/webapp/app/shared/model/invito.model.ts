@@ -16,10 +16,7 @@ export interface IInvito {
   oraFine?: string;
   urlStanzaVirtuale?: string;
   discriminator?: string;
-  idStudioProfessionaleRefId?: number;
-  idId?: number;
-  idId?: number;
-  idId?: number;
+  idStudioProfessionaleId?: number;
   assegnazioneTaskId?: number;
 }
 
@@ -42,10 +39,7 @@ export class Invito implements IInvito {
     public oraFine?: string,
     public urlStanzaVirtuale?: string,
     public discriminator?: string,
-    public idStudioProfessionaleRefId?: number,
-    public idId?: number,
-    public idId?: number,
-    public idId?: number,
+    public idStudioProfessionaleId?: number,
     public assegnazioneTaskId?: number
   ) {}
 }

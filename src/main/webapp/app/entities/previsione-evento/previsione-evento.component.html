@@ -47,7 +47,7 @@
                     <th scope="col" ><span jhiTranslate="eoloprjApp.previsioneEvento.luogo">Luogo</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.previsioneEvento.indicazioniLuogo">Indicazioni Luogo</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.previsioneEvento.version">Version</span></th>
-                    <th scope="col" ><span jhiTranslate="eoloprjApp.previsioneEvento.idTaskRef">Id Task Ref</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.previsioneEvento.idPrevisioneEvento">Id Previsione Evento</span></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -61,8 +61,8 @@
                     <td>{{ previsioneEvento.indicazioniLuogo }}</td>
                     <td>{{ previsioneEvento.version }}</td>
                     <td>
-                        <div *ngIf="previsioneEvento.idTaskRefId">
-                            <a [routerLink]="['/previsione-task', previsioneEvento.idTaskRefId , 'view']" >{{ previsioneEvento.idTaskRefId }}</a>
+                        <div *ngIf="previsioneEvento.idPrevisioneEventoId">
+                            <a [routerLink]="['/previsione-task', previsioneEvento.idPrevisioneEventoId , 'view']" >{{ previsioneEvento.idPrevisioneEventoId }}</a>
                         </div>
                     </td>
                     <td class="text-right">

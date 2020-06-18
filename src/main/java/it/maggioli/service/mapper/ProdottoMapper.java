@@ -9,14 +9,10 @@ import org.mapstruct.*;
 /**
  * Mapper for the entity {@link Prodotto} and its DTO {@link ProdottoDTO}.
  */
-@Mapper(componentModel = "spring", uses = {LineaOrdineMapper.class})
+@Mapper(componentModel = "spring", uses = {})
 public interface ProdottoMapper extends EntityMapper<ProdottoDTO, Prodotto> {
 
-    @Mapping(source = "id.id", target = "idId")
-    ProdottoDTO toDto(Prodotto prodotto);
 
-    @Mapping(source = "idId", target = "id")
-    Prodotto toEntity(ProdottoDTO prodottoDTO);
 
     default Prodotto fromId(Long id) {
         if (id == null) {

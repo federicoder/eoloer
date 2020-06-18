@@ -12,11 +12,11 @@ import org.mapstruct.*;
 @Mapper(componentModel = "spring", uses = {InvitoMapper.class, PrevisioneEventoMapper.class})
 public interface InvitoEventoMapper extends EntityMapper<InvitoEventoDTO, InvitoEvento> {
 
-    @Mapping(source = "idTaskRef.id", target = "idTaskRefId")
+    @Mapping(source = "idTask.id", target = "idTaskId")
     @Mapping(source = "previsioneEvento.id", target = "previsioneEventoId")
     InvitoEventoDTO toDto(InvitoEvento invitoEvento);
 
-    @Mapping(source = "idTaskRefId", target = "idTaskRef")
+    @Mapping(source = "idTaskId", target = "idTask")
     @Mapping(source = "previsioneEventoId", target = "previsioneEvento")
     InvitoEvento toEntity(InvitoEventoDTO invitoEventoDTO);
 

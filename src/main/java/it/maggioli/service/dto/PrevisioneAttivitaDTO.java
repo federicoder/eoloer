@@ -23,7 +23,7 @@ public class PrevisioneAttivitaDTO implements Serializable {
     private String version;
 
 
-    private Long idTaskRefId;
+    private Long idPrevisioneAttivitaId;
     
     public Long getId() {
         return id;
@@ -73,12 +73,12 @@ public class PrevisioneAttivitaDTO implements Serializable {
         this.version = version;
     }
 
-    public Long getIdTaskRefId() {
-        return idTaskRefId;
+    public Long getIdPrevisioneAttivitaId() {
+        return idPrevisioneAttivitaId;
     }
 
-    public void setIdTaskRefId(Long previsioneTaskId) {
-        this.idTaskRefId = previsioneTaskId;
+    public void setIdPrevisioneAttivitaId(Long previsioneTaskId) {
+        this.idPrevisioneAttivitaId = previsioneTaskId;
     }
 
     @Override
@@ -108,7 +108,7 @@ public class PrevisioneAttivitaDTO implements Serializable {
             ", oraPianificata='" + getOraPianificata() + "'" +
             ", dataScadenza='" + getDataScadenza() + "'" +
             ", version='" + getVersion() + "'" +
-            ", idTaskRefId=" + getIdTaskRefId() +
+            ", idPrevisioneAttivitaId=" + getIdPrevisioneAttivitaId() +
             "}";
     }
 }

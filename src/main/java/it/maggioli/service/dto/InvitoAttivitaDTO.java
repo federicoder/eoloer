@@ -12,7 +12,9 @@ public class InvitoAttivitaDTO implements Serializable {
     private Long idTaskRef;
 
 
-    private Long idTaskRefId;
+    private Long idTaskId;
+
+    private Long idTaskId;
     
     public Long getId() {
         return id;
@@ -30,12 +32,20 @@ public class InvitoAttivitaDTO implements Serializable {
         this.idTaskRef = idTaskRef;
     }
 
-    public Long getIdTaskRefId() {
-        return idTaskRefId;
+    public Long getIdTaskId() {
+        return idTaskId;
     }
 
-    public void setIdTaskRefId(Long invitoId) {
-        this.idTaskRefId = invitoId;
+    public void setIdTaskId(Long taskId) {
+        this.idTaskId = taskId;
+    }
+
+    public Long getIdTaskId() {
+        return idTaskId;
+    }
+
+    public void setIdTaskId(Long invitoId) {
+        this.idTaskId = invitoId;
     }
 
     @Override
@@ -61,7 +71,8 @@ public class InvitoAttivitaDTO implements Serializable {
         return "InvitoAttivitaDTO{" +
             "id=" + getId() +
             ", idTaskRef=" + getIdTaskRef() +
-            ", idTaskRefId=" + getIdTaskRefId() +
+            ", idTaskId=" + getIdTaskId() +
+            ", idTaskId=" + getIdTaskId() +
             "}";
     }
 }

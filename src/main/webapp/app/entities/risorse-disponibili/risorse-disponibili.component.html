@@ -45,7 +45,7 @@
                     <th scope="col" ><span jhiTranslate="eoloprjApp.risorseDisponibili.dataAttivazioneLicenza">Data Attivazione Licenza</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.risorseDisponibili.nrLicenza">Nr Licenza</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.risorseDisponibili.storageTotale">Storage Totale</span></th>
-                    <th scope="col" ><span jhiTranslate="eoloprjApp.risorseDisponibili.idStudioProfessionaleRef">Id Studio Professionale Ref</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.risorseDisponibili.idStudioProfessionale">Id Studio Professionale</span></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -57,8 +57,8 @@
                     <td>{{ risorseDisponibili.nrLicenza }}</td>
                     <td>{{ risorseDisponibili.storageTotale }}</td>
                     <td>
-                        <div *ngIf="risorseDisponibili.idStudioProfessionaleRefId">
-                            <a [routerLink]="['/studio-professionale', risorseDisponibili.idStudioProfessionaleRefId , 'view']" >{{ risorseDisponibili.idStudioProfessionaleRefId }}</a>
+                        <div *ngIf="risorseDisponibili.idStudioProfessionaleId">
+                            <a [routerLink]="['/studio-professionale', risorseDisponibili.idStudioProfessionaleId , 'view']" >{{ risorseDisponibili.idStudioProfessionaleId }}</a>
                         </div>
                     </td>
                     <td class="text-right">

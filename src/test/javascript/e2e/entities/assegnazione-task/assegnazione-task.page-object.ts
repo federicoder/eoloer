@@ -35,8 +35,9 @@ export class AssegnazioneTaskUpdatePage {
   idUserConcedenteInput = element(by.id('field_idUserConcedente'));
   statoAssegnazioneInput = element(by.id('field_statoAssegnazione'));
 
-  ruoloSelect = element(by.id('field_ruolo'));
-  idUserAmmessoSelect = element(by.id('field_idUserAmmesso'));
+  idTaskSelect = element(by.id('field_idTask'));
+  idRuoloPersonaSelect = element(by.id('field_idRuoloPersona'));
+  idPersonaSelect = element(by.id('field_idPersona'));
 
   async getPageTitle(): Promise<string> {
     return this.pageTitle.getAttribute('jhiTranslate');
@@ -82,36 +83,52 @@ export class AssegnazioneTaskUpdatePage {
     return await this.statoAssegnazioneInput.getAttribute('value');
   }
 
-  async ruoloSelectLastOption(): Promise<void> {
-    await this.ruoloSelect.all(by.tagName('option')).last().click();
+  async idTaskSelectLastOption(): Promise<void> {
+    await this.idTaskSelect.all(by.tagName('option')).last().click();
   }
 
-  async ruoloSelectOption(option: string): Promise<void> {
-    await this.ruoloSelect.sendKeys(option);
+  async idTaskSelectOption(option: string): Promise<void> {
+    await this.idTaskSelect.sendKeys(option);
   }
 
-  getRuoloSelect(): ElementFinder {
-    return this.ruoloSelect;
+  getIdTaskSelect(): ElementFinder {
+    return this.idTaskSelect;
   }
 
-  async getRuoloSelectedOption(): Promise<string> {
-    return await this.ruoloSelect.element(by.css('option:checked')).getText();
+  async getIdTaskSelectedOption(): Promise<string> {
+    return await this.idTaskSelect.element(by.css('option:checked')).getText();
   }
 
-  async idUserAmmessoSelectLastOption(): Promise<void> {
-    await this.idUserAmmessoSelect.all(by.tagName('option')).last().click();
+  async idRuoloPersonaSelectLastOption(): Promise<void> {
+    await this.idRuoloPersonaSelect.all(by.tagName('option')).last().click();
   }
 
-  async idUserAmmessoSelectOption(option: string): Promise<void> {
-    await this.idUserAmmessoSelect.sendKeys(option);
+  async idRuoloPersonaSelectOption(option: string): Promise<void> {
+    await this.idRuoloPersonaSelect.sendKeys(option);
   }
 
-  getIdUserAmmessoSelect(): ElementFinder {
-    return this.idUserAmmessoSelect;
+  getIdRuoloPersonaSelect(): ElementFinder {
+    return this.idRuoloPersonaSelect;
   }
 
-  async getIdUserAmmessoSelectedOption(): Promise<string> {
-    return await this.idUserAmmessoSelect.element(by.css('option:checked')).getText();
+  async getIdRuoloPersonaSelectedOption(): Promise<string> {
+    return await this.idRuoloPersonaSelect.element(by.css('option:checked')).getText();
+  }
+
+  async idPersonaSelectLastOption(): Promise<void> {
+    await this.idPersonaSelect.all(by.tagName('option')).last().click();
+  }
+
+  async idPersonaSelectOption(option: string): Promise<void> {
+    await this.idPersonaSelect.sendKeys(option);
+  }
+
+  getIdPersonaSelect(): ElementFinder {
+    return this.idPersonaSelect;
+  }
+
+  async getIdPersonaSelectedOption(): Promise<string> {
+    return await this.idPersonaSelect.element(by.css('option:checked')).getText();
   }
 
   async save(): Promise<void> {

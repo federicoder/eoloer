@@ -30,8 +30,8 @@
             <column name="version" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="id_task_ref_id" type="bigint">
-                <constraints unique="true" nullable="true" uniqueConstraintName="ux_previsione_attivita_id_task_ref_id" />
+            <column name="id_previsione_attivita_id" type="bigint">
+                <constraints unique="true" nullable="true" uniqueConstraintName="ux_previsione_attivita_id_previsione_attivita_id" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
         </createTable>

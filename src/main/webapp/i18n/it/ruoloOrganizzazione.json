@@ -18,8 +18,8 @@
         "title": "Ruolo Organizzazione"
       },
       "ruoloInOrg": "Ruolo In Org",
-      "id": "Id",
-      "id": "Id"
+      "idOrganizzazione": "Id Organizzazione",
+      "idPersonaFisica": "Id Persona Fisica"
     }
   }
 }

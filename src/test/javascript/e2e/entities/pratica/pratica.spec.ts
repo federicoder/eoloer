@@ -54,7 +54,7 @@ describe('Pratica e2e test', () => {
       praticaUpdatePage.setVersionInput('version'),
       praticaUpdatePage.setValutaInput('valuta'),
       praticaUpdatePage.setIdTemplatePraticaRefInput('5'),
-      praticaUpdatePage.idTemplatePraticaRefSelectLastOption(),
+      praticaUpdatePage.idTemplatePraticaSelectLastOption(),
     ]);
 
     expect(await praticaUpdatePage.getIdStudioProfessionaleRefInput()).to.eq(

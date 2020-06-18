@@ -12,10 +12,10 @@ import org.mapstruct.*;
 @Mapper(componentModel = "spring", uses = {TaskMapper.class})
 public interface NotaTaskMapper extends EntityMapper<NotaTaskDTO, NotaTask> {
 
-    @Mapping(source = "idTaskRef.id", target = "idTaskRefId")
+    @Mapping(source = "idTask.id", target = "idTaskId")
     NotaTaskDTO toDto(NotaTask notaTask);
 
-    @Mapping(source = "idTaskRefId", target = "idTaskRef")
+    @Mapping(source = "idTaskId", target = "idTask")
     NotaTask toEntity(NotaTaskDTO notaTaskDTO);
 
     default NotaTask fromId(Long id) {

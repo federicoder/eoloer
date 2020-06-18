@@ -13,7 +13,7 @@ export interface IPratica {
   version?: string;
   valuta?: string;
   idTemplatePraticaRef?: number;
-  idTemplatePraticaRefId?: number;
+  idTemplatePraticaId?: number;
 }
 
 export class Pratica implements IPratica {
@@ -32,6 +32,6 @@ export class Pratica implements IPratica {
     public version?: string,
     public valuta?: string,
     public idTemplatePraticaRef?: number,
-    public idTemplatePraticaRefId?: number
+    public idTemplatePraticaId?: number
   ) {}
 }

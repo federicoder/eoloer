@@ -15,8 +15,6 @@ public class ProdottoDTO implements Serializable {
 
     private Long storage;
 
-
-    private Long idId;
     
     public Long getId() {
         return id;
@@ -50,14 +48,6 @@ public class ProdottoDTO implements Serializable {
         this.storage = storage;
     }
 
-    public Long getIdId() {
-        return idId;
-    }
-
-    public void setIdId(Long lineaOrdineId) {
-        this.idId = lineaOrdineId;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -83,7 +73,6 @@ public class ProdottoDTO implements Serializable {
             ", nuovaLicenza=" + getNuovaLicenza() +
             ", rinnovoLicenza=" + getRinnovoLicenza() +
             ", storage=" + getStorage() +
-            ", idId=" + getIdId() +
             "}";
     }
 }

@@ -17,14 +17,14 @@ import { PersonaService } from 'app/entities/persona/persona.service';
 })
 export class OrganizzazioneUpdateComponent implements OnInit {
   isSaving = false;
-  idpersonarefs: IPersona[] = [];
+  idpersonas: IPersona[] = [];
 
   editForm = this.fb.group({
     id: [],
     idPersonaRef: [null, [Validators.required]],
     nome: [],
     tipo: [],
-    idPersonaRefId: [],
+    idPersonaId: [],
   });
 
   constructor(
@@ -39,24 +39,24 @@ export class OrganizzazioneUpdateComponent implements OnInit {
       this.updateForm(organizzazione);
 
       this.personaService
-        .query({ filter: 'id-is-null' })
+        .query({ filter: 'organizzazione-is-null' })
         .pipe(
           map((res: HttpResponse<IPersona[]>) => {
             return res.body || [];
           })
         )
         .subscribe((resBody: IPersona[]) => {
-          if (!organizzazione.idPersonaRefId) {
-            this.idpersonarefs = resBody;
+          if (!organizzazione.idPersonaId) {
+            this.idpersonas = resBody;
           } else {
             this.personaService
-              .find(organizzazione.idPersonaRefId)
+              .find(organizzazione.idPersonaId)
               .pipe(
                 map((subRes: HttpResponse<IPersona>) => {
                   return subRes.body ? [subRes.body].concat(resBody) : resBody;
                 })
               )
-              .subscribe((concatRes: IPersona[]) => (this.idpersonarefs = concatRes));
+              .subscribe((concatRes: IPersona[]) => (this.idpersonas = concatRes));
           }
         });
     });
@@ -68,7 +68,7 @@ export class OrganizzazioneUpdateComponent implements OnInit {
       idPersonaRef: organizzazione.idPersonaRef,
       nome: organizzazione.nome,
       tipo: organizzazione.tipo,
-      idPersonaRefId: organizzazione.idPersonaRefId,
+      idPersonaId: organizzazione.idPersonaId,
     });
   }
 
@@ -93,7 +93,7 @@ export class OrganizzazioneUpdateComponent implements OnInit {
       idPersonaRef: this.editForm.get(['idPersonaRef'])!.value,
       nome: this.editForm.get(['nome'])!.value,
       tipo: this.editForm.get(['tipo'])!.value,
-      idPersonaRefId: this.editForm.get(['idPersonaRefId'])!.value,
+      idPersonaId: this.editForm.get(['idPersonaId'])!.value,
     };
   }
 

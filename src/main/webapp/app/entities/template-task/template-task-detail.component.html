@@ -28,16 +28,16 @@
                 <dd>
                     <span>{{ templateTask.idTemplatePraticaRef }}</span>
                 </dd>
-                <dt><span jhiTranslate="eoloprjApp.templateTask.idTemplatePraticaRef">Id Template Pratica Ref</span></dt>
+                <dt><span jhiTranslate="eoloprjApp.templateTask.idTemplatePratica">Id Template Pratica</span></dt>
                 <dd>
-                    <div *ngIf="templateTask.idTemplatePraticaRefId">
-                        <a [routerLink]="['/template-pratica', templateTask.idTemplatePraticaRefId, 'view']">{{ templateTask.idTemplatePraticaRefId }}</a>
+                    <div *ngIf="templateTask.idTemplatePraticaId">
+                        <a [routerLink]="['/template-pratica', templateTask.idTemplatePraticaId, 'view']">{{ templateTask.idTemplatePraticaId }}</a>
                     </div>
                 </dd>
-                <dt><span jhiTranslate="eoloprjApp.templateTask.id">Id</span></dt>
+                <dt><span jhiTranslate="eoloprjApp.templateTask.idTemplateTask">Id Template Task</span></dt>
                 <dd>
-                    <div *ngIf="templateTask.idId">
-                        <a [routerLink]="['/template-task', templateTask.idId, 'view']">{{ templateTask.idId }}</a>
+                    <div *ngIf="templateTask.idTemplateTaskId">
+                        <a [routerLink]="['/template-task', templateTask.idTemplateTaskId, 'view']">{{ templateTask.idTemplateTaskId }}</a>
                     </div>
                 </dd>
                 <dt><span jhiTranslate="eoloprjApp.templateTask.templateTask">Template Task</span></dt>

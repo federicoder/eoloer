@@ -12,10 +12,10 @@ import org.mapstruct.*;
 @Mapper(componentModel = "spring", uses = {PersonaMapper.class})
 public interface NotePersonaMapper extends EntityMapper<NotePersonaDTO, NotePersona> {
 
-    @Mapping(source = "idPersonaRef.id", target = "idPersonaRefId")
+    @Mapping(source = "idPersona.id", target = "idPersonaId")
     NotePersonaDTO toDto(NotePersona notePersona);
 
-    @Mapping(source = "idPersonaRefId", target = "idPersonaRef")
+    @Mapping(source = "idPersonaId", target = "idPersona")
     NotePersona toEntity(NotePersonaDTO notePersonaDTO);
 
     default NotePersona fromId(Long id) {

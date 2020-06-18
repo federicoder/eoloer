@@ -44,7 +44,7 @@
                     <th scope="col" ><span jhiTranslate="eoloprjApp.organizzazione.idPersonaRef">Id Persona Ref</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.organizzazione.nome">Nome</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.organizzazione.tipo">Tipo</span></th>
-                    <th scope="col" ><span jhiTranslate="eoloprjApp.organizzazione.idPersonaRef">Id Persona Ref</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.organizzazione.idPersona">Id Persona</span></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -55,8 +55,8 @@
                     <td>{{ organizzazione.nome }}</td>
                     <td>{{ organizzazione.tipo }}</td>
                     <td>
-                        <div *ngIf="organizzazione.idPersonaRefId">
-                            <a [routerLink]="['/persona', organizzazione.idPersonaRefId , 'view']" >{{ organizzazione.idPersonaRefId }}</a>
+                        <div *ngIf="organizzazione.idPersonaId">
+                            <a [routerLink]="['/persona', organizzazione.idPersonaId , 'view']" >{{ organizzazione.idPersonaId }}</a>
                         </div>
                     </td>
                     <td class="text-right">

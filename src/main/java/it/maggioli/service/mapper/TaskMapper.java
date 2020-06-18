@@ -9,21 +9,17 @@ import org.mapstruct.*;
 /**
  * Mapper for the entity {@link Task} and its DTO {@link TaskDTO}.
  */
-@Mapper(componentModel = "spring", uses = {ConsuntivoTaskMapper.class, PrevisioneTaskMapper.class, AssegnazioneTaskMapper.class, InvitoAttivitaMapper.class, PraticaMapper.class})
+@Mapper(componentModel = "spring", uses = {ConsuntivoTaskMapper.class, PrevisioneTaskMapper.class, PraticaMapper.class})
 public interface TaskMapper extends EntityMapper<TaskDTO, Task> {
 
-    @Mapping(source = "id.id", target = "idId")
-    @Mapping(source = "id.id", target = "idId")
-    @Mapping(source = "id.id", target = "idId")
-    @Mapping(source = "id.id", target = "idId")
-    @Mapping(source = "idPraticaRef.id", target = "idPraticaRefId")
+    @Mapping(source = "idTask.id", target = "idTaskId")
+    @Mapping(source = "idTask.id", target = "idTaskId")
+    @Mapping(source = "idPratica.id", target = "idPraticaId")
     TaskDTO toDto(Task task);
 
-    @Mapping(source = "idId", target = "id")
-    @Mapping(source = "idId", target = "id")
-    @Mapping(source = "idId", target = "id")
-    @Mapping(source = "idId", target = "id")
-    @Mapping(source = "idPraticaRefId", target = "idPraticaRef")
+    @Mapping(source = "idTaskId", target = "idTask")
+    @Mapping(source = "idTaskId", target = "idTask")
+    @Mapping(source = "idPraticaId", target = "idPratica")
     Task toEntity(TaskDTO taskDTO);
 
     default Task fromId(Long id) {

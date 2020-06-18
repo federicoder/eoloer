@@ -29,9 +29,17 @@
   "relationships": [
     {
       "relationshipType": "one-to-one",
+      "otherEntityName": "task",
+      "otherEntityRelationshipName": "assegnazioneTask",
+      "relationshipName": "idTask",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
       "otherEntityName": "rappresentanzaPratica",
-      "otherEntityRelationshipName": "idRuoloPersona",
-      "relationshipName": "ruolo",
+      "otherEntityRelationshipName": "assegnazioneTask",
+      "relationshipName": "idRuoloPersona",
       "otherEntityField": "id",
       "ownerSide": true
     },
@@ -39,21 +47,14 @@
       "relationshipType": "one-to-many",
       "otherEntityName": "invito",
       "otherEntityRelationshipName": "assegnazioneTask",
-      "relationshipName": "idUserConcedente"
+      "relationshipName": "idInvito"
     },
     {
       "relationshipType": "many-to-one",
       "otherEntityName": "userPersona",
       "otherEntityRelationshipName": "assegnazioneTask",
-      "relationshipName": "idUserAmmesso",
+      "relationshipName": "idPersona",
       "otherEntityField": "id"
-    },
-    {
-      "relationshipType": "one-to-one",
-      "otherEntityName": "task",
-      "otherEntityRelationshipName": "id",
-      "relationshipName": "idTaskRef",
-      "ownerSide": false
     }
   ],
   "changelogDate": "20200617083628",

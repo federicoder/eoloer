@@ -28,28 +28,28 @@
                 <dd>
                     <span>{{ condivisionePratica.idPraticaRef }}</span>
                 </dd>
-                <dt><span jhiTranslate="eoloprjApp.condivisionePratica.ruolo">Ruolo</span></dt>
+                <dt><span jhiTranslate="eoloprjApp.condivisionePratica.idRuoloPersona">Id Ruolo Persona</span></dt>
                 <dd>
-                    <div *ngIf="condivisionePratica.ruoloId">
-                        <a [routerLink]="['/rappresentanza-pratica', condivisionePratica.ruoloId, 'view']">{{ condivisionePratica.ruoloId }}</a>
+                    <div *ngIf="condivisionePratica.idRuoloPersonaId">
+                        <a [routerLink]="['/rappresentanza-pratica', condivisionePratica.idRuoloPersonaId, 'view']">{{ condivisionePratica.idRuoloPersonaId }}</a>
                     </div>
                 </dd>
-                <dt><span jhiTranslate="eoloprjApp.condivisionePratica.idUserConcedente">Id User Concedente</span></dt>
+                <dt><span jhiTranslate="eoloprjApp.condivisionePratica.idPersona">Id Persona</span></dt>
                 <dd>
-                    <div *ngIf="condivisionePratica.idUserConcedenteId">
-                        <a [routerLink]="['/persona', condivisionePratica.idUserConcedenteId, 'view']">{{ condivisionePratica.idUserConcedenteId }}</a>
+                    <div *ngIf="condivisionePratica.idPersonaId">
+                        <a [routerLink]="['/persona', condivisionePratica.idPersonaId, 'view']">{{ condivisionePratica.idPersonaId }}</a>
                     </div>
                 </dd>
-                <dt><span jhiTranslate="eoloprjApp.condivisionePratica.idUserAmmesso">Id User Ammesso</span></dt>
+                <dt><span jhiTranslate="eoloprjApp.condivisionePratica.idUserPersona">Id User Persona</span></dt>
                 <dd>
-                    <div *ngIf="condivisionePratica.idUserAmmessoId">
-                        <a [routerLink]="['/user-persona', condivisionePratica.idUserAmmessoId, 'view']">{{ condivisionePratica.idUserAmmessoId }}</a>
+                    <div *ngIf="condivisionePratica.idUserPersonaId">
+                        <a [routerLink]="['/user-persona', condivisionePratica.idUserPersonaId, 'view']">{{ condivisionePratica.idUserPersonaId }}</a>
                     </div>
                 </dd>
-                <dt><span jhiTranslate="eoloprjApp.condivisionePratica.idPraticaRef">Id Pratica Ref</span></dt>
+                <dt><span jhiTranslate="eoloprjApp.condivisionePratica.idPratica">Id Pratica</span></dt>
                 <dd>
-                    <div *ngIf="condivisionePratica.idPraticaRefId">
-                        <a [routerLink]="['/pratica', condivisionePratica.idPraticaRefId, 'view']">{{ condivisionePratica.idPraticaRefId }}</a>
+                    <div *ngIf="condivisionePratica.idPraticaId">
+                        <a [routerLink]="['/pratica', condivisionePratica.idPraticaId, 'view']">{{ condivisionePratica.idPraticaId }}</a>
                     </div>
                 </dd>
             </dl>

@@ -56,37 +56,7 @@
       "fieldType": "Long"
     }
   ],
-  "relationships": [
-    {
-      "relationshipType": "one-to-one",
-      "otherEntityName": "indirizzoPersona",
-      "otherEntityRelationshipName": "idPersonaRef",
-      "relationshipName": "id",
-      "otherEntityField": "id",
-      "ownerSide": true
-    },
-    {
-      "relationshipType": "one-to-one",
-      "otherEntityName": "personaFisica",
-      "otherEntityRelationshipName": "idPersonaRef",
-      "relationshipName": "id",
-      "ownerSide": false
-    },
-    {
-      "relationshipType": "one-to-one",
-      "otherEntityName": "organizzazione",
-      "otherEntityRelationshipName": "idPersonaRef",
-      "relationshipName": "id",
-      "ownerSide": false
-    },
-    {
-      "relationshipType": "one-to-one",
-      "otherEntityName": "condivisionePratica",
-      "otherEntityRelationshipName": "idUserConcedente",
-      "relationshipName": "id",
-      "ownerSide": false
-    }
-  ],
+  "relationships": [],
   "changelogDate": "20200617084428",
   "entityTableName": "persona",
   "dto": "mapstruct",

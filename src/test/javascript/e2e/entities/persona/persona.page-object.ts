@@ -43,8 +43,6 @@ export class PersonaUpdatePage {
   idRuoloPersonaRefInput = element(by.id('field_idRuoloPersonaRef'));
   tipoRuoloUtenteInput = element(by.id('field_tipoRuoloUtente'));
 
-  idSelect = element(by.id('field_id'));
-
   async getPageTitle(): Promise<string> {
     return this.pageTitle.getAttribute('jhiTranslate');
   }
@@ -151,22 +149,6 @@ export class PersonaUpdatePage {
 
   async getTipoRuoloUtenteInput(): Promise<string> {
     return await this.tipoRuoloUtenteInput.getAttribute('value');
-  }
-
-  async idSelectLastOption(): Promise<void> {
-    await this.idSelect.all(by.tagName('option')).last().click();
-  }
-
-  async idSelectOption(option: string): Promise<void> {
-    await this.idSelect.sendKeys(option);
-  }
-
-  getIdSelect(): ElementFinder {
-    return this.idSelect;
-  }
-
-  async getIdSelectedOption(): Promise<string> {
-    return await this.idSelect.element(by.css('option:checked')).getText();
   }
 
   async save(): Promise<void> {

@@ -49,8 +49,8 @@ describe('TemplateTask e2e test', () => {
       templateTaskUpdatePage.setNoteInput('5'),
       templateTaskUpdatePage.setPubPrivInput('5'),
       templateTaskUpdatePage.setIdTemplatePraticaRefInput('5'),
-      templateTaskUpdatePage.idTemplatePraticaRefSelectLastOption(),
-      templateTaskUpdatePage.idSelectLastOption(),
+      templateTaskUpdatePage.idTemplatePraticaSelectLastOption(),
+      templateTaskUpdatePage.idTemplateTaskSelectLastOption(),
       templateTaskUpdatePage.templateTaskSelectLastOption(),
     ]);
 

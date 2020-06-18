@@ -69,51 +69,6 @@ public class InvitoService {
     }
 
 
-
-    /**
-     *  Get all the invitos where Id is {@code null}.
-     *  @return the list of entities.
-     */
-    @Transactional(readOnly = true) 
-    public List<InvitoDTO> findAllWhereIdIsNull() {
-        log.debug("Request to get all invitos where Id is null");
-        return StreamSupport
-            .stream(invitoRepository.findAll().spliterator(), false)
-            .filter(invito -> invito.getId() == null)
-            .map(invitoMapper::toDto)
-            .collect(Collectors.toCollection(LinkedList::new));
-    }
-
-
-    /**
-     *  Get all the invitos where Id is {@code null}.
-     *  @return the list of entities.
-     */
-    @Transactional(readOnly = true) 
-    public List<InvitoDTO> findAllWhereIdIsNull() {
-        log.debug("Request to get all invitos where Id is null");
-        return StreamSupport
-            .stream(invitoRepository.findAll().spliterator(), false)
-            .filter(invito -> invito.getId() == null)
-            .map(invitoMapper::toDto)
-            .collect(Collectors.toCollection(LinkedList::new));
-    }
-
-
-    /**
-     *  Get all the invitos where Id is {@code null}.
-     *  @return the list of entities.
-     */
-    @Transactional(readOnly = true) 
-    public List<InvitoDTO> findAllWhereIdIsNull() {
-        log.debug("Request to get all invitos where Id is null");
-        return StreamSupport
-            .stream(invitoRepository.findAll().spliterator(), false)
-            .filter(invito -> invito.getId() == null)
-            .map(invitoMapper::toDto)
-            .collect(Collectors.toCollection(LinkedList::new));
-    }
-
     /**
      * Get one invito by id.
      *

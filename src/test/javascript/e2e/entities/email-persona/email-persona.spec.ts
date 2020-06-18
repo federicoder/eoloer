@@ -47,7 +47,7 @@ describe('EmailPersona e2e test', () => {
       emailPersonaUpdatePage.setIdPersonaRefInput('5'),
       emailPersonaUpdatePage.setEtichettaInput('5'),
       emailPersonaUpdatePage.setNumeroInput('5'),
-      emailPersonaUpdatePage.idPersonaRefSelectLastOption(),
+      emailPersonaUpdatePage.idPersonaSelectLastOption(),
     ]);
 
     expect(await emailPersonaUpdatePage.getIdPersonaRefInput()).to.eq('5', 'Expected idPersonaRef value to be equals to 5');

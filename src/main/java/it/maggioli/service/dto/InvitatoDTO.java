@@ -34,9 +34,9 @@ public class InvitatoDTO implements Serializable {
     private Long indInvitati;
 
 
-    private Long idUserInvitatoId;
+    private Long idUserPersonaId;
 
-    private Long idInvitoRefId;
+    private Long idInvitoId;
     
     public Long getId() {
         return id;
@@ -134,20 +134,20 @@ public class InvitatoDTO implements Serializable {
         this.indInvitati = indInvitati;
     }
 
-    public Long getIdUserInvitatoId() {
-        return idUserInvitatoId;
+    public Long getIdUserPersonaId() {
+        return idUserPersonaId;
     }
 
-    public void setIdUserInvitatoId(Long userPersonaId) {
-        this.idUserInvitatoId = userPersonaId;
+    public void setIdUserPersonaId(Long userPersonaId) {
+        this.idUserPersonaId = userPersonaId;
     }
 
-    public Long getIdInvitoRefId() {
-        return idInvitoRefId;
+    public Long getIdInvitoId() {
+        return idInvitoId;
     }
 
-    public void setIdInvitoRefId(Long invitoId) {
-        this.idInvitoRefId = invitoId;
+    public void setIdInvitoId(Long invitoId) {
+        this.idInvitoId = invitoId;
     }
 
     @Override
@@ -183,8 +183,8 @@ public class InvitatoDTO implements Serializable {
             ", dataRispostaInvito='" + getDataRispostaInvito() + "'" +
             ", ruoloInvitato=" + getRuoloInvitato() +
             ", indInvitati=" + getIndInvitati() +
-            ", idUserInvitatoId=" + getIdUserInvitatoId() +
-            ", idInvitoRefId=" + getIdInvitoRefId() +
+            ", idUserPersonaId=" + getIdUserPersonaId() +
+            ", idInvitoId=" + getIdInvitoId() +
             "}";
     }
 }

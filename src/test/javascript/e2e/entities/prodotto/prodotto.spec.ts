@@ -44,7 +44,6 @@ describe('Prodotto e2e test', () => {
       prodottoUpdatePage.setNuovaLicenzaInput('5'),
       prodottoUpdatePage.setRinnovoLicenzaInput('5'),
       prodottoUpdatePage.setStorageInput('5'),
-      prodottoUpdatePage.idSelectLastOption(),
     ]);
 
     expect(await prodottoUpdatePage.getNuovaLicenzaInput()).to.eq('5', 'Expected nuovaLicenza value to be equals to 5');

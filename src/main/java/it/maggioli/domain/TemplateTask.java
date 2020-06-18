@@ -44,18 +44,18 @@ public class TemplateTask implements Serializable {
 
     @OneToMany(mappedBy = "templateTask")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<TemplateTask> ids = new HashSet<>();
+    private Set<TemplateTask> idTemplateTasks = new HashSet<>();
 
     @ManyToOne
     @JsonIgnoreProperties(value = "templateTasks", allowSetters = true)
-    private TemplatePratica idTemplatePraticaRef;
+    private TemplatePratica idTemplatePratica;
 
     @ManyToOne
     @JsonIgnoreProperties(value = "templateTasks", allowSetters = true)
-    private TemplateTask id;
+    private TemplateTask idTemplateTask;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "ids", allowSetters = true)
+    @JsonIgnoreProperties(value = "idTemplateTasks", allowSetters = true)
     private TemplateTask templateTask;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
@@ -132,55 +132,55 @@ public class TemplateTask implements Serializable {
         this.idTemplatePraticaRef = idTemplatePraticaRef;
     }
 
-    public Set<TemplateTask> getIds() {
-        return ids;
+    public Set<TemplateTask> getIdTemplateTasks() {
+        return idTemplateTasks;
     }
 
-    public TemplateTask ids(Set<TemplateTask> templateTasks) {
-        this.ids = templateTasks;
+    public TemplateTask idTemplateTasks(Set<TemplateTask> templateTasks) {
+        this.idTemplateTasks = templateTasks;
         return this;
     }
 
-    public TemplateTask addId(TemplateTask templateTask) {
-        this.ids.add(templateTask);
+    public TemplateTask addIdTemplateTask(TemplateTask templateTask) {
+        this.idTemplateTasks.add(templateTask);
         templateTask.setTemplateTask(this);
         return this;
     }
 
-    public TemplateTask removeId(TemplateTask templateTask) {
-        this.ids.remove(templateTask);
+    public TemplateTask removeIdTemplateTask(TemplateTask templateTask) {
+        this.idTemplateTasks.remove(templateTask);
         templateTask.setTemplateTask(null);
         return this;
     }
 
-    public void setIds(Set<TemplateTask> templateTasks) {
-        this.ids = templateTasks;
+    public void setIdTemplateTasks(Set<TemplateTask> templateTasks) {
+        this.idTemplateTasks = templateTasks;
     }
 
-    public TemplatePratica getIdTemplatePraticaRef() {
-        return idTemplatePraticaRef;
+    public TemplatePratica getIdTemplatePratica() {
+        return idTemplatePratica;
     }
 
-    public TemplateTask idTemplatePraticaRef(TemplatePratica templatePratica) {
-        this.idTemplatePraticaRef = templatePratica;
+    public TemplateTask idTemplatePratica(TemplatePratica templatePratica) {
+        this.idTemplatePratica = templatePratica;
         return this;
     }
 
-    public void setIdTemplatePraticaRef(TemplatePratica templatePratica) {
-        this.idTemplatePraticaRef = templatePratica;
+    public void setIdTemplatePratica(TemplatePratica templatePratica) {
+        this.idTemplatePratica = templatePratica;
     }
 
-    public TemplateTask getId() {
-        return id;
+    public TemplateTask getIdTemplateTask() {
+        return idTemplateTask;
     }
 
-    public TemplateTask id(TemplateTask templateTask) {
-        this.id = templateTask;
+    public TemplateTask idTemplateTask(TemplateTask templateTask) {
+        this.idTemplateTask = templateTask;
         return this;
     }
 
-    public void setId(TemplateTask templateTask) {
-        this.id = templateTask;
+    public void setIdTemplateTask(TemplateTask templateTask) {
+        this.idTemplateTask = templateTask;
     }
 
     public TemplateTask getTemplateTask() {

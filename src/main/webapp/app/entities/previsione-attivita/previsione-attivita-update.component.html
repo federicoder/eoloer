@@ -56,10 +56,10 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="eoloprjApp.previsioneAttivita.idTaskRef" for="field_idTaskRef">Id Task Ref</label>
-                    <select class="form-control" id="field_idTaskRef" name="idTaskRef" formControlName="idTaskRefId">
+                    <label class="form-control-label" jhiTranslate="eoloprjApp.previsioneAttivita.idPrevisioneAttivita" for="field_idPrevisioneAttivita">Id Previsione Attivita</label>
+                    <select class="form-control" id="field_idPrevisioneAttivita" name="idPrevisioneAttivita" formControlName="idPrevisioneAttivitaId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="previsioneTaskOption.id" *ngFor="let previsioneTaskOption of idtaskrefs; trackBy: trackById">{{ previsioneTaskOption.id }}</option>
+                        <option [ngValue]="previsioneTaskOption.id" *ngFor="let previsioneTaskOption of idprevisioneattivitas; trackBy: trackById">{{ previsioneTaskOption.id }}</option>
                     </select>
                 </div>
             </div>

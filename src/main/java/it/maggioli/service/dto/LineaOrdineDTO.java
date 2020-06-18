@@ -23,7 +23,9 @@ public class LineaOrdineDTO implements Serializable {
     private String codIva;
 
 
-    private Long idOrdineRefId;
+    private Long idProdottoId;
+
+    private Long idOrdineId;
     
     public Long getId() {
         return id;
@@ -73,12 +75,20 @@ public class LineaOrdineDTO implements Serializable {
         this.codIva = codIva;
     }
 
-    public Long getIdOrdineRefId() {
-        return idOrdineRefId;
+    public Long getIdProdottoId() {
+        return idProdottoId;
     }
 
-    public void setIdOrdineRefId(Long ordineId) {
-        this.idOrdineRefId = ordineId;
+    public void setIdProdottoId(Long prodottoId) {
+        this.idProdottoId = prodottoId;
+    }
+
+    public Long getIdOrdineId() {
+        return idOrdineId;
+    }
+
+    public void setIdOrdineId(Long ordineId) {
+        this.idOrdineId = ordineId;
     }
 
     @Override
@@ -108,7 +118,8 @@ public class LineaOrdineDTO implements Serializable {
             ", quantita=" + getQuantita() +
             ", importo=" + getImporto() +
             ", codIva='" + getCodIva() + "'" +
-            ", idOrdineRefId=" + getIdOrdineRefId() +
+            ", idProdottoId=" + getIdProdottoId() +
+            ", idOrdineId=" + getIdOrdineId() +
             "}";
     }
 }

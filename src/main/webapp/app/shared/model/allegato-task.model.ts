@@ -8,9 +8,9 @@ export interface IAllegatoTask {
   pubblico?: number;
   version?: string;
   idAllegatoMaster?: number;
-  ids?: IAllegatoTask[];
-  idTipoAllegatoRefId?: number;
-  idTaskRefId?: number;
+  idAllegatoTasks?: IAllegatoTask[];
+  idTipoAllegatoId?: number;
+  idTaskId?: number;
   allegatoTaskId?: number;
 }
 
@@ -25,9 +25,9 @@ export class AllegatoTask implements IAllegatoTask {
     public pubblico?: number,
     public version?: string,
     public idAllegatoMaster?: number,
-    public ids?: IAllegatoTask[],
-    public idTipoAllegatoRefId?: number,
-    public idTaskRefId?: number,
+    public idAllegatoTasks?: IAllegatoTask[],
+    public idTipoAllegatoId?: number,
+    public idTaskId?: number,
     public allegatoTaskId?: number
   ) {}
 }

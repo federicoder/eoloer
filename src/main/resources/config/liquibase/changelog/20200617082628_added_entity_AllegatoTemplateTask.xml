@@ -30,7 +30,7 @@
             <column name="pub_priv" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="id_template_task_ref_id" type="bigint">
+            <column name="id_template_task_id" type="bigint">
                 <constraints nullable="true" />
             </column>
             <column name="tipo_allegato_id" type="bigint">

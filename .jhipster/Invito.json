@@ -72,36 +72,15 @@
     {
       "relationshipType": "one-to-one",
       "otherEntityName": "studioProfessionale",
-      "otherEntityRelationshipName": "id",
-      "relationshipName": "idStudioProfessionaleRef",
+      "otherEntityRelationshipName": "invito",
+      "relationshipName": "idStudioProfessionale",
       "otherEntityField": "id",
       "ownerSide": true
     },
     {
-      "relationshipType": "one-to-one",
-      "otherEntityName": "invitoPratica",
-      "otherEntityRelationshipName": "idPraticaRef",
-      "relationshipName": "id",
-      "ownerSide": false
-    },
-    {
-      "relationshipType": "one-to-one",
-      "otherEntityName": "invitoAttivita",
-      "otherEntityRelationshipName": "idTaskRef",
-      "relationshipName": "id",
-      "ownerSide": false
-    },
-    {
-      "relationshipType": "one-to-one",
-      "otherEntityName": "invitoEvento",
-      "otherEntityRelationshipName": "idTaskRef",
-      "relationshipName": "id",
-      "ownerSide": false
-    },
-    {
       "relationshipType": "many-to-one",
       "otherEntityName": "assegnazioneTask",
-      "otherEntityRelationshipName": "idUserConcedente",
+      "otherEntityRelationshipName": "idInvito",
       "relationshipName": "assegnazioneTask",
       "otherEntityField": "id"
     }

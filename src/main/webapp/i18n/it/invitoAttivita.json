@@ -18,8 +18,8 @@
         "title": "Invito Attivita"
       },
       "idTaskRef": "Id Task Ref",
-      "idTaskRef": "Id Task Ref",
-      "idTaskRef": "Id Task Ref"
+      "idTask": "Id Task",
+      "idTask": "Id Task"
     }
   }
 }

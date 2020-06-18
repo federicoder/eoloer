@@ -21,8 +21,7 @@
       "dataInizio": "Data Inizio",
       "dataFine": "Data Fine",
       "timeLine": "Time Line",
-      "version": "Version",
-      "idTaskRef": "Id Task Ref"
+      "version": "Version"
     }
   }
 }

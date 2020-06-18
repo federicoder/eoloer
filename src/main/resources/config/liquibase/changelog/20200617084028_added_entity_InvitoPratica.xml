@@ -18,8 +18,8 @@
             <column name="id_pratica_ref" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="id_pratica_ref_id" type="bigint">
-                <constraints unique="true" nullable="true" uniqueConstraintName="ux_invito_pratica_id_pratica_ref_id" />
+            <column name="id_pratica_id" type="bigint">
+                <constraints unique="true" nullable="true" uniqueConstraintName="ux_invito_pratica_id_pratica_id" />
             </column>
             <column name="id_pratica_id" type="bigint">
                 <constraints nullable="true" />

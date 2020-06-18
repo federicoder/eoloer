@@ -69,21 +69,6 @@ public class InvitoAttivitaService {
     }
 
 
-
-    /**
-     *  Get all the invitoAttivitas where IdTaskRef is {@code null}.
-     *  @return the list of entities.
-     */
-    @Transactional(readOnly = true) 
-    public List<InvitoAttivitaDTO> findAllWhereIdTaskRefIsNull() {
-        log.debug("Request to get all invitoAttivitas where IdTaskRef is null");
-        return StreamSupport
-            .stream(invitoAttivitaRepository.findAll().spliterator(), false)
-            .filter(invitoAttivita -> invitoAttivita.getIdTaskRef() == null)
-            .map(invitoAttivitaMapper::toDto)
-            .collect(Collectors.toCollection(LinkedList::new));
-    }
-
     /**
      * Get one invitoAttivita by id.
      *

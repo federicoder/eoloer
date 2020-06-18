@@ -69,21 +69,6 @@ public class IndirizzoPersonaService {
     }
 
 
-
-    /**
-     *  Get all the indirizzoPersonas where IdPersonaRef is {@code null}.
-     *  @return the list of entities.
-     */
-    @Transactional(readOnly = true) 
-    public List<IndirizzoPersonaDTO> findAllWhereIdPersonaRefIsNull() {
-        log.debug("Request to get all indirizzoPersonas where IdPersonaRef is null");
-        return StreamSupport
-            .stream(indirizzoPersonaRepository.findAll().spliterator(), false)
-            .filter(indirizzoPersona -> indirizzoPersona.getIdPersonaRef() == null)
-            .map(indirizzoPersonaMapper::toDto)
-            .collect(Collectors.toCollection(LinkedList::new));
-    }
-
     /**
      * Get one indirizzoPersona by id.
      *

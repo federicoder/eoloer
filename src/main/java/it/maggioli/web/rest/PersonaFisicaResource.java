@@ -84,15 +84,10 @@ public class PersonaFisicaResource {
     /**
      * {@code GET  /persona-fisicas} : get all the personaFisicas.
      *
-     * @param filter the filter of the request.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of personaFisicas in body.
      */
     @GetMapping("/persona-fisicas")
-    public List<PersonaFisicaDTO> getAllPersonaFisicas(@RequestParam(required = false) String filter) {
-        if ("idruolopersona-is-null".equals(filter)) {
-            log.debug("REST request to get all PersonaFisicas where idRuoloPersona is null");
-            return personaFisicaService.findAllWhereIdRuoloPersonaIsNull();
-        }
+    public List<PersonaFisicaDTO> getAllPersonaFisicas() {
         log.debug("REST request to get all PersonaFisicas");
         return personaFisicaService.findAll();
     }

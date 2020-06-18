@@ -44,7 +44,6 @@
                     <th scope="col" ><span jhiTranslate="eoloprjApp.prodotto.nuovaLicenza">Nuova Licenza</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.prodotto.rinnovoLicenza">Rinnovo Licenza</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.prodotto.storage">Storage</span></th>
-                    <th scope="col" ><span jhiTranslate="eoloprjApp.prodotto.id">Id</span></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -54,11 +53,6 @@
                     <td>{{ prodotto.nuovaLicenza }}</td>
                     <td>{{ prodotto.rinnovoLicenza }}</td>
                     <td>{{ prodotto.storage }}</td>
-                    <td>
-                        <div *ngIf="prodotto.idId">
-                            <a [routerLink]="['/linea-ordine', prodotto.idId , 'view']" >{{ prodotto.idId }}</a>
-                        </div>
-                    </td>
                     <td class="text-right">
                         <div class="btn-group">
                             <button type="submit"

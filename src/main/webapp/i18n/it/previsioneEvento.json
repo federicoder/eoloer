@@ -23,8 +23,8 @@
       "luogo": "Luogo",
       "indicazioniLuogo": "Indicazioni Luogo",
       "version": "Version",
-      "idTaskRef": "Id Task Ref",
-      "idTaskRef": "Id Task Ref"
+      "idPrevisioneEvento": "Id Previsione Evento",
+      "idInvitoEvento": "Id Invito Evento"
     }
   }
 }

@@ -29,7 +29,7 @@
       "relationshipType": "many-to-one",
       "otherEntityName": "templateTask",
       "otherEntityRelationshipName": "allegatoTemplateTask",
-      "relationshipName": "idTemplateTaskRef",
+      "relationshipName": "idTemplateTask",
       "otherEntityField": "id"
     },
     {

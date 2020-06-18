@@ -9,18 +9,19 @@ import org.mapstruct.*;
 /**
  * Mapper for the entity {@link AssegnazioneTask} and its DTO {@link AssegnazioneTaskDTO}.
  */
-@Mapper(componentModel = "spring", uses = {RappresentanzaPraticaMapper.class, UserPersonaMapper.class})
+@Mapper(componentModel = "spring", uses = {TaskMapper.class, RappresentanzaPraticaMapper.class, UserPersonaMapper.class})
 public interface AssegnazioneTaskMapper extends EntityMapper<AssegnazioneTaskDTO, AssegnazioneTask> {
 
-    @Mapping(source = "ruolo.id", target = "ruoloId")
-    @Mapping(source = "idUserAmmesso.id", target = "idUserAmmessoId")
+    @Mapping(source = "idTask.id", target = "idTaskId")
+    @Mapping(source = "idRuoloPersona.id", target = "idRuoloPersonaId")
+    @Mapping(source = "idPersona.id", target = "idPersonaId")
     AssegnazioneTaskDTO toDto(AssegnazioneTask assegnazioneTask);
 
-    @Mapping(source = "ruoloId", target = "ruolo")
-    @Mapping(target = "idUserConcedentes", ignore = true)
-    @Mapping(target = "removeIdUserConcedente", ignore = true)
-    @Mapping(source = "idUserAmmessoId", target = "idUserAmmesso")
-    @Mapping(target = "idTaskRef", ignore = true)
+    @Mapping(source = "idTaskId", target = "idTask")
+    @Mapping(source = "idRuoloPersonaId", target = "idRuoloPersona")
+    @Mapping(target = "idInvitos", ignore = true)
+    @Mapping(target = "removeIdInvito", ignore = true)
+    @Mapping(source = "idPersonaId", target = "idPersona")
     AssegnazioneTask toEntity(AssegnazioneTaskDTO assegnazioneTaskDTO);
 
     default AssegnazioneTask fromId(Long id) {

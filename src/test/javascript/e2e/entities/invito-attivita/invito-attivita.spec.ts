@@ -43,7 +43,11 @@ describe('InvitoAttivita e2e test', () => {
 
     await invitoAttivitaComponentsPage.clickOnCreateButton();
 
-    await promise.all([invitoAttivitaUpdatePage.setIdTaskRefInput('5'), invitoAttivitaUpdatePage.idTaskRefSelectLastOption()]);
+    await promise.all([
+      invitoAttivitaUpdatePage.setIdTaskRefInput('5'),
+      invitoAttivitaUpdatePage.idTaskSelectLastOption(),
+      invitoAttivitaUpdatePage.idTaskSelectLastOption(),
+    ]);
 
     expect(await invitoAttivitaUpdatePage.getIdTaskRefInput()).to.eq('5', 'Expected idTaskRef value to be equals to 5');
 

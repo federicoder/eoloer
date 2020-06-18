@@ -17,7 +17,7 @@ import { PersonaService } from 'app/entities/persona/persona.service';
 })
 export class PersonaFisicaUpdateComponent implements OnInit {
   isSaving = false;
-  idpersonarefs: IPersona[] = [];
+  idpersonas: IPersona[] = [];
 
   editForm = this.fb.group({
     id: [],
@@ -29,7 +29,7 @@ export class PersonaFisicaUpdateComponent implements OnInit {
     dataDiNascita: [],
     luogoDiNascita: [],
     professione: [],
-    idPersonaRefId: [],
+    idPersonaId: [],
   });
 
   constructor(
@@ -44,24 +44,24 @@ export class PersonaFisicaUpdateComponent implements OnInit {
       this.updateForm(personaFisica);
 
       this.personaService
-        .query({ filter: 'id-is-null' })
+        .query({ filter: 'personafisica-is-null' })
         .pipe(
           map((res: HttpResponse<IPersona[]>) => {
             return res.body || [];
           })
         )
         .subscribe((resBody: IPersona[]) => {
-          if (!personaFisica.idPersonaRefId) {
-            this.idpersonarefs = resBody;
+          if (!personaFisica.idPersonaId) {
+            this.idpersonas = resBody;
           } else {
             this.personaService
-              .find(personaFisica.idPersonaRefId)
+              .find(personaFisica.idPersonaId)
               .pipe(
                 map((subRes: HttpResponse<IPersona>) => {
                   return subRes.body ? [subRes.body].concat(resBody) : resBody;
                 })
               )
-              .subscribe((concatRes: IPersona[]) => (this.idpersonarefs = concatRes));
+              .subscribe((concatRes: IPersona[]) => (this.idpersonas = concatRes));
           }
         });
     });
@@ -78,7 +78,7 @@ export class PersonaFisicaUpdateComponent implements OnInit {
       dataDiNascita: personaFisica.dataDiNascita,
       luogoDiNascita: personaFisica.luogoDiNascita,
       professione: personaFisica.professione,
-      idPersonaRefId: personaFisica.idPersonaRefId,
+      idPersonaId: personaFisica.idPersonaId,
     });
   }
 
@@ -108,7 +108,7 @@ export class PersonaFisicaUpdateComponent implements OnInit {
       dataDiNascita: this.editForm.get(['dataDiNascita'])!.value,
       luogoDiNascita: this.editForm.get(['luogoDiNascita'])!.value,
       professione: this.editForm.get(['professione'])!.value,
-      idPersonaRefId: this.editForm.get(['idPersonaRefId'])!.value,
+      idPersonaId: this.editForm.get(['idPersonaId'])!.value,
     };
   }
 

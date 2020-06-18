@@ -35,10 +35,10 @@ export class CondivisionePraticaUpdatePage {
   statoInvitoInput = element(by.id('field_statoInvito'));
   idPraticaRefInput = element(by.id('field_idPraticaRef'));
 
-  ruoloSelect = element(by.id('field_ruolo'));
-  idUserConcedenteSelect = element(by.id('field_idUserConcedente'));
-  idUserAmmessoSelect = element(by.id('field_idUserAmmesso'));
-  idPraticaRefSelect = element(by.id('field_idPraticaRef'));
+  idRuoloPersonaSelect = element(by.id('field_idRuoloPersona'));
+  idPersonaSelect = element(by.id('field_idPersona'));
+  idUserPersonaSelect = element(by.id('field_idUserPersona'));
+  idPraticaSelect = element(by.id('field_idPratica'));
 
   async getPageTitle(): Promise<string> {
     return this.pageTitle.getAttribute('jhiTranslate');
@@ -84,68 +84,68 @@ export class CondivisionePraticaUpdatePage {
     return await this.idPraticaRefInput.getAttribute('value');
   }
 
-  async ruoloSelectLastOption(): Promise<void> {
-    await this.ruoloSelect.all(by.tagName('option')).last().click();
+  async idRuoloPersonaSelectLastOption(): Promise<void> {
+    await this.idRuoloPersonaSelect.all(by.tagName('option')).last().click();
   }
 
-  async ruoloSelectOption(option: string): Promise<void> {
-    await this.ruoloSelect.sendKeys(option);
+  async idRuoloPersonaSelectOption(option: string): Promise<void> {
+    await this.idRuoloPersonaSelect.sendKeys(option);
   }
 
-  getRuoloSelect(): ElementFinder {
-    return this.ruoloSelect;
+  getIdRuoloPersonaSelect(): ElementFinder {
+    return this.idRuoloPersonaSelect;
   }
 
-  async getRuoloSelectedOption(): Promise<string> {
-    return await this.ruoloSelect.element(by.css('option:checked')).getText();
+  async getIdRuoloPersonaSelectedOption(): Promise<string> {
+    return await this.idRuoloPersonaSelect.element(by.css('option:checked')).getText();
   }
 
-  async idUserConcedenteSelectLastOption(): Promise<void> {
-    await this.idUserConcedenteSelect.all(by.tagName('option')).last().click();
+  async idPersonaSelectLastOption(): Promise<void> {
+    await this.idPersonaSelect.all(by.tagName('option')).last().click();
   }
 
-  async idUserConcedenteSelectOption(option: string): Promise<void> {
-    await this.idUserConcedenteSelect.sendKeys(option);
+  async idPersonaSelectOption(option: string): Promise<void> {
+    await this.idPersonaSelect.sendKeys(option);
   }
 
-  getIdUserConcedenteSelect(): ElementFinder {
-    return this.idUserConcedenteSelect;
+  getIdPersonaSelect(): ElementFinder {
+    return this.idPersonaSelect;
   }
 
-  async getIdUserConcedenteSelectedOption(): Promise<string> {
-    return await this.idUserConcedenteSelect.element(by.css('option:checked')).getText();
+  async getIdPersonaSelectedOption(): Promise<string> {
+    return await this.idPersonaSelect.element(by.css('option:checked')).getText();
   }
 
-  async idUserAmmessoSelectLastOption(): Promise<void> {
-    await this.idUserAmmessoSelect.all(by.tagName('option')).last().click();
+  async idUserPersonaSelectLastOption(): Promise<void> {
+    await this.idUserPersonaSelect.all(by.tagName('option')).last().click();
   }
 
-  async idUserAmmessoSelectOption(option: string): Promise<void> {
-    await this.idUserAmmessoSelect.sendKeys(option);
+  async idUserPersonaSelectOption(option: string): Promise<void> {
+    await this.idUserPersonaSelect.sendKeys(option);
   }
 
-  getIdUserAmmessoSelect(): ElementFinder {
-    return this.idUserAmmessoSelect;
+  getIdUserPersonaSelect(): ElementFinder {
+    return this.idUserPersonaSelect;
   }
 
-  async getIdUserAmmessoSelectedOption(): Promise<string> {
-    return await this.idUserAmmessoSelect.element(by.css('option:checked')).getText();
+  async getIdUserPersonaSelectedOption(): Promise<string> {
+    return await this.idUserPersonaSelect.element(by.css('option:checked')).getText();
   }
 
-  async idPraticaRefSelectLastOption(): Promise<void> {
-    await this.idPraticaRefSelect.all(by.tagName('option')).last().click();
+  async idPraticaSelectLastOption(): Promise<void> {
+    await this.idPraticaSelect.all(by.tagName('option')).last().click();
   }
 
-  async idPraticaRefSelectOption(option: string): Promise<void> {
-    await this.idPraticaRefSelect.sendKeys(option);
+  async idPraticaSelectOption(option: string): Promise<void> {
+    await this.idPraticaSelect.sendKeys(option);
   }
 
-  getIdPraticaRefSelect(): ElementFinder {
-    return this.idPraticaRefSelect;
+  getIdPraticaSelect(): ElementFinder {
+    return this.idPraticaSelect;
   }
 
-  async getIdPraticaRefSelectedOption(): Promise<string> {
-    return await this.idPraticaRefSelect.element(by.css('option:checked')).getText();
+  async getIdPraticaSelectedOption(): Promise<string> {
+    return await this.idPraticaSelect.element(by.css('option:checked')).getText();
   }
 
   async save(): Promise<void> {

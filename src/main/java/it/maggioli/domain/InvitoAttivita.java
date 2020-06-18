@@ -1,6 +1,5 @@
 package it.maggioli.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -30,11 +29,11 @@ public class InvitoAttivita implements Serializable {
 
     @OneToOne
     @JoinColumn(unique = true)
-    private Invito idTaskRef;
+    private Task idTask;
 
-    @OneToOne(mappedBy = "id")
-    @JsonIgnore
-    private Task idTaskRef;
+    @OneToOne
+    @JoinColumn(unique = true)
+    private Invito idTask;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -58,30 +57,30 @@ public class InvitoAttivita implements Serializable {
         this.idTaskRef = idTaskRef;
     }
 
-    public Invito getIdTaskRef() {
-        return idTaskRef;
+    public Task getIdTask() {
+        return idTask;
     }
 
-    public InvitoAttivita idTaskRef(Invito invito) {
-        this.idTaskRef = invito;
+    public InvitoAttivita idTask(Task task) {
+        this.idTask = task;
         return this;
     }
 
-    public void setIdTaskRef(Invito invito) {
-        this.idTaskRef = invito;
+    public void setIdTask(Task task) {
+        this.idTask = task;
     }
 
-    public Task getIdTaskRef() {
-        return idTaskRef;
+    public Invito getIdTask() {
+        return idTask;
     }
 
-    public InvitoAttivita idTaskRef(Task task) {
-        this.idTaskRef = task;
+    public InvitoAttivita idTask(Invito invito) {
+        this.idTask = invito;
         return this;
     }
 
-    public void setIdTaskRef(Task task) {
-        this.idTaskRef = task;
+    public void setIdTask(Invito invito) {
+        this.idTask = invito;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

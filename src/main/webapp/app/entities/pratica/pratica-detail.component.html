@@ -60,10 +60,10 @@
                 <dd>
                     <span>{{ pratica.idTemplatePraticaRef }}</span>
                 </dd>
-                <dt><span jhiTranslate="eoloprjApp.pratica.idTemplatePraticaRef">Id Template Pratica Ref</span></dt>
+                <dt><span jhiTranslate="eoloprjApp.pratica.idTemplatePratica">Id Template Pratica</span></dt>
                 <dd>
-                    <div *ngIf="pratica.idTemplatePraticaRefId">
-                        <a [routerLink]="['/template-pratica', pratica.idTemplatePraticaRefId, 'view']">{{ pratica.idTemplatePraticaRefId }}</a>
+                    <div *ngIf="pratica.idTemplatePraticaId">
+                        <a [routerLink]="['/template-pratica', pratica.idTemplatePraticaId, 'view']">{{ pratica.idTemplatePraticaId }}</a>
                     </div>
                 </dd>
             </dl>

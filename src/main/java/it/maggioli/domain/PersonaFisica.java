@@ -1,6 +1,5 @@
 package it.maggioli.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -53,11 +52,7 @@ public class PersonaFisica implements Serializable {
 
     @OneToOne
     @JoinColumn(unique = true)
-    private Persona idPersonaRef;
-
-    @OneToOne(mappedBy = "id")
-    @JsonIgnore
-    private RuoloOrganizzazione idRuoloPersona;
+    private Persona idPersona;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -172,30 +167,17 @@ public class PersonaFisica implements Serializable {
         this.professione = professione;
     }
 
-    public Persona getIdPersonaRef() {
-        return idPersonaRef;
+    public Persona getIdPersona() {
+        return idPersona;
     }
 
-    public PersonaFisica idPersonaRef(Persona persona) {
-        this.idPersonaRef = persona;
+    public PersonaFisica idPersona(Persona persona) {
+        this.idPersona = persona;
         return this;
     }
 
-    public void setIdPersonaRef(Persona persona) {
-        this.idPersonaRef = persona;
-    }
-
-    public RuoloOrganizzazione getIdRuoloPersona() {
-        return idRuoloPersona;
-    }
-
-    public PersonaFisica idRuoloPersona(RuoloOrganizzazione ruoloOrganizzazione) {
-        this.idRuoloPersona = ruoloOrganizzazione;
-        return this;
-    }
-
-    public void setIdRuoloPersona(RuoloOrganizzazione ruoloOrganizzazione) {
-        this.idRuoloPersona = ruoloOrganizzazione;
+    public void setIdPersona(Persona persona) {
+        this.idPersona = persona;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

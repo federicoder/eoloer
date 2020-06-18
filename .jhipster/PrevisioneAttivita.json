@@ -28,8 +28,8 @@
     {
       "relationshipType": "one-to-one",
       "otherEntityName": "previsioneTask",
-      "otherEntityRelationshipName": "idTaskRef",
-      "relationshipName": "idTaskRef",
+      "otherEntityRelationshipName": "previsioneAttivita",
+      "relationshipName": "idPrevisioneAttivita",
       "otherEntityField": "id",
       "ownerSide": true
     }

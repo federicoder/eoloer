@@ -35,8 +35,8 @@ export class TemplateTaskUpdatePage {
   pubPrivInput = element(by.id('field_pubPriv'));
   idTemplatePraticaRefInput = element(by.id('field_idTemplatePraticaRef'));
 
-  idTemplatePraticaRefSelect = element(by.id('field_idTemplatePraticaRef'));
-  idSelect = element(by.id('field_id'));
+  idTemplatePraticaSelect = element(by.id('field_idTemplatePratica'));
+  idTemplateTaskSelect = element(by.id('field_idTemplateTask'));
   templateTaskSelect = element(by.id('field_templateTask'));
 
   async getPageTitle(): Promise<string> {
@@ -83,36 +83,36 @@ export class TemplateTaskUpdatePage {
     return await this.idTemplatePraticaRefInput.getAttribute('value');
   }
 
-  async idTemplatePraticaRefSelectLastOption(): Promise<void> {
-    await this.idTemplatePraticaRefSelect.all(by.tagName('option')).last().click();
+  async idTemplatePraticaSelectLastOption(): Promise<void> {
+    await this.idTemplatePraticaSelect.all(by.tagName('option')).last().click();
   }
 
-  async idTemplatePraticaRefSelectOption(option: string): Promise<void> {
-    await this.idTemplatePraticaRefSelect.sendKeys(option);
+  async idTemplatePraticaSelectOption(option: string): Promise<void> {
+    await this.idTemplatePraticaSelect.sendKeys(option);
   }
 
-  getIdTemplatePraticaRefSelect(): ElementFinder {
-    return this.idTemplatePraticaRefSelect;
+  getIdTemplatePraticaSelect(): ElementFinder {
+    return this.idTemplatePraticaSelect;
   }
 
-  async getIdTemplatePraticaRefSelectedOption(): Promise<string> {
-    return await this.idTemplatePraticaRefSelect.element(by.css('option:checked')).getText();
+  async getIdTemplatePraticaSelectedOption(): Promise<string> {
+    return await this.idTemplatePraticaSelect.element(by.css('option:checked')).getText();
   }
 
-  async idSelectLastOption(): Promise<void> {
-    await this.idSelect.all(by.tagName('option')).last().click();
+  async idTemplateTaskSelectLastOption(): Promise<void> {
+    await this.idTemplateTaskSelect.all(by.tagName('option')).last().click();
   }
 
-  async idSelectOption(option: string): Promise<void> {
-    await this.idSelect.sendKeys(option);
+  async idTemplateTaskSelectOption(option: string): Promise<void> {
+    await this.idTemplateTaskSelect.sendKeys(option);
   }
 
-  getIdSelect(): ElementFinder {
-    return this.idSelect;
+  getIdTemplateTaskSelect(): ElementFinder {
+    return this.idTemplateTaskSelect;
   }
 
-  async getIdSelectedOption(): Promise<string> {
-    return await this.idSelect.element(by.css('option:checked')).getText();
+  async getIdTemplateTaskSelectedOption(): Promise<string> {
+    return await this.idTemplateTaskSelect.element(by.css('option:checked')).getText();
   }
 
   async templateTaskSelectLastOption(): Promise<void> {

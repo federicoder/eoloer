@@ -83,15 +83,10 @@ public class InvitoAttivitaResource {
     /**
      * {@code GET  /invito-attivitas} : get all the invitoAttivitas.
      *
-     * @param filter the filter of the request.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of invitoAttivitas in body.
      */
     @GetMapping("/invito-attivitas")
-    public List<InvitoAttivitaDTO> getAllInvitoAttivitas(@RequestParam(required = false) String filter) {
-        if ("idtaskref-is-null".equals(filter)) {
-            log.debug("REST request to get all InvitoAttivitas where idTaskRef is null");
-            return invitoAttivitaService.findAllWhereIdTaskRefIsNull();
-        }
+    public List<InvitoAttivitaDTO> getAllInvitoAttivitas() {
         log.debug("REST request to get all InvitoAttivitas");
         return invitoAttivitaService.findAll();
     }

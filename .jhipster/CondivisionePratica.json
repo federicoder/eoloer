@@ -28,16 +28,16 @@
     {
       "relationshipType": "one-to-one",
       "otherEntityName": "rappresentanzaPratica",
-      "otherEntityRelationshipName": "idRuoloPersona",
-      "relationshipName": "ruolo",
+      "otherEntityRelationshipName": "condivisionePratica",
+      "relationshipName": "idRuoloPersona",
       "otherEntityField": "id",
       "ownerSide": true
     },
     {
       "relationshipType": "one-to-one",
       "otherEntityName": "persona",
-      "otherEntityRelationshipName": "id",
-      "relationshipName": "idUserConcedente",
+      "otherEntityRelationshipName": "condivisionePratica",
+      "relationshipName": "idPersona",
       "otherEntityField": "id",
       "ownerSide": true
     },
@@ -45,14 +45,14 @@
       "relationshipType": "many-to-one",
       "otherEntityName": "userPersona",
       "otherEntityRelationshipName": "condivisionePratica",
-      "relationshipName": "idUserAmmesso",
+      "relationshipName": "idUserPersona",
       "otherEntityField": "id"
     },
     {
       "relationshipType": "many-to-one",
       "otherEntityName": "pratica",
       "otherEntityRelationshipName": "condivisionePratica",
-      "relationshipName": "idPraticaRef",
+      "relationshipName": "idPratica",
       "otherEntityField": "id"
     }
   ],

@@ -52,7 +52,7 @@ describe('RisorseDisponibili e2e test', () => {
       risorseDisponibiliUpdatePage.setDataAttivazioneLicenzaInput('dataAttivazioneLicenza'),
       risorseDisponibiliUpdatePage.setNrLicenzaInput('5'),
       risorseDisponibiliUpdatePage.setStorageTotaleInput('5'),
-      risorseDisponibiliUpdatePage.idStudioProfessionaleRefSelectLastOption(),
+      risorseDisponibiliUpdatePage.idStudioProfessionaleSelectLastOption(),
     ]);
 
     expect(await risorseDisponibiliUpdatePage.getIdStudioProfessionaleRefInput()).to.eq(

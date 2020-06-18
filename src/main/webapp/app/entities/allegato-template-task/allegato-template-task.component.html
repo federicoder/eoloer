@@ -46,7 +46,7 @@
                     <th scope="col" ><span jhiTranslate="eoloprjApp.allegatoTemplateTask.formato">Formato</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.allegatoTemplateTask.idFileRef">Id File Ref</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.allegatoTemplateTask.pubPriv">Pub Priv</span></th>
-                    <th scope="col" ><span jhiTranslate="eoloprjApp.allegatoTemplateTask.idTemplateTaskRef">Id Template Task Ref</span></th>
+                    <th scope="col" ><span jhiTranslate="eoloprjApp.allegatoTemplateTask.idTemplateTask">Id Template Task</span></th>
                     <th scope="col" ><span jhiTranslate="eoloprjApp.allegatoTemplateTask.tipoAllegato">Tipo Allegato</span></th>
                     <th scope="col"></th>
                 </tr>
@@ -60,8 +60,8 @@
                     <td>{{ allegatoTemplateTask.idFileRef }}</td>
                     <td>{{ allegatoTemplateTask.pubPriv }}</td>
                     <td>
-                        <div *ngIf="allegatoTemplateTask.idTemplateTaskRefId">
-                            <a [routerLink]="['/template-task', allegatoTemplateTask.idTemplateTaskRefId , 'view']" >{{ allegatoTemplateTask.idTemplateTaskRefId }}</a>
+                        <div *ngIf="allegatoTemplateTask.idTemplateTaskId">
+                            <a [routerLink]="['/template-task', allegatoTemplateTask.idTemplateTaskId , 'view']" >{{ allegatoTemplateTask.idTemplateTaskId }}</a>
                         </div>
                     </td>
                     <td>

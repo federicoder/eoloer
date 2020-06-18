@@ -52,7 +52,7 @@ describe('PersonaFisica e2e test', () => {
       personaFisicaUpdatePage.setDataDiNascitaInput('dataDiNascita'),
       personaFisicaUpdatePage.setLuogoDiNascitaInput('luogoDiNascita'),
       personaFisicaUpdatePage.setProfessioneInput('professione'),
-      personaFisicaUpdatePage.idPersonaRefSelectLastOption(),
+      personaFisicaUpdatePage.idPersonaSelectLastOption(),
     ]);
 
     expect(await personaFisicaUpdatePage.getIdPersonaRefInput()).to.eq('5', 'Expected idPersonaRef value to be equals to 5');

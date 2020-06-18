@@ -53,10 +53,10 @@ describe('CondivisionePratica e2e test', () => {
       condivisionePraticaUpdatePage.setIdUserConcedenteInput('5'),
       condivisionePraticaUpdatePage.setStatoInvitoInput('5'),
       condivisionePraticaUpdatePage.setIdPraticaRefInput('5'),
-      condivisionePraticaUpdatePage.ruoloSelectLastOption(),
-      condivisionePraticaUpdatePage.idUserConcedenteSelectLastOption(),
-      condivisionePraticaUpdatePage.idUserAmmessoSelectLastOption(),
-      condivisionePraticaUpdatePage.idPraticaRefSelectLastOption(),
+      condivisionePraticaUpdatePage.idRuoloPersonaSelectLastOption(),
+      condivisionePraticaUpdatePage.idPersonaSelectLastOption(),
+      condivisionePraticaUpdatePage.idUserPersonaSelectLastOption(),
+      condivisionePraticaUpdatePage.idPraticaSelectLastOption(),
     ]);
 
     expect(await condivisionePraticaUpdatePage.getIdUserAmmessoInput()).to.eq('5', 'Expected idUserAmmesso value to be equals to 5');

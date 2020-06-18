@@ -23,9 +23,11 @@ public class AssegnazioneTaskDTO implements Serializable {
     private Long statoAssegnazione;
 
 
-    private Long ruoloId;
+    private Long idTaskId;
 
-    private Long idUserAmmessoId;
+    private Long idRuoloPersonaId;
+
+    private Long idPersonaId;
     
     public Long getId() {
         return id;
@@ -75,20 +77,28 @@ public class AssegnazioneTaskDTO implements Serializable {
         this.statoAssegnazione = statoAssegnazione;
     }
 
-    public Long getRuoloId() {
-        return ruoloId;
+    public Long getIdTaskId() {
+        return idTaskId;
     }
 
-    public void setRuoloId(Long rappresentanzaPraticaId) {
-        this.ruoloId = rappresentanzaPraticaId;
+    public void setIdTaskId(Long taskId) {
+        this.idTaskId = taskId;
     }
 
-    public Long getIdUserAmmessoId() {
-        return idUserAmmessoId;
+    public Long getIdRuoloPersonaId() {
+        return idRuoloPersonaId;
     }
 
-    public void setIdUserAmmessoId(Long userPersonaId) {
-        this.idUserAmmessoId = userPersonaId;
+    public void setIdRuoloPersonaId(Long rappresentanzaPraticaId) {
+        this.idRuoloPersonaId = rappresentanzaPraticaId;
+    }
+
+    public Long getIdPersonaId() {
+        return idPersonaId;
+    }
+
+    public void setIdPersonaId(Long userPersonaId) {
+        this.idPersonaId = userPersonaId;
     }
 
     @Override
@@ -118,8 +128,9 @@ public class AssegnazioneTaskDTO implements Serializable {
             ", ruolo=" + getRuolo() +
             ", idUserConcedente=" + getIdUserConcedente() +
             ", statoAssegnazione=" + getStatoAssegnazione() +
-            ", ruoloId=" + getRuoloId() +
-            ", idUserAmmessoId=" + getIdUserAmmessoId() +
+            ", idTaskId=" + getIdTaskId() +
+            ", idRuoloPersonaId=" + getIdRuoloPersonaId() +
+            ", idPersonaId=" + getIdPersonaId() +
             "}";
     }
 }

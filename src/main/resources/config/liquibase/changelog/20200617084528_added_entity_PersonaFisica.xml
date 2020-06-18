@@ -39,8 +39,8 @@
             <column name="professione" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="id_persona_ref_id" type="bigint">
-                <constraints unique="true" nullable="true" uniqueConstraintName="ux_persona_fisica_id_persona_ref_id" />
+            <column name="id_persona_id" type="bigint">
+                <constraints unique="true" nullable="true" uniqueConstraintName="ux_persona_fisica_id_persona_id" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
         </createTable>

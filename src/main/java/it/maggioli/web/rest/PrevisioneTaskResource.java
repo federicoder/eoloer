@@ -84,23 +84,10 @@ public class PrevisioneTaskResource {
     /**
      * {@code GET  /previsione-tasks} : get all the previsioneTasks.
      *
-     * @param filter the filter of the request.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of previsioneTasks in body.
      */
     @GetMapping("/previsione-tasks")
-    public List<PrevisioneTaskDTO> getAllPrevisioneTasks(@RequestParam(required = false) String filter) {
-        if ("idtaskref-is-null".equals(filter)) {
-            log.debug("REST request to get all PrevisioneTasks where idTaskRef is null");
-            return previsioneTaskService.findAllWhereIdTaskRefIsNull();
-        }
-        if ("idtaskref-is-null".equals(filter)) {
-            log.debug("REST request to get all PrevisioneTasks where idTaskRef is null");
-            return previsioneTaskService.findAllWhereIdTaskRefIsNull();
-        }
-        if ("idtaskref-is-null".equals(filter)) {
-            log.debug("REST request to get all PrevisioneTasks where idTaskRef is null");
-            return previsioneTaskService.findAllWhereIdTaskRefIsNull();
-        }
+    public List<PrevisioneTaskDTO> getAllPrevisioneTasks() {
         log.debug("REST request to get all PrevisioneTasks");
         return previsioneTaskService.findAll();
     }

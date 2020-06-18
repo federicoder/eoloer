@@ -25,7 +25,7 @@
       "relationshipType": "many-to-one",
       "otherEntityName": "pratica",
       "otherEntityRelationshipName": "notaPratica",
-      "relationshipName": "idPraticaRef",
+      "relationshipName": "idPratica",
       "otherEntityField": "id"
     }
   ],
