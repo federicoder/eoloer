@@ -437,23 +437,29 @@ service all with serviceImpl
 service all with serviceClass
 application{
 	config{
-    	databaseType sql,	
+        reactive false,
+    	databaseType sql,
 		prodDatabaseType postgresql,
-        enableSwaggerCodegen true
-        baseName eoloprj,
+        authenticationType oauth2
+        //enableSwaggerCodegen true
+        baseName eolo,
+        cacheProvider hazelcast
+        devDatabaseType postgresql,
+        enableHibernateCache true,
         applicationType monolith,
         //qui volendo si può cambiare in microservice più in là se si vogliono implementare i singoli cluster di entità e db.
         languages [it, en],
+        skipClient true,
         nativeLanguage it,
-        packageName it.maggioli,
+        packageName it.maggioli.eolo,
+        buildTool maven,
         searchEngine elasticsearch,
         testFrameworks [protractor],
-        websocket spring-websocket,
-        
+        //websocket spring-websocket,
+
     }
     entities all
 }
-
 // Set service options to all except few
 //qui volendo si possono implementare le entità da far puntare a elastichsearch
 //search * with elasticsearch

@@ -14,76 +14,7 @@
     <property name="uuidType" value="uuid" dbms="h2, postgresql"/>
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200617082228_added_entity_Pratica.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200617082328_added_entity_Task.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200617082428_added_entity_TemplatePratica.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200617082528_added_entity_TemplateTask.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200617082628_added_entity_AllegatoTemplateTask.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200617082728_added_entity_TipoAllegato.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200617082828_added_entity_AllegatoTask.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200617082928_added_entity_PrevisioneTask.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200617083028_added_entity_PrevisioneAttivita.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200617083128_added_entity_PrevisioneEvento.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200617083228_added_entity_NotaTask.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200617083328_added_entity_NotaPratica.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200617083428_added_entity_ConsuntivoTask.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200617083528_added_entity_CondivisionePratica.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200617083628_added_entity_AssegnazioneTask.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200617083728_added_entity_Invito.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200617083828_added_entity_Invitato.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200617083928_added_entity_UserPersona.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200617084028_added_entity_InvitoPratica.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200617084128_added_entity_InvitoAttivita.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200617084228_added_entity_InvitoEvento.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200617084328_added_entity_RappresentanzaPratica.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200617084428_added_entity_Persona.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200617084528_added_entity_PersonaFisica.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200617084628_added_entity_Organizzazione.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200617084728_added_entity_RuoloOrganizzazione.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200617084828_added_entity_NotePersona.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200617084928_added_entity_DatiContabili.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200617085028_added_entity_IndirizzoPersona.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200617085128_added_entity_EmailPersona.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200617085228_added_entity_TagPersona.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200617085328_added_entity_TelefonoPersona.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200617085428_added_entity_StudioProfessionale.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200617085528_added_entity_RisorseDisponibili.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200617085628_added_entity_Ordine.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200617085728_added_entity_LineaOrdine.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200617085828_added_entity_Prodotto.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
-    <include file="config/liquibase/changelog/20200617082228_added_entity_constraints_Pratica.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200617082328_added_entity_constraints_Task.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200617082528_added_entity_constraints_TemplateTask.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200617082628_added_entity_constraints_AllegatoTemplateTask.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200617082828_added_entity_constraints_AllegatoTask.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200617082928_added_entity_constraints_PrevisioneTask.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200617083028_added_entity_constraints_PrevisioneAttivita.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200617083128_added_entity_constraints_PrevisioneEvento.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200617083228_added_entity_constraints_NotaTask.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200617083328_added_entity_constraints_NotaPratica.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200617083528_added_entity_constraints_CondivisionePratica.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200617083628_added_entity_constraints_AssegnazioneTask.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200617083728_added_entity_constraints_Invito.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200617083828_added_entity_constraints_Invitato.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200617083928_added_entity_constraints_UserPersona.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200617084028_added_entity_constraints_InvitoPratica.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200617084128_added_entity_constraints_InvitoAttivita.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200617084228_added_entity_constraints_InvitoEvento.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200617084328_added_entity_constraints_RappresentanzaPratica.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200617084528_added_entity_constraints_PersonaFisica.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200617084628_added_entity_constraints_Organizzazione.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200617084728_added_entity_constraints_RuoloOrganizzazione.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200617084828_added_entity_constraints_NotePersona.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200617084928_added_entity_constraints_DatiContabili.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200617085028_added_entity_constraints_IndirizzoPersona.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200617085128_added_entity_constraints_EmailPersona.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200617085228_added_entity_constraints_TagPersona.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200617085328_added_entity_constraints_TelefonoPersona.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200617085428_added_entity_constraints_StudioProfessionale.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200617085528_added_entity_constraints_RisorseDisponibili.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200617085628_added_entity_constraints_Ordine.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200617085728_added_entity_constraints_LineaOrdine.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
     <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
 </databaseChangeLog>

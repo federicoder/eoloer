@@ -1,11 +1,11 @@
 version: '2'
 services:
-  eoloprj-postgresql:
+  eolo-postgresql:
     image: postgres:12.3
     # volumes:
-    #     - ~/volumes/jhipster/eoloprj/postgresql/:/var/lib/postgresql/data/
+    #     - ~/volumes/jhipster/eolo/postgresql/:/var/lib/postgresql/data/
     environment:
-      - POSTGRES_USER=eoloprj
+      - POSTGRES_USER=eolo
       - POSTGRES_PASSWORD=
       - POSTGRES_HOST_AUTH_METHOD=trust
     ports:
